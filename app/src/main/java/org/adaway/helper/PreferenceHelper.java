@@ -25,7 +25,6 @@ import android.content.SharedPreferences;
 
 import org.adaway.R;
 import org.adaway.model.adblocking.AdBlockMethod;
-import org.adaway.model.hostsinstall.HostsInstallLocation;
 import org.adaway.util.Constants;
 import org.adaway.vpn.VpnStatus;
 
@@ -169,28 +168,6 @@ public class PreferenceHelper {
         return prefs.getString(
                 context.getString(R.string.pref_redirection_ipv6_key),
                 context.getString(R.string.pref_redirection_ipv6_def)
-        );
-    }
-
-    public static HostsInstallLocation getInstallLocation(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(
-                Constants.PREFS_NAME,
-                Context.MODE_PRIVATE
-        );
-        return HostsInstallLocation.fromPreferenceKey(prefs.getString(
-                context.getString(R.string.pref_apply_method_key),
-                context.getString(R.string.pref_apply_method_def)
-        ));
-    }
-
-    public static String getCustomTarget(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(
-                Constants.PREFS_NAME,
-                Context.MODE_PRIVATE
-        );
-        return prefs.getString(
-                context.getString(R.string.pref_custom_target_key),
-                context.getString(R.string.pref_custom_target_def)
         );
     }
 

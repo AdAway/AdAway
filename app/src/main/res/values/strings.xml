@@ -53,11 +53,18 @@
     <string name="hosts_open_button">Open the hosts file</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Checking for update…</string>
-    <string name="status_reverting">Reverting…</string>
+    <string name="status_check">Checking for update</string>
+    <string name="status_check_source">Checking source %s for update</string>
+    <string name="status_retrieve">Retrieving sources</string>
+    <string name="status_download_source">Downloading source %s</string>
+    <string name="status_copy_source">Copying source %s</string>
+    <string name="status_parse_source">Parsing source %s</string>
+    <string name="status_revert">Reverting to default hosts file</string>
+    <string name="status_revert_done">Default hosts file restored</string>
     <string name="status_reverting_subtitle">Creating standard hosts file</string>
-    <string name="status_update_available">Update available</string>
+    <string name="status_update_available">Source update available</string>
     <string name="status_update_available_subtitle">Newer hosts files available</string>
+    <string name="status_no_update_found">No source update found</string>
     <string name="status_no_connection">No Internet connection</string>
     <string name="status_no_connection_subtitle">No Internet connection available</string>
     <string name="status_download_fail">Unavailable sources</string>
@@ -70,9 +77,14 @@
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Default hosts file installed</string>
+    <string name="status_apply_sources">Apply latest sources</string>
+    <string name="status_create_new_hosts">Creating a new hosts file</string>
+    <string name="status_copy_new_hosts">Copying a new hosts file</string>
+    <string name="status_check_copy">Checking hosts file copy</string>
+    <string name="status_hosts_updated">Hosts file successfully updated</string>
     <string name="notification_channel_update_name">Updates</string>
     <string name="notification_channel_update_description">New hosts update notifications</string>
-    <string name="notification_channel_vpn_sevice_name">VPN</string>
+    <string name="notification_channel_vpn_service_name">VPN</string>
     <string name="notification_channel_vpn_service_description">VPN running status</string>
     <string name="notification_configuration_changed">Your configuration changed. You need to install hosts file to apply it.</string>
     <string name="notification_configuration_changed_action">Apply</string>

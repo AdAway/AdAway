@@ -40,4 +40,7 @@
     <string name="update_button">Update blocked domains</string>
     <string name="show_log_button">Show requested domains</string>
 
+    <!-- Error dialog -->
+    <string name="error_dialog_help">Please read Help for more information.</string>
+
 </resources>

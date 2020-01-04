@@ -7,20 +7,6 @@
             android:key="@string/pref_open_hosts_key"
             android:persistent="false"
             android:title="@string/pref_root_open_hosts" />
-        <ListPreference
-            android:defaultValue="@string/pref_apply_method_def"
-            android:entries="@array/pref_apply_method_entries"
-            android:entryValues="@array/pref_apply_method_entries_values"
-            android:key="@string/pref_apply_method_key"
-            android:summary="@string/pref_apply_method_summary"
-            android:title="@string/pref_apply_method" />
-        <EditTextPreference
-            android:defaultValue="@string/pref_custom_target_def"
-            android:dialogLayout="@layout/pref_edittext_dialog"
-            android:enabled="false"
-            android:key="@string/pref_custom_target_key"
-            android:shouldDisableView="true"
-            android:title="@string/pref_custom_target" />
         <CheckBoxPreference
             android:defaultValue="@bool/pref_never_reboot_def"
             android:key="@string/pref_never_reboot_key"

@@ -7,10 +7,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.error.HostErrorException;
 import org.adaway.model.error.HostError;
-import org.adaway.model.hostsinstall.HostsInstallModel;
-import org.adaway.AdAwayApplication;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.util.Utils;
 
@@ -58,11 +55,6 @@ final class HostsInstallDialog {
      * @param installError The install error to show dialog.
      */
     static void showDialogBasedOnResult(Context context, HostError installError) {
-        if (installError == HostError.SYMLINK_MISSING) {
-            showSymlinkDialog(context);
-            return;
-        }
-
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setPositiveButton(R.string.button_close, (dialog, id) -> dialog.dismiss())
@@ -79,29 +71,17 @@ final class HostsInstallDialog {
                 title = R.string.no_connection_title;
                 text = R.string.no_connection;
                 break;
-            case DOWNLOAD_FAIL:
+            case DOWNLOAD_FAILED:
                 title = R.string.download_fail_title;
                 text = R.string.download_fail_dialog;
                 break;
-            case APN_PROXY:
-                title = R.string.apply_apn_proxy_title;
-                text = R.string.apply_apn_proxy;
-                break;
-            case APPLY_FAIL:
-                title = R.string.apply_fail_title;
-                text = R.string.apply_fail;
-                break;
-            case PRIVATE_FILE_FAIL:
+            case PRIVATE_FILE_FAILED:
                 title = R.string.apply_private_file_fail_title;
                 text = R.string.apply_private_file_fail;
                 break;
             case NOT_ENOUGH_SPACE:
                 title = R.string.apply_not_enough_space_title;
                 text = R.string.apply_not_enough_space;
-                break;
-            case REMOUNT_FAIL:
-                title = R.string.apply_remount_fail_title;
-                text = R.string.apply_remount_fail;
                 break;
             case COPY_FAIL:
                 title = R.string.apply_copy_fail_title;
@@ -111,56 +91,11 @@ final class HostsInstallDialog {
                 title = R.string.revert_problem_title;
                 text = R.string.revert_problem;
                 break;
-            case SYMLINK_FAILED:
-                title = R.string.apply_symlink_fail_title;
-                text = R.string.apply_symlink_fail;
-                break;
             default:
                 throw new IllegalStateException("Error code " + installError + " not supported.");
         }
         builder.setTitle(title);
         builder.setMessage(context.getString(text) + "\n\n" + context.getString(R.string.apply_help));
         builder.show();
-    }
-
-    /**
-     * Show dialog to notify missing symlink dialog.
-     *
-     * @param context The application context.
-     */
-    private static void showSymlinkDialog(Context context) {
-        new MaterialAlertDialogBuilder(context)
-                .setTitle(R.string.apply_symlink_missing_title)
-                .setMessage(R.string.apply_symlink_missing)
-                .setIcon(android.R.drawable.ic_dialog_info)
-                .setPositiveButton(
-                        context.getString(R.string.button_yes),
-                        (dialog, id) -> {
-                            dialog.dismiss();
-                            HostsInstallDialog.tryToCreateSymlink(context);
-                        }
-                )
-                .setNegativeButton(
-                        context.getString(R.string.button_no),
-                        (dialog, id) -> dialog.dismiss()
-                ).show();
-    }
-
-    /**
-     * Trying to create symlink and displays dialogs on fail.
-     *
-     * @param context The application context.
-     */
-    private static void tryToCreateSymlink(Context context) {
-        try {
-            AdAwayApplication applicationContext = (AdAwayApplication) context.getApplicationContext();
-            HostsInstallModel model = (HostsInstallModel) applicationContext.getAdBlockModel();
-            model.createSymlink();
-            if (!PreferenceHelper.getNeverReboot(context)) {
-                Utils.rebootQuestion(context, R.string.apply_symlink_successful_title, R.string.apply_symlink_successful);
-            }
-        } catch (HostErrorException exception) {
-            HostsInstallDialog.showDialogBasedOnResult(context, HostError.SYMLINK_FAILED);
-        }
     }
 }

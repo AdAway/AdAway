@@ -11,32 +11,34 @@ import org.adaway.R;
  */
 public enum HostError {
     // Source model errors
-    NO_CONNECTION(R.string.status_no_connection),
-    DOWNLOAD_FAIL(R.string.status_download_fail_subtitle_new),
+    NO_CONNECTION(R.string.error_no_connection_message, R.string.error_no_connection_details),
+    DOWNLOAD_FAILED(R.string.error_download_failed_message, R.string.error_no_connection_details),
     // Host install model errors
-    SYMLINK_MISSING(R.string.apply_symlink_missing_status),
-    SYMLINK_FAILED(R.string.apply_symlink_fail_title),
-    PRIVATE_FILE_FAIL(R.string.no_private_file_status),
-    NOT_ENOUGH_SPACE(R.string.apply_not_enough_space_title),
-    COPY_FAIL(R.string.apply_copy_fail_status),
-    REVERT_FAIL(R.string.revert_failed_status),
-    APPLY_FAIL(R.string.apply_fail_status),
+    PRIVATE_FILE_FAILED(R.string.error_private_file_failed_message, R.string.error_private_file_failed_details),
+    NOT_ENOUGH_SPACE(R.string.error_not_enough_space_message, R.string.error_not_enough_space_details),
+    COPY_FAIL(R.string.error_copy_failed_message, R.string.error_copy_failed_details),
+    REVERT_FAIL(R.string.error_revert_failed_message, R.string.error_revert_failed_details),
     // VPN model error
-    ENABLE_VPN_FAIL(R.string.enable_vpn_fail),
-    DISABLE_VPN_FAIL(R.string.disable_vpn_fail),
-    // TODO Check if used?
-    APN_PROXY(0),
-    REMOUNT_FAIL(0);
+    ENABLE_VPN_FAIL(R.string.error_enable_vpn_failed_message, R.string.error_enable_vpn_failed_details),
+    DISABLE_VPN_FAIL(R.string.error_disable_vpn_failed_message, R.string.error_disable_vpn_failed_details);
 
     @StringRes
     private final int messageKey;
+    @StringRes
+    private final int detailsKey;
 
-    HostError(int messageKey) {
+    HostError(int messageKey, int detailsKey) {
         this.messageKey = messageKey;
+        this.detailsKey = detailsKey;
     }
 
     @StringRes
     public int getMessageKey() {
-        return messageKey;
+        return this.messageKey;
+    }
+
+    @StringRes
+    public int getDetailsKey() {
+        return this.detailsKey;
     }
 }

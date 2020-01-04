@@ -61,7 +61,7 @@ public final class NotificationHelper {
             // Create VPN service notification channel
             NotificationChannel vpnServiceChannel = new NotificationChannel(
                     VPN_SERVICE_NOTIFICATION_CHANNEL,
-                    context.getString(R.string.notification_channel_vpn_sevice_name),
+                    context.getString(R.string.notification_channel_vpn_service_name),
                     NotificationManager.IMPORTANCE_LOW
             );
             updateChannel.setDescription(context.getString(R.string.notification_channel_vpn_service_description));

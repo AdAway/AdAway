@@ -24,11 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:text="test"
         android:textAlignment="viewEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Version" />
 
     <ImageView
         android:id="@+id/logoImageView"
@@ -275,8 +275,8 @@
                 android:id="@+id/sourcesImageView"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.33"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@id/stateTextView"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -290,12 +290,12 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
-                android:text="3 up-to-date sources"
                 app:layout_constraintEnd_toStartOf="@id/checkForUpdateImageView"
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toEndOf="@id/sourcesImageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="3 up-to-date sources" />
 
             <ImageView
                 android:id="@+id/checkForUpdateImageView"
@@ -313,13 +313,12 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
-                android:text="2 outdated sources"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/updateImageView"
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toEndOf="@id/sourcesImageView"
-                app:layout_constraintTop_toBottomOf="@id/upToDateSourcesTextView" />
+                app:layout_constraintTop_toBottomOf="@id/upToDateSourcesTextView"
+                tools:text="2 outdated sources" />
 
 
             <ImageView
@@ -330,6 +329,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/checkForUpdateImageView"
                 app:srcCompat="@drawable/ic_get_app_24dp" />
+
+            <TextView
+                android:id="@+id/stateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#00F00909"
+                android:text="TEST DE MESSAGE"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/outdatedSourcesTextView"
+                tools:text="@string/status_check_source"
+                tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

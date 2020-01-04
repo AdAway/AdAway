@@ -1,11 +1,12 @@
 package org.adaway.ui.next;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -33,6 +34,7 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
+import org.adaway.model.error.HostError;
 import org.adaway.model.update.Manifest;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.hosts.HostsSourcesActivity;
@@ -41,6 +43,8 @@ import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
 import org.adaway.util.Log;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN;
 import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
@@ -82,27 +86,17 @@ public class NextActivity extends AppCompatActivity {
 
         this.nextViewModel = ViewModelProviders.of(this).get(NextViewModel.class);
         this.nextViewModel.isAdBlocked().observe(this, this::notifyAdBlocked);
-        this.nextViewModel.getError().observe(this, hostError -> {
-            if (hostError != null) { // TODO Save last error
-                TextView textView = new TextView(this);
-                textView.setText(hostError.getMessageKey());
-                new MaterialAlertDialogBuilder(this) // TODO Create proper dialog
-                        .setTitle("An error occurred")
-                        .setView(textView)
-                        .create()
-                        .show();
-            }
-        });
+        this.nextViewModel.getError().observe(this, this::notifyError);
 
         this.appBar = findViewById(R.id.bar);
         applyActionBar();
         bindAppVersion();
         bindHostCounter();
         bindSourceCounter();
+        bindState();
         bindClickListeners();
         setUpBottomDrawer();
         bindFab();
-        notifyUpdating(false);
 
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(item -> {
@@ -200,6 +194,11 @@ public class NextActivity extends AppCompatActivity {
         );
     }
 
+    private void bindState() {
+        TextView stateTextView = findViewById(R.id.stateTextView);
+        this.nextViewModel.getState().observe(this, stateTextView::setText);
+    }
+
     private void bindClickListeners() {
         CardView blockedHostCardView = findViewById(R.id.blockedHostCardView);
         blockedHostCardView.setOnClickListener(v -> startHostListActivity(BLACKLIST_TAB));
@@ -242,7 +241,6 @@ public class NextActivity extends AppCompatActivity {
                 this.startPrefsActivity();
                 this.drawerBehavior.setState(STATE_HIDDEN);
                 return true;
-//                break;
             case R.id.action_update:
                 syncHostsList(null); // TODO
                 return true;
@@ -253,12 +251,44 @@ public class NextActivity extends AppCompatActivity {
         return false;
     }
 
-    private void notifyUpdating(boolean updating) {
-        Menu menu = this.appBar.getMenu();
-        MenuItem updateItemMenu = menu.findItem(R.id.action_update);
-        if (updateItemMenu != null) {
-            updateItemMenu.setIcon(updating ? R.drawable.ic_language_red : R.drawable.ic_sync_24dp);
+    private void notifyUpdating(boolean updating) { // TODO End animation development
+        TextView stateTextView = findViewById(R.id.stateTextView);
+//        int height = stateTextView.getHeight();
+
+        if (updating) {
+            if (stateTextView.getVisibility() == VISIBLE) {
+                return;
+            }
+            stateTextView.setAlpha(0F);
+            stateTextView.setVisibility(VISIBLE);
+//            stateTextView.setTranslationY(-height);
+
+            stateTextView.animate()
+                    .alpha(1F)
+//                    .translationY(0)
+                    .setDuration(300)
+                    .setListener(null);
+        } else {
+            if (stateTextView.getVisibility() == GONE) {
+                return;
+            }
+            stateTextView.animate()
+//                    .setStartDelay(2000)
+                    .alpha(0F)
+//                    .translationY(-height)
+                    .setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            stateTextView.setVisibility(GONE);
+                        }
+                    });
         }
+
+//        Menu menu = this.appBar.getMenu();
+//        MenuItem updateItemMenu = menu.findItem(R.id.action_update);
+//        if (updateItemMenu != null) {
+//            updateItemMenu.setIcon(updating ? R.drawable.ic_language_red : R.drawable.ic_sync_24dp);
+//        }
     }
 
     /**
@@ -289,7 +319,6 @@ public class NextActivity extends AppCompatActivity {
     private void updateHostsList(@SuppressWarnings("unused") View view) {
         notifyUpdating(true);
         this.nextViewModel.update();
-        notifyUpdating(false);
     }
 
     /**
@@ -300,7 +329,6 @@ public class NextActivity extends AppCompatActivity {
     private void syncHostsList(@SuppressWarnings("unused") View view) {
         notifyUpdating(true);
         this.nextViewModel.sync();
-        notifyUpdating(false);
     }
 
 
@@ -356,7 +384,28 @@ public class NextActivity extends AppCompatActivity {
         FrameLayout layout = findViewById(R.id.headerFrameLayout);
         int color = adBlocked ? getResources().getColor(R.color.primary, null) : Color.GRAY;
         layout.setBackgroundColor(color);
-        this.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.ic_playlist_add_24dp);
+        this.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.icon);
+    }
+
+    private void notifyError(HostError error) {
+        if (error == null) {
+            return;
+        }
+
+        notifyUpdating(false);
+
+        String message = getString(error.getDetailsKey()) + "\n\n" + getString(R.string.error_dialog_help);
+        new MaterialAlertDialogBuilder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(error.getMessageKey())
+                .setMessage(message)
+                .setPositiveButton(R.string.button_close, (dialog, id) -> dialog.dismiss())
+                .setNegativeButton(R.string.button_help, (dialog, id) -> {
+                    dialog.dismiss();
+                    startActivity(new Intent(this, HelpActivity.class));
+                })
+                .create()
+                .show();
     }
 
     private void showChangelog(@SuppressWarnings("unused") View view) {

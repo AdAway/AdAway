@@ -2,7 +2,6 @@ package org.adaway.model.adblocking;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -35,23 +34,24 @@ public abstract class AdBlockModel {
      */
     protected MutableLiveData<String> state;
 
-//    /**
-//     * The model detailed state.
-//     */
-//    protected String detailedState;
-
     /**
      * Constructor.
      *
      * @param context The application context.
      */
-    public AdBlockModel(Context context) {
+    protected AdBlockModel(Context context) {
         this.context = context;
         this.state = new MutableLiveData<>();
         this.applied = new MutableLiveData<>();
-//        this.detailedState = "";
     }
 
+    /**
+     * Instantiate ad block model.
+     *
+     * @param context The application context.
+     * @param method  The ad block method to get model.
+     * @return The instantiated model.
+     */
     public static AdBlockModel build(Context context, AdBlockMethod method) {
         switch (method) {
             case ROOT:
@@ -64,21 +64,20 @@ public abstract class AdBlockModel {
     }
 
     /**
-     * Checks if hosts list is applied.
-     *
-     * @return {@code true} if applied, {@code false} if default.
-     */
-    public @NonNull
-    LiveData<Boolean> isApplied() {
-        return this.applied;
-    }
-
-    /**
      * Get ad block method.
      *
      * @return The ad block method of this model.
      */
     public abstract AdBlockMethod getMethod();
+
+    /**
+     * Checks if hosts list is applied.
+     *
+     * @return {@code true} if applied, {@code false} if default.
+     */
+    public LiveData<Boolean> isApplied() {
+        return this.applied;
+    }
 
     /**
      * Apply hosts list.
@@ -102,25 +101,8 @@ public abstract class AdBlockModel {
     public LiveData<String> getState() {
         return this.state;
     }
-//
-//    /**
-//     * Get the model detailed state.
-//     *
-//     * @return The model detailed state.
-//     */
-//    public String getDetailedState() {
-//        return this.detailedState;
-//    }
 
-    protected void setStateAndDetails(@StringRes int stateResId, @StringRes int detailsResId) {
-        this.setStateAndDetails(stateResId, this.context.getString(detailsResId));
+    protected void setState(@StringRes int stateResId, Object... details) {
+        this.state.postValue(this.context.getString(stateResId, details));
     }
-
-    protected void setStateAndDetails(@StringRes int stateResId, String details) {
-        this.state.postValue(this.context.getString(stateResId));
-//        this.detailedState = details;
-//        this.setChanged();
-//        this.notifyObservers();
-    }
-
 }

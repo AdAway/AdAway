@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -20,7 +19,6 @@ import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.Constants;
 import org.adaway.util.WebServerUtils;
 
-import static org.adaway.model.hostsinstall.HostsInstallLocation.CUSTOM_TARGET;
 import static org.adaway.util.Constants.PREFS_NAME;
 import static org.adaway.util.MountType.READ_ONLY;
 import static org.adaway.util.MountType.READ_WRITE;
@@ -48,7 +46,6 @@ public class PrefsRootFragment extends PreferenceFragmentCompat {
         addPreferencesFromResource(R.xml.preferences_root);
         // Bind pref actions
         bindOpenHostsFile();
-        bindCustomTargetPrefAction();
         bindRedirection();
         bindWebServerPrefAction();
     }
@@ -85,28 +82,6 @@ public class PrefsRootFragment extends PreferenceFragmentCompat {
             MissingAppDialog.showTextEditorMissingDialog(getContext());
             return false;
         }
-    }
-
-    private void bindCustomTargetPrefAction() {
-        Context context = getContext();
-        // find custom target edit
-        EditTextPreference customTargetPreference = findPreference(getString(R.string.pref_custom_target_key));
-        // enable custom target pref on create if enabled in apply method
-        if (PreferenceHelper.getInstallLocation(context).equals(CUSTOM_TARGET)) {
-            customTargetPreference.setEnabled(true);
-        } else {
-            customTargetPreference.setEnabled(false);
-        }
-        // Enable custom target pref if enabled in apply method
-        Preference customTargetPref = findPreference(getString(R.string.pref_apply_method_key));
-        customTargetPref.setOnPreferenceChangeListener((preference, newValue) -> {
-            if (newValue.equals("customTarget")) {
-                customTargetPreference.setEnabled(true);
-            } else {
-                customTargetPreference.setEnabled(false);
-            }
-            return true;
-        });
     }
 
     private void bindRedirection() {

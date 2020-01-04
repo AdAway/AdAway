@@ -238,7 +238,7 @@ public class HomeFragment extends Fragment {
                             state = R.string.no_connection_title;
                             statusText = R.string.no_connection;
                             break;
-                        case DOWNLOAD_FAIL:
+                        case DOWNLOAD_FAILED:
                             state = R.string.status_download_fail;
                             statusText = R.string.status_download_fail_subtitle_new;
                             break;

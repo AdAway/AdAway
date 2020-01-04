@@ -43,7 +43,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static org.adaway.model.error.HostError.DOWNLOAD_FAIL;
+import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
 import static org.adaway.model.error.HostError.NO_CONNECTION;
 
 /**
@@ -79,11 +79,7 @@ public class SourceModel {
     /**
      * The model state.
      */
-    private String state;
-//    /**
-//     * The model detailed state.
-//     */
-//    private String detailedState;
+    private MutableLiveData<String> state;
     /**
      * The HTTP client to download hosts sources ({@code null} until initialized by {@link #getHttpClient()}).
      */
@@ -99,38 +95,11 @@ public class SourceModel {
         AppDatabase database = AppDatabase.getInstance(this.context);
         this.hostsSourceDao = database.hostsSourceDao();
         this.hostListItemDao = database.hostsListItemDao();
-        this.state = "";
+        this.state = new MutableLiveData<>("");
         this.updateAvailable = new MutableLiveData<>();
         this.updateAvailable.setValue(false);
         checkUpdateAtStartUp();
     }
-
-    /**
-     * Get the model state.
-     *
-     * @return The model state.
-     */
-    public String getState() {
-        return this.state;
-    }
-
-    /**
-     * Get the update available status.
-     *
-     * @return {@code true} if source update is available, {@code false} otherwise.
-     */
-    public LiveData<Boolean> isUpdateAvailable() {
-        return this.updateAvailable;
-    }
-
-//    /**
-//     * Get the model detailed state.
-//     *
-//     * @return The model detailed state.
-//     */
-//    public String getDetailedState() {
-//        return this.detailedState;
-//    }
 
     private void checkUpdateAtStartUp() {
         boolean checkUpdateAtStartup = PreferenceHelper.getUpdateCheck(this.context);
@@ -143,6 +112,24 @@ public class SourceModel {
                 }
             });
         }
+    }
+
+    /**
+     * Get the model state.
+     *
+     * @return The model state.
+     */
+    public LiveData<String> getState() {
+        return this.state;
+    }
+
+    /**
+     * Get the update available status.
+     *
+     * @return {@code true} if source update is available, {@code false} otherwise.
+     */
+    public LiveData<Boolean> isUpdateAvailable() {
+        return this.updateAvailable;
     }
 
     /**
@@ -167,14 +154,14 @@ public class SourceModel {
             return false;
         }
         // Update state
-        setStateAndDetails(R.string.status_checking, R.string.status_checking);
+        setState(R.string.status_check);
         // Check each source
         for (HostsSource source : sources) {
             // Get URL and lastModified from db
             String sourceUrl = source.getUrl();
             Date lastModifiedLocal = source.getLastLocalModification();
             // Update state
-            setStateAndDetails(R.string.status_checking, sourceUrl);
+            setState(R.string.status_check_source, sourceUrl);
             // Get hosts source last update
             Date lastModifiedOnline = getHostsSourceLastUpdate(sourceUrl);
             // Some help with debug here
@@ -199,13 +186,13 @@ public class SourceModel {
         }
         // Check if any hosts source was verified
         if (!anyHostsSourceVerified) {
-            throw new HostErrorException(DOWNLOAD_FAIL);
+            throw new HostErrorException(DOWNLOAD_FAILED);
         }
         // Check if update is available
         if (updateAvailable) {
-            setStateAndDetails(R.string.status_update_available, R.string.status_update_available_subtitle);
+            setState(R.string.status_update_available);
         } else {
-            setStateAndDetails(R.string.status_enabled, R.string.status_enabled_subtitle);
+            setState(R.string.status_no_update_found);
         }
         Log.d(Constants.TAG, "Update check result: " + updateAvailable);
         this.updateAvailable.postValue(updateAvailable);
@@ -261,7 +248,7 @@ public class SourceModel {
             throw new HostErrorException(NO_CONNECTION);
         }
         // Update state to downloading
-        setStateAndDetails(R.string.download_dialog, "");
+        setState(R.string.status_retrieve);
         // Initialize copy counters
         int numberOfCopies = 0;
         int numberOfFailedCopies = 0;
@@ -294,7 +281,7 @@ public class SourceModel {
         }
         // Check if all copies failed
         if (numberOfCopies == numberOfFailedCopies && numberOfCopies != 0) {
-            throw new HostErrorException(DOWNLOAD_FAIL);
+            throw new HostErrorException(DOWNLOAD_FAILED);
         }
         // Mark no update available
         this.updateAvailable.postValue(false);
@@ -326,7 +313,7 @@ public class SourceModel {
         String hostsFileUrl = hostsSource.getUrl();
         Log.v(Constants.TAG, "Downloading hosts file: " + hostsFileUrl);
         // Set state to downloading hosts source
-        setStateAndDetails(R.string.download_dialog, hostsFileUrl);
+        setState(R.string.status_download_source, hostsFileUrl);
         // Get HTTP client
         OkHttpClient httpClient = getHttpClient();
         // Create request
@@ -369,8 +356,8 @@ public class SourceModel {
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
         Log.v(Constants.TAG, "Copying hosts source file: " + hostsFileUrl);
-        // Set state to downloading hosts source
-        setStateAndDetails(R.string.download_dialog, hostsFileUrl);
+        // Set state to copying hosts source
+        setState(R.string.status_copy_source, hostsFileUrl);
         // Declare last modification date
         Date lastModified = null;
         try {
@@ -402,6 +389,7 @@ public class SourceModel {
      * @throws IOException If the source could not be read.
      */
     private void parseSourceInputStream(HostsSource hostsSource, InputStream inputStream) throws IOException {
+        setState(R.string.status_parse_source, hostsSource.getUrl());
         boolean parseRedirectedHosts = PreferenceHelper.getRedirectionRules(this.context);
         SourceParser sourceParser = new SourceParser(inputStream, parseRedirectedHosts);
         SourceBatchUpdater updater = new SourceBatchUpdater(this.hostListItemDao);
@@ -442,14 +430,7 @@ public class SourceModel {
         this.hostsSourceDao.clearLocalModificationDates();
     }
 
-    private void setStateAndDetails(@StringRes int stateResId, @StringRes int detailsResId) {
-        setStateAndDetails(stateResId, this.context.getString(detailsResId));
-    }
-
-    private void setStateAndDetails(@StringRes int stateResId, String details) {
-        this.state = this.context.getString(stateResId);
-//        this.detailedState = details;
-//        setChanged();
-//        notifyObservers();
+    private void setState(@StringRes int stateResId, Object... details) {
+        this.state.postValue(this.context.getString(stateResId, details));
     }
 }

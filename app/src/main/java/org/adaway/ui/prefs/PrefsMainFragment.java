@@ -2,7 +2,6 @@ package org.adaway.ui.prefs;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.preference.Preference;
@@ -42,15 +41,9 @@ public class PrefsMainFragment extends PreferenceFragmentCompat {
     }
 
     private void bindThemePrefAction() {
-        Context context = getContext();
         Preference darkThemePref = findPreference(getString(R.string.pref_dark_theme_key));
         darkThemePref.setOnPreferenceChangeListener((preference, newValue) -> {
-            // Display user toast notification
-            Toast.makeText(
-                    context,
-                    R.string.pref_dark_theme_notification,
-                    Toast.LENGTH_LONG
-            ).show();
+            getActivity().recreate();
             // Allow preference change
             return true;
         });

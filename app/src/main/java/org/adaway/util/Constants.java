@@ -44,11 +44,6 @@ public class Constants {
 
     public static final String COMMAND_CHOWN = "chown 0:0";
     public static final String COMMAND_CHMOD_644 = "chmod 644";
-    public static final String COMMAND_CHMOD_666 = "chmod 666";
-    public static final String COMMAND_LN = "ln -s";
-    public static final String COMMAND_RM = "rm -f";
-    public static final String COMMAND_MKDIR = "mkdir -p";
-    public static final String COMMAND_CHCON_SYSTEMFILE = "chcon u:object_r:system_file:s0";
 
     public static final String WEBSERVER_EXECUTABLE = "blank_webserver";
 
@@ -58,13 +53,6 @@ public class Constants {
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_HOSTS = ANDROID_SYSTEM_PATH + FILE_SEPARATOR
             + "etc" + FILE_SEPARATOR + HOSTS_FILENAME;
-    public static final String ANDROID_DATA_DATA_HOSTS = FILE_SEPARATOR + "data" + FILE_SEPARATOR
-            + "data" + FILE_SEPARATOR + HOSTS_FILENAME;
-    public static final String ANDROID_DATA_HOSTS = FILE_SEPARATOR
-            + "data" + FILE_SEPARATOR + HOSTS_FILENAME;
-
-
-    public static final String HEADER_EXPORT = "# This hosts file contains exported entries from AdAway.";
 
     /**
      * Check if debug mode is enabled.

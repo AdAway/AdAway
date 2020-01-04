@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import org.adaway.AdAwayApplication;
@@ -35,7 +36,8 @@ public class NextViewModel extends AndroidViewModel {
     private final HostsSourceDao hostsSourceDao;
     private final HostListItemDao hostListItemDao;
 
-    private MutableLiveData<HostError> error;
+    private final MediatorLiveData<String> state;
+    private final MutableLiveData<HostError> error;
 
     public NextViewModel(@NonNull Application application) {
         super(application);
@@ -49,6 +51,9 @@ public class NextViewModel extends AndroidViewModel {
         this.hostsSourceDao = database.hostsSourceDao();
         this.hostListItemDao = database.hostsListItemDao();
 
+        this.state = new MediatorLiveData<>();
+        this.state.addSource(this.sourceModel.getState(), this.state::setValue);
+        this.state.addSource(this.adBlockModel.getState(), this.state::setValue);
         this.error = new MutableLiveData<>();
     }
 
@@ -86,6 +91,10 @@ public class NextViewModel extends AndroidViewModel {
 
     public LiveData<Integer> getOutdatedSourceCount() {
         return this.hostsSourceDao.countOutdated();
+    }
+
+    public LiveData<String> getState() {
+        return this.state;
     }
 
     public LiveData<HostError> getError() {
