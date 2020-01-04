@@ -6,7 +6,6 @@
     <string name="pref_dismiss_welcome">Hide welcome card</string>
     <string name="pref_dismiss_welcome_summary">Do not show the welcome card on the home screen</string>
     <string name="pref_dark_theme">Dark theme</string>
-    <string name="pref_dark_theme_notification">Theme will be applied at next application start!</string>
     <string name="pref_update_configuration">Automatic updates</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Ad blocking</string>

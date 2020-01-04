@@ -1,8 +1,11 @@
 package org.adaway.helper;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
 
-import org.adaway.R;
+import androidx.appcompat.app.AppCompatDelegate;
+
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 /**
  * This class is a helper to apply user selected theme on the application activity.
@@ -21,27 +24,11 @@ public final class ThemeHelper {
     /**
      * Apply the user selected theme.
      *
-     * @param activity The activity to apply theme.
+     * @param context The context to apply theme.
      */
-    public static void applyTheme(AppCompatActivity activity) {
-        applyTheme(activity, true);
-    }
-
-    /**
-     * Apply the user selected theme.
-     *
-     * @param activity  The activity to apply theme.
-     * @param actionBar {@code true} to enable action bar, {@code false} to disable it.
-     */
-    public static void applyTheme(AppCompatActivity activity, boolean actionBar) {
-        if (!PreferenceHelper.getDarkTheme(activity.getApplicationContext())) {
-            if (actionBar) {
-                activity.setTheme(R.style.Theme_AdAway_Light);
-            } else {
-                activity.setTheme(R.style.Theme_AdAway_Light_NoActionBar);
-            }
-        } else if (!actionBar) {
-            activity.setTheme(R.style.Theme_AdAway_Dark_NoActionBar);
-        }
+    public static void applyTheme(Context context) {
+        AppCompatDelegate.setDefaultNightMode(
+                PreferenceHelper.getDarkTheme(context) ? MODE_NIGHT_YES : MODE_NIGHT_NO
+        );
     }
 }

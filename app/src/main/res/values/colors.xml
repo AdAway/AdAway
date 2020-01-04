@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Material theming black theme -->
-    <color name="primary">#B71C1C</color>
+    <!-- Material theming light theme -->
+    <color name="primary">#ef5350</color>
     <color name="primaryVariant">#e53935</color>
-    <color name="onPrimary">#ffffff</color>
-    <!-- Material theming Light theme -->
-    <color name="lightPrimary">#ef5350</color>
-    <color name="lightPrimaryVariant">#e53935</color>
-    <color name="lightOnPrimary">#000000</color>
+    <color name="onPrimary">#000000</color>
+    <!-- App icon colors -->
+    <color name="drawer_icon">#B71C1C</color>
     <!-- Common UI elements -->
     <color name="selected_background">#78b71c1c</color>
     <color name="shortcut_background">#f5f5f5</color>
