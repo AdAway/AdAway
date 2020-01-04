@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Успешно активиране</string>
     <string name="disable_systemless_successful">Деактивирахте безсистемния режим.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="disable_systemless_successful_title">Деактивирането е успешно</string>
+    <string name="enable_systemless_magisk_title">Включване на хостове от модула Magisk</string>
+    <string name="enable_systemless_magisk">Включване на функцията безсистемни хостове от управлението на Magisk. От неговите настройките включете опцията <cite>Безсистемни хостове</cite>, след което рестартирайте устройството Ви.</string>
+    <string name="disable_systemless_magisk_title">Изключване на хостове от модула Magisk</string>
+    <string name="disable_systemless_magisk">Изключване на функцията безсистемни хостове от управлението на Magisk. От списъка на модула, деинсталирайте модула <cite>Безсистемни хостове</cite>, след което рестартирайте устройството Ви.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Не може да бъде открит su binary или не сте дали root права на AdAway.\n\nТова може да се получи, когато устройството ви няма root достъп.\nМоже да намерите информация за това, как да получите root достъп за вашето устройство на wiki.lineageos.org или други уебсайтове за Android.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Персонализирана цел</string>
     <string name="pref_custom_target_summary">Използва се само ако целевият Hosts файл е настроен на персонализирана цел.</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Отваряне на менюто</string>
     <string name="drawer_close">Затваряне на менюто</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Начало</item>
         <item>Източници за Hosts файла</item>

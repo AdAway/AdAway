@@ -101,7 +101,6 @@
     <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
     <string name="enable_systemless_successful_title">Activarea a fost reușită</string>
     <string name="disable_systemless_successful_title">Dezactivarea a fost reușită</string>
-
     <string name="no_root_title">Android are nevoie de \"root\"</string>
     <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
     <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
@@ -152,6 +151,7 @@
     <string name="pref_custom_target">Locatie aleasa de utilizator</string>
     <string name="pref_custom_target_summary">Folosit numai daca locatia fisierul \"hosts\" este setat ca \"locatie aleasa de utilizator\" </string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -176,7 +176,7 @@
     <string name="drawer_open">Deschideți meniul</string>
     <string name="drawer_close">Închideți meniul</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Sursele (hosts)</item>

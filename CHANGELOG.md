@@ -1,3 +1,19 @@
+## [4.3.2] - 2019-12-29
+
+- Fix GitLab source hosting
+- Update translations
+
+## [4.3.1] - 2019-12-21
+
+- Update help to include Magisk systemless module for read-only system partition
+- Update translations
+
+## [4.3.0] - 2019-11-01
+
+- Fix root not requested
+- Improve support for systemless hosts Magisk module
+- Update translations
+
 ## [4.2.9] - 2019-08-31
 
 - Improve hosts file parsing

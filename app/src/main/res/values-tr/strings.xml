@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Etkinleştirme başarılı</string>
     <string name="disable_systemless_successful">Sistemsiz modu devre dışı bıraktınız.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
     <string name="disable_systemless_successful_title">Başarıyla devre dışı bırakıldı</string>
+    <string name="enable_systemless_magisk_title">Hosts Magisk Modülü\'nü etkinleştiriliyor</string>
+    <string name="enable_systemless_magisk">Magisk yöneticisinden sistemsiz hosts özelliğini etkinleştirin. Magisk ayarlarından, <cite>sistemsiz hosts</cite> seçeneğini etkinleştirin ve ardından cihazınızı yeniden başlatın.</string>
+    <string name="disable_systemless_magisk_title">Hosts Magisk Modülü\'nü devre dışı bırakılıyor</string>
+    <string name="disable_systemless_magisk">Magisk yöneticisinden sistemsiz hosts özelliğini devre dışı bırakın. Modül listesinden, <cite>sistemsiz hosts</cite> modülünü kaldırın ve cihazınızı yeniden başlatın.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Su binary dosyası bulunamadı veya AdAway için kök erişimi izni sağlanmadı.\n\nEğer cihazınızda kök erişimi sağlanmadıysa bu yaşanabilir.\nDetaylı bilgi ve cihazınızda nasıl kök erişimi sağlanacağını öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Özel hedef</string>
     <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Menüyü aç</string>
     <string name="drawer_close">Menüyü kapat</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Ana ekran</item>
         <item>Host kaynakları</item>

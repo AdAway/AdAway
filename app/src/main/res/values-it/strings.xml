@@ -23,7 +23,7 @@
     <string name="button_check_update_hosts">Controlla aggiornamenti</string>
     <string name="button_update_hosts">Aggiorna gli hosts</string>
     <string name="button_enable_hosts">Abilita il blocco della pubblicità</string>
-    <string name="button_disable_hosts">Disablita il blocco della pubblicità</string>
+    <string name="button_disable_hosts">Disabilita il blocco della pubblicità</string>
     <string name="header_webserver">Web server</string>
     <string name="webserver_status_running">In funzione</string>
     <string name="webserver_status_stopped">Fermo</string>
@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Attivazione avvenuta con successo</string>
     <string name="disable_systemless_successful">Hai disabilitato la modalità systemless.\nPotrebbe essere necessario riavviare Android per applicare i cambiamenti. .\n\nVuoi riavviare?\n(Per impedire perdita di dati assicurati che nessuna app  al momento sta utilizzando la scheda SD!)</string>
     <string name="disable_systemless_successful_title">Disattivazione avvenuta con successo</string>
+    <string name="enable_systemless_magisk_title">Abilita il modulo hosts di Magisk</string>
+    <string name="enable_systemless_magisk">Abilita la funzionalità host systemless da Magisk Manager. Dalle sue impostazioni, abilita l\'opzione <cite>Host systemless</cite> e poi riavvia il dispositivo.</string>
+    <string name="disable_systemless_magisk_title">Disabilita il modulo hosts di Magisk</string>
+    <string name="disable_systemless_magisk">Disabilita la funzionalità host systemless da Magisk Manager. Dall\'elenco dei moduli, disinstalla il modulo <cite>Host systemless</cite> e poi riavvia il dispositivo.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Non è stato trovato il binario SU o non hai concesso i permessi di root per AdAway.\n\nQuesto può succedere quando il tuo dispositivo non ha il root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android.</string>
@@ -211,7 +215,7 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_redirection_ipv6_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IPv6.</string>
     <string name="pref_header_preferences">Preferenze</string>
     <string name="pref_header_preferences_summary">Preferenze generali per AdAway</string>
-    <string name="pref_never_reboot">Nascondi finestra di dialogo di riavvio.</string>
+    <string name="pref_never_reboot">Nascondi la richiesta di riavvio</string>
     <string name="pref_never_reboot_summary">Nascondi la finestra di dialogo che chiede di riavviare Android dopo aver applicato le modifiche.</string>
     <string name="pref_webserver_on_boot">Avvia il webserver all\'avvio del telefono</string>
     <string name="pref_webserver_on_boot_summary">Abilita il webserver in ascolto sull\'indirizzo locale all\'avvio del telefono</string>
@@ -221,6 +225,7 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_custom_target">Percorso personalizzato</string>
     <string name="pref_custom_target_summary">In uso solo se si usa un file hosts personalizzato</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -254,7 +259,7 @@ Vuoi installare OI File Manager?</string>
     <string name="drawer_open">Apri il menù</string>
     <string name="drawer_close">Chiudi il menù</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Fonti host</item>

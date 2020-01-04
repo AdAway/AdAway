@@ -14,8 +14,21 @@
     <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
     <string name="button_help">עזרה</string>
 
+    <!--Home-->
+    <string name="header_help">ברוך הבא!</string>
+    <string name="button_show_help">הצג עזרה נוספת</string>
+    <string name="icon_update_status">מצב העדכון</string>
     <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
     <string name="button_check_update_hosts">בדוק עידכונים</string>
+    <string name="button_update_hosts">עדכן hosts</string>
+    <string name="button_enable_hosts">הפעל חסימת פרסומות</string>
+    <string name="button_disable_hosts">בטל חסימת פרסומות</string>
+    <string name="header_webserver">שרת Web</string>
+    <string name="webserver_status_running">פעיל</string>
+    <string name="webserver_status_stopped">מכובה</string>
+    <string name="button_enable_webserver">הפעל שרת Web</string>
+    <string name="button_disable_webserver">בטל שרת Web</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">מחק</string>
     <string name="checkbox_list_context_title">ערוך רשומה</string>
@@ -24,19 +37,49 @@
     <!--Your lists-->
     <string name="lists_tab_whitelist">רשימה לבנה</string>
     <string name="lists_tab_blacklist">רשימה שחורה</string>
+    <string name="lists_tab_redirection_list">הפניות</string>
+    <string name="list_add_dialog_black">הוסף host לרשימה שחורה</string>
+    <string name="list_add_dialog_white">הוסף host לרשימה לבנה</string>
+    <string name="list_add_dialog_redirect">הוסף הפניית host</string>
+    <string name="list_edit_dialog_black">ערוך host ברשימה שחורה</string>
+    <string name="list_edit_dialog_white">ערוך host ברשימה לבנה</string>
+    <string name="list_edit_dialog_redirect">ערוך הפנייה</string>
     <string name="list_dialog_hostname">שם שרת:</string>
+    <string name="list_dialog_hostname_hint">כתובת URL למקור hosts</string>
+    <string name="list_dialog_wildcard">(תווים כלליים * ו ? מותרים)</string>
     <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
+    <string name="import_dialog">מייבא...</string>
+    <string name="import_success">גיבוי יובא בהצלחה מהאחסון החיצוני</string>
+    <string name="export_dialog">מייצא…</string>
+    <string name="export_failed">ייצוא גיבוי נכשל.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">קובץ hosts</string>
+    <string name="hosts_content">טוען תוכן קובץ hosts…</string>
+    <string name="hosts_open_button">פתח קובץ hosts</string>
+
+    <!--Status Notification-->
+    <string name="status_checking">בודק עדכונים…</string>
+    <string name="status_reverting">משחזר…</string>
     <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
     <string name="status_update_available">קיים עידכון</string>
     <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
     <string name="status_no_connection">אין חיבור לאינטרנט</string>
     <string name="status_no_connection_subtitle">אין חיבור זמין לאינטרנט</string>
+    <string name="status_download_fail">מקורות לא זמינים</string>
     <string name="status_download_fail_subtitle_new">אין מקורות זמינים!</string>
+    <string name="status_failure">משהו לא תקין קרה</string>
     <string name="status_enabled">פעיל</string>
     <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
     <string name="status_disabled">לא פעיל</string>
     <string name="status_disabled_subtitle">קובץ hosts ברירת המחדל הותקן</string>
+    <string name="notification_channel_update_name">עדכונים</string>
+    <string name="notification_channel_update_description">הודעות על עדכוני hosts חדשים</string>
+    <string name="notification_configuration_changed">ההגדרות שלך שונו. עליך להתקין hosts מחדש כדי להחיל שינויים.</string>
     <string name="notification_configuration_changed_action">החל</string>
+    <string name="notification_configuration_installing">מתקין קובץ hosts…</string>
+    <string name="notification_configuration_failed">נכשל בהתקנת קובץ hosts.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
     <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
@@ -48,6 +91,7 @@
     <string name="apply_remount_fail_title">הענקת הרשאות נכשלה</string>
     <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
     <string name="apply_copy_fail_title">העתקה נכשלה</string>
+    <string name="apply_success_subtitle">עדכן מקורות hosts</string>
     <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
     <string name="apply_symlink_successful">הקישור הסימבולי נוצר בהצלחה.\nכדי להחיל את השינויים ייתכן שיש צורך בהפעלה מחדש.\n\nלהפעיל מחדש עכשיו?\n(כדאי להמנע מאיבוד מידע יש לוודא שאף אפליקציה לא משתמשת בכרטיס הזיכרון!)</string>
     <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
@@ -56,11 +100,16 @@
     <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
     <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
     <string name="no_connection_title">אין חיבור</string>
+    <string name="download_dialog">מוריד…</string>
+    <string name="apply_dialog">מחיל…</string>
     <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
     <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
+    <string name="apply_dialog_hosts">בונה קובץ hosts</string>
+    <string name="apply_dialog_apply">מחיל קובץ hosts</string>
     <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
     <string name="apply_fail_title">החלת הגדרות נכשלה</string>
     <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
+    <string name="revert_problem">שיחזור נכשל מסיבות לא ידועות.</string>
     <string name="revert_problem_title">שחזור נכשל!</string>
     <string name="download_fail_dialog">אף אחד מהמקורות שלך זמינים בדוק שאתה מחובר לאינטרנט ונסה שוב</string>
     <string name="download_fail_title">הורדה נכשלה</string>
@@ -68,13 +117,13 @@
     <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
     <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
     <string name="disable_systemless_successful_title">כובה בהצלחה</string>
-
     <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
     <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
     <string name="no_hostname">שם השרת אינו חוקי!</string>
     <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
     <string name="no_ip">כתובת ה IP אינה חוקית!</string>
     <string name="no_ip_title">כתובת IP בתבנית לא נכונה</string>
+    <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב!</string>
     <string name="loading">טוען...</string>
 
     <!--Menu entries-->
@@ -82,15 +131,24 @@
     <string name="menu_add">הוסף</string>
     <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
     <string name="menu_help">עזרה</string>
+    <string name="menu_import">ייבא גיבוי</string>
+    <string name="menu_export">ייצא גיבוי</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">שאלות ותשובות</string>
     <string name="help_tab_problems">תקלות</string>
 
+    <string name="adware_scanning">סורק&#8230;</string>
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">מקומי:</string>
     <string name="hosts_last_modified_online">אונליין:</string>
     <string name="hosts_not_available">לא זמין</string>
+    <string name="hosts_add_dialog_title">הוסף מקור</string>
+    <string name="hosts_edit_dialog_title">ערוך מקור</string>
+    <string name="hosts_dialog_url">כתובת URL: (כתובת https:// או file://)</string>
+    <string name="hosts_dialog_url_hint">כתובת URL למקור hosts</string>
+
     <!--Other-->
     <string name="app_subtitle">חסום פרסומות</string>
     <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
@@ -101,23 +159,42 @@
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_description">Tcpdump הוא כלי לניטור בקשות DNS ושמירה שלהם בקובץ יומן. אתה יכול להפעיל אותו ברקע, ולהפעיל יישומים שמציגים פרסומות, ולאחר מכן להסתכל ביומן בקשות ה DNS על ידי שימוש בקובץ היומן. וכך להוסיף שרתי פרסומות לרשימה השחורה שלך.</string>
+    <string name="tcpdump_disable_monitoring">בטל ניטור</string>
+    <string name="tcpdump_enable_monitoring">הפעל ניטור</string>
+    <string name="tcpdump_show_results">הצג תוצאות</string>
+    <string name="tcpdump_sort_alphabetical">מיון אלפביתי</string>
+    <string name="tcpdump_entry_add_blacklist">הוסף לרשימה שחורה</string>
+    <string name="tcpdump_entry_add_whitelist">הוסף לרשימה לבנה</string>
+    <string name="tcpdump_entry_add_redirection_list">הוסף לרשימת הפניות</string>
+
     <!--Preferences-->
     <string name="pref_download">העדפות כלליות</string>
+    <string name="pref_dismiss_welcome">הסתר הודעת ברוך הבא</string>
+    <string name="pref_dismiss_welcome_summary">אל תציג את הודעת ברוך הבא בחלון הפתיחה</string>
+    <string name="pref_dark_theme">הפעל ערכת צבעים כהה</string>
+    <string name="pref_dark_theme_summary">השתמש בערכת צבעים כהה במקום בהירה</string>
+    <string name="pref_dark_theme_notification">ערכת הצבעים תשונה בהפעלת האפליקציה מחדש!</string>
     <string name="pref_hosts">קובץ Hosts</string>
     <string name="pref_update_check">בדוק עידכונים</string>
     <string name="pref_apply_method">יעד קובץ Hosts</string>
     <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
+    <string name="pref_redirection_ipv4">הפניית IPv4</string>
+    <string name="pref_redirection_ipv4_summary">כל הכתובות החסומות מופנות לכתובת IPv4 זאת.</string>
+    <string name="pref_redirection_ipv6">הפניית IPv6</string>
+    <string name="pref_redirection_ipv6_summary">כל הכתובות החסומות מופנות לכתובת IPv6 זאת.</string>
     <string name="pref_header_preferences">העדפות</string>
     <string name="pref_header_preferences_summary">העדפות כלליות של AdAway</string>
     <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
     <string name="pref_never_reboot_summary">מסתיר את תיבת הדו שיח ששואלת אם להפעיל את מערכת אנדרואיד מחדש לאחר עדכון מוצלח</string>
     <string name="pref_webserver_on_boot">הפעל את השירות בעת הפעלת המערכת</string>
+    <string name="pref_webserver_on_boot_summary">הפעל שרת Web בעת הפעלת המכשיר, המאזין על כל כתובות ה-IP המקומיות</string>
     <string name="pref_webserver_enabled">הפעל שירות</string>
     <string name="pref_webserver_enabled_summary">הפעל את השרת להקשיב לכתובת IP מקומית ולענות לבקשות של כתובות חסומות</string>
     <string name="pref_webserver">שרת מקומי</string>
     <string name="pref_custom_target">יעד מותאם אישית</string>
     <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -134,23 +211,68 @@
     <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
     <string name="pref_whitelist_rules">אפשר רשימות לבנות</string>
     <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
+    <string name="pref_redirection_rules">אפשר הפניות</string>
     <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
     <string name="pref_debug">ניפוי שגיאות</string>
     <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
+    <string name="pref_enable_telemetry">הפעל דוחות קריסה</string>
+    <string name="pref_enable_telemetry_summary">אפשר לאפליקציה לשלוח שגיאות ודוחות קריסה ל-Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">אפשר IPv6</string>
     <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
     <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
-    <!--Drawer menu items-->
+    <string name="drawer_open">פתח תפריט</string>
+    <string name="drawer_close">סגור תפריט</string>
+
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
+        <item>Home</item>
         <item>לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</item>
-        <item>פתח קובץ hosts</item>
         <item>Your lists</item>
-        <item>Open hosts file</item>
+        <item>פתח קובץ hosts</item>
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
         <item>העדפות</item>
         <item>עזרה</item>
     </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 תמיכה בפיתוח \u2764</string>
+    <string name="drawer_support_dialog_title">תמיכה בפיתוח</string>
+    <string name="dialog_telemetry_enable">כמובן, אני שמח לעזור!</string>
+    <string name="dialog_telemetry_disable">לא תודה</string>
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">בקשות DNS</string>
+    <string name="shortcut_your_lists">הרשימות שלך</string>
     <string name="shortcut_preferences">העדפות</string>
 
-    </resources>
+    <!--Hosts source status-->
+    <string name="hosts_source_up_to_date">עדכני עבור %1$s</string>
+    <string name="hosts_source_need_update">נדרש עדכון עבור %1$s</string>
+    <string name="hosts_source_last_update">נדרש עדכון מלפני %1$s</string>
+    <string name="hosts_source_unknown_status">מצב עדכון לא ידוע</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">דקה %d</item>
+        <item quantity="two">%d דקות</item>
+        <item quantity="many">%d דקות</item>
+        <item quantity="other">%d דקות</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">שעה %d</item>
+        <item quantity="two">%d שעות</item>
+        <item quantity="many">%d שעות</item>
+        <item quantity="other">%d שעות</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">יום %d</item>
+        <item quantity="two">%d ימים</item>
+        <item quantity="many">%d ימים</item>
+        <item quantity="other">%d ימים</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">חודש %d</item>
+        <item quantity="two">%d חודשים</item>
+        <item quantity="many">%d חודשים</item>
+        <item quantity="other">%dחודשים</item>
+    </plurals>
+
+</resources>

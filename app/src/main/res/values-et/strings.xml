@@ -13,44 +13,100 @@
     <string name="button_save">Salvesta</string>
     <string name="button_help">Abi</string>
 
-    <string name="text_update">Kõik hosts failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
-    <string name="button_check_update_hosts">Uuenduste kontrollimine</string>
+    <!--Home-->
+    <string name="header_help">Tere tulemast!</string>
+    <string name="text_help">AdAway on vaba ja avatud lähtekoodiga tarkvara reklaamide blokeerimiseks. See hangib reklaamide võrguaadressid, et need sinu seadmes blokeerida.\nSoovid rohkem teada? Vaata abimaterjali allpool!</string>
+    <string name="button_show_help">Kuva rohkem abi</string>
+    <string name="icon_update_status">Uuenduse olek</string>
+    <string name="text_update">Kõik hosts-failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
+    <string name="button_check_update_hosts">Kontrolli uuendusi</string>
+    <string name="button_update_hosts">Uuenda hoste</string>
+    <string name="button_enable_hosts">Luba reklaamiblokeering</string>
+    <string name="button_disable_hosts">Keela reklaamiblokeering</string>
+    <string name="header_webserver">Veebiserver</string>
+    <string name="webserver_status_running">Käimas</string>
+    <string name="webserver_status_stopped">Peatatud</string>
+    <string name="button_enable_webserver">Luba veebiserver</string>
+    <string name="button_disable_webserver">Keela veebiserver</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Kustuta</string>
-    <string name="checkbox_list_context_edit">Redigeeri</string>
+    <string name="checkbox_list_context_title">Muuda üksust</string>
+    <string name="checkbox_list_context_edit">Muuda</string>
 
-    <string name="list_dialog_hostname">Aadress:</string>
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">Valge loend</string>
+    <string name="lists_tab_blacklist">Must loend</string>
+    <string name="lists_tab_redirection_list">Suunamised</string>
+    <string name="list_add_dialog_black">Lisa host musta loendisse</string>
+    <string name="list_add_dialog_white">Lisa host valgesse loendisse</string>
+    <string name="list_add_dialog_redirect">Lisa hosti suunamine</string>
+    <string name="list_edit_dialog_black">Muuda musta loendi hosti</string>
+    <string name="list_edit_dialog_white">Muuda valge loendi hosti</string>
+    <string name="list_edit_dialog_redirect">Muuda suunamist</string>
+    <string name="list_dialog_hostname">Hostinimi:</string>
+    <string name="list_dialog_hostname_hint">Hosts-allika URL</string>
+    <string name="list_dialog_wildcard">(Lubatud on jokkermärgid * ja ?)</string>
     <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
     <string name="import_dialog">Importimine...</string>
     <string name="export_dialog">Eksportimine...</string>
+    <!--Hosts content-->
+    <string name="hosts_header">Hosts-fail</string>
+    <string name="hosts_open_button">Ava hosts-fail</string>
+
     <!--Status Notification-->
     <string name="status_checking">Uuenduste kontrollimine...</string>
     <string name="status_reverting">Taastamine...</string>
     <string name="status_update_available">Uuendus saadaval</string>
-    <string name="status_update_available_subtitle">Uuem hosts fail saadaval</string>
+    <string name="status_update_available_subtitle">Uuemad hosts-failid saadaval</string>
     <string name="status_no_connection">Ühendus puudub</string>
     <string name="status_no_connection_subtitle">Internetiühendus ei ole saadaval</string>
+    <string name="status_download_fail">Allikad pole saadaval</string>
+    <string name="status_root_access_denied">Juurkasutaja ligipääs keelatud</string>
+    <string name="status_root_access_denied_subtitle">Võimalda juurkasutajale ligipääs oma juurkasutaja rakendusest</string>
+    <string name="status_failure">Midagi läks valesti</string>
+    <string name="status_failure_subtitle">Rohkema teabe saamiseks vaata logcati</string>
     <string name="status_enabled">Lubatud</string>
-    <string name="status_enabled_subtitle">Uusim hosts fail kasutusel</string>
+    <string name="status_enabled_subtitle">Uusimad hosts-failid kasutusel</string>
     <string name="status_disabled">Keelatud</string>
+    <string name="status_disabled_subtitle">Vaikimisi hosts-fail paigaldatud</string>
+    <string name="notification_channel_update_name">Uuendused</string>
+    <string name="notification_channel_update_description">Uute hosts-uuenduste teated</string>
+    <string name="notification_configuration_changed_action">Rakenda</string>
+    <string name="notification_configuration_installing">Hosts-faili paigaldamine...</string>
+    <string name="notification_configuration_failed">Hosts-faili paigaldamine ebaõnnestus.</string>
+
     <string name="apply_symlink_missing_title">Sümlink puudub</string>
     <string name="apply_not_enough_space_title">Pole piisavalt ruumi</string>
-    <string name="apply_copy_fail">Hosts faili kopeerimine ebaõnnestus!</string>
+    <string name="apply_private_file_fail_title">Privaatse faili ebaõnnestumine</string>
+    <string name="apply_remount_fail_title">Taashaakimine ebaõnnestus</string>
+    <string name="apply_copy_fail">Hosts-faili kopeerimine ebaõnnestus!</string>
     <string name="apply_copy_fail_title">Kopeerimine nurjus</string>
+    <string name="apply_success_subtitle">Hosts-allikad rakendatud</string>
     <string name="apply_success_title">Rakendamine edukas</string>
     <string name="apply_symlink_successful_title">Sümlingi loomine edukas</string>
     <string name="apply_symlink_fail_title">Sümlingi loomine nurjus</string>
+    <string name="apply_help">Palun loe abi rohkema teabe saamiseks.</string>
+    <string name="apply_apn_proxy_title">APN-proksi määratud!</string>
     <string name="no_connection_title">Ühendus puudub</string>
     <string name="download_dialog">Allalaadimine...</string>
     <string name="apply_dialog">Rakendamine...</string>
-    <string name="apply_dialog_hostnames">Hosts failide parsimine ja ühendamine</string>
-    <string name="apply_dialog_hosts">Hosts faili koostamine</string>
-    <string name="apply_dialog_apply">Hosts faili rakendamine</string>
+    <string name="apply_dialog_lists">Musta ja valge loendi rakendamine</string>
+    <string name="apply_dialog_hostnames">Hosts-failide töötlemine ja ühendamine</string>
+    <string name="apply_dialog_hosts">Hosts-faili koostamine</string>
+    <string name="apply_dialog_apply">Hosts-faili rakendamine</string>
     <string name="apply_fail_title">Rakendamine nurjus</string>
+    <string name="root_access_fail">Palun kontrolli oma juurkasutaja haldusrakendust, et veenduda juurkasutaja ligipääsu andmises.</string>
+    <string name="revert_successful_title">Taastamine edukas</string>
+    <string name="revert_problem_title">Taastamine ebaõnnestus!</string>
     <string name="download_fail_title">Allalaadimine nurjus</string>
-    <string name="no_root_title">Vajalik \"rootitud\" Android</string>
+    <string name="enable_systemless_successful_title">Lubamine edukas</string>
+    <string name="disable_systemless_successful_title">Keelamine edukas</string>
+    <string name="no_root_title">Vajalik juurkasutaja toega Android</string>
+    <string name="hosts_add_dialog">Sisesta URL hosts-faili:</string>
     <string name="no_hostname">See ei ole kehtiv aadress!</string>
     <string name="no_ip">See ei ole kehtiv IP!</string>
+    <string name="no_ip_title">Sobimatult vormistatud IP</string>
     <string name="loading">Laadimine...</string>
 
     <!--Menu entries-->
@@ -58,24 +114,61 @@
     <string name="menu_add">Lisa</string>
     <string name="menu_hosts_sources">Allikad</string>
     <string name="menu_help">Abi</string>
+    <string name="menu_import">Impordi varundus</string>
+    <string name="menu_export">Ekspordi varundus</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">KKK</string>
     <string name="help_tab_problems">Probleemid</string>
 
+    <!--Adware-->
+    <string name="adware_header">Reklaamvara</string>
+    <string name="adware_scanning">Skanneerimine&#8230;</string>
+    <string name="adware_empty">Reklaamvara ei leitud!</string>
+
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Kohalik:</string>
     <string name="hosts_last_modified_online">Onlain:</string>
     <string name="hosts_not_available">pole saadaval</string>
+    <string name="hosts_add_dialog_title">Lisa allikas</string>
+    <string name="hosts_edit_dialog_title">Muuda allikat</string>
+    <string name="hosts_dialog_url">URL: (https:// või file:// ressurss)</string>
+    <string name="hosts_dialog_url_hint">Hosts-allika URL</string>
+
     <!--Other-->
     <string name="app_subtitle">Reklaamide blokeerija</string>
+    <string name="no_text_editor_title">Tekstitöötlejaid pole paigaldatud</string>
+    <string name="no_file_manager_title">Ühtegi failihaldurit pole installitud</string>
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
+    <string name="tcpdump_disable_monitoring">Keela monitoorimine</string>
+    <string name="tcpdump_enable_monitoring">Luba monitoorimine</string>
+    <string name="tcpdump_show_results">Kuva tulemused</string>
+    <string name="tcpdump_redirect_dialog_title">Suuna domeen</string>
+    <string name="tcpdump_menu_sort">Sorteeri domeene</string>
+    <string name="tcpdump_menu_clear">Tühjenda logi</string>
+    <string name="tcpdump_sort_alphabetical">Tähestikuline järjekord</string>
+    <string name="tcpdump_sort_top_level_domain">TLD järjekord</string>
+    <string name="tcpdump_entry_add_blacklist">Lisa üksus musta loendisse</string>
+    <string name="tcpdump_entry_add_whitelist">Lisa üksus valgesse loendisse</string>
+    <string name="tcpdump_entry_add_redirection_list">Lisa üksus suunamisloendisse</string>
+
     <!--Preferences-->
     <string name="pref_download">Üldised eelistused</string>
-    <string name="pref_hosts">Hosts fail</string>
+    <string name="pref_dismiss_welcome">Peida tutvustuskaart</string>
+    <string name="pref_dismiss_welcome_summary">Ära kuva tutvustuskaarti rakenduse avakuval</string>
+    <string name="pref_dark_theme">Luba tume teema</string>
+    <string name="pref_dark_theme_summary">Kasuta heleda asemel tumedat teemat</string>
+    <string name="pref_dark_theme_notification">Teema rakendatakse järgmisel rakenduse käivitusel!</string>
+    <string name="pref_hosts">Hosts-fail</string>
     <string name="pref_update_check">Uuenduste kontrollimine</string>
-    <string name="pref_apply_method">Hosts faili asukoht</string>
+    <string name="pref_apply_method">Hosts-faili asukoht</string>
     <string name="pref_apply_method_summary">Enne muutmist loe abist selle funktsiooni kohta.</string>
+    <string name="pref_redirection_ipv4">Suunamise IPv4</string>
+    <string name="pref_redirection_ipv6">Suunamise IPv6</string>
     <string name="pref_header_preferences">Eelistused</string>
+    <string name="pref_header_preferences_summary">Üldised AdAway seaded</string>
     <string name="pref_never_reboot">Taaskäivitamise dialoog peidetud</string>
     <string name="pref_never_reboot_summary">Peidetakse dialoog, mis palub Androidi taaskäivitamist pärast edukat paigaldamist</string>
     <string name="pref_webserver_on_boot">Veebiserver käivitatakse alglaadimisel</string>
@@ -84,8 +177,9 @@
     <string name="pref_webserver_enabled_summary">Lubab veebiserveri, mis kuulab kohalikke IP aadresse ning vastab blokeeritud aadressitele.</string>
     <string name="pref_webserver">Kohalik veebiserver</string>
     <string name="pref_custom_target">Muu asukoht</string>
-    <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts faili asukohaks on muu asukoht.</string>
+    <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts-faili asukohaks on muu asukoht.</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -94,23 +188,71 @@
     </string-array>
 
     <string name="pref_update_check_summary">Uuendusi kontrollitakse AdAway käivitamisel</string>
+    <string name="pref_background">Taustateenused</string>
     <string name="pref_update_check_daily">Uuenduste kontroll iga päev</string>
     <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>
     <string name="pref_automatic_update_daily">Automaatne uuendus</string>
     <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
+    <string name="pref_update_only_on_wifi">Uuenda ainult mittemahupõhiste ühenduste korral</string>
+    <string name="pref_whitelist_rules">Luba valge loend</string>
+    <string name="pref_redirection_rules">Luba suunamised</string>
     <string name="pref_debug">Silumine</string>
     <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>
-    <!--Drawer menu items-->
+    <string name="pref_enable_telemetry">Luba krahhiaruanded</string>
+    <string name="pref_enable_telemetry_summary">Luba rakendusel saata vigu ja krahhiaruandeid Sentryle (sentry.io)</string>
+    <string name="pref_enable_ipv6">Luba IPv6</string>
+    <string name="pref_enable_systemless">Luba süsteemita režiim</string>
+    <string name="drawer_open">Ava menüü</string>
+    <string name="drawer_close">Sulge menüü</string>
+
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
-        <item>Allikad</item>
-        <item>Hosts sources</item>
-        <item>Your lists</item>
-        <item>Ava hosts fail</item>
-        <item>Log DNS requests</item>
-        <item>Scan for adware</item>
+        <item>Kodu</item>
+        <item>Hosts-allikad</item>
+        <item>Sinu loendid</item>
+        <item>Ava hosts-fail</item>
+        <item>Logi DNS-taotlusi</item>
+        <item>Skanni reklaamvara</item>
         <item>Eelistused</item>
         <item>Abi</item>
     </string-array>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 Toeta arendust \u2764</string>
+    <string name="drawer_support_dialog_title">Toeta arendust</string>
+    <string name="drawer_support_dialog_text">AdAway on vaba ja avatud lähtekoodiga, arendatud ja hallatud vaid kogukonna poolt. Mul võttis kaks aastat vabast ajast, et rakendusest see uus versioon luua.\n\nKui see sulle meeldib ning soovid näha rohkem uuendusi, võid antud projekti toetada.</string>
+    <string name="drawer_support_dialog_button">Näita minu toetust</string>
+
+    <!--Telemetry-->
+    <string name="dialog_telemetry_title">Telemeetria</string>
+    <string name="dialog_telemetry_message">Tere, kallis kasutaja\n\nSa saad nüüd aidata AdAway arendusele kaasa, jagades oma krahhiaruandeid ja põhilist kasutusteavet. Kogu teave on anonüümne ning telemeetria lubatakse vaid siis, kui sina sellega nõustud.\n\nRohkem teavet leiad <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>ist.</string>
+    <string name="dialog_telemetry_enable">Kindlasti, aitan hea meelega!</string>
+    <string name="dialog_telemetry_disable">Tänan ei</string>
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">DNS-taotlused</string>
+    <string name="shortcut_your_lists">Sinu loendid</string>
     <string name="shortcut_preferences">Eelistused</string>
 
-    </resources>
+    <!--Hosts source status-->
+    <string name="hosts_source_up_to_date">%1$s on kaasaegne</string>
+    <string name="hosts_source_need_update">%1$s vajab uuendust</string>
+    <string name="hosts_source_last_update">Viimane uuendus %1$s tagasi</string>
+    <string name="hosts_source_unknown_status">Uuenduste olek teadmata</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minutit</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d tund</item>
+        <item quantity="other">%d tundi</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d päev</item>
+        <item quantity="other">%d päeva</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d kuu</item>
+        <item quantity="other">%d kuud</item>
+    </plurals>
+
+</resources>

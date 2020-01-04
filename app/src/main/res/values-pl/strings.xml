@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Pomyślnie włączono</string>
     <string name="disable_systemless_successful">Wyłączyłeś tryb bez systemu.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
     <string name="disable_systemless_successful_title">Wyłączono poprawnie</string>
+    <string name="enable_systemless_magisk_title">Włączanie modułu Magisk dla hostów</string>
+    <string name="enable_systemless_magisk">Włącz funkcję hostów bezsystemowych w menedżerze Magisk. W ustawieniach włącz opcję <cite>Hosty bez systemu</cite>, a następnie uruchom ponownie urządzenie.</string>
+    <string name="disable_systemless_magisk_title">Wyłączanie modułu Magisk hostów</string>
+    <string name="disable_systemless_magisk">Wyłącz funkcję bezsystemowych hostów w menedżerze Magisk. Z listy modułów odinstaluj moduł <cite>Hosty bez systemu</cite>, a następnie uruchom ponownie urządzenie.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">Nie można znaleźć su binary lub nie zezwoliłeś AdAway na dostęp roota. To może się zdarzyć, gdy urządzenie nie jest zrootowane. Możesz znaleźć informacje o tym, jak zrootować swoje urządzenie na stronie wiki.lineageos.org lub innej stronie z Androidem.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Niestandardowy plik docelowy</string>
     <string name="pref_custom_target_summary">Używaj tylko gdy docelowy plik hosts jest ustawiony na niestandardowy</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Otwórz menu</string>
     <string name="drawer_close">Zamknij menu</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Ekran główny</item>
         <item>Źródła hostów</item>

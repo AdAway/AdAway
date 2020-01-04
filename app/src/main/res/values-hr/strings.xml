@@ -131,7 +131,6 @@
     <string name="enable_systemless_successful_title">Uspješno omogućeno</string>
     <string name="disable_systemless_successful">Onemogućili ste bezsustavski način rada.\nPonekada je potrebno ponovno pokrenuti Android za primijenjivanje promjena.\n\nŽelite li ponovno pokrenuti Android?\n(Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="disable_systemless_successful_title">Uspješno onemogućeno</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Nemoguće je pronaći su izvršnu datoteku ili AdAway nema root dozvole.\n\nOvo se može dogoditi kada vaš uređaj nije rootan. \n Možete pronaći informacije o rootanju vašeg uređaja na wiki.lineageos.org ili na drugim Android web stranicama.</string>
     <string name="no_root_title">Potreban je rootani Android</string>
@@ -220,6 +219,7 @@
     <string name="pref_custom_target">Prilagođena lokacija</string>
     <string name="pref_custom_target_summary">Koristi se samo ako je odredišna datoteka poslužitelja postavljena na prilagođenu lokaciju</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +253,7 @@
     <string name="drawer_open">Otvori izbornik</string>
     <string name="drawer_close">Zatvori izbornik</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Naslovnica</item>
         <item>Izvori poslužitelja</item>

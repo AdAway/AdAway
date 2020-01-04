@@ -132,7 +132,6 @@
     <string name="enable_systemless_successful_title">تم التنفيذ بنجاح</string>
     <string name="disable_systemless_successful">تم تعطيل الوضع اللّانظامي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
     <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">إما تطبيق سو بيناري غير موجود أو لم يسمح بالوصول إلى صلاحيات root   لتطبيق AdAway . هذا يمكن أن يحدث عندما يكون جهازك لا يعطي صلاحية ل root  ،
 يمكنك أن تجد معلومات عن طريقة و صلاحية root  على wiki.lineageos.org ، أو مواقع اندرويد الأخرى.</string>
@@ -222,6 +221,7 @@
     <string name="pref_custom_target">مسار مخصص</string>
     <string name="pref_custom_target_summary">استخدمه فقط إذا حدد مسار مخصص لملفات المضيف</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -255,7 +255,7 @@
     <string name="drawer_open">فتح القائمة</string>
     <string name="drawer_close">إغلاق القائمة</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>الصفحة الرئيسية</item>
         <item>مصادر المضيف</item>

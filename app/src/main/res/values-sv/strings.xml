@@ -50,7 +50,12 @@
     <string name="list_dialog_wildcard">(Jokertecknen * och ? är tillåtna)</string>
     <string name="list_dialog_ip">IP-adress (IPv4 eller IPv6):</string>
     <string name="import_dialog">Importerar...</string>
+    <string name="import_success">Säkerhetskopian importerades från din extern lagring.</string>
+    <string name="import_failed">Det gick inte att importera säkerhetskopian. Är dess format rätt? Kolla logcat för mer detaljer.</string>
     <string name="export_dialog">Exporterar...</string>
+    <string name="export_success">Säkerhetskopian exporterades till filen \"adaway-backup.json\" på din externa lagringsenhet.</string>
+    <string name="export_failed">Det gick inte att exportera säkerhetskopian.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Värdfilen</string>
     <string name="hosts_description">Värdfilen (HOSTS) är en systemfil som mappar om värdnamn till IP-adresser. Det är en vanlig textfil som AdAway kan hantera. Här är några rader från början av filen:</string>
@@ -126,7 +131,6 @@
     <string name="enable_systemless_successful_title">Aktivering lyckades</string>
     <string name="disable_systemless_successful">Du inaktiverade systemlöst läge.\nDet kan bli nödvändigt att starta om enheten för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra dataförlust se till att ingen app använder SD-kortet för tillfället!)</string>
     <string name="disable_systemless_successful_title">Inaktivering lyckades</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Antingen så kunde binärfilen för su inte hittas eller så tillät du inte root-åtkomst för AdAway.\n\nDetta kan hända när din enhet inte är rootad.\nDu kan hitta mer information om hur du rootar din enhet på wiki.lineageos.org eller andra Android-hemsidor.</string>
     <string name="no_root_title">Rootad Android krävs</string>
@@ -143,6 +147,9 @@
     <string name="menu_add">Lägg till</string>
     <string name="menu_hosts_sources">Värdkällor</string>
     <string name="menu_help">Hjälp</string>
+    <string name="menu_import">Importera säkerhetskopia</string>
+    <string name="menu_export">Exportera säkerhetskopia</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
@@ -212,6 +219,7 @@
     <string name="pref_custom_target">Anpassat mål</string>
     <string name="pref_custom_target_summary">Används bara om vald målvärdfil är satt till ett anpassat mål</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -246,7 +254,7 @@
     <string name="drawer_open">Öppna meny</string>
     <string name="drawer_close">Stäng meny</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Hem</item>
         <item>Värdkällor</item>

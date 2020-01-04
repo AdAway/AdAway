@@ -28,7 +28,16 @@
     <string name="apply_dialog">Estase a aplicar...</string>
     <string name="menu_add">Engadir</string>
     <string name="menu_help">Axuda</string>
-    <!--Drawer menu items-->
+    <string name="help_tab_faq">FAQ</string>
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Hosts sources</item>
@@ -37,6 +46,6 @@
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
         <item>Preferences</item>
-        <item>Help</item>
+        <item>Axuda</item>
     </string-array>
     </resources>

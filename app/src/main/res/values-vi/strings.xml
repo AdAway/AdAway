@@ -76,7 +76,6 @@
     <string name="no_private_file_title">Tạo tập tin riêng thất bại</string>
     <string name="enable_systemless_successful_title">Kích hoạt thành công</string>
     <string name="disable_systemless_successful_title">Vô hiệu hóa thành công</string>
-
     <!--Other Dialogs-->
     <string name="no_root_description">Không tìm thấy tập tin su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại wiki.lineageos.org hoặc ở các trang web về Android khác.</string>
     <string name="no_root_title">Yêu cầu Android đã root</string>
@@ -127,6 +126,7 @@
     <string name="pref_custom_target">Đích tự chọn</string>
     <string name="pref_custom_target_summary">Chỉ dùng nếu tập tin miền mục tiêu được đặt làm đích tự chọn</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -148,7 +148,7 @@
     <string name="pref_enable_ipv6">Bật IPv6</string>
     <string name="pref_enable_systemless_summary">Ngăn AdAway khỏi chỉnh sửa phân vùng hệ thống</string>
     <string name="pref_enable_systemless">kích hoạt chế độ systemless</string>
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Các nguồn miền</item>

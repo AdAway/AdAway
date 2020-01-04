@@ -50,7 +50,12 @@
     <string name="list_dialog_wildcard">（ワイルドカード文字 「*」 および 「?」 が使用できます）</string>
     <string name="list_dialog_ip">IP (IPv4 か IPv6):</string>
     <string name="import_dialog">インポート中...</string>
+    <string name="import_success">外部ストレージからバックアップが正常にインポートされました。</string>
+    <string name="import_failed">バックアップのインポートに失敗しました。 バックアップの形式は正しいですか? 詳細は、 logcat を確認してください。</string>
     <string name="export_dialog">エクスポート中...</string>
+    <string name="export_success">バックアップは、外部ストレージ上の \"adaway-backup.json\" に正常にエクスポートされました。</string>
+    <string name="export_failed">バックアップのエクスポートに失敗しました。</string>
+
     <!--Hosts content-->
     <string name="hosts_header">hostsファイル</string>
     <string name="hosts_description">hostsファイルはホスト名をIPアドレスに対応させるシステムファイルです。 AdAwayが処理する設定が書かれたただのテキストファイルです。 最初の数行はこんな感じです：</string>
@@ -67,6 +72,8 @@
     <string name="status_no_connection_subtitle">ネットに接続されていません</string>
     <string name="status_download_fail">取得先が利用できません</string>
     <string name="status_download_fail_subtitle_new">どのhosts 取得先にも接続できません！</string>
+    <string name="status_root_access_denied">ルートアクセスが拒否されました</string>
+    <string name="status_root_access_denied_subtitle">ルートアプリからのルート アクセスを許可する</string>
     <string name="status_failure">何らかの不具合が起きました</string>
     <string name="status_failure_subtitle">詳細は logcat をチェックしてください</string>
     <string name="status_enabled">有効です</string>
@@ -111,6 +118,7 @@
     <string name="apply_dialog_apply">hostsファイルを適用中</string>
     <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定で対象とする hosts ファイルを /data/data/hosts に変更してみてください。</string>
     <string name="apply_fail_title">適用に失敗</string>
+    <string name="root_access_fail">ルート管理アプリをチェックして、ルートアクセスが許可されていることを確認してください。</string>
     <string name="revert_successful">デフォルトの hosts ファイルに差し戻しました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
     <string name="revert_successful_title">元に戻しました</string>
     <string name="revert_problem">何らかの理由により元に戻せませんでした</string>
@@ -123,6 +131,10 @@
     <string name="enable_systemless_successful_title">有効化は成功です</string>
     <string name="disable_systemless_successful">システムレスモードを無効にしました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
     <string name="disable_systemless_successful_title">無効化は成功です</string>
+    <string name="enable_systemless_magisk_title">Magisk の hosts モジュールの有効化</string>
+    <string name="enable_systemless_magisk">Magisk マネージャーから Systemless hosts 機能を有効にします。設定から Systemless hosts オプションを有効にしてから、デバイスを再起動します。</string>
+    <string name="disable_systemless_magisk_title">Magisk の hosts モジュールの無効化</string>
+    <string name="disable_systemless_magisk">Magisk マネージャー から Systemless hosts 機能を無効にします。モジュールリストから、 Systemless hosts モジュールをアンインストールしてから、デバイスを再起動します。</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\nこれはデバイスがルート化されていない場合に発生します。\nデバイスをルート化する方法については Android 関連のウェブサイトや wiki.lineageos.org などで見つかります。</string>
@@ -140,6 +152,9 @@
     <string name="menu_add">追加</string>
     <string name="menu_hosts_sources">hosts 取得先</string>
     <string name="menu_help">ヘルプ</string>
+    <string name="menu_import">バックアップのインポート</string>
+    <string name="menu_export">バックアップのエクスポート</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
@@ -193,6 +208,10 @@
     <string name="pref_update_check">更新を確認</string>
     <string name="pref_apply_method">ターゲットhostsファイル</string>
     <string name="pref_apply_method_summary">この設定を変える前にこの機能についてヘルプを読んでください。</string>
+    <string name="pref_redirection_ipv4">IPv4 にリダイレクトする</string>
+    <string name="pref_redirection_ipv4_summary">ブロックされたすべてのホスト名は、この IPv4 アドレスにリダイレクトされます。</string>
+    <string name="pref_redirection_ipv6">IPv6 にリダイレクトする</string>
+    <string name="pref_redirection_ipv6_summary">ブロックされたすべてのホスト名は、この IPv6 アドレスにリダイレクトされます。</string>
     <string name="pref_header_preferences">設定</string>
     <string name="pref_header_preferences_summary">AdAwayの基本的な設定</string>
     <string name="pref_never_reboot">再起動ダイアログを非表示</string>
@@ -205,6 +224,7 @@
     <string name="pref_custom_target">カスタムターゲット</string>
     <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -231,13 +251,14 @@
     <string name="pref_enable_telemetry">動作停止の報告を有効にする</string>
     <string name="pref_enable_telemetry_summary">このアプリがエラーや動作停止の報告を Sentry (sentry.io) に送信するのを許可します。</string>
     <string name="pref_enable_ipv6">IPv6の有効化</string>
+    <string name="pref_enable_ipv6_summary">すべてのホスト ファイル エントリは、対応するリダイレクト エントリを取得します。</string>
     <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
     <string name="pref_enable_systemless">systemlessモードを有効にする</string>
     <string name="pref_edit_text_value">テキスト設定値を編集する</string>
     <string name="drawer_open">メニューを開く</string>
     <string name="drawer_close">メニューを閉じる</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>ホーム</item>
         <item>hostsのソース</item>

@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">Ativação bem-sucedida</string>
     <string name="disable_systemless_successful">Desativou o modo \"systemless\".\nPoderá ser necessário reiniciar o Android para que as alterações surtam efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
     <string name="disable_systemless_successful_title">Desativação bem-sucedida</string>
+    <string name="enable_systemless_magisk_title">Ativar systemless hosts</string>
+    <string name="enable_systemless_magisk">Ativar opção systemless hosts a partir do gestor Magisk. Nas definições do Magisk, ativar a opção <cite>Systemless hosts </cite> e de seguida reinicie o dispositivo. </string>
+    <string name="disable_systemless_magisk_title">Desativar módulo hosts do Magisk</string>
+    <string name="disable_systemless_magisk">Desativar opção systemless hosts no Magisk manager.  Na lista de módulos, desinstalar o módulo <cite>Systemless hosts</cite> e de seguida reiniciar o dispositivo.</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">O binário su não foi encontrado ou não concedeu permissões de \"root\" ao AdAway.\n\nIsto pode acontecer quando o seu dispositivo não tem \"root\".\nPode encontrar informações sobre como fazer \"root\" ao seu dispositivo em wiki.lineageos.org ou noutros websites sobre Android.</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">Destino personalizado</string>
     <string name="pref_custom_target_summary">Apenas utilizado se o ficheiro de hosts de destino estiver definido para um destino personalizado</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">Abrir menu</string>
     <string name="drawer_close">Fechar menu</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Início</item>
         <item>Fontes de hosts</item>

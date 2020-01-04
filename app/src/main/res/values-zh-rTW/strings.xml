@@ -131,6 +131,10 @@
     <string name="enable_systemless_successful_title">啟用成功</string>
     <string name="disable_systemless_successful">您停用了 systemless 模式。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="disable_systemless_successful_title">取消成功</string>
+    <string name="enable_systemless_magisk_title">啟用 Magisk hosts 模組</string>
+    <string name="enable_systemless_magisk">在 Magisk Manager 中啟用 systemless hosts 功能。請在該軟體的設定中，啟用<cite>Systemless hosts</cite>選項並重啟您的裝置。</string>
+    <string name="disable_systemless_magisk_title">停用 Magisk hosts 模組</string>
+    <string name="disable_systemless_magisk">在 Magisk Manager 中停用 systemless hosts 功能。請在該軟體的模組清單中，移除<cite>Systemless hosts</cite>模組並重啟您的裝置。</string>
 
     <!--Other Dialogs-->
     <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 wiki.lineageos.org 或其他相關的 Android 網站取得相關資訊。</string>
@@ -220,6 +224,7 @@
     <string name="pref_custom_target">自訂目標</string>
     <string name="pref_custom_target_summary">只用於 hosts 檔案被設定為自訂目標的情況</string>
 
+    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -253,7 +258,7 @@
     <string name="drawer_open">開啟選單</string>
     <string name="drawer_close">關閉選單</string>
 
-    <!--Drawer menu items-->
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>主畫面</item>
         <item>Hosts 來源</item>

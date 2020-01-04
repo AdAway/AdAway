@@ -19,12 +19,12 @@ And don't add newlines before or after p tags because of transifex -->
 <p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
 <ol>
 <li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
+<li>Gunakan <cite>volume bawah</cite> untuk memilih <cite>recovery</cite> kemudian <cite>power</cite> untuk menghidupkan itu.</li>
+<li>Di clockwork recovery pergi ke "menu partisi".</li>
+<li>Pilih <cite>mount /system</cite>, <cite>mount /sdcard</cite> dan <cite>mount /data</cite>.</li>
+<li>Masukkan kabel USBmu dan buka sebuah command line pada pcmu.</li>
 <li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>Mulai ulang perangkat dan tetapkan <cite>Target berkas hosts</cite> ke <cite>/data/hosts</cite> di preferensi AdAway.</li>
 <li>AdAway seharusnya bekerja sekarang.</li>
 </ol>
 </body>
