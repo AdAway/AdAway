@@ -271,8 +271,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/sourcesImageView"
+            <FrameLayout
+                android:id="@+id/sourcesFrameLayout"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
@@ -280,8 +280,23 @@
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.25"
-                app:srcCompat="@drawable/ic_collections_bookmark_24dp" />
+                app:layout_constraintWidth_percent="0.25">
+
+                <ProgressBar
+                    android:id="@+id/sourcesProgressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/sourcesImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/icon_update_status"
+                    app:srcCompat="@drawable/ic_collections_bookmark_24dp" />
+
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/upToDateSourcesTextView"
@@ -293,7 +308,7 @@
                 app:layout_constraintEnd_toStartOf="@id/checkForUpdateImageView"
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintHorizontal_weight="2"
-                app:layout_constraintStart_toEndOf="@id/sourcesImageView"
+                app:layout_constraintStart_toEndOf="@id/sourcesFrameLayout"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="3 up-to-date sources" />
 
@@ -316,7 +331,7 @@
                 app:layout_constraintEnd_toStartOf="@id/updateImageView"
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintHorizontal_weight="2"
-                app:layout_constraintStart_toEndOf="@id/sourcesImageView"
+                app:layout_constraintStart_toEndOf="@id/sourcesFrameLayout"
                 app:layout_constraintTop_toBottomOf="@id/upToDateSourcesTextView"
                 tools:text="2 outdated sources" />
 

@@ -93,6 +93,7 @@ public class NextActivity extends AppCompatActivity {
         bindAppVersion();
         bindHostCounter();
         bindSourceCounter();
+        bindPending();
         bindState();
         bindClickListeners();
         setUpBottomDrawer();
@@ -194,6 +195,20 @@ public class NextActivity extends AppCompatActivity {
         );
     }
 
+    private void bindPending() {
+        View sourcesImageView = findViewById(R.id.sourcesImageView);
+        View sourcesProgressBar = findViewById(R.id.sourcesProgressBar);
+        this.nextViewModel.getPending().observe(this, pending -> {
+            if (pending) {
+                hideView(sourcesImageView);
+                showView(sourcesProgressBar);
+            } else {
+                showView(sourcesImageView);
+                hideView(sourcesProgressBar);
+            }
+        });
+    }
+
     private void bindState() {
         TextView stateTextView = findViewById(R.id.stateTextView);
         this.nextViewModel.getState().observe(this, stateTextView::setText);
@@ -254,26 +269,9 @@ public class NextActivity extends AppCompatActivity {
     private void notifyUpdating(boolean updating) {
         TextView stateTextView = findViewById(R.id.stateTextView);
         if (updating) {
-            if (stateTextView.getVisibility() == VISIBLE) {
-                return;
-            }
-            stateTextView.setAlpha(0F);
-            stateTextView.setVisibility(VISIBLE);
-            stateTextView.animate()
-                    .alpha(1F)
-                    .setListener(null);
+            showView(stateTextView);
         } else {
-            if (stateTextView.getVisibility() == GONE) {
-                return;
-            }
-            stateTextView.animate()
-                    .alpha(0F)
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            stateTextView.setVisibility(GONE);
-                        }
-                    });
+            hideView(stateTextView);
         }
 
 //        Menu menu = this.appBar.getMenu();
@@ -281,6 +279,31 @@ public class NextActivity extends AppCompatActivity {
 //        if (updateItemMenu != null) {
 //            updateItemMenu.setIcon(updating ? R.drawable.ic_language_red : R.drawable.ic_sync_24dp);
 //        }
+    }
+
+    private void showView(View view) {
+        if (view.getVisibility() == VISIBLE) {
+            return;
+        }
+        view.setAlpha(0F);
+        view.setVisibility(VISIBLE);
+        view.animate()
+                .alpha(1F)
+                .setListener(null);
+    }
+
+    private void hideView(View view) {
+        if (view.getVisibility() == GONE) {
+            return;
+        }
+        view.animate()
+                .alpha(0F)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        view.setVisibility(GONE);
+                    }
+                });
     }
 
     /**

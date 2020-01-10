@@ -36,6 +36,7 @@ public class NextViewModel extends AndroidViewModel {
     private final HostsSourceDao hostsSourceDao;
     private final HostListItemDao hostListItemDao;
 
+    private final MutableLiveData<Boolean> pending;
     private final MediatorLiveData<String> state;
     private final MutableLiveData<HostError> error;
 
@@ -51,6 +52,7 @@ public class NextViewModel extends AndroidViewModel {
         this.hostsSourceDao = database.hostsSourceDao();
         this.hostListItemDao = database.hostsListItemDao();
 
+        this.pending = new MutableLiveData<>(false);
         this.state = new MediatorLiveData<>();
         this.state.addSource(this.sourceModel.getState(), this.state::setValue);
         this.state.addSource(this.adBlockModel.getState(), this.state::setValue);
@@ -93,6 +95,10 @@ public class NextViewModel extends AndroidViewModel {
         return this.hostsSourceDao.countOutdated();
     }
 
+    public LiveData<Boolean> getPending() {
+        return this.pending;
+    }
+
     public LiveData<String> getState() {
         return this.state;
     }
@@ -102,9 +108,13 @@ public class NextViewModel extends AndroidViewModel {
     }
 
     public void toggleAdBlocking() {
+        if (isTrue(this.pending)) {
+            return;
+        }
         AppExecutors.getInstance().diskIO().execute(() -> {
             try {
-                if (Boolean.TRUE == this.adBlockModel.isApplied().getValue()) {
+                this.pending.postValue(true);
+                if (isTrue(this.adBlockModel.isApplied())) {
                     this.adBlockModel.revert();
                 } else {
                     this.adBlockModel.apply();
@@ -112,29 +122,43 @@ public class NextViewModel extends AndroidViewModel {
             } catch (HostErrorException exception) {
                 Log.w(TAG, "Failed to toggle ad blocking.", exception);
                 this.error.postValue(exception.getError());
+            } finally {
+                this.pending.postValue(false);
             }
         });
     }
 
     public void update() {
+        if (isTrue(this.pending)) {
+            return;
+        }
         AppExecutors.getInstance().networkIO().execute(() -> {
             try {
+                this.pending.postValue(true);
                 this.sourceModel.checkForUpdate();
             } catch (HostErrorException exception) {
                 Log.w(TAG, "Failed to update.", exception);
                 this.error.postValue(exception.getError());
+            } finally {
+                this.pending.postValue(false);
             }
         });
     }
 
     public void sync() {
+        if (isTrue(this.pending)) {
+            return;
+        }
         AppExecutors.getInstance().networkIO().execute(() -> {
             try {
+                this.pending.postValue(true);
                 this.sourceModel.retrieveHostsSources();
                 this.adBlockModel.apply();
             } catch (HostErrorException exception) {
                 Log.w(TAG, "Failed to sync.", exception);
                 this.error.postValue(exception.getError());
+            } finally {
+                this.pending.postValue(false);
             }
         });
     }
@@ -145,5 +169,9 @@ public class NextViewModel extends AndroidViewModel {
                 sync();
             }
         });
+    }
+
+    private static boolean isTrue(LiveData<Boolean> liveData) {
+        return Boolean.TRUE == liveData.getValue();
     }
 }
