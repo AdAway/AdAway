@@ -118,7 +118,7 @@ public abstract class AdBlockModel {
     /**
      * Set log recoding.
      *
-     * @param recording {@code true} to record logs, {@false} otherwise.
+     * @param recording {@code true} to record logs, {@code false} otherwise.
      */
     public abstract void setRecordingLogs(boolean recording);
 
