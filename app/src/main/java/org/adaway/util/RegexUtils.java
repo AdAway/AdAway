@@ -23,16 +23,9 @@ package org.adaway.util;
 import com.google.common.net.InetAddresses;
 import com.google.common.net.InternetDomainName;
 
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexUtils {
-    /*
-     * To find hostname in DNS log
-     */
-    private static final String TCPDUMP_HOSTNAME_REGEX = "(A\\?|AAAA\\?)\\s(\\S+)\\.\\s";
-    private static final Pattern TCPDUMP_HOSTNAME_PATTERN = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
-
     private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
     public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
@@ -84,29 +77,6 @@ public class RegexUtils {
         } catch (IllegalArgumentException exception) {
             Log.d(Constants.TAG, "Invalid IP address: " + ip, exception);
             return false;
-        }
-    }
-
-    /**
-     * Gets hostname out of tcpdump log line
-     *
-     * @param input one line from dns log
-     * @return
-     */
-    public static String getTcpdumpHostname(String input) {
-        Matcher tcpdumpHostnameMatcher = TCPDUMP_HOSTNAME_PATTERN.matcher(input);
-
-        try {
-            if (tcpdumpHostnameMatcher.matches()) {
-                return tcpdumpHostnameMatcher.group(2);
-            } else {
-                Log.d(Constants.TAG, "Does not find: " + input);
-                return null;
-            }
-        } catch (Exception e) {
-            Log.e(Constants.TAG, "Error in getTcpdumpHostname", e);
-            // workaround for some devices that throws jni exceptions: just accept everything
-            return null;
         }
     }
 
