@@ -251,31 +251,23 @@ public class NextActivity extends AppCompatActivity {
         return false;
     }
 
-    private void notifyUpdating(boolean updating) { // TODO End animation development
+    private void notifyUpdating(boolean updating) {
         TextView stateTextView = findViewById(R.id.stateTextView);
-//        int height = stateTextView.getHeight();
-
         if (updating) {
             if (stateTextView.getVisibility() == VISIBLE) {
                 return;
             }
             stateTextView.setAlpha(0F);
             stateTextView.setVisibility(VISIBLE);
-//            stateTextView.setTranslationY(-height);
-
             stateTextView.animate()
                     .alpha(1F)
-//                    .translationY(0)
-                    .setDuration(300)
                     .setListener(null);
         } else {
             if (stateTextView.getVisibility() == GONE) {
                 return;
             }
             stateTextView.animate()
-//                    .setStartDelay(2000)
                     .alpha(0F)
-//                    .translationY(-height)
                     .setListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {
