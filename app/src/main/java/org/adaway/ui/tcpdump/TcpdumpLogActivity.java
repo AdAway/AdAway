@@ -45,7 +45,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import org.adaway.R;
 import org.adaway.db.entity.ListType;
 import org.adaway.helper.ThemeHelper;
-import org.adaway.ui.MainActivity;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
 import org.adaway.util.RegexUtils;
@@ -72,7 +71,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          */
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
-        this.setContentView(R.layout.tcpdump_log_activity);
+        setContentView(R.layout.tcpdump_log_activity);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(true);
@@ -87,7 +86,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          * Configure recycler view.
          */
         // Get recycler view
-        RecyclerView recyclerView = this.findViewById(R.id.tcpdump_log_list);
+        RecyclerView recyclerView = findViewById(R.id.tcpdump_log_list);
         recyclerView.setHasFixedSize(true);
         // Defile recycler layout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -118,7 +117,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = this.getMenuInflater();
+        MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.tcpdump_menu, menu);
         return true;
     }
@@ -126,12 +125,6 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                // app icon in Action Bar clicked; go home
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                return true;
             case R.id.sort:
                 this.mViewModel.toggleSort();
                 return true;
@@ -208,6 +201,6 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
     public void openHostInBrowser(@NonNull String hostName) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("http://" + hostName));
-        this.startActivity(intent);
+        startActivity(intent);
     }
 }

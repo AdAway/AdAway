@@ -70,7 +70,8 @@
             android:parentActivityName=".ui.next.NextActivity" />
         <activity
             android:name=".ui.tcpdump.TcpdumpLogActivity"
-            android:label="@string/shortcut_dns_requests" />
+            android:label="@string/shortcut_dns_requests"
+            android:parentActivityName=".ui.next.NextActivity" />
         <activity
             android:name=".ui.lists.ListsActivity"
             android:exported="false"
