@@ -40,6 +40,7 @@ import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.hosts.HostsSourcesActivity;
 import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
+import org.adaway.ui.tcpdump.TcpdumpLogActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
 import org.adaway.util.Log;
 
@@ -120,7 +121,7 @@ public class NextActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return this.showFragment(item.getItemId());
+        return showFragment(item.getItemId());
     }
 
     private void checkFirstStep() {
@@ -253,7 +254,11 @@ public class NextActivity extends AppCompatActivity {
     private boolean showFragment(@IdRes int actionId) {
         switch (actionId) {
             case R.id.drawer_preferences:
-                this.startPrefsActivity();
+                startPrefsActivity();
+                this.drawerBehavior.setState(STATE_HIDDEN);
+                return true;
+            case R.id.drawer_dns_logs:
+                startDnsLogActivity();
                 this.drawerBehavior.setState(STATE_HIDDEN);
                 return true;
             case R.id.action_update:
@@ -394,6 +399,12 @@ public class NextActivity extends AppCompatActivity {
         startActivity(new Intent(this, PrefsActivity.class));
     }
 
+    /**
+     * Start DNS log activity.
+     */
+    private void startDnsLogActivity() {
+        startActivity(new Intent(this, TcpdumpLogActivity.class));
+    }
 
     private void notifyAdBlocked(boolean adBlocked) {
         FrameLayout layout = findViewById(R.id.headerFrameLayout);
