@@ -35,7 +35,7 @@ public final class ShellUtils {
     }
 
     public static boolean isBundledExecutableRunning(String executable) {
-        return Shell.su("ps -a | grep " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec().isSuccess();
+        return Shell.su("ps -A | grep " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec().isSuccess();
     }
 
     public static boolean runBundledExecutable(Context context, String executable, String parameters) {
