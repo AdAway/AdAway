@@ -24,6 +24,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+
 /**
  * This class is an {@link AndroidViewModel} for the {@link TcpdumpLogActivity}.
  *
@@ -104,6 +106,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         item.setType(type);
         item.setRedirection(redirection);
         item.setEnabled(true);
+        item.setSourceId(USER_SOURCE_ID);
         // Insert host list item
         AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.insert(item));
         // Update log entries
