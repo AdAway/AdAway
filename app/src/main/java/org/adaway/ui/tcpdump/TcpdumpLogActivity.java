@@ -41,6 +41,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
 import org.adaway.db.entity.ListType;
@@ -81,7 +82,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          * Configure swipe layout.
          */
         SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipeRefresh);
-        swipeRefreshLayout.setOnRefreshListener(() -> this.mViewModel.updateDnsRequests());
+        swipeRefreshLayout.setOnRefreshListener(() -> this.mViewModel.updateLogs());
         /*
          * Configure recycler view.
          */
@@ -97,6 +98,19 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
         ListAdapter adapter = new TcpdumpLogAdapter(this);
         recyclerView.setAdapter(adapter);
         /*
+         * Configure fab.
+         */
+        FloatingActionButton floatingActionButton = findViewById(R.id.tcpdump_toggle_recording);
+        floatingActionButton.setOnClickListener(v -> this.mViewModel.toggleRecording());
+        this.mViewModel.isRecording().observe(
+                this,
+                recoding ->
+                        floatingActionButton.setImageResource(recoding ?
+                        R.drawable.ic_pause_24dp :
+                        R.drawable.ic_record_24dp
+                )
+        );
+        /*
          * Configure snackbar.
          */
         // Create install snackbar
@@ -105,14 +119,14 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          * Load data.
          */
         // Bind view model to the list view
-        this.mViewModel.getLogEntries().observe(this, logEntries -> {
+        this.mViewModel.getLogs().observe(this, logEntries -> {
             adapter.submitList(logEntries);
             swipeRefreshLayout.setRefreshing(false);
         });
         // Mark as loading data
         swipeRefreshLayout.setRefreshing(true);
         // Load initial data
-        this.mViewModel.updateDnsRequests();
+        this.mViewModel.updateLogs();
     }
 
     @Override
@@ -129,8 +143,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
                 this.mViewModel.toggleSort();
                 return true;
             case R.id.clear:
-                TcpdumpUtils.clearLogFile(this);
-                this.mViewModel.updateDnsRequests();
+                this.mViewModel.clearLogs();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

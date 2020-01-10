@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.model.hostsinstall;
+package org.adaway.model.root;
 
 class CommandException extends Exception {
 

@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui.tcpdump;
+package org.adaway.model.root;
 
 import android.content.Context;
 
@@ -43,13 +43,15 @@ import java.util.Set;
 
 import io.sentry.Sentry;
 
-import static org.adaway.util.Constants.TCPDUMP_EXECUTABLE;
 import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
 import static org.adaway.util.ShellUtils.killBundledExecutable;
 import static org.adaway.util.ShellUtils.mergeAllLines;
 import static org.adaway.util.ShellUtils.runBundledExecutable;
 
 class TcpdumpUtils {
+    private static final String TCPDUMP_EXECUTABLE = "tcpdump";
+    private static final String TCPDUMP_LOG = "dns_log.txt";
+
     /**
      * Private constructor.
      */
@@ -130,7 +132,7 @@ class TcpdumpUtils {
      * @return The tcpdump log file.
      */
     static File getLogFile(Context context) {
-        return new File(context.getCacheDir(), Constants.TCPDUMP_LOG);
+        return new File(context.getCacheDir(), TCPDUMP_LOG);
     }
 
     /**

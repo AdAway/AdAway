@@ -47,9 +47,6 @@ public class Constants {
 
     public static final String WEBSERVER_EXECUTABLE = "blank_webserver";
 
-    public static final String TCPDUMP_EXECUTABLE = "tcpdump";
-    public static final String TCPDUMP_LOG = "dns_log.txt";
-
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_HOSTS = ANDROID_SYSTEM_PATH + FILE_SEPARATOR
             + "etc" + FILE_SEPARATOR + HOSTS_FILENAME;

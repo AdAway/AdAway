@@ -1,21 +1,22 @@
 package org.adaway.ui.tcpdump;
 
 import android.app.Application;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.annotation.NonNull;
-
-import android.widget.Toast;
 
 import com.annimon.stream.Collectors;
 import com.annimon.stream.Stream;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
+import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.util.AppExecutors;
 
 import java.util.ArrayList;
@@ -29,42 +30,35 @@ import java.util.Map;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class TcpdumpLogViewModel extends AndroidViewModel {
-    /**
-     * The {@link HostListItem} DAO.
-     */
+    private final AdBlockModel adBlockModel;
     private final HostListItemDao hostListItemDao;
-    /**
-     * The tcpdump log entries (wrapped into {@link LiveData}.
-     */
     private final MutableLiveData<List<LogEntry>> logEntries;
-    /**
-     * The current log entry sort.
-     */
+    private final MutableLiveData<Boolean> recording;
     private LogEntrySort sort;
 
     public TcpdumpLogViewModel(@NonNull Application application) {
         super(application);
+        this.adBlockModel = ((AdAwayApplication) application).getAdBlockModel();
         this.hostListItemDao = AppDatabase.getInstance(this.getApplication()).hostsListItemDao();
         this.logEntries = new MutableLiveData<>();
+        this.recording = new MutableLiveData<>(this.adBlockModel.isRecordingLogs());
         this.sort = LogEntrySort.TOP_LEVEL_DOMAIN;
     }
 
-    public LiveData<List<LogEntry>> getLogEntries() {
+    public LiveData<List<LogEntry>> getLogs() {
         return this.logEntries;
     }
 
-    public void toggleSort() {
-        this.sortDnsRequests(this.sort == LogEntrySort.ALPHABETICAL ?
-                LogEntrySort.TOP_LEVEL_DOMAIN :
-                LogEntrySort.ALPHABETICAL
-        );
+    public void clearLogs() {
+        this.adBlockModel.clearLogs();
+        this.logEntries.postValue(Collections.emptyList());
     }
 
-    public void updateDnsRequests() {
+    public void updateLogs() {
         AppExecutors.getInstance().diskIO().execute(
                 () -> {
                     // Get tcpdump logs
-                    List<String> logs = TcpdumpUtils.getLogs(this.getApplication());
+                    List<String> logs = this.adBlockModel.getLogs();
                     // Create lookup table of host list item by host name
                     Map<String, HostListItem> hosts = Stream.of(this.hostListItemDao.getAll())
                             .collect(Collectors.toMap(HostListItem::getHost));
@@ -84,6 +78,23 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
                     this.logEntries.postValue(logItems);
                 }
         );
+    }
+
+    public void toggleSort() {
+        this.sortDnsRequests(this.sort == LogEntrySort.ALPHABETICAL ?
+                LogEntrySort.TOP_LEVEL_DOMAIN :
+                LogEntrySort.ALPHABETICAL
+        );
+    }
+
+    public LiveData<Boolean> isRecording() {
+        return this.recording;
+    }
+
+    public void toggleRecording() {
+        boolean recording = !this.adBlockModel.isRecordingLogs();
+        this.adBlockModel.setRecordingLogs(recording);
+        this.recording.postValue(recording);
     }
 
     public void addListItem(@NonNull String host, @NonNull ListType type, String redirection) {
@@ -136,7 +147,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         }
         // Notify user
         Toast.makeText(
-                this.getApplication(),
+                getApplication(),
                 this.sort.getName(),
                 Toast.LENGTH_SHORT
         ).show();

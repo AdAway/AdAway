@@ -11,6 +11,9 @@ import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.util.Log;
 import org.adaway.vpn.VpnService;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.model.error.HostError.DISABLE_VPN_FAIL;
 import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
@@ -24,6 +27,8 @@ public class VpnModel extends AdBlockModel {
     private static final String TAG = "VpnModel";
     private final HostListItemDao hostListItemDao;
     private final LruCache<String, Boolean> blockCache;
+    private final List<String> logs;
+    private boolean recordingLogs;
     private int requestCount;
 
     /**
@@ -41,6 +46,8 @@ public class VpnModel extends AdBlockModel {
                 return VpnModel.this.hostListItemDao.isHostBlocked(key);
             }
         };
+        this.logs = new ArrayList<>(128);
+        this.recordingLogs = false;
         this.requestCount = 0;
         this.applied.postValue(VpnService.isStarted(context));
     }
@@ -75,6 +82,26 @@ public class VpnModel extends AdBlockModel {
         }
     }
 
+    @Override
+    public boolean isRecordingLogs() {
+        return this.recordingLogs;
+    }
+
+    @Override
+    public void setRecordingLogs(boolean recording) {
+        this.recordingLogs = recording;
+    }
+
+    @Override
+    public List<String> getLogs() {
+        return this.logs;
+    }
+
+    @Override
+    public void clearLogs() {
+        this.logs.clear();
+    }
+
     /**
      * Checks if a host is blocked.
      *
@@ -90,6 +117,10 @@ public class VpnModel extends AdBlockModel {
             double missRate = 100D * (hits + misses) / misses;
             Log.d(TAG, "Host cache miss rate: " + missRate);
             this.requestCount = 0;
+        }
+        // Add host to logs
+        if (this.recordingLogs) {
+            this.logs.add(host);
         }
         // Check cache
         return this.blockCache.get(host);

@@ -55,7 +55,7 @@ public class TcpdumpFragment extends Fragment {
         final Activity activity = this.getActivity();
         try {
             // Check if tcpdump if running
-            this.mTcpdumpRunning = TcpdumpUtils.isTcpdumpRunning();
+//            this.mTcpdumpRunning = TcpdumpUtils.isTcpdumpRunning(); // TODO CLEAN
         } catch (Exception exception) {
             Log.e(Constants.TAG, "Unable to create root shell for tcpdump.", exception);
             this.mTcpdumpRunning = false;
@@ -69,20 +69,20 @@ public class TcpdumpFragment extends Fragment {
         tcpdumpEnableButton.setText(this.mTcpdumpRunning ? R.string.tcpdump_disable_monitoring : R.string.tcpdump_enable_monitoring);
         // Bind tcpdump enable button action listener to start/stop tcpdump
         tcpdumpEnableButton.setOnClickListener(buttonView -> {
-            // Check button checked state
-            if (this.mTcpdumpRunning) {
-                // Stop tcpdump
-                TcpdumpUtils.stopTcpdump();
-                // Update tcp running status
-                this.mTcpdumpRunning = false;
-                // Update button text
-                tcpdumpEnableButton.setText(R.string.tcpdump_enable_monitoring);
-            } else if (TcpdumpUtils.startTcpdump(activity)) {
-                // Update tcp running status
-                this.mTcpdumpRunning = true;
-                // Update button text
-                tcpdumpEnableButton.setText(R.string.tcpdump_disable_monitoring);
-            }
+            // Check button checked state   // TODO CLEAN
+//            if (this.mTcpdumpRunning) {
+//                // Stop tcpdump
+//                TcpdumpUtils.stopTcpdump();
+//                // Update tcp running status
+//                this.mTcpdumpRunning = false;
+//                // Update button text
+//                tcpdumpEnableButton.setText(R.string.tcpdump_enable_monitoring);
+//            } else if (TcpdumpUtils.startTcpdump(activity)) {
+//                // Update tcp running status
+//                this.mTcpdumpRunning = true;
+//                // Update button text
+//                tcpdumpEnableButton.setText(R.string.tcpdump_disable_monitoring);
+//            }
         });
         // Get open button
         Button openButton = view.findViewById(R.id.tcpdump_show_results);

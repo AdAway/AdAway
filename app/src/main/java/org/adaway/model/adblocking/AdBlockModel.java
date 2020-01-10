@@ -7,8 +7,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import org.adaway.model.error.HostErrorException;
-import org.adaway.model.hostsinstall.HostsInstallModel;
+import org.adaway.model.root.RootModel;
 import org.adaway.model.vpn.VpnModel;
+
+import java.util.List;
 
 /**
  * This class is the base model for all ad block model.
@@ -55,7 +57,7 @@ public abstract class AdBlockModel {
     public static AdBlockModel build(Context context, AdBlockMethod method) {
         switch (method) {
             case ROOT:
-                return new HostsInstallModel(context);
+                return new RootModel(context);
             case VPN:
                 return new VpnModel(context);
             default:
@@ -105,4 +107,30 @@ public abstract class AdBlockModel {
     protected void setState(@StringRes int stateResId, Object... details) {
         this.state.postValue(this.context.getString(stateResId, details));
     }
+
+    /**
+     * Get whether log are recoding or not.
+     *
+     * @return {@code true} if logs are recoding, {@code false} otherwise.
+     */
+    public abstract boolean isRecordingLogs();
+
+    /**
+     * Set log recoding.
+     *
+     * @param recording {@code true} to record logs, {@false} otherwise.
+     */
+    public abstract void setRecordingLogs(boolean recording);
+
+    /**
+     * Get logs.
+     *
+     * @return The logs sorted by date, older first.
+     */
+    public abstract List<String> getLogs();
+
+    /**
+     * Clear logs.
+     */
+    public abstract void clearLogs();
 }

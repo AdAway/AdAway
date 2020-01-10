@@ -2,6 +2,9 @@ package org.adaway.model.adblocking;
 
 import android.content.Context;
 
+import java.util.List;
+
+import static java.util.Collections.emptyList;
 import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
 
 /**
@@ -31,6 +34,26 @@ public class UndefinedBlockModel extends AdBlockModel {
 
     @Override
     public void revert() {
+
+    }
+
+    @Override
+    public boolean isRecordingLogs() {
+        return false;
+    }
+
+    @Override
+    public void setRecordingLogs(boolean recording) {
+
+    }
+
+    @Override
+    public List<String> getLogs() {
+        return emptyList();
+    }
+
+    @Override
+    public void clearLogs() {
 
     }
 }
