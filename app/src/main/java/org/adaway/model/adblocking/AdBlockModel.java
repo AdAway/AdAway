@@ -125,7 +125,7 @@ public abstract class AdBlockModel {
     /**
      * Get logs.
      *
-     * @return The logs sorted by date, older first.
+     * @return The logs unique and sorted by date, older first.
      */
     public abstract List<String> getLogs();
 

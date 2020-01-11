@@ -12,6 +12,7 @@ import org.adaway.util.Log;
 import org.adaway.vpn.VpnService;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
@@ -27,7 +28,7 @@ public class VpnModel extends AdBlockModel {
     private static final String TAG = "VpnModel";
     private final HostListItemDao hostListItemDao;
     private final LruCache<String, Boolean> blockCache;
-    private final List<String> logs;
+    private final LinkedHashSet<String> logs;
     private boolean recordingLogs;
     private int requestCount;
 
@@ -46,7 +47,7 @@ public class VpnModel extends AdBlockModel {
                 return VpnModel.this.hostListItemDao.isHostBlocked(key);
             }
         };
-        this.logs = new ArrayList<>(128);
+        this.logs = new LinkedHashSet<>();
         this.recordingLogs = false;
         this.requestCount = 0;
         this.applied.postValue(VpnService.isStarted(context));
@@ -94,7 +95,7 @@ public class VpnModel extends AdBlockModel {
 
     @Override
     public List<String> getLogs() {
-        return this.logs;
+        return new ArrayList<>(this.logs);
     }
 
     @Override
