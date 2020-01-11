@@ -29,6 +29,9 @@ public interface HostListItemDao {
     @Delete
     void delete(HostListItem item);
 
+    @Query("DELETE FROM hosts_lists WHERE source_id = 1 AND host = :host")
+    void deleteUserFromHost(String host);
+
     @Query("SELECT host FROM hosts_lists WHERE type = 0 AND enabled = 1")
     List<String> getEnabledBlackListHosts();
 

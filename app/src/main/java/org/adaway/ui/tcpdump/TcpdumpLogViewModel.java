@@ -41,7 +41,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
     public TcpdumpLogViewModel(@NonNull Application application) {
         super(application);
         this.adBlockModel = ((AdAwayApplication) application).getAdBlockModel();
-        this.hostListItemDao = AppDatabase.getInstance(this.getApplication()).hostsListItemDao();
+        this.hostListItemDao = AppDatabase.getInstance(application).hostsListItemDao();
         this.logEntries = new MutableLiveData<>();
         this.recording = new MutableLiveData<>(this.adBlockModel.isRecordingLogs());
         this.sort = LogEntrySort.TOP_LEVEL_DOMAIN;
@@ -114,14 +114,10 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
     }
 
     public void removeListItem(@NonNull String host) {
-        // Create new host list item to delete
-        HostListItem item = new HostListItem();
-        item.setHost(host);
-        // Insert host list item
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.delete(item));
+        // Delete host list item
+        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.deleteUserFromHost(host));
         // Update log entries
         updateLogEntryType(host, null);
-
     }
 
     private void updateLogEntryType(@NonNull String host, ListType type) {
