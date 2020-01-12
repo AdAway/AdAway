@@ -6,8 +6,8 @@ import android.util.LruCache;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.model.adblocking.AdBlockMethod;
-import org.adaway.model.error.HostErrorException;
 import org.adaway.model.adblocking.AdBlockModel;
+import org.adaway.model.error.HostErrorException;
 import org.adaway.util.Log;
 import org.adaway.vpn.VpnService;
 
@@ -16,7 +16,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
-import static org.adaway.model.error.HostError.DISABLE_VPN_FAIL;
 import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
 
 /**
@@ -74,13 +73,9 @@ public class VpnModel extends AdBlockModel {
     }
 
     @Override
-    public void revert() throws HostErrorException {
+    public void revert() {
         VpnService.stop(this.context);
-        boolean started = VpnService.isStarted(this.context);
-        this.applied.postValue(started);
-        if (started) {
-            throw new HostErrorException(DISABLE_VPN_FAIL);
-        }
+        this.applied.postValue(false);
     }
 
     @Override
