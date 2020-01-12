@@ -114,7 +114,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          * Configure snackbar.
          */
         // Create install snackbar
-        this.mInstallSnackbar = new HostsInstallSnackbar(swipeRefreshLayout);
+        this.mInstallSnackbar = new HostsInstallSnackbar(swipeRefreshLayout, false);
         /*
          * Load data.
          */

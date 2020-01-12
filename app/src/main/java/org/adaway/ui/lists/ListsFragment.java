@@ -87,7 +87,7 @@ public class ListsFragment extends Fragment {
         // Get lists layout to attached snackbar to
         CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
         // Create install snackbar
-        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout);
+        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout, false);
         // Bind snackbar to view models
         this.listsViewModel = ViewModelProviders.of(activity).get(ListsViewModel.class);
         this.listsViewModel.getUserListItems().observe(this, installSnackbar.createObserver());

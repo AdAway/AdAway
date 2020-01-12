@@ -95,7 +95,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         // Get lists layout to attached snackbar to
         CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
         // Create install snackbar
-        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout);
+        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout, true);
         installSnackbar.setIgnoreEventDuringInstall(true);
         // Bind snakbar to view models
         this.mViewModel.getHostsSources().observe(this, installSnackbar.createObserver());

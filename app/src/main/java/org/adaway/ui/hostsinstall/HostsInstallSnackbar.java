@@ -32,7 +32,11 @@ public class HostsInstallSnackbar {
     /**
      * The view to bind the snackbar to.
      */
-    private View mView;
+    private final View mView;
+    /**
+     * To synchronize sources before installing or not.
+     */
+    private final boolean syncSources;
     /**
      * The current hosts update available status ({@code true} if update available, {@code false} otherwise).
      */
@@ -57,10 +61,12 @@ public class HostsInstallSnackbar {
     /**
      * Constructor.
      *
-     * @param view The view to bind the snackbar to.
+     * @param view        The view to bind the snackbar to.
+     * @param syncSources To synchronize sources before installing or not.
      */
-    public HostsInstallSnackbar(@NonNull View view) {
+    public HostsInstallSnackbar(@NonNull View view, boolean syncSources) {
         this.mView = view;
+        this.syncSources = syncSources;
         this.update = false;
         this.skipUpdate = false;
         this.ignoreEventDuringInstall = false;
@@ -135,9 +141,11 @@ public class HostsInstallSnackbar {
             SourceModel sourceModel = application.getSourceModel();
             AdBlockModel hostsInstallModel = application.getAdBlockModel();
             try {
-                sourceModel.retrieveHostsSources();
+                if (this.syncSources) {
+                    sourceModel.retrieveHostsSources();
+                }
                 hostsInstallModel.apply();
-                this.endLoading(true);
+                endLoading(true);
             } catch (HostErrorException exception) {
                 this.endLoading(false);
             }
