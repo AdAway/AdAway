@@ -2,6 +2,7 @@ package org.adaway.ui.welcome;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.VpnService;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,12 +76,12 @@ public class WelcomeMethodFragment extends WelcomeFragment {
 
     private void enableVpnService(@SuppressWarnings("unused") @Nullable View view) {
         notifyRootDisabled(false);
-        Context context = this.getContext();
+        Context context = getContext();
         if (context == null) {
             return;
         }
         // Check user authorization
-        Intent prepareIntent = android.net.VpnService.prepare(context);
+        Intent prepareIntent = VpnService.prepare(context);
         if (prepareIntent == null) {
             notifyVpnEnabled();
         } else {
@@ -89,7 +90,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     }
 
     private void notifyRootEnabled() {
-        Context context = this.getContext();
+        Context context = getContext();
         if (context != null) {
             PreferenceHelper.setAbBlockMethod(context, ROOT);
         }
@@ -101,7 +102,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     private void notifyRootDisabled(boolean showDialog) {
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
-        Context context = this.getContext();
+        Context context = getContext();
         if (context != null && showDialog) {
             blockNext();
             new MaterialAlertDialogBuilder(context)
