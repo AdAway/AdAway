@@ -287,20 +287,21 @@ public class NextActivity extends AppCompatActivity {
     }
 
     private void showView(View view) {
-        if (view.getVisibility() == VISIBLE) {
-            return;
-        }
+        view.clearAnimation();
         view.setAlpha(0F);
         view.setVisibility(VISIBLE);
         view.animate()
                 .alpha(1F)
-                .setListener(null);
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        view.setVisibility(VISIBLE);
+                    }
+                });
     }
 
     private void hideView(View view) {
-        if (view.getVisibility() == GONE) {
-            return;
-        }
+        view.clearAnimation();
         view.animate()
                 .alpha(0F)
                 .setListener(new AnimatorListenerAdapter() {
