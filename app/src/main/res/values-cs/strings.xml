@@ -128,9 +128,14 @@
     <string name="no_private_file">Soukromý soubor nelze vytvořit.</string>
     <string name="no_private_file_title">Vytváření soukromého souboru selhalo</string>
     <string name="enable_systemless_successful">Povolili jste mód systemless.\nAby se změny projevily, může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
-    <string name="enable_systemless_successful_title">Povolování úspěšné</string>
+    <string name="enable_systemless_successful_title">Úspěšně povoleno</string>
     <string name="disable_systemless_successful">Zakázali jste mód systemless.\nAby se změny projevily, může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
-    <string name="disable_systemless_successful_title">Deaktivace úspěšná</string>
+    <string name="disable_systemless_successful_title">Úspěšně zakázáno</string>
+    <string name="enable_systemless_magisk_title">Povolování Magisk modulu hosts</string>
+    <string name="enable_systemless_magisk">Povolte funkci nesystémoví hostitelé v Magisk Manageru. V jeho nastavení povolte možnost <cite>Nesystémoví hostitelé</cite> a poté restartujte zařízení.</string>
+    <string name="disable_systemless_magisk_title">Zakazování Magisk modulu hosts</string>
+    <string name="disable_systemless_magisk">Zakažte funkci nesystémoví hostitelé v Magisk Manageru. V seznamu modulů odinstalujte modul <cite>Systemless Hosts</cite> a poté restartujte zařízení.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">Spustitelný soubor su nebyl nalezen nebo jste AdAway neudělili oprávnění ROOT.\n\nToto se může stát, pokud zařízení nemá ROOT přístup.\nInformace jak získat přístup ROOT naleznete na wiki.lineageos.org nebo jiných stránkách o Androidu.</string>
     <string name="no_root_title">Vyžaduje Android s root přístupem</string>
