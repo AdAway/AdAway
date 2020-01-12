@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
+import android.net.VpnService;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,6 +50,7 @@ import static android.view.View.VISIBLE;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN;
 import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
 import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
 import static org.adaway.ui.lists.ListsFragment.TAB;
@@ -126,9 +128,14 @@ public class NextActivity extends AppCompatActivity {
 
     private void checkFirstStep() {
         AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(this);
+        Intent prepareIntent;
         if (adBlockMethod == UNDEFINED) {
-            this.startActivity(new Intent(this, WelcomeActivity.class));
-            this.finish();
+            // Start welcome activity
+            startActivity(new Intent(this, WelcomeActivity.class));
+            finish();
+        } else if (adBlockMethod == VPN && (prepareIntent = VpnService.prepare(this)) != null) {
+            // Prepare VNP
+            startActivity(prepareIntent);
         }
     }
 
