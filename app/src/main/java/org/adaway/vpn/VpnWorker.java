@@ -72,7 +72,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     /* Upstream DNS servers, indexed by our IP */
     private final List<InetAddress> upstreamDnsServers = new ArrayList<>();
     private final android.net.VpnService vpnService;
-    private final Notifier notifier;
+    private final VpnStatusNotifier statusNotifier;
     /* Data to be written to the device */
     private final Queue<byte[]> deviceWrites = new LinkedList<>();
     // HashMap that keeps an upper limit of packets
@@ -90,9 +90,9 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
      */
     private int pcap4jFactoryClearCacheCounter = 0;
 
-    public VpnWorker(android.net.VpnService vpnService, Notifier notifier) {
+    public VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier statusNotifier) {
         this.vpnService = vpnService;
-        this.notifier = notifier;
+        this.statusNotifier = statusNotifier;
         this.dnsPacketProxy = new DnsPacketProxy(this);
     }
 
@@ -148,8 +148,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         // Initialize the watchdog
         vpnWatchDog.initialize(PreferenceHelper.getVpnWatchdogEnabled(vpnService));
 
-        if (notifier != null) {
-            notifier.accept(STARTING);
+        if (statusNotifier != null) {
+            statusNotifier.accept(STARTING);
         }
 
         int retryTimeout = MIN_RETRY_TIME;
@@ -162,8 +162,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 runVpn();
 
                 Log.i(TAG, "Told to stop");
-                if (notifier != null) {
-                    notifier.accept(STOPPING);
+                if (statusNotifier != null) {
+                    statusNotifier.accept(STOPPING);
                 }
                 break;
             } catch (InterruptedException e) {
@@ -173,13 +173,13 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 // are exceptions that we expect to happen from network errors
                 Log.w(TAG, "Network exception in vpn thread, ignoring and reconnecting", e);
                 // If an exception was thrown, show to the user and try again
-                if (notifier != null)
-                    notifier.accept(RECONNECTING_NETWORK_ERROR);
+                if (statusNotifier != null)
+                    statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
             } catch (Exception e) {
                 Log.e(TAG, "Network exception in vpn thread, reconnecting", e);
                 //ExceptionHandler.saveException(e, Thread.currentThread(), null);
-                if (notifier != null)
-                    notifier.accept(RECONNECTING_NETWORK_ERROR);
+                if (statusNotifier != null)
+                    statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
             }
 
             if (System.currentTimeMillis() - connectTimeMillis >= RETRY_RESET_SEC * 1000) {
@@ -199,8 +199,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 retryTimeout *= 2;
         }
 
-        if (notifier != null)
-            notifier.accept(STOPPED);
+        if (statusNotifier != null)
+            statusNotifier.accept(STOPPED);
         Log.i(TAG, "Exiting");
     }
 
@@ -220,8 +220,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             FileOutputStream outFd = new FileOutputStream(pfd.getFileDescriptor());
 
             // Now we are connected. Set the flag and show the message.
-            if (notifier != null)
-                notifier.accept(RUNNING);
+            if (statusNotifier != null)
+                statusNotifier.accept(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
             while (doOne(inputStream, outFd, packet))
@@ -535,7 +535,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 //    }
 
     @FunctionalInterface
-    interface Notifier extends Consumer<VpnStatus> {
+    interface VpnStatusNotifier extends Consumer<VpnStatus> {
     }
 
     static class VpnNetworkException extends Exception {

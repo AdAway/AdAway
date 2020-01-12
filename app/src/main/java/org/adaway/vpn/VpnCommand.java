@@ -14,18 +14,27 @@
  */
 package org.adaway.vpn;
 
-/**
- * Created by jak on 18/10/16.
- */
+import android.content.Context;
+import android.content.Intent;
 
 public enum VpnCommand {
-    START, STOP, PAUSE, RESUME;
+    START,
+    STOP;
 
-    public static VpnCommand fromExtra(int extra) {
-        return VpnCommand.values()[extra];
+    private static final String INTENT_EXTRA_COMMAND = "COMMAND";
+
+    public static VpnCommand fromIntent(Intent intent) {
+        VpnCommand command = START;
+        if (intent != null && intent.hasExtra(INTENT_EXTRA_COMMAND)) {
+            int ordinal = intent.getIntExtra(INTENT_EXTRA_COMMAND, command.ordinal());
+            command = VpnCommand.values()[ordinal];
+        }
+        return command;
     }
 
-    public int toExtra() {
-        return this.ordinal();
+    public Intent toIntent(Context context) {
+        Intent intent = new Intent(context, VpnService.class);
+        intent.putExtra(INTENT_EXTRA_COMMAND, this.ordinal());
+        return intent;
     }
 }

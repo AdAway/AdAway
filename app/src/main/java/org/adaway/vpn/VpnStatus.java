@@ -9,7 +9,6 @@ import java.util.Arrays;
 public enum VpnStatus {
     STARTING(10, R.string.vpn_notification_starting),
     RUNNING(11, R.string.vpn_notification_running),
-    PAUSED(12, R.string.vpn_notification_paused),
     STOPPING(20, R.string.vpn_notification_stopping),
     WAITING_FOR_NETWORK(21, R.string.vpn_notification_waiting_for_net),
     RECONNECTING(22, R.string.vpn_notification_reconnecting),
@@ -44,9 +43,5 @@ public enum VpnStatus {
 
     public boolean isStarted() {
         return this != STOPPED;
-    }
-
-    public boolean isPaused() {
-        return this == PAUSED;
     }
 }
