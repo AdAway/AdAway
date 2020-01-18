@@ -114,8 +114,7 @@ public class VpnService extends android.net.VpnService {
      */
     public static boolean start(Context context) {
         // Check if VPN is already running
-        VpnStatus status = PreferenceHelper.getVpnServiceStatus(context);
-        if (status.isStarted()) {
+        if (isStarted(context)) {
             return true;
         }
         // Start the VPN service

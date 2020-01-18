@@ -62,10 +62,7 @@ public class VpnModel extends AdBlockModel {
         // Clear cache
         this.blockCache.evictAll();
         // Start VPN
-        boolean started = VpnService.isStarted(this.context);
-        if (!started) {
-            started = VpnService.start(this.context);
-        }
+        boolean started = VpnService.start(this.context);
         this.applied.postValue(started);
         if (!started) {
             throw new HostErrorException(ENABLE_VPN_FAIL);
