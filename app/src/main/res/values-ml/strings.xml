@@ -3,7 +3,227 @@
 
     <string name="app_name">AdAway</string>
 
+    <!--Buttons-->
+    <string name="button_exit">പുറത്തേക് ഉള്ള വഴി </string>
+    <string name="button_close">അവസാനിപ്പിക്കുക</string>
+    <string name="button_yes">ആണ്</string>
+    <string name="button_no">അല്ല </string>
+    <string name="button_add">ചേർക്കുക </string>
+    <string name="button_cancel">ഉപേക്ഷിക്കുക </string>
+    <string name="button_save">സൂക്ഷിക്കുക </string>
+    <string name="button_webserver_toggle_text">തടഞ്ഞ ഹോസ്റ്റ്നാമങ്ങളിലേക്കുള്ള അഭ്യർത്ഥനകൾക്ക് ഉത്തരം നൽകാൻ ലോക്കൽഹോസ്റ്റിൽ വെബ്സർവർ ആരംഭിക്കുക അല്ലെങ്കിൽ നിർത്തുക.</string>
+    <string name="button_help">സഹായം </string>
+
+    <!--Home-->
+    <string name="header_help">സ്വാഗതം </string>
+    <string name="text_help">പരസ്യംചെയ്യൽ തടയുന്നതിനുള്ള ഒരു സൗജന്യ ,ഓപ്പൺ സോഴ്‌സ് സോഫ്റ്റ്വെയർ ഡിസൈനാണ് AdAway.നിങ്ങളുടെ ഉപകരണത്തിൽ പരസ്യങ്ങൾ തടയുന്നതിന് ഇത് പരസ്യ നെറ്റ്‌വർക്ക് വിലാസങ്ങൾ നേടുന്നു.കൂടുതൽ അറിയണോ?ചുവടെയുള്ള സഹായം പരിശോധിക്കുക!</string>
+    <string name="button_show_help">കൂടുതൽ സഹായം കാണിക്കുക</string>
+    <string name="icon_update_status">നില മെച്ചപ്പെടുത്തുക </string>
+    <string name="text_update">നിർവചിക്കപ്പെട്ട ഉറവിടങ്ങളിൽ നിന്നുള്ള എല്ലാ ഹോസ്റ്റ് ഫയലുകളും ഡൗൺലോഡ്‌ ചെയ്‌തു,നിങ്ങളുടെ സ്വന്തം ലിസ്റ്റുകളുമായി ലയിപ്പിച്ച് നിങ്ങളുടെ സിസ്റ്റത്തിൽ ഒരു ഹോസ്റ്റ് ഫയലായി ഇൻസ്റ്റാൾ ചെയ്തു</string>
+    <string name="button_check_update_hosts">അപ്‌ഡേറ്റുകൾക്കായി പരിശോധിക്കുക</string>
+    <string name="button_update_hosts">ഹോസ്റ്റ് അപ്‌ഡേറ്റുചെയ്യുക</string>
+    <string name="button_enable_hosts">പരസ്യ-തടയൽ പ്രാപ്തമാക്കുക</string>
+    <string name="button_disable_hosts">പരസ്യ-തടയൽ അപ്രാപ്തമാക്കുക</string>
+    <string name="header_webserver">വെബ് സെർവർ</string>
+    <string name="webserver_status_running">പ്രവർത്തിക്കുന്നു </string>
+    <string name="webserver_status_stopped">നിർത്തലാക്കപ്പെട്ടു </string>
+    <string name="button_enable_webserver">വെബ് സെർവർ പ്രാപ്തമാക്കുക</string>
+    <string name="button_disable_webserver">വെബ് സെർവർ അപ്രാപ്തമാക്കുക</string>
+
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_delete">നീക്കം ചെയ്യുക </string>
+    <string name="checkbox_list_context_title">ചേർത്തത് തിരുത്തുക </string>
+    <string name="checkbox_list_context_edit">തിരുത്തുക </string>
+
+    <!--Your lists-->
+    <string name="lists_tab_whitelist">വൈറ്റ്‌ലിസ്റ്റ്</string>
+    <string name="lists_tab_blacklist">ബ്ലാക്ക് ലിസ്റ്റ് </string>
+    <string name="lists_tab_redirection_list">വ്യതിചലിക്കുക </string>
+    <string name="list_add_dialog_black">ഹോസ്റ്റ് ബ്ലാക്ക് ലിസ്റ്റിലേക് ചേർക്കുക </string>
+    <string name="list_add_dialog_white">ഹോസ്റ്റ് ബ്ലാക്ക്‌ലിസ്റ്റിലേക് ചേർക്കുക </string>
+    <string name="list_add_dialog_redirect">ഹോസ്റ്റ് വ്യതിചലിക്കുന്നതിലെക് ചേർക്കുക </string>
+    <string name="list_edit_dialog_black">ബ്ലാക്ക് ലിസ്റ്റ് ചെയ്ത ഹോസ്റ്റ്കൾ തിരുത്തുക </string>
+    <string name="list_edit_dialog_white">വൈറ്റ് ലിസ്റ്റ് ചെയ്ത ഹോസ്റ്റ്കൾ തിരുത്തുക </string>
+    <string name="list_edit_dialog_redirect">വ്യതിചലനം തിരുത്തുക </string>
+    <string name="list_dialog_hostname">ഹോസ്റ്റ്നാമം</string>
+    <string name="list_dialog_hostname_hint">ഹോസ്റ്റ്കളുടെ ഉറവിടമായ URL </string>
+    <string name="list_dialog_wildcard">(വൈൽഡ്കാർഡ് പ്രതീകങ്ങൾ * ഉം ? അനുവദനീയമാണ്)</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+    <string name="import_dialog">ഇറക്കുമതി ചെയ്യുന്നു...</string>
+    <string name="import_success">നിങ്ങളുടെ ബാഹ്യ സംഭരണത്തിൽ നിന്ന് ബാക്കപ്പ് വിജയകരമായി ഇറക്കുമതി ചെയ്തു.</string>
+    <string name="import_failed">ബാക്കപ്പ് ഇറക്കുമതി ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.അതിന്റെ ഫോർമാറ്റ് ശരിയാണോ?കൂടുതൽ വിവരങ്ങൾക്ക് ലോഗ്കാറ്റ് പരിശോധിക്കുക.</string>
+    <string name="export_dialog">കയറ്റുമതി ചെയ്യുന്നു </string>
+    <string name="export_success">നിങ്ങളുടെ ബാഹ്യ സംഭരണത്തിലെ \'adaway-backup.json\' ഫയലിലേക്ക് ബാക്കപ്പ് വിജയകരമായി എക്‌സ്‌പോർട്ടുചെയ്‌തു.</string>
+    <string name="export_failed">ബാക്കപ്പ് എക്‌സ്‌പോർട്ടുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">ഹോസ്റ്റുകളുടെ ഫയൽ</string>
+    <string name="hosts_description">ഹോസ്റ്റ്നാമങ്ങൾ IP വിലാസങ്ങളിലേക്ക് മാപ്പ് ചെയ്യുന്ന ഒരു സിസ്റ്റം ഫയലാണ് ഹോസ്റ്റ്സ് ഫയൽ.AdAway കോൺഫിഗറേഷൻ കൈകാര്യം ചെയ്യുന്ന ഒരു പ്ലെയിൻ ടെക്സ്റ്റ് ഫയലാണിത്.അതിന്റെ ആദ്യ വരികൾ ഇതാ:</string>
+    <string name="hosts_content">ഹോസ്റ്റുകളുടെ ഫയൽ ഉള്ളടക്കം ലോഡുചെയ്യുന്നു...</string>
+    <string name="hosts_open_button">ഹോസ്റ്റുകളുടെ ഫയൽ തുറക്കുക</string>
+
+    <!--Status Notification-->
+    <string name="status_checking">നവീകരിക്കുന്നതിനായി പരിശോധിക്കുന്നു...</string>
+    <string name="status_reverting">പഴയപടിയാക്കുന്നു...</string>
+    <string name="status_reverting_subtitle">സ്റ്റാൻഡേർഡ് ഹോസ്റ്റ്  ഫയൽ സൃഷ്ടിക്കുന്നു</string>
+    <string name="status_update_available">നവീകരണം ലഭ്യമാണ്</string>
+    <string name="status_update_available_subtitle">പുതിയ ഹോസ്റ്റുകളുടെ ഫയലുകൾ ലഭ്യമാണ്</string>
+    <string name="status_no_connection">ഇന്റർനെറ്റ് കണക്ഷനില്ല</string>
+    <string name="status_no_connection_subtitle">ഇന്റർനെറ്റ് കണക്ഷനൊന്നും ലഭ്യമല്ല</string>
+    <string name="status_download_fail">ലഭ്യമല്ലാത്ത ഉറവിടങ്ങൾ</string>
+    <string name="status_download_fail_subtitle_new">ഹോസ്റ്റ് ഉറവിടങ്ങളൊന്നും എത്തിച്ചേരാനാവില്ല !</string>
+    <string name="status_root_access_denied">റൂട്ട് ആക്‌സസ്സ് നിരസിച്ചു</string>
+    <string name="status_root_access_denied_subtitle">നിങ്ങളുടെ റൂട്ട് അപ്ലിക്കേഷനിൽ നിന്ന് റൂട്ട് ആക്‌സസ്സ് അനുവദിക്കുക</string>
+    <string name="status_failure">എന്തോ കുഴപ്പം സംഭവിച്ചു</string>
+    <string name="status_failure_subtitle">കൂടുതൽ വിവരങ്ങൾക്ക് ലോഗ്കാറ്റ് പരിശോധിക്കുക</string>
+    <string name="status_enabled">പ്രവർത്തനക്ഷമമാക്കി</string>
+    <string name="status_enabled_subtitle">ഏറ്റവും പുതിയ ഹോസ്റ്റുകളുടെ ഫയലുകൾ പ്രവർത്തനക്ഷമമാക്കി</string>
+    <string name="status_disabled">അപ്രാപ്‌തമാക്കി</string>
+    <string name="status_disabled_subtitle">സ്ഥിരസ്ഥിതി ഹോസ്റ്റുകളുടെ ഫയൽ ഇൻസ്റ്റാൾ ചെയ്തു</string>
+    <string name="notification_channel_update_name">നവീകരങ്ങൾ </string>
+    <string name="notification_channel_update_description">പുതിയ ഹോസ്റ്റുകളുടെ അറിയിപ്പുകൾ നവീകരിക്കുന്നു </string>
+    <string name="notification_configuration_changed">നിങ്ങളുടെ രൂപരേഖ മാറ്റി.ഇത് പ്രയോഗിക്കുന്നതിന് നിങ്ങൾ ഹോസ്റ്റ്സ് ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യേണ്ടതുണ്ട്.</string>
+    <string name="notification_configuration_changed_action">പ്രയോഗിക്കുക</string>
+    <string name="notification_configuration_installing">ഹോസ്റ്റുകളുടെ ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യുന്നു…</string>
+    <string name="notification_configuration_failed">ഹോസ്റ്റ് ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing">നിങ്ങളുടെ ടാർഗെറ്റിൽ നിന്ന് / സിസ്റ്റം / etc / ഹോസ്റ്റുകളിലേക്കുള്ള സിംലിങ്ക് നിലവിലില്ല അല്ലെങ്കിൽ തെറ്റാണു ! ശരിയായ ഫയലിലേക്ക് പോയിന്റുചെയ്യുന്നില്ലെങ്കിൽ AdAway പ്രവർത്തിക്കില്ല.\n\nഒരു സിംലിങ്ക് സൃഷ്ടിക്കാൻ ശ്രമിക്കണോ?</string>
+    <string name="apply_symlink_missing_title">സിംലിങ്ക് കാണുന്നില്ല</string>
+    <string name="apply_not_enough_space">പാർട്ടീഷനിൽ മതിയായ ഇടമില്ല.\nടാർ‌ഗെറ്റ് ഹോസ്റ്റുകളുടെ ഫയൽ‌ / data / data / hosts നു മുൻഗണന മാറ്റാൻ ശ്രമിക്കുക.</string>
+    <string name="apply_not_enough_space_title">മതിയായ സ്ഥലമില്ല </string>
+    <string name="apply_private_file_fail">ഡൗൺലോഡുചെയ്‌ത ഫയൽ വായിക്കാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="apply_private_file_fail_title">സ്വകാര്യ ഫയൽ പരാജയപ്പെട്ടു</string>
+    <string name="apply_remount_fail">പാർട്ടീഷൻ read / write ആയി റീമൗണ്ട് ചെയ്യുന്നത് പരാജയപ്പെട്ടു</string>
+    <string name="apply_remount_fail_title">റീമൗണ്ട് പരാജയപെട്ടു </string>
+    <string name="apply_copy_fail">ഹോസ്റ്റുകളുടെ ഫയൽ പകർത്തുന്നത് പരാജയപ്പെട്ടു</string>
+    <string name="apply_copy_fail_title">പകർപ്പ് പരാജയപ്പെട്ടു</string>
+    <string name="apply_success_subtitle">പ്രയോഗിച്ച ഹോസ്റ്റുകളുടെ ഉറവിടങ്ങൾ</string>
+    <string name="apply_success_title">പ്രയോഗിക്കുന്നത് വിജയകരമാണ്</string>
+    <string name="apply_success_dialog">പ്രയോഗിച്ചിരുന്നത് വിജയകരമായിരുന്നു.\nമാറ്റങ്ങൾ പ്രാബല്യത്തിൽ വരാൻ ആൻഡ്രോയിഡ് റീബൂട്ട് ചെയ്യേണ്ടത് ആവശ്യമായി വന്നേക്കാം.\n\nനിങ്ങൾക്ക് റീബൂട്ട് ചെയ്യണോ?(ഡാറ്റ നഷ്‌ടപ്പെടുന്നത് തടയാൻ ഇപ്പോൾ ഒരു അപ്ലിക്കേഷനും എസ്ഡി.  കാർഡ് ഉപയോഗിക്കുന്നില്ലെന്ന് ഉറപ്പാക്കുക!)</string>
+    <string name="apply_symlink_successful">സിം‌ലിങ്ക് വിജയകരമായി സൃഷ്‌ടിച്ചു.\nമാറ്റങ്ങൾ പ്രാബല്യത്തിൽ വരാൻ ആൻഡ്രോയിഡ് റീബൂട്ട് ചെയ്യേണ്ടത് ആവശ്യമായി വന്നേക്കാം.\n\nനിങ്ങൾക്ക് റീബൂട്ട് ചെയ്യണോ?(ഡാറ്റ നഷ്‌ടപ്പെടുന്നത് തടയാൻ ഇപ്പോൾ ഒരു അപ്ലിക്കേഷനും എസ്ഡി. കാർഡ് ഉപയോഗിക്കുന്നില്ലെന്ന് ഉറപ്പാക്കുക!)</string>
+    <string name="apply_symlink_successful_title">സിംലിങ്ക് സൃഷ്ടിക്കൽ വിജയിച്ചു</string>
+    <string name="apply_symlink_fail">ആൻഡ്രോയ്‌ഡിന് സിംലിങ്ക് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.എച്ച്ടിസി ഫോണുകളിലെ എസ്-ഓൺ എന്ന സവിശേഷത കാരണം ഇത് പരാജയപ്പെടുന്നു!.നിങ്ങളുടെ ഫോൺ റിക്കവറി മോഡിലേക്ക് ബൂട്ട് ചെയ്ത് \'ln -s / data / data / host / system / etc / host\' ഉപയോഗിച്ച് സിംലിങ്ക് സൃഷ്ടിക്കുക എന്നതാണ് ഒരു പരിഹാരം.ഇത് പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ എസ്-ഓഫിനും നിങ്ങളുടെ ഫോണിനുമായി ഇന്റർനെറ്റിൽ തിരയുക.</string>
+    <string name="apply_symlink_fail_title">സിംലിങ്ക് സൃഷ്ടിക്കൽ പരാജയപ്പെട്ടു</string>
+    <string name="apply_help">കൂടുതൽ വിവരങ്ങൾക്ക് സഹായം വായിക്കുക.</string>
+    <string name="apply_apn_proxy">നിങ്ങളുടെ ആൻഡ്രോയിഡിൽ ഒരു APN പ്രോക്‌സി സജ്ജമാക്കി!3 ജി പോലുള്ള മൊബൈൽ നെറ്റ്‌വർക്കുകളിൽ ആയിരിക്കുമ്പോൾ AdAway വിശ്വസനീയമായി പ്രവർത്തിക്കില്ല.നിങ്ങൾ തിരഞ്ഞെടുത്ത APN- ലേക്ക് പോയി (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) ആ പ്രോക്സി നിർജ്ജീവമാക്കി പ്രോക്സി ഫീൽഡിലെ മൂല്യം നീക്കംചെയ്യാം.</string>
+    <string name="apply_apn_proxy_title">APN പ്രോക്സി നേരെയാക്കി!</string>
+    <string name="no_connection">ഇന്റർനെറ്റിലേക്കുള്ള കണക്ഷൻ പ്രവർത്തിക്കുന്നില്ല.</string>
+    <string name="no_connection_title">ബന്ധമില്ല</string>
+    <string name="download_dialog">ഡൗൺലോഡുചെയ്യുന്നു...</string>
+    <string name="apply_dialog">പ്രയോഗിക്കുന്നു…</string>
+    <string name="apply_dialog_lists">ബ്ലാക്ക് ലിസ്റ്റും വൈറ്റ്‌ലിസ്റ്റും പ്രയോഗിക്കുന്നു</string>
+    <string name="apply_dialog_hostnames">ഹോസ്റ്റ് ഫയലുകൾ വിശകലനം ചെയ്യുകയും ലയിപ്പിക്കുകയും ചെയ്യുന്നു</string>
+    <string name="apply_dialog_hosts">ഹോസ്റ്റുകളുടെ ഫയൽ നിർമ്മിക്കുന്നു</string>
+    <string name="apply_dialog_apply">ഹോസ്റ്റുകളുടെ ഫയൽ പ്രയോഗിക്കുന്നു</string>
+    <string name="apply_fail">നിങ്ങളുടെ സിസ്റ്റത്തിലേക്ക് ഹോസ്റ്റ്സ് ഫയൽ പ്രയോഗിക്കുന്നത് പരാജയപ്പെട്ടു!ടാർ‌ഗെറ്റ് ഹോസ്റ്റുകൾ‌ ഫയൽ‌ / data / data / hosts മുൻ‌ഗണനയായി മാറ്റാൻ ശ്രമിക്കുക.</string>
+    <string name="apply_fail_title">പ്രയോഗിക്കുന്നത് പരാജയപ്പെട്ടു</string>
+    <string name="root_access_fail">റൂട്ട് ആക്‌സസ് അനുവദിച്ചുവെന്ന് ഉറപ്പാക്കാൻ ദയവായി നിങ്ങളുടെ റൂട്ട് മാനേജുമെന്റ് അപ്ലിക്കേഷൻ പരിശോധിക്കുക.</string>
+    <string name="revert_successful">നിങ്ങൾ സ്ഥിരസ്ഥിതി ഹോസ്റ്റ് ഫയൽ പഴയപടിയാക്കി.മാറ്റങ്ങൾ പ്രാബല്യത്തിൽ വരാൻ ആൻഡ്രോയിഡ് റീബൂട്ട് ചെയ്യേണ്ടത് ആവശ്യമായി വന്നേക്കാം.നിങ്ങൾക്ക് റീബൂട്ട് ചെയ്യണോ?(ഡാറ്റ നഷ്‌ടപ്പെടുന്നത് തടയാൻ ഇപ്പോൾ ഒരു അപ്ലിക്കേഷനും എസ്ഡി കാർഡ് ഉപയോഗിക്കുന്നില്ലെന്ന് ഉറപ്പാക്കുക!)</string>
+    <string name="revert_successful_title">പഴയപടിയാക്കുന്നു പഴയപടിയാക്കുന്നതിൽ വിജയിച്ചു  </string>
+    <string name="revert_problem">അജ്ഞാതമായ കാരണങ്ങളാൽ പഴയപടിയാക്കൽ പരാജയപ്പെട്ടു.</string>
+    <string name="revert_problem_title">പഴയപടിയാക്കൽ പരാജയപ്പെട്ടു!</string>
+    <string name="download_fail_dialog">നിങ്ങളുടെ പ്രാപ്‌തമാക്കിയ ഹോസ്റ്റ് ഉറവിടങ്ങളൊന്നും എത്തിച്ചേരാനാകില്ല!നിങ്ങൾ ശരിയായി ഇന്റർനെറ്റുമായി ബന്ധിപ്പിച്ചിട്ടുണ്ടോ?</string>
+    <string name="download_fail_title">ഡൗൺലോഡ് പരാജയപ്പെട്ടു</string>
+    <string name="no_private_file">സ്വകാര്യ ഫയൽ സൃഷ്ടിക്കാൻ കഴിയില്ല.</string>
+    <string name="no_private_file_title">സ്വകാര്യ ഫയൽ സൃഷ്‌ടിക്കൽ പരാജയപ്പെട്ടു</string>
+    <string name="enable_systemless_successful">നിങ്ങൾ സിസ്റ്റമില്ലാത്ത മോഡ് പ്രവർത്തനക്ഷമമാക്കി..മാറ്റങ്ങൾ പ്രാബല്യത്തിൽ വരാൻ ആൻഡ്രോയിഡ് റീബൂട്ട് ചെയ്യേണ്ടത് ആവശ്യമായി വന്നേക്കാം.നിങ്ങൾക്ക് റീബൂട്ട് ചെയ്യണോ?(ഡാറ്റ നഷ്‌ടപ്പെടുന്നത് തടയാൻ ഇപ്പോൾ ഒരു അപ്ലിക്കേഷനും എസ്ഡി കാർഡ് ഉപയോഗിക്കുന്നില്ലെന്ന് ഉറപ്പാക്കുക!)</string>
+    <string name="enable_systemless_successful_title">പ്രവർത്തനക്ഷമംമാക്കുന്നതിൽ വിജയിച്ചു </string>
+    <string name="disable_systemless_successful">നിങ്ങൾ സിസ്റ്റമില്ലാത്ത മോഡ് അപ്രാപ്തമാക്കി.മാറ്റങ്ങൾ പ്രാബല്യത്തിൽ വരാൻ ആൻഡ്രോയിഡ് റീബൂട്ട് ചെയ്യേണ്ടത് ആവശ്യമായി വന്നേക്കാം.നിങ്ങൾക്ക് റീബൂട്ട് ചെയ്യണോ?(ഡാറ്റ നഷ്‌ടപ്പെടുന്നത് തടയാൻ ഇപ്പോൾ ഒരു അപ്ലിക്കേഷനും എസ്ഡി കാർഡ് ഉപയോഗിക്കുന്നില്ലെന്ന് ഉറപ്പാക്കുക!)</string>
+    <string name="disable_systemless_successful_title">പ്രവർത്തനരഹിതമാക്കുന്നതിൽ വിജയിച്ചു </string>
+    <string name="enable_systemless_magisk_title">ഹോസ്റ്റുകളുടെ മാജിസ്ക് മൊഡ്യൂൾ പ്രവർത്തനക്ഷമമാക്കുന്നു</string>
+    <string name="enable_systemless_magisk">മാജിസ്ക് മാനേജറിൽ നിന്ന് സിസ്റ്റമില്ലാത്ത ഹോസ്റ്റ് സവിശേഷത പ്രാപ്തമാക്കുക.അതിന്റെ ക്രമീകരണങ്ങളിൽ നിന്ന്, സിസ്റ്റംലെസ്സ് ഹോസ്റ്റുകൾ<cite> ഓപ്ഷൻ പ്രാപ്തമാക്കി നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യുക</cite>.</string>
+    <string name="disable_systemless_magisk_title">ഹോസ്റ്റുകൾ മാജിസ്ക് മൊഡ്യൂൾ പ്രവർത്തനരഹിതമാക്കുന്നു</string>
+    <string name="disable_systemless_magisk">മാജിസ്ക് മാനേജറിൽ നിന്ന് സിസ്റ്റമില്ലാത്ത ഹോസ്റ്റ് സവിശേഷത അപ്രാപ്തമാക്കുക.മൊഡ്യൂൾ ലിസ്റ്റിൽ നിന്ന്,സിസ്റ്റംലെസ്സ് ഹോസ്റ്റ് <cite>മൊഡ്യൂൾ അൺഇൻസ്റ്റാൾ ചെയ്ത് </cite>നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യുക.</string>
+
+    <!--Other Dialogs-->
+    <string name="no_root_description">ഒന്നുകിൽ su ബൈനറി കണ്ടെത്താനായില്ല അല്ലെങ്കിൽ AdAway- നായി റൂട്ട് അനുമതി നിങ്ങൾ അനുവദിച്ചില്ല.നിങ്ങളുടെ ഉപകരണം റൂട്ട് ചെയ്യാത്തത് കൊണ്ട് ഇങ്ങനെ സംഭവിക്കാം.Wiki.lineageos.org അല്ലെങ്കിൽ മറ്റ് ആൻഡ്രോയിഡ് വെബ്‌സൈറ്റുകളിൽ നിങ്ങളുടെ ഉപകരണം എങ്ങനെ റൂട്ട് ചെയ്യാം എന്നതിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ നിങ്ങൾക്ക് കണ്ടെത്താൻ കഴിയും.</string>
+    <string name="no_root_title">റൂട്ട് ചെയ്ത ആൻഡ്രോയിഡ് ആവശ്യമാണ് </string>
+    <string name="hosts_add_dialog">ഹോസ്റ്റ് ഫയലിലേക്ക് URL ഇൻപുട്ട് ചെയ്യുക:</string>
+    <string name="no_hostname">ഇതൊരു സാധുവായ ഹോസ്റ്റ്നാമമല്ല!</string>
+    <string name="no_hostname_title">അനുചിതമായി ഫോർമാറ്റുചെയ്‌ത ഹോസ്റ്റ്നാമം</string>
+    <string name="no_ip">ഇതൊരു സാധുവായ IP അല്ല!</string>
+    <string name="no_ip_title">അനുചിതമായി ഫോർമാറ്റുചെയ്‌ത IP</string>
+    <string name="reboot_never_reboot">ഒരിക്കലും റീബൂട്ട് ചെയ്യരുത്, അടുത്ത തവണ ഈ ചോദ്യം കാണിക്കരുത്!</string>
+    <string name="loading">ലോഡിംഗ്...</string>
+
+    <!--Menu entries-->
+    <string name="menu_refresh">പുതുക്കുക</string>
+    <string name="menu_add">ചേർക്കുക </string>
+    <string name="menu_hosts_sources">ഹോസ്റ്റുകളുടെ ഉറവിടങ്ങൾ </string>
+    <string name="menu_help">സഹായം </string>
+    <string name="menu_import">ബാക്കപ്പ് ഇമ്പോർട്ടുചെയ്യുക</string>
+    <string name="menu_export">ബാക്കപ്പ് എക്സ്പോർട്ട് ചെയ്യുക </string>
+
+    <!--Help-->
+    <string name="help_tab_s_on_s_off">എസ്-ഓൺ / എസ്-ഓഫ് </string>
     <string name="help_tab_faq">FAQ</string>
+    <string name="help_tab_problems">പ്രശ്നങ്ങൾ</string>
+
+    <!--Adware-->
+    <string name="adware_header">ആഡ് വെയർ </string>
+    <string name="adware_description">ഇവിടെ നിങ്ങൾക്ക് ഇൻസ്റ്റാൾ ചെയ്ത ആഡ്വെയർ കണ്ടെത്താം,AdAway- ന് തടയാൻ കഴിയാത്ത മോശം അപ്ലിക്കേഷനുകൾ.അപ്ലിക്കേഷൻ പ്രവർത്തിക്കാത്തപ്പോഴും നിങ്ങളുടെ റിംഗ്‌ടോൺ മാറ്റുമ്പോഴും പോപ്പ് അപ്പ് ചെയ്യുന്ന എയർപുഷ് അറിയിപ്പുകൾ ഈ അപ്ലിക്കേഷനുകൾ ഉപയോഗിക്കുന്നു.ലിസ്റ്റ് ഇനങ്ങളിൽ ക്ലിക്കുചെയ്‌ത് ആ അപ്ലിക്കേഷനുകൾ അൺഇൻസ്റ്റാൾ ചെയ്യുക എന്നതാണ് ലഭ്യമായ ഒരേയൊരു പ്രതിവാദം.</string>
+    <string name="adware_scanning">സ്കാൻ ചെയ്യുന്നു&#8230;</string>
+    <string name="adware_empty">ആഡ് വെയർ ഒന്നും കണ്ടെത്തിയില്ല!</string>
+
+    <!--Hosts sources-->
+    <string name="hosts_last_modified_local">ലോക്കൽ:</string>
+    <string name="hosts_last_modified_online">ഓൺ‌ലൈൻ:</string>
+    <string name="hosts_not_available">ലഭ്യമല്ല</string>
+    <string name="hosts_add_dialog_title">ഉറവിടം ചേർക്കുക</string>
+    <string name="hosts_edit_dialog_title">ഉറവിടം എഡിറ്റുചെയ്യുക</string>
+    <string name="hosts_dialog_url">URL: (a https:// or file:// resource)</string>
+    <string name="hosts_dialog_url_hint">ഹോസ്റ്റ്കളുടെ ഉറവിടമായ URL </string>
+
+    <!--Other-->
+    <string name="app_subtitle">Ad blocker</string>
+    <string name="no_text_editor_title">ടെക്സ്റ്റ് എഡിറ്ററൊന്നും ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
+    <string name="no_text_editor">ഹോസ്റ്റ് ഫയൽ തുറക്കുന്നതിന് ടെക്സ്റ്റ് എഡിറ്ററൊന്നും കണ്ടെത്താൻ കഴിഞ്ഞില്ല.ഇത് കൈകാര്യം ചെയ്യാൻ നിങ്ങൾക്ക് ജോറ്റ അല്ലെങ്കിൽ മറ്റ് ടെക്സ്റ്റ് എഡിറ്ററുകൾ ഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയും.\n\nനിങ്ങൾക്ക് ജോറ്റ ഇൻസ്റ്റാൾ ചെയ്യണോ?</string>
+    <string name="no_file_manager_title">ഫയൽ മാനേജറൊന്നും ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
+    <string name="no_file_manager">ഫയലുകൾ തുറക്കാൻ ഒരു ഫയൽ മാനേജറും കണ്ടെത്താനായില്ല.ഇത് കൈകാര്യം ചെയ്യുന്നതിന് നിങ്ങൾക്ക് OI ഫയൽ മാനേജർ അല്ലെങ്കിൽ മറ്റ് ഫയൽ മാനേജർമാർ ഇൻസ്റ്റാൾ ചെയ്യാൻ കഴിയും.\n\nOI ഫയൽ മാനേജർ ഇൻസ്റ്റാൾ ചെയ്യാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ?</string>
+
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
+    <string name="tcpdump_description">DNS അഭ്യർത്ഥനകൾ നിരീക്ഷിക്കാനും അവ ഒരു ലോഗ് ഫയലിൽ സംരക്ഷിക്കാനും ഉള്ള ഉപകരണമാണ് Tcpdump.നിങ്ങൾക്ക് ഇത് പശ്ചാത്തലത്തിൽ ആരംഭിക്കാൻ കഴിയും,പരസ്യങ്ങൾ പ്രദർശിപ്പിക്കുന്ന അപ്ലിക്കേഷനുകൾ പ്രവർത്തിപ്പിക്കുക,അതിനുശേഷം ലോഗ് ഫയൽ ഉപയോഗിച്ച് DNS അഭ്യർത്ഥനകൾ വിശകലനം ചെയ്യുക.സാധ്യമായ പരസ്യ സെർവർ നിങ്ങളുടെ ബ്ലാക്ക് ലിസ്റ്റിൽ ചേർക്കാൻ കഴിയും.</string>
+    <string name="tcpdump_disable_monitoring">നിരീക്ഷണം അപ്രാപ്‌തമാക്കുക</string>
+    <string name="tcpdump_enable_monitoring">നിരീക്ഷണം പ്രാപ്തമാക്കുക</string>
+    <string name="tcpdump_show_results">ഫലങ്ങൾ കാണിക്കുക</string>
+    <string name="tcpdump_redirect_dialog_title">ഡൊമെയ്ൻ റീഡയറക്ട് ചെയ്യുക</string>
+    <string name="tcpdump_menu_sort">ഡൊമെയ്‌നുകൾ അടുക്കുക</string>
+    <string name="tcpdump_menu_clear">ലോഗ് മായ്‌ക്കുക</string>
+    <string name="tcpdump_sort_alphabetical">അക്ഷരമാലാക്രമത്തിൽ</string>
+    <string name="tcpdump_sort_top_level_domain">ടോപ്പ് ലെവൽ ഡൊമെയ്ൻ അടുക്കൽ</string>
+    <string name="tcpdump_entry_add_blacklist">ബ്ലാക്ക് ലിസ്റ്റിലേക് എൻട്രി ചേർക്കുക</string>
+    <string name="tcpdump_entry_add_whitelist">വൈറ്റ് ലിസ്റ്റിലേക്ക് എൻ‌ട്രി ചേർക്കുക</string>
+    <string name="tcpdump_entry_add_redirection_list">റീഡയറക്‌ട് ലിസ്റ്റിലേക്ക് എൻട്രി ചേർക്കുക</string>
+
+    <!--Preferences-->
+    <string name="pref_download">പൊതു മുൻ‌ഗണനകൾ</string>
+    <string name="pref_dismiss_welcome">സ്വാഗത കാർഡ് മറയ്‌ക്കുക</string>
+    <string name="pref_dismiss_welcome_summary">ഹോം സ്‌ക്രീനിൽ സ്വാഗത കാർഡ് കാണിക്കരുത്</string>
+    <string name="pref_dark_theme">ഡാർക്ക് തീം പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="pref_dark_theme_summary">ലൈറ്റ് ഒന്നിനുപകരം ഡാർക്ക് തീം ഉപയോഗിക്കുക</string>
+    <string name="pref_dark_theme_notification">അടുത്ത ആപ്ലിക്കേഷൻ ആരംഭത്തിൽ തീം പ്രയോഗിക്കും!</string>
+    <string name="pref_hosts">ഫയൽ ഹോസ്റ്റുചെയ്യുന്നു</string>
+    <string name="pref_update_check">അപ്‌ഡേറ്റുകൾക്കായി പരിശോധിക്കുക</string>
+    <string name="pref_apply_method">ടാർഗെറ്റ് ഹോസ്റ്റസ് ഫയൽ</string>
+    <string name="pref_apply_method_summary">ഈ ക്രമീകരണം മാറ്റുന്നതിനുമുമ്പ്,ഈ പ്രവർത്തനത്തെക്കുറിച്ചുള്ള സഹായം വായിക്കുക</string>
+    <string name="pref_redirection_ipv4">റീഡയറക്ഷൻ IPv4</string>
+    <string name="pref_redirection_ipv4_summary">തടഞ്ഞ എല്ലാ ഹോസ്റ്റ്നാമങ്ങളും ഈ IPv4 വിലാസത്തിലേക്ക് റീഡയറക്ട് ചെയ്യപ്പെടും</string>
+    <string name="pref_redirection_ipv6">റീഡയറക്ഷൻ IPv6</string>
+    <string name="pref_redirection_ipv6_summary">തടഞ്ഞ എല്ലാ ഹോസ്റ്റ്നാമങ്ങളും ഈ IPv6 വിലാസത്തിലേക്ക് റീഡയറക്ട് ചെയ്യപ്പെടും</string>
+    <string name="pref_header_preferences">മുൻ‌ഗണനകൾ</string>
+    <string name="pref_header_preferences_summary">AdAway- കായുള്ള പൊതു മുൻ‌ഗണനകൾ</string>
+    <string name="pref_never_reboot">റീബൂട്ട് ഡയലോഗ് മറയ്‌ക്കുക</string>
+    <string name="pref_never_reboot_summary">വിജയകരമായി പ്രയോഗിച്ചതിന് ശേഷം ആൻഡ്രോയിഡ് റീബൂട്ട് ചെയ്യാൻ ആവശ്യപ്പെടുന്ന ഡയലോഗ് മറയ്ക്കുന്നു</string>
+    <string name="pref_webserver_on_boot">ബൂട്ടിൽ വെബ്‌സർവർ ആരംഭിക്കുക</string>
+    <string name="pref_webserver_on_boot_summary">ബൂട്ടിൽ വെബ്‌സർവർ ആരംഭിക്കുക,പ്രാദേശിക ഐപി വിലാസങ്ങൾ കേൾക്കുന്നു</string>
+    <string name="pref_webserver_enabled">വെബ്‌സർവർ പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="pref_webserver_enabled_summary">തടഞ്ഞ ഹോസ്റ്റ്നാമങ്ങളിലേക്കുള്ള അഭ്യർത്ഥനകൾക്ക് ഉത്തരം നൽകാൻ പ്രാദേശിക ഐപി വിലാസങ്ങളിൽ വെബ്സർവർ ശ്രവിക്കൽ പ്രാപ്തമാക്കുന്നു</string>
+    <string name="pref_webserver">പ്രാദേശിക വെബ്‌സർവർ</string>
+    <string name="pref_custom_target">ഇഷ്‌ടാനുസൃത ടാർഗെറ്റ്</string>
+    <string name="pref_custom_target_summary">ടാർ‌ഗെറ്റ് ഹോസ്റ്റുകൾ‌ ഫയൽ‌ ഇച്ഛാനുസൃത ടാർ‌ഗെറ്റിലേക്ക് സജ്ജമാക്കിയിട്ടുണ്ടെങ്കിൽ‌ മാത്രമേ ഇത് ഉപയോഗിക്കൂ</string>
+
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
@@ -11,6 +231,32 @@
         <item>/data/data/hosts</item>
         <item>Custom target</item>
     </string-array>
+
+    <string name="pref_update_check_summary">AdAway- ന്റെ ആരംഭിക്കുമ്പോൾ അപ്‌ഡേറ്റുകൾക്കായി പരിശോധിക്കുക</string>
+    <string name="pref_sdcard_problem">എസ് ഡി കാർഡിൽ AdAway ഇൻസ്റ്റാൾ ചെയ്യുമ്പോൾ ഈ സവിശേഷത ശരിയായി പ്രവർത്തിക്കില്ല!</string>
+    <string name="pref_background">പശ്ചാത്തല സേവനങ്ങൾ</string>
+    <string name="pref_update_check_daily">അപ്‌ഡേറ്റുകൾക്കായി ദിവസവും പരിശോധിക്കുക</string>
+    <string name="pref_update_check_daily_summary">അറിയിപ്പുകൾക്കൊപ്പം പശ്ചാത്തലത്തിൽ അപ്‌ഡേറ്റുകൾക്കായി ദിവസവും പരിശോധിക്കുക</string>
+    <string name="pref_automatic_update_daily">യാന്ത്രിക അപ്‌ഡേറ്റ്</string>
+    <string name="pref_automatic_update_daily_summary">അപ്‌ഡേറ്റുകൾ ലഭ്യമാണെങ്കിൽ പശ്ചാത്തലത്തിൽ യാന്ത്രികമായി അപ്‌ഡേറ്റുചെയ്യുക.</string>
+    <string name="pref_update_only_on_wifi">metered</string>
+    <string name="pref_update_only_on_wifi_summary">അളക്കാത്ത നെറ്റ്‌വർക്കിലേക്ക് മാത്രം കണക്റ്റുചെയ്യുമ്പോൾ മാത്രം പശ്ചാത്തല അപ്‌ഡേറ്റുകൾ നടപ്പിലാക്കുക.</string>
+    <string name="pref_whitelist_rules">വൈറ്റ്‌ലിസ്റ്റിംഗ് അനുവദിക്കുക</string>
+    <string name="pref_whitelist_rules_summary">ഹോസ്റ്റ് ഉറവിടങ്ങളിൽ നിന്ന് വൈറ്റ്‌ലിസ്റ്റ് എൻ‌ട്രികൾ അനുവദിക്കുക.</string>
+    <string name="pref_redirection_rules">റീഡയറക്‌ടുകൾ അനുവദിക്കുക</string>
+    <string name="pref_redirection_rules_summary">സുരക്ഷ അപകടസാധ്യത!ഹോസ്റ്റ് ഉറവിടങ്ങളിൽ നിന്ന് റീഡയറക്ഷൻ എൻട്രികൾ അനുവദിക്കുക.</string>
+    <string name="pref_debug">ഡീബഗ് ചെയ്യുക</string>
+    <string name="pref_enable_debug">`വെർബോസ് ലോഗിംഗ് പ്രാപ്തമാക്കുക</string>
+    <string name="pref_enable_debug_summary">ഈ ക്രമീകരണം പ്രാബല്യത്തിൽ വരാൻ നിങ്ങൾ AdAway പുനരാരംഭിക്കേണ്ടതുണ്ട്.</string>
+    <string name="pref_enable_telemetry">ക്രാഷ് റിപ്പോർട്ടുകൾ പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="pref_enable_telemetry_summary">പിശകുകളും ക്രാഷ് റിപ്പോർട്ടുകളും സെന്ററിയിലേക്ക് അയയ്ക്കാൻ അപ്ലിക്കേഷനെ അനുവദിക്കുക (sentry.io).</string>
+    <string name="pref_enable_ipv6">IPv6 പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="pref_enable_ipv6_summary">എല്ലാ ഹോസ്റ്റ് ഫയൽ എൻ‌ട്രികൾക്കും അനുബന്ധ റീഡയറക്ഷൻ എൻ‌ട്രി ലഭിക്കും.</string>
+    <string name="pref_enable_systemless_summary">സിസ്റ്റം പാർട്ടീഷൻ പരിഷ്‌ക്കരിക്കുന്നതിൽ നിന്ന് AdAway തടയുക</string>
+    <string name="pref_enable_systemless">സിസ്റ്റമില്ലാത്ത മോഡ് പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="pref_edit_text_value">വാചക മുൻഗണന മൂല്യം എഡിറ്റുചെയ്യുക</string>
+    <string name="drawer_open">മെനു തുറക്കുക</string>
+    <string name="drawer_close">മെനു അടയ്‌ക്കുക</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
@@ -23,4 +269,43 @@
         <item>Preferences</item>
         <item>Help</item>
     </string-array>
-    </resources>
+    <!--Drawer menu labels-->
+    <string name="drawer_support_text">\u2764 വികസനത്തെ പിന്തുണയ്ക്കുക \u2764</string>
+    <string name="drawer_support_dialog_title">വികസനത്തെ പിന്തുണയ്ക്കുക</string>
+    <string name="drawer_support_dialog_text">കമ്മ്യൂണിറ്റി മാത്രം വികസിപ്പിക്കുകയും പരിപാലിക്കുകയും ചെയ്യുന്ന ഒരു സ്വതന്ത്ര ഓപ്പൺ സോഴ്‌സ് സോഫ്റ്റ്വെയറാണ് AdAway.അപ്ലിക്കേഷന്റെ ഈ പുതിയ പതിപ്പ് നിർമ്മിക്കുന്നതിന് ഒരു സ്‌പെയർ ടൈം പ്രോജക്റ്റായി എനിക്ക് രണ്ട് വർഷമെടുത്തു.\nനിങ്ങൾക്കിഷ്ടപ്പെടുകയും കൂടുതൽ അപ്‌ഡേറ്റുകൾ കാണാൻ ആഗ്രഹിക്കുകയും ചെയ്യുന്നുവെങ്കിൽ,പദ്ധതിയെ പിന്തുണയ്ക്കാൻ മടിക്കേണ്ട.</string>
+    <string name="drawer_support_dialog_button">എന്റെ പിന്തുണ കാണിക്കുക</string>
+
+    <!--Telemetry-->
+    <string name="dialog_telemetry_title">ടെലിമെട്രി</string>
+    <string name="dialog_telemetry_message">ഹലോ പ്രിയ ഉപയോക്താവേ,\n\nനിങ്ങളുടെ ക്രാഷ് റിപ്പോർട്ടുകളും അടിസ്ഥാന ഉപയോഗ വിവരങ്ങളും പങ്കിട്ടുകൊണ്ട് നിങ്ങൾക്ക് ഇപ്പോൾ AdAway- ന്റെ വികസനത്തിന് പങ്കെടുക്കാം.എല്ലാ ഡാറ്റയും അജ്ഞാതമാണ്, നിങ്ങൾ സമ്മതിക്കുകയാണെങ്കിൽ മാത്രമേ ടെലിമെട്രി പ്രവർത്തനക്ഷമമാകൂ. നിങ്ങൾക്ക് കൂടുതൽ വിശദാംശങ്ങൾ <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub- ൽ കണ്ടെത്താൻ കഴിയും</a>.</string>
+    <string name="dialog_telemetry_enable">തീർച്ചയായും, സഹായിക്കുന്നതിൽ എനിക്ക് സന്തോഷമുണ്ട്!</string>
+    <string name="dialog_telemetry_disable">വേണ്ട, നന്ദി</string>
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">DNS അഭ്യർത്ഥനകൾ</string>
+    <string name="shortcut_your_lists">നിങ്ങളുടെ ലിസ്റ്റുകൾ</string>
+    <string name="shortcut_preferences">മുൻ‌ഗണനകൾ</string>
+
+    <!--Hosts source status-->
+    <string name="hosts_source_up_to_date">%1$sഇതിനകം  കാലികമാണ്</string>
+    <string name="hosts_source_need_update">%1$s ന് അപ്‌ഡേറ്റ് ആവശ്യമാണ്</string>
+    <string name="hosts_source_last_update">അവസാന അപ്‌ഡേറ്റ് %1$s മുമ്പ്</string>
+    <string name="hosts_source_unknown_status">അജ്ഞാത അപ്‌ഡേറ്റ് നില</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%dമിനിറ്റ്</item>
+        <item quantity="other">%d മിനിറ്റ് </item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%dമണിക്കൂറുകൾ</item>
+        <item quantity="other">%dമണിക്കൂറുകൾ</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%dദിവസങ്ങൾ </item>
+        <item quantity="other">%dദിവസങ്ങൾ </item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%dമാസങ്ങൾ </item>
+        <item quantity="other">%dമാസങ്ങൾ </item>
+    </plurals>
+
+</resources>
