@@ -3,7 +3,7 @@
     android:title="@string/pref_root_title">
 
     <CheckBoxPreference
-        android:defaultValue="@bool/pref_enable_ipv6_def"
+        android:defaultValue="@bool/pref_vpn_service_on_boot_def"
         android:key="@string/pref_vpn_service_on_boot_key"
         android:title="@string/pref_vpn_service_on_boot" />
 
