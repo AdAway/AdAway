@@ -179,9 +179,9 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
 
     protected abstract LiveData<List<HostListItem>> getData();
 
-    protected boolean isTwoRowsItem() {
-        return false;
-    }
+    protected static boolean isTwoRowsItem() {
+		return false;
+	}
 
     protected abstract void addItem();
 
