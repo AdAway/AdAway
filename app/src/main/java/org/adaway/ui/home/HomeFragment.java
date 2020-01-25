@@ -16,7 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
@@ -138,7 +139,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Get fragment context
-        Context context = this.getContext();
+        Context context = getContext();
         // Inflate layout
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         /*
@@ -167,103 +168,102 @@ public class HomeFragment extends Fragment {
          * Initialize and bind to view model.
          */
         // Get the model scope
-        FragmentActivity activity = this.getActivity();
-        if (activity != null) {
-            // Get the model
-            mViewModel = ViewModelProviders.of(activity).get(HostsInstallViewModel.class);
-            // Bind model to views
-            mViewModel.getStatus().observe(this, status -> {
-                if (status == null) {
-                    return;
-                }
-                switch (status) {
-                    case INSTALLED:
-                        mStatusProgressBar.setVisibility(View.GONE);
-                        mStatusIconImageView.setVisibility(View.VISIBLE);
-                        mStatusIconImageView.setImageResource(R.drawable.status_enabled);
-                        mUpdateHostsButton.setText(R.string.button_check_update_hosts);
-                        mRevertHostsButton.setVisibility(View.VISIBLE);
-                        break;
-                    case OUTDATED:
-                        mStatusProgressBar.setVisibility(View.GONE);
-                        mStatusIconImageView.setVisibility(View.VISIBLE);
-                        mStatusIconImageView.setImageResource(R.drawable.status_update);
-                        mUpdateHostsButton.setText(R.string.button_update_hosts);
-                        mRevertHostsButton.setVisibility(View.VISIBLE);
-                        break;
-                    case ORIGINAL:
-                        mStatusProgressBar.setVisibility(View.GONE);
-                        mStatusIconImageView.setVisibility(View.VISIBLE);
-                        mStatusIconImageView.setImageResource(R.drawable.status_disabled);
-                        mUpdateHostsButton.setText(R.string.button_enable_hosts);
-                        mRevertHostsButton.setVisibility(View.GONE);
-                        break;
-                    case WORK_IN_PROGRESS:
-                        mStatusProgressBar.setVisibility(View.VISIBLE);
-                        mStatusIconImageView.setVisibility(View.GONE);
-                }
-                // Update button enable state
-                boolean enabledButton = status != WORK_IN_PROGRESS;
-                mUpdateHostsButton.setEnabled(enabledButton);
-                mRevertHostsButton.setEnabled(enabledButton);
-                // Check status change
-                if (mCurrentStatus != null && mCurrentStatus != status) {
-                    // Show reboot dialog
-                    HostsInstallDialog.showRebootDialog(context, status);
-                }
-                // Save any final status
-                if (status != WORK_IN_PROGRESS) {
-                    mCurrentStatus = status;
-                }
-            });
-            mViewModel.getState().observe(this, state -> {
-                if (state != null) {
-                    mStatusTitleTextView.setText(state);
-                }
-            });
-            mViewModel.getDetails().observe(this, details -> {
-                if (details != null) {
-                    mStatusTextView.setText(details);
-                }
-            });
-            mViewModel.getError().observe(this, error -> {
-                if (error != null) {
+        FragmentActivity activity = requireActivity();
+        // Get the model
+        mViewModel = new ViewModelProvider(activity).get(HostsInstallViewModel.class);
+        // Bind model to views
+        LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
+        mViewModel.getStatus().observe(lifecycleOwner, status -> {
+            if (status == null) {
+                return;
+            }
+            switch (status) {
+                case INSTALLED:
                     mStatusProgressBar.setVisibility(View.GONE);
                     mStatusIconImageView.setVisibility(View.VISIBLE);
-                    mStatusIconImageView.setImageResource(R.drawable.status_fail);
-                    int state;
-                    int statusText;
-                    switch (error) {
-                        case NO_CONNECTION:
-                            state = R.string.no_connection_title;
-                            statusText = R.string.no_connection;
-                            break;
-                        case DOWNLOAD_FAILED:
-                            state = R.string.status_download_fail;
-                            statusText = R.string.status_download_fail_subtitle_new;
-                            break;
+                    mStatusIconImageView.setImageResource(R.drawable.status_enabled);
+                    mUpdateHostsButton.setText(R.string.button_check_update_hosts);
+                    mRevertHostsButton.setVisibility(View.VISIBLE);
+                    break;
+                case OUTDATED:
+                    mStatusProgressBar.setVisibility(View.GONE);
+                    mStatusIconImageView.setVisibility(View.VISIBLE);
+                    mStatusIconImageView.setImageResource(R.drawable.status_update);
+                    mUpdateHostsButton.setText(R.string.button_update_hosts);
+                    mRevertHostsButton.setVisibility(View.VISIBLE);
+                    break;
+                case ORIGINAL:
+                    mStatusProgressBar.setVisibility(View.GONE);
+                    mStatusIconImageView.setVisibility(View.VISIBLE);
+                    mStatusIconImageView.setImageResource(R.drawable.status_disabled);
+                    mUpdateHostsButton.setText(R.string.button_enable_hosts);
+                    mRevertHostsButton.setVisibility(View.GONE);
+                    break;
+                case WORK_IN_PROGRESS:
+                    mStatusProgressBar.setVisibility(View.VISIBLE);
+                    mStatusIconImageView.setVisibility(View.GONE);
+            }
+            // Update button enable state
+            boolean enabledButton = status != WORK_IN_PROGRESS;
+            mUpdateHostsButton.setEnabled(enabledButton);
+            mRevertHostsButton.setEnabled(enabledButton);
+            // Check status change
+            if (mCurrentStatus != null && mCurrentStatus != status) {
+                // Show reboot dialog
+                HostsInstallDialog.showRebootDialog(context, status);
+            }
+            // Save any final status
+            if (status != WORK_IN_PROGRESS) {
+                mCurrentStatus = status;
+            }
+        });
+        mViewModel.getState().observe(lifecycleOwner, state -> {
+            if (state != null) {
+                mStatusTitleTextView.setText(state);
+            }
+        });
+        mViewModel.getDetails().observe(lifecycleOwner, details -> {
+            if (details != null) {
+                mStatusTextView.setText(details);
+            }
+        });
+        mViewModel.getError().observe(lifecycleOwner, error -> {
+            if (error != null) {
+                mStatusProgressBar.setVisibility(View.GONE);
+                mStatusIconImageView.setVisibility(View.VISIBLE);
+                mStatusIconImageView.setImageResource(R.drawable.status_fail);
+                int state;
+                int statusText;
+                switch (error) {
+                    case NO_CONNECTION:
+                        state = R.string.no_connection_title;
+                        statusText = R.string.no_connection;
+                        break;
+                    case DOWNLOAD_FAILED:
+                        state = R.string.status_download_fail;
+                        statusText = R.string.status_download_fail_subtitle_new;
+                        break;
 //                        case ROOT_ACCESS_DENIED:
 //                            state = R.string.status_root_access_denied;
 //                            statusText = R.string.status_root_access_denied_subtitle;
 //                            break;
-                        default:
-                            state = R.string.status_failure;
-                            statusText = R.string.status_failure_subtitle;
-                            break;
-                    }
-                    mStatusTitleTextView.setText(state);
-                    mStatusTextView.setText(statusText);
-                    mUpdateHostsButton.setEnabled(true);
-                    mRevertHostsButton.setEnabled(true);
-                    if (mCurrentError != error) {
-                        mCurrentError = error;
-                        HostsInstallDialog.showDialogBasedOnResult(context, error);
-                    }
+                    default:
+                        state = R.string.status_failure;
+                        statusText = R.string.status_failure_subtitle;
+                        break;
                 }
-            });
-            // Initialize model state
-            mViewModel.load();
-        }
+                mStatusTitleTextView.setText(state);
+                mStatusTextView.setText(statusText);
+                mUpdateHostsButton.setEnabled(true);
+                mRevertHostsButton.setEnabled(true);
+                if (mCurrentError != error) {
+                    mCurrentError = error;
+                    HostsInstallDialog.showDialogBasedOnResult(context, error);
+                }
+            }
+        });
+        // Initialize model state
+        mViewModel.load();
         /*
          * Initialize statuses and behaviors.
          */

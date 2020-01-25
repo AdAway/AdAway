@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
@@ -58,7 +58,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Store activity
-        this.mActivity = getActivity();
+        this.mActivity = requireActivity();
         // Create fragment view
         View view = inflater.inflate(R.layout.hosts_lists_fragment, container, false);
         /*
@@ -138,8 +138,8 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
          * Load data.
          */
         // Get view model and bind it to the list view
-        this.mViewModel = ViewModelProviders.of(this.mActivity).get(ListsViewModel.class);
-        getData().observe(this, adapter::submitList);
+        this.mViewModel = new ViewModelProvider(this.mActivity).get(ListsViewModel.class);
+        getData().observe(getViewLifecycleOwner(), adapter::submitList);
         // Return created view
         return view;
     }
@@ -154,7 +154,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         this.mActionItem = item;
         this.mActionSourceView = sourceView;
         // Get current item background color
-        int currentItemBackgroundColor = getResources().getColor(R.color.selected_background);
+        int currentItemBackgroundColor = getResources().getColor(R.color.selected_background, null);
         // Apply background color to view
         this.mActionSourceView.setBackgroundColor(currentItemBackgroundColor);
         // Start action mode and store it

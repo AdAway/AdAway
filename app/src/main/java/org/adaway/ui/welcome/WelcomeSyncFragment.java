@@ -10,7 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.adaway.R;
 import org.adaway.model.error.HostError;
@@ -45,13 +46,14 @@ public class WelcomeSyncFragment extends WelcomeFragment {
 
         this.bindRetry(view);
 
-        this.nextViewModel = ViewModelProviders.of(this).get(NextViewModel.class);
-        this.nextViewModel.isAdBlocked().observe(this, adBlocked -> {
+        this.nextViewModel = new ViewModelProvider(this).get(NextViewModel.class);
+        LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
+        this.nextViewModel.isAdBlocked().observe(lifecycleOwner, adBlocked -> {
             if (adBlocked) {
                 notifySynced();
             }
         });
-        this.nextViewModel.getError().observe(this, this::notifyError);
+        this.nextViewModel.getError().observe(lifecycleOwner, this::notifyError);
         this.nextViewModel.sync();
 
         return view;

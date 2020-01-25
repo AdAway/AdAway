@@ -34,7 +34,7 @@ import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -77,10 +77,7 @@ public class ListsFragment extends Fragment {
         // Create fragment view
         View view = inflater.inflate(R.layout.lists_fragment, container, false);
         // Get activity
-        FragmentActivity activity = getActivity();
-        if (activity == null) {
-            return view;
-        }
+        FragmentActivity activity = requireActivity();
         /*
          * Configure snackbar.
          */
@@ -89,15 +86,15 @@ public class ListsFragment extends Fragment {
         // Create install snackbar
         HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout, false);
         // Bind snackbar to view models
-        this.listsViewModel = ViewModelProviders.of(activity).get(ListsViewModel.class);
-        this.listsViewModel.getUserListItems().observe(this, installSnackbar.createObserver());
+        this.listsViewModel = new ViewModelProvider(activity).get(ListsViewModel.class);
+        this.listsViewModel.getUserListItems().observe(getViewLifecycleOwner(), installSnackbar.createObserver());
         /*
          * Configure tabs.
          */
         // Get view pager
         ViewPager viewPager = view.findViewById(R.id.lists_view_pager);
         // Create pager adapter
-        ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(activity, getFragmentManager());
+        ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(activity, getParentFragmentManager());
         // Set view pager adapter
         viewPager.setAdapter(pagerAdapter);
         // Get navigation view

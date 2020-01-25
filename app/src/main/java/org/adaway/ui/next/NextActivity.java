@@ -21,7 +21,7 @@ import androidx.arch.core.util.Function;
 import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -87,7 +87,7 @@ public class NextActivity extends AppCompatActivity {
         Log.i(TAG, "Starting main activity");
         setContentView(R.layout.next_activity);
 
-        this.nextViewModel = ViewModelProviders.of(this).get(NextViewModel.class);
+        this.nextViewModel = new ViewModelProvider(this).get(NextViewModel.class);
         this.nextViewModel.isAdBlocked().observe(this, this::notifyAdBlocked);
         this.nextViewModel.getError().observe(this, this::notifyError);
 

@@ -34,7 +34,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -93,7 +93,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         // Get view model
-        this.mViewModel = ViewModelProviders.of(this).get(TcpdumpLogViewModel.class);
+        this.mViewModel = new ViewModelProvider(this).get(TcpdumpLogViewModel.class);
         // Create recycler adapter
         ListAdapter adapter = new TcpdumpLogAdapter(this);
         recyclerView.setAdapter(adapter);

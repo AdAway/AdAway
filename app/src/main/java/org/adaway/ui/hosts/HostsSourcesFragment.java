@@ -37,7 +37,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -84,9 +85,10 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Store activity
-        this.mActivity = getActivity();
+        this.mActivity = requireActivity();
         // Initialize view model
-        this.mViewModel = ViewModelProviders.of(this).get(HostsSourcesViewModel.class);
+        this.mViewModel = new ViewModelProvider(this).get(HostsSourcesViewModel.class);
+        LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
         // Create fragment view
         View view = inflater.inflate(R.layout.hosts_sources_fragment, container, false);
         /*
@@ -98,7 +100,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout, true);
         installSnackbar.setIgnoreEventDuringInstall(true);
         // Bind snakbar to view models
-        this.mViewModel.getHostsSources().observe(this, installSnackbar.createObserver());
+        this.mViewModel.getHostsSources().observe(lifecycleOwner, installSnackbar.createObserver());
         /*
          * Configure recycler view.
          */
@@ -112,7 +114,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         ListAdapter adapter = new HostsSourcesAdapter(this);
         recyclerView.setAdapter(adapter);
         // Bind adapter to view model
-        this.mViewModel.getHostsSources().observe(this, adapter::submitList);
+        this.mViewModel.getHostsSources().observe(lifecycleOwner, adapter::submitList);
         /*
          * Create action mode.
          */
