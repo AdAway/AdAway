@@ -8,8 +8,12 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.util.SentryLog;
 
+import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.util.Constants.PREFS_NAME;
 
 /**
@@ -25,6 +29,7 @@ public class PrefsMainFragment extends PreferenceFragmentCompat {
         addPreferencesFromResource(R.xml.preferences_main);
         // Bind pref actions
         bindThemePrefAction();
+        bindAdBlockMethod();
         bindTelemetryPrefAction();
     }
 
@@ -43,10 +48,18 @@ public class PrefsMainFragment extends PreferenceFragmentCompat {
     private void bindThemePrefAction() {
         Preference darkThemePref = findPreference(getString(R.string.pref_dark_theme_key));
         darkThemePref.setOnPreferenceChangeListener((preference, newValue) -> {
-            getActivity().recreate();
+            requireActivity().recreate();
             // Allow preference change
             return true;
         });
+    }
+
+    private void bindAdBlockMethod() {
+        Preference rootPreference = findPreference(getString(R.string.pref_root_ad_block_method_key));
+        Preference vpnPreference = findPreference(getString(R.string.pref_vpn_ad_block_method_key));
+        AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(getContext());
+        rootPreference.setEnabled(adBlockMethod == ROOT);
+        vpnPreference.setEnabled(adBlockMethod == VPN);
     }
 
     private void bindTelemetryPrefAction() {

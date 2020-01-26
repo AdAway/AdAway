@@ -23,10 +23,12 @@
     <PreferenceCategory android:title="@string/pref_ad_block_category">
         <Preference
             android:icon="@drawable/ic_superuser_24dp"
+            android:key="@string/pref_root_ad_block_method_key"
             android:title="@string/pref_root_ad_blocker_configuration"
             app:fragment="org.adaway.ui.prefs.PrefsRootFragment" />
         <Preference
             android:icon="@drawable/ic_vpn_key_24dp"
+            android:key="@string/pref_vpn_ad_block_method_key"
             android:title="@string/pref_vpn_ad_blocker_configuration"
             app:fragment="org.adaway.ui.prefs.PrefsVpnFragment" />
         <CheckBoxPreference

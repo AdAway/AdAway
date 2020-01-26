@@ -199,8 +199,8 @@ public class PreferenceHelper {
                 Context.MODE_PRIVATE
         );
         return AdBlockMethod.fromCode(prefs.getInt(
-                context.getString(R.string.pref_adblock_method_key),
-                context.getResources().getInteger(R.integer.pref_adblock_method_key_def)
+                context.getString(R.string.pref_ad_block_method_key),
+                context.getResources().getInteger(R.integer.pref_ad_block_method_key_def)
         ));
     }
 
@@ -210,7 +210,7 @@ public class PreferenceHelper {
                 Context.MODE_PRIVATE
         );
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(context.getString(R.string.pref_adblock_method_key), method.toCode());
+        editor.putInt(context.getString(R.string.pref_ad_block_method_key), method.toCode());
         editor.apply();
     }
 
