@@ -28,6 +28,7 @@ import org.adaway.util.Log;
  */
 public class NextViewModel extends AndroidViewModel {
     private static final String TAG = "NextViewModel";
+    private static final AppExecutors EXECUTORS = AppExecutors.getInstance();
 
     private final SourceModel sourceModel;
     private final AdBlockModel adBlockModel;
@@ -46,7 +47,7 @@ public class NextViewModel extends AndroidViewModel {
         this.sourceModel = awayApplication.getSourceModel();
         this.adBlockModel = awayApplication.getAdBlockModel();
         this.updateModel = awayApplication.getUpdateModel();
-        AppExecutors.getInstance().networkIO().execute(this.updateModel::checkUpdate);
+        EXECUTORS.networkIO().execute(this.updateModel::checkUpdate);
 
         AppDatabase database = AppDatabase.getInstance(application);
         this.hostsSourceDao = database.hostsSourceDao();
@@ -111,7 +112,7 @@ public class NextViewModel extends AndroidViewModel {
         if (isTrue(this.pending)) {
             return;
         }
-        AppExecutors.getInstance().diskIO().execute(() -> {
+        EXECUTORS.diskIO().execute(() -> {
             try {
                 this.pending.postValue(true);
                 if (isTrue(this.adBlockModel.isApplied())) {
@@ -132,7 +133,7 @@ public class NextViewModel extends AndroidViewModel {
         if (isTrue(this.pending)) {
             return;
         }
-        AppExecutors.getInstance().networkIO().execute(() -> {
+        EXECUTORS.networkIO().execute(() -> {
             try {
                 this.pending.postValue(true);
                 this.sourceModel.checkForUpdate();
@@ -149,7 +150,7 @@ public class NextViewModel extends AndroidViewModel {
         if (isTrue(this.pending)) {
             return;
         }
-        AppExecutors.getInstance().networkIO().execute(() -> {
+        EXECUTORS.networkIO().execute(() -> {
             try {
                 this.pending.postValue(true);
                 this.sourceModel.retrieveHostsSources();
@@ -164,7 +165,7 @@ public class NextViewModel extends AndroidViewModel {
     }
 
     public void enableAllSources() {
-        AppExecutors.getInstance().diskIO().execute(() -> {
+        EXECUTORS.diskIO().execute(() -> {
             if (this.sourceModel.enableAllSources()) {
                 sync();
             }
