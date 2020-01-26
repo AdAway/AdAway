@@ -25,11 +25,14 @@ import android.content.Context;
 import android.content.Intent;
 
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.util.Log;
 import org.adaway.util.WebServerUtils;
 import org.adaway.vpn.VpnService;
 
 import static android.content.Intent.ACTION_BOOT_COMPLETED;
+import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.util.Constants.TAG;
 
 /**
@@ -42,11 +45,12 @@ public class BootReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             Log.i(TAG, "BootReceiver invoked");
+            AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(context);
             // Start web server on boot if enabled in preferences
-            if (PreferenceHelper.getWebServerOnBoot(context)) {
+            if (adBlockMethod == ROOT && PreferenceHelper.getWebServerOnBoot(context)) {
                 WebServerUtils.startWebServer(context);
             }
-            if (PreferenceHelper.getVpnServiceOnBoot(context)) {
+            if (adBlockMethod == VPN && PreferenceHelper.getVpnServiceOnBoot(context)) {
                 // Start VPN service if enabled in preferences
                 VpnService.start(context);
             }
