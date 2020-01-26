@@ -18,7 +18,6 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.git.GitHostsSource;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Constants;
 import org.adaway.util.DateUtils;
 import org.adaway.util.Log;
 import org.adaway.util.Utils;
@@ -32,11 +31,8 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -138,7 +134,6 @@ public class SourceModel {
      * @throws HostErrorException If the hosts sources could not be checked.
      */
     public boolean checkForUpdate() throws HostErrorException {
-        HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
         // Check current connection
         if (!Utils.isAndroidOnline(this.context)) {
             throw new HostErrorException(NO_CONNECTION);
@@ -147,7 +142,7 @@ public class SourceModel {
         boolean updateAvailable = false;
         boolean anyHostsSourceVerified = false;
         // Get hosts sources
-        List<HostsSource> sources = hostsSourceDao.getEnabled();
+        List<HostsSource> sources = this.hostsSourceDao.getEnabled();
         if (sources.isEmpty()) {
             // Return no update as no source
             this.updateAvailable.postValue(false);
@@ -165,16 +160,16 @@ public class SourceModel {
             // Get hosts source last update
             Date lastModifiedOnline = getHostsSourceLastUpdate(sourceUrl);
             // Some help with debug here
-            Log.d(Constants.TAG, "lastModifiedLocal: "
+            Log.d(TAG, "lastModifiedLocal: "
                     + (lastModifiedLocal == null ? "not defined" : lastModifiedLocal)
                     + " (" + DateUtils.dateToString(this.context, lastModifiedLocal) + ")"
             );
-            Log.d(Constants.TAG, "lastModifiedOnline: "
+            Log.d(TAG, "lastModifiedOnline: "
                     + (lastModifiedOnline == null ? "not defined" : lastModifiedOnline)
                     + " (" + DateUtils.dateToString(this.context, lastModifiedOnline) + ")"
             );
             // Save last modified online
-            hostsSourceDao.updateOnlineModificationDate(sourceUrl, lastModifiedOnline);
+            this.hostsSourceDao.updateOnlineModificationDate(source.getId(), lastModifiedOnline);
             // Check if last modified online retrieved
             if (lastModifiedOnline != null) {
                 anyHostsSourceVerified = true;
@@ -194,7 +189,7 @@ public class SourceModel {
         } else {
             setState(R.string.status_no_update_found);
         }
-        Log.d(Constants.TAG, "Update check result: " + updateAvailable);
+        Log.d(TAG, "Update check result: " + updateAvailable);
         this.updateAvailable.postValue(updateAvailable);
         return updateAvailable;
     }
@@ -207,13 +202,13 @@ public class SourceModel {
      */
     @Nullable
     private Date getHostsSourceLastUpdate(String url) {
-        Log.v(Constants.TAG, "Checking hosts file: " + url);
+        Log.v(TAG, "Checking hosts file: " + url);
         // Check Git hosting
         if (GitHostsSource.isHostedOnGit(url)) {
             try {
                 return GitHostsSource.getSource(url).getLastUpdate();
             } catch (MalformedURLException exception) {
-                Log.w(Constants.TAG, "Failed to get GitHub last update for url " + url + ".", exception);
+                Log.w(TAG, "Failed to get GitHub last update for url " + url + ".", exception);
                 return null;
             }
         }
@@ -228,7 +223,7 @@ public class SourceModel {
             long lastModified = connection.getLastModified();
             return new Date(lastModified);
         } catch (Exception exception) {
-            Log.e(Constants.TAG, "Exception while downloading from " + url, exception);
+            Log.e(TAG, "Exception while downloading from " + url, exception);
             return null;
         } finally {
             if (connection instanceof HttpURLConnection) {
@@ -269,12 +264,16 @@ public class SourceModel {
                         copySuccess = copyHostSourceFile(hostsSource);
                         break;
                     default:
-                        Log.w(Constants.TAG, "Hosts source protocol " + protocol + " is not supported.");
+                        Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
                 }
             } catch (IOException exception) {
-                Log.w(Constants.TAG, "Failed to retrieve host source " + hostsSource.getUrl() + ".", exception);
+                Log.w(TAG, "Failed to retrieve host source " + hostsSource.getUrl() + ".", exception);
             }
-            if (!copySuccess) {
+            if (copySuccess) {
+                // Update local and online modification dates to now
+                Date now = new Date();
+                this.hostsSourceDao.updateModificationDates(hostsSource.getId(), now);
+            } else {
                 // Increment number of failed copy
                 numberOfFailedCopies++;
             }
@@ -311,7 +310,7 @@ public class SourceModel {
     private boolean downloadHostSource(HostsSource hostsSource) {
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
-        Log.v(Constants.TAG, "Downloading hosts file: " + hostsFileUrl);
+        Log.v(TAG, "Downloading hosts file: " + hostsFileUrl);
         // Set state to downloading hosts source
         setState(R.string.status_download_source, hostsFileUrl);
         // Get HTTP client
@@ -324,21 +323,8 @@ public class SourceModel {
         try (Response response = httpClient.newCall(request).execute();
              InputStream inputStream = response.body().byteStream()) {
             parseSourceInputStream(hostsSource, inputStream);
-            // Save last modified online for later use
-            String lastModifiedHeader = response.header("Last-Modified");
-            if (lastModifiedHeader != null) {
-                try {
-                    // Parse last modified date
-                    SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss zzz", Locale.US);
-                    Date lastModified = format.parse(lastModifiedHeader);
-                    // Update last_modified_online (null if not available or error happened)
-                    this.hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, lastModified);
-                } catch (ParseException exception) {
-                    Log.w(Constants.TAG, "Failed to parse Last-Modified header from " + hostsFileUrl + ": " + lastModifiedHeader + ".", exception);
-                }
-            }
         } catch (IOException exception) {
-            Log.e(Constants.TAG, "Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
+            Log.e(TAG, "Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
             // Return download failed
             return false;
         }
@@ -355,11 +341,9 @@ public class SourceModel {
     private boolean copyHostSourceFile(HostsSource hostsSource) {
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
-        Log.v(Constants.TAG, "Copying hosts source file: " + hostsFileUrl);
+        Log.v(TAG, "Copying hosts source file: " + hostsFileUrl);
         // Set state to copying hosts source
         setState(R.string.status_copy_source, hostsFileUrl);
-        // Declare last modification date
-        Date lastModified = null;
         try {
             // Get file from URL
             File hostsSourceFile = new File(new URL(hostsFileUrl).toURI());
@@ -367,15 +351,10 @@ public class SourceModel {
             try (InputStream inputStream = new FileInputStream(hostsSourceFile)) {
                 parseSourceInputStream(hostsSource, inputStream);
             }
-            // Get last modified date
-            lastModified = new Date(hostsSourceFile.lastModified());
         } catch (IOException | URISyntaxException exception) {
-            Log.e(Constants.TAG, "Error while copying hosts file from " + hostsFileUrl + ".", exception);
+            Log.e(TAG, "Error while copying hosts file from " + hostsFileUrl + ".", exception);
             // Return copy failed
             return false;
-        } finally {
-            // Update last_modified_online (null if not available or error happened)
-            this.hostsSourceDao.updateOnlineModificationDate(hostsFileUrl, lastModified);
         }
         // Return copy successful
         return true;
@@ -411,23 +390,6 @@ public class SourceModel {
             }
         }
         return updated;
-    }
-
-    /**
-     * Set local modifications date to now for all enabled hosts sources.
-     */
-    public void markHostsSourcesAsInstalled() {
-        // Get application context and database
-        Date now = new Date();
-        this.hostsSourceDao.updateEnabledLocalModificationDates(now);
-    }
-
-    /**
-     * Clear local modification dates for all hosts sources.
-     */
-    public void markHostsSourcesAsUninstalled() {
-        // Get application context and database
-        this.hostsSourceDao.clearLocalModificationDates();
     }
 
     private void setState(@StringRes int stateResId, Object... details) {

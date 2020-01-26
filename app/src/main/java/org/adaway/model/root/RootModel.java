@@ -97,7 +97,6 @@ public class RootModel extends AdBlockModel {
         setState(R.string.status_copy_new_hosts);
         copyNewHostsFile();
         setState(R.string.status_check_copy);
-        markHostsSourcesAsInstalled();
         setState(R.string.status_hosts_updated);
         this.applied.postValue(true);
     }
@@ -114,7 +113,6 @@ public class RootModel extends AdBlockModel {
         try {
             // Revert hosts file
             revertHostFile();
-            markHostsSourcesAsUninstalled();
             setState(R.string.status_revert_done);
             this.applied.postValue(false);
         } catch (IOException exception) {
@@ -292,21 +290,6 @@ public class RootModel extends AdBlockModel {
         } catch (Exception exception) {
             throw new IOException("Unable to revert hosts file.", exception);
         }
-    }
-
-    /**
-     * Set local modifications date to now for all enabled hosts sources.
-     */
-    private void markHostsSourcesAsInstalled() {
-        Date now = new Date();
-        this.hostsSourceDao.updateEnabledLocalModificationDates(now);
-    }
-
-    /**
-     * Clear local modification dates for all hosts sources.
-     */
-    private void markHostsSourcesAsUninstalled() {
-        this.hostsSourceDao.clearLocalModificationDates();
     }
 
     /**
