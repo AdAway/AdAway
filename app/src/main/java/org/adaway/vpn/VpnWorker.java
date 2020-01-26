@@ -97,7 +97,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     }
 
     private static Set<InetAddress> getDnsServers(Context context) throws VpnNetworkException {
-        Set<InetAddress> out = new HashSet<>();
+        Set<InetAddress> addresses = new HashSet<>();
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(android.net.VpnService.CONNECTIVITY_SERVICE);
         // Seriously, Android? Seriously?
         NetworkInfo activeInfo = cm.getActiveNetworkInfo();
@@ -109,9 +109,9 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             if (ni == null || !ni.isConnected() || ni.getType() != activeInfo.getType()
                     || ni.getSubtype() != activeInfo.getSubtype())
                 continue;
-            out.addAll(cm.getLinkProperties(nw).getDnsServers());
+            addresses.addAll(cm.getLinkProperties(nw).getDnsServers());
         }
-        return out;
+        return addresses;
     }
 
     public void start() {
@@ -448,21 +448,19 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         // documentation purposes. We should do this differently. Anyone have a free /120 subnet
         // for us to use?
         byte[] ipv6Template = new byte[]{32, 1, 13, (byte) (184 & 0xFF), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        if (hasIpV6Servers(dnsServers)) {
+            try {
+                InetAddress addr = Inet6Address.getByAddress(ipv6Template);
+                Log.d(TAG, "configure: Adding IPv6 address" + addr);
+                builder.addAddress(addr, 120);
+            } catch (Exception e) {
+                e.printStackTrace();
 
-        // TODO IPv6 Support
-//        if (hasIpV6Servers(config, dnsServers)) {
-//            try {
-//                InetAddress addr = Inet6Address.getByAddress(ipv6Template);
-//                Log.d(TAG, "configure: Adding IPv6 address" + addr);
-//                builder.addAddress(addr, 120);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//
-//                ipv6Template = null;
-//            }
-//        } else {
-        ipv6Template = null;
-//        }
+                ipv6Template = null;
+            }
+        } else {
+            ipv6Template = null;
+        }
 
         if (format == null) {
             Log.w(TAG, "configure: Could not find a prefix to use, directly using DNS servers");
@@ -515,24 +513,25 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         return pfd;
     }
 
-    // TODO IPv6 support
-//    boolean hasIpV6Servers(Configuration config, Set<InetAddress> dnsServers) {
-//        if (!config.ipV6Support)
-//            return false;
-//
+    boolean hasIpV6Servers(Set<InetAddress> dnsServers) {
+        if (!PreferenceHelper.getEnableIpv6(this.vpnService)) {
+            return false;
+        }
+
+        // TODO Custom DNS servers
 //        if (config.dnsServers.enabled) {
 //            for (Configuration.Item item : config.dnsServers.items) {
 //                if (item.state == Configuration.Item.STATE_ALLOW && item.location.contains(":"))
 //                    return true;
 //            }
 //        }
-//        for (InetAddress inetAddress : dnsServers) {
-//            if (inetAddress instanceof Inet6Address)
-//                return true;
-//        }
-//
-//        return false;
-//    }
+        for (InetAddress inetAddress : dnsServers) {
+            if (inetAddress instanceof Inet6Address)
+                return true;
+        }
+
+        return false;
+    }
 
     @FunctionalInterface
     interface VpnStatusNotifier extends Consumer<VpnStatus> {
