@@ -139,12 +139,12 @@ public class HostsInstallSnackbar {
         AppExecutors.getInstance().diskIO().execute(() -> {
             AdAwayApplication application = (AdAwayApplication) this.mView.getContext().getApplicationContext();
             SourceModel sourceModel = application.getSourceModel();
-            AdBlockModel hostsInstallModel = application.getAdBlockModel();
+            AdBlockModel adBlockModel = application.getAdBlockModel();
             try {
                 if (this.syncSources) {
                     sourceModel.retrieveHostsSources();
                 }
-                hostsInstallModel.apply();
+                adBlockModel.apply();
                 endLoading(true);
             } catch (HostErrorException exception) {
                 this.endLoading(false);
