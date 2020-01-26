@@ -25,6 +25,9 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.StatFs;
 
+import androidx.annotation.NonNull;
+
+import org.adaway.helper.PreferenceHelper;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.Toolbox;
 import org.sufficientlysecure.rootcommands.command.SimpleCommand;
@@ -34,10 +37,21 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 public class ApplyUtils {
+    /*
+     * Apply modes (see pref pref_apply_method_entries_values).
+     */
+    public static final String APPLY_TO_SYSTEM = "writeToSystem";
+    public static final String APPLY_TO_DATA_DATA = "writeToDataData";
+    public static final String APPLY_TO_DATA = "writeToData";
+    public static final String APPLY_TO_CUSTOM_TARGET = "customTarget";
+
     /**
      * Check if there is enough space on partition where target is located
      *
@@ -328,5 +342,50 @@ public class ApplyUtils {
         }
 
         return result;
+    }
+
+    /**
+     * Returns the Android hosts file name.
+     *
+     * @return the current hosts file name.
+     * @throws IllegalStateException if the apply method is unknown.
+     */
+    @NonNull
+    public static String getAndroidHostsFilename(@NonNull Context context) {
+        String applyMethod = PreferenceHelper.getApplyMethod(context);
+        switch (applyMethod) {
+            case APPLY_TO_SYSTEM:
+                // /system/etc/hosts
+                return Constants.ANDROID_SYSTEM_ETC_HOSTS;
+            case APPLY_TO_DATA_DATA:
+                // /data/data/hosts
+                return Constants.ANDROID_DATA_DATA_HOSTS;
+            case APPLY_TO_DATA:
+                // /data/hosts
+                return Constants.ANDROID_DATA_HOSTS;
+            case APPLY_TO_CUSTOM_TARGET:
+                return PreferenceHelper.getCustomTarget(context);
+            default:
+                throw new IllegalStateException("The apply method " + applyMethod + " is not supported.");
+        }
+    }
+
+    /**
+     * Read a text file line by line into a String list.
+     *
+     * @param inputStream InputStream to read the file content from
+     * @return File content as String list
+     * @throws IOException If the file could not be read.
+     */
+    @NonNull
+    public static List<String> readTextFile(@NonNull InputStream inputStream) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            List<String> result = new ArrayList<>();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                result.add(line);
+            }
+            return result;
+        }
     }
 }

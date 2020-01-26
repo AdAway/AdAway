@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import org.adaway.R;
 import org.adaway.helper.OpenHelper;
+import org.adaway.ui.hostsdiff.HostsDiffFragment;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -51,14 +53,32 @@ public class HostsContentFragment extends Fragment {
         // Load hosts file content
         new HostsContentLoader(hostsContextTextView::setText).execute();
         /*
-         * Configure menu button.
+         * Configure menu buttons.
          */
         // Get open file button
         Button openFileButton = view.findViewById(R.id.hosts_open_file);
         // Bind on click listener
         openFileButton.setOnClickListener(button -> OpenHelper.openHostsFile(activity));
+        // Show diff button
+        Button showDiffButton = view.findViewById(R.id.hosts_diff);
+        File backupFile = getContext().getFileStreamPath(Constants.HOSTS_BACKUP_FILENAME);
+        showDiffButton.setEnabled(backupFile != null && backupFile.exists());
+        showDiffButton.setOnClickListener(button -> showHostsDiff());
         // Return created view
         return view;
+    }
+
+    /**
+     * Show the hosts diff fragment.
+     */
+    private void showHostsDiff() {
+        Fragment fragment = new HostsDiffFragment();
+        FragmentManager fragmentManager = getFragmentManager();
+        // Insert the fragment by replacing any existing fragment
+        fragmentManager.beginTransaction()
+                .replace(R.id.content_frame, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     /**

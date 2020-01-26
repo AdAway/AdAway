@@ -61,6 +61,9 @@
     <string name="hosts_description">The hosts file is a system file that maps hostnames to IP addresses. It is a plain text file which configuration is handled by AdAway. Here are its few first lines:</string>
     <string name="hosts_content">Loading the hosts file content…</string>
     <string name="hosts_open_button">Open the hosts file</string>
+    <string name="hosts_diff_button">Show latest changes</string>
+    <string name="hosts_diff_header">Latest content changes of the hosts file</string>
+    <string name="hosts_diff_content">Loading the hosts changes…</string>
 
     <!--Status Notification-->
     <string name="status_checking">Checking for update…</string>
