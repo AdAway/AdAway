@@ -49,7 +49,7 @@ public class HostsDiffFragment extends Fragment implements CallbackInterface {
             String androidHostsFilename = ApplyUtils.getAndroidHostsFilename(view.getContext());
             FileInputStream androidHostsInputStream = new FileInputStream(new File(androidHostsFilename));
             FileInputStream privateHostsInputStream = view.getContext().openFileInput(Constants.HOSTS_BACKUP_FILENAME);
-            new HostsDiffGenerator(androidHostsInputStream, privateHostsInputStream, this).execute();
+            new HostsDiffGenerator(privateHostsInputStream, androidHostsInputStream, this).execute();
         } catch (FileNotFoundException e) {
             Log.i(Constants.TAG, "Hosts backup file doesn't exist.", e);
             setResult("Error: Hosts backup file doesn't exist.");
