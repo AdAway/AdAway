@@ -9,8 +9,8 @@
     <string name="button_yes">Taip</string>
     <string name="button_no">Ne</string>
     <string name="button_add">Pridėti</string>
-    <string name="button_cancel">Atčaukti</string>
-    <string name="button_save">Išsaugoi</string>
+    <string name="button_cancel">Atšaukti</string>
+    <string name="button_save">Išsaugoti</string>
     <string name="button_webserver_toggle_text">Įjungti ar stabdyti serverį localhost, blokuotų reklamos siuntėjų atsakymui.</string>
     <string name="button_help">Pagalba</string>
 

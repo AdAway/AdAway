@@ -1,8 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-    <string name="app_name">AdAway</string>
-
     <!--Buttons-->
     <string name="button_exit">പുറത്തേക് ഉള്ള വഴി </string>
     <string name="button_close">അവസാനിപ്പിക്കുക</string>
@@ -157,7 +155,6 @@
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">എസ്-ഓൺ / എസ്-ഓഫ് </string>
-    <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">പ്രശ്നങ്ങൾ</string>
 
     <!--Adware-->

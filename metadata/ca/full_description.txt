@@ -1,4 +1,4 @@
-Un bloquejador d'anuncis que utilitza el fitxer hosts.
+Un blocador d'anuncis que utilitza el fitxer hosts.
 El fitxer hosts és un fitxer del sistema que conté una llista d'assignacions entre noms d'amfitrions i adreces IP.
 Quan una aplicació sol·licita un anunci d'un amfitrió en aquest fitxer, aquesta sol·licitud es redirigeix a la IP local 127.0.0.1, que no fa res.
 Podeu baixar fitxers d'amfitrions predefinits des de l'aplicació per incorporar-los al fitxer hosts del sistema. També és possible utilitzar els vostres propis fitxers i afegir certs amfitrions a les llistes blanques i negres.
