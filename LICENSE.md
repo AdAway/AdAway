@@ -61,12 +61,8 @@ If not, see <https://www.gnu.org/licenses/>.
   https://www.tcpdump.org/  
   BSD 3-Clause License
 
-* Trove  
-  https://trove.starlight-systems.com/  
-  [multiple licenses](https://trove.starlight-systems.com/license)
-
-
 ## Images
+
 * status_enabled.svg, status_disabled.svg, status_update.svg  
   Dropbox Emblems Tango by Charles A.  
   https://forums.dropbox.com/topic.php?id=7818&replies=19  
