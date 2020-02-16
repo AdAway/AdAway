@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 public class RegexUtils {
     private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
     public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
+    private static final Pattern WILDCARD_PATTERN = Pattern.compile("\\*|\\?");
 
     /**
      * Check whether a hostname is valid.
@@ -57,9 +58,9 @@ public class RegexUtils {
      */
     public static boolean isValidWildcardHostname(String hostname) {
         // Clear wildcards from host name then validate it
-        String clearedHostname = hostname.replaceAll("\\*", "").replaceAll("\\?", "");
+        String clearedHostname = WILDCARD_PATTERN.matcher(hostname).replaceAll("");
         // Replace wildcards from host name by an alphanumeric character
-        String replacedHostname = hostname.replaceAll("\\*", "a").replaceAll("\\?", "a");
+        String replacedHostname = WILDCARD_PATTERN.matcher(hostname).replaceAll("a");
         // Check if any hostname is valid
         return isValidHostname(clearedHostname) || isValidHostname(replacedHostname);
     }
