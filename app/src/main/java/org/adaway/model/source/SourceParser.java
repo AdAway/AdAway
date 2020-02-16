@@ -1,5 +1,8 @@
 package org.adaway.model.source;
 
+import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.HostsSource;
+import org.adaway.db.entity.ListType;
 import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
 
@@ -7,18 +10,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Map;
-import java.util.Set;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
-import gnu.trove.map.hash.THashMap;
-import gnu.trove.set.hash.THashSet;
-
+import static org.adaway.db.entity.ListType.BLOCKED;
+import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.util.Constants.BOGUS_IPv4;
 import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
 import static org.adaway.util.Constants.LOCALHOST_IPv4;
 import static org.adaway.util.Constants.LOCALHOST_IPv6;
-import static org.adaway.util.RegexUtils.HOSTS_PARSER_PATTERN;
 
 /**
  * This class is an {@link org.adaway.db.entity.HostsSource} parser.
@@ -27,33 +31,32 @@ import static org.adaway.util.RegexUtils.HOSTS_PARSER_PATTERN;
  */
 class SourceParser {
     private static final String TAG = "SourceParser";
+    private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
+    private static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
-    private final Set<String> blockedHosts;
-    private final Map<String, String> redirectedHosts;
+    private final int sourceId;
     private final boolean parseRedirectedHosts;
+    private final List<HostListItem> items;
 
-    SourceParser(InputStream inputStream, boolean parseRedirectedHosts) throws IOException {
-        this.blockedHosts = new THashSet<>();
-        this.redirectedHosts = new THashMap<>();
+    SourceParser(HostsSource hostsSource, InputStream inputStream, boolean parseRedirectedHosts) throws IOException {
+        this.sourceId = hostsSource.getId();
         this.parseRedirectedHosts = parseRedirectedHosts;
-        parse(inputStream);
+        this.items = parse(inputStream);
     }
 
-    Set<String> getBlockedHosts() {
-        return this.blockedHosts;
-    }
-
-    Map<String, String> getRedirectedHosts() {
-        return this.redirectedHosts;
+    Collection<HostListItem> getItems() {
+        return this.items;
     }
 
     /**
      * Parse hosts source from input stream.
      *
      * @param inputStream The stream to parse hosts from.
+     * @return The parsed host list items.
      * @throws IOException If stream can't be read.
      */
-    private void parse(InputStream inputStream) throws IOException {
+    private List<HostListItem> parse(InputStream inputStream) throws IOException {
+        List<HostListItem> parsedItems = new LinkedList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String nextLine;
             // use whitelist import pattern
@@ -65,33 +68,44 @@ class SourceParser {
                 }
                 // Check IP address validity or while list entry (if allowed)
                 String ip = matcher.group(1);
-                if (!RegexUtils.isValidIP(ip)) {
-                    Log.d(TAG, "IP address is not valid: " + ip);
-                    continue;
-                }
-                // Check hostname
                 String hostname = matcher.group(2);
-                if (!RegexUtils.isValidWildcardHostname(hostname)) {
-                    Log.d(TAG, "hostname is not valid: " + hostname);
+                // Skip localhost name
+                if (LOCALHOST_HOSTNAME.equals(hostname)) {
                     continue;
                 }
-                // Add valid ip and hostname to the right list
-                addToList(ip, hostname);
+                // check if ip is 127.0.0.1 or 0.0.0.0
+                ListType type;
+                if (LOCALHOST_IPv4.equals(ip)
+                        || BOGUS_IPv4.equals(ip)
+                        || LOCALHOST_IPv6.equals(ip)) {
+                    type = BLOCKED;
+                } else if (this.parseRedirectedHosts) {
+                    type = REDIRECTED;
+                } else {
+                    continue;
+                }
+                HostListItem item = new HostListItem();
+                item.setHost(hostname);
+                item.setType(type);
+                item.setEnabled(true);
+                if (type == REDIRECTED) {
+                    item.setRedirection(ip);
+                }
+                item.setSourceId(this.sourceId);
+                parsedItems.add(item);
             }
         }
-        // strip localhost entry from blacklist and redirection list
-        this.blockedHosts.remove(LOCALHOST_HOSTNAME);
-        this.redirectedHosts.remove(LOCALHOST_HOSTNAME);
+        return parsedItems.parallelStream()
+                .filter(this::isRedirectionValid)
+                .filter(this::isHostValid)
+                .collect(Collectors.toList());
     }
 
-    private void addToList(String ip, String hostname) {
-        // check if ip is 127.0.0.1 or 0.0.0.0
-        if (ip.equals(LOCALHOST_IPv4)
-                || ip.equals(BOGUS_IPv4)
-                || ip.equals(LOCALHOST_IPv6)) {
-            this.blockedHosts.add(hostname);
-        } else if (this.parseRedirectedHosts) {
-            this.redirectedHosts.put(hostname, ip);
-        }
+    private boolean isRedirectionValid(HostListItem item) {
+        return item.getType() != REDIRECTED || RegexUtils.isValidIP(item.getRedirection());
+    }
+
+    private boolean isHostValid(HostListItem item) {
+        return RegexUtils.isValidWildcardHostname(item.getHost());
     }
 }

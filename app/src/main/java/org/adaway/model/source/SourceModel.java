@@ -369,10 +369,13 @@ public class SourceModel {
      */
     private void parseSourceInputStream(HostsSource hostsSource, InputStream inputStream) throws IOException {
         setState(R.string.status_parse_source, hostsSource.getUrl());
+        long startTime = System.currentTimeMillis();
         boolean parseRedirectedHosts = PreferenceHelper.getRedirectionRules(this.context);
-        SourceParser sourceParser = new SourceParser(inputStream, parseRedirectedHosts);
+        SourceParser sourceParser = new SourceParser(hostsSource, inputStream, parseRedirectedHosts);
         SourceBatchUpdater updater = new SourceBatchUpdater(this.hostListItemDao);
-        updater.updateSource(hostsSource, sourceParser);
+        updater.updateSource(hostsSource, sourceParser.getItems());
+        long endTime = System.currentTimeMillis();
+        Log.i(TAG, "Parsed "+hostsSource.getUrl()+" in "+(endTime-startTime) / 1000 + "s");
     }
 
     /**

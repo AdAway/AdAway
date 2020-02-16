@@ -26,9 +26,7 @@ import com.google.common.net.InternetDomainName;
 import java.util.regex.Pattern;
 
 public class RegexUtils {
-    private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
-    public static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
-    private static final Pattern WILDCARD_PATTERN = Pattern.compile("\\*|\\?");
+    private static final Pattern WILDCARD_PATTERN = Pattern.compile("[*?]");
 
     /**
      * Check whether a hostname is valid.
