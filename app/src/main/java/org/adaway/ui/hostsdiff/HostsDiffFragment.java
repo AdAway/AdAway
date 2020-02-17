@@ -113,7 +113,7 @@ public class HostsDiffFragment extends Fragment implements CallbackInterface {
         /**
          * The maximum number of lines of the result.
          */
-        private static final short MAX_LINES = 50;
+        private static final short MAX_LINES = 100;
 
         /**
          * Line counter to limit the length of the result.
@@ -180,19 +180,28 @@ public class HostsDiffFragment extends Fragment implements CallbackInterface {
         private String generateDiffResult(@NonNull Patch<String> patch) {
             StringWriter stringWriter = new StringWriter();
             PrintWriter writer = new PrintWriter(stringWriter);
+            // show added lines
             for (AbstractDelta<String> delta : patch.getDeltas()) {
-                printLine("Source position: " + delta.getSource().getPosition(), writer);
                 switch (delta.getType()) {
                     case CHANGE:
-                        printLines("-", delta.getSource().getLines(), writer);
+                    case INSERT:
                         printLines("+", delta.getTarget().getLines(), writer);
                         break;
+                    case DELETE:
+                    case EQUAL:
+                    default:
+                        // hide unchanged lines, show only differences
+                }
+            }
+            writer.println(); // empty line
+            // show removed lines
+            for (AbstractDelta<String> delta : patch.getDeltas()) {
+                switch (delta.getType()) {
+                    case CHANGE:
                     case DELETE:
                         printLines("-", delta.getSource().getLines(), writer);
                         break;
                     case INSERT:
-                        printLines("+", delta.getTarget().getLines(), writer);
-                        break;
                     case EQUAL:
                     default:
                         // hide unchanged lines, show only differences
@@ -213,7 +222,10 @@ public class HostsDiffFragment extends Fragment implements CallbackInterface {
          */
         private void printLines(@NonNull String prefix, @NonNull List<String> lines, @NonNull PrintWriter writer) {
             for (String line : lines) {
-                printLine(prefix + line, writer);
+                // hide white space diff
+                if (!line.trim().isEmpty()) {
+                    printLine(prefix + line, writer);
+                }
             }
         }
 
