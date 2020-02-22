@@ -29,7 +29,7 @@ import android.system.StructPollfd;
 import android.util.Log;
 
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.ui.MainActivity;
+import org.adaway.ui.next.NextActivity;
 import org.pcap4j.packet.IpPacket;
 
 import java.io.FileDescriptor;
@@ -507,7 +507,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         ParcelFileDescriptor pfd = builder
                 .setSession("AdAway")
                 .setConfigureIntent(
-                        PendingIntent.getActivity(vpnService, 1, new Intent(vpnService, MainActivity.class),
+                        PendingIntent.getActivity(vpnService, 1, new Intent(vpnService, NextActivity.class),
                                 PendingIntent.FLAG_CANCEL_CURRENT)).establish();
         Log.i(TAG, "Configured");
         return pfd;

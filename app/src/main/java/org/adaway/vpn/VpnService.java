@@ -32,7 +32,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.ui.MainActivity;
+import org.adaway.ui.next.NextActivity;
 import org.adaway.vpn.VpnWorker.VpnStatusNotifier;
 
 import java.lang.ref.WeakReference;
@@ -223,7 +223,7 @@ public class VpnService extends android.net.VpnService {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
                 .setPriority(IMPORTANCE_LOW)
                 .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0,
-                        new Intent(getApplicationContext(), MainActivity.class), 0))
+                        new Intent(getApplicationContext(), NextActivity.class), 0))
                 .setSmallIcon(R.drawable.icon)
                 .setColorized(true)
                 .setColor(this.getColor(R.color.notification))
