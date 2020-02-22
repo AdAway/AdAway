@@ -111,7 +111,6 @@ dependencies {
     } else {
         implementation 'io.sentry:sentry-android:1.7.14'
     }
-    implementation 'org.slf4j:slf4j-nop:1.7.25' // TODO Check if still used?
 
     // Root related
     implementation 'com.github.topjohnwu.libsu:core:2.5.1'
