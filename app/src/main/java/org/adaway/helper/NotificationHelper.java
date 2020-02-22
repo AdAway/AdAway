@@ -2,7 +2,6 @@ package org.adaway.helper;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -11,7 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import org.adaway.R;
-import org.adaway.ui.MainActivity;
+import org.adaway.ui.next.NextActivity;
+
+import static android.app.PendingIntent.getActivity;
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static androidx.core.app.NotificationCompat.PRIORITY_LOW;
 
 /**
  * This class is an helper class to deals with notifications.
@@ -93,13 +97,12 @@ public final class NotificationHelper {
                 .setShowWhen(false)
                 .setContentTitle(title)
                 .setContentText(text)
-                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .setPriority(PRIORITY_LOW)
                 .setAutoCancel(true);
         // Set action on notification tap
-        Intent intent = new Intent(context, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-        builder.setContentIntent(pendingIntent).setAutoCancel(true);
+        Intent intent = new Intent(context, NextActivity.class);
+        intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
+        builder.setContentIntent(getActivity(context, 0, intent, 0));
         // Set color if supported
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             builder.setColorized(true).setColor(context.getColor(R.color.notification));
