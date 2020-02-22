@@ -18,6 +18,7 @@ import com.topjohnwu.superuser.Shell;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.util.SentryLog;
 
 import static android.app.Activity.RESULT_OK;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
@@ -90,10 +91,8 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     }
 
     private void notifyRootEnabled() {
-        Context context = getContext();
-        if (context != null) {
-            PreferenceHelper.setAbBlockMethod(context, ROOT);
-        }
+        SentryLog.recordBreadcrumb("Enable root ad-blocking method");
+        PreferenceHelper.setAbBlockMethod(requireContext(), ROOT);
         this.rootCardView.setCardBackgroundColor(this.cardEnabledColor);
         this.vpnCardView.setCardBackgroundColor(this.cardColor);
         allowNext();
@@ -115,10 +114,8 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     }
 
     private void notifyVpnEnabled() {
-        Context context = this.getContext();
-        if (context != null) {
-            PreferenceHelper.setAbBlockMethod(context, VPN);
-        }
+        SentryLog.recordBreadcrumb("Enable vpn ad-blocking method");
+        PreferenceHelper.setAbBlockMethod(requireContext(), VPN);
         this.rootCardView.setCardBackgroundColor(this.cardColor);
         this.vpnCardView.setCardBackgroundColor(this.cardEnabledColor);
         allowNext();
