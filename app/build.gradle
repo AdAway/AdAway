@@ -104,7 +104,7 @@ dependencies {
     implementation 'com.google.guava:guava:28.2-android'
     implementation 'com.annimon:stream:1.2.1'
     implementation 'com.google.android:flexbox:1.1.0'   // TODO To remove with the old home screen
-    implementation 'com.squareup.okhttp3:okhttp:3.14.3'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.6'
     implementation 'org.sufficientlysecure:html-textview:3.4'
     if (keyStoreDefined) {
         implementation project(':sentrystub')
