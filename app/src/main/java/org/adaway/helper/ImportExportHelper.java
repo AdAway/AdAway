@@ -192,7 +192,7 @@ public class ImportExportHelper {
 
     private static JSONObject hostToJson(HostListItem host) throws JSONException {
         JSONObject hostObject = new JSONObject();
-        hostObject.put(HOST_ATTRIBUTE, host.getHost());
+        hostObject.put(HOST_ATTRIBUTE, host.getDisplayedHost());
         String redirection = host.getRedirection();
         if (redirection != null && !redirection.isEmpty()) {
             hostObject.put(REDIRECT_ATTRIBUTE, redirection);
@@ -203,7 +203,7 @@ public class ImportExportHelper {
 
     private static HostListItem hostFromJson(JSONObject hostObject) throws JSONException {
         HostListItem host = new HostListItem();
-        host.setHost(hostObject.getString(HOST_ATTRIBUTE));
+        host.setDisplayedHost(hostObject.getString(HOST_ATTRIBUTE));
         if (hostObject.has(REDIRECT_ATTRIBUTE)) {
             host.setRedirection(hostObject.getString(REDIRECT_ATTRIBUTE));
         }

@@ -1,17 +1,19 @@
 package org.adaway.ui.lists;
 
 import android.app.Activity;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
 
-import android.view.ViewGroup;
-
 import org.adaway.R;
+import org.adaway.ui.lists.type.AbstractListFragment;
+import org.adaway.ui.lists.type.BlockedHostsFragment;
+import org.adaway.ui.lists.type.RedirectedHostsFragment;
+import org.adaway.ui.lists.type.AllowedHostsFragment;
 
 import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
 import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
@@ -101,12 +103,12 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
         // Check fragment position
         switch (position) {
             case WHITELIST_TAB:
-                return new WhiteListFragment();
+                return new AllowedHostsFragment();
             case REDIRECTION_TAB:
-                return new RedirectionListFragment();
+                return new RedirectedHostsFragment();
             default:
             case BLACKLIST_TAB:
-                return new BlackListFragment();
+                return new BlockedHostsFragment();
         }
     }
 

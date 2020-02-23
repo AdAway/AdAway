@@ -64,7 +64,7 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull TcpdumpLogAdapter.ViewHolder holder, int position) {
         // Get log entry
-        LogEntry entry = this.getItem(position);
+        LogEntry entry = getItem(position);
         // Set host name
         holder.hostnameTextView.setText(entry.getHost());
         holder.hostnameTextView.setOnClickListener(v -> this.callback.openHostInBrowser(entry.getHost()));

@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui.lists;
+package org.adaway.ui.lists.type;
 
 import android.text.Editable;
 import android.view.LayoutInflater;
@@ -38,11 +38,11 @@ import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
 /**
- * This class is a {@link AbstractListFragment} to display and manage redirection.
+ * This class is a {@link AbstractListFragment} to display and manage redirected hosts.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class RedirectionListFragment extends AbstractListFragment {
+public class RedirectedHostsFragment extends AbstractListFragment {
     @Override
     protected boolean isTwoRowsItem() {
         return true;
@@ -54,7 +54,7 @@ public class RedirectionListFragment extends AbstractListFragment {
     }
 
     @Override
-    protected void addItem() {
+    public void addItem() {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_redirect_dialog, null);
@@ -109,7 +109,7 @@ public class RedirectionListFragment extends AbstractListFragment {
         // Set hostname and IP
         EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
         EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
-        hostnameEditText.setText(item.getHost());
+        hostnameEditText.setText(item.getDisplayedHost());
         ipEditText.setText(item.getRedirection());
         // Move cursor to end of EditText
         Editable hostnameEditContent = hostnameEditText.getText();

@@ -3,6 +3,7 @@ package org.adaway.ui.lists;
 import android.view.View;
 
 import org.adaway.db.entity.HostListItem;
+import org.adaway.ui.lists.type.AbstractListFragment;
 
 /**
  * This class is represents the {@link AbstractListFragment} callback.

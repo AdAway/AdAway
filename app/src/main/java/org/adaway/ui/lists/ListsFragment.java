@@ -42,6 +42,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
 import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
+import org.adaway.ui.lists.type.ListsFilterDialog;
+import org.adaway.ui.lists.type.ListsViewModel;
 
 /**
  * This class is a fragment to display black list, white list and redirect list fragments.

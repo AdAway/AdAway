@@ -1,4 +1,4 @@
-package org.adaway.ui.lists;
+package org.adaway.ui.lists.type;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
+import org.adaway.ui.lists.ListsViewCallback;
 
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 
@@ -84,7 +85,7 @@ class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
         holder.enabledCheckBox.setEnabled(editable);
         holder.enabledCheckBox.setChecked(item.isEnabled());
         holder.enabledCheckBox.setOnClickListener(editable ? view -> viewCallback.toggleItemEnabled(item) : null);
-        holder.hostTextView.setText(item.getHost());
+        holder.hostTextView.setText(item.getDisplayedHost());
         if (this.twoRows) {
             holder.redirectionTextView.setText(item.getRedirection());
         }

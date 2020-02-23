@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
 import static androidx.room.ForeignKey.CASCADE;
+import static org.adaway.db.entity.ListType.REDIRECTED;
 
 /**
  * This entity represents a black, white or redirect list item.
@@ -35,6 +37,8 @@ public class HostListItem {
     private int id;
     @NonNull
     private String host;
+    @Ignore
+    private String displayedHost;
     @NonNull
     private ListType type;
     private boolean enabled;
@@ -57,6 +61,27 @@ public class HostListItem {
 
     public void setHost(@NonNull String host) {
         this.host = host;
+        this.displayedHost = null;
+    }
+
+    public String getDisplayedHost() {
+        if (this.type == REDIRECTED) {
+            if (this.displayedHost == null) {
+                this.displayedHost = formatHost(this.host);
+            }
+            return this.displayedHost;
+        } else {
+            return this.host;
+        }
+    }
+
+    public void setDisplayedHost(String displayedHost) {
+        if (this.type == REDIRECTED) {
+            this.host = fromDisplayedHost(displayedHost);
+            this.displayedHost = displayedHost;
+        } else {
+            this.host = displayedHost;
+        }
     }
 
     @NonNull
@@ -117,5 +142,13 @@ public class HostListItem {
         result = 31 * result + (redirection != null ? redirection.hashCode() : 0);
         result = 31 * result + sourceId;
         return result;
+    }
+
+    private static String formatHost(String host) {
+        return host.replaceAll("\\*", "%").replaceAll("\\?", "_");
+    }
+
+    private static String fromDisplayedHost(String displayedHost) {
+        return displayedHost.replaceAll("%", "*").replaceAll("_", "?");
     }
 }

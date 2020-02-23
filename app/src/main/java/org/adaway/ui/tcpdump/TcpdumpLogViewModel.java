@@ -8,11 +8,10 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.annimon.stream.Collectors;
-import com.annimon.stream.Stream;
 
 import org.adaway.AdAwayApplication;
 import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
@@ -22,7 +21,7 @@ import org.adaway.util.AppExecutors;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 
@@ -34,6 +33,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 public class TcpdumpLogViewModel extends AndroidViewModel {
     private final AdBlockModel adBlockModel;
     private final HostListItemDao hostListItemDao;
+    private final HostEntryDao hostEntryDao;
     private final MutableLiveData<List<LogEntry>> logEntries;
     private final MutableLiveData<Boolean> recording;
     private LogEntrySort sort;
@@ -42,6 +42,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         super(application);
         this.adBlockModel = ((AdAwayApplication) application).getAdBlockModel();
         this.hostListItemDao = AppDatabase.getInstance(application).hostsListItemDao();
+        this.hostEntryDao = AppDatabase.getInstance(application).hostEntryDao();
         this.logEntries = new MutableLiveData<>();
         this.recording = new MutableLiveData<>(this.adBlockModel.isRecordingLogs());
         this.sort = LogEntrySort.TOP_LEVEL_DOMAIN;
@@ -60,18 +61,10 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         AppExecutors.getInstance().diskIO().execute(
                 () -> {
                     // Get tcpdump logs
-                    List<String> logs = this.adBlockModel.getLogs();
-                    // Create lookup table of host list item by host name
-                    Map<String, HostListItem> hosts = Stream.of(this.hostListItemDao.getAll())
-                            .collect(Collectors.toMap(HostListItem::getHost));
-                    // Create log entry collection
-                    List<LogEntry> logItems = Stream.of(logs)
+                    List<LogEntry> logItems = this.adBlockModel.getLogs()
+                            .parallelStream()
                             .map(log -> {
-                                ListType type = null;
-                                HostListItem hostListItem = hosts.get(log);
-                                if (hostListItem != null) {
-                                    type = hostListItem.getType();
-                                }
+                                ListType type = this.hostEntryDao.getTypeOfHost(log);
                                 return new LogEntry(log, type);
                             })
                             .sorted(this.sort.comparator())
@@ -102,8 +95,8 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
     public void addListItem(@NonNull String host, @NonNull ListType type, String redirection) {
         // Create new host list item
         HostListItem item = new HostListItem();
-        item.setHost(host);
         item.setType(type);
+        item.setDisplayedHost(host);
         item.setRedirection(redirection);
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);
@@ -127,7 +120,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
             return;
         }
         // Update entry type
-        List<LogEntry> updatedEntries = Stream.of(entries)
+        List<LogEntry> updatedEntries = entries.stream()
                 .map(entry -> entry.getHost().equals(host) ? new LogEntry(host, type) : entry)
                 .collect(Collectors.toList());
         // Post new values

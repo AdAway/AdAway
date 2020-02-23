@@ -1,4 +1,4 @@
-package org.adaway.ui.lists;
+package org.adaway.ui.lists.type;
 
 import android.app.Application;
 import android.database.sqlite.SQLiteConstraintException;
@@ -15,6 +15,7 @@ import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
+import org.adaway.ui.lists.ListsFilter;
 import org.adaway.ui.lists.ListsFilter.SqlFilter;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Constants;
@@ -92,7 +93,7 @@ public class ListsViewModel extends AndroidViewModel {
     public void addListItem(@NonNull ListType type, @NonNull String host, String redirection) {
         HostListItem item = new HostListItem();
         item.setType(type);
-        item.setHost(host);
+        item.setDisplayedHost(host);
         item.setRedirection(redirection);
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);
@@ -108,7 +109,7 @@ public class ListsViewModel extends AndroidViewModel {
     public void updateListItem(@NonNull HostListItem item, @NonNull String host, String redirection) {
         HostListItem newItem = new HostListItem();
         newItem.setType(item.getType());
-        newItem.setHost(host);
+        newItem.setDisplayedHost(host);
         newItem.setRedirection(redirection);
         newItem.setEnabled(item.isEnabled());
         newItem.setSourceId(USER_SOURCE_ID);

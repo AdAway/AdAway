@@ -18,7 +18,7 @@
  *
  */
 
-package org.adaway.ui.lists;
+package org.adaway.ui.lists.type;
 
 
 import android.text.Editable;
@@ -34,31 +34,32 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
-import org.adaway.db.entity.ListType;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
+import static org.adaway.db.entity.ListType.BLOCKED;
+
 /**
- * This class is a {@link AbstractListFragment} to display and manage white-listed hosts.
+ * This class is a {@link AbstractListFragment} to display and manage blocked hosts.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class WhiteListFragment extends AbstractListFragment {
+public class BlockedHostsFragment extends AbstractListFragment {
     @Override
     protected LiveData<PagedList<HostListItem>> getData() {
-        return this.mViewModel.getWhiteListItems();
+        return this.mViewModel.getBlackListItems();
     }
 
     @Override
-    protected void addItem() {
+    public void addItem() {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_white_dialog, null);
+        View view = factory.inflate(R.layout.lists_black_dialog, null);
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         // Create dialog
         AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
                 .setCancelable(true)
-                .setTitle(R.string.list_add_dialog_white)
+                .setTitle(R.string.list_add_dialog_black)
                 .setView(view)
                 // Setup buttons
                 .setPositiveButton(
@@ -66,14 +67,13 @@ public class WhiteListFragment extends AbstractListFragment {
                         (dialog, which) -> {
                             // Close dialog
                             dialog.dismiss();
-                            // Check hostname validity
+                            // Check if hostname is valid
                             String hostname = inputEditText.getText().toString();
-                            if (RegexUtils.isValidWildcardHostname(hostname)) {
-                                // Insert host to whitelist
-                                this.mViewModel.addListItem(ListType.ALLOWED, hostname, null);
+                            if (RegexUtils.isValidHostname(hostname)) {
+                                // Insert host to black list
+                                this.mViewModel.addListItem(BLOCKED, hostname, null);
                             }
-                        }
-                )
+                        })
                 .setNegativeButton(
                         R.string.button_cancel,
                         (dialog, which) -> dialog.dismiss()
@@ -83,7 +83,7 @@ public class WhiteListFragment extends AbstractListFragment {
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(
-                new AlertDialogValidator(alertDialog, RegexUtils::isValidWildcardHostname, false)
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidHostname, false)
         );
     }
 
@@ -91,17 +91,17 @@ public class WhiteListFragment extends AbstractListFragment {
     protected void editItem(HostListItem item) {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_white_dialog, null);
+        View view = factory.inflate(R.layout.lists_black_dialog, null);
         // Set hostname
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
-        inputEditText.setText(item.getHost());
+        inputEditText.setText(item.getDisplayedHost());
         // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());
-        // Create dialog builder
+        // Create dialog
         AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
                 .setCancelable(true)
-                .setTitle(R.string.list_edit_dialog_white)
+                .setTitle(R.string.list_edit_dialog_black)
                 .setView(view)
                 // Setup buttons
                 .setPositiveButton(
@@ -111,22 +111,21 @@ public class WhiteListFragment extends AbstractListFragment {
                             dialog.dismiss();
                             // Check hostname validity
                             String hostname = inputEditText.getText().toString();
-                            if (RegexUtils.isValidWildcardHostname(hostname)) {
+                            if (RegexUtils.isValidHostname(hostname)) {
                                 // Update list item
                                 this.mViewModel.updateListItem(item, hostname, null);
                             }
-                        }
-                )
+                        })
                 .setNegativeButton(
-                        R.string.button_cancel,
-                        (dialog, which) -> dialog.dismiss()
+                        R.string.button_cancel
+                        , (dialog, which) -> dialog.dismiss()
                 )
                 .create();
         // Show dialog
         alertDialog.show();
         // Set button validation behavior
         inputEditText.addTextChangedListener(
-                new AlertDialogValidator(alertDialog, RegexUtils::isValidWildcardHostname, true)
+                new AlertDialogValidator(alertDialog, RegexUtils::isValidHostname, true)
         );
     }
 }

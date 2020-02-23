@@ -9,18 +9,18 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class ListsFilter {
-    static final ListsFilter ALL = new ListsFilter(true, "");
+public class ListsFilter {
+    public static final ListsFilter ALL = new ListsFilter(true, "");
     /**
      * Whether included hosts from sources or not.
      */
-    final boolean sourcesIncluded;
+    public final boolean sourcesIncluded;
     /**
      * The filter to apply to hosts name (wildcard based).
      */
-    final String hostFilter;
+    public final String hostFilter;
 
-    ListsFilter(boolean sourcesIncluded, String hostFilter) {
+    public ListsFilter(boolean sourcesIncluded, String hostFilter) {
         this.sourcesIncluded = sourcesIncluded;
         this.hostFilter = hostFilter;
     }
@@ -30,7 +30,7 @@ class ListsFilter {
                 .replaceAll("\\?", "_") + "%";
     }
 
-    SqlFilter compute(AppDatabase database) {
+    public SqlFilter compute(AppDatabase database) {
         return new SqlFilter(
                 this,
                 this.sourcesIncluded ? database.hostsSourceDao().getAllIds() : new int[]{USER_SOURCE_ID},
@@ -43,19 +43,19 @@ class ListsFilter {
      *
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
-    static class SqlFilter {
+    public static class SqlFilter {
         /**
          * The original filter.
          */
-        final ListsFilter source;
+        public final ListsFilter source;
         /**
          * The hosts sources identifiers.
          */
-        final int[] sourceIds;
+        public final int[] sourceIds;
         /**
          * The filter to apply to host name (SQL LIKE formatted).
          */
-        final String query;
+        public final String query;
 
         SqlFilter(ListsFilter source, int[] sourceIds, String query) {
             this.source = source;

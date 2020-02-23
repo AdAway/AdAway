@@ -1,4 +1,4 @@
-package org.adaway.ui.lists;
+package org.adaway.ui.lists.type;
 
 import android.content.Context;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
+import org.adaway.ui.lists.ListsFilter;
 
 import java.util.function.Consumer;
 

@@ -36,4 +36,13 @@ class Migrations {
             database.execSQL("CREATE INDEX `index_hosts_lists_source_id` ON `hosts_lists` (`source_id`)");
         }
     };
+    /**
+     * The migration script from v2 to v3.
+     */
+    static final Migration MIGRATION_2_3 = new Migration(2, 3) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            database.execSQL("CREATE VIEW `host_entries` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) ORDER BY `host` ASC, `type` DESC, `redirection` ASC");
+        }
+    };
 }

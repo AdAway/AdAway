@@ -1,4 +1,4 @@
-package org.adaway.ui.lists;
+package org.adaway.ui.lists.type;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
+import org.adaway.ui.lists.ListsFragment;
+import org.adaway.ui.lists.ListsViewCallback;
 
 /**
  * This class is a {@link Fragment} to display and manage lists of {@link ListsFragment}.
@@ -166,7 +168,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
     /**
      * Ensure action mode is cancelled.
      */
-    void ensureActionModeCanceled() {
+    public void ensureActionModeCanceled() {
         if (this.mActionMode != null) {
             this.mActionMode.finish();
         }
@@ -178,7 +180,10 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         return false;
     }
 
-    protected abstract void addItem();
+    /**
+     * Display a UI to add an item to the list.
+     */
+    public abstract void addItem();
 
     protected abstract void editItem(HostListItem item);
 
