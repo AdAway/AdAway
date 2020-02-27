@@ -14,6 +14,6 @@ jobs:
       with:
         java-version: 1.8
     - uses: malinskiy/action-android/install-sdk@release/0.0.5
-    - run: $ANDROID_HOME/tools/bin/sdkmanager "build-tools;29.0.3" ndk-bundle
+    - run: $ANDROID_HOME/tools/bin/sdkmanager 'ndk;20.0.5594570'
     - name: Build with Gradle
       run: ./gradlew build --stacktrace
