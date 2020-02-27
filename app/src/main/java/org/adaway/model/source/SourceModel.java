@@ -1,6 +1,8 @@
 package org.adaway.model.source;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,7 +22,6 @@ import org.adaway.model.git.GitHostsSource;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.DateUtils;
 import org.adaway.util.Log;
-import org.adaway.util.Utils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -39,6 +40,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
 import static org.adaway.model.error.HostError.NO_CONNECTION;
 
@@ -135,7 +137,7 @@ public class SourceModel {
      */
     public boolean checkForUpdate() throws HostErrorException {
         // Check current connection
-        if (!Utils.isAndroidOnline(this.context)) {
+        if (isDeviceOffline()) {
             throw new HostErrorException(NO_CONNECTION);
         }
         // Initialize update status
@@ -195,6 +197,20 @@ public class SourceModel {
     }
 
     /**
+     * Checks if device is offline.
+     *
+     * @return returns {@code true} if device is offline, {@code false} otherwise.
+     */
+    private boolean isDeviceOffline() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) this.context.getSystemService(CONNECTIVITY_SERVICE);
+        if (connectivityManager == null) {
+            return false;
+        }
+        NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
+        return netInfo == null || !netInfo.isConnectedOrConnecting();
+    }
+
+    /**
      * Get the hosts source last online update.
      *
      * @param url The hosts source URL to get last online update.
@@ -239,7 +255,7 @@ public class SourceModel {
      */
     public void retrieveHostsSources() throws HostErrorException {
         // Check connection status
-        if (!Utils.isAndroidOnline(this.context)) {
+        if (isDeviceOffline()) {
             throw new HostErrorException(NO_CONNECTION);
         }
         // Update state to downloading
