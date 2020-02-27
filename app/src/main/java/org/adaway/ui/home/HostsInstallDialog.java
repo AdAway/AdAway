@@ -2,14 +2,18 @@ package org.adaway.ui.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.topjohnwu.superuser.Shell;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.error.HostError;
 import org.adaway.ui.help.HelpActivity;
-import org.adaway.util.Utils;
 
 /**
  * This class is an helper class to show hosts install error related dialogs.
@@ -37,10 +41,10 @@ final class HostsInstallDialog {
         }
         switch (status) {
             case INSTALLED:
-                Utils.rebootQuestion(context, R.string.apply_success_title, R.string.apply_success_dialog);
+                rebootQuestion(context, R.string.apply_success_title, R.string.apply_success_dialog);
                 break;
             case ORIGINAL:
-                Utils.rebootQuestion(context, R.string.revert_successful_title, R.string.revert_successful);
+                rebootQuestion(context, R.string.revert_successful_title, R.string.revert_successful);
                 break;
             default:
                 // Nothing to do
@@ -97,5 +101,48 @@ final class HostsInstallDialog {
         builder.setTitle(title);
         builder.setMessage(context.getString(text) + "\n\n" + context.getString(R.string.apply_help));
         builder.show();
+    }
+
+    /**
+     * Show reboot question.
+     *
+     * @param title   resource id of title string
+     * @param message resource id of message string
+     */
+    private static void rebootQuestion(Context context, int title, int message) {
+        // build view from layout
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View dialogView = inflater.inflate(R.layout.reboot_dialog, null);
+        // set text in view based on given resource id
+        TextView text = dialogView.findViewById(R.id.reboot_dialog_text);
+        text.setText(message);
+
+        Runnable updatePreferences = () -> {
+            // set preference to never show reboot dialog again if checkbox is checked
+            CheckBox checkBox = dialogView.findViewById(R.id.reboot_dialog_checkbox);
+            PreferenceHelper.setNeverReboot(context, checkBox.isChecked());
+        };
+
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(title)
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .setView(dialogView)
+                .setPositiveButton(context.getString(R.string.button_yes),
+                        (dialog, id) -> {
+                            updatePreferences.run();
+                            reboot();
+                        }
+                )
+                .setNegativeButton(context.getString(R.string.button_no),
+                        (dialog, id) -> {
+                            updatePreferences.run();
+                            dialog.dismiss();
+                        }
+                )
+                .show();
+    }
+
+    private static void reboot() {
+        Shell.su("svc power reboot").submit();
     }
 }
