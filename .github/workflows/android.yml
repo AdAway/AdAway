@@ -13,5 +13,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - uses: malinskiy/action-android/install-sdk@release/0.0.5
+    - run: sdkmanager "build-tools;29.0.3" ndk-bundle
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --stacktrace
