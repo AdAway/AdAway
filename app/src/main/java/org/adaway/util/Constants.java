@@ -45,8 +45,6 @@ public class Constants {
     public static final String COMMAND_CHOWN = "chown 0:0";
     public static final String COMMAND_CHMOD_644 = "chmod 644";
 
-    public static final String WEBSERVER_EXECUTABLE = "blank_webserver";
-
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_HOSTS = ANDROID_SYSTEM_PATH + FILE_SEPARATOR
             + "etc" + FILE_SEPARATOR + HOSTS_FILENAME;

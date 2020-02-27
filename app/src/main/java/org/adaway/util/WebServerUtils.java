@@ -22,7 +22,6 @@ package org.adaway.util;
 
 import android.content.Context;
 
-import static org.adaway.util.Constants.WEBSERVER_EXECUTABLE;
 import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
 import static org.adaway.util.ShellUtils.killBundledExecutable;
 import static org.adaway.util.ShellUtils.runBundledExecutable;
@@ -33,13 +32,16 @@ import static org.adaway.util.ShellUtils.runBundledExecutable;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class WebServerUtils {
+    private static final String TAG = "WebServer";
+    private static final String WEBSERVER_EXECUTABLE = "blank_webserver";
+
     /**
      * Start the web server in new thread with RootTools
      *
      * @param context The application context.
      */
     public static void startWebServer(Context context) {
-        Log.d(Constants.TAG, "Starting web server...");
+        Log.d(TAG, "Starting web server...");
 
         String parameters = " > /dev/null 2>&1";
         runBundledExecutable(context, WEBSERVER_EXECUTABLE, parameters);
