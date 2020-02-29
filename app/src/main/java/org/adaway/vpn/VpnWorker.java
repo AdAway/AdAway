@@ -19,7 +19,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.Network;
+import android.net.LinkProperties;
 import android.net.NetworkInfo;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
@@ -45,14 +45,16 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Set;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
 import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STARTING;
@@ -96,22 +98,32 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         this.dnsPacketProxy = new DnsPacketProxy(this);
     }
 
-    private static Set<InetAddress> getDnsServers(Context context) throws VpnNetworkException {
-        Set<InetAddress> addresses = new HashSet<>();
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(android.net.VpnService.CONNECTIVITY_SERVICE);
-        // Seriously, Android? Seriously?
-        NetworkInfo activeInfo = cm.getActiveNetworkInfo();
-        if (activeInfo == null)
-            throw new VpnNetworkException("No DNS Server");
-
-        for (Network nw : cm.getAllNetworks()) {
-            NetworkInfo ni = cm.getNetworkInfo(nw);
-            if (ni == null || !ni.isConnected() || ni.getType() != activeInfo.getType()
-                    || ni.getSubtype() != activeInfo.getSubtype())
-                continue;
-            addresses.addAll(cm.getLinkProperties(nw).getDnsServers());
+    private static List<InetAddress> getDnsServers(Context context) throws VpnNetworkException {
+        List<InetAddress> addresses = new ArrayList<>();
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
+        if (cm == null) {
+            return addresses;
         }
-        return addresses;
+        NetworkInfo activeInfo = cm.getActiveNetworkInfo();
+        if (activeInfo == null) {
+            return addresses;
+        }
+        return Arrays.stream(cm.getAllNetworks())
+                .filter(network -> {
+                    NetworkInfo ni = cm.getNetworkInfo(network);
+                    return ni != null && ni.isConnected() && ni.getType() == activeInfo.getType()
+                            && ni.getSubtype() == activeInfo.getSubtype();
+                })
+                .flatMap(network -> {
+                    LinkProperties linkProperties = cm.getLinkProperties(network);
+                    if (linkProperties == null) {
+                        return Stream.empty();
+                    }
+                    return linkProperties.getDnsServers().stream();
+                })
+                .distinct()
+                .collect(Collectors.toList());
+
     }
 
     public void start() {
@@ -303,7 +315,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         }
     }
 
-    private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws VpnNetworkException, SocketException {
+    private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws VpnNetworkException {
         // Read the outgoing packet from the input stream.
         int length;
 
@@ -423,7 +435,10 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 //        Configuration config = FileHelper.loadCurrentSettings(vpnService);
 
         // Get the current DNS servers before starting the VPN
-        Set<InetAddress> dnsServers = getDnsServers(vpnService);
+        List<InetAddress> dnsServers = getDnsServers(vpnService);
+        if (dnsServers.isEmpty()) {
+            throw new VpnNetworkException("No DNS Server");
+        }
         Log.i(TAG, "Got DNS servers = " + dnsServers);
 
         // Configure a builder while parsing the parameters.
@@ -513,7 +528,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         return pfd;
     }
 
-    boolean hasIpV6Servers(Set<InetAddress> dnsServers) {
+    boolean hasIpV6Servers(Collection<InetAddress> dnsServers) {
         if (!PreferenceHelper.getEnableIpv6(this.vpnService)) {
             return false;
         }

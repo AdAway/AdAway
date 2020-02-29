@@ -119,7 +119,7 @@ public class VpnService extends android.net.VpnService {
         }
         // Start the VPN service
         Intent intent = START.toIntent(context);
-        if (SDK_INT >= VERSION_CODES.O) { // TODO && config.showNotification
+        if (SDK_INT >= VERSION_CODES.O) {
             return context.startForegroundService(intent) != null;
         } else {
             return context.startService(intent) != null;
@@ -209,9 +209,7 @@ public class VpnService extends android.net.VpnService {
     private void updateVpnStatus(VpnStatus status) {
         vpnStatus = status;
 
-//        if (FileHelper.loadCurrentSettings(getApplicationContext()).showNotification) { // TODO
         startForeground(VPN_SERVICE_NOTIFICATION_ID, getNotification(status));
-//        }
 
         Intent intent = new Intent(VPN_UPDATE_STATUS_INTENT);
         intent.putExtra(VPN_UPDATE_STATUS_EXTRA, status);

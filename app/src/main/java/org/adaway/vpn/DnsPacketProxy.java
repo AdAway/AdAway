@@ -23,8 +23,10 @@ import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
 import org.pcap4j.packet.IpV4Packet;
 import org.pcap4j.packet.IpV6Packet;
+import org.pcap4j.packet.Packet;
 import org.pcap4j.packet.UdpPacket;
 import org.pcap4j.packet.UnknownPacket;
+import org.pcap4j.packet.namednumber.IpNumber;
 import org.xbill.DNS.DClass;
 import org.xbill.DNS.Flags;
 import org.xbill.DNS.Message;
@@ -83,7 +85,7 @@ public class DnsPacketProxy {
      *                           rewriting of ip addresses takes place
      */
     void initialize(Context context, List<InetAddress> upstreamDnsServers) {
-        this.vpnModel = (VpnModel) ((AdAwayApplication)context.getApplicationContext()).getAdBlockModel();
+        this.vpnModel = (VpnModel) ((AdAwayApplication) context.getApplicationContext()).getAdBlockModel();
         this.upstreamDnsServers = upstreamDnsServers;
     }
 
@@ -137,38 +139,46 @@ public class DnsPacketProxy {
      */
     void handleDnsRequest(byte[] packetData) throws VpnWorker.VpnNetworkException {
 
-        IpPacket parsedPacket = null;
+        IpPacket ipPacket;
         try {
-            parsedPacket = (IpPacket) IpSelector.newPacket(packetData, 0, packetData.length);
+            ipPacket = (IpPacket) IpSelector.newPacket(packetData, 0, packetData.length);
         } catch (Exception e) {
             Log.i(TAG, "handleDnsRequest: Discarding invalid IP packet", e);
             return;
         }
 
-        if (!(parsedPacket.getPayload() instanceof UdpPacket)) {
-            Log.i(TAG, "handleDnsRequest: Discarding unknown packet type " + parsedPacket.getPayload());
+        // Check UDP protocol
+        if (ipPacket.getHeader().getProtocol() != IpNumber.UDP) {
             return;
         }
 
-        InetAddress destAddr = translateDestinationAdress(parsedPacket);
+        UdpPacket updPacket;
+        Packet udpPayload;
+
+        try {
+            updPacket = (UdpPacket) ipPacket.getPayload();
+            udpPayload = updPacket.getPayload();
+        } catch (Exception e) {
+            Log.i(TAG, "handleDnsRequest: Discarding unknown packet type " + ipPacket.getHeader(), e);
+            return;
+        }
+
+        InetAddress destAddr = translateDestinationAddress(ipPacket);
         if (destAddr == null)
             return;
 
-        UdpPacket parsedUdp = (UdpPacket) parsedPacket.getPayload();
-
-
-        if (parsedUdp.getPayload() == null) {
-            Log.i(TAG, "handleDnsRequest: Sending UDP packet without payload: " + parsedUdp);
+        if (udpPayload == null) {
+            Log.i(TAG, "handleDnsRequest: Sending UDP packet without payload: " + updPacket);
 
             // Let's be nice to Firefox. Firefox uses an empty UDP packet to
             // the gateway to reduce the RTT. For further details, please see
             // https://bugzilla.mozilla.org/show_bug.cgi?id=888268
-            DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, destAddr, parsedUdp.getHeader().getDstPort().valueAsInt());
+            DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, destAddr, updPacket.getHeader().getDstPort().valueAsInt());
             eventLoop.forwardPacket(outPacket, null);
             return;
         }
 
-        byte[] dnsRawData = (parsedUdp).getPayload().getRawData();
+        byte[] dnsRawData = udpPayload.getRawData();
         Message dnsMsg;
         try {
             dnsMsg = new Message(dnsRawData);
@@ -185,14 +195,14 @@ public class DnsPacketProxy {
         boolean isBlocked = this.vpnModel != null && this.vpnModel.isBlocked(hostname);
         if (!isBlocked) {
             Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + destAddr);
-            DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, destAddr, parsedUdp.getHeader().getDstPort().valueAsInt());
-            eventLoop.forwardPacket(outPacket, parsedPacket);
+            DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, destAddr, updPacket.getHeader().getDstPort().valueAsInt());
+            eventLoop.forwardPacket(outPacket, ipPacket);
         } else {
             Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Blocked!");
             dnsMsg.getHeader().setFlag(Flags.QR);
             dnsMsg.getHeader().setRcode(Rcode.NOERROR);
             dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
-            handleDnsResponse(parsedPacket, dnsMsg.toWire());
+            handleDnsResponse(ipPacket, dnsMsg.toWire());
         }
     }
 
@@ -203,8 +213,8 @@ public class DnsPacketProxy {
      * @param parsedPacket Packet to get destination address for.
      * @return The translated address or null on failure.
      */
-    private InetAddress translateDestinationAdress(IpPacket parsedPacket) {
-        InetAddress destAddr = null;
+    private InetAddress translateDestinationAddress(IpPacket parsedPacket) {
+        InetAddress destAddr;
         if (upstreamDnsServers.size() > 0) {
             byte[] addr = parsedPacket.getHeader().getDstAddr().getAddress();
             int index = addr[addr.length - 1] - 2;
@@ -212,7 +222,7 @@ public class DnsPacketProxy {
             try {
                 destAddr = upstreamDnsServers.get(index);
             } catch (Exception e) {
-                Log.e(TAG, "handleDnsRequest: Cannot handle packets to" + parsedPacket.getHeader().getDstAddr().getHostAddress(), e);
+                Log.e(TAG, "handleDnsRequest: Cannot handle packets to " + parsedPacket.getHeader().getDstAddr().getHostAddress() + " - not a valid address for this network", e);
                 return null;
             }
             Log.d(TAG, String.format("handleDnsRequest: Incoming packet to %s AKA %d AKA %s", parsedPacket.getHeader().getDstAddr().getHostAddress(), index, destAddr));
