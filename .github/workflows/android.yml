@@ -26,3 +26,9 @@ jobs:
 #      env:
 #        key: value
       run: ./gradlew assembleDebug --stacktrace
+      
+    - name: Upload APK
+      uses: actions/upload-artifact@v1
+      with:
+        name: AdAway-dev
+        path: app/build/outputs/apk/debug/app-debug.apk
