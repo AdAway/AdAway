@@ -41,7 +41,6 @@ import java.net.DatagramSocket;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,10 +86,6 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     private Thread thread = null;
     private FileDescriptor mBlockFd = null;
     private FileDescriptor mInterruptFd = null;
-    /**
-     * Number of iterations since we last cleared the pcap4j cache
-     */
-    private int pcap4jFactoryClearCacheCounter = 0;
 
     public VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier statusNotifier) {
         this.vpnService = vpnService;
@@ -178,8 +173,6 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                     statusNotifier.accept(STOPPING);
                 }
                 break;
-            } catch (InterruptedException e) {
-                break;
             } catch (VpnNetworkException e) {
                 // We want to filter out VpnNetworkException from out crash analytics as these
                 // are exceptions that we expect to happen from network errors
@@ -216,7 +209,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         Log.i(TAG, "Exiting");
     }
 
-    private void runVpn() throws InterruptedException, ErrnoException, IOException, VpnNetworkException {
+    private void runVpn() throws ErrnoException, IOException, VpnNetworkException {
         // Allocate the buffer for a single packet.
         byte[] packet = new byte[32767];
 
@@ -226,49 +219,50 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         mBlockFd = pipes[1];
 
         // Authenticate and configure the virtual network interface.
-        try (ParcelFileDescriptor pfd = configure()) {
-            // Read and write views of the tun device
-            FileInputStream inputStream = new FileInputStream(pfd.getFileDescriptor());
-            FileOutputStream outFd = new FileOutputStream(pfd.getFileDescriptor());
+        try (ParcelFileDescriptor pfd = configure();
+             // Read and write views of the tunnel device
+             FileInputStream inputStream = new FileInputStream(pfd.getFileDescriptor());
+             FileOutputStream outputStream = new FileOutputStream(pfd.getFileDescriptor())) {
 
             // Now we are connected. Set the flag and show the message.
-            if (statusNotifier != null)
-                statusNotifier.accept(RUNNING);
+            if (this.statusNotifier != null)
+                this.statusNotifier.accept(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
-            while (doOne(inputStream, outFd, packet))
-                ;
+            while (doOne(inputStream, outputStream, packet));
         } finally {
             mBlockFd = FileHelper.closeOrWarn(mBlockFd, TAG, "runVpn: Could not close blockFd");
         }
     }
 
-    private boolean doOne(FileInputStream inputStream, FileOutputStream outFd, byte[] packet) throws IOException, ErrnoException, InterruptedException, VpnNetworkException {
+    private boolean doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
+            throws IOException, ErrnoException, VpnNetworkException {
         StructPollfd deviceFd = new StructPollfd();
         deviceFd.fd = inputStream.getFD();
         deviceFd.events = (short) OsConstants.POLLIN;
+        if (!deviceWrites.isEmpty())
+            deviceFd.events |= (short) OsConstants.POLLOUT;
+
         StructPollfd blockFd = new StructPollfd();
         blockFd.fd = mBlockFd;
         blockFd.events = (short) (OsConstants.POLLHUP | OsConstants.POLLERR);
 
-        if (!deviceWrites.isEmpty())
-            deviceFd.events |= (short) OsConstants.POLLOUT;
-
-        StructPollfd[] polls = new StructPollfd[2 + dnsIn.size()];
+        StructPollfd[] polls = new StructPollfd[2 + this.dnsIn.size()];
         polls[0] = deviceFd;
         polls[1] = blockFd;
         {
             int i = -1;
-            for (WaitingOnSocketPacket wosp : dnsIn) {
+            for (WaitingOnSocketPacket wosp : this.dnsIn) {
                 i++;
-                StructPollfd pollFd = polls[2 + i] = new StructPollfd();
+                StructPollfd pollFd = new StructPollfd();
                 pollFd.fd = ParcelFileDescriptor.fromDatagramSocket(wosp.socket).getFileDescriptor();
                 pollFd.events = (short) OsConstants.POLLIN;
+                polls[2 + i] = pollFd;
             }
         }
 
         Log.d(TAG, "doOne: Polling " + polls.length + " file descriptors");
-        int result = FileHelper.poll(polls, vpnWatchDog.getPollTimeout());
+        int result = Os.poll(polls, vpnWatchDog.getPollTimeout());
         if (result == 0) {
             vpnWatchDog.handleTimeout();
             return true;
@@ -277,26 +271,14 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             Log.i(TAG, "Told to stop VPN");
             return false;
         }
+
         // Need to do this before reading from the device, otherwise a new insertion there could
         // invalidate one of the sockets we want to read from either due to size or time out
         // constraints
-        {
-            int i = -1;
-            Iterator<WaitingOnSocketPacket> iter = dnsIn.iterator();
-            while (iter.hasNext()) {
-                i++;
-                WaitingOnSocketPacket wosp = iter.next();
-                if ((polls[i + 2].revents & OsConstants.POLLIN) != 0) {
-                    Log.d(TAG, "Read from DNS socket" + wosp.socket);
-                    iter.remove();
-                    handleRawDnsResponse(wosp.packet, wosp.socket);
-                    wosp.socket.close();
-                }
-            }
-        }
+        checkForDnsResponse(polls);
         if ((deviceFd.revents & OsConstants.POLLOUT) != 0) {
             Log.d(TAG, "Write to device");
-            writeToDevice(outFd);
+            writeToDevice(fileOutputStream);
         }
         if ((deviceFd.revents & OsConstants.POLLIN) != 0) {
             Log.d(TAG, "Read from device");
@@ -306,9 +288,30 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         return true;
     }
 
-    private void writeToDevice(FileOutputStream outFd) throws VpnNetworkException {
+    private void checkForDnsResponse(StructPollfd[] polls) {
+        int i = 2;
+        Iterator<WaitingOnSocketPacket> iterator = dnsIn.iterator();
+        while (iterator.hasNext()) {
+            WaitingOnSocketPacket wosp = iterator.next();
+            if ((polls[i].revents & OsConstants.POLLIN) != 0) {
+                Log.d(TAG, "Read from DNS socket" + wosp.socket);
+                iterator.remove();
+                try {
+                    handleRawDnsResponse(wosp);
+                } catch (IOException e) {
+                    Log.w(TAG, "checkForDnsResponse: Could not handle DNS response", e);
+                }
+            }
+            i++;
+        }
+    }
+
+    private void writeToDevice(FileOutputStream fileOutputStream) throws VpnNetworkException {
         try {
-            outFd.write(deviceWrites.poll());
+            byte[] ipPacketData = deviceWrites.poll();
+            if (ipPacketData != null) {
+                fileOutputStream.write(ipPacketData);
+            }
         } catch (IOException e) {
             // TODO: Make this more specific, only for: "File descriptor closed"
             throw new VpnNetworkException("Outgoing VPN output stream closed");
@@ -316,26 +319,21 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     }
 
     private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws VpnNetworkException {
-        // Read the outgoing packet from the input stream.
-        int length;
-
         try {
-            length = inputStream.read(packet);
+            // Read the outgoing packet from the input stream.
+            int length = inputStream.read(packet);
+            if (length == 0) {
+                // TODO: Possibly change to exception
+                Log.w(TAG, "Got empty packet!");
+                return;
+            }
+            final byte[] readPacket = Arrays.copyOfRange(packet, 0, length);
+
+            vpnWatchDog.handlePacket(readPacket);
+            dnsPacketProxy.handleDnsRequest(readPacket);
         } catch (IOException e) {
             throw new VpnNetworkException("Cannot read from device", e);
         }
-
-
-        if (length == 0) {
-            // TODO: Possibly change to exception
-            Log.w(TAG, "Got empty packet!");
-            return;
-        }
-
-        final byte[] readPacket = Arrays.copyOfRange(packet, 0, length);
-
-        vpnWatchDog.handlePacket(readPacket);
-        dnsPacketProxy.handleDnsRequest(readPacket);
     }
 
     public void forwardPacket(DatagramPacket outPacket, IpPacket parsedPacket) throws VpnNetworkException {
@@ -365,11 +363,12 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         }
     }
 
-    private void handleRawDnsResponse(IpPacket parsedPacket, DatagramSocket dnsSocket) throws IOException {
+    private void handleRawDnsResponse(WaitingOnSocketPacket wosp) throws IOException {
         byte[] datagramData = new byte[1024];
         DatagramPacket replyPacket = new DatagramPacket(datagramData, datagramData.length);
-        dnsSocket.receive(replyPacket);
-        dnsPacketProxy.handleDnsResponse(parsedPacket, datagramData);
+        wosp.socket.receive(replyPacket);
+        wosp.socket.close();
+        dnsPacketProxy.handleDnsResponse(wosp.packet, datagramData);
     }
 
     public void queueDeviceWrite(IpPacket ipOutPacket) {

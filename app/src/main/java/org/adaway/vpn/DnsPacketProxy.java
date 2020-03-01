@@ -105,8 +105,7 @@ public class DnsPacketProxy {
                 .correctChecksumAtBuild(true)
                 .correctLengthAtBuild(true)
                 .payloadBuilder(
-                        new UnknownPacket.Builder()
-                                .rawData(responsePayload)
+                        new UnknownPacket.Builder().rawData(responsePayload)
                 );
 
         IpPacket ipOutPacket;
@@ -138,7 +137,6 @@ public class DnsPacketProxy {
      * @throws VpnWorker.VpnNetworkException If some network error occurred
      */
     void handleDnsRequest(byte[] packetData) throws VpnWorker.VpnNetworkException {
-
         IpPacket ipPacket;
         try {
             ipPacket = (IpPacket) IpSelector.newPacket(packetData, 0, packetData.length);
@@ -198,7 +196,7 @@ public class DnsPacketProxy {
             DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, destAddr, updPacket.getHeader().getDstPort().valueAsInt());
             eventLoop.forwardPacket(outPacket, ipPacket);
         } else {
-            Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Blocked!");
+            Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " blocked!");
             dnsMsg.getHeader().setFlag(Flags.QR);
             dnsMsg.getHeader().setRcode(Rcode.NOERROR);
             dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
