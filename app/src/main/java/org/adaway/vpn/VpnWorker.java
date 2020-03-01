@@ -203,7 +203,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         Log.i(TAG, "Exiting");
     }
 
-    private void runVpn() throws ErrnoException, IOException, VpnNetworkException {
+    private void runVpn() throws IOException, ErrnoException, VpnNetworkException {
         // Allocate the buffer for a single packet.
         byte[] packet = new byte[32767];
 
@@ -223,7 +223,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 this.statusNotifier.accept(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
-            while (doOne(inputStream, outputStream, packet)) ;
+            while (doOne(inputStream, outputStream, packet)) {
+            }
         } finally {
             this.mBlockFd = FileHelper.closeOrWarn(mBlockFd, TAG, "runVpn: Could not close blockFd");
             this.mInterruptFd = FileHelper.closeOrWarn(mInterruptFd, TAG, "runVpn: Could not close interruptFd");
@@ -232,11 +233,13 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 
     private boolean doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
             throws IOException, ErrnoException, VpnNetworkException {
+        // Create FD on tunnel
         StructPollfd deviceFd = new StructPollfd();
         deviceFd.fd = inputStream.getFD();
         deviceFd.events = (short) OsConstants.POLLIN;
-        if (!deviceWrites.isEmpty())
+        if (!deviceWrites.isEmpty()) {
             deviceFd.events |= (short) OsConstants.POLLOUT;
+        }
 
         StructPollfd blockFd = new StructPollfd();
         blockFd.fd = mBlockFd;
@@ -246,13 +249,13 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         polls[0] = deviceFd;
         polls[1] = blockFd;
         {
-            int i = -1;
+            int i = 2;
             for (WaitingOnSocketPacket wosp : this.dnsIn) {
-                i++;
                 StructPollfd pollFd = new StructPollfd();
                 pollFd.fd = ParcelFileDescriptor.fromDatagramSocket(wosp.socket).getFileDescriptor();
                 pollFd.events = (short) OsConstants.POLLIN;
-                polls[2 + i] = pollFd;
+                polls[i] = pollFd;
+                i++;
             }
         }
 
