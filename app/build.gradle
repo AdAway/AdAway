@@ -122,6 +122,6 @@ dependencies {
     implementation 'dnsjava:dnsjava:3.0.0'
 
     // Test related
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.json:json:20180130'
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.json:json:20190722'
 }

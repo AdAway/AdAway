@@ -1,15 +1,16 @@
-package org.adaway.util;
+package org.adaway.model.source;
 
+import org.adaway.util.RegexUtils;
 import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 
-import static org.adaway.util.RegexUtils.HOSTS_PARSER_PATTERN;
+import static org.adaway.model.source.SourceParser.HOSTS_PARSER_PATTERN;
 import static org.junit.Assert.*;
 
-public class RegexUtilsTest {
+public class SourceParserTest {
 
     // Test data comes from Guava InternetDomainName unit test
     // https://github.com/google/guava/blob/master/android/guava-tests/test/com/google/common/net/InternetDomainNameTest.java
