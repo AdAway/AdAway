@@ -588,7 +588,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
      * Queue of WaitingOnSocketPacket, bound on time and space.
      */
     private static class WospList implements Iterable<WaitingOnSocketPacket> {
-        private final LinkedList<WaitingOnSocketPacket> list = new LinkedList<WaitingOnSocketPacket>();
+        private final LinkedList<WaitingOnSocketPacket> list = new LinkedList<>();
 
         void add(WaitingOnSocketPacket wosp) {
             if (list.size() > DNS_MAXIMUM_WAITING) {
