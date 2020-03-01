@@ -130,18 +130,21 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 
     public void stop() {
         Log.i(TAG, "Stopping Vpn Thread");
-        if (thread != null) thread.interrupt();
+        if (this.thread == null){
+            return;
+        }
+        this.thread.interrupt();
 
         mInterruptFd = FileHelper.closeOrWarn(mInterruptFd, TAG, "stop: Could not close interruptFd");
         try {
-            if (thread != null) thread.join(2000);
+            this.thread.join(2000);
         } catch (InterruptedException e) {
             Log.w(TAG, "stop: Interrupted while joining thread", e);
         }
-        if (thread != null && thread.isAlive()) {
+        if (this.thread.isAlive()) {
             Log.w(TAG, "stop: Could not kill VPN thread, it is still alive");
         } else {
-            thread = null;
+            this.thread = null;
             Log.i(TAG, "Vpn Thread stopped");
         }
     }
