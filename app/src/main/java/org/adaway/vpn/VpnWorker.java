@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
-import android.net.NetworkInfo;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
@@ -45,13 +44,12 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.function.Consumer;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
 import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
@@ -83,54 +81,47 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     // Watch dog that checks our connection is alive.
     private final VpnWatchdog vpnWatchDog = new VpnWatchdog();
 
-    private Thread thread = null;
-    private FileDescriptor mBlockFd = null;
-    private FileDescriptor mInterruptFd = null;
+    /**
+     * The VPN worker thread ({@code null} if not running.
+     */
+    private Thread thread;
+    /**
+     * File descriptor to read end of OS pipe to poll to check VPN worker stop request.
+     */
+    private FileDescriptor mBlockFd;
+    /**
+     * File descriptor to write end of OS pipe to close stop VPN worker thread.
+     */
+    private FileDescriptor mInterruptFd;
 
-    public VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier statusNotifier) {
+    VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier statusNotifier) {
         this.vpnService = vpnService;
         this.statusNotifier = statusNotifier;
         this.dnsPacketProxy = new DnsPacketProxy(this);
     }
 
-    private static List<InetAddress> getDnsServers(Context context) throws VpnNetworkException {
-        List<InetAddress> addresses = new ArrayList<>();
+    private static List<InetAddress> getNetworkDnsServers(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
         if (cm == null) {
-            return addresses;
+            return Collections.emptyList();
         }
-        NetworkInfo activeInfo = cm.getActiveNetworkInfo();
-        if (activeInfo == null) {
-            return addresses;
+        LinkProperties linkProperties = cm.getLinkProperties(cm.getActiveNetwork());
+        if (linkProperties == null) {
+            return Collections.emptyList();
         }
-        return Arrays.stream(cm.getAllNetworks())
-                .filter(network -> {
-                    NetworkInfo ni = cm.getNetworkInfo(network);
-                    return ni != null && ni.isConnected() && ni.getType() == activeInfo.getType()
-                            && ni.getSubtype() == activeInfo.getSubtype();
-                })
-                .flatMap(network -> {
-                    LinkProperties linkProperties = cm.getLinkProperties(network);
-                    if (linkProperties == null) {
-                        return Stream.empty();
-                    }
-                    return linkProperties.getDnsServers().stream();
-                })
-                .distinct()
-                .collect(Collectors.toList());
-
+        return linkProperties.getDnsServers();
     }
 
     public void start() {
         Log.i(TAG, "Starting Vpn Thread");
-        thread = new Thread(this, "VpnWorker");
-        thread.start();
+        this.thread = new Thread(this, "VpnWorker");
+        this.thread.start();
         Log.i(TAG, "Vpn Thread started");
     }
 
     public void stop() {
         Log.i(TAG, "Stopping Vpn Thread");
-        if (this.thread == null){
+        if (this.thread == null) {
             return;
         }
         this.thread.interrupt();
@@ -218,8 +209,8 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 
         // A pipe we can interrupt the poll() call with by closing the interruptFd end
         FileDescriptor[] pipes = Os.pipe();
-        mInterruptFd = pipes[0];
-        mBlockFd = pipes[1];
+        this.mInterruptFd = pipes[0];
+        this.mBlockFd = pipes[1];
 
         // Authenticate and configure the virtual network interface.
         try (ParcelFileDescriptor pfd = configure();
@@ -232,9 +223,10 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 this.statusNotifier.accept(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
-            while (doOne(inputStream, outputStream, packet));
+            while (doOne(inputStream, outputStream, packet)) ;
         } finally {
-            mBlockFd = FileHelper.closeOrWarn(mBlockFd, TAG, "runVpn: Could not close blockFd");
+            this.mBlockFd = FileHelper.closeOrWarn(mBlockFd, TAG, "runVpn: Could not close blockFd");
+            this.mInterruptFd = FileHelper.closeOrWarn(mInterruptFd, TAG, "runVpn: Could not close interruptFd");
         }
     }
 
@@ -437,7 +429,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 //        Configuration config = FileHelper.loadCurrentSettings(vpnService);
 
         // Get the current DNS servers before starting the VPN
-        List<InetAddress> dnsServers = getDnsServers(vpnService);
+        List<InetAddress> dnsServers = getNetworkDnsServers(vpnService);
         if (dnsServers.isEmpty()) {
             throw new VpnNetworkException("No DNS Server");
         }
