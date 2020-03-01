@@ -233,18 +233,18 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 
     private boolean doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
             throws IOException, ErrnoException, VpnNetworkException {
-        // Create FD on tunnel
+        // Create poll FD on tunnel
         StructPollfd deviceFd = new StructPollfd();
         deviceFd.fd = inputStream.getFD();
         deviceFd.events = (short) OsConstants.POLLIN;
         if (!deviceWrites.isEmpty()) {
             deviceFd.events |= (short) OsConstants.POLLOUT;
         }
-
+        // Create poll FD on OS pipe for interruption on VPN worker stop
         StructPollfd blockFd = new StructPollfd();
         blockFd.fd = mBlockFd;
         blockFd.events = (short) (OsConstants.POLLHUP | OsConstants.POLLERR);
-
+        // Create poll FD on each DNS query socket
         StructPollfd[] polls = new StructPollfd[2 + this.dnsIn.size()];
         polls[0] = deviceFd;
         polls[1] = blockFd;
@@ -312,7 +312,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             }
         } catch (IOException e) {
             // TODO: Make this more specific, only for: "File descriptor closed"
-            throw new VpnNetworkException("Outgoing VPN output stream closed");
+            throw new VpnNetworkException("Outgoing VPN output stream closed", e);
         }
     }
 
