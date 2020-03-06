@@ -131,6 +131,11 @@
     <string name="enable_systemless_successful_title">Uspješno omogućeno</string>
     <string name="disable_systemless_successful">Onemogućili ste bezsustavski način rada.\nPonekada je potrebno ponovno pokrenuti Android za primijenjivanje promjena.\n\nŽelite li ponovno pokrenuti Android?\n(Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="disable_systemless_successful_title">Uspješno onemogućeno</string>
+    <string name="enable_systemless_magisk_title">Omogućavanje Magisk modula poslužitelja</string>
+    <string name="enable_systemless_magisk">Omogućite systemless hosts značajku iz Magisk upravitelja. Iz njegovih postavki, omogućite <cite>Systemless hosts</cite> mogućnost zatim ponovno pokrenite svoj uređaj.</string>
+    <string name="disable_systemless_magisk_title">Onemogućavanje Magisk modula poslužitelja</string>
+    <string name="disable_systemless_magisk">Onemogućite systemless hosts značajku iz Magisk upravitelja. Iz popisa modula, deinstalirajte <cite>Systemless hosts</cite> modul zatim ponovno pokrenite svoj uređaj.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">Nemoguće je pronaći su izvršnu datoteku ili AdAway nema root dozvole.\n\nOvo se može dogoditi kada vaš uređaj nije rootan. \n Možete pronaći informacije o rootanju vašeg uređaja na wiki.lineageos.org ili na drugim Android web stranicama.</string>
     <string name="no_root_title">Potreban je rootani Android</string>
