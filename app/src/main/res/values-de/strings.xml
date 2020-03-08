@@ -61,7 +61,7 @@
     <string name="hosts_description">Die Hosts-Datei ist eine Systemdatei, die Hostnamen IP-Adressen zuweist. Es ist eine reine Textdatei, deren Konfiguration von AdAway erledigt wird. Hier sind einige ihrer ersten Zeilen:</string>
     <string name="hosts_content">Inhalte der Hosts-Datei laden ...</string>
     <string name="hosts_open_button">Hosts-Datei öffnen</string>
-    <string name="hosts_diff_button">Zeige letzte Änderungen</string>
+    <string name="hosts_diff_button">Letzte Änderungen anzeigen</string>
     <string name="hosts_diff_header">Letzte Änderungen in der Hosts-Datei</string>
     <string name="hosts_diff_content">Lade Hosts-Änderungen…</string>
 
