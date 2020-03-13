@@ -41,8 +41,6 @@ import java.net.DatagramPacket;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 /**
@@ -69,24 +67,21 @@ public class DnsPacketProxy {
     }
 
     private final EventLoop eventLoop;
+    private final DnsServerMapper dnsServerMapper;
     private VpnModel vpnModel;
-    private List<InetAddress> upstreamDnsServers;
 
-    public DnsPacketProxy(EventLoop eventLoop) {
+    DnsPacketProxy(EventLoop eventLoop, DnsServerMapper dnsServerMapper) {
         this.eventLoop = eventLoop;
-        this.upstreamDnsServers = new ArrayList<>();
+        this.dnsServerMapper = dnsServerMapper;
     }
 
     /**
      * Initializes the rules database and the list of upstream servers.
      *
-     * @param context            The context we are operating in (for the database)
-     * @param upstreamDnsServers The upstream DNS servers to use; or an empty list if no
-     *                           rewriting of ip addresses takes place
+     * @param context The context we are operating in (for the database).
      */
-    void initialize(Context context, List<InetAddress> upstreamDnsServers) {
+    void initialize(Context context) {
         this.vpnModel = (VpnModel) ((AdAwayApplication) context.getApplicationContext()).getAdBlockModel();
-        this.upstreamDnsServers = upstreamDnsServers;
     }
 
     /**
@@ -161,9 +156,12 @@ public class DnsPacketProxy {
             return;
         }
 
-        InetAddress destAddr = translateDestinationAddress(ipPacket);
-        if (destAddr == null)
+        InetAddress packetAddress = ipPacket.getHeader().getDstAddr();
+        int packetPort = updPacket.getHeader().getDstPort().valueAsInt();
+        InetAddress dnsAddress = this.dnsServerMapper.translate(packetAddress);
+        if (dnsAddress == null) {
             return;
+        }
 
         if (udpPayload == null) {
             Log.i(TAG, "handleDnsRequest: Sending UDP packet without payload: " + updPacket);
@@ -171,7 +169,7 @@ public class DnsPacketProxy {
             // Let's be nice to Firefox. Firefox uses an empty UDP packet to
             // the gateway to reduce the RTT. For further details, please see
             // https://bugzilla.mozilla.org/show_bug.cgi?id=888268
-            DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, destAddr, updPacket.getHeader().getDstPort().valueAsInt());
+            DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, dnsAddress, packetPort);
             eventLoop.forwardPacket(outPacket, null);
             return;
         }
@@ -192,8 +190,8 @@ public class DnsPacketProxy {
         String hostname = dnsQueryName.toLowerCase(Locale.ENGLISH);
         boolean isBlocked = this.vpnModel != null && this.vpnModel.isBlocked(hostname);
         if (!isBlocked) {
-            Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + destAddr);
-            DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, destAddr, updPacket.getHeader().getDstPort().valueAsInt());
+            Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + dnsAddress);
+            DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
             eventLoop.forwardPacket(outPacket, ipPacket);
         } else {
             Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " blocked!");
@@ -202,33 +200,6 @@ public class DnsPacketProxy {
             dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
             handleDnsResponse(ipPacket, dnsMsg.toWire());
         }
-    }
-
-    /**
-     * Translates the destination address in the packet to the real one. In
-     * case address translation is not used, this just returns the original one.
-     *
-     * @param parsedPacket Packet to get destination address for.
-     * @return The translated address or null on failure.
-     */
-    private InetAddress translateDestinationAddress(IpPacket parsedPacket) {
-        InetAddress destAddr;
-        if (upstreamDnsServers.size() > 0) {
-            byte[] addr = parsedPacket.getHeader().getDstAddr().getAddress();
-            int index = addr[addr.length - 1] - 2;
-
-            try {
-                destAddr = upstreamDnsServers.get(index);
-            } catch (Exception e) {
-                Log.e(TAG, "handleDnsRequest: Cannot handle packets to " + parsedPacket.getHeader().getDstAddr().getHostAddress() + " - not a valid address for this network", e);
-                return null;
-            }
-            Log.d(TAG, String.format("handleDnsRequest: Incoming packet to %s AKA %d AKA %s", parsedPacket.getHeader().getDstAddr().getHostAddress(), index, destAddr));
-        } else {
-            destAddr = parsedPacket.getHeader().getDstAddr();
-            Log.d(TAG, String.format("handleDnsRequest: Incoming packet to %s - is upstream", parsedPacket.getHeader().getDstAddr().getHostAddress()));
-        }
-        return destAddr;
     }
 
     /**

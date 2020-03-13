@@ -14,12 +14,8 @@
  */
 package org.adaway.vpn;
 
-
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.LinkProperties;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
@@ -37,30 +33,25 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.function.Consumer;
 
-import static android.content.Context.CONNECTIVITY_SERVICE;
 import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STARTING;
 import static org.adaway.vpn.VpnStatus.STOPPED;
 import static org.adaway.vpn.VpnStatus.STOPPING;
 
-
 class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     private static final String TAG = "VpnWorker";
+    /**
+     * Maximum packet size is constrained by the MTU, which is given as a signed short.
+     */
+    private static final int MAX_PACKET_SIZE = Short.MAX_VALUE;
     private static final int MIN_RETRY_TIME = 5;
     private static final int MAX_RETRY_TIME = 2 * 60;
     /* If we had a successful connection for that long, reset retry timeout */
@@ -68,18 +59,18 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     /* Maximum number of responses we want to wait for */
     private static final int DNS_MAXIMUM_WAITING = 1024;
     private static final long DNS_TIMEOUT_SEC = 10;
-    /* Upstream DNS servers, indexed by our IP */
-    private final List<InetAddress> upstreamDnsServers = new ArrayList<>();
     private final android.net.VpnService vpnService;
     private final VpnStatusNotifier statusNotifier;
     /* Data to be written to the device */
     private final Queue<byte[]> deviceWrites = new LinkedList<>();
     // HashMap that keeps an upper limit of packets
     private final WospList dnsIn = new WospList();
+    // The mapping between fake and real dns addresses
+    private final DnsServerMapper dnsServerMapper;
     // The object where we actually handle packets.
     private final DnsPacketProxy dnsPacketProxy;
     // Watch dog that checks our connection is alive.
-    private final VpnWatchdog vpnWatchDog = new VpnWatchdog();
+    private final VpnWatchdog vpnWatchDog;
 
     /**
      * The VPN worker thread ({@code null} if not running.
@@ -97,19 +88,9 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier statusNotifier) {
         this.vpnService = vpnService;
         this.statusNotifier = statusNotifier;
-        this.dnsPacketProxy = new DnsPacketProxy(this);
-    }
-
-    private static List<InetAddress> getNetworkDnsServers(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
-        if (cm == null) {
-            return Collections.emptyList();
-        }
-        LinkProperties linkProperties = cm.getLinkProperties(cm.getActiveNetwork());
-        if (linkProperties == null) {
-            return Collections.emptyList();
-        }
-        return linkProperties.getDnsServers();
+        this.dnsServerMapper = new DnsServerMapper(this.vpnService);
+        this.dnsPacketProxy = new DnsPacketProxy(this, this.dnsServerMapper);
+        this.vpnWatchDog = new VpnWatchdog();
     }
 
     public void start() {
@@ -143,15 +124,12 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
     @Override
     public synchronized void run() {
         Log.i(TAG, "Starting");
-
-        // Load the block list
-        dnsPacketProxy.initialize(vpnService, upstreamDnsServers);
+        // Initialize context
+        this.dnsPacketProxy.initialize(this.vpnService);
         // Initialize the watchdog
-        vpnWatchDog.initialize(PreferenceHelper.getVpnWatchdogEnabled(vpnService));
+        this.vpnWatchDog.initialize(PreferenceHelper.getVpnWatchdogEnabled(this.vpnService));
 
-        if (statusNotifier != null) {
-            statusNotifier.accept(STARTING);
-        }
+        this.statusNotifier.accept(STARTING);
 
         int retryTimeout = MIN_RETRY_TIME;
         // Try connecting the vpn continuously
@@ -163,22 +141,18 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 runVpn();
 
                 Log.i(TAG, "Told to stop");
-                if (statusNotifier != null) {
-                    statusNotifier.accept(STOPPING);
-                }
+                this.statusNotifier.accept(STOPPING);
                 break;
             } catch (VpnNetworkException e) {
                 // We want to filter out VpnNetworkException from out crash analytics as these
                 // are exceptions that we expect to happen from network errors
                 Log.w(TAG, "Network exception in vpn thread, ignoring and reconnecting", e);
                 // If an exception was thrown, show to the user and try again
-                if (statusNotifier != null)
-                    statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
+                this.statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
             } catch (Exception e) {
                 Log.e(TAG, "Network exception in vpn thread, reconnecting", e);
                 //ExceptionHandler.saveException(e, Thread.currentThread(), null);
-                if (statusNotifier != null)
-                    statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
+                this.statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
             }
 
             if (System.currentTimeMillis() - connectTimeMillis >= RETRY_RESET_SEC * 1000) {
@@ -198,14 +172,13 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 retryTimeout *= 2;
         }
 
-        if (statusNotifier != null)
-            statusNotifier.accept(STOPPED);
+        this.statusNotifier.accept(STOPPED);
         Log.i(TAG, "Exiting");
     }
 
     private void runVpn() throws IOException, ErrnoException, VpnNetworkException {
         // Allocate the buffer for a single packet.
-        byte[] packet = new byte[32767];
+        byte[] packet = new byte[MAX_PACKET_SIZE];
 
         // A pipe we can interrupt the poll() call with by closing the interruptFd end
         FileDescriptor[] pipes = Os.pipe();
@@ -219,8 +192,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
              FileOutputStream outputStream = new FileOutputStream(pfd.getFileDescriptor())) {
 
             // Now we are connected. Set the flag and show the message.
-            if (this.statusNotifier != null)
-                this.statusNotifier.accept(RUNNING);
+            this.statusNotifier.accept(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
             while (doOne(inputStream, outputStream, packet)) {
@@ -373,30 +345,6 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         deviceWrites.add(ipOutPacket.getRawData());
     }
 
-    void newDNSServer(android.net.VpnService.Builder builder, String format, byte[] ipv6Template, InetAddress addr) throws UnknownHostException {
-        // Optimally we'd allow either one, but the forwarder checks if upstream size is empty, so
-        // we really need to acquire both an ipv6 and an ipv4 subnet.
-        if (addr instanceof Inet6Address && ipv6Template == null) {
-            Log.i(TAG, "newDNSServer: Ignoring DNS server " + addr);
-        } else if (addr instanceof Inet4Address && format == null) {
-            Log.i(TAG, "newDNSServer: Ignoring DNS server " + addr);
-        } else if (addr instanceof Inet4Address) {
-            upstreamDnsServers.add(addr);
-            String alias = String.format(format, upstreamDnsServers.size() + 1);
-            Log.i(TAG, "configure: Adding DNS Server " + addr + " as " + alias);
-            builder.addDnsServer(alias);
-            builder.addRoute(alias, 32);
-            vpnWatchDog.setTarget(InetAddress.getByName(alias));
-        } else if (addr instanceof Inet6Address) {
-            upstreamDnsServers.add(addr);
-            ipv6Template[ipv6Template.length - 1] = (byte) (upstreamDnsServers.size() + 1);
-            InetAddress i6addr = Inet6Address.getByAddress(ipv6Template);
-            Log.i(TAG, "configure: Adding DNS Server " + addr + " as " + i6addr);
-            builder.addDnsServer(i6addr);
-            vpnWatchDog.setTarget(i6addr);
-        }
-    }
-
     // TODO Per app VPN
 //    void configurePackages(VpnService.Builder builder, Configuration config) {
 //        Set<String> allowOnVpn = new HashSet<>();
@@ -431,76 +379,11 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         // TODO User configuration
 //        Configuration config = FileHelper.loadCurrentSettings(vpnService);
 
-        // Get the current DNS servers before starting the VPN
-        List<InetAddress> dnsServers = getNetworkDnsServers(vpnService);
-        if (dnsServers.isEmpty()) {
-            throw new VpnNetworkException("No DNS Server");
-        }
-        Log.i(TAG, "Got DNS servers = " + dnsServers);
-
         // Configure a builder while parsing the parameters.
         android.net.VpnService.Builder builder = vpnService.new Builder();
 
-        String format = null;
-
-        // Determine a prefix we can use. These are all reserved prefixes for example
-        // use, so it's possible they might be blocked.
-        for (String prefix : new String[]{"192.0.2", "198.51.100", "203.0.113"}) {
-            try {
-                builder.addAddress(prefix + ".1", 24);
-            } catch (IllegalArgumentException e) {
-                continue;
-            }
-
-            format = prefix + ".%d";
-            break;
-        }
-
-        // For fancy reasons, this is the 2001:db8::/120 subnet of the /32 subnet reserved for
-        // documentation purposes. We should do this differently. Anyone have a free /120 subnet
-        // for us to use?
-        byte[] ipv6Template = new byte[]{32, 1, 13, (byte) (184 & 0xFF), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        if (hasIpV6Servers(dnsServers)) {
-            try {
-                InetAddress addr = Inet6Address.getByAddress(ipv6Template);
-                Log.d(TAG, "configure: Adding IPv6 address" + addr);
-                builder.addAddress(addr, 120);
-            } catch (Exception e) {
-                e.printStackTrace();
-
-                ipv6Template = null;
-            }
-        } else {
-            ipv6Template = null;
-        }
-
-        if (format == null) {
-            Log.w(TAG, "configure: Could not find a prefix to use, directly using DNS servers");
-            builder.addAddress("192.168.50.1", 24);
-        }
-
-        // Add configured DNS servers
-        upstreamDnsServers.clear();
-        // TODO Custom DNS servers
-//        if (config.dnsServers.enabled) {
-//            for (Configuration.Item item : config.dnsServers.items) {
-//                if (item.state == item.STATE_ALLOW) {
-//                    try {
-//                        newDNSServer(builder, format, ipv6Template, InetAddress.getByName(item.location));
-//                    } catch (Exception e) {
-//                        Log.e(TAG, "configure: Cannot add custom DNS server", e);
-//                    }
-//                }
-//            }
-//        }
-        // Add all knows DNS servers
-        for (InetAddress addr : dnsServers) {
-            try {
-                newDNSServer(builder, format, ipv6Template, addr);
-            } catch (Exception e) {
-                Log.e(TAG, "configure: Cannot add server:", e);
-            }
-        }
+        InetAddress address = this.dnsServerMapper.configure(builder);
+        this.vpnWatchDog.setTarget(address);
 
         builder.setBlocking(true);
 
@@ -523,26 +406,6 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                                 PendingIntent.FLAG_CANCEL_CURRENT)).establish();
         Log.i(TAG, "Configured");
         return pfd;
-    }
-
-    boolean hasIpV6Servers(Collection<InetAddress> dnsServers) {
-        if (!PreferenceHelper.getEnableIpv6(this.vpnService)) {
-            return false;
-        }
-
-        // TODO Custom DNS servers
-//        if (config.dnsServers.enabled) {
-//            for (Configuration.Item item : config.dnsServers.items) {
-//                if (item.state == Configuration.Item.STATE_ALLOW && item.location.contains(":"))
-//                    return true;
-//            }
-//        }
-        for (InetAddress inetAddress : dnsServers) {
-            if (inetAddress instanceof Inet6Address)
-                return true;
-        }
-
-        return false;
     }
 
     @FunctionalInterface
