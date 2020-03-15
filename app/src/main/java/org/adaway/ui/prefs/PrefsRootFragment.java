@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.CheckBoxPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -85,17 +86,18 @@ public class PrefsRootFragment extends PreferenceFragmentCompat {
     }
 
     private void bindRedirection() {
-        Context context = getContext();
+        Context context = requireContext();
         boolean ipv6Enabled = PreferenceHelper.getEnableIpv6(context);
         Preference ipv6RedirectionPreference = findPreference(getString(R.string.pref_redirection_ipv6_key));
         ipv6RedirectionPreference.setEnabled(ipv6Enabled);
     }
 
     private void bindWebServerPrefAction() {
-        Context context = getContext();
+        Context context = requireContext();
         // Start web server when preference is enabled
-        Preference WebServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
-        WebServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
+        CheckBoxPreference webServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
+        webServerEnabledPref.setChecked(WebServerUtils.isWebServerRunning());
+        webServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if (newValue.equals(true)) {
                 // Start web server
                 WebServerUtils.startWebServer(context);
