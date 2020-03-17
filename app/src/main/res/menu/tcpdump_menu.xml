@@ -7,7 +7,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/clear"
-        android:icon="@drawable/baseline_clear_all_24"
+        android:icon="@drawable/baseline_delete_forever24"
         android:title="@string/tcpdump_menu_clear"
         app:showAsAction="ifRoom" />
 </menu>
