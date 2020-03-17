@@ -4,23 +4,24 @@
     <string name="app_name">AdAway</string>
 
     <!--Buttons-->
-    <string name="button_exit">Sortir</string>
+    <string name="button_exit">Surt</string>
     <string name="button_close">Tanca</string>
     <string name="button_yes">Si</string>
     <string name="button_no">No</string>
-    <string name="button_add">Afegiu</string>
-    <string name="button_cancel">Cancel·leu</string>
-    <string name="button_save">Guardeu</string>
-    <string name="button_webserver_toggle_text">Atura o inicia el servidor web a aquest sistema per a respondre les peticions per a les màquines bloquejades.</string>
+    <string name="button_add">Afegeix</string>
+    <string name="button_cancel">Cancel·la</string>
+    <string name="button_save">Desa</string>
+    <string name="button_webserver_toggle_text">Atura o inicia el servidor web a aquest sistema per respondre les peticions per a les màquines blocades.</string>
     <string name="button_help">Ajuda</string>
 
     <!--Home-->
-    <string name="header_help">Benvingut!</string>
+    <string name="header_help">Us donem la benvinguda!</string>
+    <string name="text_help">L\'AdAway és una aplicació de codi obert i gratuïta dissenyat per blocar anuncis. Obté adreces de xarxa publicitària per blocar-les al dispositiu.\nVoleu saber-ne més? Feu un cop d\'ull a l\'ajuda de sota!</string>
     <string name="button_show_help">Mostra més ajuda</string>
     <string name="icon_update_status">Estat d\'actualització</string>
-    <string name="text_update">Es descarreguen tots els fitxers host de les fonts definides, s\'uneixen amb les vostres llistes i s\'instalen com a un únic fitxer hosts al vostre sistema.</string>
+    <string name="text_update">Es baixen tots els fitxers d\'amfitrió d\'unes fonts definides, s\'uneixen amb les vostres llistes que personalitzeu i s\'instal·len com a un únic fitxer amfitrió al vostre sistema.</string>
     <string name="button_check_update_hosts">Comprova actualitzacions</string>
-    <string name="button_update_hosts">Actualitza els hosts</string>
+    <string name="button_update_hosts">Actualitza els amfitrions</string>
     <string name="button_enable_hosts">Activa el bloqueig d\'anuncis</string>
     <string name="button_disable_hosts">Desactiva el bloqueig d\'anuncis</string>
     <string name="header_webserver">Servidor web</string>
@@ -30,77 +31,102 @@
     <string name="button_disable_webserver">Desactiva el servidor web</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Eliminar</string>
-    <string name="checkbox_list_context_title">Editeu entrada</string>
-    <string name="checkbox_list_context_edit">Editeu</string>
+    <string name="checkbox_list_context_delete">Elimina</string>
+    <string name="checkbox_list_context_title">Edita l\'entrada</string>
+    <string name="checkbox_list_context_edit">Edita</string>
 
     <!--Your lists-->
     <string name="lists_tab_whitelist">Llista blanca</string>
     <string name="lists_tab_blacklist">Llista negra</string>
     <string name="lists_tab_redirection_list">Redirigeix</string>
-    <string name="list_add_dialog_black">Afegeix el host a la llista negra</string>
-    <string name="list_add_dialog_white">Afegeix el host a la llista blanca</string>
-    <string name="list_add_dialog_redirect">Afegeix redirecció de host</string>
-    <string name="list_edit_dialog_redirect">Editar la redirecció</string>
+    <string name="list_add_dialog_black">Afegeix l\'amfitrió a la llista negra</string>
+    <string name="list_add_dialog_white">Afegeix l\'amfitrió a la llista blanca</string>
+    <string name="list_add_dialog_redirect">Afegeix la redirecció de l\'amfitrió</string>
+    <string name="list_edit_dialog_black">Edita l\'amfitrió d\'una llista negra</string>
+    <string name="list_edit_dialog_white">Edita l\'amfitrió d\'una llista blanca</string>
+    <string name="list_edit_dialog_redirect">Edita la redirecció</string>
     <string name="list_dialog_hostname">Servidor:</string>
-    <string name="list_dialog_hostname_hint">URL de la font hosts</string>
+    <string name="list_dialog_hostname_hint">URL de la font de l\'amfitrió</string>
     <string name="list_dialog_wildcard">(Els caràcters comodí * i ? estan permesos)</string>
     <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
-    <string name="import_dialog">Important....</string>
-    <string name="export_dialog">Exportant...</string>
+    <string name="import_dialog">S\'està important....</string>
+    <string name="import_success">S\'ha importat correctament la còpia de l\'emmagatzematge extern.</string>
+    <string name="import_failed">Ha fallat en importar la còpia. El format és correcte? Mireu l\'informe del logcat per a més informació.</string>
+    <string name="export_dialog">S\'està exportant...</string>
+    <string name="export_success">S\'ha exportat correctament el fitxer «adaway-backup.json» a l\'emmagatzematge extern.</string>
+    <string name="export_failed">Ha fallat en exportar la còpia de seguretat.</string>
+
     <!--Hosts content-->
-    <string name="hosts_header">El fitxer hosts</string>
-    <string name="hosts_content">S\'està carregant el contingut del fitxer hosts...</string>
-    <string name="hosts_open_button">Obre el fitxer hosts</string>
+    <string name="hosts_header">El fitxer d\'amfitrions</string>
+    <string name="hosts_description">El fitxer d\'amfitrions és un fitxer del sistema on s\'associen  noms d\'amfitrió a les corresponents adreces IP. És un fitxer en text pla on la seva configuració és administrada per l\'AdAway. Aquí podeu veure les primeres línies:</string>
+    <string name="hosts_content">S\'està carregant el contingut del fitxer d\'amfitrions...</string>
+    <string name="hosts_open_button">Obre el fitxer d\'amfitrions</string>
 
     <!--Status Notification-->
-    <string name="status_checking">S\'està comprovant actualitzacions.</string>
-    <string name="status_reverting">Revertint...</string>
-    <string name="status_reverting_subtitle">Creant fitxer de servidors estàndard</string>
+    <string name="status_checking">S\'estan comprovant les actualitzacions...</string>
+    <string name="status_reverting">S\'està revertint...</string>
+    <string name="status_reverting_subtitle">Creació del fitxer estàndard de servidors</string>
     <string name="status_update_available">Actualització disponible</string>
-    <string name="status_update_available_subtitle">Nous fitxers hosts disponibles</string>
+    <string name="status_update_available_subtitle">Amfitrions nous disponibles</string>
     <string name="status_no_connection">No hi ha connexió a internet</string>
     <string name="status_no_connection_subtitle">No hi ha connexió a internet disponible</string>
-    <string name="status_download_fail">Fonts inaccessibles</string>
-    <string name="status_download_fail_subtitle_new">No s\'ha pogut contactar les fonts d\'arxius hosts</string>
+    <string name="status_download_fail">Fonts no disponibles</string>
+    <string name="status_download_fail_subtitle_new">No s\'ha pogut contactar amb els servidors de fonts!</string>
+    <string name="status_root_access_denied">Accés a Root rebutjat</string>
+    <string name="status_root_access_denied_subtitle">Heu de facilitar permisos d\'administrador a l\'aplicació</string>
+    <string name="status_failure">Quelcom ha anat malament</string>
+    <string name="status_failure_subtitle">Veieu l\'informe del logcat per a més informació</string>
     <string name="status_enabled">Activat</string>
-    <string name="status_enabled_subtitle">S\'han activat els fitxers host més nous</string>
+    <string name="status_enabled_subtitle">S\'han activat els fitxers d\'amfitrions més recents</string>
     <string name="status_disabled">Desactivat</string>
+    <string name="status_disabled_subtitle">S\'han instal·lat els fitxers d\'amfitrions per defecte</string>
     <string name="notification_channel_update_name">Actualitzacions</string>
-    <string name="notification_channel_update_description">Notificacions d\'actualització de nous hosts</string>
+    <string name="notification_channel_update_description">Notificacions d\'actualització de fitxers nous</string>
+    <string name="notification_configuration_changed">Ha canviat la configuració. Instal·leu el fitxer d\'amfitrions per aplicar els canvis.</string>
+    <string name="notification_configuration_changed_action">Aplica</string>
+    <string name="notification_configuration_installing">S\'està instal·lant el fitxer...</string>
+    <string name="notification_configuration_failed">Ha fallat en instal·lar el fitxer.</string>
+
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing">L\'enllaç simbòlic de l\'objectiu a /system/etc/hosts no existeix o no és correcte! L\'AdAway no funcionarà si no apunta al fitxer correcte.\n\nVoleu intentar crear un enllaç simbòlic?</string>
+    <string name="apply_symlink_missing">L\'enllaç simbòlic cap a /system/etc/hosts no existeix o no és correcte! L\'AdAway no funcionarà si no apunta al fitxer correcte.\n\nVoleu intentar crear un enllaç simbòlic?</string>
     <string name="apply_symlink_missing_title">Falta l\'enllaç simbòlic</string>
-    <string name="apply_not_enough_space">No hi ha prou lloc a la partició!\nIntenteu canviar el fitxer hosts a les preferències a /data/data/hosts.</string>
+    <string name="apply_not_enough_space">No hi ha prou espai a la partició!\nProveu canviant el fitxer a les preferències a /data/data/hosts.</string>
     <string name="apply_not_enough_space_title">No hi ha prou espai</string>
-    <string name="apply_private_file_fail">No s\'ha pogut llegir el fitxer descarregat</string>
-    <string name="apply_private_file_fail_title">Error en el fitxer privat</string>
-    <string name="apply_remount_fail">Error en el remuntatge de la partició en mode escritura.</string>
-    <string name="apply_remount_fail_title">Error en el remuntatge</string>
-    <string name="apply_copy_fail">No s\'ha pogut copiar el fitxer hosts</string>
-    <string name="apply_copy_fail_title">Error en la còpia</string>
+    <string name="apply_private_file_fail">No s\'ha pogut llegir el fitxer baixat.</string>
+    <string name="apply_private_file_fail_title">Error al fitxer privat</string>
+    <string name="apply_remount_fail">Ha fallat al muntar la partició en mode lectura/escriptura!</string>
+    <string name="apply_remount_fail_title">Ha fallat en muntar</string>
+    <string name="apply_copy_fail">No s\'ha pogut copiar el fitxer!</string>
+    <string name="apply_copy_fail_title">Ha fallat la còpia</string>
+    <string name="apply_success_subtitle">S\'han aplicat les fonts</string>
     <string name="apply_success_title">S\'ha aplicat correctament</string>
+    <string name="apply_success_dialog">S\'ha aplicat correctament.\nÉs necessari reiniciar Android per aplicar els canvis.\n\nVoleu reiniciar ara?\n(Per evitar cap pèrdua a la targeta SD, assegureu-vos que cap altra aplicació l\'està utilitzant en aquest moment!)</string>
+    <string name="apply_symlink_successful">S\'ha creat l\'enllaç simbòlic correctament.\nÉs necessari reiniciar Android per aplicar els canvis.\n\nVoleu reiniciar ara?\n(Per evitar cap pèrdua a la targeta SD, assegureu-vos que cap altra aplicació l\'està utilitzant en aquest moment!)</string>
     <string name="apply_symlink_successful_title">S\'ha creat l\'enllaç simbòlic correctament</string>
+    <string name="apply_symlink_fail">L\'Android no ha pogut crear l\'enllaç simbòlic.\nAixò falla normalment per una característica anomenada S-ON als telèfons HTC.\n\nUna solució és iniciar el telèfon en mode recuperació i crear l\'enllaç simbòlic allà amb \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi no funciona, cerqueu a Internet S-OFF i el model del vostre telèfon.</string>
     <string name="apply_symlink_fail_title">S\'ha produït un error en la creació de l\'enllaç simbòlic</string>
-    <string name="apply_help">Si us plau, llegir l\'Ajuda per a més informació</string>
+    <string name="apply_help">Veieu l\'ajuda per a més informació.</string>
+    <string name="apply_apn_proxy">S\'ha configurat un servidor intermediari APN al vostre Android!\nL\'AdAway no funcionarà correctament amb xarxes com ara 3G. Podeu desactivar aquest servidor intermediari d\'aquest APN (des del menú Configuració -> Connexions sense fils i xarxes -> Xarxes mòbils -> APN -> Nom del vostre APN) i suprimint el valor del camp Servidor intermediari.</string>
     <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
     <string name="no_connection">La connexió a Internet no funciona.</string>
     <string name="no_connection_title">Sense connexió</string>
-    <string name="download_dialog">Descarregant.</string>
-    <string name="apply_dialog">Aplicant....</string>
+    <string name="download_dialog">S\'està baixant...</string>
+    <string name="apply_dialog">S\'està aplicant...</string>
     <string name="apply_dialog_lists">Aplicant llista negra i llista blanca</string>
     <string name="apply_dialog_hostnames">Processant i unint els fitxers hosts</string>
     <string name="apply_dialog_hosts">Construïnt fitxer hosts</string>
     <string name="apply_dialog_apply">Aplicant el fitxer hosts</string>
-    <string name="apply_fail">No s\'ha pogut aplicar el fitxer hosts al sistema!\nProveu de canviar el fitxer hosts objectiu a les preferències a /data/data/hosts.</string>
+    <string name="apply_fail">No s\'ha pogut aplicar el fitxer al sistema!\nProveu canviant la ruta del fitxer a les preferències a /data/data/hosts.</string>
     <string name="apply_fail_title">Aplicació fallida</string>
+    <string name="root_access_fail">Verifiqueu que l\'aplicació disposa de permisos d\'administrador (Root).</string>
+    <string name="revert_successful">Heu restaurat al fitxer per defecte.\nÉs necessari reiniciar Android per aplicar els canvis.\n\nVoleu reiniciar ara?\n(Per evitar cap pèrdua a la targeta SD, assegureu-vos que cap altra aplicació l\'està utilitzant en aquest moment!) </string>
     <string name="revert_successful_title">S\'ha revertit correctament</string>
     <string name="revert_problem">Procés de revertiment fallit degut a causes desconegudes</string>
-    <string name="revert_problem_title">El procés de regressió ha fallat!</string>
-    <string name="download_fail_dialog">No es pot contactar amb cap de les vostres fonts d\'arxius hosts. Comproveu la vostra connexió a internet.</string>
-    <string name="download_fail_title">Error en la descàrrega</string>
-    <string name="no_private_file">No s\'ha pogut crear el fitxer privat</string>
-    <string name="no_private_file_title">Error en la creació del fixer privat</string>
+    <string name="revert_problem_title">Ha fallat en restaurar!</string>
+    <string name="download_fail_dialog">No es pot contactar amb cap font dels fitxers d\'amfitrions. Comproveu la connexió a internet.</string>
+    <string name="download_fail_title">Error amb la baixada</string>
+    <string name="no_private_file">No s\'ha pogut crear el fitxer privat.</string>
+    <string name="no_private_file_title">Error en la creació del fitxer privat</string>
     <string name="enable_systemless_successful_title">S\'ha habilitat correctament</string>
     <string name="disable_systemless_successful_title">S\'ha inhabilitat correctament</string>
     <!--Other Dialogs-->

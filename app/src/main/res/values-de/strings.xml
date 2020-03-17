@@ -59,7 +59,7 @@
     <!--Hosts content-->
     <string name="hosts_header">Die Hosts-Datei</string>
     <string name="hosts_description">Die Hosts-Datei ist eine Systemdatei, die Hostnamen IP-Adressen zuweist. Es ist eine reine Textdatei, deren Konfiguration von AdAway erledigt wird. Hier sind einige ihrer ersten Zeilen:</string>
-    <string name="hosts_content">Inhalte der Hosts-Datei laden ...</string>
+    <string name="hosts_content">Inhalte der Hosts-Datei laden…</string>
     <string name="hosts_open_button">Hosts-Datei öffnen</string>
 
     <!--Status Notification-->
@@ -72,7 +72,7 @@
     <string name="status_no_connection_subtitle">Keine Internetverbindung verfügbar</string>
     <string name="status_download_fail">Nicht verfügbare Quelle</string>
     <string name="status_download_fail_subtitle_new">Keine Hosts-Quellen erreichbar!</string>
-    <string name="status_root_access_denied">Root Zugriff verweigert</string>
+    <string name="status_root_access_denied">Root-Zugriff verweigert</string>
     <string name="status_root_access_denied_subtitle">Root-Zugriff aus der Root-App heraus zulassen.</string>
     <string name="status_failure">Ein Fehler ist aufgetreten</string>
     <string name="status_failure_subtitle">Logcat nach weiteren Details durchsuchen</string>
@@ -84,7 +84,7 @@
     <string name="notification_channel_update_description">Benachrichtigung bei Hosts-Aktualisierungen</string>
     <string name="notification_configuration_changed">Die Konfiguration wurde verändert. Installieren Sie die Hosts-Datei um die Änderungen anzuwenden.</string>
     <string name="notification_configuration_changed_action">Anwenden</string>
-    <string name="notification_configuration_installing">Hosts-Datei wird installiert ...</string>
+    <string name="notification_configuration_installing">Hosts-Datei wird installiert…</string>
     <string name="notification_configuration_failed">Hosts-Datei konnte nicht installiert werden.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -137,7 +137,7 @@
     <string name="disable_systemless_magisk">Systemunabhängige Hosts-Funktion im Magisk Manager deaktivieren. In der Modulliste das Modul <cite>Systemless hosts</cite> deinstallieren, dann das Gerät neustarten.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es exisitiert keine su-Binärdatei.\n\nLetzteres deutet daraufhin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf wiki.lineageos.org oder anderen Android-Internetseiten.</string>
+    <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es existiert keine su-Binärdatei.\n\nLetzteres deutet darauf hin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf wiki.lineageos.org oder anderen Android-Internetseiten.</string>
     <string name="no_root_title">Das System muss gerootet sein</string>
     <string name="hosts_add_dialog">Bitte Adresse zur Hosts-Datei eingeben:</string>
     <string name="no_hostname">Das ist kein gültiger Hostname!</string>
@@ -162,7 +162,7 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_description">Sie finden hier installierte Adware, üble Anwendungen, die durch AdAway nicht blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen, die selbst dann erscheinen, wenn die App nicht läuft, oder stellen sogar Ihren Klingelton um. Die einzige verfügbare Gegenmaßnahme ist die Deinstallation jener Apps, indem Sie auf die Listeneinträge klicken..</string>
+    <string name="adware_description">Sie finden hier installierte Adware, üble Anwendungen, die durch AdAway nicht blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen, die selbst dann erscheinen, wenn die App nicht läuft, oder stellen sogar Ihren Klingelton um. Die einzige verfügbare Gegenmaßnahme ist die Deinstallation jener Apps, indem Sie auf die Listeneinträge klicken.</string>
     <string name="adware_scanning">Durchsuchen &#8230;</string>
     <string name="adware_empty">Keine Adware gefunden!</string>
 
@@ -201,9 +201,9 @@
     <string name="pref_download">Grundeinstellungen</string>
     <string name="pref_dismiss_welcome">Willkommensgruß ausblenden</string>
     <string name="pref_dismiss_welcome_summary">Keine Grußbotschaft auf der Startseite der App anzeigen</string>
-    <string name="pref_dark_theme">Dunkles Thema aktivieren</string>
+    <string name="pref_dark_theme">Dunkles Design aktivieren</string>
     <string name="pref_dark_theme_summary">Dunkles Design anstelle des hellen verwenden.</string>
-    <string name="pref_dark_theme_notification">Thema wird beim nächsten Anwendungsstart angewendet!</string>
+    <string name="pref_dark_theme_notification">Design wird beim nächsten Anwendungsstart angewendet!</string>
     <string name="pref_hosts">Hosts-Datei</string>
     <string name="pref_update_check">Nach Aktualisierungen suchen</string>
     <string name="pref_apply_method">Zu benutzende Hosts-Datei</string>
@@ -284,7 +284,7 @@ Wenn Sie Ihnen gefällt und Sie sich weitere Updates wünschen, können Sie gern
     <string name="dialog_telemetry_disable">Nein danke</string>
 
     <!--Shortcuts-->
-    <string name="shortcut_dns_requests">DNS-Abfrage</string>
+    <string name="shortcut_dns_requests">DNS-Abfragen</string>
     <string name="shortcut_your_lists">Meine Listen</string>
     <string name="shortcut_preferences">Einstellungen</string>
 

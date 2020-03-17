@@ -8,7 +8,7 @@
     <string name="button_close">Cerrar</string>
     <string name="button_yes">Sí</string>
     <string name="button_no">No</string>
-    <string name="button_add">Agregar</string>
+    <string name="button_add">Añadir</string>
     <string name="button_cancel">Cancelar</string>
     <string name="button_save">Guardar</string>
     <string name="button_webserver_toggle_text">Iniciar o parar el servidor web en localhost para respondes las solicitudes bloqueadas por los sitios de hosts.</string>
@@ -39,9 +39,9 @@
     <string name="lists_tab_whitelist">Lista blanca</string>
     <string name="lists_tab_blacklist">Lista negra</string>
     <string name="lists_tab_redirection_list">Redireccionamientos</string>
-    <string name="list_add_dialog_black">Agregar host a la lista negra</string>
-    <string name="list_add_dialog_white">Agregar host a la lista blanca</string>
-    <string name="list_add_dialog_redirect">Agregar redireccionamiento de host</string>
+    <string name="list_add_dialog_black">Añadir host a la lista negra</string>
+    <string name="list_add_dialog_white">Añadir host a la lista blanca</string>
+    <string name="list_add_dialog_redirect">Añadir redireccionamiento de host</string>
     <string name="list_edit_dialog_black">Editar host de la lista negra</string>
     <string name="list_edit_dialog_white">Editar host de la lista blanca</string>
     <string name="list_edit_dialog_redirect">Editar redireccionamiento</string>
@@ -131,6 +131,11 @@
     <string name="enable_systemless_successful_title">Habilitación correcta</string>
     <string name="disable_systemless_successful">Inhabilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
     <string name="disable_systemless_successful_title">Inhabilitación correcta</string>
+    <string name="enable_systemless_magisk_title">Habilitar el módulo Magisk de hosts</string>
+    <string name="enable_systemless_magisk">Habilita la función de hosts sin sistema del administrador Magisk. Desde su configuración, habilite la opción <cite>Hosts sin sistema</cite> y luego reinicie su dispositivo.</string>
+    <string name="disable_systemless_magisk_title">Deshabilitar el módulo Magisk de hosts</string>
+    <string name="disable_systemless_magisk">Deshabilita la función de hosts sin sistema del administrador Magisk. En la lista de módulos, desinstale el módulo <cite>Hosts sin sistema</cite> y reinicie su dispositivo.</string>
+
     <!--Other Dialogs-->
     <string name="no_root_description">No se pudo encontrar el objeto binario su o no otorgaste permisos de superusuario a AdAway.\n\nEsto puede deberse a que no tienes acceso raíz al dispositivo.\nPara obtener más información sobre cómo obtener acceso raíz, consulta wiki.lineageos.org (en inglés) u otros sitios web sobre Android.</string>
     <string name="no_root_title">Se necesita un dispositivo con acceso raíz</string>
@@ -144,7 +149,7 @@
 
     <!--Menu entries-->
     <string name="menu_refresh">Actualizar</string>
-    <string name="menu_add">Agregar</string>
+    <string name="menu_add">Añadir</string>
     <string name="menu_hosts_sources">Fuentes de hosts</string>
     <string name="menu_help">Ayuda</string>
     <string name="menu_import">Importar copia de seguridad</string>
@@ -165,7 +170,7 @@
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">En línea:</string>
     <string name="hosts_not_available">no disponible</string>
-    <string name="hosts_add_dialog_title">Agregar fuente</string>
+    <string name="hosts_add_dialog_title">Añadir fuente</string>
     <string name="hosts_edit_dialog_title">Editar fuente</string>
     <string name="hosts_dialog_url">URL (recurso https:// o file://):</string>
     <string name="hosts_dialog_url_hint">La URL fuente del archivo hosts</string>

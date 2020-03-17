@@ -19,7 +19,7 @@
     <string name="text_help">AdAway est un programme gratuit et à code source ouvert conçu pour bloquer les publicités. Il obtient les adresses des réseaux publicitaires afin de les bloquer sur votre appareil.\n Voulez-vous en savoir davantage ? Consultez l’aide ci-dessous.</string>
     <string name="button_show_help">Afficher plus d’aide</string>
     <string name="icon_update_status">Mettre à jour l’état</string>
-    <string name="text_update">Tous les fichiers hosts provenant des sources définies sont téléchargés, fusionnés avec vos propres listes et installés en un seul fichier hosts sur votre système.</string>
+    <string name="text_update">Tous les fichiers hosts des sources définies sont téléchargés, fusionnés avec vos propres listes, puis installés en un seul fichier hosts sur votre système.</string>
     <string name="button_check_update_hosts">Vérifier les mises à jour</string>
     <string name="button_update_hosts">Mettre à jour le fichier hosts</string>
     <string name="button_enable_hosts">Activer le blocage publicitaire</string>
@@ -176,7 +176,7 @@
     <string name="hosts_dialog_url_hint">L’URL de la source du fichier hosts</string>
 
     <!--Other-->
-    <string name="app_subtitle">Bloqueur de publicité</string>
+    <string name="app_subtitle">Bloqueur de publicités</string>
     <string name="no_text_editor_title">Aucun éditeur de texte n’est installé</string>
     <string name="no_text_editor">Aucun éditeur de texte n’a été trouvé pour ouvrir le fichier hosts. Vous pouvez installer Jota ou d’autres éditeurs de texte pour ce faire.\n\nVoulez-vous installer Jota ?</string>
     <string name="no_file_manager_title">Aucun gestionnaire de fichiers n’est installé</string>

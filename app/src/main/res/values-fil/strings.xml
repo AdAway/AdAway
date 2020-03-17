@@ -32,7 +32,6 @@
     <string name="no_root_title">Kailangan ng Android na may root</string>
     <string name="menu_add">Dagdagan</string>
     <string name="menu_help">Tulong</string>
-    <string name="help_tab_faq">FAQ</string>
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
