@@ -27,6 +27,7 @@
     <application
         android:name=".AdAwayApplication"
         android:allowBackup="true"
+        android:extractNativeLibs="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
