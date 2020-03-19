@@ -51,6 +51,11 @@ public class BootReceiver extends BroadcastReceiver {
                 WebServerUtils.startWebServer(context);
             }
             if (adBlockMethod == VPN && PreferenceHelper.getVpnServiceOnBoot(context)) {
+                // Ensure VPN is prepared
+                Intent prepareIntent = android.net.VpnService.prepare(context);
+                if (prepareIntent != null) {
+                    context.startActivity(prepareIntent);
+                }
                 // Start VPN service if enabled in preferences
                 VpnService.start(context);
             }
