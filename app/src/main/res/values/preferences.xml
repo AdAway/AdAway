@@ -57,4 +57,13 @@
     <bool name="pref_display_telemetry_consent_def">true</bool>
     <string name="pref_backup_key" translatable="false">backup</string>
     <string name="pref_restore_key" translatable="false">restore</string>
+    <string name="pref_vpn_excluded_system_apps_key" translatable="false">excludeSystemAppFromVpn</string>
+    <string name="pref_vpn_excluded_system_apps_default" translatable="false">none</string>
+    <string-array name="pref_vpn_excluded_system_apps_values">
+        <item>none</item>
+        <item>allExceptBrowsers</item>
+        <item>all</item>
+    </string-array>
+    <string name="pref_vpn_excluded_user_apps_key" translatable="false">excludeUserAppFromVpn</string>
+    <string name="pref_vpn_excluded_user_apps_default" translatable="false"/>
 </resources>

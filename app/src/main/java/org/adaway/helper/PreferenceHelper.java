@@ -2,7 +2,7 @@
  * Copyright (C) 2011-2012 Dominik Schürmann <dominik@dominikschuermann.de>
  *
  * This file is part of AdAway.
- * 
+ *
  * AdAway is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -27,6 +27,9 @@ import org.adaway.R;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.util.Constants;
 import org.adaway.vpn.VpnStatus;
+
+import java.util.Collections;
+import java.util.Set;
 
 public class PreferenceHelper {
     public static boolean getDismissWelcome(Context context) {
@@ -307,6 +310,27 @@ public class PreferenceHelper {
         );
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(context.getString(R.string.pref_display_telemetry_consent_key), displayTelemetryConsent);
+        editor.apply();
+    }
+
+    public static Set<String> getVpnExcludedApps(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getStringSet(
+                context.getString(R.string.pref_vpn_excluded_user_apps_key),
+                Collections.emptySet()
+        );
+    }
+
+    public static void setVpnExcludedApps(Context context, Set<String> excludedApplicationPackageNames) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putStringSet(context.getString(R.string.pref_vpn_excluded_user_apps_key), excludedApplicationPackageNames);
         editor.apply();
     }
 }

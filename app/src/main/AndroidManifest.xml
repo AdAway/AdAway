@@ -77,6 +77,10 @@
             android:exported="false"
             android:label="@string/preferences_drawer_item"
             android:parentActivityName=".ui.next.NextActivity" />
+        <activity
+            android:name=".ui.prefs.exclusion.PrefsVpnExcludedAppsActivity"
+            android:exported="false"
+            android:label="@string/pref_vpn_exclude_user_apps_activity" />
 
         <service
             android:name=".vpn.VpnService"
