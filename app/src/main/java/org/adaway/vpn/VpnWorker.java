@@ -16,12 +16,19 @@ package org.adaway.vpn;
 
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
 import android.system.StructPollfd;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.next.NextActivity;
@@ -35,11 +42,16 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.function.Consumer;
 
+import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
 import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STARTING;
@@ -329,7 +341,6 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 }
             }
             Log.w(TAG, "handleDnsRequest: Could not send packet to upstream", e);
-            return;
         }
     }
 
@@ -345,33 +356,57 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         deviceWrites.add(ipOutPacket.getRawData());
     }
 
-    // TODO Per app VPN
-//    void configurePackages(VpnService.Builder builder, Configuration config) {
-//        Set<String> allowOnVpn = new HashSet<>();
-//        Set<String> doNotAllowOnVpn = new HashSet<>();
-//
-//        config.whitelist.resolve(vpnService.getPackageManager(), allowOnVpn, doNotAllowOnVpn);
-//
-//        if (config.whitelist.defaultMode == Configuration.Whitelist.DEFAULT_MODE_NOT_ON_VPN) {
-//            for (String app : allowOnVpn) {
-//                try {
-//                    Log.d(TAG, "configure: Allowing " + app + " to use the DNS VPN");
-//                    builder.addAllowedApplication(app);
-//                } catch (Exception e) {
-//                    Log.w(TAG, "configure: Cannot disallow", e);
-//                }
-//            }
-//        } else {
-//            for (String app : doNotAllowOnVpn) {
-//                try {
-//                    Log.d(TAG, "configure: Disallowing " + app + " from using the DNS VPN");
-//                    builder.addDisallowedApplication(app);
-//                } catch (Exception e) {
-//                    Log.w(TAG, "configure: Cannot disallow", e);
-//                }
-//            }
-//        }
-//    }
+    private void configurePackages(VpnService.Builder builder) {
+        PackageManager packageManager = this.vpnService.getPackageManager();
+
+        ApplicationInfo self = this.vpnService.getApplicationInfo();
+        Set<String> excludedApps = PreferenceHelper.getVpnExcludedApps(this.vpnService);
+        String vpnExcludedSystemApps = PreferenceHelper.getVpnExcludedSystemApps(this.vpnService);
+        Set<String> webBrowserPackageName = vpnExcludedSystemApps.equals("allExceptBrowsers") ? getWebBrowserPackageName(packageManager) : Collections.emptySet();
+
+        List<ApplicationInfo> installedApplications = packageManager.getInstalledApplications(0);
+        for (ApplicationInfo applicationInfo : installedApplications) {
+            boolean excluded = false;
+            // Skip itself
+            if (applicationInfo.packageName.equals(self.packageName)) {
+                continue;
+            }
+            // Check system app
+            if ((applicationInfo.flags & FLAG_SYSTEM) != 0) {
+                excluded = vpnExcludedSystemApps.equals("all") ||
+                        (vpnExcludedSystemApps.equals("allExceptBrowsers") && !webBrowserPackageName.contains(applicationInfo.packageName));
+            }
+            // Check user excluded applications
+            else if (excludedApps.contains(applicationInfo.packageName)) {
+                excluded = true;
+            }
+            if (excluded) {
+                try {
+                    builder.addDisallowedApplication(applicationInfo.packageName);
+                } catch (NameNotFoundException e) {
+                    org.adaway.util.Log.w(TAG, "Failed to exclude application " + applicationInfo.packageName + " from VPN", e);
+                }
+            }
+        }
+    }
+
+    private Set<String> getWebBrowserPackageName(PackageManager packageManager) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://isabrowser.adaway.org/"));
+        List<ResolveInfo> resolveInfoList = packageManager.queryIntentActivities(intent, 0);
+        Set<String> packageNames = new HashSet<>();
+        for (ResolveInfo resolveInfo : resolveInfoList) {
+            packageNames.add(resolveInfo.activityInfo.packageName);
+        }
+
+        packageNames.add("com.google.android.webview");
+        packageNames.add("com.android.htmlviewer");
+        packageNames.add("com.google.android.backuptransport");
+        packageNames.add("com.google.android.gms");
+        packageNames.add("com.google.android.gsf");
+
+        return packageNames;
+    }
 
     private ParcelFileDescriptor configure() throws VpnNetworkException {
         Log.i(TAG, "Configuring" + this);
@@ -380,7 +415,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 //        Configuration config = FileHelper.loadCurrentSettings(vpnService);
 
         // Configure a builder while parsing the parameters.
-        android.net.VpnService.Builder builder = vpnService.new Builder();
+        android.net.VpnService.Builder builder = this.vpnService.new Builder();
 
         InetAddress address = this.dnsServerMapper.configure(builder);
         this.vpnWatchDog.setTarget(address);
@@ -389,14 +424,12 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 
         // Allow applications to bypass the VPN
         builder.allowBypass();
+        configurePackages(builder);
 
         // Explictly allow both families, so we do not block
         // traffic for ones without DNS servers (issue 129).
         builder.allowFamily(OsConstants.AF_INET);
         builder.allowFamily(OsConstants.AF_INET6);
-
-        // TODO Per app VPN
-//        configurePackages(builder, config);
 
         // Create a new interface using the builder and save the parameters.
         ParcelFileDescriptor pfd = builder
@@ -466,6 +499,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             list.add(wosp);
         }
 
+        @NonNull
         public Iterator<WaitingOnSocketPacket> iterator() {
             return list.iterator();
         }

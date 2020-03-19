@@ -313,6 +313,17 @@ public class PreferenceHelper {
         editor.apply();
     }
 
+    public static String getVpnExcludedSystemApps(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getString(
+                context.getString(R.string.pref_vpn_excluded_system_apps_key),
+                context.getString(R.string.pref_vpn_excluded_system_apps_default)
+        );
+    }
+
     public static Set<String> getVpnExcludedApps(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
