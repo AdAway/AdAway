@@ -55,14 +55,14 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
 
     @NonNull
     @Override
-    public TcpdumpLogAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.tcpdump_log_entry, parent, false);
-        return new TcpdumpLogAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TcpdumpLogAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Get log entry
         LogEntry entry = getItem(position);
         // Set host name

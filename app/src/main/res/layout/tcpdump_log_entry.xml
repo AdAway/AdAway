@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="48dp">
 
-
     <ImageView
         android:id="@+id/blockImageView"
         android:layout_width="24sp"

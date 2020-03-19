@@ -401,9 +401,13 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         // Create a new interface using the builder and save the parameters.
         ParcelFileDescriptor pfd = builder
                 .setSession("AdAway")
-                .setConfigureIntent(
-                        PendingIntent.getActivity(vpnService, 1, new Intent(vpnService, NextActivity.class),
-                                PendingIntent.FLAG_CANCEL_CURRENT)).establish();
+                .setConfigureIntent(PendingIntent.getActivity(
+                        vpnService,
+                        1,
+                        new Intent(vpnService, NextActivity.class),
+                        PendingIntent.FLAG_CANCEL_CURRENT
+                ))
+                .establish();
         Log.i(TAG, "Configured");
         return pfd;
     }
