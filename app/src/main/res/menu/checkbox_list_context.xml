@@ -3,11 +3,11 @@
 
     <item
         android:id="@+id/checkbox_list_context_edit"
-        android:icon="@drawable/baseline_edit_24"
+        android:icon="@drawable/outline_create_24"
         android:title="@string/checkbox_list_context_edit" />
     <item
         android:id="@+id/checkbox_list_context_delete"
-        android:icon="@drawable/baseline_delete_forever24"
+        android:icon="@drawable/outline_delete_24"
         android:title="@string/checkbox_list_context_delete" />
 
 </menu>

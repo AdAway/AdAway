@@ -6,8 +6,8 @@
         android:title="@string/tcpdump_menu_sort"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/clear"
-        android:icon="@drawable/baseline_delete_forever24"
+        android:id="@+id/delete"
+        android:icon="@drawable/outline_delete_24"
         android:title="@string/tcpdump_menu_clear"
         app:showAsAction="ifRoom" />
 </menu>
