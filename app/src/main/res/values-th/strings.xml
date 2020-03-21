@@ -36,7 +36,7 @@
     <string name="export_dialog">กำลังส่งออก…</string>
     <!--Hosts content-->
     <string name="hosts_header">ไฟล์โฮสต์</string>
-    <string name="hosts_content">กำลังโหลดเนื้อหาไฟล์โฮสต์...</string>
+    <string name="hosts_content">กำลังโหลดเนื้อหาไฟล์โฮสต์…</string>
     <string name="hosts_open_button">เปิดไฟล์ hosts</string>
 
     <!--Status Notification-->

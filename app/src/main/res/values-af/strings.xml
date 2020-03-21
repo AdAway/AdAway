@@ -19,8 +19,8 @@
     <string name="checkbox_list_context_edit">Redigeer</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Besig met invoering...</string>
-    <string name="export_dialog">Besig met Uitvoer...</string>
+    <string name="import_dialog">Besig met invoering…</string>
+    <string name="export_dialog">Besig met Uitvoer…</string>
     <!--Status Notification-->
     <string name="status_reverting_subtitle">Skep standaard gasheer lêer</string>
     <string name="status_update_available">Opdatering beskikbaar</string>
@@ -47,8 +47,8 @@
     <string name="apply_apn_proxy_title">APN volmag gestel!</string>
     <string name="no_connection">Die internet konneksie werk nie</string>
     <string name="no_connection_title">Geen konneksie</string>
-    <string name="download_dialog">Besig om af te laai...</string>
-    <string name="apply_dialog">Besig met toepassing...</string>
+    <string name="download_dialog">Besig om af te laai…</string>
+    <string name="apply_dialog">Besig met toepassing…</string>
     <string name="apply_dialog_lists">Witlys en Swartlys word toegepas</string>
     <string name="apply_dialog_hostnames">Besig met ontleding en samesmelting van gas lêers</string>
     <string name="apply_dialog_hosts">Besig om gas lêers te bou</string>
@@ -66,7 +66,7 @@
     <string name="no_hostname_title">Foutief geformateerde gasheernaam</string>
     <string name="no_ip">Nie \'n geldige IP nie!</string>
     <string name="no_ip_title">Foutief geformateerde IP </string>
-    <string name="loading">Besig om te laai...</string>
+    <string name="loading">Besig om te laai…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Verfris</string>

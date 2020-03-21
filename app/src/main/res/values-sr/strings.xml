@@ -25,7 +25,7 @@
 
     <!--Your lists-->
     <string name="import_dialog">Uvoz…</string>
-    <string name="export_dialog">Izvoz...</string>
+    <string name="export_dialog">Izvoz…</string>
     <!--Status Notification-->
     <string name="status_reverting_subtitle">Kreiranje standardnog hosts fajla</string>
     <string name="status_update_available">Ažuriranje dostupno</string>
@@ -56,8 +56,8 @@
     <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
     <string name="no_connection">Konekcija sa internetom ne radi.</string>
     <string name="no_connection_title">Nema konekcije</string>
-    <string name="download_dialog">Preuzimanje...</string>
-    <string name="apply_dialog">Primenjivanje...</string>
+    <string name="download_dialog">Preuzimanje…</string>
+    <string name="apply_dialog">Primenjivanje…</string>
     <string name="apply_dialog_lists">Primenjivanje Crne i Bele liste</string>
     <string name="apply_dialog_hostnames">Raščlanjivanje i spajanje host-ovih fajlova</string>
     <string name="apply_dialog_hosts">Izgradnja host-ovih fajlova</string>
@@ -79,7 +79,7 @@
     <string name="no_hostname_title">Nije dobro formirano ime hosta</string>
     <string name="no_ip">Ovo nije validan IP!</string>
     <string name="no_ip_title">Nije dobro formiran IP</string>
-    <string name="loading">Učitavanje...</string>
+    <string name="loading">Učitavanje…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Osveži</string>

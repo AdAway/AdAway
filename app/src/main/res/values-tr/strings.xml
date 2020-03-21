@@ -33,10 +33,10 @@
     <string name="checkbox_list_context_edit">Düzenle</string>
 
     <!--Your lists-->
-    <string name="import_dialog">İçe Aktarılıyor...</string>
+    <string name="import_dialog">İçe Aktarılıyor…</string>
     <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
     <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
-    <string name="export_dialog">Dışa Aktarılıyor...</string>
+    <string name="export_dialog">Dışa Aktarılıyor…</string>
     <string name="export_success">Yedekleme, harici depolama alanınıza \'adaway-backup.json\' dosya ismiyle başarılı olarak aktarıldı.</string>
     <string name="export_failed">Yedekleme dışa aktarılamadı.</string>
 
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
     <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
     <string name="no_connection_title">Bağlantı Yok</string>
-    <string name="download_dialog">İndiriliyor...</string>
-    <string name="apply_dialog">Uygulanıyor...</string>
+    <string name="download_dialog">İndiriliyor…</string>
+    <string name="apply_dialog">Uygulanıyor…</string>
     <string name="apply_dialog_lists">Kara Liste ve Beyaz Liste uygulanıyor</string>
     <string name="apply_dialog_hostnames">Host dosyaları incelenip birleştiriliyor</string>
     <string name="apply_dialog_hosts">Host dosyası oluşturuluyor</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">Bu geçerli bir IP değildir!</string>
     <string name="no_ip_title">Uygunsuz biçimlendirilmiş IP</string>
     <string name="reboot_never_reboot">Asla yeniden başlatma ve bir daha ki sefere bu soruyu gösterme!</string>
-    <string name="loading">Yükleniyor...</string>
+    <string name="loading">Yükleniyor…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Yenile</string>

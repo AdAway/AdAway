@@ -33,10 +33,10 @@
     <string name="checkbox_list_context_edit">Рэдагаваць</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Імпарт...</string>
+    <string name="import_dialog">Імпарт…</string>
     <string name="import_success">Рэзервовая копія паспяхова імпартавана з вашага знешняга сховішча.</string>
     <string name="import_failed">Не ўдалося імпартаваць рэзервовую копію. Магчыма яе фармат не дакладны? Праверце logcat для падрабязнасцяў.</string>
-    <string name="export_dialog">Экспарт...</string>
+    <string name="export_dialog">Экспарт…</string>
     <string name="export_success">Рэзервовая копія паспяхова імпартавана ў файл \'adaway-backup.json\' на ваша знешняе сховішча.</string>
     <string name="export_failed">Не ўдалося экспартаваць рэзервовую копію.</string>
 
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Апавяшчэнні аб абнаўленні новых hosts</string>
     <string name="notification_configuration_changed">Налады зменены. Вам трэба ўсталяваць файл hosts для іх прымянення.</string>
     <string name="notification_configuration_changed_action">Прымяніць</string>
-    <string name="notification_configuration_installing">Усталёўка файла hosts...</string>
+    <string name="notification_configuration_installing">Усталёўка файла hosts…</string>
     <string name="notification_configuration_failed">Не атрымалася ўсталяваць файл hosts.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -93,7 +93,7 @@
     <string name="no_connection">Адсутнічае падключэнне да інтэрнэту.</string>
     <string name="no_connection_title">Няма злучэння</string>
     <string name="download_dialog">Спампоўка…</string>
-    <string name="apply_dialog">Прымяненне...</string>
+    <string name="apply_dialog">Прымяненне…</string>
     <string name="apply_dialog_lists">Прымяніць чорны і белы спіс</string>
     <string name="apply_dialog_hostnames">Разбор і аб\'яднанне файлаў са спісамі hosts</string>
     <string name="apply_dialog_hosts">Пабудова файла hosts</string>
@@ -126,7 +126,7 @@
     <string name="no_ip">Гэта недапушчальны IP-адрас!</string>
     <string name="no_ip_title">Няправільна адфарматаваны IP-адрас</string>
     <string name="reboot_never_reboot">Ня перазагружаць і не паказваць гэтае пытанне ў далейшым</string>
-    <string name="loading">Загрузка...</string>
+    <string name="loading">Загрузка…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Абнавіць</string>

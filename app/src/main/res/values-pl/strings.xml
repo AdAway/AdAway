@@ -43,7 +43,7 @@
     <!--Hosts content-->
     <string name="hosts_header">Plik hosts</string>
     <string name="hosts_description">Plik hosts jest plikiem systemowym, który mapuje nazwy hostów na adresy IP. Jest to plik tekstowy, którego konfiguracja jest obsługiwana przez AdAway. Oto kilka pierwszych linii:</string>
-    <string name="hosts_content">Ładowanie zawartości pliku hosts...</string>
+    <string name="hosts_content">Ładowanie zawartości pliku hosts…</string>
     <string name="hosts_open_button">Otwórz plik hosts</string>
 
     <!--Status Notification-->
@@ -125,7 +125,7 @@
     <string name="no_ip">To nie jest prawidłowy adres IP!</string>
     <string name="no_ip_title">Niepoprawny adres IP</string>
     <string name="reboot_never_reboot">Nigdy nie restartuj i nie pokazuj tego pytania ponownie!</string>
-    <string name="loading">Ładowanie...</string>
+    <string name="loading">Ładowanie…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Odśwież</string>

@@ -37,7 +37,7 @@
     <string name="export_dialog">Esportatzen…</string>
     <!--Hosts content-->
     <string name="hosts_header">Hostalari fitxategia</string>
-    <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen...</string>
+    <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen…</string>
     <string name="hosts_open_button">Ireki hostalari fitxategia</string>
 
     <!--Status Notification-->
@@ -60,7 +60,7 @@
     <string name="notification_channel_update_description">Hostalari berrien eguneraketaren jakinarazpena</string>
     <string name="notification_configuration_changed">Zure konfigurazioa aldatu da. Hostalari fitxategia instalatu behar duzu aldaketak aplikatzeko.</string>
     <string name="notification_configuration_changed_action">Aplikatu</string>
-    <string name="notification_configuration_installing">Hostalari fitxategia instalatzen...</string>
+    <string name="notification_configuration_installing">Hostalari fitxategia instalatzen…</string>
     <string name="notification_configuration_failed">Hostalari fitxategiaren instalazioak huts egin du.</string>
 
     <!--Apply and Revert Dialogs-->

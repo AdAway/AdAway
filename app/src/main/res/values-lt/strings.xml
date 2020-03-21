@@ -27,8 +27,8 @@
     <string name="checkbox_list_context_edit">Redeguoti</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importuoju...</string>
-    <string name="export_dialog">Eksportuoju...</string>
+    <string name="import_dialog">Importuoju…</string>
+    <string name="export_dialog">Eksportuoju…</string>
     <!--Status Notification-->
     <string name="status_reverting_subtitle">Kuriu standartinį hosts failą</string>
     <string name="status_update_available">Pasiekiamas atnaujinimas</string>
@@ -58,8 +58,8 @@
     <string name="apply_apn_proxy_title">APN proxy nustatytas!</string>
     <string name="no_connection">Prisijungti pire interneto nepavyko.</string>
     <string name="no_connection_title">Nėra Interneto</string>
-    <string name="download_dialog">Atsisiunčiama...</string>
-    <string name="apply_dialog">Pritaikoma...</string>
+    <string name="download_dialog">Atsisiunčiama…</string>
+    <string name="apply_dialog">Pritaikoma…</string>
     <string name="apply_dialog_lists">Pritaikomas Juodasis ir Baltasis sąrašas.</string>
     <string name="apply_dialog_hostnames">Nagrinėjamas ir suliejamas host faias</string>
     <string name="apply_dialog_hosts">Tvarkomas host failas</string>
@@ -80,7 +80,7 @@
     <string name="no_hostname_title">Neteisingas host vardo formatas</string>
     <string name="no_ip">Neteisingas IP</string>
     <string name="no_ip_title">Neteisingas IP formatas</string>
-    <string name="loading">Kraunama...</string>
+    <string name="loading">Kraunama…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Atnaujinti</string>

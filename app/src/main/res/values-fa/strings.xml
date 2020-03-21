@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">ویرایش</string>
 
     <!--Your lists-->
-    <string name="import_dialog">بارگیری...</string>
+    <string name="import_dialog">بارگیری…</string>
     <string name="import_success">فایل پشتیبانی با موفقیت از کارت حافظه شما بارگذاری شد.</string>
     <string name="import_failed">بارگذاری فایل پشتبانی با شکست مواجه شد. فرمت فایل درست است؟ فایل ثبت رویدادها رو چک کنید.</string>
-    <string name="export_dialog">در حال خروجی گرفتن...</string>
+    <string name="export_dialog">در حال خروجی گرفتن…</string>
     <string name="export_success">فایل بکاپ با موفقیت در حافظه جانبی شما به اسم \'adaway-backup.json\' ساخته شد.</string>
     <string name="export_failed">عملیات ساخت بکاپ با شکست مواجه شد.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">فایل هاست ها</string>
     <string name="hosts_description">فایل هاست ها یک فایل سیستمی است که نام هاست ها را به آی پی آدرس ها مرتبط میکند.این یک فایل متنی ساده است که توسط  AdAway تنظیم شده است.در اینجا چند خط ابتدایی آن را داریم:</string>
-    <string name="hosts_content">بارگذاری محتوای فایل هاست...</string>
+    <string name="hosts_content">بارگذاری محتوای فایل هاست…</string>
     <string name="hosts_open_button">بازکردن هاست فایل</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">اطلاعیه هاست‌های جدید</string>
     <string name="notification_configuration_changed">تنظیمات شما تغییر کرد. برای اعمال تغییرات باید هاست فایل رو نصب کنید.</string>
     <string name="notification_configuration_changed_action">اعمال تغییرات</string>
-    <string name="notification_configuration_installing">در حال نصب هاست فایل...</string>
+    <string name="notification_configuration_installing">در حال نصب هاست فایل…</string>
     <string name="notification_configuration_failed">نصب هاست فایل با شکست مواجه شد.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -87,8 +87,8 @@
     <string name="apply_apn_proxy_title">تنظیم پروکسی APN!</string>
     <string name="no_connection">اتصال اینترنت بر قرار نیست</string>
     <string name="no_connection_title">اتصال برقرار نیست</string>
-    <string name="download_dialog">در حال دریافت...</string>
-    <string name="apply_dialog">در حال اعمال...</string>
+    <string name="download_dialog">در حال دریافت…</string>
+    <string name="apply_dialog">در حال اعمال…</string>
     <string name="apply_dialog_lists">اعمال لیست سیاه و لیست سفید</string>
     <string name="apply_dialog_hostnames">تجزیه و ادغام فایل های hosts</string>
     <string name="apply_dialog_hosts">ساختن فایل hosts</string>
@@ -110,7 +110,7 @@
     <string name="no_hostname_title">hostname با فرمت نادرست</string>
     <string name="no_ip">این یک آی پی مجاز نیست!</string>
     <string name="no_ip_title">آی پی با فرمت نادرست</string>
-    <string name="loading">در حال بارگیری...</string>
+    <string name="loading">در حال بارگیری…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">تازه کردن</string>

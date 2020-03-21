@@ -33,10 +33,10 @@
     <string name="checkbox_list_context_edit">編集</string>
 
     <!--Your lists-->
-    <string name="import_dialog">インポート中...</string>
+    <string name="import_dialog">インポート中…</string>
     <string name="import_success">外部ストレージからバックアップが正常にインポートされました。</string>
     <string name="import_failed">バックアップのインポートに失敗しました。 バックアップの形式は正しいですか? 詳細は、 logcat を確認してください。</string>
-    <string name="export_dialog">エクスポート中...</string>
+    <string name="export_dialog">エクスポート中…</string>
     <string name="export_success">バックアップは、外部ストレージ上の \"adaway-backup.json\" に正常にエクスポートされました。</string>
     <string name="export_failed">バックアップのエクスポートに失敗しました。</string>
 
@@ -92,11 +92,11 @@
     <string name="apply_apn_proxy_title">APNプロキシがセットされました！</string>
     <string name="no_connection">ネット接続がありません</string>
     <string name="no_connection_title">接続なし</string>
-    <string name="download_dialog">ダウンロード中...</string>
-    <string name="apply_dialog">適用中...</string>
+    <string name="download_dialog">ダウンロード中…</string>
+    <string name="apply_dialog">適用中…</string>
     <string name="apply_dialog_lists">ブラック/ホワイトリストを適用中</string>
-    <string name="apply_dialog_hostnames">hostsファイルの解析･統合中...</string>
-    <string name="apply_dialog_hosts">hostsファイルを構築中...</string>
+    <string name="apply_dialog_hostnames">hostsファイルの解析･統合中…</string>
+    <string name="apply_dialog_hosts">hostsファイルを構築中…</string>
     <string name="apply_dialog_apply">hostsファイルを適用中</string>
     <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定で対象とする hosts ファイルを /data/data/hosts に変更してみてください。</string>
     <string name="apply_fail_title">適用に失敗</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">不正なIPです！</string>
     <string name="no_ip_title">IPが正しくありません</string>
     <string name="reboot_never_reboot">再起動せずこの質問を二度と表示しない</string>
-    <string name="loading">読み込み中...</string>
+    <string name="loading">読み込み中…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">更新</string>

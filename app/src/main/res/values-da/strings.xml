@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">Rediger</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importerer...</string>
+    <string name="import_dialog">Importerer…</string>
     <string name="import_success">Sikkerhedskopi importeret med succes fra dit eksterne lager.</string>
     <string name="import_failed">Kunne ikke importere backup. Er dets format korrekt? Tjek logcat for flere detaljer.</string>
-    <string name="export_dialog">Eksporterer...</string>
+    <string name="export_dialog">Eksporterer…</string>
     <string name="export_success">Backup med succes eksporteres til \'adaway-backup.json\' -filen på dit eksterne lager.</string>
     <string name="export_failed">Kunne ikke eksportere en sikkerhedskopi</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Hosts filen</string>
     <string name="hosts_description">Hosts filen er en systemfil, der kortlægger værtsnavne til IP-adresser. Det er en almindelig tekstfil, hvilken konfiguration håndteres af AdAway. Her er de få første linjer:</string>
-    <string name="hosts_content">Indlæser indholdet af hosts filen...</string>
+    <string name="hosts_content">Indlæser indholdet af hosts filen…</string>
     <string name="hosts_open_button">Åbn hosts filen</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Nye værtsopdateringsmeddelelser</string>
     <string name="notification_configuration_changed">Din konfiguration er ændret. Du skal installere hostsfil for at anvende den.</string>
     <string name="notification_configuration_changed_action">Anvend</string>
-    <string name="notification_configuration_installing">Installere hostsfil....</string>
+    <string name="notification_configuration_installing">Installere hostsfil….</string>
     <string name="notification_configuration_failed">Kunne ikke installere hostsfilen.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
     <string name="no_connection">Internetforbindelsen virker ikke.</string>
     <string name="no_connection_title">Ingen forbindelse</string>
-    <string name="download_dialog">Henter...</string>
-    <string name="apply_dialog">Anvender...</string>
+    <string name="download_dialog">Henter…</string>
+    <string name="apply_dialog">Anvender…</string>
     <string name="apply_dialog_lists">Anvender godkendte og ikke godkendte lister</string>
     <string name="apply_dialog_hostnames">Parser og fletter hosts-filer</string>
     <string name="apply_dialog_hosts">Opbygger hosts-filen</string>
@@ -120,7 +120,7 @@
     <string name="no_ip">Dette er ikke en gyldig IP!</string>
     <string name="no_ip_title">Forkert formateret IP</string>
     <string name="reboot_never_reboot">Genstart aldrig og vis ikke dette spørgsmål næste gang!</string>
-    <string name="loading">Indlæser...</string>
+    <string name="loading">Indlæser…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Opdater</string>

@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">Edita</string>
 
     <!--Your lists-->
-    <string name="import_dialog">S\'està important....</string>
+    <string name="import_dialog">S\'està important….</string>
     <string name="import_success">S\'ha importat correctament la còpia de l\'emmagatzematge extern.</string>
     <string name="import_failed">Ha fallat en importar la còpia. El format és correcte? Mireu l\'informe del logcat per a més informació.</string>
-    <string name="export_dialog">S\'està exportant...</string>
+    <string name="export_dialog">S\'està exportant…</string>
     <string name="export_success">S\'ha exportat correctament el fitxer «adaway-backup.json» a l\'emmagatzematge extern.</string>
     <string name="export_failed">Ha fallat en exportar la còpia de seguretat.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">El fitxer d\'amfitrions</string>
     <string name="hosts_description">El fitxer d\'amfitrions és un fitxer del sistema on s\'associen  noms d\'amfitrió a les corresponents adreces IP. És un fitxer en text pla on la seva configuració és administrada per l\'AdAway. Aquí podeu veure les primeres línies:</string>
-    <string name="hosts_content">S\'està carregant el contingut del fitxer d\'amfitrions...</string>
+    <string name="hosts_content">S\'està carregant el contingut del fitxer d\'amfitrions…</string>
     <string name="hosts_open_button">Obre el fitxer d\'amfitrions</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Notificacions d\'actualització de fitxers nous</string>
     <string name="notification_configuration_changed">Ha canviat la configuració. Instal·leu el fitxer d\'amfitrions per aplicar els canvis.</string>
     <string name="notification_configuration_changed_action">Aplica</string>
-    <string name="notification_configuration_installing">S\'està instal·lant el fitxer...</string>
+    <string name="notification_configuration_installing">S\'està instal·lant el fitxer…</string>
     <string name="notification_configuration_failed">Ha fallat en instal·lar el fitxer.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
     <string name="no_connection">La connexió a Internet no funciona.</string>
     <string name="no_connection_title">Sense connexió</string>
-    <string name="download_dialog">S\'està baixant...</string>
-    <string name="apply_dialog">S\'està aplicant...</string>
+    <string name="download_dialog">S\'està baixant…</string>
+    <string name="apply_dialog">S\'està aplicant…</string>
     <string name="apply_dialog_lists">Aplicant llista negra i llista blanca</string>
     <string name="apply_dialog_hostnames">Processant i unint els fitxers hosts</string>
     <string name="apply_dialog_hosts">Construïnt fitxer hosts</string>

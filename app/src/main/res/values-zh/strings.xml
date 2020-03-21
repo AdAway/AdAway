@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">编辑</string>
 
     <!--Your lists-->
-    <string name="import_dialog">正在导入...</string>
+    <string name="import_dialog">正在导入…</string>
     <string name="import_success">已成功从外置存储中导入备份。</string>
     <string name="import_failed">导入备份失败，请检查格式是否正确。查看日志文件以获取更多信息。</string>
-    <string name="export_dialog">正在导出...</string>
+    <string name="export_dialog">正在导出…</string>
     <string name="export_success">已成功导出备份至外置存储中的“adaway-backup.json”文件。</string>
     <string name="export_failed">导出备份失败。</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 文件</string>
     <string name="hosts_description">hosts 文件是一个将主机名映射到 IP 地址的系统文件。它是一个纯文本文件，由 AdAway 处理、配置。这是它的前几行：</string>
-    <string name="hosts_content">正在加载 hosts 文件内容...</string>
+    <string name="hosts_content">正在加载 hosts 文件内容…</string>
     <string name="hosts_open_button">打开 hosts 文件</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">hosts 文件更新通知</string>
     <string name="notification_configuration_changed">您的配置已更改。需要重新安装 hosts 文件才能应用至系统。</string>
     <string name="notification_configuration_changed_action">应用</string>
-    <string name="notification_configuration_installing">正在安装 hosts 文件...</string>
+    <string name="notification_configuration_installing">正在安装 hosts 文件…</string>
     <string name="notification_configuration_failed">hosts 文件安装失败。</string>
 
     <!--Apply and Revert Dialogs-->
@@ -93,8 +93,8 @@
     <string name="apply_apn_proxy_title">已设置 APN 代理！</string>
     <string name="no_connection">网络连接缓慢。</string>
     <string name="no_connection_title">没有连接</string>
-    <string name="download_dialog">正在下载...</string>
-    <string name="apply_dialog">正在应用...</string>
+    <string name="download_dialog">正在下载…</string>
+    <string name="apply_dialog">正在应用…</string>
     <string name="apply_dialog_lists">正在应用黑名单与白名单</string>
     <string name="apply_dialog_hostnames">正在解析、合并 hosts 文件</string>
     <string name="apply_dialog_hosts">正在构建 hosts 文件</string>
@@ -126,7 +126,7 @@
     <string name="no_ip">IP 地址无效！</string>
     <string name="no_ip_title">IP 地址格式不正确</string>
     <string name="reboot_never_reboot">从不重启，且不再显示此信息！</string>
-    <string name="loading">正在加载...</string>
+    <string name="loading">正在加载…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">刷新</string>

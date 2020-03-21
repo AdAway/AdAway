@@ -43,7 +43,7 @@
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts — це системний файл, який містить співставлення імен хостів з IP-адресами. Це звичайний текстовий файл, вміст якого обробляє AdAway. Ось його перші рядки:</string>
-    <string name="hosts_content">Завантаження вмісту файлу hosts...</string>
+    <string name="hosts_content">Завантаження вмісту файлу hosts…</string>
     <string name="hosts_open_button">Відкрити файл hosts</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Сповіщення про оновлення нових хостів</string>
     <string name="notification_configuration_changed">Налаштування змінено. Зміни потрібно застосувати до файлу hosts.</string>
     <string name="notification_configuration_changed_action">Застосувати</string>
-    <string name="notification_configuration_installing">Встановлення файлу hosts...</string>
+    <string name="notification_configuration_installing">Встановлення файлу hosts…</string>
     <string name="notification_configuration_failed">Не вдалося встановити файл hosts.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -88,7 +88,7 @@
     <string name="apply_symlink_fail">Android не зміг створити посилання. \nМожливо, це через особливість S-ON на телефонах HTC! \n\nРішення полягає в завантаженні телефону в режимі відновлення і створення символічного посилання через \'\'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Якщо це не спрацьовує, то необхідно шукати інформацію в інтернеті по S-OFF і вашому телефону.</string>
     <string name="apply_symlink_fail_title">Помилка створення посилання</string>
     <string name="apply_help">Будь ласка, читайте Довідку для отримання додаткової інформації.</string>
-    <string name="apply_apn_proxy">У налаштуваннях APN вказаний проксі сервер!\nAdAway не буде працювати в мобільних мережах, таких як 3G. Ви можете вимкнути цей проксі сервер в налаштуваннях використовуваної APN (в Android 4: Бездротові мережі -&gt; Більше ... -&gt; Мобільна мережа -&gt; Точки доступу APN) і вилучити значення у полі проксі.</string>
+    <string name="apply_apn_proxy">У налаштуваннях APN вказаний проксі сервер!\nAdAway не буде працювати в мобільних мережах, таких як 3G. Ви можете вимкнути цей проксі сервер в налаштуваннях використовуваної APN (в Android 4: Бездротові мережі -&gt; Більше … -&gt; Мобільна мережа -&gt; Точки доступу APN) і вилучити значення у полі проксі.</string>
     <string name="apply_apn_proxy_title">У використовуваної точки доступу APN встановлений проксі!</string>
     <string name="no_connection">Відсутнє підключення до мережі інтернет.</string>
     <string name="no_connection_title">Немає з\'єднання</string>

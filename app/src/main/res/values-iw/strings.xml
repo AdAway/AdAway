@@ -33,7 +33,7 @@
     <string name="checkbox_list_context_edit">ערוך</string>
 
     <!--Your lists-->
-    <string name="import_dialog">מייבא...</string>
+    <string name="import_dialog">מייבא…</string>
     <string name="import_success">גיבוי יובא בהצלחה מהאחסון החיצוני</string>
     <string name="import_failed">ייבוא הגיבוי נכשל. האם פורמט הגיבוי נכון? בדוק את logcat לפרטים נוספים.</string>
     <string name="export_dialog">מייצא…</string>
@@ -118,7 +118,7 @@
     <string name="no_ip">כתובת ה IP אינה חוקית!</string>
     <string name="no_ip_title">כתובת IP בתבנית לא נכונה</string>
     <string name="reboot_never_reboot">לעולם אל תפעיל מחדש ואל תשאל אותי זאת שוב!</string>
-    <string name="loading">טוען...</string>
+    <string name="loading">טוען…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">רענן</string>

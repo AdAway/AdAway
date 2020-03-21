@@ -29,8 +29,8 @@
     <string name="checkbox_list_context_edit">Muokkaa</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Tuodaan...</string>
-    <string name="export_dialog">Viedään...</string>
+    <string name="import_dialog">Tuodaan…</string>
+    <string name="export_dialog">Viedään…</string>
     <!--Hosts content-->
     <string name="hosts_header">Hosts-tiedosto</string>
     <string name="hosts_open_button">Avaa hosts-tiedosto</string>
@@ -68,8 +68,8 @@
     <string name="apply_apn_proxy_title">APN-välityspalvelin on asetettu!</string>
     <string name="no_connection">Yhteys internettiin ei toimi.</string>
     <string name="no_connection_title">Ei yhteyttä</string>
-    <string name="download_dialog">Ladataan...</string>
-    <string name="apply_dialog">Hyväksytään...</string>
+    <string name="download_dialog">Ladataan…</string>
+    <string name="apply_dialog">Hyväksytään…</string>
     <string name="apply_dialog_lists">Mustan listan ja valkoisen listan soveltaminen</string>
     <string name="apply_dialog_hostnames">Hosts-tiedostojen jäsentäminen ja yhdistäminen</string>
     <string name="apply_dialog_hosts">Luodaan hosts-tiedostoa</string>
@@ -89,7 +89,7 @@
     <string name="no_hostname_title">Väärin muotoiltu host-nimi</string>
     <string name="no_ip">Tämä ei ole kelvollinen IP-osoite!</string>
     <string name="no_ip_title">Väärin muotoiltu iP</string>
-    <string name="loading">Ladataan...</string>
+    <string name="loading">Ladataan…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Päivitä</string>

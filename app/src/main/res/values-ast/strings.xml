@@ -19,8 +19,8 @@
     <string name="checkbox_list_context_edit">Editar</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importando...</string>
-    <string name="export_dialog">Esportando...</string>
+    <string name="import_dialog">Importando…</string>
+    <string name="export_dialog">Esportando…</string>
     <!--Status Notification-->
     <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>
     <string name="status_update_available">Anovamientu disponible</string>
@@ -50,8 +50,8 @@
     <string name="apply_apn_proxy_title">¡Afitóse\'l proxy APN!</string>
     <string name="no_connection">La conexón d\'internet nun ta furrulando.</string>
     <string name="no_connection_title">Ensin conexón</string>
-    <string name="download_dialog">Baxando...</string>
-    <string name="apply_dialog">Aplicando...</string>
+    <string name="download_dialog">Baxando…</string>
+    <string name="apply_dialog">Aplicando…</string>
     <string name="apply_dialog_lists">Aplicando llista prieta y blanca</string>
     <string name="apply_dialog_hostnames">Analizando y meciendo los ficheros «hosts»</string>
     <string name="apply_dialog_hosts">Construyendo\'l ficheru «hosts»</string>
@@ -70,7 +70,7 @@
     <string name="no_hostname_title">Nome d\'agospiu mal formáu</string>
     <string name="no_ip">¡Esto nun ye una IP válida!</string>
     <string name="no_ip_title">IP mal formada</string>
-    <string name="loading">Cargando...</string>
+    <string name="loading">Cargando…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Refrescar</string>

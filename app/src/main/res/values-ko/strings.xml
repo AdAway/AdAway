@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">편집</string>
 
     <!--Your lists-->
-    <string name="import_dialog">가져오는 중...</string>
+    <string name="import_dialog">가져오는 중…</string>
     <string name="import_success">백업이 성공적으로 외부 저장소에서부터 불러와졌습니다.</string>
     <string name="import_failed">백업을 불러오는데 실패했습니다. 포멧이 정확한가요? 자세한 내용은 로그캣을 확인해주세요.</string>
-    <string name="export_dialog">내보내는 중...</string>
+    <string name="export_dialog">내보내는 중…</string>
     <string name="export_success">백업이 외부 저장소의 \'adaway-backup.json\'으로 저장되었습니다.</string>
     <string name="export_failed">백업을 저장하는데 실패했습니다.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">호스트 파일</string>
     <string name="hosts_description">호스트파일은 호스트이름을 IP주소로 변환하는 파일입니다. 이것은 AdAway에서 다뤄지는 간단한 텍스트 파일입니다. 파일의 시작은 다음과 같습니다:</string>
-    <string name="hosts_content">호스트 파일 컨텐츠 로딩 증...</string>
+    <string name="hosts_content">호스트 파일 컨텐츠 로딩 증…</string>
     <string name="hosts_open_button">호스트 파일 열기</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">새로운 호스트 파일 업데이트 알림</string>
     <string name="notification_configuration_changed">당신의 옵션이 변경되었습니다. 적용하시려면 호스트 파일을 설치하십시오.</string>
     <string name="notification_configuration_changed_action">적용</string>
-    <string name="notification_configuration_installing">호스트 파일 설치 중...</string>
+    <string name="notification_configuration_installing">호스트 파일 설치 중…</string>
     <string name="notification_configuration_failed">호스트 파일 설치에 실패했습니다.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">APN 프록시가 설정됨!</string>
     <string name="no_connection">인터넷에 연결되지않아 작동하지않습니다</string>
     <string name="no_connection_title">연결 끊김</string>
-    <string name="download_dialog">다운로드 중...</string>
-    <string name="apply_dialog">적용 중...</string>
+    <string name="download_dialog">다운로드 중…</string>
+    <string name="apply_dialog">적용 중…</string>
     <string name="apply_dialog_lists">허용 목록 및 차단 목록 적용 중</string>
     <string name="apply_dialog_hostnames">호스트 파일 구문 분석 및 병합 중</string>
     <string name="apply_dialog_hosts">호스트 파일 생성 중</string>
@@ -120,7 +120,7 @@
     <string name="no_ip">이것은 올바른 IP가 아닙니다!</string>
     <string name="no_ip_title">부적절한 형식의 IP</string>
     <string name="reboot_never_reboot">절대 재시작하지 말고 다시는 이 질문을 하지 마십시오!</string>
-    <string name="loading">불러오는 중...</string>
+    <string name="loading">불러오는 중…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">새로 고침</string>

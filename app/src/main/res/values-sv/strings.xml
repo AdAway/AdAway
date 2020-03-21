@@ -33,10 +33,10 @@
     <string name="checkbox_list_context_edit">Redigera</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importerar...</string>
+    <string name="import_dialog">Importerar…</string>
     <string name="import_success">Säkerhetskopian importerades från din extern lagring.</string>
     <string name="import_failed">Det gick inte att importera säkerhetskopian. Är dess format rätt? Kolla logcat för mer detaljer.</string>
-    <string name="export_dialog">Exporterar...</string>
+    <string name="export_dialog">Exporterar…</string>
     <string name="export_success">Säkerhetskopian exporterades till filen \"adaway-backup.json\" på din externa lagringsenhet.</string>
     <string name="export_failed">Det gick inte att exportera säkerhetskopian.</string>
 
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Aviseringar om nya värduppdateringar</string>
     <string name="notification_configuration_changed">Din konfiguration har ändrats. Du måste installera värdfilen för att tillämpa det.</string>
     <string name="notification_configuration_changed_action">Tillämpa</string>
-    <string name="notification_configuration_installing">Installerar värdfilen...</string>
+    <string name="notification_configuration_installing">Installerar värdfilen…</string>
     <string name="notification_configuration_failed">Det gick inte att installera värdfilen.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">APN-proxy inställt!</string>
     <string name="no_connection">Internetanslutningen fungerar ej.</string>
     <string name="no_connection_title">Ingen anslutning</string>
-    <string name="download_dialog">Hämtar...</string>
-    <string name="apply_dialog">Tillämpar...</string>
+    <string name="download_dialog">Hämtar…</string>
+    <string name="apply_dialog">Tillämpar…</string>
     <string name="apply_dialog_lists">Tillämpar Svart- och Vitlista</string>
     <string name="apply_dialog_hostnames">Tolkar och slår ihop värdfiler</string>
     <string name="apply_dialog_hosts">Bygger värdfil</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">Detta är inte en korrekt IP-adress!</string>
     <string name="no_ip_title">Felaktigt utformad IP-adress</string>
     <string name="reboot_never_reboot">Starta aldrig om och visa inte denna frågan igen!</string>
-    <string name="loading">Laddar...</string>
+    <string name="loading">Laddar…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Uppdatera</string>

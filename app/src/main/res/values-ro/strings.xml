@@ -32,8 +32,8 @@
     <string name="checkbox_list_context_edit">Editeaza</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importa...</string>
-    <string name="export_dialog">Exporta...</string>
+    <string name="import_dialog">Importa…</string>
+    <string name="export_dialog">Exporta…</string>
     <!--Hosts content-->
     <string name="hosts_header">Fisierul \'host\'</string>
     <!--Status Notification-->
@@ -67,7 +67,7 @@
     <string name="no_connection">Conexiunea internet nu functioneaza</string>
     <string name="no_connection_title">Nu exista conexiune!</string>
     <string name="download_dialog">Descarca…</string>
-    <string name="apply_dialog">Aplica modificarile...</string>
+    <string name="apply_dialog">Aplica modificarile…</string>
     <string name="apply_dialog_lists">Sistemul aplica atributele ambelor liste (acceptate + blocate) </string>
     <string name="apply_dialog_hostnames">Analizeaza nodurile si atributele (parsing) si combina fisierele (hosts)</string>
     <string name="apply_dialog_hosts">Sistemul genereaza fisiere \"hosts\"</string>
@@ -88,7 +88,7 @@
     <string name="no_hostname_title">Hostname formatat incorect</string>
     <string name="no_ip">Invalid IP!</string>
     <string name="no_ip_title">IP formatat incorect</string>
-    <string name="loading">Incarca...</string>
+    <string name="loading">Incarca…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Regenerare</string>

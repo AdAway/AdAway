@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">Upravit</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importování...</string>
+    <string name="import_dialog">Importování…</string>
     <string name="import_success">Záloha z vašeho externího úložiště úspěšně importována.</string>
     <string name="import_failed">Importování zálohy se nezdařilo. Je ve správném formátu? Pro více detailů zkontrolujte systémový protokol událostí.</string>
-    <string name="export_dialog">Exportování...</string>
+    <string name="export_dialog">Exportování…</string>
     <string name="export_success">Záloha úspěšně exportována do souboru \"adaway-backup.json\" na vašem externím úložišti.</string>
     <string name="export_failed">Exportování zálohy se nezdařilo.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Soubor hostitelů</string>
     <string name="hosts_description">Soubor hostitelů je systémový soubor, který přiřazuje jména hostitelů IP adresám. Jedná se o textový soubor, který je spravován aplikací AdAway. Zde je jeho malá část:</string>
-    <string name="hosts_content">Načítání obsahu souboru hostitelů...</string>
+    <string name="hosts_content">Načítání obsahu souboru hostitelů…</string>
     <string name="hosts_open_button">Otevřít soubor hostitelů</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Upozornění na nové aktualizace hostitelů</string>
     <string name="notification_configuration_changed">Kofigurace byla změněna. Aby se změny projevily, je nutné soubor hostitelů znovu aplikovat.</string>
     <string name="notification_configuration_changed_action">Aplikovat</string>
-    <string name="notification_configuration_installing">Aplikování souboru hostitelů...</string>
+    <string name="notification_configuration_installing">Aplikování souboru hostitelů…</string>
     <string name="notification_configuration_failed">Aplikování souboru hostitelů se nezdařilo.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">APN proxy nastaven!</string>
     <string name="no_connection">Připojení k internetu nefunguje.</string>
     <string name="no_connection_title">Žádné připojení</string>
-    <string name="download_dialog">Stahování...</string>
-    <string name="apply_dialog">Aplikování...</string>
+    <string name="download_dialog">Stahování…</string>
+    <string name="apply_dialog">Aplikování…</string>
     <string name="apply_dialog_lists">Aplikování bílé a černé listiny</string>
     <string name="apply_dialog_hostnames">Analýza a slučování souborů hostitelů</string>
     <string name="apply_dialog_hosts">Vytváření souboru hostitelů</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">Toto není platná IP!</string>
     <string name="no_ip_title">Chybný formát IP</string>
     <string name="reboot_never_reboot">Nikdy nerestartovat a příště již nezobrazovat tuto otázku!</string>
-    <string name="loading">Načítání...</string>
+    <string name="loading">Načítání…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Obnovit</string>

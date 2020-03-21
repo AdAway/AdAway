@@ -19,8 +19,8 @@
     <string name="checkbox_list_context_edit">Chỉnh sửa</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Đang nhập...</string>
-    <string name="export_dialog">Đang xuất...</string>
+    <string name="import_dialog">Đang nhập…</string>
+    <string name="export_dialog">Đang xuất…</string>
     <!--Status Notification-->
     <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
     <string name="status_update_available">Đã có bản cập nhật</string>
@@ -50,8 +50,8 @@
     <string name="apply_apn_proxy_title">Đã tạo proxy APN!</string>
     <string name="no_connection">Kết nối mạng không hoạt động.</string>
     <string name="no_connection_title">Không có kết nối</string>
-    <string name="download_dialog">Đang tải xuống...</string>
-    <string name="apply_dialog">Đang áp dụng...</string>
+    <string name="download_dialog">Đang tải xuống…</string>
+    <string name="apply_dialog">Đang áp dụng…</string>
     <string name="apply_dialog_lists">Đang áp dụng Danh sách đen và Danh sách trắng</string>
     <string name="apply_dialog_hostnames">Đang xử lý và hợp nhất các tập tin miền</string>
     <string name="apply_dialog_hosts">Đang tạo tập tin miền</string>
@@ -73,7 +73,7 @@
     <string name="no_hostname_title">Định dạng tên miền không đúng</string>
     <string name="no_ip">IP không hợp lệ!</string>
     <string name="no_ip_title">Định dạng IP không đúng</string>
-    <string name="loading">Đang tải...</string>
+    <string name="loading">Đang tải…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Làm mới</string>

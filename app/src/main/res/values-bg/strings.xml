@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">Редактиране</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Импортиране...</string>
+    <string name="import_dialog">Импортиране…</string>
     <string name="import_success">Архивът беше успешно внесен от Вашата карта памет.</string>
     <string name="import_failed">Внасянето на архива се провали. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
-    <string name="export_dialog">Експортиране...</string>
+    <string name="export_dialog">Експортиране…</string>
     <string name="export_success">Архивът беше успешно изнесен в картата памет във файл с име \'adaway-backup.json\'.</string>
     <string name="export_failed">Изнасянето на архива се провали.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файлът Hosts</string>
     <string name="hosts_description">Файлът Hosts е системен файл, който свързва имена на хостове към IP адреси. Той е обикновен текстови файл, конфигурацията на който се обработва от AdAway. Ето неговите първи няколко реда:</string>
-    <string name="hosts_content">Зареждане съдържанието на файла Hosts...</string>
+    <string name="hosts_content">Зареждане съдържанието на файла Hosts…</string>
     <string name="hosts_open_button">Отваряне на файла Hosts</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Известия за нови актуализации на хостове</string>
     <string name="notification_configuration_changed">Конфигурацията ви е променена. Трябва да инсталирате Hosts файла, за да го приложите.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
-    <string name="notification_configuration_installing">Инсталиране на Hosts файла...</string>
+    <string name="notification_configuration_installing">Инсталиране на Hosts файла…</string>
     <string name="notification_configuration_failed">Неуспешно инсталиране на Hosts файла.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">APN прокси е зададено!</string>
     <string name="no_connection">Връзката с интернет не работи.</string>
     <string name="no_connection_title">Няма връзка</string>
-    <string name="download_dialog">Изтегляне...</string>
-    <string name="apply_dialog">Прилагане...</string>
+    <string name="download_dialog">Изтегляне…</string>
+    <string name="apply_dialog">Прилагане…</string>
     <string name="apply_dialog_lists">Прилагане на черния и белия списък</string>
     <string name="apply_dialog_hostnames">Анализ и обединяване на Hosts файловете</string>
     <string name="apply_dialog_hosts">Изграждане на Hosts файла</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">Това не е валиден IP адрес!</string>
     <string name="no_ip_title">Неправилно форматиран IP адрес</string>
     <string name="reboot_never_reboot">Никога да не се рестартира и да не се показва този въпрос следващия път!</string>
-    <string name="loading">Зареждане...</string>
+    <string name="loading">Зареждане…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Опресняване</string>

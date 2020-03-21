@@ -38,7 +38,7 @@
     <string name="revert_successful_title">ត្រឡប់ដូចដើមជោគជ័យ</string>
     <string name="revert_problem_title">ធ្វើឲ្យដូចដើមបរាជ័យ</string>
     <string name="download_fail_title">ទាញយកបរាជ័យ</string>
-    <string name="loading">កំពុងផ្ទុកទិន្ន័យ...</string>
+    <string name="loading">កំពុងផ្ទុកទិន្ន័យ…</string>
 
     <string name="menu_add">បន្ថែម</string>
     <string name="menu_help">ជំនួយ</string>

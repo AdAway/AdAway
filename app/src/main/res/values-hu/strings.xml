@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">Szerkesztés</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importálás...</string>
+    <string name="import_dialog">Importálás…</string>
     <string name="import_success">A biztonsági mentés importja a külső tárolóból sikeres.</string>
     <string name="import_failed">A biztonsági másolat importálás nem sikerült. Megfelelő a formátuma? További részletekért ellenőrizd a logcat-et.</string>
-    <string name="export_dialog">Exportálás...</string>
+    <string name="export_dialog">Exportálás…</string>
     <string name="export_success">A biztonsági mentés sikeresen exportálva \'adaway-backup.json\' néven a külső tárhelyen.</string>
     <string name="export_failed">A biztonsági másolat exportálása nem sikerült.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">A hosts fájl</string>
     <string name="hosts_description">A hosts fájl egy olyan rendszerfájl, amely a hosztneveket IP címekhez társítja. Ez egy egyszerű szöveges fájl, melyet az AdAway kezeli. Íme a néhány első sora:</string>
-    <string name="hosts_content">Hosts fájl tartalmának betöltése...</string>
+    <string name="hosts_content">Hosts fájl tartalmának betöltése…</string>
     <string name="hosts_open_button">Hosts fájl megnyitása</string>
 
     <!--Status Notification-->
@@ -94,7 +94,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
     <string name="no_connection">Az internetkapcsolat nem működik.</string>
     <string name="no_connection_title">Nincs kapcsolat</string>
-    <string name="download_dialog">Letöltés...</string>
+    <string name="download_dialog">Letöltés…</string>
     <string name="apply_dialog">Alkalmazás…</string>
     <string name="apply_dialog_lists">Fekete- és fehérlista alkalmazása</string>
     <string name="apply_dialog_hostnames">Hosts fájlok feldolgozása és összefésülése</string>
@@ -127,7 +127,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="no_ip">Ez nem érvényes IP!</string>
     <string name="no_ip_title">Helytelenül formázott IP cím</string>
     <string name="reboot_never_reboot">Soha ne indítsa újra és ne jelenítse meg ezt a kérdést legközelebb!</string>
-    <string name="loading">Betöltés...</string>
+    <string name="loading">Betöltés…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Frissítés</string>

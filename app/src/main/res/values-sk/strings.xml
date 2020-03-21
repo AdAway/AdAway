@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">Upozornenia na novú aktualizáciu hosts</string>
     <string name="notification_configuration_changed">Vaša konfigurácia sa zmenila. Musíte nainštalovať súbor host, aby ste ho mohli aplikovať.</string>
     <string name="notification_configuration_changed_action">Aplikovať</string>
-    <string name="notification_configuration_installing">Inštalácia súboru hosts...</string>
+    <string name="notification_configuration_installing">Inštalácia súboru hosts…</string>
     <string name="notification_configuration_failed">Inštalácia súboru hosts zlyhala.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -88,7 +88,7 @@
     <string name="apply_symlink_fail">Symbolický odkaz nemohol byť vytvorený Androidom.\nTúto chybu zväčša spôsobuje \"funkcia S-ON na telefónoch HTC!\"\n\nRiešením je spustiť telefón do režimu recovery a vytvoriť symbolický odkaz tam pomocou \"n -s /data/data/hosts /system/etc/hosts\".\n\nAk to nepomôže, vyhľadajte na internete informácie o S-OFF pre váš telefón.</string>
     <string name="apply_symlink_fail_title">Vytvorenie odkazu zlyhalo</string>
     <string name="apply_help">Prosím, pre viac informácií si prečítajte Pomoc.</string>
-    <string name="apply_apn_proxy">Na zariadení je nastavené APN proxy!\nAdAway nebude správne fungovať na mobilných sieťach, napr. 3G. Proxy môžete deaktivovať v nastaveniach APN (Nastavenia -&gt; Bezdrôtové pripojenia a siete -&gt; Viac... -&gt; Mobilné siete -&gt; Názvy prístupových bodov) a vymazaním hodnoty  Server proxy.</string>
+    <string name="apply_apn_proxy">Na zariadení je nastavené APN proxy!\nAdAway nebude správne fungovať na mobilných sieťach, napr. 3G. Proxy môžete deaktivovať v nastaveniach APN (Nastavenia -&gt; Bezdrôtové pripojenia a siete -&gt; Viac… -&gt; Mobilné siete -&gt; Názvy prístupových bodov) a vymazaním hodnoty  Server proxy.</string>
     <string name="apply_apn_proxy_title">Nastavené APN proxy!</string>
     <string name="no_connection">Pripojenie k internetu nefunguje.</string>
     <string name="no_connection_title">Bez pripojenia</string>

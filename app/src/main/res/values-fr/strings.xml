@@ -33,10 +33,10 @@
     <string name="checkbox_list_context_edit">Modifier</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importation...</string>
+    <string name="import_dialog">Importation…</string>
     <string name="import_success">La sauvegarde a été importée avec succès de votre mémoire externe.</string>
     <string name="import_failed">Échec d’importation de la sauvegarde. Le format est-il correct ? Consultez logcat pour plus de précisions.</string>
-    <string name="export_dialog">Exportation...</string>
+    <string name="export_dialog">Exportation…</string>
     <string name="export_success">La sauvegarde a été exportée avec succès dans le fichier « adaway-backup.json » sur votre mémoire externe.</string>
     <string name="export_failed">Échec d’exportation de la sauvegarde.</string>
 
@@ -93,7 +93,7 @@
     <string name="no_connection">La connexion à Internet ne fonctionne pas.</string>
     <string name="no_connection_title">Aucune connexion</string>
     <string name="download_dialog">Téléchargement…</string>
-    <string name="apply_dialog">Mise en place...</string>
+    <string name="apply_dialog">Mise en place…</string>
     <string name="apply_dialog_lists">Mise en place des liste noire et blanche</string>
     <string name="apply_dialog_hostnames">Analyse et fusion des fichiers hosts</string>
     <string name="apply_dialog_hosts">Création du fichier hosts</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">Ce n’est pas une IP valide</string>
     <string name="no_ip_title">IP mal formatéee</string>
     <string name="reboot_never_reboot">Ne jamais redémarrer et ne plus afficher cette question.</string>
-    <string name="loading">Chargement...</string>
+    <string name="loading">Chargement…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Actualiser</string>

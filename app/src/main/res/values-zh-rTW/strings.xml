@@ -33,17 +33,17 @@
     <string name="checkbox_list_context_edit">編輯</string>
 
     <!--Your lists-->
-    <string name="import_dialog">匯入中...</string>
+    <string name="import_dialog">匯入中…</string>
     <string name="import_success">備份成功從您的外部儲存空間匯入。</string>
     <string name="import_failed">無法匯入備份。它的格式正確嗎？檢查 logcat 以獲得更多詳細資訊。</string>
-    <string name="export_dialog">匯出中...</string>
+    <string name="export_dialog">匯出中…</string>
     <string name="export_success">備份成功匯出到外部儲存空間的「adaway-backup.json」檔案。</string>
     <string name="export_failed">無法匯出備份。</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 檔案</string>
     <string name="hosts_description">hosts 檔案是一個將主機名稱對應到 IP 位置的系統檔案。它是一個由 AdAway 配置的純文字檔案。這是這個檔案的前幾行：</string>
-    <string name="hosts_content">正在載入 hosts 檔案內容...</string>
+    <string name="hosts_content">正在載入 hosts 檔案內容…</string>
     <string name="hosts_open_button">開啟 hosts 檔案</string>
 
     <!--Status Notification-->
@@ -66,7 +66,7 @@
     <string name="notification_channel_update_description">新主機更新通知</string>
     <string name="notification_configuration_changed">您的配置已變更。您需要安裝 hosts 檔案來套用它。</string>
     <string name="notification_configuration_changed_action">套用</string>
-    <string name="notification_configuration_installing">正在安裝 hosts 檔案...</string>
+    <string name="notification_configuration_installing">正在安裝 hosts 檔案…</string>
     <string name="notification_configuration_failed">無法安裝 hosts 檔案。</string>
 
     <!--Apply and Revert Dialogs-->
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">設定了 APN 代理伺服器！</string>
     <string name="no_connection">網際網路連線無法正常連線</string>
     <string name="no_connection_title">無法連線</string>
-    <string name="download_dialog">下載中...</string>
-    <string name="apply_dialog">套用中...</string>
+    <string name="download_dialog">下載中…</string>
+    <string name="apply_dialog">套用中…</string>
     <string name="apply_dialog_lists">套用白名單和黑名單</string>
     <string name="apply_dialog_hostnames">解析及合併 hosts 檔案</string>
     <string name="apply_dialog_hosts">建立 hosts 檔案</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">IP 位址無效！</string>
     <string name="no_ip_title">IP 格式錯誤</string>
     <string name="reboot_never_reboot">不要重新啟動並且不再顯示！</string>
-    <string name="loading">讀取中 ...</string>
+    <string name="loading">讀取中 …</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">重新整理</string>

@@ -33,10 +33,10 @@
     <string name="checkbox_list_context_edit">Editar</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importando...</string>
+    <string name="import_dialog">Importando…</string>
     <string name="import_success">Copia de seguridad importada correctamente desde el almacenamiento externo. </string>
     <string name="import_failed">No se pudo importar la copia de seguridad. ¿Es correcto el formato? Consulte logcat para obtener más detalles. </string>
-    <string name="export_dialog">Exportando...</string>
+    <string name="export_dialog">Exportando…</string>
     <string name="export_success">Copia de seguridad exportada correctamente al archivo \'adaway-backup.json\' en el almacenamiento externo. </string>
     <string name="export_failed">Error al exportar la copia de seguridad. </string>
 
@@ -92,8 +92,8 @@
     <string name="apply_apn_proxy_title">¡Proxy APN configurado!</string>
     <string name="no_connection">La conexión a Internet no funciona.</string>
     <string name="no_connection_title">Sin conexión</string>
-    <string name="download_dialog">Descargando...</string>
-    <string name="apply_dialog">Aplicando...</string>
+    <string name="download_dialog">Descargando…</string>
+    <string name="apply_dialog">Aplicando…</string>
     <string name="apply_dialog_lists">Aplicando las listas negra y blanca</string>
     <string name="apply_dialog_hostnames">Analizando y fusionando los archivos hosts</string>
     <string name="apply_dialog_hosts">Construyendo el archivo hosts</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">¡Esta no es una IP válida!</string>
     <string name="no_ip_title">IP de formato incorrecto</string>
     <string name="reboot_never_reboot">¡Nunca reiniciar y no mostrar esta pregunta la próxima vez!</string>
-    <string name="loading">Cargando...</string>
+    <string name="loading">Cargando…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Refrescar</string>

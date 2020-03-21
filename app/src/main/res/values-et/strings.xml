@@ -33,8 +33,8 @@
     <string name="checkbox_list_context_edit">Muuda</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importimine...</string>
-    <string name="export_dialog">Eksportimine...</string>
+    <string name="import_dialog">Importimine…</string>
+    <string name="export_dialog">Eksportimine…</string>
     <!--Hosts content-->
     <string name="hosts_header">Hosts-fail</string>
     <string name="hosts_open_button">Ava hosts-fail</string>
@@ -56,7 +56,7 @@
     <string name="notification_channel_update_name">Uuendused</string>
     <string name="notification_channel_update_description">Uute hosts-uuenduste teated</string>
     <string name="notification_configuration_changed_action">Rakenda</string>
-    <string name="notification_configuration_installing">Hosts-faili paigaldamine...</string>
+    <string name="notification_configuration_installing">Hosts-faili paigaldamine…</string>
     <string name="notification_configuration_failed">Hosts-faili paigaldamine ebaõnnestus.</string>
 
     <string name="apply_symlink_missing_title">Sümlink puudub</string>
@@ -72,8 +72,8 @@
     <string name="apply_help">Palun loe abi rohkema teabe saamiseks.</string>
     <string name="apply_apn_proxy_title">APN-proksi määratud!</string>
     <string name="no_connection_title">Ühendus puudub</string>
-    <string name="download_dialog">Allalaadimine...</string>
-    <string name="apply_dialog">Rakendamine...</string>
+    <string name="download_dialog">Allalaadimine…</string>
+    <string name="apply_dialog">Rakendamine…</string>
     <string name="apply_dialog_lists">Musta ja valge loendi rakendamine</string>
     <string name="apply_dialog_hostnames">Hosts-failide töötlemine ja ühendamine</string>
     <string name="apply_dialog_hosts">Hosts-faili koostamine</string>
@@ -89,7 +89,7 @@
     <string name="no_hostname">See ei ole kehtiv aadress!</string>
     <string name="no_ip">See ei ole kehtiv IP!</string>
     <string name="no_ip_title">Sobimatult vormistatud IP</string>
-    <string name="loading">Laadimine...</string>
+    <string name="loading">Laadimine…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Värskenda</string>

@@ -33,7 +33,7 @@
     <string name="checkbox_list_context_edit">തിരുത്തുക </string>
 
     <!--Your lists-->
-    <string name="import_dialog">ഇറക്കുമതി ചെയ്യുന്നു...</string>
+    <string name="import_dialog">ഇറക്കുമതി ചെയ്യുന്നു…</string>
     <string name="import_success">നിങ്ങളുടെ ബാഹ്യ സംഭരണത്തിൽ നിന്ന് ബാക്കപ്പ് വിജയകരമായി ഇറക്കുമതി ചെയ്തു.</string>
     <string name="import_failed">ബാക്കപ്പ് ഇറക്കുമതി ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.അതിന്റെ ഫോർമാറ്റ് ശരിയാണോ?കൂടുതൽ വിവരങ്ങൾക്ക് ലോഗ്കാറ്റ് പരിശോധിക്കുക.</string>
     <string name="export_dialog">കയറ്റുമതി ചെയ്യുന്നു </string>
@@ -43,7 +43,7 @@
     <!--Hosts content-->
     <string name="hosts_header">ഹോസ്റ്റുകളുടെ ഫയൽ</string>
     <string name="hosts_description">ഹോസ്റ്റ്നാമങ്ങൾ IP വിലാസങ്ങളിലേക്ക് മാപ്പ് ചെയ്യുന്ന ഒരു സിസ്റ്റം ഫയലാണ് ഹോസ്റ്റ്സ് ഫയൽ.AdAway കോൺഫിഗറേഷൻ കൈകാര്യം ചെയ്യുന്ന ഒരു പ്ലെയിൻ ടെക്സ്റ്റ് ഫയലാണിത്.അതിന്റെ ആദ്യ വരികൾ ഇതാ:</string>
-    <string name="hosts_content">ഹോസ്റ്റുകളുടെ ഫയൽ ഉള്ളടക്കം ലോഡുചെയ്യുന്നു...</string>
+    <string name="hosts_content">ഹോസ്റ്റുകളുടെ ഫയൽ ഉള്ളടക്കം ലോഡുചെയ്യുന്നു…</string>
     <string name="hosts_open_button">ഹോസ്റ്റുകളുടെ ഫയൽ തുറക്കുക</string>
 
     <!--Status Notification-->
@@ -92,7 +92,7 @@
     <string name="apply_apn_proxy_title">APN പ്രോക്സി നേരെയാക്കി!</string>
     <string name="no_connection">ഇന്റർനെറ്റിലേക്കുള്ള കണക്ഷൻ പ്രവർത്തിക്കുന്നില്ല.</string>
     <string name="no_connection_title">ബന്ധമില്ല</string>
-    <string name="download_dialog">ഡൗൺലോഡുചെയ്യുന്നു...</string>
+    <string name="download_dialog">ഡൗൺലോഡുചെയ്യുന്നു…</string>
     <string name="apply_dialog">പ്രയോഗിക്കുന്നു…</string>
     <string name="apply_dialog_lists">ബ്ലാക്ക് ലിസ്റ്റും വൈറ്റ്‌ലിസ്റ്റും പ്രയോഗിക്കുന്നു</string>
     <string name="apply_dialog_hostnames">ഹോസ്റ്റ് ഫയലുകൾ വിശകലനം ചെയ്യുകയും ലയിപ്പിക്കുകയും ചെയ്യുന്നു</string>
@@ -125,7 +125,7 @@
     <string name="no_ip">ഇതൊരു സാധുവായ IP അല്ല!</string>
     <string name="no_ip_title">അനുചിതമായി ഫോർമാറ്റുചെയ്‌ത IP</string>
     <string name="reboot_never_reboot">ഒരിക്കലും റീബൂട്ട് ചെയ്യരുത്, അടുത്ത തവണ ഈ ചോദ്യം കാണിക്കരുത്!</string>
-    <string name="loading">ലോഡിംഗ്...</string>
+    <string name="loading">ലോഡിംഗ്…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">പുതുക്കുക</string>

@@ -33,10 +33,10 @@
     <string name="checkbox_list_context_edit">Bewerken</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Bezig met importeren...</string>
+    <string name="import_dialog">Bezig met importeren…</string>
     <string name="import_success">Backup succesvol geïmporteerd vanuit je externe opslag.</string>
     <string name="import_failed">Import van backup is mislukt. Is het format juist ? Check de logcat voor meer details.</string>
-    <string name="export_dialog">Bezig met exporteren...</string>
+    <string name="export_dialog">Bezig met exporteren…</string>
     <string name="export_success">Backup succesvol geexporteerd naar \'adaway-backup.json\' bestand op je externe opslag.</string>
     <string name="export_failed">Export van backup is mislukt.</string>
 
@@ -96,7 +96,7 @@ Wilt u herstarten?
     <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt. Dit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons! Een oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'. Als dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
     <string name="apply_symlink_fail_title">Symlink aanmaken mislukt</string>
     <string name="apply_help">Lees de hulp voor meer informatie.</string>
-    <string name="apply_apn_proxy">Een APN proxy is ingesteld op jouw Android! AdAway zal niet betrouwbaar werken als er gebruik gemaakt wordt van mobiele netwerken zoals 3G/4G. Je kan je proxy uitschakelen door naar je geselecteerde APN te gaan. (Op Android 4: draadloos en netwerken -&gt; meer... -&gt; Mobiele netwerken -&gt; namen toegangspunten) en de waarde in het proxy veld te verwijderen.</string>
+    <string name="apply_apn_proxy">Een APN proxy is ingesteld op jouw Android! AdAway zal niet betrouwbaar werken als er gebruik gemaakt wordt van mobiele netwerken zoals 3G/4G. Je kan je proxy uitschakelen door naar je geselecteerde APN te gaan. (Op Android 4: draadloos en netwerken -&gt; meer… -&gt; Mobiele netwerken -&gt; namen toegangspunten) en de waarde in het proxy veld te verwijderen.</string>
     <string name="apply_apn_proxy_title">APN-proxy ingesteld!</string>
     <string name="no_connection">De internetverbinding werkt niet.</string>
     <string name="no_connection_title">Geen verbinding</string>
