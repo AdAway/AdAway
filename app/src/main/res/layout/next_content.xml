@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                tools:text="Blocked" />
+                android:text="@string/blocked_hosts_label" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -172,7 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                tools:text="Allowed" />
+                android:text="@string/allowed_hosts_label" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -237,7 +237,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                tools:text="Redirected" />
+                android:text="@string/allowed_hosts_label" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -286,8 +286,8 @@
                     android:id="@+id/sourcesProgressBar"
                     style="?android:attr/progressBarStyle"
                     android:layout_width="match_parent"
-                    android:visibility="gone"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/sourcesImageView"

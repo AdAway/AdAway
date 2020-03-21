@@ -159,32 +159,19 @@ public class NextActivity extends AppCompatActivity {
     }
 
     private void bindHostCounter() {
-        Resources resources = getResources();
         Function<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
 
         TextView blockedHostCountTextView = findViewById(R.id.blockedHostCounterTextView);
-        TextView blockedHostTextView = findViewById(R.id.blockedHostTextView);
         LiveData<Integer> blockedHostCount = this.nextViewModel.getBlockedHostCount();
         Transformations.map(blockedHostCount, stringMapper).observe(this, blockedHostCountTextView::setText);
-        blockedHostCount.observe(this, count ->
-                blockedHostTextView.setText(resources.getQuantityText(R.plurals.blocked_hosts_label, count))
-        );
 
         TextView allowedHostCountTextView = findViewById(R.id.allowedHostCounterTextView);
-        TextView allowedHostTextView = findViewById(R.id.allowedHostTextView);
         LiveData<Integer> allowedHostCount = this.nextViewModel.getAllowedHostCount();
         Transformations.map(allowedHostCount, stringMapper).observe(this, allowedHostCountTextView::setText);
-        allowedHostCount.observe(this, count ->
-                allowedHostTextView.setText(resources.getQuantityText(R.plurals.allowed_hosts_label, count))
-        );
 
         TextView redirectHostCountTextView = findViewById(R.id.redirectHostCounterTextView);
-        TextView redirectHostTextView = findViewById(R.id.redirectHostTextView);
         LiveData<Integer> redirectHostCount = this.nextViewModel.getRedirectHostCount();
         Transformations.map(redirectHostCount, stringMapper).observe(this, redirectHostCountTextView::setText);
-        redirectHostCount.observe(this, count ->
-                redirectHostTextView.setText(resources.getQuantityText(R.plurals.redirect_hosts_label, count))
-        );
     }
 
     private void bindSourceCounter() {

@@ -2,24 +2,6 @@
 <resources>
 
     <!-- Hosts card -->
-    <plurals name="blocked_hosts_label">
-        <item quantity="many">Blocked</item>
-        <item quantity="one">Blocked</item>
-        <item quantity="two">Blocked</item>
-        <item quantity="other">Blocked</item>
-    </plurals>
-    <plurals name="allowed_hosts_label">
-        <item quantity="many">Allowed</item>
-        <item quantity="one">Allowed</item>
-        <item quantity="two">Allowed</item>
-        <item quantity="other">Allowed</item>
-    </plurals>
-    <plurals name="redirect_hosts_label">
-        <item quantity="many">Redirected</item>
-        <item quantity="one">Redirected</item>
-        <item quantity="two">Redirected</item>
-        <item quantity="other">Redirected</item>
-    </plurals>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
