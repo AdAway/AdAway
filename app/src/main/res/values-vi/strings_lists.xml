@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_dialog_hostname">Tên miền:</string>
+    <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
+</resources>

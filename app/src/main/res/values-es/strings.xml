@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Salir</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Lista blanca</string>
     <string name="lists_tab_blacklist">Lista negra</string>
     <string name="lists_tab_redirection_list">Redirecciones</string>
-    <string name="list_add_dialog_black">Añadir host a la lista negra</string>
-    <string name="list_add_dialog_white">Añadir host a la lista blanca</string>
-    <string name="list_add_dialog_redirect">Añadir host de redirección</string>
-    <string name="list_edit_dialog_black">Editar host en la lista negra</string>
-    <string name="list_edit_dialog_white">Editar host en la lista blanca</string>
-    <string name="list_edit_dialog_redirect">Editar redirección</string>
-    <string name="list_dialog_hostname">Nombre del servidor:</string>
-    <string name="list_dialog_hostname_hint">URL fuente de los hosts</string>
-    <string name="list_dialog_wildcard">(se permiten los caracteres comodín * y ?)</string>
-    <string name="list_dialog_ip">IP (IPv4 ó IPv6):</string>
     <string name="import_dialog">Importando...</string>
     <string name="import_success">Copia de seguridad importada correctamente desde el almacenamiento externo. </string>
     <string name="import_failed">No se pudo importar la copia de seguridad. ¿Es correcto el formato? Consulte logcat para obtener más detalles. </string>
@@ -163,17 +151,12 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aquí se puede encontrar adware instalado, aplicaciones defectuosas que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no se está ejecutando o incluso cambiar el tono de llamada. La única contramedida disponible es desinstalar esas aplicaciones haciendo clic en los elementos de la lista.</string>
-    <string name="adware_scanning">Escaneando&#8230;</string>
+    <string name="adware_scanning">Escaneando…</string>
     <string name="adware_empty">¡No se ha encontrado Adware!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">En línea:</string>
-    <string name="hosts_not_available">no disponible</string>
-    <string name="hosts_add_dialog_title">Añadir fuente</string>
-    <string name="hosts_edit_dialog_title">Editar origen</string>
-    <string name="hosts_dialog_url">URL: (un https:// o recurso file://)</string>
-    <string name="hosts_dialog_url_hint">URL fuente de los hosts</string>
 
     <!--Other-->
     <string name="app_subtitle">Bloqueador de publicidad</string>
@@ -201,27 +184,16 @@
     <string name="pref_download">Preferencias generales</string>
     <string name="pref_dismiss_welcome">Ocultar la tarjeta de bienvenida</string>
     <string name="pref_dismiss_welcome_summary">No mostrar la tarjeta de bienvenida en la pantalla de inicio</string>
-    <string name="pref_dark_theme">Habilitar tema oscuro</string>
     <string name="pref_dark_theme_summary">Usar el tema oscuro en vez del tema claro</string>
     <string name="pref_dark_theme_notification">¡El tema se aplicará en el próximo inicio de la aplicación!</string>
     <string name="pref_hosts">Archivo hosts</string>
-    <string name="pref_update_check">Buscar actualizaciones</string>
-    <string name="pref_apply_method">Ruta del archivo hosts</string>
-    <string name="pref_apply_method_summary">Antes de cambiar esta configuración, lea la Ayuda sobre esta funcionalidad.</string>
-    <string name="pref_redirection_ipv4">Redireccionamiento IPv4</string>
     <string name="pref_redirection_ipv4_summary">Todos los nombres de host bloqueados se redirigen a esta dirección IPv4.</string>
-    <string name="pref_redirection_ipv6">Redireccionamiento IPv6</string>
     <string name="pref_redirection_ipv6_summary">Todos los nombres de host bloqueados se redirigen a esta dirección IPv6</string>
     <string name="pref_header_preferences">Preferencias</string>
     <string name="pref_header_preferences_summary">Preferencias generales para AdAway</string>
-    <string name="pref_never_reboot">Ocultar cuadro de diálogo de reinicio</string>
     <string name="pref_never_reboot_summary">Oculta el cuadro de diálogo que le solicita reiniciar Android después de aplicar correctamente los cambios</string>
-    <string name="pref_webserver_on_boot">Iniciar servidor web en el arranque</string>
     <string name="pref_webserver_on_boot_summary">Inicia el servidor web en el arranque, escuchando en direcciones IP locales</string>
-    <string name="pref_webserver_enabled">Habilitar servidor web</string>
     <string name="pref_webserver_enabled_summary">Habilita el servidor web escuchando en las direcciones IP locales para responder peticiones de nombres de servidor (host) bloqueados</string>
-    <string name="pref_webserver">Servidor web local</string>
-    <string name="pref_custom_target">Ruta personalizada</string>
     <string name="pref_custom_target_summary">Solo se utiliza si la ruta al archivo hosts se configura como ruta personalizada</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -235,22 +207,13 @@
     <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
     <string name="pref_sdcard_problem">¡Esta función no funcionará correctamente cuando AdAway esté instalado en la memoria SD!</string>
     <string name="pref_background">Servicios en segundo plano</string>
-    <string name="pref_update_check_daily">Buscar actualizaciones diariamente</string>
     <string name="pref_update_check_daily_summary">Buscar actualizaciones diariamente en segundo plano con notificaciones</string>
     <string name="pref_automatic_update_daily">Actualización automática</string>
     <string name="pref_automatic_update_daily_summary">Actualizar automáticamente en segundo plano si hay actualizaciones disponibles.</string>
     <string name="pref_update_only_on_wifi">Actualizar solo cuando no se mide</string>
     <string name="pref_update_only_on_wifi_summary">Ejecutar las actualizaciones en segundo plano solo cuando esté conectado a una red sin medidor solamente.</string>
-    <string name="pref_whitelist_rules">Permitir lista blanca</string>
     <string name="pref_whitelist_rules_summary">Permite las entradas de lista blanca desde de las fuentes de ficheros hosts.</string>
-    <string name="pref_redirection_rules">Permitir redirección</string>
-    <string name="pref_redirection_rules_summary">¡IMPLICA UN RIESGO DE SEGURIDAD! Permite las entradas de redireccionamiento desde las fuentes de ficheros hosts.</string>
     <string name="pref_debug">Depurar</string>
-    <string name="pref_enable_debug">Habilitar registro detallado</string>
-    <string name="pref_enable_debug_summary">Tiene que reiniciar AdAway para que esta opción tenga efecto.</string>
-    <string name="pref_enable_telemetry">Habilitar informe de fallos</string>
-    <string name="pref_enable_telemetry_summary">Permitir que la aplicación envíe informes de fallos y cuelgues a Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Habilitar IPv6</string>
     <string name="pref_enable_ipv6_summary">Todas las entradas del archivo host recibirán una entrada de redirección correspondiente.</string>
     <string name="pref_enable_systemless_summary">Evitar que AdAway modifique la partición de sistema</string>
     <string name="pref_enable_systemless">Activar modo systemless</string>

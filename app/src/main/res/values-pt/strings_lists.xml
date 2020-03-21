@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Adicionar hospedeiro à lista negra</string>
+    <string name="list_add_dialog_white">Adicionar hospedeiro à lista branca</string>
+    <string name="list_add_dialog_redirect">Adicionar redirecionamento de hospedeiro</string>
+    <string name="list_edit_dialog_black">Editar lista negra de hosts</string>
+    <string name="list_edit_dialog_white">Editar lista branca de hosts</string>
+    <string name="list_edit_dialog_redirect">Editar redirecionamento</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_hostname_hint">O URL fonte de hosts</string>
+    <string name="list_dialog_wildcard">(São permitidos carateres de substituição * e ?)</string>
+    <string name="list_dialog_ip">IP (IPv4 ou IPv6):</string>
+</resources>

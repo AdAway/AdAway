@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Colar</string>
@@ -24,8 +22,6 @@
     <!--Your lists-->
     <string name="lists_tab_whitelist">Llista blanca</string>
     <string name="lists_tab_blacklist">Llista prieta</string>
-    <string name="list_dialog_hostname">Nome d\'agospiu:</string>
-    <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
     <string name="import_dialog">Importando...</string>
     <string name="export_dialog">Esportando...</string>
     <!--Status Notification-->
@@ -95,7 +91,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Llocal:</string>
     <string name="hosts_last_modified_online">En llinia:</string>
-    <string name="hosts_not_available">non disponible</string>
     <!--Other-->
     <string name="app_subtitle">Bloquiador d\'anuncios</string>
     <string name="no_text_editor_title">Nun hai dal editor de testos instaláu</string>
@@ -107,19 +102,11 @@
     <!--Preferences-->
     <string name="pref_download">Preferencies xenerales</string>
     <string name="pref_hosts">Ficheru «hosts»</string>
-    <string name="pref_update_check">Comprobar anovamientos</string>
-    <string name="pref_apply_method">Ficheru «hosts» oxetivu</string>
-    <string name="pref_apply_method_summary">Enantes de camudar esti axuste, llei l\'ayuda tocante a esta funcionalidá.</string>
     <string name="pref_header_preferences">Preferencies</string>
     <string name="pref_header_preferences_summary">Preferencies xenerales p\'AdAway</string>
-    <string name="pref_never_reboot">Anubrir dialogu de reaniciu</string>
     <string name="pref_never_reboot_summary">Anubre\'l diálogu qu\'entruga pol reaniciu d\'Android dempués d\'aplicar les camudancies con ésitu.</string>
-    <string name="pref_webserver_on_boot">Habilitar sirvidor web nel arranque</string>
     <string name="pref_webserver_on_boot_summary">Anicia\'l sirvidor web nel arranque escuchando nes direiciones IP llocales</string>
-    <string name="pref_webserver_enabled">Habilitar sirvidor web</string>
     <string name="pref_webserver_enabled_summary">Habilita\'l sirvidor web escuchando nes direiciones IP llocales pa responder a les solicitúes de nomes d\'agospiu bloquiaos</string>
-    <string name="pref_webserver">Sirvidor web llocal</string>
-    <string name="pref_custom_target">Oxetivu personalizáu</string>
     <string name="pref_custom_target_summary">Úsase namái si\'l ficheru «hosts» oxetivu ta afitáu como oxetivu personalizáu</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -132,16 +119,11 @@
 
     <string name="pref_update_check_summary">Comprueba anovamientos nel aniciu d\'AdAway</string>
     <string name="pref_background">Servicios de fondu</string>
-    <string name="pref_update_check_daily">Comprobar caldía anovamientos</string>
     <string name="pref_update_check_daily_summary">Comprueba de fondu con avisos anovamientos caldía</string>
     <string name="pref_automatic_update_daily">Anovamientu automáticu</string>
     <string name="pref_automatic_update_daily_summary">Anueva automáticamente de fondu si tán disponibles anovamientos.</string>
-    <string name="pref_whitelist_rules">Permitir llista blanca</string>
     <string name="pref_whitelist_rules_summary">Permite les entraes de la llista blanca de les fontes de «hosts»</string>
-    <string name="pref_redirection_rules_summary">¡PLANTEGA RIESGU DE SEGURANZA! Permite la redireición d\'entraes dende les fontes de «hosts»</string>
     <string name="pref_debug">Depuración</string>
-    <string name="pref_enable_debug_summary">Necesites reaniciar AdAway pa qu\'esti axuste faiga efeutu.</string>
-    <string name="pref_enable_ipv6">Habilitar IPv6</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -155,4 +137,4 @@
     </string-array>
     <string name="shortcut_preferences">Preferencies</string>
 
-    </resources>
+</resources>

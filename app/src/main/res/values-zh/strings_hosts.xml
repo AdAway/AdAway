@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">无法使用</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">添加源</string>
+    <string name="hosts_edit_dialog_title">编辑源</string>
+    <string name="hosts_dialog_url">URL：（以 https:// 或 file:// 开头）</string>
+    <string name="hosts_dialog_url_hint">hosts 源网址</string>
+</resources>

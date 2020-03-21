@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Çıkış</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Beyaz Liste</string>
     <string name="lists_tab_blacklist">Kara Liste</string>
     <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
-    <string name="list_add_dialog_black">Kara listeye host ekle</string>
-    <string name="list_add_dialog_white">Beyaz listeye host ekle</string>
-    <string name="list_add_dialog_redirect">Host yönlendirmesi ekle</string>
-    <string name="list_edit_dialog_black">Kara listeye alınan sunucuyu düzenle</string>
-    <string name="list_edit_dialog_white">Beyaz listeye alınan sunucuyu düzenle</string>
-    <string name="list_edit_dialog_redirect">Yönlendirmeyi düzenle</string>
-    <string name="list_dialog_hostname">Adres:</string>
-    <string name="list_dialog_hostname_hint">Hosts kaynak URL\'si</string>
-    <string name="list_dialog_wildcard">(Joker karakterler * ve ? izin verilir)</string>
-    <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
     <string name="import_dialog">İçe Aktarılıyor...</string>
     <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
     <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">Symlink Android tarafından oluşturulamadı.\nBu HTC telefonlarında S-ON adlı bir \'özellik\' nedeniyle başarısız oluyor!\n\nBunun bir çözümü, telefonunuzu kurtarma moduna geçirmek ve orada \'ln -s /data/data/hosts /system/etc/hosts\'\' ile sembolik bağlantı oluşturmaktır.\n\nBu işe yaramazsa, internette cihazınız ve S-OFF ile ilgili araştırma yapınız.</string>
     <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
     <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
-    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz.Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -> Mobil şebeke -> Gelişmiş -> Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
+    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz.Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -&gt; Mobil şebeke -&gt; Gelişmiş -&gt; Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
     <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
     <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
     <string name="no_connection_title">Bağlantı Yok</string>
@@ -163,17 +151,12 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">AdAway tarafından engellenemeyen, adware yüklü kötü uygulamaları burada bulabilirsiniz. Bu uygulamalar, örneğin uygulama çalışmıyorken bile ortaya çıkan Airpush bildirimlerini kullanır ve hatta zil sesini değiştirir. Kullanılabilir tek önlem, listedeki öğeleri tıklatarak bu uygulamaları kaldırmaktır.</string>
-    <string name="adware_scanning">Taranıyor&#8230;</string>
+    <string name="adware_scanning">Taranıyor…</string>
     <string name="adware_empty">Adware bulunamadı!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Yerel:</string>
     <string name="hosts_last_modified_online">Çevrim içi:</string>
-    <string name="hosts_not_available">Uygun değil</string>
-    <string name="hosts_add_dialog_title">Kaynak ekle</string>
-    <string name="hosts_edit_dialog_title">Kaynak düzenle</string>
-    <string name="hosts_dialog_url">URL: (bir https:// veya file:// kaynak)</string>
-    <string name="hosts_dialog_url_hint">Hosts kaynak URL\'si</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklam engelleyici</string>
@@ -201,27 +184,16 @@
     <string name="pref_download">Genel Tercihler</string>
     <string name="pref_dismiss_welcome">Karşılama yazısını gizle</string>
     <string name="pref_dismiss_welcome_summary">Ana ekranda karşılama yazısını gösterme</string>
-    <string name="pref_dark_theme">Karanlık temayı etkinleştir</string>
     <string name="pref_dark_theme_summary">Aydınlık yerine koyu temayı kullanın</string>
     <string name="pref_dark_theme_notification">Tema bir sonraki uygulama başlangıcında uygulanacaktır!</string>
     <string name="pref_hosts">Hosts Dosyası</string>
-    <string name="pref_update_check">Güncellemeleri kontrol et</string>
-    <string name="pref_apply_method">Hedef Hosts dosyası</string>
-    <string name="pref_apply_method_summary">Bu ayarı değiştirmeden önce, bu işlevsellik hakkındaki yardımı okuyun.</string>
-    <string name="pref_redirection_ipv4">IPv4 Yönlendirme</string>
     <string name="pref_redirection_ipv4_summary">Engellenen tüm ana bilgisayar adları bu IPv4 adresine yönlendirilir.</string>
-    <string name="pref_redirection_ipv6">IPv6 Yönlendirme</string>
     <string name="pref_redirection_ipv6_summary">Engellenen tüm ana bilgisayar adları bu IPv6 adresine yönlendirilir.</string>
     <string name="pref_header_preferences">Tercihler</string>
     <string name="pref_header_preferences_summary">AdAway için genel tercihler</string>
-    <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
     <string name="pref_never_reboot_summary">İşlemler uygulandıktan sonraki yeniden başlatma sorusunu gizler</string>
-    <string name="pref_webserver_on_boot">Başlangıçta websunucusunu çalıştır</string>
     <string name="pref_webserver_on_boot_summary">Başlangıçta WebSunucusunu 5 saniye gecikmeli çalıştır</string>
-    <string name="pref_webserver_enabled">Websunucusunu etkinleştir</string>
     <string name="pref_webserver_enabled_summary">Engelli adres isteklerine cevap vermek için yerel IP adresi üzerinde websunucusunu açar.</string>
-    <string name="pref_webserver">Yerel WebSunucusu</string>
-    <string name="pref_custom_target">Özel hedef</string>
     <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -235,22 +207,13 @@
     <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
     <string name="pref_sdcard_problem">AdAway SD karta yüklendiğinde bu özellik düzgün çalışmayacak!</string>
     <string name="pref_background">Arka Plan Hizmetleri</string>
-    <string name="pref_update_check_daily">Güncellemeleri günlük denetle</string>
     <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
     <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
     <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
     <string name="pref_update_only_on_wifi">Sadece tarifeli bağlantı değilse güncelle</string>
     <string name="pref_update_only_on_wifi_summary">Arka plan güncellemelerini yalnızca veri sınırı olmayan bir ağa bağlıysa çalıştır.</string>
-    <string name="pref_whitelist_rules">Beyaz Liste\'ye izin ver</string>
     <string name="pref_whitelist_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
-    <string name="pref_redirection_rules">Yönlendirmeye izin ver</string>
-    <string name="pref_redirection_rules_summary">BÜYÜK RİSK İÇERİR! Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
     <string name="pref_debug">Hata ayıklama</string>
-    <string name="pref_enable_debug">Ayrıntılı günlük kaydını etkinleştir</string>
-    <string name="pref_enable_debug_summary">Ayarların etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
-    <string name="pref_enable_telemetry">Kilitlenme raporlarını etkinleştir</string>
-    <string name="pref_enable_telemetry_summary">Uygulamanın Sentry\'ye (sentry.io) hata ve kilitlenme raporları göndermesine izin verin.</string>
-    <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
     <string name="pref_enable_ipv6_summary">Tüm ana dosya girişleri karşılık gelen bir yeniden yönlendirme girişi elde eder.</string>
     <string name="pref_enable_systemless_summary">AdAway\'in sistem dosyalarını düzenlemesini engelle</string>
     <string name="pref_enable_systemless">Sistemsiz modu etkinleştir.</string>

@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">خروج</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">القائمة البيضاء</string>
     <string name="lists_tab_blacklist">القائمة السوداء</string>
     <string name="lists_tab_redirection_list">عمليات إعادة التوجيه</string>
-    <string name="list_add_dialog_black">إضافة المضيف للقائمة السوداء </string>
-    <string name="list_add_dialog_white">إضافة المضيف للقائمة البيضاء</string>
-    <string name="list_add_dialog_redirect">إضافة عملية إعادة توجيه المضيف</string>
-    <string name="list_edit_dialog_black">تحرير المضيف المُدرج في القائمة السوداء</string>
-    <string name="list_edit_dialog_white">تحرير المضيف المُدرج في القائمة البيضاء</string>
-    <string name="list_edit_dialog_redirect">تحرير عملية إعادة التوجيه</string>
-    <string name="list_dialog_hostname">اسم المضيف:</string>
-    <string name="list_dialog_hostname_hint">مصدر رابط المضيف</string>
-    <string name="list_dialog_wildcard">(يسمح اسخدام رموز البدل * و ?)</string>
-    <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
     <string name="import_dialog">استيراد…</string>
     <string name="import_success">تم ادخال النسخة الاحتياطية من الذاكرة الخارجية بنجاح.</string>
     <string name="import_failed">فشل ادخال النسخة الاحتياطية,هل هي بالصيغة الصحيحة؟
@@ -107,7 +95,7 @@
     <string name="apply_symlink_fail">تعذر إنشاء الوصلة اللينة Symlink بواسطة  Android.\n وهذا الفشل غالبًا بسبب \"ميزة\" تُعرف باسم S-ON على  HTC هواتف!\n\n الحل هو تشغيل الهاتف في وضع الاسترداد وإنشاء الرابط الترافقي Symlink هناك باستخدام \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n إذا لم يعمل ذلك ، ابحث في الإنترنت عن S-OFF وكذلك في هاتفك.</string>
     <string name="apply_symlink_fail_title">الارتباط الرمزي لم ينشئ</string>
     <string name="apply_help">يرجى قراءة التعليمات للمزيد من المعلومات.</string>
-    <string name="apply_apn_proxy">تم تعيين بروكسي APN على جهاز Android الخاص بك! \ n لن تعمل ميزة ADAway بشكل موثوق به عندما تكون على شبكات المحمول مثل 3G. يمكنك إلغاء تنشيط هذا الوكيل بالانتقال إلى APN المحدد (من تطبيق الإعدادات: الشبكة &amp; الإنترنت-> شبكة الهاتف المحمول-> خيارات متقدمة-> أسماء نقاط الوصول) وإزالة القيمة في حقل خادم الوكيل.</string>
+    <string name="apply_apn_proxy">تم تعيين بروكسي APN على جهاز Android الخاص بك! \ n لن تعمل ميزة ADAway بشكل موثوق به عندما تكون على شبكات المحمول مثل 3G. يمكنك إلغاء تنشيط هذا الوكيل بالانتقال إلى APN المحدد (من تطبيق الإعدادات: الشبكة &amp; الإنترنت-&gt; شبكة الهاتف المحمول-&gt; خيارات متقدمة-&gt; أسماء نقاط الوصول) وإزالة القيمة في حقل خادم الوكيل.</string>
     <string name="apply_apn_proxy_title">تعيين وكيل APN!</string>
     <string name="no_connection">الاتصال بالشبكة لا يعمل</string>
     <string name="no_connection_title">غير متصل</string>
@@ -160,17 +148,12 @@
     <!--Adware-->
     <string name="adware_header">الإعلانات المُتسلّلة</string>
     <string name="adware_description">هنا يمكنك العثور على تطبيقات Adware مثبّتة ، وهي تطبيقات سيئة لا يمكن منعها من قِبَل AdAway . على سبيل المثال تستخدم هذه التطبيقات إشعارات Airpush التي تظهر حتى عند عدم تشغيل التطبيق وتستطيع حتى تغيير نغمة الرنين لجهازك . الحل الوحيد هو حذف هذه التطبيقات التي عُثِرَ عليها من خلال النقر على أسماء التطبيقات في الأسفل .</string>
-    <string name="adware_scanning">جار الفحص&#8230;</string>
+    <string name="adware_scanning">جار الفحص…</string>
     <string name="adware_empty">لم يتم العثور على إعلانات مُتسلّلة!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">المثبت:</string>
     <string name="hosts_last_modified_online">الجديد:</string>
-    <string name="hosts_not_available">غير متوفر</string>
-    <string name="hosts_add_dialog_title">إضافة مصدر</string>
-    <string name="hosts_edit_dialog_title">تحرير مصدر</string>
-    <string name="hosts_dialog_url">الرابط: (إمّا مصدر https:// أو file://)</string>
-    <string name="hosts_dialog_url_hint">مصدر رابط المضيف</string>
 
     <!--Other-->
     <string name="app_subtitle">حاجب الإعلانات</string>
@@ -198,27 +181,16 @@
     <string name="pref_download">الخيارات العامة</string>
     <string name="pref_dismiss_welcome">إخفاء رسالة الترحيب</string>
     <string name="pref_dismiss_welcome_summary">عدم إظهار رسالة الترحيب على الصفحة الرئيسية</string>
-    <string name="pref_dark_theme">تشغيل الخلفيّة الدّاكنة</string>
     <string name="pref_dark_theme_summary">إستخدم الخلفيّة الدّاكنة بدلاً عن الخلفيّة الفاتحة</string>
     <string name="pref_dark_theme_notification">سوف يتم تثبيت \"الثيم\" عند إعادة تشغيل التطبيق!</string>
     <string name="pref_hosts">ملفات المضيف</string>
-    <string name="pref_update_check">التحقق من وجود تحديثات</string>
-    <string name="pref_apply_method">مسار ملفات المضيف</string>
-    <string name="pref_apply_method_summary">قبل تغيير هذا الإعداد، يجب قراءة التعليمات حول هذه الوظيفة.</string>
-    <string name="pref_redirection_ipv4">عنوان إعادة التوجيه IPv4</string>
     <string name="pref_redirection_ipv4_summary">جميع الروابط المحجومة سيتم إعادة توجيهها الى عنوان IPv4 هذا.</string>
-    <string name="pref_redirection_ipv6">عنوان إعادة التوجيه IPv6</string>
     <string name="pref_redirection_ipv6_summary">جميع الروابط المحجومة سيتم إعادة توجيهها الى عنوان IPv6 هذا.</string>
     <string name="pref_header_preferences">الخيارات</string>
     <string name="pref_header_preferences_summary">الخيارات العامة لـ AdAway</string>
-    <string name="pref_never_reboot">إخفاء مُحاور إعادة التشغيل</string>
     <string name="pref_never_reboot_summary">إخفاء مُحاور إعادة التشغيل بعد تنفيذ التحديث على جهازك</string>
-    <string name="pref_webserver_on_boot">بدأ خادم الويب عند التشغيل</string>
     <string name="pref_webserver_on_boot_summary">بدأ خادم الويب عند التشغيل، والتعرف على عناوين IP محلية</string>
-    <string name="pref_webserver_enabled">تفعيل خادم الويب</string>
     <string name="pref_webserver_enabled_summary">تفعيل خادم الويب يتعرف على عناوين IP محلية للرد على طلبات أسماء المضيفين الذين منعوا.</string>
-    <string name="pref_webserver">خادم الويب المحلي</string>
-    <string name="pref_custom_target">مسار مخصص</string>
     <string name="pref_custom_target_summary">استخدمه فقط إذا حدد مسار مخصص لملفات المضيف</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -232,22 +204,13 @@
     <string name="pref_update_check_summary">التحقق من وجود تحديثات عند تشغيل التطبيق</string>
     <string name="pref_sdcard_problem">هذه الخاصية لن تعمل بشكل صحيح عندما يكون AdAway مثبتاً على بطاقة الذاكرة</string>
     <string name="pref_background">الخدمات الخلفية</string>
-    <string name="pref_update_check_daily">التحقق من وجود التحديثات يومياً</string>
     <string name="pref_update_check_daily_summary">التحقق من التحديثات يومياً في الخلفية مع التنبيه</string>
     <string name="pref_automatic_update_daily">التحديث التلقائي</string>
     <string name="pref_automatic_update_daily_summary">التحديث تلقائياً في الخلفية إذا كانت التحديثات متوفرة.</string>
     <string name="pref_update_only_on_wifi">قم بالتحديث فقط عبر الـ Wi-Fi</string>
     <string name="pref_update_only_on_wifi_summary">قم بتنفيذ التحديثات في الخلفية فقط عند الإتصال بالـ Wi-Fi.</string>
-    <string name="pref_whitelist_rules">السماح للقائمة البيضاء</string>
     <string name="pref_whitelist_rules_summary">السماح لمداخلات القائمة البيضاء من مصادر المضيف</string>
-    <string name="pref_redirection_rules">السّماح لعمليات إعادة التوجيه</string>
-    <string name="pref_redirection_rules_summary">للتقليل من المخاطر الامنية ! قم بالسماح للمداخلات المعاد تحويلها من مصادر المضيف</string>
     <string name="pref_debug">التصحيح</string>
-    <string name="pref_enable_debug">تفعيل السّجلّ المُطوّل</string>
-    <string name="pref_enable_debug_summary">يجب إعادة تشغيل التطبيق لتكون الإعدادات سارية المفعول.</string>
-    <string name="pref_enable_telemetry">تفعيل تقرير الأعطال</string>
-    <string name="pref_enable_telemetry_summary">منح السماح للتطبيق لإرسال تقريرات الأعطال والأخطاء إلى Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">الرجاء تفعيل IPv6</string>
     <string name="pref_enable_ipv6_summary">جميع مدخلات ملف host سوف تحصل على عنوان اعادة توجيه مقابل.</string>
     <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
     <string name="pref_enable_systemless">تفعيل الوضع اللانظامي</string>

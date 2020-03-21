@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Πρόσθεση host στη μαύρη λίστα</string>
+    <string name="list_add_dialog_white">Πρόσθεση host σε λευκή λίστα</string>
+    <string name="list_add_dialog_redirect">Πρόσθεση host σε ανακατεύθυνση</string>
+    <string name="list_edit_dialog_black">Επεξεργασία μαύρης λίστας host</string>
+    <string name="list_edit_dialog_white">Επεξεργασία λευκής λίστας host</string>
+    <string name="list_edit_dialog_redirect">Επεξεργασία ανακατευθύνσεων</string>
+    <string name="list_dialog_hostname">Όνομα:</string>
+    <string name="list_dialog_hostname_hint">Το πηγαίο URL του αρχείου hosts</string>
+    <string name="list_dialog_wildcard">(Επιτρέπονται οι χαρακτήρες μπαλαντέρ * και ?)</string>
+    <string name="list_dialog_ip">IP (IPv4 ή IPv6):</string>
+</resources>

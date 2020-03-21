@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="pref_update_check">Güncellemeleri kontrol et</string>
+    <string name="pref_update_check_daily">Güncellemeleri günlük denetle</string>
+</resources>

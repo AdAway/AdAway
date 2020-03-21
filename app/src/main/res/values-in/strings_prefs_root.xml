@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_apply_method">Target file host</string>
+    <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+    <string name="pref_custom_target">Kustom target</string>
+    <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
+    <!-- Redirection category -->
+    <string name="pref_redirection_ipv4">Redireksi IPv4</string>
+    <string name="pref_redirection_ipv6">Redireksi IPv6</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Peladen Web lokal</string>
+    <string name="pref_webserver_enabled">Aktifkan peladen web</string>
+    <string name="pref_webserver_on_boot">Mulai server web saat boot</string>
+</resources>

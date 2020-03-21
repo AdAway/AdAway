@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Surt</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Llista blanca</string>
     <string name="lists_tab_blacklist">Llista negra</string>
     <string name="lists_tab_redirection_list">Redirigeix</string>
-    <string name="list_add_dialog_black">Afegeix l\'amfitrió a la llista negra</string>
-    <string name="list_add_dialog_white">Afegeix l\'amfitrió a la llista blanca</string>
-    <string name="list_add_dialog_redirect">Afegeix la redirecció de l\'amfitrió</string>
-    <string name="list_edit_dialog_black">Edita l\'amfitrió d\'una llista negra</string>
-    <string name="list_edit_dialog_white">Edita l\'amfitrió d\'una llista blanca</string>
-    <string name="list_edit_dialog_redirect">Edita la redirecció</string>
-    <string name="list_dialog_hostname">Servidor:</string>
-    <string name="list_dialog_hostname_hint">URL de la font de l\'amfitrió</string>
-    <string name="list_dialog_wildcard">(Els caràcters comodí * i ? estan permesos)</string>
-    <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
     <string name="import_dialog">S\'està important....</string>
     <string name="import_success">S\'ha importat correctament la còpia de l\'emmagatzematge extern.</string>
     <string name="import_failed">Ha fallat en importar la còpia. El format és correcte? Mireu l\'informe del logcat per a més informació.</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">L\'Android no ha pogut crear l\'enllaç simbòlic.\nAixò falla normalment per una característica anomenada S-ON als telèfons HTC.\n\nUna solució és iniciar el telèfon en mode recuperació i crear l\'enllaç simbòlic allà amb \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi no funciona, cerqueu a Internet S-OFF i el model del vostre telèfon.</string>
     <string name="apply_symlink_fail_title">S\'ha produït un error en la creació de l\'enllaç simbòlic</string>
     <string name="apply_help">Veieu l\'ajuda per a més informació.</string>
-    <string name="apply_apn_proxy">S\'ha configurat un servidor intermediari APN al vostre Android!\nL\'AdAway no funcionarà correctament amb xarxes com ara 3G. Podeu desactivar aquest servidor intermediari d\'aquest APN (des del menú Configuració -> Connexions sense fils i xarxes -> Xarxes mòbils -> APN -> Nom del vostre APN) i suprimint el valor del camp Servidor intermediari.</string>
+    <string name="apply_apn_proxy">S\'ha configurat un servidor intermediari APN al vostre Android!\nL\'AdAway no funcionarà correctament amb xarxes com ara 3G. Podeu desactivar aquest servidor intermediari d\'aquest APN (des del menú Configuració -&gt; Connexions sense fils i xarxes -&gt; Xarxes mòbils -&gt; APN -&gt; Nom del vostre APN) i suprimint el valor del camp Servidor intermediari.</string>
     <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
     <string name="no_connection">La connexió a Internet no funciona.</string>
     <string name="no_connection_title">Sense connexió</string>
@@ -154,11 +142,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Local:</string>
     <string name="hosts_last_modified_online">En línia:</string>
-    <string name="hosts_not_available">no disponible</string>
-    <string name="hosts_add_dialog_title">Afegeix una font</string>
-    <string name="hosts_edit_dialog_title">Edita la font</string>
-    <string name="hosts_dialog_url">URL: (un recurs https:// o fitxer://)</string>
-    <string name="hosts_dialog_url_hint">URL de la font hosts</string>
 
     <!--Other-->
     <string name="app_subtitle">Bloquejador d\'anuncis</string>
@@ -186,23 +169,14 @@
     <string name="pref_download">Preferències generals</string>
     <string name="pref_dismiss_welcome">Amaga la targeta de benvinguda</string>
     <string name="pref_dismiss_welcome_summary">No mostrar la targeta de benvinguda a la pantalla d\'inici</string>
-    <string name="pref_dark_theme">Activa el tema fosc</string>
     <string name="pref_dark_theme_summary">Utilitza el tema fosc enlloc del clar</string>
     <string name="pref_dark_theme_notification">El tema s\'aplicarà en el proper inici de l\'aplicació!</string>
     <string name="pref_hosts">Fitxer de servidors</string>
-    <string name="pref_update_check">Comprova actualitzacions</string>
-    <string name="pref_apply_method">Fitxer hosts objectiu</string>
-    <string name="pref_apply_method_summary">Abans de canviar aquests paràmetres, llegiu l\'ajuda sobre aquesta funció.</string>
     <string name="pref_header_preferences">Preferències</string>
     <string name="pref_header_preferences_summary">Preferències generals d\'AdAway</string>
-    <string name="pref_never_reboot">Amaga el missatge de reinici</string>
     <string name="pref_never_reboot_summary">Amaga el missatge que demana que es reiniciï Android després d\'aplicar correctament els canvis </string>
-    <string name="pref_webserver_on_boot">Inicia el servidor web a l\'inici</string>
     <string name="pref_webserver_on_boot_summary">Iniciar el servidor web que escoltarà a les adreçes IP locals durant l\'arrancada</string>
-    <string name="pref_webserver_enabled">Activa el servidor web</string>
     <string name="pref_webserver_enabled_summary">Activa el servidor web que escolta a l\'adreça IP local i respon a les peticions per a màquines bloquejades</string>
-    <string name="pref_webserver">Servidor web local</string>
-    <string name="pref_custom_target">Objectiu personalitzt</string>
     <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -215,19 +189,13 @@
 
     <string name="pref_update_check_summary">Comprova actualitzacions a l\'inici d\'AdAway</string>
     <string name="pref_background">Serveis en segon pla</string>
-    <string name="pref_update_check_daily">Comprova actualitzacions diàriament</string>
     <string name="pref_update_check_daily_summary">Comprova actualitzacions diàriament en segon pla amb notificacions</string>
     <string name="pref_automatic_update_daily">Actualitza automàticament</string>
     <string name="pref_automatic_update_daily_summary">Actualitza automàticament en segon pla si es troben actualitzacions.</string>
     <string name="pref_update_only_on_wifi">Actualitza només amb connexions que no siguin de consum</string>
     <string name="pref_update_only_on_wifi_summary">Realitza actualitzacions de fons només quan estigueu connectat a una xarxa no consumible.</string>
-    <string name="pref_whitelist_rules">Permet posar a la llista blanca</string>
     <string name="pref_whitelist_rules_summary">Permet entrades a la llista blanca de les fonts d\'amfitrions.</string>
-    <string name="pref_redirection_rules">Permet les redireccions</string>
-    <string name="pref_redirection_rules_summary">HI HA RISCOS DE SEGURETAT! Permet entrades de redireccions de les fonts d\'amfitrions.</string>
     <string name="pref_debug">Depuració</string>
-    <string name="pref_enable_debug_summary">Necessiteu reiniciar AdAway per tal que aquest ajustament faci a efecte.</string>
-    <string name="pref_enable_ipv6">Habilita IPv6</string>
     <string name="pref_enable_systemless_summary">Evita que l\'AdAway modifiqui la partició del sistema</string>
     <string name="pref_enable_systemless">Habilita el mode «systemless»</string>
     <string name="pref_edit_text_value">Edita el valor de preferència del text</string>
@@ -257,4 +225,4 @@
     <string name="hosts_source_need_update">Actualització necessària per %1$s</string>
     <string name="hosts_source_last_update">Darrera actualització fa %1$s</string>
     <string name="hosts_source_unknown_status">Estat d\'actualització desconegut</string>
-    </resources>
+</resources>

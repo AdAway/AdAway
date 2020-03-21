@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">no disponible</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Añadir fuente</string>
+    <string name="hosts_edit_dialog_title">Editar origen</string>
+    <string name="hosts_dialog_url">URL: (un https:// o recurso file://)</string>
+    <string name="hosts_dialog_url_hint">URL fuente de los hosts</string>
+</resources>

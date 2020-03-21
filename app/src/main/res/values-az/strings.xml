@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Çıxış</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Ağ Siyahı</string>
     <string name="lists_tab_blacklist">Qara siyahı</string>
     <string name="lists_tab_redirection_list">Yönləndiricilər</string>
-    <string name="list_add_dialog_black">Host\'u qara siyahıya at</string>
-    <string name="list_add_dialog_white">Host\'u ağ siyahıya at</string>
-    <string name="list_add_dialog_redirect">Host yönləndirici əlavə et</string>
-    <string name="list_edit_dialog_black">Qara siyahıdakı host\'u dəyiş</string>
-    <string name="list_edit_dialog_white">Ağ siyahıdakı host\'u dəyiş</string>
-    <string name="list_edit_dialog_redirect">Yönləndirməni dəyiş</string>
-    <string name="list_dialog_hostname">Host adı:</string>
-    <string name="list_dialog_hostname_hint">Hostların kök URL\'ı</string>
-    <string name="list_dialog_wildcard">(Wildkart * və ? işarələrinə icazə verilir)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Daxil edilir...</string>
     <string name="export_dialog">Çıxarılır..</string>
     <!--Hosts content-->
@@ -130,24 +118,14 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Yerli:</string>
     <string name="hosts_last_modified_online">Xətdə:</string>
-    <string name="hosts_not_available">əlçatan deyil</string>
-    <string name="hosts_add_dialog_title">Qaynaq əlavə et</string>
-    <string name="hosts_edit_dialog_title">Qaynağı dəyiş</string>
-    <string name="hosts_dialog_url_hint">Hostların kök URL\'ı</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklam bloker</string>
     <string name="pref_dismiss_welcome">Xoş gəlmisiniz kartını gizlət</string>
     <string name="pref_dismiss_welcome_summary">Ana səhifədə xoş gəlmisiniz kartını göstərmə</string>
-    <string name="pref_dark_theme">Qaranlıq mövzunu aç</string>
     <string name="pref_dark_theme_summary">İşıqlı mövzu yerinə qaranlıq mövzu işlət</string>
     <string name="pref_hosts">Hosts faylı</string>
-    <string name="pref_update_check">Yeniləmələri yoxla</string>
     <string name="pref_header_preferences">Tənzimləmələr</string>
-    <string name="pref_never_reboot">Yenidən başlatma dialoqunu gizlət</string>
-    <string name="pref_webserver_enabled">Webserveri aç</string>
-    <string name="pref_webserver">Yerli Webserver</string>
-    <string name="pref_custom_target">Fərdi hədəf</string>
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
@@ -159,7 +137,6 @@
     <string name="pref_update_check_summary">AdAway başladıldıqda yeniləmələri yoxla</string>
     <string name="pref_sdcard_problem">AdAway SD karta yüklənibsə bu xüsusiyyət düzgün işləməyəcək!</string>
     <string name="pref_background">Arxaplan Xidmətləri</string>
-    <string name="pref_update_check_daily">Yeniləmələri gündəlik yoxla</string>
     <string name="pref_update_check_daily_summary">Bildirişlərlə birgə arxaplanda yeniləmələri gündəlik yoxla</string>
     <string name="pref_automatic_update_daily">Avtomatik yeniləmə</string>
     <string name="pref_automatic_update_daily_summary">Əgər yeniləmə varsa arxaplanda avtomatik yenilə</string>

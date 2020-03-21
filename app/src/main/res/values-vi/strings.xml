@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Thoát</string>
@@ -24,8 +22,6 @@
     <!--Your lists-->
     <string name="lists_tab_whitelist">Danh sách trắng</string>
     <string name="lists_tab_blacklist">Danh sách đen</string>
-    <string name="list_dialog_hostname">Tên miền:</string>
-    <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
     <string name="import_dialog">Đang nhập...</string>
     <string name="export_dialog">Đang xuất...</string>
     <!--Status Notification-->
@@ -99,7 +95,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Cục bộ:</string>
     <string name="hosts_last_modified_online">Trực tuyến:</string>
-    <string name="hosts_not_available">không có sẵn</string>
     <!--Other-->
     <string name="app_subtitle">Ứng dụng chặn quảng cáo</string>
     <string name="no_text_editor_title">Chưa cài trình sửa văn bản</string>
@@ -111,19 +106,11 @@
     <!--Preferences-->
     <string name="pref_download">Tuỳ chỉnh tổng quát</string>
     <string name="pref_hosts">Tập tin miền</string>
-    <string name="pref_update_check">Kiểm tra cập nhật</string>
-    <string name="pref_apply_method">Tập tin miền mục tiêu</string>
-    <string name="pref_apply_method_summary">Trước khi thay đổi cài đặt, hãy đọc Trợ giúp về tính năng này.</string>
     <string name="pref_header_preferences">Tuỳ chỉnh</string>
     <string name="pref_header_preferences_summary">Tuỳ chỉnh tổng quát cho AdAway</string>
-    <string name="pref_never_reboot">Ẩn hộp thoại khởi động lại</string>
     <string name="pref_never_reboot_summary">Ẩn hộp thoại đòi khởi động lại Android sau khi áp dụng thành công</string>
-    <string name="pref_webserver_on_boot">Bật webserver khi khởi động máy</string>
     <string name="pref_webserver_on_boot_summary">Bật webserver khi khởi động máy, lắng nghe các địa chỉ IP cục bộ</string>
-    <string name="pref_webserver_enabled">Bật webserver</string>
     <string name="pref_webserver_enabled_summary">Bật webserver để lắng nghe các địa chỉ IP cục bộ và phản hồi yêu cầu đến các tên miền bị chặn</string>
-    <string name="pref_webserver">Webserver cục bộ</string>
-    <string name="pref_custom_target">Đích tự chọn</string>
     <string name="pref_custom_target_summary">Chỉ dùng nếu tập tin miền mục tiêu được đặt làm đích tự chọn</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -136,16 +123,11 @@
 
     <string name="pref_update_check_summary">Kiểm tra cập nhật khi khởi động AdAway</string>
     <string name="pref_background">Dịch vụ chạy nền</string>
-    <string name="pref_update_check_daily">Kiểm tra cập nhật mỗi ngày</string>
     <string name="pref_update_check_daily_summary">Kiểm tra cập nhật mỗi ngày ở chế độ nền có kèm thông báo</string>
     <string name="pref_automatic_update_daily">Tự động cập nhật</string>
     <string name="pref_automatic_update_daily_summary">Tự động cập nhật ở chế độ nền nếu có bản nâng cấp.</string>
-    <string name="pref_whitelist_rules">Cho phép tạo danh sách trắng</string>
     <string name="pref_whitelist_rules_summary">Cho phép các mục trong danh sách trắng từ Các nguồn tên miền.</string>
-    <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
     <string name="pref_debug">Dò lỗi</string>
-    <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
-    <string name="pref_enable_ipv6">Bật IPv6</string>
     <string name="pref_enable_systemless_summary">Ngăn AdAway khỏi chỉnh sửa phân vùng hệ thống</string>
     <string name="pref_enable_systemless">kích hoạt chế độ systemless</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
@@ -161,4 +143,4 @@
     </string-array>
     <string name="shortcut_preferences">Tuỳ chỉnh</string>
 
-    </resources>
+</resources>

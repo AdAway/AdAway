@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Välju</string>
@@ -38,16 +36,6 @@
     <string name="lists_tab_whitelist">Valge loend</string>
     <string name="lists_tab_blacklist">Must loend</string>
     <string name="lists_tab_redirection_list">Suunamised</string>
-    <string name="list_add_dialog_black">Lisa host musta loendisse</string>
-    <string name="list_add_dialog_white">Lisa host valgesse loendisse</string>
-    <string name="list_add_dialog_redirect">Lisa hosti suunamine</string>
-    <string name="list_edit_dialog_black">Muuda musta loendi hosti</string>
-    <string name="list_edit_dialog_white">Muuda valge loendi hosti</string>
-    <string name="list_edit_dialog_redirect">Muuda suunamist</string>
-    <string name="list_dialog_hostname">Hostinimi:</string>
-    <string name="list_dialog_hostname_hint">Hosts-allika URL</string>
-    <string name="list_dialog_wildcard">(Lubatud on jokkermärgid * ja ?)</string>
-    <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
     <string name="import_dialog">Importimine...</string>
     <string name="export_dialog">Eksportimine...</string>
     <!--Hosts content-->
@@ -124,17 +112,12 @@
 
     <!--Adware-->
     <string name="adware_header">Reklaamvara</string>
-    <string name="adware_scanning">Skanneerimine&#8230;</string>
+    <string name="adware_scanning">Skanneerimine…</string>
     <string name="adware_empty">Reklaamvara ei leitud!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Kohalik:</string>
     <string name="hosts_last_modified_online">Onlain:</string>
-    <string name="hosts_not_available">pole saadaval</string>
-    <string name="hosts_add_dialog_title">Lisa allikas</string>
-    <string name="hosts_edit_dialog_title">Muuda allikat</string>
-    <string name="hosts_dialog_url">URL: (https:// või file:// ressurss)</string>
-    <string name="hosts_dialog_url_hint">Hosts-allika URL</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklaamide blokeerija</string>
@@ -158,25 +141,14 @@
     <string name="pref_download">Üldised eelistused</string>
     <string name="pref_dismiss_welcome">Peida tutvustuskaart</string>
     <string name="pref_dismiss_welcome_summary">Ära kuva tutvustuskaarti rakenduse avakuval</string>
-    <string name="pref_dark_theme">Luba tume teema</string>
     <string name="pref_dark_theme_summary">Kasuta heleda asemel tumedat teemat</string>
     <string name="pref_dark_theme_notification">Teema rakendatakse järgmisel rakenduse käivitusel!</string>
     <string name="pref_hosts">Hosts-fail</string>
-    <string name="pref_update_check">Uuenduste kontrollimine</string>
-    <string name="pref_apply_method">Hosts-faili asukoht</string>
-    <string name="pref_apply_method_summary">Enne muutmist loe abist selle funktsiooni kohta.</string>
-    <string name="pref_redirection_ipv4">Suunamise IPv4</string>
-    <string name="pref_redirection_ipv6">Suunamise IPv6</string>
     <string name="pref_header_preferences">Eelistused</string>
     <string name="pref_header_preferences_summary">Üldised AdAway seaded</string>
-    <string name="pref_never_reboot">Taaskäivitamise dialoog peidetud</string>
     <string name="pref_never_reboot_summary">Peidetakse dialoog, mis palub Androidi taaskäivitamist pärast edukat paigaldamist</string>
-    <string name="pref_webserver_on_boot">Veebiserver käivitatakse alglaadimisel</string>
     <string name="pref_webserver_on_boot_summary">Veebiserver käivitatakse Androidi laadimisel. Kuulatakse vaid kohalikke IP aadresse.</string>
-    <string name="pref_webserver_enabled">Luba veebiserver</string>
     <string name="pref_webserver_enabled_summary">Lubab veebiserveri, mis kuulab kohalikke IP aadresse ning vastab blokeeritud aadressitele.</string>
-    <string name="pref_webserver">Kohalik veebiserver</string>
-    <string name="pref_custom_target">Muu asukoht</string>
     <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts-faili asukohaks on muu asukoht.</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -189,18 +161,11 @@
 
     <string name="pref_update_check_summary">Uuendusi kontrollitakse AdAway käivitamisel</string>
     <string name="pref_background">Taustateenused</string>
-    <string name="pref_update_check_daily">Uuenduste kontroll iga päev</string>
     <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>
     <string name="pref_automatic_update_daily">Automaatne uuendus</string>
     <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
     <string name="pref_update_only_on_wifi">Uuenda ainult mittemahupõhiste ühenduste korral</string>
-    <string name="pref_whitelist_rules">Luba valge loend</string>
-    <string name="pref_redirection_rules">Luba suunamised</string>
     <string name="pref_debug">Silumine</string>
-    <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>
-    <string name="pref_enable_telemetry">Luba krahhiaruanded</string>
-    <string name="pref_enable_telemetry_summary">Luba rakendusel saata vigu ja krahhiaruandeid Sentryle (sentry.io)</string>
-    <string name="pref_enable_ipv6">Luba IPv6</string>
     <string name="pref_enable_systemless">Luba süsteemita režiim</string>
     <string name="drawer_open">Ava menüü</string>
     <string name="drawer_close">Sulge menüü</string>

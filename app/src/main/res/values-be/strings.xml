@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Выйсці</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Белы спіс</string>
     <string name="lists_tab_blacklist">Чорны спіс</string>
     <string name="lists_tab_redirection_list">Перанакіраванне</string>
-    <string name="list_add_dialog_black">Дадаць host у чорны спіс</string>
-    <string name="list_add_dialog_white">Дадаць host у белы спіс</string>
-    <string name="list_add_dialog_redirect">Дадаць перанакіраванне host</string>
-    <string name="list_edit_dialog_black">Рэдагаваць чорны спіс host</string>
-    <string name="list_edit_dialog_white">Рэдагаваць белы спіс host</string>
-    <string name="list_edit_dialog_redirect">Змяніць перанакіраванне</string>
-    <string name="list_dialog_hostname">Назва крыніцы:</string>
-    <string name="list_dialog_hostname_hint">URL крыніцы hosts</string>
-    <string name="list_dialog_wildcard">(Дапускаюцца падстаноўныя сімвалы * і ?)</string>
-    <string name="list_dialog_ip">IP (IPv4 ці IPv6):</string>
     <string name="import_dialog">Імпарт...</string>
     <string name="import_success">Рэзервовая копія паспяхова імпартавана з вашага знешняга сховішча.</string>
     <string name="import_failed">Не ўдалося імпартаваць рэзервовую копію. Магчыма яе фармат не дакладны? Праверце logcat для падрабязнасцяў.</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">Android не змог стварыць спасылку.\nМагчыма гэта з-за асаблівасці тэлефонаў HTC, званай S-ON!\n\nРашэнне заключаецца ў загрузцы тэлефона ў рэжыме аднаўлення і стварэння спасылкі пры дапамозе \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nКалі гэта не дапаможа, то трэба шукаць інфармацыю ў інтэрнэце па S-OFF і вашаму тэлефоне.</string>
     <string name="apply_symlink_fail_title">Памылка стварэння спасылкі</string>
     <string name="apply_help">Калі ласка, чытайце Даведку для атрымання большай інфармацыі.</string>
-    <string name="apply_apn_proxy">У наладах APN вашага Android паказаны проксі-сервер!\nAdAway не будзе працаваць у мабільных сетках, такіх як 3G. Вы можаце адключыць гэты сервер проксі у наладах выкарыстаннай APN (з праграмы Налад: Сетка і Інтэрнэт -> Мабільная сетка -> Дадаткова -> Кропкі доступу APN) і выдаліць значэнне ў полі Проксі.</string>
+    <string name="apply_apn_proxy">У наладах APN вашага Android паказаны проксі-сервер!\nAdAway не будзе працаваць у мабільных сетках, такіх як 3G. Вы можаце адключыць гэты сервер проксі у наладах выкарыстаннай APN (з праграмы Налад: Сетка і Інтэрнэт -&gt; Мабільная сетка -&gt; Дадаткова -&gt; Кропкі доступу APN) і выдаліць значэнне ў полі Проксі.</string>
     <string name="apply_apn_proxy_title">Выкарыстоўваная кропка доступу працуе праз проксі-сервер!</string>
     <string name="no_connection">Адсутнічае падключэнне да інтэрнэту.</string>
     <string name="no_connection_title">Няма злучэння</string>
@@ -164,17 +152,12 @@
     <!--Adware-->
     <string name="adware_header">Праграмы з рэкламай</string>
     <string name="adware_description">Пошук праграм з рэкламай, званыя Adware, і якія AdAway не можа заблакаваць. Гэтыя праграмы выкарыстоўваюць, напрыклад, сістэму апавяшчэнняў Airpush, якая паказвае рэкламу нават тады, калі праграма не працуе, ці нават можа змяніць мелодыю вашага званка. Пазбавіцца ад такой рэкламы можна толькі выдаліўшы праграму, названыя ў выніках сканавання, шляхам націску на складнікі спісаў.</string>
-    <string name="adware_scanning">Сканаванне&#8230;</string>
+    <string name="adware_scanning">Сканаванне…</string>
     <string name="adware_empty">Праграм з рэкламай не знойдзена!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Лакальны:</string>
     <string name="hosts_last_modified_online">Інтэрнэт:</string>
-    <string name="hosts_not_available">недаступны</string>
-    <string name="hosts_add_dialog_title">Дадаць крыніцу</string>
-    <string name="hosts_edit_dialog_title">Рэдагаваць крыніцу</string>
-    <string name="hosts_dialog_url">URL: (рэсурс https:// ці file://)</string>
-    <string name="hosts_dialog_url_hint">URL крыніцы hosts</string>
 
     <!--Other-->
     <string name="app_subtitle">Блакавальнік рэкламы</string>
@@ -202,27 +185,16 @@
     <string name="pref_download">Асноўныя налады</string>
     <string name="pref_dismiss_welcome">Схаваць прывітанне</string>
     <string name="pref_dismiss_welcome_summary">Не паказваць прывітанне на галоўным экране</string>
-    <string name="pref_dark_theme">Уключыць цёмную тэму</string>
     <string name="pref_dark_theme_summary">Выкарыстоўваць цёмную тэму замест светлай</string>
     <string name="pref_dark_theme_notification">Тэма зменіцца пры наступным запуску праграмы!</string>
     <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_update_check">Праверка абнаўленняў</string>
-    <string name="pref_apply_method">Шлях да файла hosts</string>
-    <string name="pref_apply_method_summary">Перад змяненнем гэтага параметру прачытайце аб гэтай функцыі ў Даведцы.</string>
-    <string name="pref_redirection_ipv4">Перанакіраванне IPv4</string>
     <string name="pref_redirection_ipv4_summary">Усе заблакаваныя host пераадрасоўваюцца на гэты адрас IPv4.</string>
-    <string name="pref_redirection_ipv6">Перанакіраванне IPv6</string>
     <string name="pref_redirection_ipv6_summary">Усе заблакаваныя host пераадрасоўваюцца на гэты адрас IPv6.</string>
     <string name="pref_header_preferences">Налады</string>
     <string name="pref_header_preferences_summary">Асноўныя налады AdAway</string>
-    <string name="pref_never_reboot">Схаваць акно перазагрузкі</string>
     <string name="pref_never_reboot_summary">Хавае акно перазагрузкі Android пасля паспяховага прымянення</string>
-    <string name="pref_webserver_on_boot">Старт вэб-сервера пры загрузцы прылады</string>
     <string name="pref_webserver_on_boot_summary">Старт вэб-сервера пры загрузцы сістэмы для праслухоўвання лакальных адрасоў IP</string>
-    <string name="pref_webserver_enabled">Адключыць вэб-сервер</string>
     <string name="pref_webserver_enabled_summary">Дазваляе вэб-серверу праслухоўваць лакальныя IP-адрасы і адказваць на запыты да заблакаваных host</string>
-    <string name="pref_webserver">Лакальны вэб-сервер</string>
-    <string name="pref_custom_target">Карыстацкія налады</string>
     <string name="pref_custom_target_summary">Выкарыстоўваецца толькі ў выпадку, калі размяшчэнне файла hosts зададзена карыстальнікам</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -236,22 +208,13 @@
     <string name="pref_update_check_summary">Правяраць абнаўленні пры запуску AdAway</string>
     <string name="pref_sdcard_problem">Гэтая функцыя будзе працаваць няправільна, калі AdAway усталяваны на карту памяці!</string>
     <string name="pref_background">Фонавы рэжым</string>
-    <string name="pref_update_check_daily">Правяраць штодня</string>
     <string name="pref_update_check_daily_summary">Правярайце штодня абнаўленні ў фонавым рэжыме з апавяшчэннямі</string>
     <string name="pref_automatic_update_daily">Аўтаабнаўленне</string>
     <string name="pref_automatic_update_daily_summary">Абнаўляць аўтаматычна ў фонавым рэжыме, калі даступны абнаўленні.</string>
     <string name="pref_update_only_on_wifi">Абнаўляць толькі па Wi-Fi</string>
     <string name="pref_update_only_on_wifi_summary">Выконваць фонавыя абнаўленні толькі праз і нелімітаванае падключэнне.</string>
-    <string name="pref_whitelist_rules">Дазволіць белыя спісы</string>
     <string name="pref_whitelist_rules_summary">Дазволіць белыя спісы з крыніц host</string>
-    <string name="pref_redirection_rules">Дазволіць перанакіраванне</string>
-    <string name="pref_redirection_rules_summary">ПРАДСТАЎЛЯЕ ПАГРОЗУ БЯСПЕКІ! Дазволіць перанакіраванне з крыніц host.</string>
     <string name="pref_debug">Рэжым адладкі</string>
-    <string name="pref_enable_debug">Уключыць журнал адладкі</string>
-    <string name="pref_enable_debug_summary">Неабходна перазапусціць AdAway для прымянення змен.</string>
-    <string name="pref_enable_telemetry">Адпраўляць справаздачы аб памылках</string>
-    <string name="pref_enable_telemetry_summary">Адпраўляць справаздачы аб памылках і збоях у Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Уключыць IPv6</string>
     <string name="pref_enable_ipv6_summary">Усе запісы файла host будуць атрымліваць адпаведны запіс перанакіравання.</string>
     <string name="pref_enable_systemless_summary">Забараніць AdAway рэдагаваць сістэмны раздзел</string>
     <string name="pref_enable_systemless">Уключыць бессістэмны рэжым</string>

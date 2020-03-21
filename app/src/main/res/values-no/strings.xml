@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Lukk</string>
@@ -32,4 +30,4 @@
         <item>Preferences</item>
         <item>Help</item>
     </string-array>
-    </resources>
+</resources>

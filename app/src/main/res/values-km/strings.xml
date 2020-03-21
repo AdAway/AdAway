@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">ចាកចេញ</string>
@@ -54,23 +52,15 @@
     <string name="hosts_last_modified_online">លើបណ្ដាញ
 
 </string>
-    <string name="hosts_not_available">មិនមានរកឃើញ</string>
     <!--Other-->
     <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>
     <string name="no_file_manager_title">ពុំមានកម្មវិធីគ្រប់គ្រងឯកសារត្រូវបានបញ្ចូល</string>
     <!--Preferences-->
     <string name="pref_download">ការកំណត់ទូរទៅ</string>
     <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
-    <string name="pref_update_check">ពិនិត្យមើលភាពទាន់សម័យ</string>
-    <string name="pref_apply_method">គោលដៅឯកសារម៉ាស៊ីន</string>
-    <string name="pref_apply_method_summary">មុនពេលផ្លាស់ប្ដូរការកំណត់នេះ សូមអាន ជំនួយ អំពីលក្ខណៈពិសេសរបស់វា។</string>
     <string name="pref_header_preferences">ការកំណត់</string>
     <string name="pref_header_preferences_summary">ការកំណត់ទូរទៅសម្រាប់ AdAway</string>
-    <string name="pref_never_reboot">លាក់ប្រអប់ចាប់ផ្ដើមឡើងវិញ</string>
     <string name="pref_never_reboot_summary">លាក់ប្រអប់ដែលសួរពីការចាប់ផ្ដើមឡើងវិញបន្ទាប់ពីបានអនុវត្តជោគជ័យ</string>
-    <string name="pref_webserver_on_boot">ចាប់ផ្ដើម</string>
-    <string name="pref_webserver_enabled">បញ្ចូល Websever</string>
-    <string name="pref_webserver">តំបន់ Websever</string>
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
@@ -80,12 +70,10 @@
     </string-array>
 
     <string name="pref_update_check_summary">ស្វែងរកជំនាន់ថ្មី ពេលចាប់ផ្ដើម AdAway</string>
-    <string name="pref_update_check_daily">ស្វែងរកជំនាន់ថ្មីរាល់ថ្ងៃ</string>
     <string name="pref_update_check_daily_summary">ពិនិត្យមើលភាពទាន់សម័យរាល់ថ្ងៃក្នុងផ្ទាំងខាងក្រោយជាមួយការជូនដំណឹង</string>
     <string name="pref_automatic_update_daily">ធ្វើអោយទាន់សម័យដោយស្វ័យប្រវត្តិ</string>
     <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
     <string name="pref_debug">បំបាត់កំហុស</string>
-    <string name="pref_enable_debug_summary">អ្នកគួរតែចាប់ផ្ដើម AdAway ឡើងវិញដើម្បីអោយការកំណត់មានប្រសិទ្ធភាព</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -99,4 +87,4 @@
     </string-array>
     <string name="shortcut_preferences">ការកំណត់</string>
 
-    </resources>
+</resources>

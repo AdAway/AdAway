@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">Ikke tilgængelig</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Tilføj kilde</string>
+    <string name="hosts_edit_dialog_title">Rediger kilde</string>
+    <string name="hosts_dialog_url">URL: (en https:// eller file:// ressource)</string>
+    <string name="hosts_dialog_url_hint">Værts kilde URL</string>
+</resources>

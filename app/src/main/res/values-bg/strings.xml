@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Изход</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Бял списък</string>
     <string name="lists_tab_blacklist">Черен списък</string>
     <string name="lists_tab_redirection_list">Пренасочвания</string>
-    <string name="list_add_dialog_black">Добавяне на хост в черния списък</string>
-    <string name="list_add_dialog_white">Добавяне на хост в белия списък</string>
-    <string name="list_add_dialog_redirect">Добавяне на пренасочване на хост</string>
-    <string name="list_edit_dialog_black">Редактиране на хост от черния списък</string>
-    <string name="list_edit_dialog_white">Редактиране на хост от белия списък</string>
-    <string name="list_edit_dialog_redirect">Редактиране на пренасочване</string>
-    <string name="list_dialog_hostname">Име на хост:</string>
-    <string name="list_dialog_hostname_hint">URL адрес на източника на хоста</string>
-    <string name="list_dialog_wildcard">(Позволени са заместващи символи * и ?)</string>
-    <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
     <string name="import_dialog">Импортиране...</string>
     <string name="import_success">Архивът беше успешно внесен от Вашата карта памет.</string>
     <string name="import_failed">Внасянето на архива се провали. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
@@ -163,17 +151,12 @@
     <!--Adware-->
     <string name="adware_header">Рекламен софтуер</string>
     <string name="adware_description">Тук може на намерите инсталиран рекламен софтуер, лоши приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват например изскачащи известия, които се появяват дори когато приложението не работи. Могат дори да променят мелодията ви. Единственото налично противодействие е да деинсталирате тези приложения като натиснете върху елементите в списъка.</string>
-    <string name="adware_scanning">Сканиране&#8230;</string>
+    <string name="adware_scanning">Сканиране…</string>
     <string name="adware_empty">Не бяха открити рекламни приложения!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Локална:</string>
     <string name="hosts_last_modified_online">Онлайн:</string>
-    <string name="hosts_not_available">не е наличен</string>
-    <string name="hosts_add_dialog_title">Добавяне на източник</string>
-    <string name="hosts_edit_dialog_title">Редактиране на източник</string>
-    <string name="hosts_dialog_url">URL: (https:// или file:// ресурс)</string>
-    <string name="hosts_dialog_url_hint">URL адрес на източника на Hosts</string>
 
     <!--Other-->
     <string name="app_subtitle">Спира рекламите</string>
@@ -201,27 +184,16 @@
     <string name="pref_download">Общи предпочитания</string>
     <string name="pref_dismiss_welcome">Скриване на поздравителната карта</string>
     <string name="pref_dismiss_welcome_summary">Да не се показва картата за добре дошли на началния екран</string>
-    <string name="pref_dark_theme">Включване на тъмна тема</string>
     <string name="pref_dark_theme_summary">Използване на тъмна тема вместо светла</string>
     <string name="pref_dark_theme_notification">Темата ще бъде приложена при следващото стартиране на приложението!</string>
     <string name="pref_hosts">Hosts файл</string>
-    <string name="pref_update_check">Проверка за актуализации</string>
-    <string name="pref_apply_method">Целеви Hosts файл</string>
-    <string name="pref_apply_method_summary">Преди да промените тази настройка, прочетете в Помощ за тази функционалност.</string>
-    <string name="pref_redirection_ipv4">Пренасочващ IPv4</string>
     <string name="pref_redirection_ipv4_summary">Всички блокирани имена на хостове се пренасочват към този IPv4 адрес.</string>
-    <string name="pref_redirection_ipv6">Пренасочващ IPv6</string>
     <string name="pref_redirection_ipv6_summary">Всички блокирани имена на хостове се пренасочват към този IPv6 адрес.</string>
     <string name="pref_header_preferences">Настройки</string>
     <string name="pref_header_preferences_summary">Общи предпочитания за AdAway</string>
-    <string name="pref_never_reboot">Скриване на предложението за рестартиране</string>
     <string name="pref_never_reboot_summary">Скрива диалоговия прозорец, който изисква да рестартирате Android след успешното прилагане.</string>
-    <string name="pref_webserver_on_boot">Стартиране на уеб сървъра при начално зареждане </string>
     <string name="pref_webserver_on_boot_summary">Включва уеб сървъра при стартиране, слушане на локалните IP адреси</string>
-    <string name="pref_webserver_enabled">Разрешаване на уеб сървъра</string>
     <string name="pref_webserver_enabled_summary">Позволява на уеб сървъра да слуша на локалните IP адреси, за да отговори на заявките към блокирани имена на хостове.</string>
-    <string name="pref_webserver">Локален уеб сървър</string>
-    <string name="pref_custom_target">Персонализирана цел</string>
     <string name="pref_custom_target_summary">Използва се само ако целевият Hosts файл е настроен на персонализирана цел.</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -235,22 +207,13 @@
     <string name="pref_update_check_summary">Проверка за актуализации при стартиране на AdAway</string>
     <string name="pref_sdcard_problem"> Тази функция няма да работи правилно, когато AdAway е инсталиран на SD картата!</string>
     <string name="pref_background">Услуги на заден план</string>
-    <string name="pref_update_check_daily">Ежедневна проверка за актуализации</string>
     <string name="pref_update_check_daily_summary">Проверка за актуализации ежедневно във фонов режим с известия</string>
     <string name="pref_automatic_update_daily">Автоматично актуализиране</string>
     <string name="pref_automatic_update_daily_summary">Автоматично актуализиране във фонов режим, ако са налични актуализации.</string>
     <string name="pref_update_only_on_wifi">Акт. само при неизмервано потребление</string>
     <string name="pref_update_only_on_wifi_summary">Изпълняване на актуализации във фонов режим, само когато сте свързани към мрежа с неизмервано потребление.</string>
-    <string name="pref_whitelist_rules">Разрешаване добавянето в бял списък</string>
     <string name="pref_whitelist_rules_summary">Позволяване на вписвания в белия списък от източниците на Hosts файлове.</string>
-    <string name="pref_redirection_rules">Позволяване на пренасочвания</string>
-    <string name="pref_redirection_rules_summary">РИСК ЗА СИГУРНОСТТА! Позволяване на пренасочвания от източниците на Hosts файлове.</string>
     <string name="pref_debug">Отстраняване на грешки</string>
-    <string name="pref_enable_debug">Включване на подробен доклад</string>
-    <string name="pref_enable_debug_summary">Трябва да рестартирате AdAway, за да влезе в сила тази настройка.</string>
-    <string name="pref_enable_telemetry">Включване на доклади за сривове</string>
-    <string name="pref_enable_telemetry_summary">Позволете на приложението да изпраща доклади за грешки и сривове на Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Включване на IPv6</string>
     <string name="pref_enable_ipv6_summary">Всички записи във файла с хостове ще получат съответен пренасочващ запис.</string>
     <string name="pref_enable_systemless_summary">Предотвратяване промяната на системния дял от AdAway</string>
     <string name="pref_enable_systemless">Включване на режим systemless</string>

@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Quitter</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Liste blanche</string>
     <string name="lists_tab_blacklist">Liste noire</string>
     <string name="lists_tab_redirection_list">Redirections</string>
-    <string name="list_add_dialog_black">Ajouter l’hôte à la liste noire</string>
-    <string name="list_add_dialog_white">Ajouter l’hôte à la liste blanche</string>
-    <string name="list_add_dialog_redirect">Ajouter une redirection d’hôte</string>
-    <string name="list_edit_dialog_black">Modifier l’hôte mis en liste noire</string>
-    <string name="list_edit_dialog_white">Modifier l’hôte mis en liste blanche</string>
-    <string name="list_edit_dialog_redirect">Modifier une redirection</string>
-    <string name="list_dialog_hostname">Nom d’hôte :</string>
-    <string name="list_dialog_hostname_hint">L’URL de la source du fichier hosts</string>
-    <string name="list_dialog_wildcard">(Les métacaractères * et ? sont permis)</string>
-    <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
     <string name="import_dialog">Importation...</string>
     <string name="import_success">La sauvegarde a été importée avec succès de votre mémoire externe.</string>
     <string name="import_failed">Échec d’importation de la sauvegarde. Le format est-il correct ? Consultez logcat pour plus de précisions.</string>
@@ -169,11 +157,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Locale :</string>
     <string name="hosts_last_modified_online">En ligne :</string>
-    <string name="hosts_not_available">non disponible</string>
-    <string name="hosts_add_dialog_title">Ajouter une source</string>
-    <string name="hosts_edit_dialog_title">Modifier une source</string>
-    <string name="hosts_dialog_url">URL : (une ressource https:// ou file://)</string>
-    <string name="hosts_dialog_url_hint">L’URL de la source du fichier hosts</string>
 
     <!--Other-->
     <string name="app_subtitle">Bloqueur de publicités</string>
@@ -201,27 +184,16 @@
     <string name="pref_download">Préférences générales</string>
     <string name="pref_dismiss_welcome">Cacher la carte de bienvenue</string>
     <string name="pref_dismiss_welcome_summary">Ne pas afficher la carte de bienvenue sur l’écran d’accueil</string>
-    <string name="pref_dark_theme">Activer le thème sombre</string>
     <string name="pref_dark_theme_summary">Utiliser le thème sombre à la place du thème clair</string>
     <string name="pref_dark_theme_notification">Le thème sera effectif lors du prochain démarrage</string>
     <string name="pref_hosts">Fichier hosts</string>
-    <string name="pref_update_check">Vérifier les mises à jour</string>
-    <string name="pref_apply_method">Fichier hosts cible</string>
-    <string name="pref_apply_method_summary">Avant de modifier ce paramètre, lire l’aide concernant cette fonction.</string>
-    <string name="pref_redirection_ipv4">Redirection IPv4</string>
     <string name="pref_redirection_ipv4_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv4.</string>
-    <string name="pref_redirection_ipv6">Redirection IPv6</string>
     <string name="pref_redirection_ipv6_summary">Tous les noms d’hôtes bloqués sont redirigés vers cette adresse IPv6.</string>
     <string name="pref_header_preferences">Préférences</string>
     <string name="pref_header_preferences_summary">Préférences générales d’AdAway</string>
-    <string name="pref_never_reboot">Cacher la fenêtre de redémarrage</string>
     <string name="pref_never_reboot_summary">Cache la demande de redémarrage d’Android après une mise à en place réussie</string>
-    <string name="pref_webserver_on_boot">Lancer le serveur Web au démarrage</string>
     <string name="pref_webserver_on_boot_summary">Lancer le serveur Web au démarrage, à l’écoute des adresses IP locales</string>
-    <string name="pref_webserver_enabled">Activer le serveur Web</string>
     <string name="pref_webserver_enabled_summary">Active le serveur Web à l’écoute d’adresses IP locales pour répondre aux requêtes vers des noms d’hôtes bloqués</string>
-    <string name="pref_webserver">Serveur Web local</string>
-    <string name="pref_custom_target">Cible personnalisée</string>
     <string name="pref_custom_target_summary">Utilisé seulement si le fichier hosts cible est défini pour une cible personnalisée</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -235,22 +207,13 @@
     <string name="pref_update_check_summary">Vérifier les mises à jour lors du démarrage d’AdAway</string>
     <string name="pref_sdcard_problem">Cette option ne fonctionnera pas correctement si AdAway est installé sur une carte SD.</string>
     <string name="pref_background">Services d’arrière-plan</string>
-    <string name="pref_update_check_daily">Vérifier les mises à jour quotidiennement</string>
     <string name="pref_update_check_daily_summary">Vérifier les mises à jour quotidiennement en arrière-plan avec des notifications</string>
     <string name="pref_automatic_update_daily">Mise à jour automatique</string>
     <string name="pref_automatic_update_daily_summary">Mettre à jour automatiquement en arrière-plan si des mises à jours sont proposées</string>
     <string name="pref_update_only_on_wifi">Mettre à jour seulement sur les connexions illimitées</string>
     <string name="pref_update_only_on_wifi_summary">Exécuter les mises à jour en arrière-plan seulement si vous êtes connecté à un réseau dont l’accès est illimité.</string>
-    <string name="pref_whitelist_rules">Permettre la mise en liste blanche</string>
     <string name="pref_whitelist_rules_summary">Permettre les entrées de liste blanche des sources de fichiers hosts.</string>
-    <string name="pref_redirection_rules">Autoriser les redirections</string>
-    <string name="pref_redirection_rules_summary">PRÉSENTE UN RISQUE DE SÉCURITÉ ! Permettre les entrées de redirection de sources de fichiers hosts</string>
     <string name="pref_debug">Debogage </string>
-    <string name="pref_enable_debug">Activer la journalisation complète</string>
-    <string name="pref_enable_debug_summary">Vous devez redémarrer AdAway pour que ce paramètre prenne effet.</string>
-    <string name="pref_enable_telemetry">Activer les relevés de plantage</string>
-    <string name="pref_enable_telemetry_summary">Permettre à l’application d’envoyer des relevés d’erreur et de plantage à Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Activer l’IPv6</string>
     <string name="pref_enable_ipv6_summary">Toutes les entrées du fichier host auront une entrée de redirection correspondante.</string>
     <string name="pref_enable_systemless_summary">Empêcher AdAway de modifier la partition système</string>
     <string name="pref_enable_systemless">Activer le mode sans système</string>

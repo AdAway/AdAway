@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Irten</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Zerrenda-zuria</string>
     <string name="lists_tab_blacklist">Zerrenda-beltza</string>
     <string name="lists_tab_redirection_list">Birbideratzeak</string>
-    <string name="list_add_dialog_black">Gehitu hostalaria zerrenda-beltzara</string>
-    <string name="list_add_dialog_white">Gehitu hostalaria zerrenda-zurira</string>
-    <string name="list_add_dialog_redirect">Gehitu birbideratze hostalaria</string>
-    <string name="list_edit_dialog_black">Editatu zerrenda-beltzeko hostalaria</string>
-    <string name="list_edit_dialog_white">Editatu zerrenda-zuriko hostalaria</string>
-    <string name="list_edit_dialog_redirect">Editatu birbideratzea</string>
-    <string name="list_dialog_hostname">Hostalari-izena:</string>
-    <string name="list_dialog_hostname_hint">Hostalari iturriaren URLa</string>
-    <string name="list_dialog_wildcard">(* eta ? bezalako komodin karaktereak onartzen dira)</string>
-    <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
     <string name="import_dialog">Inportatzen…</string>
     <string name="export_dialog">Esportatzen…</string>
     <!--Hosts content-->
@@ -141,17 +129,12 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_scanning">Eskaneatzen&#8230;</string>
+    <string name="adware_scanning">Eskaneatzen…</string>
     <string name="adware_empty">Ez da Adwarerik topatu!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Tokikoa:</string>
     <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">ez dago eskuragarri</string>
-    <string name="hosts_add_dialog_title">Gehitu iturria</string>
-    <string name="hosts_edit_dialog_title">Editatu iturria</string>
-    <string name="hosts_dialog_url">URL: (https:// edo file:// baliabidea)</string>
-    <string name="hosts_dialog_url_hint">Hostalari iturriaren URLa</string>
 
     <!--Other-->
     <string name="app_subtitle">Iragarki blokeatzailea</string>
@@ -179,27 +162,16 @@
     <string name="pref_download">Hobespen Orokorrak</string>
     <string name="pref_dismiss_welcome">Ezkutatu ongi etorri mezua</string>
     <string name="pref_dismiss_welcome_summary">Ez erakutsi ongi etorri mezua hasierako pantailan</string>
-    <string name="pref_dark_theme">Gaitu gai iluna</string>
     <string name="pref_dark_theme_summary">Gai argia ordez, erabili gai iluna</string>
     <string name="pref_dark_theme_notification">Gaia hurrengo abioan aplikatuko da!</string>
     <string name="pref_hosts">Hostalari Agiria</string>
-    <string name="pref_update_check">Egiaztatu eguneraketak</string>
-    <string name="pref_apply_method">Xede hostalari agiria</string>
-    <string name="pref_apply_method_summary">Ezarpen hau aldatu aurretik, irakurri bere eginkizunari buruz Laguntza.</string>
-    <string name="pref_redirection_ipv4">IPv4 birbideratzea</string>
     <string name="pref_redirection_ipv4_summary">Blokeatutako hostalari-izen guztiak IPv4 helbide honetara birbideratuko dira.</string>
-    <string name="pref_redirection_ipv6">IPv6 birbideratzea</string>
     <string name="pref_redirection_ipv6_summary">Blokeatutako hostalari-izen guztiak IPv6 helbide honetara birbideratuko dira.</string>
     <string name="pref_header_preferences">Hobespenak</string>
     <string name="pref_header_preferences_summary">AdAway hobespen orokorrak</string>
-    <string name="pref_never_reboot">Ezkutatu berrabiarazte elkarrizketa</string>
     <string name="pref_never_reboot_summary">Ongi ezarri ondoren Android berrabiaraztea galdetzen duen elkarrizketa ezkutatzen du</string>
-    <string name="pref_webserver_on_boot">Hasi web-zerbitzaria abiatzerakoan</string>
     <string name="pref_webserver_on_boot_summary">Hasi web-zerbitzaria Abiaraztean, tokiko IP helbidean aditzen</string>
-    <string name="pref_webserver_enabled">Gaitu web-zerbitzaria</string>
     <string name="pref_webserver_enabled_summary">Web-zerbitzari aditzea gaitzen du tokiko IP helbidean hostalari-izenak blokeatzeko eskabideei erantzuteko</string>
-    <string name="pref_webserver">Tokiko Web-zerbitzaria</string>
-    <string name="pref_custom_target">Norbere xedea</string>
     <string name="pref_custom_target_summary">Bakarrik erabiltzen da xede hostalari agiria norbere xede bezala ezartzen bada</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -213,17 +185,11 @@
     <string name="pref_update_check_summary">Egiaztatu eguneraketak AdAway abiatzean</string>
     <string name="pref_sdcard_problem">Ezaugarri hau ez du ongi funtzionatuko AdAway SD txartelan instalatuta dagoenean!</string>
     <string name="pref_background">Barreneko Zerbitzuak</string>
-    <string name="pref_update_check_daily">Egiaztatu eguneraketak egunero</string>
     <string name="pref_update_check_daily_summary">Egiaztatu eguneraketak egunero barrenean jakinarazpenekin</string>
     <string name="pref_automatic_update_daily">Berezgaitasunezko eguneraketa</string>
     <string name="pref_automatic_update_daily_summary">Eguneratu berezgaitasunez barrenean eguneraketa eskuragarririk badago.</string>
-    <string name="pref_whitelist_rules">Ahalbidetu zerrenda-zuriak</string>
     <string name="pref_whitelist_rules_summary">Ahalbidtu zerrend-zuri sarrerak Hostalari Iturburuetatik.</string>
-    <string name="pref_redirection_rules">Gaitu Birbideratzeak</string>
-    <string name="pref_redirection_rules_summary">SEGURTASUN ARRISKU JARRERAK! Ahalbidetu Hostalari Iturburuetatiko sarrerak berzuzentzea.</string>
     <string name="pref_debug">Garbiketa</string>
-    <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
-    <string name="pref_enable_ipv6">Gaitu IPv6</string>
     <string name="pref_enable_systemless_summary">Saihestu AdAway-k sistemaren partizioa aldatzea</string>
     <string name="pref_enable_systemless">Gaitu sistemagabe modua</string>
     <string name="drawer_open">Ireki menua</string>

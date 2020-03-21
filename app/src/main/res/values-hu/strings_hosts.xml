@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">nem érhető el</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Forrás hozzáadása</string>
+    <string name="hosts_edit_dialog_title">Forrás szerkesztése</string>
+    <string name="hosts_dialog_url">URL: (https:// vagy file:// erőforrás)</string>
+    <string name="hosts_dialog_url_hint">Hosts fájl forrása (URL)</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Gehitu hostalaria zerrenda-beltzara</string>
+    <string name="list_add_dialog_white">Gehitu hostalaria zerrenda-zurira</string>
+    <string name="list_add_dialog_redirect">Gehitu birbideratze hostalaria</string>
+    <string name="list_edit_dialog_black">Editatu zerrenda-beltzeko hostalaria</string>
+    <string name="list_edit_dialog_white">Editatu zerrenda-zuriko hostalaria</string>
+    <string name="list_edit_dialog_redirect">Editatu birbideratzea</string>
+    <string name="list_dialog_hostname">Hostalari-izena:</string>
+    <string name="list_dialog_hostname_hint">Hostalari iturriaren URLa</string>
+    <string name="list_dialog_wildcard">(* eta ? bezalako komodin karaktereak onartzen dira)</string>
+    <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
+</resources>

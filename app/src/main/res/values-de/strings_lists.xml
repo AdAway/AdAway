@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Host zur Negativliste hinzufügen</string>
+    <string name="list_add_dialog_white">Host zur Positivliste hinzufügen</string>
+    <string name="list_add_dialog_redirect">Host-Umleitung hinzufügen </string>
+    <string name="list_edit_dialog_black">Host in Negativliste bearbeiten</string>
+    <string name="list_edit_dialog_white">Host in Positivliste bearbeiten</string>
+    <string name="list_edit_dialog_redirect">Umleitung bearbeiten</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_hostname_hint">Die Quell-URL der Hosts</string>
+    <string name="list_dialog_wildcard">(Die Zeichen * und ? sind als Platzhalter zulässig)</string>
+    <string name="list_dialog_ip">IP (IPv4 oder IPv6):</string>
+</resources>

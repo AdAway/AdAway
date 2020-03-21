@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">অ্যাডঅ্যাওয়ে</string>
 
     <!--Buttons-->
     <string name="button_exit">এক্সিট</string>
@@ -33,4 +31,4 @@
         <item>Preferences</item>
         <item>Help</item>
     </string-array>
-    </resources>
+</resources>

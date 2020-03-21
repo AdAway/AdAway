@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
+    <string name="list_add_dialog_white">Tambahkan pada daftar putih</string>
+    <string name="list_add_dialog_redirect">Tambahkan pada daftar pengalihan</string>
+    <string name="list_edit_dialog_black">Sunting host daftar hitam</string>
+    <string name="list_edit_dialog_white">Sunting host daftar putih host</string>
+    <string name="list_edit_dialog_redirect">Kelola pengalihan</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_hostname_hint">Alamat sumber daftar</string>
+    <string name="list_dialog_wildcard">(Karakter * dan ? diperbolehkan)</string>
+    <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
+</resources>

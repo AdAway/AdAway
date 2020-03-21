@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Keluar</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Daftar Putih</string>
     <string name="lists_tab_blacklist">Daftar Hitam</string>
     <string name="lists_tab_redirection_list">Pengalihan</string>
-    <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
-    <string name="list_add_dialog_white">Tambahkan pada daftar putih</string>
-    <string name="list_add_dialog_redirect">Tambahkan pada daftar pengalihan</string>
-    <string name="list_edit_dialog_black">Sunting host daftar hitam</string>
-    <string name="list_edit_dialog_white">Sunting host daftar putih host</string>
-    <string name="list_edit_dialog_redirect">Kelola pengalihan</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_hostname_hint">Alamat sumber daftar</string>
-    <string name="list_dialog_wildcard">(Karakter * dan ? diperbolehkan)</string>
-    <string name="list_dialog_ip">IP (IPv4 atau IPv6):</string>
     <string name="import_dialog">Mengimpor ...</string>
     <string name="import_success">Cadangan sukses diimpor dari penyimpanan eksternal anda</string>
     <string name="import_failed">Cadangan gagal diimpor. Apakah formatnya benar? Lihat logcat untuk detail lebih.</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">Symlink tidak dapat di buat oleh Android.\nKebanyakan ini gagal karena \'fitur\' yang disebut S-ON pada ponsel HTC!\n\nSolusi untuk masalah ini adalah dengan masuk ke mode recovery lalu buat symlink dengan perintah \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika masih tidak mempan carilah di Internet cara untuk S-OFF ponselmu.</string>
     <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
     <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
-    <string name="apply_apn_proxy">Sebuah proksi APN terkonfigurasi pada Android mu!\nAdAway mungkin tidak berdungsi semestinya pada jaringan seperti 3G. Kamu bisa mematikan proksi pada APN terkonfigurasi (Pengaturan aplikasi: Jaringan &amp; Internet -> Jaringan Mobile -> Lanjutan -> Nama Akses Poin) dan hapus nilai pada kolom proksi.</string>
+    <string name="apply_apn_proxy">Sebuah proksi APN terkonfigurasi pada Android mu!\nAdAway mungkin tidak berdungsi semestinya pada jaringan seperti 3G. Kamu bisa mematikan proksi pada APN terkonfigurasi (Pengaturan aplikasi: Jaringan &amp; Internet -&gt; Jaringan Mobile -&gt; Lanjutan -&gt; Nama Akses Poin) dan hapus nilai pada kolom proksi.</string>
     <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
     <string name="no_connection">Koneksi internet tidak berfungsi.</string>
     <string name="no_connection_title">Tidak ada koneksi</string>
@@ -163,17 +151,12 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Disini Anda dapat menemukan adware yang terpasang, aplikasi jelek yang tidak dapat diblok oleh AdAway. Aplikasi ini digunakan sebagai contoh, notifikasi Airpush yang muncul ketika aplikasi tidak berjalan ataupun mengganti ringtonemu. Satu-satunya penanggulangan yang tersedia adalah melepas aplikasi-aplikasi tersebut dengan mengklik pada daftar item.</string>
-    <string name="adware_scanning">Memindai&#8230;</string>
+    <string name="adware_scanning">Memindai…</string>
     <string name="adware_empty">Adware tidak ditemukan!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Lokal:</string>
     <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">Tidak tersedia</string>
-    <string name="hosts_add_dialog_title">Tambah sumber</string>
-    <string name="hosts_edit_dialog_title">Ubah sumber</string>
-    <string name="hosts_dialog_url">URL: (a https:// atau file:// sumber)</string>
-    <string name="hosts_dialog_url_hint">Alamat sumber daftar</string>
 
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
@@ -201,27 +184,16 @@
     <string name="pref_download">Pengaturan umum</string>
     <string name="pref_dismiss_welcome">Sembunyikan kartu sambutan</string>
     <string name="pref_dismiss_welcome_summary">Jangan tampilkan kartu sambutan pada halaman utama</string>
-    <string name="pref_dark_theme">Gunakan tema gelap</string>
     <string name="pref_dark_theme_summary">Gunakan tema gelap, bukan tema cerah</string>
     <string name="pref_dark_theme_notification">Tema akan berubah pada sesi aplikasi berikutnya!</string>
     <string name="pref_hosts">Hosts File</string>
-    <string name="pref_update_check">Memeriksa pembaruan</string>
-    <string name="pref_apply_method">Target file host</string>
-    <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
-    <string name="pref_redirection_ipv4">Redireksi IPv4</string>
     <string name="pref_redirection_ipv4_summary">Semua nama host yang diblok akan dialihkan ke alamat IPV4 ini.</string>
-    <string name="pref_redirection_ipv6">Redireksi IPv6</string>
     <string name="pref_redirection_ipv6_summary">Semua nama host yang diblok akan dialihkan ke alamat IPV6 ini.</string>
     <string name="pref_header_preferences">Pengaturan</string>
     <string name="pref_header_preferences_summary">Pengaturan normal Adaway</string>
-    <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
     <string name="pref_never_reboot_summary">Menyembunyikan dialog yang menanyakan untuk reboot Android setelah sukses menerapkan</string>
-    <string name="pref_webserver_on_boot">Mulai server web saat boot</string>
     <string name="pref_webserver_on_boot_summary">Memulai server web pada saat boot, mendengarkan alamat IP lokal</string>
-    <string name="pref_webserver_enabled">Aktifkan peladen web</string>
     <string name="pref_webserver_enabled_summary">Aktifkan server web yang mendengarkan alamat IP lokal untuk menjawab permintaan ke nama host diblokir</string>
-    <string name="pref_webserver">Peladen Web lokal</string>
-    <string name="pref_custom_target">Kustom target</string>
     <string name="pref_custom_target_summary">Hanya digunakan bila target berkas hosts diatur untuk custom target</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -235,22 +207,13 @@
     <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
     <string name="pref_sdcard_problem">Fitur ini tidak akan berfungsi dengan baik saat AdAway terpasang di Kartu SD!</string>
     <string name="pref_background">Layanan latar Belakang</string>
-    <string name="pref_update_check_daily">Periksa pembaruan setiap hari</string>
     <string name="pref_update_check_daily_summary">Periksa update harian di latar belakang dengan pemberitahuan</string>
     <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
     <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
     <string name="pref_update_only_on_wifi">Hanya perbarui saat tidak dibatasi</string>
     <string name="pref_update_only_on_wifi_summary">Menjalankan pembaruan latar belakang hanya ketika terhubung ke jaringan yang tidak dibatasi saja.</string>
-    <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
     <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
-    <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
-    <string name="pref_redirection_rules_summary">BAHAYA KEAMANAN! Perbolehkan pengalihan dari sumber host.</string>
     <string name="pref_debug">Debug</string>
-    <string name="pref_enable_debug">Nyalakan verbose logging</string>
-    <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>
-    <string name="pref_enable_telemetry">Nyalakan laporan crash</string>
-    <string name="pref_enable_telemetry_summary">Ijinkan aplikasi untuk mengirim laporan error dan crash ke Sentry (sentry.io)</string>
-    <string name="pref_enable_ipv6">Aktifkan IPv6</string>
     <string name="pref_enable_ipv6_summary">Semua entri berkas host akan mendapatkan entri pengalihan yang sesuai.</string>
     <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
     <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>

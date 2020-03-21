@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_apply_method">Cél hosts fájl</string>
+    <string name="pref_apply_method_summary">Ezen beállítás módosítása előtt olvasd el a Súgó vonatkozó fejezetét!</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+    <string name="pref_custom_target">Egyéni cél</string>
+    <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>
+    <!-- Redirection category -->
+    <string name="pref_redirection_ipv4">IPv4 átirányítás</string>
+    <string name="pref_redirection_ipv6">IPv6 átirányítás</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Helyi webszerver</string>
+    <string name="pref_webserver_enabled">Webszerver engedélyezése</string>
+    <string name="pref_webserver_on_boot">Webszerver indítása bootoláskor</string>
+</resources>

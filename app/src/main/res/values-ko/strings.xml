@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">종료</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">허용 목록</string>
     <string name="lists_tab_blacklist">차단 목록</string>
     <string name="lists_tab_redirection_list">리디렉션</string>
-    <string name="list_add_dialog_black">블랙리스트에 호스트 추가</string>
-    <string name="list_add_dialog_white">화이트리스트에 호스트 추가</string>
-    <string name="list_add_dialog_redirect">리디렉션에 호스트 추가</string>
-    <string name="list_edit_dialog_black">블랙리스트 호스트 수정</string>
-    <string name="list_edit_dialog_white">화이트리스트 호스트 수정</string>
-    <string name="list_edit_dialog_redirect">리디렉션 수정</string>
-    <string name="list_dialog_hostname">호스트명:</string>
-    <string name="list_dialog_hostname_hint">호스트 소스 URL</string>
-    <string name="list_dialog_wildcard">(*과 ? 2가지의 와일드카드 문자들이 허용됩니다)</string>
-    <string name="list_dialog_ip">IP (IPv4 또는 IPv6):</string>
     <string name="import_dialog">가져오는 중...</string>
     <string name="import_success">백업이 성공적으로 외부 저장소에서부터 불러와졌습니다.</string>
     <string name="import_failed">백업을 불러오는데 실패했습니다. 포멧이 정확한가요? 자세한 내용은 로그캣을 확인해주세요.</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">안드로이드가 심링크를 생성하지 못하였습니다.\n이것은 대부분 HTC 전화기의 S-ON이라 불리는 \'기능\'이 원인입니다.\n\n해결을 위해 전화기를 복구 모드로 부팅한 후 \'ln -s /data/data/hosts /system/etc/hosts\'(으)로 심링크를 생성하십시오.\n\n이 방법이 작동하지 않을 경우 인터넷에서 S-OFF 및 전화기 기종을 검색하십시오.</string>
     <string name="apply_symlink_fail_title">심링크 생성 실패</string>
     <string name="apply_help">더 많은 정보는 도움말을 참조해주세요.</string>
-    <string name="apply_apn_proxy">안드로이드에 APN 프록시가 설정되어 있습니다!\nAdAway는 3G와 같은 모바일 네트워크 상에서 안정적으로 작동하지 않습니다. 선택한 APN(설정 앱에서: 네트워크 &amp; 인터넷 -> 모바일 네트워크 -> 고급 -> 어세스 포인트 이름(APN))으로 이동하여 프록시 입력란의 값을 제거함으로 해당 프록시를 비활성화할 수 있습니다.</string>
+    <string name="apply_apn_proxy">안드로이드에 APN 프록시가 설정되어 있습니다!\nAdAway는 3G와 같은 모바일 네트워크 상에서 안정적으로 작동하지 않습니다. 선택한 APN(설정 앱에서: 네트워크 &amp; 인터넷 -&gt; 모바일 네트워크 -&gt; 고급 -&gt; 어세스 포인트 이름(APN))으로 이동하여 프록시 입력란의 값을 제거함으로 해당 프록시를 비활성화할 수 있습니다.</string>
     <string name="apply_apn_proxy_title">APN 프록시가 설정됨!</string>
     <string name="no_connection">인터넷에 연결되지않아 작동하지않습니다</string>
     <string name="no_connection_title">연결 끊김</string>
@@ -158,17 +146,12 @@
     <!--Adware-->
     <string name="adware_header">애드웨어</string>
     <string name="adware_description">여기서 AdAway로 차단되지 않는 불량 애드웨어 앱을 검색할 수 있습니다. 이 앱들은 앱이 실행 중이지 않을 때나 벨소리를 변경할 때도 팝업 형식으로 나타나는 Alrpush 같은 알림을 사용합니다. 사용 가능한 유일한 대책은 목록 아이템을 클릭하여 제거하는 것입니다.</string>
-    <string name="adware_scanning">스캔중&#8230;</string>
+    <string name="adware_scanning">스캔중…</string>
     <string name="adware_empty">애드웨어가 없습니다!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">로컬:</string>
     <string name="hosts_last_modified_online">온라인:</string>
-    <string name="hosts_not_available">사용 불가</string>
-    <string name="hosts_add_dialog_title">소스 추가</string>
-    <string name="hosts_edit_dialog_title">소스 수정</string>
-    <string name="hosts_dialog_url">URL: (https://로 시작하거나 file://로 시작)</string>
-    <string name="hosts_dialog_url_hint">호스트 소스 URL</string>
 
     <!--Other-->
     <string name="app_subtitle">광고 차단 도구</string>
@@ -196,27 +179,16 @@
     <string name="pref_download">일반 환경 설정</string>
     <string name="pref_dismiss_welcome">환영 카드 숨기기</string>
     <string name="pref_dismiss_welcome_summary">홈 화면에 환영 카드 보이지 않기</string>
-    <string name="pref_dark_theme">다크 모드 활성화</string>
     <string name="pref_dark_theme_summary">밝은 것 외에 다크모드 사용하기</string>
     <string name="pref_dark_theme_notification">다음 애플리케이션 실행 시 테마가 적용됩니다!</string>
     <string name="pref_hosts">호스트 파일</string>
-    <string name="pref_update_check">업데이트 확인</string>
-    <string name="pref_apply_method">대상 호스트 파일</string>
-    <string name="pref_apply_method_summary">이 설정을 변경하기 전에, 이 기능에 대한 도움말을 참조하십시오.</string>
-    <string name="pref_redirection_ipv4">IPv4 리디렉션</string>
     <string name="pref_redirection_ipv4_summary">모든 차단된 호스트명은 이 IPv4 주소로 리디렉션 됩니다.</string>
-    <string name="pref_redirection_ipv6">IPv6 리디렉션</string>
     <string name="pref_redirection_ipv6_summary">모든 차단된 호스트명은 이 IPv6 주소로 리디렉션 됩니다.</string>
     <string name="pref_header_preferences">환경 설정</string>
     <string name="pref_header_preferences_summary">AdAway의 일반 환경 설정</string>
-    <string name="pref_never_reboot">재부팅 메뉴 숨기기</string>
     <string name="pref_never_reboot_summary">성공적인 적용 후 안드로이드 재부팅을 요청하는 대화창 숨기기</string>
-    <string name="pref_webserver_on_boot">부팅 시 웹서버 시작</string>
     <string name="pref_webserver_on_boot_summary">부팅 시 웹서버 시작, 로컬 IP 주소 수신 대기</string>
-    <string name="pref_webserver_enabled">웹서버 활성화</string>
     <string name="pref_webserver_enabled_summary">로컬 IP 주소에 대한 웹서버 수신 대기를 활성화하여 차단된 호스트명의 요청을 응답함</string>
-    <string name="pref_webserver">로컬 웹서버</string>
-    <string name="pref_custom_target">사용자 지정 대상</string>
     <string name="pref_custom_target_summary">대상 호스트 파일이 사용자 지정 대상으로 설정되었을 경우에만 사용됨</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -230,22 +202,13 @@
     <string name="pref_update_check_summary">AdAway 시작 시 업데이트 확인</string>
     <string name="pref_sdcard_problem">AdAway가 SD카드에 설치된 경우 해당 기능이 올바르게 작동하지 않습니다!</string>
     <string name="pref_background">배경 서비스</string>
-    <string name="pref_update_check_daily">매일 업데이트 확인</string>
     <string name="pref_update_check_daily_summary">알림을 포함하여 배경에서 매일 업데이트 확인</string>
     <string name="pref_automatic_update_daily">자동 업데이트</string>
     <string name="pref_automatic_update_daily_summary">업데이트가 가능한 경우 배경에서 자동 업데이트</string>
     <string name="pref_update_only_on_wifi">무제한일때만 업데이트하기</string>
     <string name="pref_update_only_on_wifi_summary">무제한 네트워크 연결 시에만 배경 업데이트 실행</string>
-    <string name="pref_whitelist_rules">허용 목록 기능 허용</string>
     <string name="pref_whitelist_rules_summary">호스트 소스에서 허용 목록 입력 허용</string>
-    <string name="pref_redirection_rules">리디렉션 허용</string>
-    <string name="pref_redirection_rules_summary">보안 상의 위험을 초래함! 호스트 소스에서 리디렉션 입력 허용하십시오.</string>
     <string name="pref_debug">디버깅</string>
-    <string name="pref_enable_debug">상세한 로깅 활성화</string>
-    <string name="pref_enable_debug_summary">해당 변경 사항을 적용하려면 AdAway를 재시작해야 합니다.</string>
-    <string name="pref_enable_telemetry">충돌 보고서 활성화</string>
-    <string name="pref_enable_telemetry_summary">애플리케이션이 오류와 충돌 보고서를 Sentry (sentry.io)로 보내는 것을 허용</string>
-    <string name="pref_enable_ipv6">IPv6 활성화</string>
     <string name="pref_enable_ipv6_summary">모든 호스트 파일의 입력 내용은 이에 해당하는 리디렉션 내용을 얻습니다.</string>
     <string name="pref_enable_systemless_summary">AdAway의 시스템 파티션 수정 방지</string>
     <string name="pref_enable_systemless">Systemless 모드 활성화</string>

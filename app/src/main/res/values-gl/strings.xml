@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Saír</string>
@@ -47,4 +45,4 @@
         <item>Preferences</item>
         <item>Axuda</item>
     </string-array>
-    </resources>
+</resources>

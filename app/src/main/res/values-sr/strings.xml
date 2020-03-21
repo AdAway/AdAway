@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Izlaz</string>
@@ -29,8 +27,6 @@
     <!--Your lists-->
     <string name="lists_tab_whitelist">Bela lista</string>
     <string name="lists_tab_blacklist">Crna lista</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Uvoz…</string>
     <string name="export_dialog">Izvoz...</string>
     <!--Status Notification-->
@@ -105,7 +101,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Lokalno:</string>
     <string name="hosts_last_modified_online">Sa interneta;</string>
-    <string name="hosts_not_available">nije dostupno</string>
     <!--Other-->
     <string name="app_subtitle">Ad Blocker</string>
     <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
@@ -117,19 +112,11 @@
     <!--Preferences-->
     <string name="pref_download">Opšta Podešavanja</string>
     <string name="pref_hosts">Hosts Fajl</string>
-    <string name="pref_update_check">Proveri nove verzije</string>
-    <string name="pref_apply_method">Odredišni hosts fajl</string>
-    <string name="pref_apply_method_summary">Pre promene ovog podešavanja, pročitaj pomoć o ovoj funkcionalnosti.</string>
     <string name="pref_header_preferences">Podešavanja</string>
     <string name="pref_header_preferences_summary">Opšta podešavanja za AdAway</string>
-    <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja (reboot)</string>
     <string name="pref_never_reboot_summary">Krije dijalog o ponovnom pokretanju Androida nakon uspešne primene</string>
-    <string name="pref_webserver_on_boot">Pokreni webserver pri pokretanju sistema</string>
     <string name="pref_webserver_on_boot_summary">Pokreni web server pri pokretanju sistema, osluškujući lokalne IP adrese</string>
-    <string name="pref_webserver_enabled">Omogući webserver</string>
     <string name="pref_webserver_enabled_summary">Omogućuje web server koji osluškuje lokalne IP adrese u svrhu odgovora na blokirane nazive hostova</string>
-    <string name="pref_webserver">Lokalni Webserver</string>
-    <string name="pref_custom_target">Prilagođeno odredište</string>
     <string name="pref_custom_target_summary">Koristi se samo ako je ciljna hosts datoteka postavljena na prilagođeno odredište</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -142,16 +129,11 @@
 
     <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
     <string name="pref_background">Pozadinski servisi</string>
-    <string name="pref_update_check_daily">Dnevna proveravanje ažuriranja</string>
     <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>
     <string name="pref_automatic_update_daily">Automatska ažuriranja</string>
     <string name="pref_automatic_update_daily_summary">Ažuriraj automatski u pozadini ako su ažuriranja dostupna</string>
-    <string name="pref_whitelist_rules">Dozvoli belu listu</string>
     <string name="pref_whitelist_rules_summary">Dopušta stavke sa bele liste sa izvora hostova.</string>
-    <string name="pref_redirection_rules_summary">PREDSTAVLJA BEZBEDNOSNI RIZIK! Dopušta preusmerene stavke sa izvora hostova.</string>
     <string name="pref_debug">Otklanjanje grešaka</string>
-    <string name="pref_enable_debug_summary">Morate ponovno pokrenuti AdAway da bi ovo podešavanje bilo primenjeno.</string>
-    <string name="pref_enable_ipv6">Omogući IPv6</string>
     <string name="pref_enable_systemless_summary">Onemogući AdAway da modifikuje sistemsku particiju.</string>
     <string name="pref_enable_systemless">Omogući systemless režim</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
@@ -167,4 +149,4 @@
     </string-array>
     <string name="shortcut_preferences">Podešavanja</string>
 
-    </resources>
+</resources>

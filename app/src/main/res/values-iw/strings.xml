@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">יציאה</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">רשימה לבנה</string>
     <string name="lists_tab_blacklist">רשימה שחורה</string>
     <string name="lists_tab_redirection_list">הפניות</string>
-    <string name="list_add_dialog_black">הוסף host לרשימה שחורה</string>
-    <string name="list_add_dialog_white">הוסף host לרשימה לבנה</string>
-    <string name="list_add_dialog_redirect">הוסף הפניית host</string>
-    <string name="list_edit_dialog_black">ערוך host ברשימה שחורה</string>
-    <string name="list_edit_dialog_white">ערוך host ברשימה לבנה</string>
-    <string name="list_edit_dialog_redirect">ערוך הפנייה</string>
-    <string name="list_dialog_hostname">שם שרת:</string>
-    <string name="list_dialog_hostname_hint">כתובת URL למקור hosts</string>
-    <string name="list_dialog_wildcard">(תווים כלליים * ו ? מותרים)</string>
-    <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
     <string name="import_dialog">מייבא...</string>
     <string name="import_success">גיבוי יובא בהצלחה מהאחסון החיצוני</string>
     <string name="import_failed">ייבוא הגיבוי נכשל. האם פורמט הגיבוי נכון? בדוק את logcat לפרטים נוספים.</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">אנדרואיד לא יכול היה ליצור את Symlink.\n הכישלון בד״כ בעיקר בגלל \'פיצ\'ר\' שנקרא S-ON בטלפונים של HTC! \n\n הפיתרון הוא לאתחל את הטלפון שלך למצב שחזור וליצור שם את ה- symlink עם \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n אם זה לא עובד חפש באינטרנט ובטלפון שלך את: S-OFF.</string>
     <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
     <string name="apply_help">קרא את העזרה למידע נוסף.</string>
-    <string name="apply_apn_proxy">פרוקסי APN מוגדר באנדרואיד שלך!\n AdAway לא יעבוד באופן אמין ברשתות סלולריות כמו 3G. אתה יכול להשבית את ה- proxy הזה על ידי מעבר ל- APN שבחרת. (בתפריט הגדרות רשת -> רשתות מובייל -> מתקדם -> APN והסר משם את הערך בשדה proxy).</string>
+    <string name="apply_apn_proxy">פרוקסי APN מוגדר באנדרואיד שלך!\n AdAway לא יעבוד באופן אמין ברשתות סלולריות כמו 3G. אתה יכול להשבית את ה- proxy הזה על ידי מעבר ל- APN שבחרת. (בתפריט הגדרות רשת -&gt; רשתות מובייל -&gt; מתקדם -&gt; APN והסר משם את הערך בשדה proxy).</string>
     <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
     <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
     <string name="no_connection_title">אין חיבור</string>
@@ -152,17 +140,12 @@
     <string name="help_tab_faq">שאלות ותשובות</string>
     <string name="help_tab_problems">תקלות</string>
 
-    <string name="adware_scanning">סורק&#8230;</string>
+    <string name="adware_scanning">סורק…</string>
     <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">מקומי:</string>
     <string name="hosts_last_modified_online">אונליין:</string>
-    <string name="hosts_not_available">לא זמין</string>
-    <string name="hosts_add_dialog_title">הוסף מקור</string>
-    <string name="hosts_edit_dialog_title">ערוך מקור</string>
-    <string name="hosts_dialog_url">כתובת URL: (כתובת https:// או file://)</string>
-    <string name="hosts_dialog_url_hint">כתובת URL למקור hosts</string>
 
     <!--Other-->
     <string name="app_subtitle">חסום פרסומות</string>
@@ -190,27 +173,16 @@
     <string name="pref_download">העדפות כלליות</string>
     <string name="pref_dismiss_welcome">הסתר הודעת ברוך הבא</string>
     <string name="pref_dismiss_welcome_summary">אל תציג את הודעת ברוך הבא בחלון הפתיחה</string>
-    <string name="pref_dark_theme">הפעל ערכת צבעים כהה</string>
     <string name="pref_dark_theme_summary">השתמש בערכת צבעים כהה במקום בהירה</string>
     <string name="pref_dark_theme_notification">ערכת הצבעים תשונה בהפעלת האפליקציה מחדש!</string>
     <string name="pref_hosts">קובץ Hosts</string>
-    <string name="pref_update_check">בדוק עידכונים</string>
-    <string name="pref_apply_method">יעד קובץ Hosts</string>
-    <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
-    <string name="pref_redirection_ipv4">הפניית IPv4</string>
     <string name="pref_redirection_ipv4_summary">כל הכתובות החסומות מופנות לכתובת IPv4 זאת.</string>
-    <string name="pref_redirection_ipv6">הפניית IPv6</string>
     <string name="pref_redirection_ipv6_summary">כל הכתובות החסומות מופנות לכתובת IPv6 זאת.</string>
     <string name="pref_header_preferences">העדפות</string>
     <string name="pref_header_preferences_summary">העדפות כלליות של AdAway</string>
-    <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
     <string name="pref_never_reboot_summary">מסתיר את תיבת הדו שיח ששואלת אם להפעיל את מערכת אנדרואיד מחדש לאחר עדכון מוצלח</string>
-    <string name="pref_webserver_on_boot">הפעל את השירות בעת הפעלת המערכת</string>
     <string name="pref_webserver_on_boot_summary">הפעל שרת Web בעת הפעלת המכשיר, המאזין על כל כתובות ה-IP המקומיות</string>
-    <string name="pref_webserver_enabled">הפעל שירות</string>
     <string name="pref_webserver_enabled_summary">הפעל את השרת להקשיב לכתובת IP מקומית ולענות לבקשות של כתובות חסומות</string>
-    <string name="pref_webserver">שרת מקומי</string>
-    <string name="pref_custom_target">יעד מותאם אישית</string>
     <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -224,20 +196,11 @@
     <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
     <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר אפליקציית AdAway מותקנת בכרטיס הזיכרון!</string>
     <string name="pref_background">שירותים ברקע</string>
-    <string name="pref_update_check_daily">בדוק עידכונים יומיים</string>
     <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
     <string name="pref_automatic_update_daily">עדכונים אוטומטיים</string>
     <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
-    <string name="pref_whitelist_rules">אפשר רשימות לבנות</string>
     <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
-    <string name="pref_redirection_rules">אפשר הפניות</string>
-    <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
     <string name="pref_debug">ניפוי שגיאות</string>
-    <string name="pref_enable_debug">הפעל לוג מפורט</string>
-    <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
-    <string name="pref_enable_telemetry">הפעל דוחות קריסה</string>
-    <string name="pref_enable_telemetry_summary">אפשר לאפליקציה לשלוח שגיאות ודוחות קריסה ל-Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">אפשר IPv6</string>
     <string name="pref_enable_ipv6_summary">כל הרשומות בקובץ ה-host יקבלו ערך ניתוב מתאים.</string>
     <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
     <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>

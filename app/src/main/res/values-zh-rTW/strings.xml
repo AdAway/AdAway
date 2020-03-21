@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">離開</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">白名單</string>
     <string name="lists_tab_blacklist">黑名單</string>
     <string name="lists_tab_redirection_list">重新導向</string>
-    <string name="list_add_dialog_black">將主機加入至黑名單</string>
-    <string name="list_add_dialog_white">將主機至白名單</string>
-    <string name="list_add_dialog_redirect">加入主機重新導向</string>
-    <string name="list_edit_dialog_black">編輯黑名單主機</string>
-    <string name="list_edit_dialog_white">編輯白名單主機</string>
-    <string name="list_edit_dialog_redirect">編輯重新導向</string>
-    <string name="list_dialog_hostname">主機名稱：</string>
-    <string name="list_dialog_hostname_hint">Hosts 來源 URL</string>
-    <string name="list_dialog_wildcard">（可使用萬用字元 * 和 ?）</string>
-    <string name="list_dialog_ip">IP 位址 (IPv4 或 IPv6)：</string>
     <string name="import_dialog">匯入中...</string>
     <string name="import_success">備份成功從您的外部儲存空間匯入。</string>
     <string name="import_failed">無法匯入備份。它的格式正確嗎？檢查 logcat 以獲得更多詳細資訊。</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
     <string name="apply_symlink_fail_title">符號連結建立失敗</string>
     <string name="apply_help">請閱讀說明以獲得更多訊息。</string>
-    <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（從設定程式：在無線與網路 -> 行動網路 -> 進階 -> 存取點名稱）移除代理伺服器設定。</string>
+    <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（從設定程式：在無線與網路 -&gt; 行動網路 -&gt; 進階 -&gt; 存取點名稱）移除代理伺服器設定。</string>
     <string name="apply_apn_proxy_title">設定了 APN 代理伺服器！</string>
     <string name="no_connection">網際網路連線無法正常連線</string>
     <string name="no_connection_title">無法連線</string>
@@ -163,17 +151,12 @@
     <!--Adware-->
     <string name="adware_header">廣告軟體</string>
     <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單項目來移除它們。</string>
-    <string name="adware_scanning">掃描中&#8230;</string>
+    <string name="adware_scanning">掃描中…</string>
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">本地：</string>
     <string name="hosts_last_modified_online">線上：</string>
-    <string name="hosts_not_available">無法使用</string>
-    <string name="hosts_add_dialog_title">加入來源</string>
-    <string name="hosts_edit_dialog_title">編輯來源</string>
-    <string name="hosts_dialog_url">網址：（一個 https:// 或 file:// 資源）</string>
-    <string name="hosts_dialog_url_hint">Hosts 來源 URL</string>
 
     <!--Other-->
     <string name="app_subtitle">廣告阻擋器</string>
@@ -201,27 +184,16 @@
     <string name="pref_download">基本設定</string>
     <string name="pref_dismiss_welcome">隱藏歡迎卡片</string>
     <string name="pref_dismiss_welcome_summary">不在主螢幕上顯示歡迎卡片</string>
-    <string name="pref_dark_theme">啟用暗色主題</string>
     <string name="pref_dark_theme_summary">使用暗色主題而不是亮色主題</string>
     <string name="pref_dark_theme_notification">主題會在下次應用程式啟動時套用！</string>
     <string name="pref_hosts">Hosts 檔案</string>
-    <string name="pref_update_check">檢查更新</string>
-    <string name="pref_apply_method">目標 hosts 檔案</string>
-    <string name="pref_apply_method_summary">在修改設定前請閱讀說明來了解這項功能。</string>
-    <string name="pref_redirection_ipv4">重新導向 IPv4</string>
     <string name="pref_redirection_ipv4_summary">所有的封鎖主機名稱會被重新導向到這個 IPv4 位址。</string>
-    <string name="pref_redirection_ipv6">重新導向 IPv6</string>
     <string name="pref_redirection_ipv6_summary">所有的封鎖主機名稱會被重新導向到這個 IPv6 位址。</string>
     <string name="pref_header_preferences">設定</string>
     <string name="pref_header_preferences_summary">AdAway 基本設定</string>
-    <string name="pref_never_reboot">隱藏重新啟動對話框</string>
     <string name="pref_never_reboot_summary">隱藏成功套用後詢問重新啟動的對話框</string>
-    <string name="pref_webserver_on_boot">開機時啟動網頁伺服器</string>
     <string name="pref_webserver_on_boot_summary">開機時啟動網頁伺服器，監聽本地 IP 位址</string>
-    <string name="pref_webserver_enabled">啟用網頁伺服器</string>
     <string name="pref_webserver_enabled_summary">啟用網頁伺服器來監聽本地 IP 位址來回應至被封鎖主機的請求</string>
-    <string name="pref_webserver">本地網頁伺服器</string>
-    <string name="pref_custom_target">自訂目標</string>
     <string name="pref_custom_target_summary">只用於 hosts 檔案被設定為自訂目標的情況</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -235,22 +207,13 @@
     <string name="pref_update_check_summary">在啟動 AdAway 時檢查更新</string>
     <string name="pref_sdcard_problem">如果 AdAway 被安裝到 SD 卡上，這個功能可能無法正常運作！</string>
     <string name="pref_background">背景服務</string>
-    <string name="pref_update_check_daily">每天檢查更新</string>
     <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>
     <string name="pref_automatic_update_daily">自動更新</string>
     <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
     <string name="pref_update_only_on_wifi">只在未計量網路更新</string>
     <string name="pref_update_only_on_wifi_summary">只有在連接到不限量網路時執行背景更新。 </string>
-    <string name="pref_whitelist_rules">允許白名單</string>
     <string name="pref_whitelist_rules_summary">允許從 Hosts 來源中的白名單項目</string>
-    <string name="pref_redirection_rules">允許重新導向</string>
-    <string name="pref_redirection_rules_summary">會有安全性風險！允許來自 Hosts 來源的重新導向項目。</string>
     <string name="pref_debug">除錯</string>
-    <string name="pref_enable_debug">啟用詳細記錄</string>
-    <string name="pref_enable_debug_summary">需要重新啟動 AdAway 使設定生效。</string>
-    <string name="pref_enable_telemetry">啟用當機回報</string>
-    <string name="pref_enable_telemetry_summary">允許應用程式傳送錯誤和當機回報到 Sentry (sentry.io)。</string>
-    <string name="pref_enable_ipv6">啟用 IPv6</string>
     <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相應的重新導向項目。</string>
     <string name="pref_enable_systemless_summary">避免 Adaway 修改系統分割區</string>
     <string name="pref_enable_systemless">啟用 systemless 模式（將所需檔案安裝於系統分割區外）</string>

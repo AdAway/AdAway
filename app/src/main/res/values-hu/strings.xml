@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Kilépés</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Fehérlista</string>
     <string name="lists_tab_blacklist">Feketelista</string>
     <string name="lists_tab_redirection_list">Átirányítások</string>
-    <string name="list_add_dialog_black">Hoszt hozzáadása a feketelistához</string>
-    <string name="list_add_dialog_white">Hoszt hozzáadása a fehérlistához</string>
-    <string name="list_add_dialog_redirect">Hoszt átirányítás hozzáadása</string>
-    <string name="list_edit_dialog_black">Feketelistás hostok szerkesztése</string>
-    <string name="list_edit_dialog_white">Fehérlista szerkesztése</string>
-    <string name="list_edit_dialog_redirect">Átirányítás szerkesztése</string>
-    <string name="list_dialog_hostname">Hosztnév:</string>
-    <string name="list_dialog_hostname_hint">Hosts fájl forrása (URL)</string>
-    <string name="list_dialog_wildcard">(Helyettesítő karakterek * és ? használata is engedélyezett!)</string>
-    <string name="list_dialog_ip">IP (IPv4 vagy IPv6):</string>
     <string name="import_dialog">Importálás...</string>
     <string name="import_success">A biztonsági mentés importja a külső tárolóból sikeres.</string>
     <string name="import_failed">A biztonsági másolat importálás nem sikerült. Megfelelő a formátuma? További részletekért ellenőrizd a logcat-et.</string>
@@ -108,7 +96,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Szimbolikus link létrehozása sikertelen</string>
     <string name="apply_help">Kérlek olvasd el a Súgót további információkért!</string>
-    <string name="apply_apn_proxy">Egy APN proxy van beállítva az Android!\nAz AdAway nem fog megbízhatóan működni az olyan mobilhálózatokon, mint pl. a 3G. Ezt a proxy-t deaktiválhatod, ha a kiválasztott APN-hez lépsz (A Beállításokban: Hálózat &amp; Internet -> Mobil hálózat -> Haladó -> Hozzáférési pontok nevei) ás távolítsd el az értéket a proxy mezőből.</string>
+    <string name="apply_apn_proxy">Egy APN proxy van beállítva az Android!\nAz AdAway nem fog megbízhatóan működni az olyan mobilhálózatokon, mint pl. a 3G. Ezt a proxy-t deaktiválhatod, ha a kiválasztott APN-hez lépsz (A Beállításokban: Hálózat &amp; Internet -&gt; Mobil hálózat -&gt; Haladó -&gt; Hozzáférési pontok nevei) ás távolítsd el az értéket a proxy mezőből.</string>
     <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
     <string name="no_connection">Az internetkapcsolat nem működik.</string>
     <string name="no_connection_title">Nincs kapcsolat</string>
@@ -165,17 +153,12 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Itt megtalálhatók a telepített adware-eket, a rossz alkalmazásokat, amelyeket az AdAway nem blokkolhat. Ezek az alkalmazások például Airpush értesítéseket használnak, amelyek akkor is megjelennek, ha az alkalmazás nem fut, vagy akár csengőhangot is megváltoztathatnak. Az egyetlen használható megoldás az, hogy ezeket az alkalmazásokat a listaelemekre kattintva eltávolítod</string>
-    <string name="adware_scanning">Vizsgálat&#8230;</string>
+    <string name="adware_scanning">Vizsgálat…</string>
     <string name="adware_empty">Nem található adware!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Helyi:</string>
     <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">nem érhető el</string>
-    <string name="hosts_add_dialog_title">Forrás hozzáadása</string>
-    <string name="hosts_edit_dialog_title">Forrás szerkesztése</string>
-    <string name="hosts_dialog_url">URL: (https:// vagy file:// erőforrás)</string>
-    <string name="hosts_dialog_url_hint">Hosts fájl forrása (URL)</string>
 
     <!--Other-->
     <string name="app_subtitle">Hirdetésblokkoló</string>
@@ -207,27 +190,16 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="pref_download">Általános beállítások</string>
     <string name="pref_dismiss_welcome">Üdvözlőkártya elrejtése</string>
     <string name="pref_dismiss_welcome_summary">Ne mutassa az üdvözlőkártyát a kezdőképernyőn</string>
-    <string name="pref_dark_theme">Sötét téma engedélyezése</string>
     <string name="pref_dark_theme_summary">Sötét téma használata világos helyett</string>
     <string name="pref_dark_theme_notification">A téma a következő indításkor lesz alkalmazva!</string>
     <string name="pref_hosts">Hosts fájl</string>
-    <string name="pref_update_check">Frissítések ellenőrzése</string>
-    <string name="pref_apply_method">Cél hosts fájl</string>
-    <string name="pref_apply_method_summary">Ezen beállítás módosítása előtt olvasd el a Súgó vonatkozó fejezetét!</string>
-    <string name="pref_redirection_ipv4">IPv4 átirányítás</string>
     <string name="pref_redirection_ipv4_summary">Az összes blokkolt hostnevet átirányítja erre az IPv4 címre.</string>
-    <string name="pref_redirection_ipv6">IPv6 átirányítás</string>
     <string name="pref_redirection_ipv6_summary">Az összes blokkolt hostnevet átirányítják erre az IPv6 címre.</string>
     <string name="pref_header_preferences">Beállítások</string>
     <string name="pref_header_preferences_summary">Az AdAway általános beállításai</string>
-    <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>
     <string name="pref_never_reboot_summary">Elrejti azt az üzenetet, amely az Android újraindítását javasolja sikeres alkalmazás után</string>
-    <string name="pref_webserver_on_boot">Webszerver indítása bootoláskor</string>
     <string name="pref_webserver_on_boot_summary">A helyi IP címeket monitorozó webszerver indítása a rendszer indításakor</string>
-    <string name="pref_webserver_enabled">Webszerver engedélyezése</string>
     <string name="pref_webserver_enabled_summary">Engedélyezi a webszervert, amely helyi címeken figyelve válaszol a blokkolt hosztnevekre érkező kérésekre</string>
-    <string name="pref_webserver">Helyi webszerver</string>
-    <string name="pref_custom_target">Egyéni cél</string>
     <string name="pref_custom_target_summary">Csak akkor legyen aktív, ha a cél hosts-fájl egyéni célra mutat</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -241,22 +213,13 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="pref_update_check_summary">Az AdAway induláskor keressen frissítéseket</string>
     <string name="pref_sdcard_problem">Ez a funkció nem működik megfelelően, ha az AdAway az SD kártyára van telepítve!</string>
     <string name="pref_background">Háttérszolgáltatások</string>
-    <string name="pref_update_check_daily">Frissítések keresése naponta</string>
     <string name="pref_update_check_daily_summary">Frissítések keresése naponta a háttérben, értesítésekkel</string>
     <string name="pref_automatic_update_daily">Automatikus frissítés</string>
     <string name="pref_automatic_update_daily_summary">Automatikus frissítés a háttérben, amennyiben elérhető újabb frissítés.</string>
     <string name="pref_update_only_on_wifi">Frissítés csak mérés nélküli hálózaton</string>
     <string name="pref_update_only_on_wifi_summary">Csak akkor fusson a háttérben frissítés, ha mérés nélküli hálózathoz van csatlakozva.</string>
-    <string name="pref_whitelist_rules">Fehérlistázás engedélyezése</string>
     <string name="pref_whitelist_rules_summary">Fehérlista bejegyzések engedélyezése a hosts forrásokból.</string>
-    <string name="pref_redirection_rules">Átirányítások engedélyezése</string>
-    <string name="pref_redirection_rules_summary">BIZTONSÁGI KOCKÁZATOT JELENT! Átirányított bejegyzések engedélyezése a hosts forrásokból.</string>
     <string name="pref_debug">Hibakeresés</string>
-    <string name="pref_enable_debug">Részletes naplózás bekapcsolása</string>
-    <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
-    <string name="pref_enable_telemetry">Összeomlási jelentések BE</string>
-    <string name="pref_enable_telemetry_summary">Az alkalmazás hibaüzenet- és összeomlási jelentést küld a Sentry-nek (sentry.io).</string>
-    <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
     <string name="pref_enable_ipv6_summary">Minden host fájl bejegyzés megkapja a megfelelő átirányítási bejegyzést.</string>
     <string name="pref_enable_systemless_summary">Megakadályozza az AdAway-t, hogy módosítsa a rendszerpartíciót</string>
     <string name="pref_enable_systemless">Systemless mód engedélyezése</string>

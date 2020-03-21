@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">pole saadaval</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Lisa allikas</string>
+    <string name="hosts_edit_dialog_title">Muuda allikat</string>
+    <string name="hosts_dialog_url">URL: (https:// või file:// ressurss)</string>
+    <string name="hosts_dialog_url_hint">Hosts-allika URL</string>
+</resources>

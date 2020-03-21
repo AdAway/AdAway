@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_apply_method">Nukreipti host failą</string>
+    <string name="pref_apply_method_summary">Prieš keičiant šį nustatymą, perskaitykite Pagalbą apie funkcionalumą.</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+    <string name="pref_custom_target">Pasirinktinis nukreipimas</string>
+    <string name="pref_never_reboot">Slepti perkrovimo užklausą</string>
+    <!-- Redirection category -->
+    <!-- Web server category -->
+    <string name="pref_webserver">Vietinis serveris</string>
+    <string name="pref_webserver_enabled">Įjungti serverį</string>
+    <string name="pref_webserver_on_boot">Įjungti serverį startuojant</string>
+</resources>

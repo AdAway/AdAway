@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Выход</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Белый список</string>
     <string name="lists_tab_blacklist">Чёрный список</string>
     <string name="lists_tab_redirection_list">Перенаправления</string>
-    <string name="list_add_dialog_black">Добавить хост в Чёрный список</string>
-    <string name="list_add_dialog_white">Добавить хост в Белый список</string>
-    <string name="list_add_dialog_redirect">Добавить перенаправление хоста</string>
-    <string name="list_edit_dialog_black">Править хост Чёрного списка</string>
-    <string name="list_edit_dialog_white">Править хост Белого списка</string>
-    <string name="list_edit_dialog_redirect">Править перенаправление</string>
-    <string name="list_dialog_hostname">Имя источника:</string>
-    <string name="list_dialog_hostname_hint">URL источника хостов</string>
-    <string name="list_dialog_wildcard">(Допускаются подстановочные символы * и ?)</string>
-    <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
     <string name="import_dialog">Импорт…</string>
     <string name="import_success">Резервная копия успешно импортирована с вашего внешнего хранилища.</string>
     <string name="import_failed">Не удалось импортировать резервную копию. Возможно её формат не верен? Проверьте logcat для подробностей.</string>
@@ -114,7 +102,7 @@
     <string name="apply_symlink_fail">Android не смог создать ссылку.\nВозможно, это из-за особенности телефонов HTC, называемой S-ON!\n\nРешение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nЕсли это не поможет, то надо искать информацию в интернете по S-OFF и вашему телефону.</string>
     <string name="apply_symlink_fail_title">Ошибка создания ссылки</string>
     <string name="apply_help">Пожалуйста, прочите Справку, чтобы узнать больше.</string>
-    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настроек: Сеть и Интернет -> Мобильная сеть -> Дополнительно -> Точки доступа APN) и удалить значение в поле Прокси.</string>
+    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настроек: Сеть и Интернет -&gt; Мобильная сеть -&gt; Дополнительно -&gt; Точки доступа APN) и удалить значение в поле Прокси.</string>
     <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
     <string name="no_connection">Отсутствует подключение к интернет.</string>
     <string name="no_connection_title">Нет соединения</string>
@@ -189,11 +177,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Локальный:</string>
     <string name="hosts_last_modified_online">Интернет:</string>
-    <string name="hosts_not_available">недоступен</string>
-    <string name="hosts_add_dialog_title">Добавить источник</string>
-    <string name="hosts_edit_dialog_title">Править источник</string>
-    <string name="hosts_dialog_url">URL: (ресурс https:// или file://)</string>
-    <string name="hosts_dialog_url_hint">URL источника хостов</string>
 
     <!--Other-->
     <string name="app_subtitle">Блокировщик рекламы</string>
@@ -221,27 +204,16 @@
     <string name="pref_download">Основные настройки</string>
     <string name="pref_dismiss_welcome">Скрыть приветствие</string>
     <string name="pref_dismiss_welcome_summary">Не показывать приветствие на главном экране</string>
-    <string name="pref_dark_theme">Включить тёмную тему</string>
     <string name="pref_dark_theme_summary">Использовать тёмную тему вместо светлой</string>
     <string name="pref_dark_theme_notification">Тема изменится при следующем запуске приложения!</string>
     <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_update_check">Проверять обновления</string>
-    <string name="pref_apply_method">Путь к файлу hosts</string>
-    <string name="pref_apply_method_summary">Перед изменением этого параметра прочитайте об этой функции в Справке.</string>
-    <string name="pref_redirection_ipv4">Перенаправление IPv4</string>
     <string name="pref_redirection_ipv4_summary">Все заблокированные хосты переадресовываются на этот адрес IPv4.</string>
-    <string name="pref_redirection_ipv6">Перенаправление IPv6</string>
     <string name="pref_redirection_ipv6_summary">Все заблокированные хосты переадресовываются на этот адрес IPv6.</string>
     <string name="pref_header_preferences">Настройки</string>
     <string name="pref_header_preferences_summary">Основные настройки AdAway</string>
-    <string name="pref_never_reboot">Скрыть окно перезагрузки</string>
     <string name="pref_never_reboot_summary">Скрывает окно перезагрузки Android после успешного применения</string>
-    <string name="pref_webserver_on_boot">Старт веб-сервера при загрузке устройства</string>
     <string name="pref_webserver_on_boot_summary">Старт веб-сервера при загрузке системы для прослушивания локальных адресов IP</string>
-    <string name="pref_webserver_enabled">Включить веб-сервер</string>
     <string name="pref_webserver_enabled_summary">Позволяет веб-серверу прослушивать локальные IP-адреса и отвечать на запросы к заблокированным хостам</string>
-    <string name="pref_webserver">Локальный веб-сервер</string>
-    <string name="pref_custom_target">Пользовательские настройки</string>
     <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла hosts задано пользователем</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -255,22 +227,13 @@
     <string name="pref_update_check_summary">Проверять обновления при запуске AdAway</string>
     <string name="pref_sdcard_problem">Эта функция будет работать неправильно, если AdAway установлен на карту памяти!</string>
     <string name="pref_background">Фоновый режим</string>
-    <string name="pref_update_check_daily">Проверять ежедневно</string>
     <string name="pref_update_check_daily_summary">Ежедневно проверять обновления в фоновом режиме с уведомлением</string>
     <string name="pref_automatic_update_daily">Автообновление</string>
     <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
     <string name="pref_update_only_on_wifi">Обновлять только по Wi-Fi</string>
     <string name="pref_update_only_on_wifi_summary">Выполнять фоновые обновления только через нелимитированное подключения.</string>
-    <string name="pref_whitelist_rules">Разрешить белые списки</string>
     <string name="pref_whitelist_rules_summary">Разрешить белые списки из источников хостов.</string>
-    <string name="pref_redirection_rules">Разрешить перенаправления</string>
-    <string name="pref_redirection_rules_summary">ПРЕДСТАВЛЯЕТ УГРОЗУ БЕЗОПАСНОСТИ! Разрешить перенаправление из источников хостов.</string>
     <string name="pref_debug">Режим отладки</string>
-    <string name="pref_enable_debug">Включить журнал отладки</string>
-    <string name="pref_enable_debug_summary">Необходимо перезапустить AdAway для применения изменений.</string>
-    <string name="pref_enable_telemetry">Отправлять отчёты об ошибках</string>
-    <string name="pref_enable_telemetry_summary">Отправлять отчёты об ошибках и сбоях в Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Использовать IPv6</string>
     <string name="pref_enable_ipv6_summary">Все записи файла host будут получать соответствующую  запись перенаправления.</string>
     <string name="pref_enable_systemless_summary">Запретить AdAway редактировать системный раздел</string>
     <string name="pref_enable_systemless">Включить бессистемный режим</string>

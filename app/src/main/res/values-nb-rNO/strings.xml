@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Avslutt</string>
@@ -31,8 +29,6 @@
     <string name="lists_tab_whitelist">Hviteliste</string>
     <string name="lists_tab_blacklist">Svarteliste</string>
     <string name="lists_tab_redirection_list">Omdirigeringer</string>
-    <string name="list_dialog_hostname">Vertsnavn:</string>
-    <string name="list_dialog_ip">IP (IPv6 eller IPv4):</string>
     <string name="import_dialog">Importerer …</string>
     <string name="export_dialog">Eksporterer …</string>
     <!--Status Notification-->
@@ -106,7 +102,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Lokalt:</string>
     <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">ikke tilgjengelig</string>
     <!--Other-->
     <string name="app_subtitle">Reklameblokkerer</string>
     <string name="no_text_editor_title">Ingen tekstredigerere er installert</string>
@@ -118,19 +113,11 @@
     <!--Preferences-->
     <string name="pref_download">Generelle preferanser</string>
     <string name="pref_hosts">Vertsfil</string>
-    <string name="pref_update_check">Se etter oppdateringer</string>
-    <string name="pref_apply_method">Målpunktsvertsfilen</string>
-    <string name="pref_apply_method_summary">Før du endrer denne innstillingen, les i Hjelp om denne funksjonen.</string>
     <string name="pref_header_preferences">Preferanser</string>
     <string name="pref_header_preferences_summary">Generelle preferanser for AdAway</string>
-    <string name="pref_never_reboot">Skjul omstartsdialogen</string>
     <string name="pref_never_reboot_summary">Skjuler dialogen som spør om å starte Android på nytt etter vellykkede benyttelser</string>
-    <string name="pref_webserver_on_boot">Start opp nettjeneren ved systemoppstart</string>
     <string name="pref_webserver_on_boot_summary">Start nettjeneren ved oppstart, og lytter på lokale IP-adresser</string>
-    <string name="pref_webserver_enabled">Aktiver nettjeneren</string>
     <string name="pref_webserver_enabled_summary">Skrur på nettjenerlytting av lokale IP-adresse for å svare på forespørsler til blokkerte vertsnavn</string>
-    <string name="pref_webserver">Lokal nettjener</string>
-    <string name="pref_custom_target">Tilpasset målpunkt</string>
     <string name="pref_custom_target_summary">Brukes kun dersom målvertsfilen er satt til et tilpasset mål</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -143,16 +130,11 @@
 
     <string name="pref_update_check_summary">Se etter oppdateringer når AdAway starter opp</string>
     <string name="pref_background">Bakgrunnstjenester</string>
-    <string name="pref_update_check_daily">Se etter oppdateringer daglig</string>
     <string name="pref_update_check_daily_summary">Sjekk etter oppdateringer i bakgrunnen daglig med beskjeder</string>
     <string name="pref_automatic_update_daily">Automatisk oppdatering</string>
     <string name="pref_automatic_update_daily_summary">Oppdater automatisk i bakgrunnen dersom oppdateringer er tilgjengelige.</string>
-    <string name="pref_whitelist_rules">Tillat hvitelisting</string>
     <string name="pref_whitelist_rules_summary">Tillat hvitelistingsoppføringer fra vertsfilkilder.</string>
-    <string name="pref_redirection_rules_summary">UTGJØR EN SIKKERHETSRISIKO! Tillater omdirigeringsoppføringer fra vertsfilkilder.</string>
     <string name="pref_debug">Avlusing</string>
-    <string name="pref_enable_debug_summary">Du må starte AdAway på nytt for at denne innstillingene skal bli satt i gang.</string>
-    <string name="pref_enable_ipv6">Aktiver IPv6</string>
     <string name="pref_enable_systemless_summary">Forhindre AdAway fra å modifisere systempartisjonen</string>
     <string name="pref_enable_systemless">Aktiver systemløs modus</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
@@ -168,4 +150,4 @@
     </string-array>
     <string name="shortcut_preferences">Preferanser</string>
 
-    </resources>
+</resources>

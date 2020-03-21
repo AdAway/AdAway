@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Afslut</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">Tilladte</string>
     <string name="lists_tab_blacklist">Blokerede</string>
     <string name="lists_tab_redirection_list">Viderestillinger</string>
-    <string name="list_add_dialog_black">Tilføj host til sortliste</string>
-    <string name="list_add_dialog_white">Tilføj host til hvidliste</string>
-    <string name="list_add_dialog_redirect">Tilføj host omdirigering</string>
-    <string name="list_edit_dialog_black">Rediger sortlistet host</string>
-    <string name="list_edit_dialog_white">Rediger hvidlistet host</string>
-    <string name="list_edit_dialog_redirect">Rediger viderestilling</string>
-    <string name="list_dialog_hostname">Værtsnavn:</string>
-    <string name="list_dialog_hostname_hint">Værts kilde URL</string>
-    <string name="list_dialog_wildcard">(Wildcard tegn * og ? er tilladt)</string>
-    <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
     <string name="import_dialog">Importerer...</string>
     <string name="import_success">Sikkerhedskopi importeret med succes fra dit eksterne lager.</string>
     <string name="import_failed">Kunne ikke importere backup. Er dets format korrekt? Tjek logcat for flere detaljer.</string>
@@ -106,7 +94,7 @@
     <string name="apply_symlink_fail">Symlink kunne ikke oprettes af Android.\nDet mislykkes hovedsageligt på grund af en \"funktion\", der hedder S-ON på HTC-telefoner!\n\nDen løsning er at starte din telefon i gendannelsesmodus og oprette symlink der med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nHvis dette ikke virker, søg på internettet for S-OFF og din telefon.</string>
     <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
     <string name="apply_help">Venligst læs Hjælp for mere information.</string>
-    <string name="apply_apn_proxy">En APN-proxy er indstillet på din Android!\nAdAway fungerer ikke pålideligt, når du er på mobilnetværk som 3G. Du kan deaktivere den pågældende proxy ved at gå til din valgte APN (Fra indstillingsappen: Netværk og internet -> Mobilnetværk -> Avanceret -> Adgangspunktnavn) og fjerne værdien i proxy-feltet.</string>
+    <string name="apply_apn_proxy">En APN-proxy er indstillet på din Android!\nAdAway fungerer ikke pålideligt, når du er på mobilnetværk som 3G. Du kan deaktivere den pågældende proxy ved at gå til din valgte APN (Fra indstillingsappen: Netværk og internet -&gt; Mobilnetværk -&gt; Avanceret -&gt; Adgangspunktnavn) og fjerne værdien i proxy-feltet.</string>
     <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
     <string name="no_connection">Internetforbindelsen virker ikke.</string>
     <string name="no_connection_title">Ingen forbindelse</string>
@@ -158,17 +146,12 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Her kan du finde installerede adware, dårlige applikationer, som ikke kan blokeres af AdAway. Disse apps bruger f.eks. Airpush-underretninger, der dukker op, selvom appen ikke kører eller endda ændrer din ringetone. Den eneste tilgængelige modforanstaltning er at afinstallere disse apps ved at klikke på listeposterne.</string>
-    <string name="adware_scanning">Scanning&#8230;</string>
+    <string name="adware_scanning">Scanning…</string>
     <string name="adware_empty">Ingen Adware blev fundet!</string>
 
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">Lokalt:</string>
     <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">Ikke tilgængelig</string>
-    <string name="hosts_add_dialog_title">Tilføj kilde</string>
-    <string name="hosts_edit_dialog_title">Rediger kilde</string>
-    <string name="hosts_dialog_url">URL: (en https:// eller file:// ressource)</string>
-    <string name="hosts_dialog_url_hint">Værts kilde URL</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklameblokering</string>
@@ -196,27 +179,16 @@
     <string name="pref_download">Generelle Indstillinger</string>
     <string name="pref_dismiss_welcome">Skjul velkomstkort</string>
     <string name="pref_dismiss_welcome_summary">Vis ikke velkomstkortet på startskærmen</string>
-    <string name="pref_dark_theme">Aktiver mørkt tema</string>
     <string name="pref_dark_theme_summary">Brug mørkt tema istedet for lyst</string>
     <string name="pref_dark_theme_notification">Temaet vil blive anvendt næste gang app\'en åbnes!</string>
     <string name="pref_hosts">Hosts-fil</string>
-    <string name="pref_update_check">Check for opdateringer</string>
-    <string name="pref_apply_method">Destinations-hostsfil</string>
-    <string name="pref_apply_method_summary">Inden du ændrer denne indstilling, skal du læse Hjælp om denne funktionalitet.</string>
-    <string name="pref_redirection_ipv4">IPv4 Omdirigering</string>
     <string name="pref_redirection_ipv4_summary">Alle blokerede værtsnavne omdirigeres til denne IPv4-adresse.</string>
-    <string name="pref_redirection_ipv6">IPv6 Omdirigering</string>
     <string name="pref_redirection_ipv6_summary">Alle blokerede værtsnavne omdirigeres til denne IPv6-adresse.</string>
     <string name="pref_header_preferences">Indstillinger</string>
     <string name="pref_header_preferences_summary">Generelle indstillinger for AdAway</string>
-    <string name="pref_never_reboot">Gem genstarts-dialogboksen</string>
     <string name="pref_never_reboot_summary">Gemmer dialogboksen som spørger om du vil genstarte efter successfuld tilføjelse</string>
-    <string name="pref_webserver_on_boot">Start webserver ved opstart</string>
     <string name="pref_webserver_on_boot_summary">Start webserver ved opstart og lyt på lokale IP adresser</string>
-    <string name="pref_webserver_enabled">Aktivér webserver</string>
     <string name="pref_webserver_enabled_summary">Aktiverer webserveren til at lytte på lokale IP adresser for at svare på blokerede værtsnavne</string>
-    <string name="pref_webserver">Lokal webserver</string>
-    <string name="pref_custom_target">Brugerdefineret destination</string>
     <string name="pref_custom_target_summary">Bruges kun, hvis destinations-hostsfilen er indstillet til brugerdefineret destination</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -230,22 +202,13 @@
     <string name="pref_update_check_summary">Check for opdateringer ved start af AdAway</string>
     <string name="pref_sdcard_problem">Denne funktion virker ikke korrekt, når AdAway er installeret på SD-kort!</string>
     <string name="pref_background">Baggrundsservicer</string>
-    <string name="pref_update_check_daily">Check for opdateringer dagligt</string>
     <string name="pref_update_check_daily_summary">Kontrollér for opdateringer i baggrunden med notifikationer</string>
     <string name="pref_automatic_update_daily">Automatisk opdatering</string>
     <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
     <string name="pref_update_only_on_wifi">Opdater kun på Wi-Fi</string>
     <string name="pref_update_only_on_wifi_summary">Udfør kun baggrundsopdateringer, når tilsluttet til et Wi-Fi netværk.</string>
-    <string name="pref_whitelist_rules">Tillad hvidlister</string>
     <string name="pref_whitelist_rules_summary">Tillad hvidlist indhold fra Hosts kilden.</string>
-    <string name="pref_redirection_rules">Tillad viderestillinger</string>
-    <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
     <string name="pref_debug">Debug</string>
-    <string name="pref_enable_debug">Aktivér verbose logging</string>
-    <string name="pref_enable_debug_summary">Du skal genstarte AdAway for at denne indstilling tages i brug</string>
-    <string name="pref_enable_telemetry">Aktivér nedbrudrapporter</string>
-    <string name="pref_enable_telemetry_summary">Tillad, at applikationen sender fejl og nedbrudrapporter til Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Aktivér IPv6</string>
     <string name="pref_enable_ipv6_summary">Alle hostsfil indgange får en tilsvarende omdirigering.</string>
     <string name="pref_enable_systemless_summary">Forhindre AdAway i at ændre systempartitionen</string>
     <string name="pref_enable_systemless">Aktiver systemløs tilstand</string>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_apply_method">目标 hosts 文件</string>
+    <string name="pref_apply_method_summary">在更改此设置之前，请阅读有关此功能的帮助条目。</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+    <string name="pref_custom_target">自定义 hosts 文件路径</string>
+    <string name="pref_never_reboot">隐藏重启对话框</string>
+    <!-- Redirection category -->
+    <string name="pref_redirection_ipv4">IPv4 重定向</string>
+    <string name="pref_redirection_ipv6">IPv6 重定向</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">本地网络服务器</string>
+    <string name="pref_webserver_enabled">启用网络服务器</string>
+    <string name="pref_webserver_on_boot">启动时启用网络服务器</string>
+</resources>

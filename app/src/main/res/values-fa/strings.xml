@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">خروج</string>
@@ -39,16 +37,6 @@
     <string name="lists_tab_whitelist">لیست سفید</string>
     <string name="lists_tab_blacklist">لیست سیاه</string>
     <string name="lists_tab_redirection_list">هدایت مجدد</string>
-    <string name="list_add_dialog_black">اضافه کردن هاست به لیست سیاه</string>
-    <string name="list_add_dialog_white">اضافه کردن هاست به لیست سفید</string>
-    <string name="list_add_dialog_redirect">اضافه کردن هدایت مجدد هاست</string>
-    <string name="list_edit_dialog_black">ویرایش هاست‌های لیست سیاه</string>
-    <string name="list_edit_dialog_white">ویرایش هاست‌های لیست سفید</string>
-    <string name="list_edit_dialog_redirect">ویرایش هدایت مجدد</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_hostname_hint">لینک منبع هاست ها</string>
-    <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز میباشند)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">بارگیری...</string>
     <string name="import_success">فایل پشتیبانی با موفقیت از کارت حافظه شما بارگذاری شد.</string>
     <string name="import_failed">بارگذاری فایل پشتبانی با شکست مواجه شد. فرمت فایل درست است؟ فایل ثبت رویدادها رو چک کنید.</string>
@@ -149,8 +137,6 @@
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">لوکال:</string>
     <string name="hosts_last_modified_online">آنلاین:</string>
-    <string name="hosts_not_available">موجود نیست:</string>
-    <string name="hosts_dialog_url_hint">لینک منبع هاست ها</string>
 
     <!--Other-->
     <string name="app_subtitle">مسدودگر تبلیغات</string>
@@ -167,21 +153,12 @@
     <string name="pref_download">تنظیمات عمومی</string>
     <string name="pref_dismiss_welcome">پنهان کردن پیغام خوش‌آمدگویی</string>
     <string name="pref_dismiss_welcome_summary">پیغام خوش‌آمد گویی رو نمایش نده</string>
-    <string name="pref_dark_theme">فعال سازی تم تاریک</string>
     <string name="pref_hosts">فایل Hosts</string>
-    <string name="pref_update_check">به روز رسانی ها رو بررسی کن</string>
-    <string name="pref_apply_method">هدف فایل hosts</string>
-    <string name="pref_apply_method_summary">قبل از تغییر این تنظیمات فایل راهنما را در رابطه با این قابلیت مطالعه نمایید.</string>
     <string name="pref_header_preferences">تنظیمات</string>
     <string name="pref_header_preferences_summary">تنظیمات عمومی مربوط به AdAway</string>
-    <string name="pref_never_reboot">مخفی کردن پیغام شروع مجدد</string>
     <string name="pref_never_reboot_summary">مخفی کردن پیغام شروع مجدد دستگاه، پس از اعمال موفقیت آمیز تغییرات.</string>
-    <string name="pref_webserver_on_boot">بعد از بوت دستگاه وب سرور را شروع کن</string>
     <string name="pref_webserver_on_boot_summary">در هنگام بوت وب سرور با شنود از آی پی های داخلی شروع گردد</string>
-    <string name="pref_webserver_enabled">فعال کردن وب سرور</string>
     <string name="pref_webserver_enabled_summary">فعال کردن وب سرور برای نظارت بر آی پی های داخلی به منظور پاسخگویی به hostnames های مسدود شده</string>
-    <string name="pref_webserver">وب سرور لوکال</string>
-    <string name="pref_custom_target">هدف سفارشی</string>
     <string name="pref_custom_target_summary">فقط در صورتی استفاده بکن که فایل hosts به یک مسیر سفارشی تنظیم شده باشد</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
@@ -194,16 +171,11 @@
 
     <string name="pref_update_check_summary">در آغاز شروع AdAway به روز رسانی ها را چک کن</string>
     <string name="pref_background">سرویس پس زمینه</string>
-    <string name="pref_update_check_daily">بررسی روزانه برای به روز رسانی</string>
     <string name="pref_update_check_daily_summary">بررسی روزانه بروز رسانی ها در پس زمینه به همراه هشدار</string>
     <string name="pref_automatic_update_daily">به روز رسانی خودکار</string>
     <string name="pref_automatic_update_daily_summary">درصورت موجود بودن به روز رسانی به طور خودکار در پس زمینه انجام شود.</string>
-    <string name="pref_whitelist_rules">لیست سفید مجاز است</string>
     <string name="pref_whitelist_rules_summary">ورودی های لیست سفید از منابع Hosts مجاز میباشند.</string>
-    <string name="pref_redirection_rules_summary">تهدید امنیتی! به منابع Hosts برای تغییر مسیر داده ها اجازه دهید.</string>
     <string name="pref_debug">عیب یابی</string>
-    <string name="pref_enable_debug_summary">برای اثر کردن این تنظیم شما نیاز به شروع مجدد AdAway دارید.</string>
-    <string name="pref_enable_ipv6">فعال کردن IPv6</string>
     <string name="pref_enable_systemless_summary">جلوگیری AdAway از تغییر پارتیشن سیستمی</string>
     <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
@@ -219,4 +191,4 @@
     </string-array>
     <string name="shortcut_preferences">تنظیمات</string>
 
-    </resources>
+</resources>

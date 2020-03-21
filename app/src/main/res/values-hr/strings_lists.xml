@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Dodaj poslužitelj na popis blokiranih</string>
+    <string name="list_add_dialog_white">Dodaj poslužitelj u popis neblokiranih</string>
+    <string name="list_add_dialog_redirect">Dodaj poslužitelj na popis preusmjernih</string>
+    <string name="list_edit_dialog_black">Uredi popis blokiranih poslužitelja</string>
+    <string name="list_edit_dialog_white">Uredi popis neblokiranih poslužitelja</string>
+    <string name="list_edit_dialog_redirect">Uredi preusmjeravanje</string>
+    <string name="list_dialog_hostname">Naziv poslužitelja:</string>
+    <string name="list_dialog_hostname_hint">URL izvora poslužitelja</string>
+    <string name="list_dialog_wildcard">(Zamjenski znakovi * i ? su dopušteni!)</string>
+    <string name="list_dialog_ip">IP (IPv4 ili IPv6):</string>
+</resources>
