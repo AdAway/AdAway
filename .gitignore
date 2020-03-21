@@ -1,5 +1,4 @@
 # Android specific
-lint.xml
 local.properties
 
 # Gradle
