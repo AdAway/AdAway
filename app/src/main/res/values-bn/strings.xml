@@ -14,7 +14,6 @@
     <string name="status_update_available">আপডেট উপলব্ধ</string>
     <string name="status_no_connection">ইন্টারনেট সংযোগ নেই</string>
     <string name="status_no_connection_subtitle">কোন ইন্টারনেট সংযোগ উপলব্ধ নেই</string>
-    <string name="help_tab_faq">FAQ</string>
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>

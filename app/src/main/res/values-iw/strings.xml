@@ -16,6 +16,7 @@
 
     <!--Home-->
     <string name="header_help">ברוך הבא!</string>
+    <string name="text_help">AdAway היא תוכנה בחינם וקוד פתוח לחסימת פרסומות. התוכנה שולפת כתובות רשת של מפרסמים כדי לחסום אותן במכשיר שלך.\n רוצה לדעת עוד? בדוק את העזרה למטה!</string>
     <string name="button_show_help">הצג עזרה נוספת</string>
     <string name="icon_update_status">מצב העדכון</string>
     <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
@@ -50,11 +51,14 @@
     <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
     <string name="import_dialog">מייבא...</string>
     <string name="import_success">גיבוי יובא בהצלחה מהאחסון החיצוני</string>
+    <string name="import_failed">ייבוא הגיבוי נכשל. האם פורמט הגיבוי נכון? בדוק את logcat לפרטים נוספים.</string>
     <string name="export_dialog">מייצא…</string>
+    <string name="export_success">הגיבוי מיוצא בהצלחה לקובץ \'adaway-backup.json\' באחסון החיצוני שלך.</string>
     <string name="export_failed">ייצוא גיבוי נכשל.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">קובץ hosts</string>
+    <string name="hosts_description">קובץ ה-host הוא קובץ מערכת הממפה שמות מארחים לכתובות IP. זהו קובץ טקסט רגיל אשר התצורה מטופלת על ידי AdAway. להלן כמה שורות ראשונות:</string>
     <string name="hosts_content">טוען תוכן קובץ hosts…</string>
     <string name="hosts_open_button">פתח קובץ hosts</string>
 
@@ -68,7 +72,10 @@
     <string name="status_no_connection_subtitle">אין חיבור זמין לאינטרנט</string>
     <string name="status_download_fail">מקורות לא זמינים</string>
     <string name="status_download_fail_subtitle_new">אין מקורות זמינים!</string>
+    <string name="status_root_access_denied">אין גישת root</string>
+    <string name="status_root_access_denied_subtitle">אפשר גישת root מאפליקציית ה-root שלך</string>
     <string name="status_failure">משהו לא תקין קרה</string>
+    <string name="status_failure_subtitle">בדוק ב-logcat על מנת לקבל מידע נוסף</string>
     <string name="status_enabled">פעיל</string>
     <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
     <string name="status_disabled">לא פעיל</string>
@@ -93,10 +100,13 @@
     <string name="apply_copy_fail_title">העתקה נכשלה</string>
     <string name="apply_success_subtitle">עדכן מקורות hosts</string>
     <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
+    <string name="apply_success_dialog">החלת השינויים בוצעה בהצלחה. אך יתכן שיהיה צורך להפעיל מחדש את אנדרואיד כדי שהשינויים ייכנסו לתוקף.\n\nהאם ברצונך לאתחל מחדש?\n(כדי למנוע אובדן נתונים וודא שאף אפליקציה לא משתמשת בכרטיס ה- SD כרגע!)</string>
     <string name="apply_symlink_successful">הקישור הסימבולי נוצר בהצלחה.\nכדי להחיל את השינויים ייתכן שיש צורך בהפעלה מחדש.\n\nלהפעיל מחדש עכשיו?\n(כדאי להמנע מאיבוד מידע יש לוודא שאף אפליקציה לא משתמשת בכרטיס הזיכרון!)</string>
     <string name="apply_symlink_successful_title">קישור סימבולי נוצר בהצלחה</string>
+    <string name="apply_symlink_fail">אנדרואיד לא יכול היה ליצור את Symlink.\n הכישלון בד״כ בעיקר בגלל \'פיצ\'ר\' שנקרא S-ON בטלפונים של HTC! \n\n הפיתרון הוא לאתחל את הטלפון שלך למצב שחזור וליצור שם את ה- symlink עם \'ln -s /data/data/hosts /system/etc/hosts\'.\n\n אם זה לא עובד חפש באינטרנט ובטלפון שלך את: S-OFF.</string>
     <string name="apply_symlink_fail_title">יצירת קישור סימבולי נכשלה</string>
     <string name="apply_help">קרא את העזרה למידע נוסף.</string>
+    <string name="apply_apn_proxy">פרוקסי APN מוגדר באנדרואיד שלך!\n AdAway לא יעבוד באופן אמין ברשתות סלולריות כמו 3G. אתה יכול להשבית את ה- proxy הזה על ידי מעבר ל- APN שבחרת. (בתפריט הגדרות רשת -> רשתות מובייל -> מתקדם -> APN והסר משם את הערך בשדה proxy).</string>
     <string name="apply_apn_proxy_title">פרוקסי APN הוגדר!</string>
     <string name="no_connection">החיבור לאינטרנט אינו פעיל</string>
     <string name="no_connection_title">אין חיבור</string>
@@ -108,6 +118,7 @@
     <string name="apply_dialog_apply">מחיל קובץ hosts</string>
     <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
     <string name="apply_fail_title">החלת הגדרות נכשלה</string>
+    <string name="root_access_fail">אנא בדוק את אפליקציית ניהול ה-root שלך כדי לוודא שניתנה גישה ל-root.</string>
     <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
     <string name="revert_problem">שיחזור נכשל מסיבות לא ידועות.</string>
     <string name="revert_problem_title">שחזור נכשל!</string>
@@ -117,6 +128,8 @@
     <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
     <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
     <string name="disable_systemless_successful_title">כובה בהצלחה</string>
+    <string name="enable_systemless_magisk_title">הפעלת מודול hosts Magisk</string>
+    <string name="disable_systemless_magisk_title">כיבוי מודול hosts Magisk</string>
     <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
     <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
     <string name="no_hostname">שם השרת אינו חוקי!</string>
@@ -140,6 +153,8 @@
     <string name="help_tab_problems">תקלות</string>
 
     <string name="adware_scanning">סורק&#8230;</string>
+    <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
+
     <!--Hosts sources-->
     <string name="hosts_last_modified_local">מקומי:</string>
     <string name="hosts_last_modified_online">אונליין:</string>
@@ -162,7 +177,11 @@
     <string name="tcpdump_disable_monitoring">בטל ניטור</string>
     <string name="tcpdump_enable_monitoring">הפעל ניטור</string>
     <string name="tcpdump_show_results">הצג תוצאות</string>
+    <string name="tcpdump_redirect_dialog_title">הפניית דומיין</string>
+    <string name="tcpdump_menu_sort">מיין דומיין</string>
+    <string name="tcpdump_menu_clear">נקה לוג</string>
     <string name="tcpdump_sort_alphabetical">מיון אלפביתי</string>
+    <string name="tcpdump_sort_top_level_domain">מיון דומיין ברמה העליונה</string>
     <string name="tcpdump_entry_add_blacklist">הוסף לרשימה שחורה</string>
     <string name="tcpdump_entry_add_whitelist">הוסף לרשימה לבנה</string>
     <string name="tcpdump_entry_add_redirection_list">הוסף לרשימת הפניות</string>
@@ -214,10 +233,12 @@
     <string name="pref_redirection_rules">אפשר הפניות</string>
     <string name="pref_redirection_rules_summary">מסוכן!!! אפשר חוקי הפניה ממקורות Hosts.</string>
     <string name="pref_debug">ניפוי שגיאות</string>
+    <string name="pref_enable_debug">הפעל לוג מפורט</string>
     <string name="pref_enable_debug_summary">עליך להפעיל מחדש את AdAway כדי להחיל שינויי זה</string>
     <string name="pref_enable_telemetry">הפעל דוחות קריסה</string>
     <string name="pref_enable_telemetry_summary">אפשר לאפליקציה לשלוח שגיאות ודוחות קריסה ל-Sentry (sentry.io).</string>
     <string name="pref_enable_ipv6">אפשר IPv6</string>
+    <string name="pref_enable_ipv6_summary">כל הרשומות בקובץ ה-host יקבלו ערך ניתוב מתאים.</string>
     <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
     <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
     <string name="drawer_open">פתח תפריט</string>
@@ -237,6 +258,8 @@
     <!--Drawer menu labels-->
     <string name="drawer_support_text">\u2764 תמיכה בפיתוח \u2764</string>
     <string name="drawer_support_dialog_title">תמיכה בפיתוח</string>
+    <string name="drawer_support_dialog_button">הצג את התמיכה שלי</string>
+
     <string name="dialog_telemetry_enable">כמובן, אני שמח לעזור!</string>
     <string name="dialog_telemetry_disable">לא תודה</string>
 

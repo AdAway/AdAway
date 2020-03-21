@@ -31,22 +31,22 @@ source_lang = en
 type = HTML
 
 [adaway.title-txt--master]
-file_filter = metadata/android/<lang>/title.txt
+file_filter = metadata/<lang>/title.txt
 minimum_perc = 0
-source_file = metadata/android/en/title.txt
+source_file = metadata/en/title.txt
 source_lang = en
 type = TXT
 
 [adaway.short-description-txt--master]
-file_filter = metadata/android/<lang>/short_description.txt
+file_filter = metadata/<lang>/short_description.txt
 minimum_perc = 0
-source_file = metadata/android/en/short_description.txt
+source_file = metadata/en/short_description.txt
 source_lang = en
 type = TXT
 
 [adaway.full-description-txt--master]
-file_filter = metadata/android/<lang>/full_description.txt
+file_filter = metadata/<lang>/full_description.txt
 minimum_perc = 0
-source_file = metadata/android/en/full_description.txt
+source_file = metadata/en/full_description.txt
 source_lang = en
 type = TXT

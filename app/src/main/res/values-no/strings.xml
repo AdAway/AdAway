@@ -13,7 +13,6 @@
     <string name="button_save">Lagre</string>
     <string name="text_update">Alle vertsfiler fra valgte kilder er nedlastet, legg dem sammen med din egen liste og installer som en vertsfil.</string>
     <string name="menu_add">Legg til</string>
-    <string name="help_tab_faq">FAQ</string>
     <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>

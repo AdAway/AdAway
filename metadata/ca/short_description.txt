@@ -1,0 +1,1 @@
+L'AdAway és un blocador d'anuncis de codi obert per a Android que utilitza el fitxer hosts.
