@@ -19,6 +19,7 @@ import org.adaway.model.source.SourceModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
+import static androidx.work.ExistingPeriodicWorkPolicy.REPLACE;
 import static androidx.work.ListenableWorker.Result.failure;
 import static androidx.work.ListenableWorker.Result.retry;
 import static androidx.work.ListenableWorker.Result.success;
@@ -26,7 +27,7 @@ import static java.util.concurrent.TimeUnit.DAYS;
 
 /**
  * This class is a service to check for hosts sources update.<br/>
- * It could be {@link #enable(boolean)} or {@link #disable()} for periodic check.<br>
+ * It could be enabled or disabled for periodic check.<br>
  * The implementation is based on WorkManager from Android X.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
@@ -36,6 +37,10 @@ public final class UpdateService {
      * The update service work tag.
      */
     private static final String WORKER_TAG = "UpdateServiceWorkTag";
+    /**
+     * The name of the periodic work.
+     */
+    private static final String WORK_NAME = "HostUpdateWork";
 
     /**
      * Private constructor.
@@ -47,11 +52,14 @@ public final class UpdateService {
     /**
      * Enable update service.
      *
+     * @param context The application context.
+     *
      * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
      */
-    public static void enable(boolean unmeteredNetworkOnly) {
+    public static void enable(Context context, boolean unmeteredNetworkOnly) {
         // Cancel previous work
-        WorkManager.getInstance().cancelAllWorkByTag(WORKER_TAG);
+        WorkManager workManager = WorkManager.getInstance(context);
+        workManager.cancelAllWorkByTag(WORKER_TAG);
         // Create worker constraints
         Constraints constraints = new Constraints.Builder()
                 .setRequiredNetworkType(unmeteredNetworkOnly ? NetworkType.UNMETERED : NetworkType.CONNECTED)
@@ -64,15 +72,17 @@ public final class UpdateService {
                 .setInitialDelay(1, DAYS)
                 .build();
         // Enqueue work request
-        WorkManager.getInstance().enqueue(workRequest);
+        workManager.enqueueUniquePeriodicWork(WORK_NAME, REPLACE, workRequest);
     }
 
     /**
      * Disable update service.
+     *
+     * @param context The application context.
      */
-    public static void disable() {
+    public static void disable(Context context) {
         // Cancel previous work
-        WorkManager.getInstance().cancelAllWorkByTag(WORKER_TAG);
+        WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME);
     }
 
     /**

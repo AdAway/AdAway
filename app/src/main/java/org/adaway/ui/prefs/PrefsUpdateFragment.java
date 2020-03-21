@@ -35,7 +35,7 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
     }
 
     private void bindUpdatePrefAction() {
-        Context context = getContext();
+        Context context = requireContext();
         /*
          * Listen on click of update daily pref, register UpdateService if enabled,
          * setOnPreferenceChangeListener is not used because it is executed before setting the
@@ -46,9 +46,9 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
         Preference.OnPreferenceClickListener onPreferenceClickListener = preference -> {
             if (PreferenceHelper.getUpdateCheckDaily(context)) {
                 boolean unmeteredNetworkOnly = PreferenceHelper.getUpdateOnlyOnWifi(context);
-                UpdateService.enable(unmeteredNetworkOnly);
+                UpdateService.enable(context, unmeteredNetworkOnly);
             } else {
-                UpdateService.disable();
+                UpdateService.disable(context);
             }
             return false;
         };
