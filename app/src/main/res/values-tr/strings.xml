@@ -9,7 +9,6 @@
     <string name="button_add">Ekle</string>
     <string name="button_cancel">İptal</string>
     <string name="button_save">Kaydet</string>
-    <string name="button_webserver_toggle_text">Engelli adres isteklerine cevap vermek için yerel websunucuyu başlat yada durdur.</string>
     <string name="button_help">Yardım</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Düzenle</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Beyaz Liste</string>
-    <string name="lists_tab_blacklist">Kara Liste</string>
-    <string name="lists_tab_redirection_list">Yönlendirme Listesi</string>
     <string name="import_dialog">İçe Aktarılıyor...</string>
     <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
     <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Host dosyasını açın</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Güncellemeler kontrol ediliyor…</string>
-    <string name="status_reverting">Geri alınıyor...</string>
     <string name="status_reverting_subtitle">Varsayılan bir hosts dosyası yapılıyor</string>
     <string name="status_update_available">Güncelleme mevcut</string>
     <string name="status_update_available_subtitle">Daha yeni host dosyaları mevcut</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Magisk yöneticisinden sistemsiz hosts özelliğini devre dışı bırakın. Modül listesinden, <cite>sistemsiz hosts</cite> modülünü kaldırın ve cihazınızı yeniden başlatın.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Su binary dosyası bulunamadı veya AdAway için kök erişimi izni sağlanmadı.\n\nEğer cihazınızda kök erişimi sağlanmadıysa bu yaşanabilir.\nDetaylı bilgi ve cihazınızda nasıl kök erişimi sağlanacağını öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
-    <string name="no_root_title">Root izni gereklidir</string>
     <string name="hosts_add_dialog">Host dosyasına URL gir:</string>
     <string name="no_hostname">Geçersiz host adı!</string>
     <string name="no_hostname_title">Hatalı host adı!</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Yenile</string>
     <string name="menu_add">Ekle</string>
-    <string name="menu_hosts_sources">Host kaynakları</string>
     <string name="menu_help">Yardım</string>
     <string name="menu_import">Yedeklemeyi içe aktar</string>
     <string name="menu_export">Yedeklemeyi dışa aktar</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Adware bulunamadı!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Yerel:</string>
-    <string name="hosts_last_modified_online">Çevrim içi:</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklam engelleyici</string>
@@ -181,33 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Yönlendirme listesine giriş ekle</string>
 
     <!--Preferences-->
-    <string name="pref_download">Genel Tercihler</string>
-    <string name="pref_dismiss_welcome">Karşılama yazısını gizle</string>
-    <string name="pref_dismiss_welcome_summary">Ana ekranda karşılama yazısını gösterme</string>
-    <string name="pref_dark_theme_summary">Aydınlık yerine koyu temayı kullanın</string>
-    <string name="pref_dark_theme_notification">Tema bir sonraki uygulama başlangıcında uygulanacaktır!</string>
-    <string name="pref_hosts">Hosts Dosyası</string>
-    <string name="pref_redirection_ipv4_summary">Engellenen tüm ana bilgisayar adları bu IPv4 adresine yönlendirilir.</string>
-    <string name="pref_redirection_ipv6_summary">Engellenen tüm ana bilgisayar adları bu IPv6 adresine yönlendirilir.</string>
-    <string name="pref_header_preferences">Tercihler</string>
-    <string name="pref_header_preferences_summary">AdAway için genel tercihler</string>
-    <string name="pref_never_reboot_summary">İşlemler uygulandıktan sonraki yeniden başlatma sorusunu gizler</string>
-    <string name="pref_webserver_on_boot_summary">Başlangıçta WebSunucusunu 5 saniye gecikmeli çalıştır</string>
-    <string name="pref_webserver_enabled_summary">Engelli adres isteklerine cevap vermek için yerel IP adresi üzerinde websunucusunu açar.</string>
-    <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
-    <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
-    <string name="pref_sdcard_problem">AdAway SD karta yüklendiğinde bu özellik düzgün çalışmayacak!</string>
-    <string name="pref_background">Arka Plan Hizmetleri</string>
-    <string name="pref_update_check_daily_summary">Bildirimlerle birlikte güncellemeleri arka planda denetle</string>
-    <string name="pref_automatic_update_daily">Otomatik güncelleme</string>
-    <string name="pref_automatic_update_daily_summary">Güncelleme varsa arkaplanda otomatik güncelleme yap.</string>
-    <string name="pref_update_only_on_wifi">Sadece tarifeli bağlantı değilse güncelle</string>
-    <string name="pref_update_only_on_wifi_summary">Arka plan güncellemelerini yalnızca veri sınırı olmayan bir ağa bağlıysa çalıştır.</string>
-    <string name="pref_whitelist_rules_summary">Hosts kaynaklarındaki yönlendirme kurallarına izin ver.</string>
-    <string name="pref_debug">Hata ayıklama</string>
-    <string name="pref_enable_ipv6_summary">Tüm ana dosya girişleri karşılık gelen bir yeniden yönlendirme girişi elde eder.</string>
-    <string name="pref_enable_systemless_summary">AdAway\'in sistem dosyalarını düzenlemesini engelle</string>
-    <string name="pref_enable_systemless">Sistemsiz modu etkinleştir.</string>
     <string name="pref_edit_text_value">Metin tercih değerini düzenle</string>
     <string name="drawer_open">Menüyü aç</string>
     <string name="drawer_close">Menüyü kapat</string>
@@ -230,10 +192,6 @@
     <string name="drawer_support_dialog_button">Bana desteğinizi gösterin</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetry</string>
-    <string name="dialog_telemetry_message">Merhaba sevgili kullanıcı,\n\nArtık çökme raporlarınızı ve temel kullanım bilgilerinizi paylaşarak AdAway\'in geliştirilmesine katkıda bulunabilirsiniz. Tüm veriler anonimdir ve telemetri yalnızca kabul ederseniz etkinleştirilir.\n\nDaha detaylı bilgileri <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">Github</a>\'da bulabilirsiniz.</string>
-    <string name="dialog_telemetry_enable">Elbette, yardımcı olduğum için mutluyum!</string>
-    <string name="dialog_telemetry_disable">Hayır teşekkürler</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS istekleri</string>

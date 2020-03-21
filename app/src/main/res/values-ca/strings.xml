@@ -9,7 +9,6 @@
     <string name="button_add">Afegeix</string>
     <string name="button_cancel">Cancel·la</string>
     <string name="button_save">Desa</string>
-    <string name="button_webserver_toggle_text">Atura o inicia el servidor web a aquest sistema per respondre les peticions per a les màquines blocades.</string>
     <string name="button_help">Ajuda</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Edita</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Llista blanca</string>
-    <string name="lists_tab_blacklist">Llista negra</string>
-    <string name="lists_tab_redirection_list">Redirigeix</string>
     <string name="import_dialog">S\'està important....</string>
     <string name="import_success">S\'ha importat correctament la còpia de l\'emmagatzematge extern.</string>
     <string name="import_failed">Ha fallat en importar la còpia. El format és correcte? Mireu l\'informe del logcat per a més informació.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Obre el fitxer d\'amfitrions</string>
 
     <!--Status Notification-->
-    <string name="status_checking">S\'estan comprovant les actualitzacions...</string>
-    <string name="status_reverting">S\'està revertint...</string>
     <string name="status_reverting_subtitle">Creació del fitxer estàndard de servidors</string>
     <string name="status_update_available">Actualització disponible</string>
     <string name="status_update_available_subtitle">Amfitrions nous disponibles</string>
@@ -118,8 +112,6 @@
     <string name="enable_systemless_successful_title">S\'ha habilitat correctament</string>
     <string name="disable_systemless_successful_title">S\'ha inhabilitat correctament</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">El binari su no s\'ha trobat o no s\'ha permès el root a l\'dAway.\n\n Això succeeix quan el terminal no esta rootejat.\n Podeu trobar informació de com rootejar el vostre terminal a wiki.lineageos.org o en altres webs d\'Android.</string>
-    <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
     <string name="hosts_add_dialog">Introduïu l\'adreça URL cap el fitxer hosts:</string>
     <string name="no_hostname">Aquest no és un nom de servidor vàlid!</string>
     <string name="no_hostname_title">Nom de màquina incorrecte</string>
@@ -130,7 +122,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Refresca</string>
     <string name="menu_add">Afegiu</string>
-    <string name="menu_hosts_sources">Servidors de fitxers hosts</string>
     <string name="menu_help">Ajuda</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -140,8 +131,6 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Local:</string>
-    <string name="hosts_last_modified_online">En línia:</string>
 
     <!--Other-->
     <string name="app_subtitle">Bloquejador d\'anuncis</string>
@@ -166,30 +155,6 @@
     <string name="tcpdump_entry_add_redirection_list">Afegeix una entrada a la llista de redireccions</string>
 
     <!--Preferences-->
-    <string name="pref_download">Preferències generals</string>
-    <string name="pref_dismiss_welcome">Amaga la targeta de benvinguda</string>
-    <string name="pref_dismiss_welcome_summary">No mostrar la targeta de benvinguda a la pantalla d\'inici</string>
-    <string name="pref_dark_theme_summary">Utilitza el tema fosc enlloc del clar</string>
-    <string name="pref_dark_theme_notification">El tema s\'aplicarà en el proper inici de l\'aplicació!</string>
-    <string name="pref_hosts">Fitxer de servidors</string>
-    <string name="pref_header_preferences">Preferències</string>
-    <string name="pref_header_preferences_summary">Preferències generals d\'AdAway</string>
-    <string name="pref_never_reboot_summary">Amaga el missatge que demana que es reiniciï Android després d\'aplicar correctament els canvis </string>
-    <string name="pref_webserver_on_boot_summary">Iniciar el servidor web que escoltarà a les adreçes IP locals durant l\'arrancada</string>
-    <string name="pref_webserver_enabled_summary">Activa el servidor web que escolta a l\'adreça IP local i respon a les peticions per a màquines bloquejades</string>
-    <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
-
-    <string name="pref_update_check_summary">Comprova actualitzacions a l\'inici d\'AdAway</string>
-    <string name="pref_background">Serveis en segon pla</string>
-    <string name="pref_update_check_daily_summary">Comprova actualitzacions diàriament en segon pla amb notificacions</string>
-    <string name="pref_automatic_update_daily">Actualitza automàticament</string>
-    <string name="pref_automatic_update_daily_summary">Actualitza automàticament en segon pla si es troben actualitzacions.</string>
-    <string name="pref_update_only_on_wifi">Actualitza només amb connexions que no siguin de consum</string>
-    <string name="pref_update_only_on_wifi_summary">Realitza actualitzacions de fons només quan estigueu connectat a una xarxa no consumible.</string>
-    <string name="pref_whitelist_rules_summary">Permet entrades a la llista blanca de les fonts d\'amfitrions.</string>
-    <string name="pref_debug">Depuració</string>
-    <string name="pref_enable_systemless_summary">Evita que l\'AdAway modifiqui la partició del sistema</string>
-    <string name="pref_enable_systemless">Habilita el mode «systemless»</string>
     <string name="pref_edit_text_value">Edita el valor de preferència del text</string>
     <string name="drawer_open">Obre el menú</string>
     <string name="drawer_close">Tanca el menú</string>

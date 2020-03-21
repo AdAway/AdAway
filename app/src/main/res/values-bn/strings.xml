@@ -7,8 +7,6 @@
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">মুছে ফেলুন</string>
     <!--Status Notification-->
-    <string name="status_checking">আপডেটের জন্য চেক করা হচ্ছে...</string>
-    <string name="status_reverting">প্রত্যাবর্তন করা হচ্ছে...</string>
     <string name="status_update_available">আপডেট উপলব্ধ</string>
     <string name="status_no_connection">ইন্টারনেট সংযোগ নেই</string>
     <string name="status_no_connection_subtitle">কোন ইন্টারনেট সংযোগ উপলব্ধ নেই</string>

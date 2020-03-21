@@ -9,7 +9,6 @@
     <string name="button_add">追加</string>
     <string name="button_cancel">キャンセル</string>
     <string name="button_save">保存</string>
-    <string name="button_webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します</string>
     <string name="button_help">ヘルプ</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">編集</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">ホワイトリスト</string>
-    <string name="lists_tab_blacklist">ブラックリスト</string>
-    <string name="lists_tab_redirection_list">リダイレクト</string>
     <string name="import_dialog">インポート中...</string>
     <string name="import_success">外部ストレージからバックアップが正常にインポートされました。</string>
     <string name="import_failed">バックアップのインポートに失敗しました。 バックアップの形式は正しいですか? 詳細は、 logcat を確認してください。</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">hostsファイルを開く</string>
 
     <!--Status Notification-->
-    <string name="status_checking">更新を確認中...</string>
-    <string name="status_reverting">元に戻しています...</string>
     <string name="status_reverting_subtitle">標準hostsファイルを作成中</string>
     <string name="status_update_available">更新があります</string>
     <string name="status_update_available_subtitle">新しいhostsファイルがあります</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Magisk マネージャー から Systemless hosts 機能を無効にします。モジュールリストから、 Systemless hosts モジュールをアンインストールしてから、デバイスを再起動します。</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">suバイナリが見つからないか、AdAwayのroot権限を許可していません。\n\nこれはデバイスがルート化されていない場合に発生します。\nデバイスをルート化する方法については Android 関連のウェブサイトや wiki.lineageos.org などで見つかります。</string>
-    <string name="no_root_title">root化されたAndroidが必要です</string>
     <string name="hosts_add_dialog">hostsファイルのURLを入力:</string>
     <string name="no_hostname">正しいホスト名ではありません！</string>
     <string name="no_hostname_title">ホスト名が正しくありません</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">更新</string>
     <string name="menu_add">追加</string>
-    <string name="menu_hosts_sources">hosts 取得先</string>
     <string name="menu_help">ヘルプ</string>
     <string name="menu_import">バックアップのインポート</string>
     <string name="menu_export">バックアップのエクスポート</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">アドウェアは検出されませんでした！</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">ローカル：</string>
-    <string name="hosts_last_modified_online">オンライン：</string>
 
     <!--Other-->
     <string name="app_subtitle">広告排除！</string>
@@ -181,34 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">リダイレクトリストにエントリを追加する</string>
 
     <!--Preferences-->
-    <string name="pref_download">基本設定</string>
-    <string name="pref_dismiss_welcome">ウェルカムカードを隠す</string>
-    <string name="pref_dismiss_welcome_summary">ウェルカムカードをホーム画面に表示しない</string>
-    <string name="pref_dark_theme_summary">明るいテーマの代わりに暗いテーマを使用</string>
-    <string name="pref_dark_theme_notification">テーマの変更はアプリの次回起動時に適用されます！</string>
-    <string name="pref_hosts">hostsファイル</string>
-    <string name="pref_redirection_ipv4_summary">ブロックされたすべてのホスト名は、この IPv4 アドレスにリダイレクトされます。</string>
-    <string name="pref_redirection_ipv6_summary">ブロックされたすべてのホスト名は、この IPv6 アドレスにリダイレクトされます。</string>
-    <string name="pref_header_preferences">設定</string>
-    <string name="pref_header_preferences_summary">AdAwayの基本的な設定</string>
-    <string name="pref_never_reboot_summary">適用後に出る再起動を促すダイアログを非表示にします。</string>
-    <string name="pref_webserver_on_boot_summary">ローカルIPアドレス待ち受けのため起動時にウェブサーバーを開始します。</string>
-    <string name="pref_webserver_enabled_summary">ブロックしたホスト名の問い合わせに返答するためのウェブサーバーを有効にします。</string>
-    <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます</string>
-
-    <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
-    <string name="pref_sdcard_problem">この機能は AdAway がSDカードにインストールされているとうまく機能しないことがあります！</string>
-    <string name="pref_background">バックグラウンドサービス</string>
-    <string name="pref_update_check_daily_summary">通知ありでバックグラウンドで更新を毎日確認します</string>
-    <string name="pref_automatic_update_daily">自動更新</string>
-    <string name="pref_automatic_update_daily_summary">バックグラウンドで自動更新します</string>
-    <string name="pref_update_only_on_wifi">モバイルネットワークしていないときにのみ更新</string>
-    <string name="pref_update_only_on_wifi_summary">バックグラウンド更新は、モバイルネットワークに接続されている場合にのみ実行します</string>
-    <string name="pref_whitelist_rules_summary">hostsソースからのホワイトリストエントリを許可します</string>
-    <string name="pref_debug">デバッグ</string>
-    <string name="pref_enable_ipv6_summary">すべてのホスト ファイル エントリは、対応するリダイレクト エントリを取得します。</string>
-    <string name="pref_enable_systemless_summary">AdAway がシステムパーティションを変更しないようにする</string>
-    <string name="pref_enable_systemless">systemlessモードを有効にする</string>
     <string name="pref_edit_text_value">テキスト設定値を編集する</string>
     <string name="drawer_open">メニューを開く</string>
     <string name="drawer_close">メニューを閉じる</string>
@@ -231,10 +192,6 @@
     <string name="drawer_support_dialog_button">自分のサポートを表示する</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">データ収集</string>
-    <string name="dialog_telemetry_message">利用者さま、こんにちは\n\n動作停止報告や基本的な使用状況情報を共有していただくことで、AdAway の開発に参加できますよ。データは全て匿名で、データ収集はあなたが同意した場合にのみ有効になります。\n\n詳細は <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>でご覧ください。</string>
-    <string name="dialog_telemetry_enable">いいね、喜んで手伝うよ！</string>
-    <string name="dialog_telemetry_disable">結構です</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNSリクエスト</string>

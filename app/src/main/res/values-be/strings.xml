@@ -9,7 +9,6 @@
     <string name="button_add">Дадаць</string>
     <string name="button_cancel">Скасаваць</string>
     <string name="button_save">Захаваць</string>
-    <string name="button_webserver_toggle_text">Запуск або прыпыненне Вэб-сервера на лакальнай сістэме для адказаў на запыты заблакаваных хастоў.</string>
     <string name="button_help">Дапамога</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Рэдагаваць</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Белы спіс</string>
-    <string name="lists_tab_blacklist">Чорны спіс</string>
-    <string name="lists_tab_redirection_list">Перанакіраванне</string>
     <string name="import_dialog">Імпарт...</string>
     <string name="import_success">Рэзервовая копія паспяхова імпартавана з вашага знешняга сховішча.</string>
     <string name="import_failed">Не ўдалося імпартаваць рэзервовую копію. Магчыма яе фармат не дакладны? Праверце logcat для падрабязнасцяў.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Адкрыць файл hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Праверка абнаўленняў...</string>
-    <string name="status_reverting">Аднаўленне...</string>
     <string name="status_reverting_subtitle">Стварэнне стандартнага файла hosts</string>
     <string name="status_update_available">Даступна абнаўленне</string>
     <string name="status_update_available_subtitle">Даступны новыя файлы host</string>
@@ -126,8 +120,6 @@
     <string name="disable_systemless_magisk">Адключыць бессістэмную функцыю hosts з мэнэджара Magisk. Сярод яго налад выдаліце ​​модуль <cite>Бессістемны hosts</cite>, затым перазагрузіце вашу прыладу.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Альбо адсутнічае бінарны файл su, альбо вы не далі AdAway правы суперкарыстальніка.\n\nГэта магло адбыцца, калі на вашай прыладзе не атрыманы root-доступ.\nВы можаце знайсці інфармацыю аб тым, як атрымаць root-права на вашай прыладзе на wiki.lineageos.org або іншым сайце, прысвечаным Android.</string>
-    <string name="no_root_title">Для Android патрабуюцца правы Root</string>
     <string name="hosts_add_dialog">Устаўце URL у файл hosts:</string>
     <string name="no_hostname">Гэта недапушчальнае імя крыніцы!</string>
     <string name="no_hostname_title">Няправільна адфарматаванае імя host</string>
@@ -139,7 +131,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Абнавіць</string>
     <string name="menu_add">Дадаць</string>
-    <string name="menu_hosts_sources">Крыніцы hosts</string>
     <string name="menu_help">Дапамога</string>
     <string name="menu_import">Імпартаваць рэзервовую копію</string>
     <string name="menu_export">Экспарт рэзервовай копіі</string>
@@ -156,8 +147,6 @@
     <string name="adware_empty">Праграм з рэкламай не знойдзена!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Лакальны:</string>
-    <string name="hosts_last_modified_online">Інтэрнэт:</string>
 
     <!--Other-->
     <string name="app_subtitle">Блакавальнік рэкламы</string>
@@ -182,34 +171,6 @@
     <string name="tcpdump_entry_add_redirection_list">Дадаць запіс у спіс перанакіраванняў</string>
 
     <!--Preferences-->
-    <string name="pref_download">Асноўныя налады</string>
-    <string name="pref_dismiss_welcome">Схаваць прывітанне</string>
-    <string name="pref_dismiss_welcome_summary">Не паказваць прывітанне на галоўным экране</string>
-    <string name="pref_dark_theme_summary">Выкарыстоўваць цёмную тэму замест светлай</string>
-    <string name="pref_dark_theme_notification">Тэма зменіцца пры наступным запуску праграмы!</string>
-    <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_redirection_ipv4_summary">Усе заблакаваныя host пераадрасоўваюцца на гэты адрас IPv4.</string>
-    <string name="pref_redirection_ipv6_summary">Усе заблакаваныя host пераадрасоўваюцца на гэты адрас IPv6.</string>
-    <string name="pref_header_preferences">Налады</string>
-    <string name="pref_header_preferences_summary">Асноўныя налады AdAway</string>
-    <string name="pref_never_reboot_summary">Хавае акно перазагрузкі Android пасля паспяховага прымянення</string>
-    <string name="pref_webserver_on_boot_summary">Старт вэб-сервера пры загрузцы сістэмы для праслухоўвання лакальных адрасоў IP</string>
-    <string name="pref_webserver_enabled_summary">Дазваляе вэб-серверу праслухоўваць лакальныя IP-адрасы і адказваць на запыты да заблакаваных host</string>
-    <string name="pref_custom_target_summary">Выкарыстоўваецца толькі ў выпадку, калі размяшчэнне файла hosts зададзена карыстальнікам</string>
-
-    <string name="pref_update_check_summary">Правяраць абнаўленні пры запуску AdAway</string>
-    <string name="pref_sdcard_problem">Гэтая функцыя будзе працаваць няправільна, калі AdAway усталяваны на карту памяці!</string>
-    <string name="pref_background">Фонавы рэжым</string>
-    <string name="pref_update_check_daily_summary">Правярайце штодня абнаўленні ў фонавым рэжыме з апавяшчэннямі</string>
-    <string name="pref_automatic_update_daily">Аўтаабнаўленне</string>
-    <string name="pref_automatic_update_daily_summary">Абнаўляць аўтаматычна ў фонавым рэжыме, калі даступны абнаўленні.</string>
-    <string name="pref_update_only_on_wifi">Абнаўляць толькі па Wi-Fi</string>
-    <string name="pref_update_only_on_wifi_summary">Выконваць фонавыя абнаўленні толькі праз і нелімітаванае падключэнне.</string>
-    <string name="pref_whitelist_rules_summary">Дазволіць белыя спісы з крыніц host</string>
-    <string name="pref_debug">Рэжым адладкі</string>
-    <string name="pref_enable_ipv6_summary">Усе запісы файла host будуць атрымліваць адпаведны запіс перанакіравання.</string>
-    <string name="pref_enable_systemless_summary">Забараніць AdAway рэдагаваць сістэмны раздзел</string>
-    <string name="pref_enable_systemless">Уключыць бессістэмны рэжым</string>
     <string name="pref_edit_text_value">Рэдагаваць значэнне тэкставай перавагі</string>
     <string name="drawer_open">Адкрыць меню</string>
     <string name="drawer_close">Закрыць меню</string>
@@ -232,10 +193,6 @@
     <string name="drawer_support_dialog_button">Паказаць маю падтрымку</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Тэлеметрыя</string>
-    <string name="dialog_telemetry_message">Прывітанне, дарагі карыстальнік,\n\nЗараз ты можаш удзельнічаць у распрацоўцы AdAway з дапамогай адпраўкі справаздач з памылкамі і базавай інфармацыі аб выкарыстанні. Усе дадзеныя ананімныя, тэлеметрыя будзе ўключана толькі пасля вашай згоды.\n\nПадрабязнасці можна даведацца ў <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Вядома, я хацеў бы дапамагчы!</string>
-    <string name="dialog_telemetry_disable">Не, дзякуй</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Запыты DNS</string>

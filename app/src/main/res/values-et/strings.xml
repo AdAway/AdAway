@@ -33,9 +33,6 @@
     <string name="checkbox_list_context_edit">Muuda</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Valge loend</string>
-    <string name="lists_tab_blacklist">Must loend</string>
-    <string name="lists_tab_redirection_list">Suunamised</string>
     <string name="import_dialog">Importimine...</string>
     <string name="export_dialog">Eksportimine...</string>
     <!--Hosts content-->
@@ -43,8 +40,6 @@
     <string name="hosts_open_button">Ava hosts-fail</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Uuenduste kontrollimine...</string>
-    <string name="status_reverting">Taastamine...</string>
     <string name="status_update_available">Uuendus saadaval</string>
     <string name="status_update_available_subtitle">Uuemad hosts-failid saadaval</string>
     <string name="status_no_connection">Ühendus puudub</string>
@@ -90,7 +85,6 @@
     <string name="download_fail_title">Allalaadimine nurjus</string>
     <string name="enable_systemless_successful_title">Lubamine edukas</string>
     <string name="disable_systemless_successful_title">Keelamine edukas</string>
-    <string name="no_root_title">Vajalik juurkasutaja toega Android</string>
     <string name="hosts_add_dialog">Sisesta URL hosts-faili:</string>
     <string name="no_hostname">See ei ole kehtiv aadress!</string>
     <string name="no_ip">See ei ole kehtiv IP!</string>
@@ -100,7 +94,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Värskenda</string>
     <string name="menu_add">Lisa</string>
-    <string name="menu_hosts_sources">Allikad</string>
     <string name="menu_help">Abi</string>
     <string name="menu_import">Impordi varundus</string>
     <string name="menu_export">Ekspordi varundus</string>
@@ -116,8 +109,6 @@
     <string name="adware_empty">Reklaamvara ei leitud!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Kohalik:</string>
-    <string name="hosts_last_modified_online">Onlain:</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklaamide blokeerija</string>
@@ -138,27 +129,6 @@
     <string name="tcpdump_entry_add_redirection_list">Lisa üksus suunamisloendisse</string>
 
     <!--Preferences-->
-    <string name="pref_download">Üldised eelistused</string>
-    <string name="pref_dismiss_welcome">Peida tutvustuskaart</string>
-    <string name="pref_dismiss_welcome_summary">Ära kuva tutvustuskaarti rakenduse avakuval</string>
-    <string name="pref_dark_theme_summary">Kasuta heleda asemel tumedat teemat</string>
-    <string name="pref_dark_theme_notification">Teema rakendatakse järgmisel rakenduse käivitusel!</string>
-    <string name="pref_hosts">Hosts-fail</string>
-    <string name="pref_header_preferences">Eelistused</string>
-    <string name="pref_header_preferences_summary">Üldised AdAway seaded</string>
-    <string name="pref_never_reboot_summary">Peidetakse dialoog, mis palub Androidi taaskäivitamist pärast edukat paigaldamist</string>
-    <string name="pref_webserver_on_boot_summary">Veebiserver käivitatakse Androidi laadimisel. Kuulatakse vaid kohalikke IP aadresse.</string>
-    <string name="pref_webserver_enabled_summary">Lubab veebiserveri, mis kuulab kohalikke IP aadresse ning vastab blokeeritud aadressitele.</string>
-    <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts-faili asukohaks on muu asukoht.</string>
-
-    <string name="pref_update_check_summary">Uuendusi kontrollitakse AdAway käivitamisel</string>
-    <string name="pref_background">Taustateenused</string>
-    <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>
-    <string name="pref_automatic_update_daily">Automaatne uuendus</string>
-    <string name="pref_automatic_update_daily_summary">Uuenduste olemasolul tehakse need taustal automaatselt.</string>
-    <string name="pref_update_only_on_wifi">Uuenda ainult mittemahupõhiste ühenduste korral</string>
-    <string name="pref_debug">Silumine</string>
-    <string name="pref_enable_systemless">Luba süsteemita režiim</string>
     <string name="drawer_open">Ava menüü</string>
     <string name="drawer_close">Sulge menüü</string>
 
@@ -180,10 +150,6 @@
     <string name="drawer_support_dialog_button">Näita minu toetust</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemeetria</string>
-    <string name="dialog_telemetry_message">Tere, kallis kasutaja\n\nSa saad nüüd aidata AdAway arendusele kaasa, jagades oma krahhiaruandeid ja põhilist kasutusteavet. Kogu teave on anonüümne ning telemeetria lubatakse vaid siis, kui sina sellega nõustud.\n\nRohkem teavet leiad <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>ist.</string>
-    <string name="dialog_telemetry_enable">Kindlasti, aitan hea meelega!</string>
-    <string name="dialog_telemetry_disable">Tänan ei</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS-taotlused</string>

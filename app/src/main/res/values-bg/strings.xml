@@ -9,7 +9,6 @@
     <string name="button_add">Добавяне</string>
     <string name="button_cancel">Отказ</string>
     <string name="button_save">Запазване</string>
-    <string name="button_webserver_toggle_text">Стартиране или спиране на уеб сървъра на localhost, за да отговаря на заявките към блокираните имена на хостове.</string>
     <string name="button_help">Помощ</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Редактиране</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Бял списък</string>
-    <string name="lists_tab_blacklist">Черен списък</string>
-    <string name="lists_tab_redirection_list">Пренасочвания</string>
     <string name="import_dialog">Импортиране...</string>
     <string name="import_success">Архивът беше успешно внесен от Вашата карта памет.</string>
     <string name="import_failed">Внасянето на архива се провали. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Отваряне на файла Hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Проверява се за актуализация...</string>
-    <string name="status_reverting">Връщане...</string>
     <string name="status_reverting_subtitle">Създаване на стандартен файл Hosts</string>
     <string name="status_update_available">Налице е актуализация</string>
     <string name="status_update_available_subtitle">Налични са нови Hosts файлове</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Изключване на функцията безсистемни хостове от управлението на Magisk. От списъка на модула, деинсталирайте модула <cite>Безсистемни хостове</cite>, след което рестартирайте устройството Ви.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Не може да бъде открит su binary или не сте дали root права на AdAway.\n\nТова може да се получи, когато устройството ви няма root достъп.\nМоже да намерите информация за това, как да получите root достъп за вашето устройство на wiki.lineageos.org или други уебсайтове за Android.</string>
-    <string name="no_root_title">Изисква се Android с root достъп</string>
     <string name="hosts_add_dialog">Въведете URL на Hosts файла:</string>
     <string name="no_hostname">Това не е валидно име на хост!</string>
     <string name="no_hostname_title">Неправилно форматирано име на хост</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Опресняване</string>
     <string name="menu_add">Добавяне</string>
-    <string name="menu_hosts_sources">Източници за Hosts файла</string>
     <string name="menu_help">Помощ</string>
     <string name="menu_import">Внасяне на архив</string>
     <string name="menu_export">Изнасяне на архив</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Не бяха открити рекламни приложения!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Локална:</string>
-    <string name="hosts_last_modified_online">Онлайн:</string>
 
     <!--Other-->
     <string name="app_subtitle">Спира рекламите</string>
@@ -181,34 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Добавяне на запис в списъка за пренасочване</string>
 
     <!--Preferences-->
-    <string name="pref_download">Общи предпочитания</string>
-    <string name="pref_dismiss_welcome">Скриване на поздравителната карта</string>
-    <string name="pref_dismiss_welcome_summary">Да не се показва картата за добре дошли на началния екран</string>
-    <string name="pref_dark_theme_summary">Използване на тъмна тема вместо светла</string>
-    <string name="pref_dark_theme_notification">Темата ще бъде приложена при следващото стартиране на приложението!</string>
-    <string name="pref_hosts">Hosts файл</string>
-    <string name="pref_redirection_ipv4_summary">Всички блокирани имена на хостове се пренасочват към този IPv4 адрес.</string>
-    <string name="pref_redirection_ipv6_summary">Всички блокирани имена на хостове се пренасочват към този IPv6 адрес.</string>
-    <string name="pref_header_preferences">Настройки</string>
-    <string name="pref_header_preferences_summary">Общи предпочитания за AdAway</string>
-    <string name="pref_never_reboot_summary">Скрива диалоговия прозорец, който изисква да рестартирате Android след успешното прилагане.</string>
-    <string name="pref_webserver_on_boot_summary">Включва уеб сървъра при стартиране, слушане на локалните IP адреси</string>
-    <string name="pref_webserver_enabled_summary">Позволява на уеб сървъра да слуша на локалните IP адреси, за да отговори на заявките към блокирани имена на хостове.</string>
-    <string name="pref_custom_target_summary">Използва се само ако целевият Hosts файл е настроен на персонализирана цел.</string>
-
-    <string name="pref_update_check_summary">Проверка за актуализации при стартиране на AdAway</string>
-    <string name="pref_sdcard_problem"> Тази функция няма да работи правилно, когато AdAway е инсталиран на SD картата!</string>
-    <string name="pref_background">Услуги на заден план</string>
-    <string name="pref_update_check_daily_summary">Проверка за актуализации ежедневно във фонов режим с известия</string>
-    <string name="pref_automatic_update_daily">Автоматично актуализиране</string>
-    <string name="pref_automatic_update_daily_summary">Автоматично актуализиране във фонов режим, ако са налични актуализации.</string>
-    <string name="pref_update_only_on_wifi">Акт. само при неизмервано потребление</string>
-    <string name="pref_update_only_on_wifi_summary">Изпълняване на актуализации във фонов режим, само когато сте свързани към мрежа с неизмервано потребление.</string>
-    <string name="pref_whitelist_rules_summary">Позволяване на вписвания в белия списък от източниците на Hosts файлове.</string>
-    <string name="pref_debug">Отстраняване на грешки</string>
-    <string name="pref_enable_ipv6_summary">Всички записи във файла с хостове ще получат съответен пренасочващ запис.</string>
-    <string name="pref_enable_systemless_summary">Предотвратяване промяната на системния дял от AdAway</string>
-    <string name="pref_enable_systemless">Включване на режим systemless</string>
     <string name="pref_edit_text_value">Редактиране стойност на предпочитания за текст</string>
     <string name="drawer_open">Отваряне на менюто</string>
     <string name="drawer_close">Затваряне на менюто</string>
@@ -231,10 +192,6 @@
     <string name="drawer_support_dialog_button">Показване на моята подкрепа</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Телеметрия</string>
-    <string name="dialog_telemetry_message">Здравейте, уважаеми потребители,\n\nМожете да участвате в разработката на AdAway като споделяте вашите доклади за сривове и основна информация за ползването. Всички данни са анонимни и телеметрията ще бъде включена, само ако вие се съгласите.\n\nМожете да откриете подробности в <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Разбира се, радвам се да помогна!</string>
-    <string name="dialog_telemetry_disable">Не, благодаря</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS заявки</string>

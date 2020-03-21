@@ -9,7 +9,6 @@
     <string name="button_add">加入</string>
     <string name="button_cancel">取消</string>
     <string name="button_save">儲存</string>
-    <string name="button_webserver_toggle_text">啟動或停止本地端的網頁伺服器來回應被封鎖主機的請求。</string>
     <string name="button_help">說明</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">編輯</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">白名單</string>
-    <string name="lists_tab_blacklist">黑名單</string>
-    <string name="lists_tab_redirection_list">重新導向</string>
     <string name="import_dialog">匯入中...</string>
     <string name="import_success">備份成功從您的外部儲存空間匯入。</string>
     <string name="import_failed">無法匯入備份。它的格式正確嗎？檢查 logcat 以獲得更多詳細資訊。</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">開啟 hosts 檔案</string>
 
     <!--Status Notification-->
-    <string name="status_checking">正在檢查更新...</string>
-    <string name="status_reverting">還原中...</string>
     <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
     <string name="status_update_available">有更新</string>
     <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">在 Magisk Manager 中停用 systemless hosts 功能。請在該軟體的模組清單中，移除<cite>Systemless hosts</cite>模組並重啟您的裝置。</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">找不到 su 執行檔或是未許可 AdAway 使用 root 權限。\n\n通常發生於裝置尚未 root。\n請參考 wiki.lineageos.org 或其他相關的 Android 網站取得相關資訊。</string>
-    <string name="no_root_title">需要 root 權限</string>
     <string name="hosts_add_dialog">輸入 hosts 檔案的 URL：</string>
     <string name="no_hostname">主機名稱無效！</string>
     <string name="no_hostname_title">主機名稱格式錯誤</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">重新整理</string>
     <string name="menu_add">加入</string>
-    <string name="menu_hosts_sources">Hosts 來源</string>
     <string name="menu_help">說明</string>
     <string name="menu_import">匯入備份</string>
     <string name="menu_export">匯出備份</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">本地：</string>
-    <string name="hosts_last_modified_online">線上：</string>
 
     <!--Other-->
     <string name="app_subtitle">廣告阻擋器</string>
@@ -181,33 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">加入項目至重新導向清單</string>
 
     <!--Preferences-->
-    <string name="pref_download">基本設定</string>
-    <string name="pref_dismiss_welcome">隱藏歡迎卡片</string>
-    <string name="pref_dismiss_welcome_summary">不在主螢幕上顯示歡迎卡片</string>
-    <string name="pref_dark_theme_summary">使用暗色主題而不是亮色主題</string>
-    <string name="pref_dark_theme_notification">主題會在下次應用程式啟動時套用！</string>
-    <string name="pref_hosts">Hosts 檔案</string>
-    <string name="pref_redirection_ipv4_summary">所有的封鎖主機名稱會被重新導向到這個 IPv4 位址。</string>
-    <string name="pref_redirection_ipv6_summary">所有的封鎖主機名稱會被重新導向到這個 IPv6 位址。</string>
-    <string name="pref_header_preferences">設定</string>
-    <string name="pref_header_preferences_summary">AdAway 基本設定</string>
-    <string name="pref_never_reboot_summary">隱藏成功套用後詢問重新啟動的對話框</string>
-    <string name="pref_webserver_on_boot_summary">開機時啟動網頁伺服器，監聽本地 IP 位址</string>
-    <string name="pref_webserver_enabled_summary">啟用網頁伺服器來監聽本地 IP 位址來回應至被封鎖主機的請求</string>
-    <string name="pref_custom_target_summary">只用於 hosts 檔案被設定為自訂目標的情況</string>
-    <string name="pref_update_check_summary">在啟動 AdAway 時檢查更新</string>
-    <string name="pref_sdcard_problem">如果 AdAway 被安裝到 SD 卡上，這個功能可能無法正常運作！</string>
-    <string name="pref_background">背景服務</string>
-    <string name="pref_update_check_daily_summary">每天背景檢查更新並提示</string>
-    <string name="pref_automatic_update_daily">自動更新</string>
-    <string name="pref_automatic_update_daily_summary">如果有更新，自動在背景更新。</string>
-    <string name="pref_update_only_on_wifi">只在未計量網路更新</string>
-    <string name="pref_update_only_on_wifi_summary">只有在連接到不限量網路時執行背景更新。 </string>
-    <string name="pref_whitelist_rules_summary">允許從 Hosts 來源中的白名單項目</string>
-    <string name="pref_debug">除錯</string>
-    <string name="pref_enable_ipv6_summary">所有的 host 檔案項目將取得相應的重新導向項目。</string>
-    <string name="pref_enable_systemless_summary">避免 Adaway 修改系統分割區</string>
-    <string name="pref_enable_systemless">啟用 systemless 模式（將所需檔案安裝於系統分割區外）</string>
     <string name="pref_edit_text_value">編輯文字設定值</string>
     <string name="drawer_open">開啟選單</string>
     <string name="drawer_close">關閉選單</string>
@@ -230,10 +192,6 @@
     <string name="drawer_support_dialog_button">顯示我的支援</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">遙測</string>
-    <string name="dialog_telemetry_message">親愛的使用者，\n\n你可以藉由與 AdAway 分享當機報告和基本使用資訊，來參與 AdAway 的 開發。所有的資料都會是匿名狀態，而只有在你同意下才會分享遙測資料。\n\n你可以在 <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>上找到更多詳情。</string>
-    <string name="dialog_telemetry_enable">當然，我很樂意幫忙！</string>
-    <string name="dialog_telemetry_disable">不，謝謝</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 請求</string>

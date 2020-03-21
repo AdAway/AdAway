@@ -9,7 +9,6 @@
     <string name="button_add">Tilføj</string>
     <string name="button_cancel">Annuller</string>
     <string name="button_save">Gem</string>
-    <string name="button_webserver_toggle_text">Start eller stop webserver på localhost til at besvare anmodninger til blokerede værtsnavne.</string>
     <string name="button_help">Hjælp</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Rediger</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Tilladte</string>
-    <string name="lists_tab_blacklist">Blokerede</string>
-    <string name="lists_tab_redirection_list">Viderestillinger</string>
     <string name="import_dialog">Importerer...</string>
     <string name="import_success">Sikkerhedskopi importeret med succes fra dit eksterne lager.</string>
     <string name="import_failed">Kunne ikke importere backup. Er dets format korrekt? Tjek logcat for flere detaljer.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Åbn hosts filen</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Tjekker for opdateringer...</string>
-    <string name="status_reverting">Gendanner...</string>
     <string name="status_reverting_subtitle">Opretter en standard hosts-fil</string>
     <string name="status_update_available">Opdatering fundet</string>
     <string name="status_update_available_subtitle">En nyere hosts-fil findes</string>
@@ -120,8 +114,6 @@
     <string name="disable_systemless_successful">Du har deaktiveret systemløs tilstand.\nDet kan være nødvendigt at genstarte Android for at ændringerne skal træde i kraft.\n\nVil du genstarte?\n(For at forhindre tab af data skal du sørge for, at ingen apps bruger SD-kortet i øjeblikket!)</string>
     <string name="disable_systemless_successful_title">Deaktivering succesfuldt</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">Enten kunne su binary ikke findes, ellers tillod du ikke root tilladelse til AdAway.\n\nDette kan ske, når enheden ikke er rootet.\nDu kan finde oplysninger om, hvordan du kan root din enhed på wiki.lineageos.org eller andre Android-hjemmesider.</string>
-    <string name="no_root_title">En rootet Android kræves</string>
     <string name="hosts_add_dialog">Indsæt URL til hosts fil:</string>
     <string name="no_hostname">Dette er ikke et gyldigt værtsnavn</string>
     <string name="no_hostname_title">Inkorrekt formateret hostnavn</string>
@@ -133,7 +125,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Opdater</string>
     <string name="menu_add">Tilføj</string>
-    <string name="menu_hosts_sources">Hosts kilder</string>
     <string name="menu_help">Hjælp</string>
     <string name="menu_import">Importer sikkerhedskopieren</string>
     <string name="menu_export">Eksporter sikkerhedskopieren</string>
@@ -150,8 +141,6 @@
     <string name="adware_empty">Ingen Adware blev fundet!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokalt:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklameblokering</string>
@@ -176,34 +165,6 @@
     <string name="tcpdump_entry_add_redirection_list">Tilføj adgang til omdirigeringsliste</string>
 
     <!--Preferences-->
-    <string name="pref_download">Generelle Indstillinger</string>
-    <string name="pref_dismiss_welcome">Skjul velkomstkort</string>
-    <string name="pref_dismiss_welcome_summary">Vis ikke velkomstkortet på startskærmen</string>
-    <string name="pref_dark_theme_summary">Brug mørkt tema istedet for lyst</string>
-    <string name="pref_dark_theme_notification">Temaet vil blive anvendt næste gang app\'en åbnes!</string>
-    <string name="pref_hosts">Hosts-fil</string>
-    <string name="pref_redirection_ipv4_summary">Alle blokerede værtsnavne omdirigeres til denne IPv4-adresse.</string>
-    <string name="pref_redirection_ipv6_summary">Alle blokerede værtsnavne omdirigeres til denne IPv6-adresse.</string>
-    <string name="pref_header_preferences">Indstillinger</string>
-    <string name="pref_header_preferences_summary">Generelle indstillinger for AdAway</string>
-    <string name="pref_never_reboot_summary">Gemmer dialogboksen som spørger om du vil genstarte efter successfuld tilføjelse</string>
-    <string name="pref_webserver_on_boot_summary">Start webserver ved opstart og lyt på lokale IP adresser</string>
-    <string name="pref_webserver_enabled_summary">Aktiverer webserveren til at lytte på lokale IP adresser for at svare på blokerede værtsnavne</string>
-    <string name="pref_custom_target_summary">Bruges kun, hvis destinations-hostsfilen er indstillet til brugerdefineret destination</string>
-
-    <string name="pref_update_check_summary">Check for opdateringer ved start af AdAway</string>
-    <string name="pref_sdcard_problem">Denne funktion virker ikke korrekt, når AdAway er installeret på SD-kort!</string>
-    <string name="pref_background">Baggrundsservicer</string>
-    <string name="pref_update_check_daily_summary">Kontrollér for opdateringer i baggrunden med notifikationer</string>
-    <string name="pref_automatic_update_daily">Automatisk opdatering</string>
-    <string name="pref_automatic_update_daily_summary">Brug automatisk opdatering i baggrunden hvis der findes opdateringer.</string>
-    <string name="pref_update_only_on_wifi">Opdater kun på Wi-Fi</string>
-    <string name="pref_update_only_on_wifi_summary">Udfør kun baggrundsopdateringer, når tilsluttet til et Wi-Fi netværk.</string>
-    <string name="pref_whitelist_rules_summary">Tillad hvidlist indhold fra Hosts kilden.</string>
-    <string name="pref_debug">Debug</string>
-    <string name="pref_enable_ipv6_summary">Alle hostsfil indgange får en tilsvarende omdirigering.</string>
-    <string name="pref_enable_systemless_summary">Forhindre AdAway i at ændre systempartitionen</string>
-    <string name="pref_enable_systemless">Aktiver systemløs tilstand</string>
     <string name="pref_edit_text_value">Rediger tekst præference værdi</string>
     <string name="drawer_open">Åben menu</string>
     <string name="drawer_close">Luk menu</string>
@@ -226,10 +187,6 @@
     <string name="drawer_support_dialog_button">Vis min støtte</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetri</string>
-    <string name="dialog_telemetry_message">Hej kære bruger,\n\nDu kunne nu deltage i udviklingen af AdAway ved at dele dine nedbrudrapporter og grundlæggende brugsoplysninger. Alle data er anonyme, og telemetri vil kun blive aktiveret, hvis du accepterer.\n\nDu kan finde flere detaljer om <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Selvfølgelig, jeg er glad for at hjælpe!</string>
-    <string name="dialog_telemetry_disable">Nej tak</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS forespørgsler</string>

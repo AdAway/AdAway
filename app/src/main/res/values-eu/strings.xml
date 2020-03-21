@@ -9,7 +9,6 @@
     <string name="button_add">Gehitu</string>
     <string name="button_cancel">Ezeztatu</string>
     <string name="button_save">Gorde</string>
-    <string name="button_webserver_toggle_text">Abiarazi edo gelditu web-zerbitzaria tokiko-hostalarian blokeatutako hostalari-izen eskabideak galdetzeko.</string>
     <string name="button_help">Laguntza</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Editatu</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Zerrenda-zuria</string>
-    <string name="lists_tab_blacklist">Zerrenda-beltza</string>
-    <string name="lists_tab_redirection_list">Birbideratzeak</string>
     <string name="import_dialog">Inportatzen…</string>
     <string name="export_dialog">Esportatzen…</string>
     <!--Hosts content-->
@@ -45,8 +41,6 @@
     <string name="hosts_open_button">Ireki hostalari fitxategia</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Eguneraketak egiaztatzen…</string>
-    <string name="status_reverting">Leheneratzen...</string>
     <string name="status_reverting_subtitle">Hostalari agiri estandarra sortzen</string>
     <string name="status_update_available">Eguneraketa eskuragarri</string>
     <string name="status_update_available_subtitle">Hostalari agiri berrienak eskuragarri</string>
@@ -107,8 +101,6 @@
     <string name="enable_systemless_successful_title">Ongi gaitu da</string>
     <string name="disable_systemless_successful_title">Ongi ezgaitu da</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">su binarioa ezin da aurkitu edo ez diozu erro baimenik ahalbidetu AdAway-ri.\n\nHau zure gailua errotu gabea dagoenean geratu daiteke.\nZure gailua nola erroturi buruzko argibideak aurkitu ditzakezu wiki.lineageos.org-en edo beste Android webguentan.</string>
-    <string name="no_root_title">Beharrezkoa Android errotua</string>
     <string name="hosts_add_dialog">Sartu hostalari agirirako URL-a:</string>
     <string name="no_hostname">Hau ez da baliozko hostalari-izen bat!</string>
     <string name="no_hostname_title">Hostalari-izena ezegoki heuskarrituta</string>
@@ -120,7 +112,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Berritu</string>
     <string name="menu_add">Gehitu</string>
-    <string name="menu_hosts_sources">Hostalari iturburuak</string>
     <string name="menu_help">Laguntza</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -133,8 +124,6 @@
     <string name="adware_empty">Ez da Adwarerik topatu!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Tokikoa:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Iragarki blokeatzailea</string>
@@ -159,31 +148,6 @@
     <string name="tcpdump_entry_add_redirection_list">Gehitu sarrera birbidalketa zerrendara</string>
 
     <!--Preferences-->
-    <string name="pref_download">Hobespen Orokorrak</string>
-    <string name="pref_dismiss_welcome">Ezkutatu ongi etorri mezua</string>
-    <string name="pref_dismiss_welcome_summary">Ez erakutsi ongi etorri mezua hasierako pantailan</string>
-    <string name="pref_dark_theme_summary">Gai argia ordez, erabili gai iluna</string>
-    <string name="pref_dark_theme_notification">Gaia hurrengo abioan aplikatuko da!</string>
-    <string name="pref_hosts">Hostalari Agiria</string>
-    <string name="pref_redirection_ipv4_summary">Blokeatutako hostalari-izen guztiak IPv4 helbide honetara birbideratuko dira.</string>
-    <string name="pref_redirection_ipv6_summary">Blokeatutako hostalari-izen guztiak IPv6 helbide honetara birbideratuko dira.</string>
-    <string name="pref_header_preferences">Hobespenak</string>
-    <string name="pref_header_preferences_summary">AdAway hobespen orokorrak</string>
-    <string name="pref_never_reboot_summary">Ongi ezarri ondoren Android berrabiaraztea galdetzen duen elkarrizketa ezkutatzen du</string>
-    <string name="pref_webserver_on_boot_summary">Hasi web-zerbitzaria Abiaraztean, tokiko IP helbidean aditzen</string>
-    <string name="pref_webserver_enabled_summary">Web-zerbitzari aditzea gaitzen du tokiko IP helbidean hostalari-izenak blokeatzeko eskabideei erantzuteko</string>
-    <string name="pref_custom_target_summary">Bakarrik erabiltzen da xede hostalari agiria norbere xede bezala ezartzen bada</string>
-
-    <string name="pref_update_check_summary">Egiaztatu eguneraketak AdAway abiatzean</string>
-    <string name="pref_sdcard_problem">Ezaugarri hau ez du ongi funtzionatuko AdAway SD txartelan instalatuta dagoenean!</string>
-    <string name="pref_background">Barreneko Zerbitzuak</string>
-    <string name="pref_update_check_daily_summary">Egiaztatu eguneraketak egunero barrenean jakinarazpenekin</string>
-    <string name="pref_automatic_update_daily">Berezgaitasunezko eguneraketa</string>
-    <string name="pref_automatic_update_daily_summary">Eguneratu berezgaitasunez barrenean eguneraketa eskuragarririk badago.</string>
-    <string name="pref_whitelist_rules_summary">Ahalbidtu zerrend-zuri sarrerak Hostalari Iturburuetatik.</string>
-    <string name="pref_debug">Garbiketa</string>
-    <string name="pref_enable_systemless_summary">Saihestu AdAway-k sistemaren partizioa aldatzea</string>
-    <string name="pref_enable_systemless">Gaitu sistemagabe modua</string>
     <string name="drawer_open">Ireki menua</string>
     <string name="drawer_close">Itxi menua</string>
 
@@ -204,9 +168,6 @@
     <string name="drawer_support_dialog_button">Nire laguntza ikustarazi</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetria</string>
-    <string name="dialog_telemetry_enable">Noski, lagundu izanaz pozten naiz!</string>
-    <string name="dialog_telemetry_disable">Ez eskerrik asko</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS eskaerak</string>

@@ -9,7 +9,6 @@
     <string name="button_add">Lägg till</string>
     <string name="button_cancel">Avbryt</string>
     <string name="button_save">Spara</string>
-    <string name="button_webserver_toggle_text">Starta eller stoppa den lokala webbservern att besvara begäran till blockerade värdnamn.</string>
     <string name="button_help">Hjälp</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Redigera</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Vitlista</string>
-    <string name="lists_tab_blacklist">Svartlista</string>
-    <string name="lists_tab_redirection_list">Omdirigeringar</string>
     <string name="import_dialog">Importerar...</string>
     <string name="import_success">Säkerhetskopian importerades från din extern lagring.</string>
     <string name="import_failed">Det gick inte att importera säkerhetskopian. Är dess format rätt? Kolla logcat för mer detaljer.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Öppna värdfilen</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Letar efter uppdateringar...</string>
-    <string name="status_reverting">Återställer...</string>
     <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
     <string name="status_update_available">Uppdatering tillgänglig</string>
     <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Inaktivera systemlöst läge i Magisk manager. I modullistan, avinstallera modulen <cite>Systemless hosts</cite> och starta sedan om enheten.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Antingen så kunde binärfilen för su inte hittas eller så tillät du inte root-åtkomst för AdAway.\n\nDetta kan hända när din enhet inte är rootad.\nDu kan hitta mer information om hur du rootar din enhet på wiki.lineageos.org eller andra Android-hemsidor.</string>
-    <string name="no_root_title">Rootad Android krävs</string>
     <string name="hosts_add_dialog">Importera URL till värdfil:</string>
     <string name="no_hostname">Detta är inget giltigt värdnamn!</string>
     <string name="no_hostname_title">Felaktigt utformat värdnamn</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Uppdatera</string>
     <string name="menu_add">Lägg till</string>
-    <string name="menu_hosts_sources">Värdkällor</string>
     <string name="menu_help">Hjälp</string>
     <string name="menu_import">Importera säkerhetskopia</string>
     <string name="menu_export">Exportera säkerhetskopia</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Hittade inga annonsappar!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokal:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Annonsblockerare</string>
@@ -181,33 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Lägg till post till omdirigeringslista</string>
 
     <!--Preferences-->
-    <string name="pref_download">Allmänna inställningar</string>
-    <string name="pref_dismiss_welcome">Dölj välkomstkort</string>
-    <string name="pref_dismiss_welcome_summary">Visa inte välkomstkortet på hemskärmen</string>
-    <string name="pref_dark_theme_summary">Använd mörkt tema i stället för det ljusa</string>
-    <string name="pref_dark_theme_notification">Temat kommer att ändras vid nästa applikationsstart</string>
-    <string name="pref_hosts">Värdfil</string>
-    <string name="pref_redirection_ipv4_summary">Alla blockerade värdnamn omdirigeras till denna IPv4-adress.</string>
-    <string name="pref_redirection_ipv6_summary">Alla blockerade värdnamn omdirigeras till denna IPv6-adress.</string>
-    <string name="pref_header_preferences">Inställningar</string>
-    <string name="pref_header_preferences_summary">Allmänna inställningar för AdAway</string>
-    <string name="pref_never_reboot_summary">Gömmer dialogrutan som frågar om du vill starta om din Android efter lyckad tillämpning</string>
-    <string name="pref_webserver_on_boot_summary">Starta webbservern vid uppstart, lyssnande på lokala IP-adresser</string>
-    <string name="pref_webserver_enabled_summary">Aktiverar en webbserver som lyssnar på lokala IP-Adresser för att svara på förfrågningar till blockerade värdnamn</string>
-    <string name="pref_custom_target_summary">Används bara om vald målvärdfil är satt till ett anpassat mål</string>
-    <string name="pref_update_check_summary">Sök efter uppdateringar när AdAway startas</string>
-    <string name="pref_sdcard_problem">Denna funktionen inte korrekt när AdAway är installerad på ett SD-kort!</string>
-    <string name="pref_background">Bakgrundstjänster</string>
-    <string name="pref_update_check_daily_summary">Sök efter uppdateringar dagligen i bakgrunden, med notifieringar</string>
-    <string name="pref_automatic_update_daily">Automatiska uppdateringar</string>
-    <string name="pref_automatic_update_daily_summary">Uppdatera automatiskt i bakgrunden om uppdateringar är tillgängliga.</string>
-    <string name="pref_update_only_on_wifi">Uppdatera endast vid trafik utan datapriser</string>
-    <string name="pref_update_only_on_wifi_summary">Utför endast bakgrundsuppdateringar när du är ansluten till ett nätverk utan datapriser.</string>
-    <string name="pref_whitelist_rules_summary">Tillåt vitlistningsposter från värdkällor.</string>
-    <string name="pref_debug">Felsökning</string>
-    <string name="pref_enable_ipv6_summary">Alla värdfilposter kommer att få en motsvarande omdirigeringspost.</string>
-    <string name="pref_enable_systemless_summary">Förhindra AdAway från att modifiera systempartitionen </string>
-    <string name="pref_enable_systemless">Aktivera systemlöst läge</string>
     <string name="pref_edit_text_value">Redigera textinställningsvärden</string>
     <string name="drawer_open">Öppna meny</string>
     <string name="drawer_close">Stäng meny</string>
@@ -230,10 +192,6 @@
     <string name="drawer_support_dialog_button">Visa mitt stöd</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetri</string>
-    <string name="dialog_telemetry_message">Hej, kära användare!\n\nDu kan nu delta i utvecklingen av AdAway genom att dela dina kraschrapporter och grundläggande användningsinformation. Alla data är anonyma och telemetri aktiveras endast om du godkänner det.\n\nDu hittar mer information på <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Visst, jag är glad att hjälpa till!</string>
-    <string name="dialog_telemetry_disable">Nej tack</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS-förfrågningar</string>

@@ -9,7 +9,6 @@
     <string name="button_add">إضافة</string>
     <string name="button_cancel">إلغاء</string>
     <string name="button_save">حفظ</string>
-    <string name="button_webserver_toggle_text">تشغيل أو إيقاف خادم الويب على المضيف المحلي للرد على طلبات أسماء المضيفين المحظورة.</string>
     <string name="button_help">المساعدة</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">تحرير</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">القائمة البيضاء</string>
-    <string name="lists_tab_blacklist">القائمة السوداء</string>
-    <string name="lists_tab_redirection_list">عمليات إعادة التوجيه</string>
     <string name="import_dialog">استيراد…</string>
     <string name="import_success">تم ادخال النسخة الاحتياطية من الذاكرة الخارجية بنجاح.</string>
     <string name="import_failed">فشل ادخال النسخة الاحتياطية,هل هي بالصيغة الصحيحة؟
@@ -52,8 +48,6 @@
     <string name="hosts_open_button">فتح ملف المضيف</string>
 
     <!--Status Notification-->
-    <string name="status_checking">جارٍ البحث عن التحديثات…</string>
-    <string name="status_reverting">استرجاع…</string>
     <string name="status_reverting_subtitle">إنشاء ملفات المضيف الأساسية</string>
     <string name="status_update_available">يوجد تحديث متوفر</string>
     <string name="status_update_available_subtitle">ملفات المضيف الجديدة متوفرة</string>
@@ -121,9 +115,6 @@
     <string name="disable_systemless_successful">تم تعطيل الوضع اللّانظامي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
     <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">إما تطبيق سو بيناري غير موجود أو لم يسمح بالوصول إلى صلاحيات root   لتطبيق AdAway . هذا يمكن أن يحدث عندما يكون جهازك لا يعطي صلاحية ل root  ،
-يمكنك أن تجد معلومات عن طريقة و صلاحية root  على wiki.lineageos.org ، أو مواقع اندرويد الأخرى.</string>
-    <string name="no_root_title">مطلوب روت للهاتف</string>
     <string name="hosts_add_dialog">أدخل عنوان URL لملفات المضيف:</string>
     <string name="no_hostname">اسم الموقع غير صالح!</string>
     <string name="no_hostname_title">صيغة اسم المضيف غير صحيحية</string>
@@ -135,7 +126,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">تحديث</string>
     <string name="menu_add">إضافة</string>
-    <string name="menu_hosts_sources">مصادر المضيف</string>
     <string name="menu_help">المساعدة</string>
     <string name="menu_import">استرجاع النسخة الاحتياطية.</string>
     <string name="menu_export">استخراج نسخة احتياطية.</string>
@@ -152,8 +142,6 @@
     <string name="adware_empty">لم يتم العثور على إعلانات مُتسلّلة!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">المثبت:</string>
-    <string name="hosts_last_modified_online">الجديد:</string>
 
     <!--Other-->
     <string name="app_subtitle">حاجب الإعلانات</string>
@@ -178,34 +166,6 @@
     <string name="tcpdump_entry_add_redirection_list">إضافة المُدخَل إلى قائمة إعادة التوجيه</string>
 
     <!--Preferences-->
-    <string name="pref_download">الخيارات العامة</string>
-    <string name="pref_dismiss_welcome">إخفاء رسالة الترحيب</string>
-    <string name="pref_dismiss_welcome_summary">عدم إظهار رسالة الترحيب على الصفحة الرئيسية</string>
-    <string name="pref_dark_theme_summary">إستخدم الخلفيّة الدّاكنة بدلاً عن الخلفيّة الفاتحة</string>
-    <string name="pref_dark_theme_notification">سوف يتم تثبيت \"الثيم\" عند إعادة تشغيل التطبيق!</string>
-    <string name="pref_hosts">ملفات المضيف</string>
-    <string name="pref_redirection_ipv4_summary">جميع الروابط المحجومة سيتم إعادة توجيهها الى عنوان IPv4 هذا.</string>
-    <string name="pref_redirection_ipv6_summary">جميع الروابط المحجومة سيتم إعادة توجيهها الى عنوان IPv6 هذا.</string>
-    <string name="pref_header_preferences">الخيارات</string>
-    <string name="pref_header_preferences_summary">الخيارات العامة لـ AdAway</string>
-    <string name="pref_never_reboot_summary">إخفاء مُحاور إعادة التشغيل بعد تنفيذ التحديث على جهازك</string>
-    <string name="pref_webserver_on_boot_summary">بدأ خادم الويب عند التشغيل، والتعرف على عناوين IP محلية</string>
-    <string name="pref_webserver_enabled_summary">تفعيل خادم الويب يتعرف على عناوين IP محلية للرد على طلبات أسماء المضيفين الذين منعوا.</string>
-    <string name="pref_custom_target_summary">استخدمه فقط إذا حدد مسار مخصص لملفات المضيف</string>
-
-    <string name="pref_update_check_summary">التحقق من وجود تحديثات عند تشغيل التطبيق</string>
-    <string name="pref_sdcard_problem">هذه الخاصية لن تعمل بشكل صحيح عندما يكون AdAway مثبتاً على بطاقة الذاكرة</string>
-    <string name="pref_background">الخدمات الخلفية</string>
-    <string name="pref_update_check_daily_summary">التحقق من التحديثات يومياً في الخلفية مع التنبيه</string>
-    <string name="pref_automatic_update_daily">التحديث التلقائي</string>
-    <string name="pref_automatic_update_daily_summary">التحديث تلقائياً في الخلفية إذا كانت التحديثات متوفرة.</string>
-    <string name="pref_update_only_on_wifi">قم بالتحديث فقط عبر الـ Wi-Fi</string>
-    <string name="pref_update_only_on_wifi_summary">قم بتنفيذ التحديثات في الخلفية فقط عند الإتصال بالـ Wi-Fi.</string>
-    <string name="pref_whitelist_rules_summary">السماح لمداخلات القائمة البيضاء من مصادر المضيف</string>
-    <string name="pref_debug">التصحيح</string>
-    <string name="pref_enable_ipv6_summary">جميع مدخلات ملف host سوف تحصل على عنوان اعادة توجيه مقابل.</string>
-    <string name="pref_enable_systemless_summary">منع AdAway من تغير تقسيمة النظام </string>
-    <string name="pref_enable_systemless">تفعيل الوضع اللانظامي</string>
     <string name="pref_edit_text_value">تحرير قيمة إعدادات النص</string>
     <string name="drawer_open">فتح القائمة</string>
     <string name="drawer_close">إغلاق القائمة</string>
@@ -228,10 +188,6 @@
     <string name="drawer_support_dialog_button">إظهار دعمي</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">قياس المعلومات البُعدي</string>
-    <string name="dialog_telemetry_message">مرحبا عزيزي المستخدم,\AdAway\ المطورون, يمكنك الان المشاركة بتطوير برنامج مانع الإعلانات وذلك عن طريق مشاركة تقارير الاعطال ومعلومات الاستخدام الاساسية. كل البيانات ستكون مجهولة الهوية وسيتم تفعيل  قياس المعلومات البُعدي فقط في حالة وافقت على ذلك. \برنامج مانع الإعلانات\ المطورون يمكنك الحصول على المزيد من المعلومات على<a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">بالطبع, انا سعيد لتقديم المساعدة!</string>
-    <string name="dialog_telemetry_disable">لا شكر على واجب</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">طلبات DNS</string>

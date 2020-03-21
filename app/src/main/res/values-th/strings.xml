@@ -9,7 +9,6 @@
     <string name="button_add">เพิ่ม</string>
     <string name="button_cancel">ยกเลิก</string>
     <string name="button_save">บันทึก</string>
-    <string name="button_webserver_toggle_text">เปิดหรือปิดเว็บเซิร์ฟเวอร์บนโลเคิลโฮสต์เพื่อบล็อคตอบรับคำขอไปยังไฟล์โฮสต์</string>
     <string name="button_help">ช่วยเหลือ</string>
 
     <!--Home-->
@@ -33,9 +32,6 @@
     <string name="checkbox_list_context_edit">แก้ไข</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">บัญชีขาว</string>
-    <string name="lists_tab_blacklist">บัญชีดำ</string>
-    <string name="lists_tab_redirection_list">เปลี่ยนเส้นทาง</string>
     <string name="import_dialog">กำลังนำเข้า…</string>
     <string name="export_dialog">กำลังส่งออก…</string>
     <!--Hosts content-->
@@ -44,8 +40,6 @@
     <string name="hosts_open_button">เปิดไฟล์ hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">กำลังตรวจสอบอัพเดต…</string>
-    <string name="status_reverting">กำลังคืนค่า…</string>
     <string name="status_reverting_subtitle">กำลังสร้างไฟล์โฮสต์มาตรฐาน</string>
     <string name="status_update_available">สามารถอัพเดตได้</string>
     <string name="status_update_available_subtitle">สามารถอัพเดตไฟล์โฮสต์ได้</string>
@@ -97,8 +91,6 @@
     <string name="enable_systemless_successful_title">การเปิดใช้งานเสร็จสมบูรณ์</string>
     <string name="disable_systemless_successful_title">การปิดใช้งานเสร็จสมบูรณ์</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">ไม่พบไบนารี su หรือคุณไม่มีสิทธิ์รูทสำหรับ AdAway \n\n คุณสามารถหาข้อมูลเกี่ยวกับวิธีการรูทอุปกรณ์ของคุณด้วย Magisk หรือ SuperSU</string>
-    <string name="no_root_title">จำเป็นต้องรูท</string>
     <string name="hosts_add_dialog">ใส่ URL ไปยังไฟล์โฮสต์:</string>
     <string name="no_hostname">ชื่อโฮสต์ไม่ถูกต้อง!</string>
     <string name="no_hostname_title">รูปแบบชื่อโฮสต์ไม่ถูกต้อง</string>
@@ -109,7 +101,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">รีเฟรช</string>
     <string name="menu_add">เพิ่ม</string>
-    <string name="menu_hosts_sources">แหล่งที่มาโฮสต์</string>
     <string name="menu_help">ช่วยเหลือ</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -119,8 +110,6 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">เครื่อง:</string>
-    <string name="hosts_last_modified_online">ออนไลน์:</string>
 
     <!--Other-->
     <string name="app_subtitle">บล็อคโฆษณา</string>
@@ -145,29 +134,6 @@
     <string name="tcpdump_entry_add_redirection_list">เพิ่มรายการไปยังรายการเปลี่ยนเส้นทาง</string>
 
     <!--Preferences-->
-    <string name="pref_download">การตั้งค่าทั่วไป</string>
-    <string name="pref_dismiss_welcome">ซ่อนหน้าต้อนรับ</string>
-    <string name="pref_dismiss_welcome_summary">อย่าแสดงหน้าต้อนรับบนหน้าจอหลัก</string>
-    <string name="pref_dark_theme_summary">ใช้ธีมสีดำเพื่อลดความสว่างของหน้าจอ</string>
-    <string name="pref_dark_theme_notification">ธีมจะถูกใช้เมื่อเริ่มต้นแอพฯครั้งต่อไป!</string>
-    <string name="pref_hosts">ไฟล์โฮสต์</string>
-    <string name="pref_header_preferences">การตั้งค่า</string>
-    <string name="pref_header_preferences_summary">การตั้งค่าทั่วไป AdAway</string>
-    <string name="pref_never_reboot_summary">ซ่อนกล่องรีบูตหลังจากใช้งานเสร็จสิ้น</string>
-    <string name="pref_webserver_on_boot_summary">เริ่มใช้งานเว็บเซิร์ฟเวอร์เมื่อบูตระบบ</string>
-    <string name="pref_webserver_enabled_summary">เปิดใช้งานเว็บเซิร์ฟเวอร์เพื่อตอบรับคำขอบล็อคโฆษณา</string>
-    <string name="pref_custom_target_summary">ใช้งานเท่านั้นหากไฟล์โฮสต์ถูกตั้งเป็นกำหนดเอง</string>
-    <string name="pref_update_check_summary">ตรวจสอบอัพเดตเมื่อเปิดแอพพลิเคชั่น</string>
-    <string name="pref_background">บริการพื้นหลัง</string>
-    <string name="pref_update_check_daily_summary">ตรวจสอบการอัพเดตในพื้นหลังและแสดงการแจ้งเตือน</string>
-    <string name="pref_automatic_update_daily">อัพเดตอัตโนมัติ</string>
-    <string name="pref_automatic_update_daily_summary">อัพเดตอัตโนมัติในพื้นหลังหากสามารถอัพเดตได้</string>
-    <string name="pref_update_only_on_wifi">อัพเดทเมื่อไม่มีการตรวจสอบเท่านั้น</string>
-    <string name="pref_update_only_on_wifi_summary">ดำเนินการปรับปรุงพื้นหลังเฉพาะเมื่อเชื่อมต่อกับเครือข่ายที่ไม่มีการตรวจสอบเท่านั้น</string>
-    <string name="pref_whitelist_rules_summary">อนุญาตบัญชีขาวจากแหล่งที่มาโฮสต์</string>
-    <string name="pref_debug">ดีบัค</string>
-    <string name="pref_enable_systemless_summary">ป้องกันไม่ให้ AdAway แก้ไขไฟล์ในระบบ</string>
-    <string name="pref_enable_systemless">เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ</string>
     <string name="pref_edit_text_value">แก้ไขค่ากำหนดของข้อความ</string>
     <string name="drawer_open">เปิดเมนู</string>
     <string name="drawer_close">ปิดเมนู</string>

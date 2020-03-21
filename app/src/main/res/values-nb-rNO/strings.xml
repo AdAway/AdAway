@@ -9,7 +9,6 @@
     <string name="button_add">Legg til</string>
     <string name="button_cancel">Lukk</string>
     <string name="button_save">Lagre</string>
-    <string name="button_webserver_toggle_text">Start eller stopp nettjeneren på lokalverten for å svare på forespørsler om blokkerte vertsnavn.</string>
     <string name="button_help">Hjelp</string>
 
     <!--Home-->
@@ -26,14 +25,9 @@
     <string name="checkbox_list_context_edit">Rediger</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Hviteliste</string>
-    <string name="lists_tab_blacklist">Svarteliste</string>
-    <string name="lists_tab_redirection_list">Omdirigeringer</string>
     <string name="import_dialog">Importerer …</string>
     <string name="export_dialog">Eksporterer …</string>
     <!--Status Notification-->
-    <string name="status_checking">Ser etter oppdateringer …</string>
-    <string name="status_reverting">Stiller tilbake …</string>
     <string name="status_reverting_subtitle">Lager standard-vertsfilen</string>
     <string name="status_update_available">Oppdatering tilgjengelig</string>
     <string name="status_update_available_subtitle">Nyere vertsfiler er tilgjengelig</string>
@@ -80,8 +74,6 @@
     <string name="enable_systemless_successful_title">Påskruingen var vellykket</string>
     <string name="disable_systemless_successful_title">Avskruingen var vellykket</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">Enten kunne SU-binærfilen ikke bli funnet, eller så ga du ikke root-tillatelse for AdAway.\n\nDette kan skje dersom enheten din ikke er rootet.\nDu kan finne mere informasjon om hvordan man rooter enheten din på wiki.lineageos.org eller på andre Android-nettsteder.</string>
-    <string name="no_root_title">En rootet Android er påkrevd</string>
     <string name="hosts_add_dialog">Inndata-URLen til vertsfilen:</string>
     <string name="no_hostname">Dette er ikke et gyldig vertsnavn!</string>
     <string name="no_hostname_title">Ugyldig formattert vertsnavn</string>
@@ -92,7 +84,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Oppfrisk</string>
     <string name="menu_add">Legg til</string>
-    <string name="menu_hosts_sources">Vertsfilkilder</string>
     <string name="menu_help">Hjelp</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -100,8 +91,6 @@
     <string name="help_tab_problems">Problemer</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokalt:</string>
-    <string name="hosts_last_modified_online">Online:</string>
     <!--Other-->
     <string name="app_subtitle">Reklameblokkerer</string>
     <string name="no_text_editor_title">Ingen tekstredigerere er installert</string>
@@ -111,23 +100,6 @@
 
     <string name="tcpdump_description">Tcpdump er et verktøy for å overvåke DNS-forespørsler og lagre dem i en loggfil. Du kan starte den i bakgrunnen, kjøre apper som viser reklamer, og etterpå analysere DNS-forespørslene ved hjelp av loggfilen. Mulige reklametjenere kan deretter bli lagt til i svartelisten din.</string>
     <!--Preferences-->
-    <string name="pref_download">Generelle preferanser</string>
-    <string name="pref_hosts">Vertsfil</string>
-    <string name="pref_header_preferences">Preferanser</string>
-    <string name="pref_header_preferences_summary">Generelle preferanser for AdAway</string>
-    <string name="pref_never_reboot_summary">Skjuler dialogen som spør om å starte Android på nytt etter vellykkede benyttelser</string>
-    <string name="pref_webserver_on_boot_summary">Start nettjeneren ved oppstart, og lytter på lokale IP-adresser</string>
-    <string name="pref_webserver_enabled_summary">Skrur på nettjenerlytting av lokale IP-adresse for å svare på forespørsler til blokkerte vertsnavn</string>
-    <string name="pref_custom_target_summary">Brukes kun dersom målvertsfilen er satt til et tilpasset mål</string>
-    <string name="pref_update_check_summary">Se etter oppdateringer når AdAway starter opp</string>
-    <string name="pref_background">Bakgrunnstjenester</string>
-    <string name="pref_update_check_daily_summary">Sjekk etter oppdateringer i bakgrunnen daglig med beskjeder</string>
-    <string name="pref_automatic_update_daily">Automatisk oppdatering</string>
-    <string name="pref_automatic_update_daily_summary">Oppdater automatisk i bakgrunnen dersom oppdateringer er tilgjengelige.</string>
-    <string name="pref_whitelist_rules_summary">Tillat hvitelistingsoppføringer fra vertsfilkilder.</string>
-    <string name="pref_debug">Avlusing</string>
-    <string name="pref_enable_systemless_summary">Forhindre AdAway fra å modifisere systempartisjonen</string>
-    <string name="pref_enable_systemless">Aktiver systemløs modus</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>

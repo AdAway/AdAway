@@ -9,7 +9,6 @@
     <string name="button_add">Aggiungi </string>
     <string name="button_cancel">Annulla</string>
     <string name="button_save">Salva</string>
-    <string name="button_webserver_toggle_text">Avvia o ferma il webserver in localhost per rispondere alle richieste verso hostname bloccati.</string>
     <string name="button_help">Aiuto</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Modifica</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Whitelist</string>
-    <string name="lists_tab_blacklist">Blacklist</string>
-    <string name="lists_tab_redirection_list">Inoltra</string>
     <string name="import_dialog">Importo...</string>
     <string name="import_success">Backup correttamente importato dalla memoria esterna.</string>
     <string name="import_failed">Importazione del backup non riuscita. Il suo formato è corretto? Controlla il logcat per maggiori dettagli.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Apri il file hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Controllo aggiornamenti...</string>
-    <string name="status_reverting">Ripristino in corso...</string>
     <string name="status_reverting_subtitle">Creo file hosts predefinito</string>
     <string name="status_update_available">Aggiornamento disponibile</string>
     <string name="status_update_available_subtitle">File host più recenti disponibili</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Disabilita la funzionalità host systemless da Magisk Manager. Dall\'elenco dei moduli, disinstalla il modulo <cite>Host systemless</cite> e poi riavvia il dispositivo.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Non è stato trovato il binario SU o non hai concesso i permessi di root per AdAway.\n\nQuesto può succedere quando il tuo dispositivo non ha il root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android.</string>
-    <string name="no_root_title">Richiesto Android con root</string>
     <string name="hosts_add_dialog">Inserisci l\'URL al file hosts:</string>
     <string name="no_hostname">Questo non è un nome host valido!</string>
     <string name="no_hostname_title">Nome host non formattato correttamente</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Aggiorna</string>
     <string name="menu_add">Aggiungi </string>
-    <string name="menu_hosts_sources">Fonti host</string>
     <string name="menu_help">Aiuto</string>
     <string name="menu_import">Importa backup</string>
     <string name="menu_export">Esporta backup</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Nessun Adware è stato trovato!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Locale:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Blocca pubblicità</string>
@@ -182,34 +171,6 @@ Vuoi installare OI File Manager?</string>
     <string name="tcpdump_entry_add_redirection_list">Aggiungi voce alla lista inoltri</string>
 
     <!--Preferences-->
-    <string name="pref_download">Preferenze generali</string>
-    <string name="pref_dismiss_welcome">Nascondi scheda di benvenuto</string>
-    <string name="pref_dismiss_welcome_summary">Non mostrare scheda di benvenuto sulla home screen</string>
-    <string name="pref_dark_theme_summary">Usa il tema scuro al posto di quello chiaro</string>
-    <string name="pref_dark_theme_notification">Il tema verrà applicato al prossimo riavvio!</string>
-    <string name="pref_hosts">File Hosts</string>
-    <string name="pref_redirection_ipv4_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IPv4.</string>
-    <string name="pref_redirection_ipv6_summary">Tutti gli hostname bloccati vengono reindirizzati a questo indirizzo IPv6.</string>
-    <string name="pref_header_preferences">Preferenze</string>
-    <string name="pref_header_preferences_summary">Preferenze generali per AdAway</string>
-    <string name="pref_never_reboot_summary">Nascondi la finestra di dialogo che chiede di riavviare Android dopo aver applicato le modifiche.</string>
-    <string name="pref_webserver_on_boot_summary">Abilita il webserver in ascolto sull\'indirizzo locale all\'avvio del telefono</string>
-    <string name="pref_webserver_enabled_summary">Abilita il webserver in ascolto sull\'indirizzo locale per rispondere alle richieste bloccate</string>
-    <string name="pref_custom_target_summary">In uso solo se si usa un file hosts personalizzato</string>
-
-    <string name="pref_update_check_summary">Controlla aggiornamenti all\'avvio di AdAway</string>
-    <string name="pref_sdcard_problem">Questa opzione non funzionerà correttamente quando AdAway è installato sulla scheda SD!</string>
-    <string name="pref_background">Servizi in background</string>
-    <string name="pref_update_check_daily_summary">Cerca aggiornamenti giornalmente in background con notifiche</string>
-    <string name="pref_automatic_update_daily">Aggiornamento automatico</string>
-    <string name="pref_automatic_update_daily_summary">Aggiorna automaticamente in background se sono disponibili aggiornamenti.</string>
-    <string name="pref_update_only_on_wifi">Aggiorna solo con connessioni non a consumo</string>
-    <string name="pref_update_only_on_wifi_summary">Esegui aggiornamenti in background solo quando connesso ad una rete non a consumo.</string>
-    <string name="pref_whitelist_rules_summary">Consenti le voci della whitelist dalle fonti host</string>
-    <string name="pref_debug">Debug</string>
-    <string name="pref_enable_ipv6_summary">Tutte le voci del file di host avranno una voce di inoltro corrispondente.</string>
-    <string name="pref_enable_systemless_summary">Impedisci a AdAway di modificare la partizione di sistema</string>
-    <string name="pref_enable_systemless">Attivare modalità Systemless</string>
     <string name="pref_edit_text_value">Modifica il valore di testo</string>
     <string name="drawer_open">Apri il menù</string>
     <string name="drawer_close">Chiudi il menù</string>
@@ -232,10 +193,6 @@ Vuoi installare OI File Manager?</string>
     <string name="drawer_support_dialog_button">Mostra il mio supporto</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetria</string>
-    <string name="dialog_telemetry_message">Caro utente,/n/nHai la possibilità di contribuire allo sviluppo di AdAway condividendo i tuoi rapporti di arresto anomalo e informazioni base sull\'utilizzo dell\'app. Tutti i dati vengono inviati in forma anonima e l\'invio sarà abilitato solo se accetti./n/Puoi trovare maggiori informazioni su <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a></string>
-    <string name="dialog_telemetry_enable">Certo, voglio aiutare!</string>
-    <string name="dialog_telemetry_disable">No grazie</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Chiamata DNS</string>

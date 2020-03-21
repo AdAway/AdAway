@@ -9,7 +9,6 @@
     <string name="button_add">Hinzufügen</string>
     <string name="button_cancel">Abbrechen</string>
     <string name="button_save">Speichern</string>
-    <string name="button_webserver_toggle_text">Den lokalen Webserver starten oder stoppen, um Anfragen an blockierte Hostnamen zu beantworten.</string>
     <string name="button_help">Hilfe</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Bearbeiten</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Positivliste</string>
-    <string name="lists_tab_blacklist">Negativliste</string>
-    <string name="lists_tab_redirection_list">Umleitungen</string>
     <string name="import_dialog">Importvorgang …</string>
     <string name="import_success">Sicherung erfolgreich aus externem Speicher importiert. </string>
     <string name="import_failed">Import der Sicherung fehlgeschlagen. War das Format korrekt? Protokoll nach Einzelheiten dazu überprüfen.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Hosts-Datei öffnen</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Aktualisierungsprüfung …</string>
-    <string name="status_reverting">Zurücksetzen …</string>
     <string name="status_reverting_subtitle">Standard-Hosts-Datei wird generiert</string>
     <string name="status_update_available">Aktualisierung verfügbar</string>
     <string name="status_update_available_subtitle">Neuere Hosts-Dateien verfügbar</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Systemunabhängige Hosts-Funktion im Magisk Manager deaktivieren. In der Modulliste das Modul <cite>Systemless hosts</cite> deinstallieren, dann das Gerät neustarten.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Entweder haben Sie AdAway keine Root-Rechte eingeräumt oder es existiert keine su-Binärdatei.\n\nLetzteres deutet darauf hin, dass Ihr Gerät nicht gerootet ist.\nInformationen, wie Sie Ihr Gerät rooten können, finden Sie auf wiki.lineageos.org oder anderen Android-Internetseiten.</string>
-    <string name="no_root_title">Das System muss gerootet sein</string>
     <string name="hosts_add_dialog">Bitte Adresse zur Hosts-Datei eingeben:</string>
     <string name="no_hostname">Das ist kein gültiger Hostname!</string>
     <string name="no_hostname_title">Falsch formatierter Hostname</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Neu laden</string>
     <string name="menu_add">Hinzufügen</string>
-    <string name="menu_hosts_sources">Hosts-Quellen</string>
     <string name="menu_help">Hilfe</string>
     <string name="menu_import">Sicherung importieren</string>
     <string name="menu_export">Sicherung exportieren</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Keine Adware gefunden!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokal:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Werbeblocker</string>
@@ -181,34 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Eintrag zur Umleitungsliste hinzufügen </string>
 
     <!--Preferences-->
-    <string name="pref_download">Grundeinstellungen</string>
-    <string name="pref_dismiss_welcome">Willkommensgruß ausblenden</string>
-    <string name="pref_dismiss_welcome_summary">Keine Grußbotschaft auf der Startseite der App anzeigen</string>
-    <string name="pref_dark_theme_summary">Dunkles Design anstelle des hellen verwenden.</string>
-    <string name="pref_dark_theme_notification">Design wird beim nächsten Anwendungsstart angewendet!</string>
-    <string name="pref_hosts">Hosts-Datei</string>
-    <string name="pref_redirection_ipv4_summary">Alle geblockten Hostnamen werden auf diese IPv4-Adresse umgeleitet. </string>
-    <string name="pref_redirection_ipv6_summary">Alle geblockten Hostnamen werden auf diese IPv6-Adresse umgeleitet. </string>
-    <string name="pref_header_preferences">Einstellungen</string>
-    <string name="pref_header_preferences_summary">Generelle AdAway-Einstellungen</string>
-    <string name="pref_never_reboot_summary">Nach Änderungen an der Hosts-Datei wird der Dialog mit der Frage nach einem Android-Neustart nicht mehr eingeblendet. </string>
-    <string name="pref_webserver_on_boot_summary">Beim Gerätestart den Webserver auf der lokalen IP-Adresse starten</string>
-    <string name="pref_webserver_enabled_summary">Den lokalen Webserver aktivieren, um Anfragen an blockierte Hostnamen zu beantworten.</string>
-    <string name="pref_custom_target_summary">Wird nur benutzt, wenn die Hosts-Datei auf benutzerdefiniert gestellt wurde</string>
-
-    <string name="pref_update_check_summary">Beim Starten nach Aktualisierungen suchen</string>
-    <string name="pref_sdcard_problem">Dieses Feature funktioniert nur dann korrekt wenn AdAway nicht auf der SD-Karte installiert ist.</string>
-    <string name="pref_background">Hintergrunddienste</string>
-    <string name="pref_update_check_daily_summary">Täglich, mit Benachrichtigung, im Hintergrund nach Aktualisierungen suchen.</string>
-    <string name="pref_automatic_update_daily">Automatische Aktualisierungen</string>
-    <string name="pref_automatic_update_daily_summary">Wenn Aktualisierungen verfügbar sind, diese automatisch im Hintergrund installieren.</string>
-    <string name="pref_update_only_on_wifi">Keine gebührenpflichtige Aktualisierung</string>
-    <string name="pref_update_only_on_wifi_summary">Hintergrundaktualisierungen nur bei einer kostenfreien Internetverbindung ausführen.</string>
-    <string name="pref_whitelist_rules_summary">Positivlisteneinträge aus Hosts-Quellen zulassen.</string>
-    <string name="pref_debug">Fehlerdiagnose</string>
-    <string name="pref_enable_ipv6_summary">Alle Einträge in der Host-Datei werden einen entsprechenden Umleitungseintrag erhalten.</string>
-    <string name="pref_enable_systemless_summary">Verhindern, dass AdAway das System modifiziert</string>
-    <string name="pref_enable_systemless">Systemlosen Modus aktivieren</string>
     <string name="pref_edit_text_value">Textvorgaben bearbeiten</string>
     <string name="drawer_open">Menü öffnen</string>
     <string name="drawer_close">Menü schließen</string>
@@ -233,10 +194,6 @@ Wenn Sie Ihnen gefällt und Sie sich weitere Updates wünschen, können Sie gern
     <string name="drawer_support_dialog_button">Meine Unterstützung anzeigen</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetrie</string>
-    <string name="dialog_telemetry_message">Hallo lieber Benutzer,\n\nSie können zur Weiterentwicklung von AdAway beitragen, indem Sie Absturzberichte und grundlegende Informationen zur Nutzung mit uns teilen. Alle Daten bleiben anonym und Telemetrie wird nur aktiviert, wenn Sie dem zustimmen.\n\nMehr Informationen finden Sie auf <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Klar, ich helfe gern!</string>
-    <string name="dialog_telemetry_disable">Nein danke</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS-Abfragen</string>

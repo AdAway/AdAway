@@ -9,7 +9,6 @@
     <string name="button_add">添加</string>
     <string name="button_cancel">取消</string>
     <string name="button_save">保存</string>
-    <string name="button_webserver_toggle_text">运行或停止本地主机上的 Web 服务器，以响应对被屏蔽的主机名的请求。</string>
     <string name="button_help">帮助</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">编辑</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">白名单</string>
-    <string name="lists_tab_blacklist">黑名单</string>
-    <string name="lists_tab_redirection_list">重定向</string>
     <string name="import_dialog">正在导入...</string>
     <string name="import_success">已成功从外置存储中导入备份。</string>
     <string name="import_failed">导入备份失败，请检查格式是否正确。查看日志文件以获取更多信息。</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">打开 hosts 文件</string>
 
     <!--Status Notification-->
-    <string name="status_checking">正在检查更新...</string>
-    <string name="status_reverting">正在恢复...</string>
     <string name="status_reverting_subtitle">创建标准 hosts 文件</string>
     <string name="status_update_available">有更新可用</string>
     <string name="status_update_available_subtitle">有新的 hosts 文件可用</string>
@@ -126,11 +120,6 @@
     <string name="disable_systemless_magisk">请在 Magisk Manager 中禁用 systemless hosts 特性。从模块列表中卸载<cite>Systemless Hosts</cite>模块，并重启设备。</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">未找到 su 二进制文件，或未授予 Root 权限。
-
-请检查您的设备！
-您可以在维基或其他安卓网站上查找有关如何获取 Root 权限的信息。</string>
-    <string name="no_root_title">需要已获得 root 权限的 Android 设备</string>
     <string name="hosts_add_dialog">输入 hosts 文件网址：</string>
     <string name="no_hostname">主机名无效！</string>
     <string name="no_hostname_title">主机名格式不正确</string>
@@ -142,7 +131,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">刷新</string>
     <string name="menu_add">添加</string>
-    <string name="menu_hosts_sources">hosts 源</string>
     <string name="menu_help">帮助</string>
     <string name="menu_import">导入备份</string>
     <string name="menu_export">导出备份</string>
@@ -159,8 +147,6 @@
     <string name="adware_empty">没有已知的广告软件！</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">本地：</string>
-    <string name="hosts_last_modified_online">在线：</string>
 
     <!--Other-->
     <string name="app_subtitle">广告拦截器</string>
@@ -185,33 +171,6 @@
     <string name="tcpdump_entry_add_redirection_list">添加条目到重定向</string>
 
     <!--Preferences-->
-    <string name="pref_download">常规首选项</string>
-    <string name="pref_dismiss_welcome">隐藏欢迎卡片</string>
-    <string name="pref_dismiss_welcome_summary">隐藏主屏幕上的欢迎卡片</string>
-    <string name="pref_dark_theme_summary">使用深色主题而不是浅色主题</string>
-    <string name="pref_dark_theme_notification">更改主题需要重启应用后才能生效！</string>
-    <string name="pref_hosts">hosts 文件</string>
-    <string name="pref_redirection_ipv4_summary">所有被屏蔽的主机名都将被重定向至此 IPv4 地址。</string>
-    <string name="pref_redirection_ipv6_summary">所有被屏蔽的主机名都将被重定向至此 IPv6 地址。</string>
-    <string name="pref_header_preferences">首选项</string>
-    <string name="pref_header_preferences_summary">AdAway 的常规设置</string>
-    <string name="pref_never_reboot_summary">隐藏应用要求重启应用的对话框</string>
-    <string name="pref_webserver_on_boot_summary">开机时，自动运行网络服务器并监听本地 IP 地址</string>
-    <string name="pref_webserver_enabled_summary">允许网络服务器监听听本地 IP 地址以应答对已屏蔽的主机名的请求</string>
-    <string name="pref_custom_target_summary">仅在“目标 hosts 文件”被设置为“自定义路径”时被使用</string>
-    <string name="pref_update_check_summary">启动时检查更新 AdAway</string>
-    <string name="pref_sdcard_problem">如果 AdAway 被安装到 SD 卡上，此功能可能无法运作！</string>
-    <string name="pref_background">后台服务</string>
-    <string name="pref_update_check_daily_summary">每天在后台检查更新并显示通知</string>
-    <string name="pref_automatic_update_daily">自动更新</string>
-    <string name="pref_automatic_update_daily_summary">有可用更新时，在后台自动进行更新。</string>
-    <string name="pref_update_only_on_wifi">仅在非计费网络下更新</string>
-    <string name="pref_update_only_on_wifi_summary">只有在连接至非计费网络时，才进行后台更新。</string>
-    <string name="pref_whitelist_rules_summary">允许 hosts 源中的白名单条目</string>
-    <string name="pref_debug">调试</string>
-    <string name="pref_enable_ipv6_summary">将 hosts 文件中的所有 IP 地址改为相应的 IPv6 地址</string>
-    <string name="pref_enable_systemless_summary">防止 AdAway 修改系统分区</string>
-    <string name="pref_enable_systemless">启用 systemless 模式</string>
     <string name="pref_edit_text_value">编辑文本首选项值</string>
     <string name="drawer_open">打开菜单</string>
     <string name="drawer_close">关闭菜单</string>
@@ -234,10 +193,6 @@
     <string name="drawer_support_dialog_button">支持开发者</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">遥测</string>
-    <string name="dialog_telemetry_message">您好，亲爱的用户，您现在可以通过分享您的崩溃报告和基本使用信息来参与 AdAway 的开发。所有的数据都是匿名的，且只有在您同意的情况下，才能启用遥测。您可以在<a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>上找到更多的细节。</string>
-    <string name="dialog_telemetry_enable">当然，我很乐意帮忙！</string>
-    <string name="dialog_telemetry_disable">不用了，谢谢</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 请求</string>

@@ -9,7 +9,6 @@
     <string name="button_add">Adicionar</string>
     <string name="button_cancel">Cancelar</string>
     <string name="button_save">Salvar</string>
-    <string name="button_webserver_toggle_text">Iniciar ou interromper servidor web no host local para responder solicitações de nomes de hosts bloqueados.</string>
     <string name="button_help">Ajuda</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Editar</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Lista Branca</string>
-    <string name="lists_tab_blacklist">Lista Negra</string>
-    <string name="lists_tab_redirection_list">Redirecionamentos</string>
     <string name="import_dialog">Importando...</string>
     <string name="import_success">Backup importado com sucesso do seu armazenamento externo.</string>
     <string name="import_failed">Falha ao importar backup. Seu formato está correto? Verifique o logcat para mais detalhes.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Abrir arquivo hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Procurando atualização...</string>
-    <string name="status_reverting">Revertendo...</string>
     <string name="status_reverting_subtitle">Criando arquivo hosts padrão</string>
     <string name="status_update_available">Atualização disponível</string>
     <string name="status_update_available_subtitle">Hosts mais recentes disponíveis</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Desative o recurso de hosts sem sistema do gerenciador Magisk. Na lista de módulos, desinstale o módulo <cite>Hosts sem sistema</cite> e reinicie o dispositivo.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Ou o binário su não pôde ser encontrado ou você não concedeu permissão de root para o AdAway.\n\nIsto pode acontecer quando seu dispositivo não está rooteado.\nVocê pode encontrar informação sobre como rootear seu dispositivo em wiki.lineageos.org ou outros sites sobre Android.</string>
-    <string name="no_root_title">É obrigatório o acesso ROOT</string>
     <string name="hosts_add_dialog">URL de entrada para arquivo hosts:</string>
     <string name="no_hostname">Este não é um nome de host válido!</string>
     <string name="no_hostname_title">Nome de host incorretamente formatado</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Atualizar</string>
     <string name="menu_add">Adicionar</string>
-    <string name="menu_hosts_sources">Fontes de hosts</string>
     <string name="menu_help">Ajuda</string>
     <string name="menu_import">Importar backup</string>
     <string name="menu_export">Exportar backup</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Nenhum Adware foi encontrado!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Local:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Bloqueador de anúncios</string>
@@ -181,33 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Adicionar entrada à lista de redirecionamento</string>
 
     <!--Preferences-->
-    <string name="pref_download">Preferências Gerais</string>
-    <string name="pref_dismiss_welcome">Ocultar card de boas vindas</string>
-    <string name="pref_dismiss_welcome_summary">Não mostrar o card de boas vindas na tela inicial</string>
-    <string name="pref_dark_theme_summary">Usar um tema escuro ao invés do claro</string>
-    <string name="pref_dark_theme_notification">O tema será aplicado na próxima inicialização do app!</string>
-    <string name="pref_hosts">Arquivo de Hosts</string>
-    <string name="pref_redirection_ipv4_summary">Todos os nomes de host bloqueados são redirecionados para esse endereço IPv4.</string>
-    <string name="pref_redirection_ipv6_summary">Todos os nomes de host bloqueados são redirecionados para esse endereço IPv6.</string>
-    <string name="pref_header_preferences">Preferências</string>
-    <string name="pref_header_preferences_summary">Preferências gerais do AdAway</string>
-    <string name="pref_never_reboot_summary">Ocultar caixa de diálogo de solicitação de reinicialização do Android após aplicação bem sucedida</string>
-    <string name="pref_webserver_on_boot_summary">Iniciar servidor web na inicialização, monitorando endereços de IP locais</string>
-    <string name="pref_webserver_enabled_summary">Ativar servidor web para monitorar endereços de IP locais afim de responder solicitações de nomes de hosts bloqueados</string>
-    <string name="pref_custom_target_summary">Apenas usado se o destino do arquivo hosts estiver definido como personalizado</string>
-    <string name="pref_update_check_summary">Verificar por atualizações na inicialização do AdAway</string>
-    <string name="pref_sdcard_problem">Este recurso não funcionará corretamente enquanto o AdAway estiver instalado no cartão SD!</string>
-    <string name="pref_background">Serviços de Segundo Plano</string>
-    <string name="pref_update_check_daily_summary">Verificar por atualizações diariamente em segundo plano com notificações</string>
-    <string name="pref_automatic_update_daily">Atualização automática</string>
-    <string name="pref_automatic_update_daily_summary">Atualizar automaticamente em segundo plano se atualizações estão disponíveis</string>
-    <string name="pref_update_only_on_wifi">Atualizar somente em conexão ilimitada</string>
-    <string name="pref_update_only_on_wifi_summary">Executar atualizações em segundo plano apenas quando conectado a uma rede ilimitada.</string>
-    <string name="pref_whitelist_rules_summary">Permitir entradas de lista branca das Fontes de Hosts.</string>
-    <string name="pref_debug">Depuração</string>
-    <string name="pref_enable_ipv6_summary">Todas as entradas do arquivo host receberão uma entrada de redirecionamento correspondente.</string>
-    <string name="pref_enable_systemless_summary">Impedir o AdAway de modificar a partição do sistema</string>
-    <string name="pref_enable_systemless">Ativar modo de systemless</string>
     <string name="pref_edit_text_value">Edite o valor em texto preferido</string>
     <string name="drawer_open">Abrir menu</string>
     <string name="drawer_close">Fechar menu</string>
@@ -230,10 +192,6 @@
     <string name="drawer_support_dialog_button">Mostre meu apoio</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetria</string>
-    <string name="dialog_telemetry_message">Olá querido usuário, \n\nVocê agora pode participar do desenvolvimento do AdAway compartilhando seus relatórios de falhas e informações básicas de uso. Todos os dados são anônimos e a telemetria só será ativada se você concordar. \n\nVocê pode encontrar mais detalhes no <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Claro, fico feliz em ajudar!</string>
-    <string name="dialog_telemetry_disable">Não, obrigado</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Pedidos DNS</string>

@@ -17,11 +17,7 @@
     <string name="checkbox_list_context_edit">កែប្រែ</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">បញ្ជីស</string>
-    <string name="lists_tab_blacklist">បញ្ជីខ្មៅ</string>
     <!--Status Notification-->
-    <string name="status_checking">កំពុងស្វែងរកជំនាន់ថ្មី...</string>
-    <string name="status_reverting">កំពុងធ្វើឲ្យដូចដើម...</string>
     <string name="status_update_available">រកឃើញមានជំនាន់ថ្មី</string>
     <string name="status_no_connection">ពុំមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
     <string name="status_no_connection_subtitle">ពុំមានឃើញមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
@@ -42,31 +38,16 @@
     <string name="revert_successful_title">ត្រឡប់ដូចដើមជោគជ័យ</string>
     <string name="revert_problem_title">ធ្វើឲ្យដូចដើមបរាជ័យ</string>
     <string name="download_fail_title">ទាញយកបរាជ័យ</string>
-    <string name="no_root_title">តម្រូវការ Root ទូរស័ព្ធ</string>
     <string name="loading">កំពុងផ្ទុកទិន្ន័យ...</string>
 
     <string name="menu_add">បន្ថែម</string>
     <string name="menu_help">ជំនួយ</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="hosts_last_modified_online">លើបណ្ដាញ
-
-</string>
     <!--Other-->
     <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>
     <string name="no_file_manager_title">ពុំមានកម្មវិធីគ្រប់គ្រងឯកសារត្រូវបានបញ្ចូល</string>
     <!--Preferences-->
-    <string name="pref_download">ការកំណត់ទូរទៅ</string>
-    <string name="pref_hosts">ឯកសារម៉ាស៊ីន</string>
-    <string name="pref_header_preferences">ការកំណត់</string>
-    <string name="pref_header_preferences_summary">ការកំណត់ទូរទៅសម្រាប់ AdAway</string>
-    <string name="pref_never_reboot_summary">លាក់ប្រអប់ដែលសួរពីការចាប់ផ្ដើមឡើងវិញបន្ទាប់ពីបានអនុវត្តជោគជ័យ</string>
-
-    <string name="pref_update_check_summary">ស្វែងរកជំនាន់ថ្មី ពេលចាប់ផ្ដើម AdAway</string>
-    <string name="pref_update_check_daily_summary">ពិនិត្យមើលភាពទាន់សម័យរាល់ថ្ងៃក្នុងផ្ទាំងខាងក្រោយជាមួយការជូនដំណឹង</string>
-    <string name="pref_automatic_update_daily">ធ្វើអោយទាន់សម័យដោយស្វ័យប្រវត្តិ</string>
-    <string name="pref_automatic_update_daily_summary">ធ្វើអោយទាន់សម័យក្នុងផ្ទាំងខាងក្រោយបើសិនជាមានភាពទាន់សម័យ។</string>
-    <string name="pref_debug">បំបាត់កំហុស</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>

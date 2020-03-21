@@ -9,7 +9,6 @@
     <string name="button_add">추가</string>
     <string name="button_cancel">취소</string>
     <string name="button_save">저장</string>
-    <string name="button_webserver_toggle_text">로컬호스트의 웹서버를 시작 또는 중지하여 차단된 호스트명의 요청에 응답합니다.</string>
     <string name="button_help">도움말</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">편집</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">허용 목록</string>
-    <string name="lists_tab_blacklist">차단 목록</string>
-    <string name="lists_tab_redirection_list">리디렉션</string>
     <string name="import_dialog">가져오는 중...</string>
     <string name="import_success">백업이 성공적으로 외부 저장소에서부터 불러와졌습니다.</string>
     <string name="import_failed">백업을 불러오는데 실패했습니다. 포멧이 정확한가요? 자세한 내용은 로그캣을 확인해주세요.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">호스트 파일 열기</string>
 
     <!--Status Notification-->
-    <string name="status_checking">업데이트 확인 중...</string>
-    <string name="status_reverting">되돌리는 중...</string>
     <string name="status_reverting_subtitle">표준 호스트 파일 생성 중</string>
     <string name="status_update_available">업데이트 가능</string>
     <string name="status_update_available_subtitle">최신 호스트 파일 사용 가능</string>
@@ -120,8 +114,6 @@
     <string name="disable_systemless_successful">Systemless 모드를 비활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
     <string name="disable_systemless_successful_title">비활성화 성공</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">su 바이너리를 발견하지 못했거나 AdAway에 대한 루트 권한을 허용하지 않았습니다.\n\n이것은 사용자의 기기가 루팅되지 않았을 때 발생할 수 있습니다.\n사용자의 기기를 루팅하는 방법을 www.cyanogenmod.org 또는 기타 안드로이드 웹사이트에서 찾을 수 있습니다.</string>
-    <string name="no_root_title">루팅 필수</string>
     <string name="hosts_add_dialog">호스트 파일에 URL 입력:</string>
     <string name="no_hostname">이것은 잘못된 호스트명입니다!</string>
     <string name="no_hostname_title">부적절한 형식의 호스트명</string>
@@ -133,7 +125,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">새로 고침</string>
     <string name="menu_add">추가</string>
-    <string name="menu_hosts_sources">호스트 소스</string>
     <string name="menu_help">도움말</string>
     <string name="menu_import">백업 불러오기</string>
     <string name="menu_export">백업 저장하기</string>
@@ -150,8 +141,6 @@
     <string name="adware_empty">애드웨어가 없습니다!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">로컬:</string>
-    <string name="hosts_last_modified_online">온라인:</string>
 
     <!--Other-->
     <string name="app_subtitle">광고 차단 도구</string>
@@ -176,33 +165,6 @@
     <string name="tcpdump_entry_add_redirection_list">리디렉션에 추가</string>
 
     <!--Preferences-->
-    <string name="pref_download">일반 환경 설정</string>
-    <string name="pref_dismiss_welcome">환영 카드 숨기기</string>
-    <string name="pref_dismiss_welcome_summary">홈 화면에 환영 카드 보이지 않기</string>
-    <string name="pref_dark_theme_summary">밝은 것 외에 다크모드 사용하기</string>
-    <string name="pref_dark_theme_notification">다음 애플리케이션 실행 시 테마가 적용됩니다!</string>
-    <string name="pref_hosts">호스트 파일</string>
-    <string name="pref_redirection_ipv4_summary">모든 차단된 호스트명은 이 IPv4 주소로 리디렉션 됩니다.</string>
-    <string name="pref_redirection_ipv6_summary">모든 차단된 호스트명은 이 IPv6 주소로 리디렉션 됩니다.</string>
-    <string name="pref_header_preferences">환경 설정</string>
-    <string name="pref_header_preferences_summary">AdAway의 일반 환경 설정</string>
-    <string name="pref_never_reboot_summary">성공적인 적용 후 안드로이드 재부팅을 요청하는 대화창 숨기기</string>
-    <string name="pref_webserver_on_boot_summary">부팅 시 웹서버 시작, 로컬 IP 주소 수신 대기</string>
-    <string name="pref_webserver_enabled_summary">로컬 IP 주소에 대한 웹서버 수신 대기를 활성화하여 차단된 호스트명의 요청을 응답함</string>
-    <string name="pref_custom_target_summary">대상 호스트 파일이 사용자 지정 대상으로 설정되었을 경우에만 사용됨</string>
-    <string name="pref_update_check_summary">AdAway 시작 시 업데이트 확인</string>
-    <string name="pref_sdcard_problem">AdAway가 SD카드에 설치된 경우 해당 기능이 올바르게 작동하지 않습니다!</string>
-    <string name="pref_background">배경 서비스</string>
-    <string name="pref_update_check_daily_summary">알림을 포함하여 배경에서 매일 업데이트 확인</string>
-    <string name="pref_automatic_update_daily">자동 업데이트</string>
-    <string name="pref_automatic_update_daily_summary">업데이트가 가능한 경우 배경에서 자동 업데이트</string>
-    <string name="pref_update_only_on_wifi">무제한일때만 업데이트하기</string>
-    <string name="pref_update_only_on_wifi_summary">무제한 네트워크 연결 시에만 배경 업데이트 실행</string>
-    <string name="pref_whitelist_rules_summary">호스트 소스에서 허용 목록 입력 허용</string>
-    <string name="pref_debug">디버깅</string>
-    <string name="pref_enable_ipv6_summary">모든 호스트 파일의 입력 내용은 이에 해당하는 리디렉션 내용을 얻습니다.</string>
-    <string name="pref_enable_systemless_summary">AdAway의 시스템 파티션 수정 방지</string>
-    <string name="pref_enable_systemless">Systemless 모드 활성화</string>
     <string name="pref_edit_text_value">텍스트 값 수정</string>
     <string name="drawer_open">메뉴 열기</string>
     <string name="drawer_close">메뉴 닫기</string>
@@ -225,10 +187,6 @@
     <string name="drawer_support_dialog_button">내 기여 보기</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telementry</string>
-    <string name="dialog_telemetry_message">안녕하세요,\n\n이제 당신은 사용 정보와 충돌 보고서를 공유함으로써 AdAway의 개발에 참여할 수 있습니다. 모든 데이터는 익명이며 텔레멘트리는 당신이 허용할 시에만 공개됩니다.\n\n당신은 <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">Github</a>에서 더 많은 정보를 확인하실 수 있습니다.</string>
-    <string name="dialog_telemetry_enable">네, 도움을 주고 싶어요!</string>
-    <string name="dialog_telemetry_disable">아니오, 괜찮습니다.</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 리퀘스트</string>

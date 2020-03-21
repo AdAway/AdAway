@@ -9,7 +9,6 @@
     <string name="button_add">Přidat</string>
     <string name="button_cancel">Zrušit</string>
     <string name="button_save">Uložit</string>
-    <string name="button_webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na blokované hostitele.</string>
     <string name="button_help">Nápověda</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Upravit</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Bílá listina</string>
-    <string name="lists_tab_blacklist">Černá listina</string>
-    <string name="lists_tab_redirection_list">Přesměrování</string>
     <string name="import_dialog">Importování...</string>
     <string name="import_success">Záloha z vašeho externího úložiště úspěšně importována.</string>
     <string name="import_failed">Importování zálohy se nezdařilo. Je ve správném formátu? Pro více detailů zkontrolujte systémový protokol událostí.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Otevřít soubor hostitelů</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Kontrola aktualizací...</string>
-    <string name="status_reverting">Obnovování...</string>
     <string name="status_reverting_subtitle">Vytvářím standardní soubor hostitelů</string>
     <string name="status_update_available">Aktualizace je k dispozici</string>
     <string name="status_update_available_subtitle">Jsou dostupné novější soubory hostitelů</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Zakažte funkci nesystémoví hostitelé v Magisk Manageru. V seznamu modulů odinstalujte modul <cite>Systemless Hosts</cite> a poté restartujte zařízení.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Spustitelný soubor su nebyl nalezen nebo jste AdAway neudělili oprávnění ROOT.\n\nToto se může stát, pokud zařízení nemá ROOT přístup.\nInformace jak získat přístup ROOT naleznete na wiki.lineageos.org nebo jiných stránkách o Androidu.</string>
-    <string name="no_root_title">Vyžaduje Android s root přístupem</string>
     <string name="hosts_add_dialog">Zadej URL k souboru hostitelů:</string>
     <string name="no_hostname">Toto není platný název hostitele!</string>
     <string name="no_hostname_title">Chybný formát názvu hostitele</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Obnovit</string>
     <string name="menu_add">Přidat</string>
-    <string name="menu_hosts_sources">Zdroje hostitelů</string>
     <string name="menu_help">Nápověda</string>
     <string name="menu_import">Importovat zálohu</string>
     <string name="menu_export">Exportovat zálohu</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Žádný Adware nebyly nalezen!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokální:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Blokování reklam</string>
@@ -181,34 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Přidat položku na listinu přesměrování</string>
 
     <!--Preferences-->
-    <string name="pref_download">Obecná nastavení</string>
-    <string name="pref_dismiss_welcome">Skrýt uvítací kartu</string>
-    <string name="pref_dismiss_welcome_summary">Nezobrazovat uvítací kartu na úvodní obrazovce</string>
-    <string name="pref_dark_theme_summary">Použít černé téma místo bílého</string>
-    <string name="pref_dark_theme_notification">Téma bude použito při příštím spuštění aplikace!</string>
-    <string name="pref_hosts">Soubor hostitelů</string>
-    <string name="pref_redirection_ipv4_summary">Všechna blokovaná jména hostitelů jsou přesměrována na tuto IPv4 adresu.</string>
-    <string name="pref_redirection_ipv6_summary">Všechna blokovaná jména hostitelů jsou přesměrována na tuto IPv6 adresu.</string>
-    <string name="pref_header_preferences">Nastavení</string>
-    <string name="pref_header_preferences_summary">Obecná nastavení pro AdAway</string>
-    <string name="pref_never_reboot_summary">Skryje dialog s dotazem o restartování Androidu po úspěšném aplikování</string>
-    <string name="pref_webserver_on_boot_summary">Spustit webový server po zapnutí zařízení, naslouchat na lokálních IP adresách</string>
-    <string name="pref_webserver_enabled_summary">Povolit webovému serveru naslouchání na lokální IP adrese pro odpovídání na dotazy na blokovaná jména hostitelů</string>
-    <string name="pref_custom_target_summary">Použito pouze, pokud je cílový soubor hostitelů nastaven na vlastní cíl</string>
-
-    <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu AdAway</string>
-    <string name="pref_sdcard_problem">Tato funkce nebude pracovat správně, pokud je aplikace AdAway nainstalována na SD kartě!</string>
-    <string name="pref_background">Služby na pozadí</string>
-    <string name="pref_update_check_daily_summary">Kontrolovat aktualizace denně na pozadí s oznámením</string>
-    <string name="pref_automatic_update_daily">Automatická aktualizace</string>
-    <string name="pref_automatic_update_daily_summary">Automaticky aktualizovat na pozadí, pokud jsou k dispozici aktualizace.</string>
-    <string name="pref_update_only_on_wifi">Aktualizovat pouze pokud není měřen objem dat</string>
-    <string name="pref_update_only_on_wifi_summary">Aktualizaci na pozadí spustit pouze v případě, že zařízení není připojeno k síti s účtováním podle přeneseného objemu dat.</string>
-    <string name="pref_whitelist_rules_summary">Povolit položky bílé listiny ze zdrojů souboru hostitelů.</string>
-    <string name="pref_debug">Ladění</string>
-    <string name="pref_enable_ipv6_summary">Všechny záznamy v souboru hostitelů budou doplněny odpovídajícím záznamem o přesměrování.</string>
-    <string name="pref_enable_systemless_summary">Zabrání AdAway provedení změn na systémovém oddílu</string>
-    <string name="pref_enable_systemless">Povolit mód systemless</string>
     <string name="pref_edit_text_value">Upravit textovou hodnotu předvolby</string>
     <string name="drawer_open">Otevřít menu</string>
     <string name="drawer_close">Zavřít menu</string>
@@ -231,10 +192,6 @@
     <string name="drawer_support_dialog_button">Podpořit vývoj</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetrie</string>
-    <string name="dialog_telemetry_message">Dobrý den, drahý uživateli,\n\nnyní se můžete podílet na vývoji aplikace AdAway sdílením zpráv o selhání a základními informacemi o použití. Všechna data jsou anonymní a telemetrie bude povolena pouze pokud s tím souhlasíte.\n\nDalší informace naleznete na <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHubu</a>.</string>
-    <string name="dialog_telemetry_enable">Jasně, rád pomůžu!</string>
-    <string name="dialog_telemetry_disable">Ne, děkuji</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS požadavky</string>

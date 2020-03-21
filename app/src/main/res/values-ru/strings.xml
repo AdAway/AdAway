@@ -9,7 +9,6 @@
     <string name="button_add">Добавить</string>
     <string name="button_cancel">Отменить</string>
     <string name="button_save">Сохранить</string>
-    <string name="button_webserver_toggle_text">Запуск или остановка веб-сервера в локальной системе для ответов на запросы заблокированных хостов.</string>
     <string name="button_help">Справка</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Редактировать</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Белый список</string>
-    <string name="lists_tab_blacklist">Чёрный список</string>
-    <string name="lists_tab_redirection_list">Перенаправления</string>
     <string name="import_dialog">Импорт…</string>
     <string name="import_success">Резервная копия успешно импортирована с вашего внешнего хранилища.</string>
     <string name="import_failed">Не удалось импортировать резервную копию. Возможно её формат не верен? Проверьте logcat для подробностей.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Открыть файл hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Проверка обновлений…</string>
-    <string name="status_reverting">Восстановление…</string>
     <string name="status_reverting_subtitle">Создание стандартного файла hosts</string>
     <string name="status_update_available">Доступно обновление</string>
     <string name="status_update_available_subtitle">Доступны свежие списки хостов</string>
@@ -145,8 +139,6 @@
     <string name="disable_systemless_magisk">Выключить бессистемную функцию хостов из менеджера Magisk. Среди его настроек удалите модуль <cite>Бессистемный hosts</cite>, затем перезапустите ваше устройство.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Либо отсутствует бинарный файл su, либо вы не предоставили AdAway права суперпользователя.\n\nЭто могло произойти, если на вашем устройстве не получен root-доступ.\nВы можете найти информацию о том, как получить root-права на вашем устройстве на wiki.lineageos.org или другом сайте, посвящённом Android.</string>
-    <string name="no_root_title">Для Android требуются права Root</string>
     <string name="hosts_add_dialog">Вставьте URL в файл hosts:</string>
     <string name="no_hostname">Это недопустимое имя источника!</string>
     <string name="no_hostname_title">Неправильно отформатированное имя хоста</string>
@@ -158,7 +150,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Обновить</string>
     <string name="menu_add">Добавить</string>
-    <string name="menu_hosts_sources">Источники хостов</string>
     <string name="menu_help">Справка</string>
     <string name="menu_import">Импортировать резервную копию</string>
     <string name="menu_export">Экспортировать резервную копию</string>
@@ -175,8 +166,6 @@
     <string name="adware_empty">Приложения с рекламой не найдены!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Локальный:</string>
-    <string name="hosts_last_modified_online">Интернет:</string>
 
     <!--Other-->
     <string name="app_subtitle">Блокировщик рекламы</string>
@@ -201,33 +190,6 @@
     <string name="tcpdump_entry_add_redirection_list">Добавить запись в список Перенаправлений</string>
 
     <!--Preferences-->
-    <string name="pref_download">Основные настройки</string>
-    <string name="pref_dismiss_welcome">Скрыть приветствие</string>
-    <string name="pref_dismiss_welcome_summary">Не показывать приветствие на главном экране</string>
-    <string name="pref_dark_theme_summary">Использовать тёмную тему вместо светлой</string>
-    <string name="pref_dark_theme_notification">Тема изменится при следующем запуске приложения!</string>
-    <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_redirection_ipv4_summary">Все заблокированные хосты переадресовываются на этот адрес IPv4.</string>
-    <string name="pref_redirection_ipv6_summary">Все заблокированные хосты переадресовываются на этот адрес IPv6.</string>
-    <string name="pref_header_preferences">Настройки</string>
-    <string name="pref_header_preferences_summary">Основные настройки AdAway</string>
-    <string name="pref_never_reboot_summary">Скрывает окно перезагрузки Android после успешного применения</string>
-    <string name="pref_webserver_on_boot_summary">Старт веб-сервера при загрузке системы для прослушивания локальных адресов IP</string>
-    <string name="pref_webserver_enabled_summary">Позволяет веб-серверу прослушивать локальные IP-адреса и отвечать на запросы к заблокированным хостам</string>
-    <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла hosts задано пользователем</string>
-    <string name="pref_update_check_summary">Проверять обновления при запуске AdAway</string>
-    <string name="pref_sdcard_problem">Эта функция будет работать неправильно, если AdAway установлен на карту памяти!</string>
-    <string name="pref_background">Фоновый режим</string>
-    <string name="pref_update_check_daily_summary">Ежедневно проверять обновления в фоновом режиме с уведомлением</string>
-    <string name="pref_automatic_update_daily">Автообновление</string>
-    <string name="pref_automatic_update_daily_summary">Обновлять автоматически в фоновом режиме, если доступны обновления.</string>
-    <string name="pref_update_only_on_wifi">Обновлять только по Wi-Fi</string>
-    <string name="pref_update_only_on_wifi_summary">Выполнять фоновые обновления только через нелимитированное подключения.</string>
-    <string name="pref_whitelist_rules_summary">Разрешить белые списки из источников хостов.</string>
-    <string name="pref_debug">Режим отладки</string>
-    <string name="pref_enable_ipv6_summary">Все записи файла host будут получать соответствующую  запись перенаправления.</string>
-    <string name="pref_enable_systemless_summary">Запретить AdAway редактировать системный раздел</string>
-    <string name="pref_enable_systemless">Включить бессистемный режим</string>
     <string name="pref_edit_text_value">Править значение текстового предпочтения</string>
     <string name="drawer_open">Открыть меню</string>
     <string name="drawer_close">Закрыть меню</string>
@@ -250,10 +212,6 @@
     <string name="drawer_support_dialog_button">Показать мою поддержку</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Телеметрия</string>
-    <string name="dialog_telemetry_message">Привет, дорогой пользователь,\n\nТеперь ты можешь участвовать в разработке AdAway посредством отправки отчётов с ошибками и базовой информации об использовании. Все данные анонимны, телеметрия будет включена только после вашего согласия.\n\nПодробности можно узнать в <a href="https://github.com/AdAway/AdAway/wiki/telemetry.md">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Конечно, я хочу помочь!</string>
-    <string name="dialog_telemetry_disable">Нет, спасибо</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Запросы DNS</string>

@@ -9,7 +9,6 @@
     <string name="button_add">Dodaj</string>
     <string name="button_cancel">Prekini</string>
     <string name="button_save">Shrani</string>
-    <string name="button_webserver_toggle_text">Zaženi ali zaustavi spletni strežnik na lokalnem gostitelju, da bo naprava odgovorila zahtevam od blokiranih domenskih imen.</string>
     <string name="button_help">Pomoč</string>
 
     <string name="text_update">Vse hosts datoteke danih virov so prenešene, združene z vašimi osebnimi seznami in nameščene kot ena hosts datoteka na vašem sistemu.</string>
@@ -20,13 +19,9 @@
     <string name="checkbox_list_context_edit">Uredi</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Dovoljeni viri</string>
-    <string name="lists_tab_blacklist">Blokirani viri</string>
     <string name="import_dialog">Uvažanje...</string>
     <string name="export_dialog">Izvažanje...</string>
     <!--Status Notification-->
-    <string name="status_checking">Preverjanje za posodobitve...</string>
-    <string name="status_reverting">Povrnitev...</string>
     <string name="status_reverting_subtitle">Ustvarjanje privzete hosts datoteke</string>
     <string name="status_update_available">Na voljo je nova posodobitev</string>
     <string name="status_update_available_subtitle">Na voljo so posodobljene hosts datoteke</string>
@@ -72,7 +67,6 @@
     <string name="no_private_file_title">Privatne datoteke ni bilo mogoče ustvariti.</string>
     <string name="enable_systemless_successful_title">Uspešno omogočeno</string>
     <string name="disable_systemless_successful_title">Uspešno onemogočeno</string>
-    <string name="no_root_title">Potreben je root dostop</string>
     <string name="hosts_add_dialog">Vnesi URL do hosts datoteke:</string>
     <string name="no_hostname">Neveljavno domensko ime!</string>
     <string name="no_hostname_title">Nepravilno oblikovano domensko ime</string>
@@ -83,7 +77,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Osveži</string>
     <string name="menu_add">Dodaj</string>
-    <string name="menu_hosts_sources">Hosts viri</string>
     <string name="menu_help">Pomoč</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -91,8 +84,6 @@
     <string name="help_tab_problems">Težave</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokalno:</string>
-    <string name="hosts_last_modified_online">Online:</string>
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
     <string name="no_text_editor_title">Nameščen ni noben urejevalec teksta</string>
@@ -102,23 +93,6 @@
 
     <string name="tcpdump_description">Tcpdump je orodje za nadziranje DNS zahtev in njihovo shranjevanje v log datoteko. Zaženete jo lahko v ozadju, zaženete aplikacijo, ki prikazuje oglase, ter analizirate DNS zahteve preko log datoteke. Morebitne oglaševalne strežnike lahko potem dodate na vašo blacklist-o.</string>
     <!--Preferences-->
-    <string name="pref_download">Splošne nastavitve</string>
-    <string name="pref_hosts">Hosts datoteka</string>
-    <string name="pref_header_preferences">Nastavitve</string>
-    <string name="pref_header_preferences_summary">Splošne nastavitve za AdAway</string>
-    <string name="pref_never_reboot_summary">Skrije dialog, ki vas vpraša za ponovni zagon po posodobitvi nastavitev</string>
-    <string name="pref_webserver_on_boot_summary">Zaženi spletni strežnik ob zagonu, ki posluša na lokalnih IP naslovih.</string>
-    <string name="pref_webserver_enabled_summary">Vključi spletni strežnik, ki posluša na lokalnih IP naslovih, da odgovori zahteve do blokiranih domen</string>
-    <string name="pref_custom_target_summary">Uporabljeno le v primeru, da je pot do uporabljene hosts datoteke nastavljena po meri</string>
-    <string name="pref_update_check_summary">Preveri za posodobitve ob zagonu</string>
-    <string name="pref_background">Procesi v ozadju</string>
-    <string name="pref_update_check_daily_summary">Dnevno preveri za posodobitve v ozadju z obvestili</string>
-    <string name="pref_automatic_update_daily">Avtomatsko posodabljanje</string>
-    <string name="pref_automatic_update_daily_summary">Avtomatsko posodobi v ozadju</string>
-    <string name="pref_whitelist_rules_summary">Dovoli whitelist vnose iz hosts virov.</string>
-    <string name="pref_debug">Debug</string>
-    <string name="pref_enable_systemless_summary">Prepreči aplikaciji spreminjanje sistemske particije</string>
-    <string name="pref_enable_systemless">Vključi systemless način</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>

@@ -9,7 +9,6 @@
     <string name="button_add">Lisää</string>
     <string name="button_cancel">Peruuta</string>
     <string name="button_save">Tallenna</string>
-    <string name="button_webserver_toggle_text">Salli tai estä web-palvelin vastaamasta estettyihin isäntänimiin.</string>
     <string name="button_help">Ohjeet</string>
 
     <!--Home-->
@@ -30,8 +29,6 @@
     <string name="checkbox_list_context_edit">Muokkaa</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Valkoinen lista</string>
-    <string name="lists_tab_blacklist">Musta lista</string>
     <string name="import_dialog">Tuodaan...</string>
     <string name="export_dialog">Viedään...</string>
     <!--Hosts content-->
@@ -39,8 +36,6 @@
     <string name="hosts_open_button">Avaa hosts-tiedosto</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Tarkistetaan päivityksiä...</string>
-    <string name="status_reverting">Palautetaan...</string>
     <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
     <string name="status_update_available">Päivitys saatavilla</string>
     <string name="status_update_available_subtitle">Uudempia hosts-tiedostoja on saatavilla</string>
@@ -89,7 +84,6 @@
     <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
     <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
     <string name="disable_systemless_successful_title">Kytketty pois päältä</string>
-    <string name="no_root_title">Pääkäyttäjän oikeudet vaaditaan</string>
     <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
     <string name="no_hostname">Tämä ei ole kelvollinen host-nimi!</string>
     <string name="no_hostname_title">Väärin muotoiltu host-nimi</string>
@@ -100,7 +94,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Päivitä</string>
     <string name="menu_add">Lisää</string>
-    <string name="menu_hosts_sources">Hosts-lähteet</string>
     <string name="menu_help">Ohjeet</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -111,8 +104,6 @@
     <string name="adware_header">Mainosohjelma</string>
     <string name="adware_scanning">Tarkistetaan…</string>
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Paikallinen:</string>
-    <string name="hosts_last_modified_online">Online:</string>
     <!--Other-->
     <string name="app_subtitle">Mainosten esto</string>
     <string name="no_text_editor_title">Ei tekstieditoria asennettuna</string>
@@ -127,24 +118,6 @@
     <string name="tcpdump_show_results">Näytä tulokset</string>
     <string name="tcpdump_menu_clear">Tyhjennä loki</string>
     <!--Preferences-->
-    <string name="pref_download">Yleiset asetukset</string>
-    <string name="pref_dismiss_welcome">Piilota tervetuloa-kortti</string>
-    <string name="pref_hosts">Hosts-tiedosto</string>
-    <string name="pref_header_preferences">Asetukset</string>
-    <string name="pref_header_preferences_summary">AdAwayn yleiset asetukset</string>
-    <string name="pref_never_reboot_summary">Piilottaa valintaikkunan, joka kysyy uudelleenkäynnistyksestä onnistuneen soveltamisen jälkeen</string>
-    <string name="pref_webserver_on_boot_summary">Käynnistä web-palvelin käynnistyksen yhteydessä, jolloin tarkastellaan paikallisia IP-osoitteita.</string>
-    <string name="pref_webserver_enabled_summary">Otetaan käyttöön web-palvelin kuuntelu paikallisissa IP-osoitteissa, jolla vastataan estettyjen isäntänimien pyyntöihin.</string>
-    <string name="pref_custom_target_summary">Käytetään vain, jos hosts-tiedosto on määritetty mukautetuksi kohteeksi</string>
-
-    <string name="pref_update_check_summary">Tarkista päivitykset AdAwayn käynnistykessä</string>
-    <string name="pref_background">Taustapalvelut</string>
-    <string name="pref_update_check_daily_summary">Tarkista päivittäin päivitykset taustalla ilmoituksilla</string>
-    <string name="pref_automatic_update_daily">Automaattinen päivitys</string>
-    <string name="pref_automatic_update_daily_summary">Päivitä automaattisesti taustalla, jos päivityksiä on saatavilla.</string>
-    <string name="pref_whitelist_rules_summary">Salli Hosts-lähteille kohteiden lisääminen valkoiselle listalle.</string>
-    <string name="pref_debug">Virheenkorjaus</string>
-    <string name="pref_enable_systemless">Ota käyttöön systemless -tila</string>
     <string name="drawer_open">Avaa valikko</string>
     <string name="drawer_close">Sulje valikko</string>
 
@@ -163,9 +136,6 @@
     <string name="drawer_support_text">\u2764 Tue kehitystä \u2764</string>
     <string name="drawer_support_dialog_title">Tue kehitystä</string>
     <string name="drawer_support_dialog_button">Näytä tukeni</string>
-
-    <string name="dialog_telemetry_enable">Tietysti, ilomielin autan!</string>
-    <string name="dialog_telemetry_disable">Ei kiitos</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS-pyynnöt</string>

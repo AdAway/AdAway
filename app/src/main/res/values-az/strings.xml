@@ -9,7 +9,6 @@
     <string name="button_add">Əlavə Et</string>
     <string name="button_cancel">Ləğv Et</string>
     <string name="button_save">Yadda saxla</string>
-    <string name="button_webserver_toggle_text">Bloklanmış host adlarını cavablamaq üçün yerli vebserveri dayandır ya da başlat.</string>
     <string name="button_help">Kömək</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Redaktə Et</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Ağ Siyahı</string>
-    <string name="lists_tab_blacklist">Qara siyahı</string>
-    <string name="lists_tab_redirection_list">Yönləndiricilər</string>
     <string name="import_dialog">Daxil edilir...</string>
     <string name="export_dialog">Çıxarılır..</string>
     <!--Hosts content-->
@@ -46,8 +42,6 @@
     <string name="hosts_open_button">Hosts faylını aç</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Yeniləmə axtarılır...</string>
-    <string name="status_reverting">Geri alınır..</string>
     <string name="status_reverting_subtitle">Standart hosts faylı yaradılır</string>
     <string name="status_update_available">Yeniləmə var</string>
     <string name="status_update_available_subtitle">Yeni hosts faylları var</string>
@@ -97,7 +91,6 @@
     <string name="no_private_file_title">Fərdi fayl yaratmaq alınmadı</string>
     <string name="enable_systemless_successful_title">Uğurla açıldı</string>
     <string name="disable_systemless_successful_title">Uğurla qapadıldı</string>
-    <string name="no_root_title">Rootlu Android tələb olunur</string>
     <string name="hosts_add_dialog">URL\'ni hosts faylına daxil et:</string>
     <string name="no_hostname">Bu host adı etibarsızdır!</string>
     <string name="no_hostname_title">Host adı düzgün formatda deyil</string>
@@ -108,7 +101,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Yenilə</string>
     <string name="menu_add">Əlavə Et</string>
-    <string name="menu_hosts_sources">Hosts resursları</string>
     <string name="menu_help">Kömək</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -116,25 +108,9 @@
     <string name="help_tab_problems">Problemlər</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Yerli:</string>
-    <string name="hosts_last_modified_online">Xətdə:</string>
 
     <!--Other-->
     <string name="app_subtitle">Reklam bloker</string>
-    <string name="pref_dismiss_welcome">Xoş gəlmisiniz kartını gizlət</string>
-    <string name="pref_dismiss_welcome_summary">Ana səhifədə xoş gəlmisiniz kartını göstərmə</string>
-    <string name="pref_dark_theme_summary">İşıqlı mövzu yerinə qaranlıq mövzu işlət</string>
-    <string name="pref_hosts">Hosts faylı</string>
-    <string name="pref_header_preferences">Tənzimləmələr</string>
-
-    <string name="pref_update_check_summary">AdAway başladıldıqda yeniləmələri yoxla</string>
-    <string name="pref_sdcard_problem">AdAway SD karta yüklənibsə bu xüsusiyyət düzgün işləməyəcək!</string>
-    <string name="pref_background">Arxaplan Xidmətləri</string>
-    <string name="pref_update_check_daily_summary">Bildirişlərlə birgə arxaplanda yeniləmələri gündəlik yoxla</string>
-    <string name="pref_automatic_update_daily">Avtomatik yeniləmə</string>
-    <string name="pref_automatic_update_daily_summary">Əgər yeniləmə varsa arxaplanda avtomatik yenilə</string>
-    <string name="pref_update_only_on_wifi">Yalnız WiFi ilə yenilə</string>
-    <string name="pref_update_only_on_wifi_summary">Arxaplan yeniləmələrini yalnız WiFi\'ya bağlı olduqda yüklə.</string>
     <string name="drawer_open">Menyunu aç</string>
     <string name="drawer_close">Menyunu qapat</string>
 
@@ -155,9 +131,6 @@
     <string name="drawer_support_dialog_button">Dəstəyimi göstər</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetriya</string>
-    <string name="dialog_telemetry_enable">Əlbəttə, kömək etmək istərəm!</string>
-    <string name="dialog_telemetry_disable">Yox sağolun</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS istəkləri</string>

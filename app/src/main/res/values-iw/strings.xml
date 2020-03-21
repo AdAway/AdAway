@@ -9,7 +9,6 @@
     <string name="button_add">הוסף</string>
     <string name="button_cancel">ביטול</string>
     <string name="button_save">שמור</string>
-    <string name="button_webserver_toggle_text">הפעל או עצור שרת מקומי עבור מענה לכתובות חסומות שהתבקשו.</string>
     <string name="button_help">עזרה</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">ערוך</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">רשימה לבנה</string>
-    <string name="lists_tab_blacklist">רשימה שחורה</string>
-    <string name="lists_tab_redirection_list">הפניות</string>
     <string name="import_dialog">מייבא...</string>
     <string name="import_success">גיבוי יובא בהצלחה מהאחסון החיצוני</string>
     <string name="import_failed">ייבוא הגיבוי נכשל. האם פורמט הגיבוי נכון? בדוק את logcat לפרטים נוספים.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">פתח קובץ hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">בודק עדכונים…</string>
-    <string name="status_reverting">משחזר…</string>
     <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
     <string name="status_update_available">קיים עידכון</string>
     <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
@@ -118,7 +112,6 @@
     <string name="disable_systemless_successful_title">כובה בהצלחה</string>
     <string name="enable_systemless_magisk_title">הפעלת מודול hosts Magisk</string>
     <string name="disable_systemless_magisk_title">כיבוי מודול hosts Magisk</string>
-    <string name="no_root_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
     <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
     <string name="no_hostname">שם השרת אינו חוקי!</string>
     <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
@@ -130,7 +123,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">רענן</string>
     <string name="menu_add">הוסף</string>
-    <string name="menu_hosts_sources">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
     <string name="menu_help">עזרה</string>
     <string name="menu_import">ייבא גיבוי</string>
     <string name="menu_export">ייצא גיבוי</string>
@@ -144,8 +136,6 @@
     <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">מקומי:</string>
-    <string name="hosts_last_modified_online">אונליין:</string>
 
     <!--Other-->
     <string name="app_subtitle">חסום פרסומות</string>
@@ -170,32 +160,6 @@
     <string name="tcpdump_entry_add_redirection_list">הוסף לרשימת הפניות</string>
 
     <!--Preferences-->
-    <string name="pref_download">העדפות כלליות</string>
-    <string name="pref_dismiss_welcome">הסתר הודעת ברוך הבא</string>
-    <string name="pref_dismiss_welcome_summary">אל תציג את הודעת ברוך הבא בחלון הפתיחה</string>
-    <string name="pref_dark_theme_summary">השתמש בערכת צבעים כהה במקום בהירה</string>
-    <string name="pref_dark_theme_notification">ערכת הצבעים תשונה בהפעלת האפליקציה מחדש!</string>
-    <string name="pref_hosts">קובץ Hosts</string>
-    <string name="pref_redirection_ipv4_summary">כל הכתובות החסומות מופנות לכתובת IPv4 זאת.</string>
-    <string name="pref_redirection_ipv6_summary">כל הכתובות החסומות מופנות לכתובת IPv6 זאת.</string>
-    <string name="pref_header_preferences">העדפות</string>
-    <string name="pref_header_preferences_summary">העדפות כלליות של AdAway</string>
-    <string name="pref_never_reboot_summary">מסתיר את תיבת הדו שיח ששואלת אם להפעיל את מערכת אנדרואיד מחדש לאחר עדכון מוצלח</string>
-    <string name="pref_webserver_on_boot_summary">הפעל שרת Web בעת הפעלת המכשיר, המאזין על כל כתובות ה-IP המקומיות</string>
-    <string name="pref_webserver_enabled_summary">הפעל את השרת להקשיב לכתובת IP מקומית ולענות לבקשות של כתובות חסומות</string>
-    <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
-
-    <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
-    <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר אפליקציית AdAway מותקנת בכרטיס הזיכרון!</string>
-    <string name="pref_background">שירותים ברקע</string>
-    <string name="pref_update_check_daily_summary">בדוק עדכונים כל יום ברקע והצג התראות</string>
-    <string name="pref_automatic_update_daily">עדכונים אוטומטיים</string>
-    <string name="pref_automatic_update_daily_summary">עדכן ברקע אוטומטית כאשר יש עדכונים זמינים</string>
-    <string name="pref_whitelist_rules_summary">אפשר רשימות לבנות ממקורות Hosts</string>
-    <string name="pref_debug">ניפוי שגיאות</string>
-    <string name="pref_enable_ipv6_summary">כל הרשומות בקובץ ה-host יקבלו ערך ניתוב מתאים.</string>
-    <string name="pref_enable_systemless_summary">אל תאפשר ל-AdAway לערוך את מחיצת System</string>
-    <string name="pref_enable_systemless">עבוד במצב \"Systemless\"</string>
     <string name="drawer_open">פתח תפריט</string>
     <string name="drawer_close">סגור תפריט</string>
 
@@ -214,9 +178,6 @@
     <string name="drawer_support_text">\u2764 תמיכה בפיתוח \u2764</string>
     <string name="drawer_support_dialog_title">תמיכה בפיתוח</string>
     <string name="drawer_support_dialog_button">הצג את התמיכה שלי</string>
-
-    <string name="dialog_telemetry_enable">כמובן, אני שמח לעזור!</string>
-    <string name="dialog_telemetry_disable">לא תודה</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">בקשות DNS</string>

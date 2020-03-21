@@ -9,7 +9,6 @@
     <string name="button_add">Hozzáadás</string>
     <string name="button_cancel">Mégse</string>
     <string name="button_save">Mentés</string>
-    <string name="button_webserver_toggle_text">Webszerver indítása vagy leállítása a localhost-on, amely válaszol a letiltott hostoknak küldött lekérésekre.</string>
     <string name="button_help">Súgó</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Szerkesztés</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Fehérlista</string>
-    <string name="lists_tab_blacklist">Feketelista</string>
-    <string name="lists_tab_redirection_list">Átirányítások</string>
     <string name="import_dialog">Importálás...</string>
     <string name="import_success">A biztonsági mentés importja a külső tárolóból sikeres.</string>
     <string name="import_failed">A biztonsági másolat importálás nem sikerült. Megfelelő a formátuma? További részletekért ellenőrizd a logcat-et.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Hosts fájl megnyitása</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Frissítés ellenőrzése…</string>
-    <string name="status_reverting">Visszaállítás…</string>
     <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
     <string name="status_update_available">Frissítés érhető el</string>
     <string name="status_update_available_subtitle">Újabb hosts fájlok érhetők el</string>
@@ -127,8 +121,6 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="disable_systemless_magisk">Systemless hosts funkció kikapcsolása a Magisk managerben. A modul listából távolítsd el a <cite>Systemless hosts</cite> modult majd indítsd újra az eszközt.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Vagy nem érhető el a su alkalmazás kódja, vagy nem adtál root jogosultságot az AdAway-nek.\n\nEz olyan esetekben fordulhat elő, ha az eszközöd nincs rootolva.\nAz eszközöd rootolásának folyamatáról a wiki.lineageos.org és egyéb Androidos weboldalak adnak bővebb információt.</string>
-    <string name="no_root_title">Rootolt Android szükséges</string>
     <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
     <string name="no_hostname">Ez nem érvényes hosztnév!</string>
     <string name="no_hostname_title">Helytelenül formázott hosztnév</string>
@@ -140,7 +132,6 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <!--Menu entries-->
     <string name="menu_refresh">Frissítés</string>
     <string name="menu_add">Hozzáadás</string>
-    <string name="menu_hosts_sources">Hosts források</string>
     <string name="menu_help">Súgó</string>
     <string name="menu_import">Bizt.mentés import</string>
     <string name="menu_export">Bizt.mentés export</string>
@@ -157,8 +148,6 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="adware_empty">Nem található adware!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Helyi:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Hirdetésblokkoló</string>
@@ -187,34 +176,6 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="tcpdump_entry_add_redirection_list">Elem hozzáadása az átirányítási listához</string>
 
     <!--Preferences-->
-    <string name="pref_download">Általános beállítások</string>
-    <string name="pref_dismiss_welcome">Üdvözlőkártya elrejtése</string>
-    <string name="pref_dismiss_welcome_summary">Ne mutassa az üdvözlőkártyát a kezdőképernyőn</string>
-    <string name="pref_dark_theme_summary">Sötét téma használata világos helyett</string>
-    <string name="pref_dark_theme_notification">A téma a következő indításkor lesz alkalmazva!</string>
-    <string name="pref_hosts">Hosts fájl</string>
-    <string name="pref_redirection_ipv4_summary">Az összes blokkolt hostnevet átirányítja erre az IPv4 címre.</string>
-    <string name="pref_redirection_ipv6_summary">Az összes blokkolt hostnevet átirányítják erre az IPv6 címre.</string>
-    <string name="pref_header_preferences">Beállítások</string>
-    <string name="pref_header_preferences_summary">Az AdAway általános beállításai</string>
-    <string name="pref_never_reboot_summary">Elrejti azt az üzenetet, amely az Android újraindítását javasolja sikeres alkalmazás után</string>
-    <string name="pref_webserver_on_boot_summary">A helyi IP címeket monitorozó webszerver indítása a rendszer indításakor</string>
-    <string name="pref_webserver_enabled_summary">Engedélyezi a webszervert, amely helyi címeken figyelve válaszol a blokkolt hosztnevekre érkező kérésekre</string>
-    <string name="pref_custom_target_summary">Csak akkor legyen aktív, ha a cél hosts-fájl egyéni célra mutat</string>
-
-    <string name="pref_update_check_summary">Az AdAway induláskor keressen frissítéseket</string>
-    <string name="pref_sdcard_problem">Ez a funkció nem működik megfelelően, ha az AdAway az SD kártyára van telepítve!</string>
-    <string name="pref_background">Háttérszolgáltatások</string>
-    <string name="pref_update_check_daily_summary">Frissítések keresése naponta a háttérben, értesítésekkel</string>
-    <string name="pref_automatic_update_daily">Automatikus frissítés</string>
-    <string name="pref_automatic_update_daily_summary">Automatikus frissítés a háttérben, amennyiben elérhető újabb frissítés.</string>
-    <string name="pref_update_only_on_wifi">Frissítés csak mérés nélküli hálózaton</string>
-    <string name="pref_update_only_on_wifi_summary">Csak akkor fusson a háttérben frissítés, ha mérés nélküli hálózathoz van csatlakozva.</string>
-    <string name="pref_whitelist_rules_summary">Fehérlista bejegyzések engedélyezése a hosts forrásokból.</string>
-    <string name="pref_debug">Hibakeresés</string>
-    <string name="pref_enable_ipv6_summary">Minden host fájl bejegyzés megkapja a megfelelő átirányítási bejegyzést.</string>
-    <string name="pref_enable_systemless_summary">Megakadályozza az AdAway-t, hogy módosítsa a rendszerpartíciót</string>
-    <string name="pref_enable_systemless">Systemless mód engedélyezése</string>
     <string name="pref_edit_text_value">Szöveges beállítási érték szerkesztése</string>
     <string name="drawer_open">Menü megnyitása</string>
     <string name="drawer_close">Menü bezárása</string>
@@ -237,10 +198,6 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="drawer_support_dialog_button">Támogatás</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetria</string>
-    <string name="dialog_telemetry_message">Kedves Felhasználó,\n\nMost már részt vehetsz az AdAway fejlesztésében az összeomlási jelentések és az alapvető használati információk megosztásával. Minden adat névtelen, és a telemetria csak akkor engedélyezett, ha elfogadod.\n\nTovábbi részletek itt: <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Persze, örömmel segítek!</string>
-    <string name="dialog_telemetry_disable">Kösz, de nem</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS kérések</string>

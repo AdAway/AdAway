@@ -17,15 +17,12 @@
     <string name="import_dialog">Nag-iimport...</string>
     <string name="export_dialog">Nag-eexport...</string>
     <!--Status Notification-->
-    <string name="status_checking">Naghahanap ng update...</string>
-    <string name="status_reverting">Binabalik...</string>
     <string name="status_reverting_subtitle">Gumagawa ng standard na hosts file</string>
     <string name="status_update_available">May bagong update</string>
     <string name="status_no_connection">Walang koneksyong Internet</string>
     <string name="no_connection_title">Walang connection</string>
     <string name="download_dialog">Dinadownload...</string>
     <string name="apply_dialog_hosts">gumagawa ng hosts file</string>
-    <string name="no_root_title">Kailangan ng Android na may root</string>
     <string name="menu_add">Dagdagan</string>
     <string name="menu_help">Tulong</string>
 

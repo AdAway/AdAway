@@ -9,7 +9,6 @@
     <string name="button_add">Pridať</string>
     <string name="button_cancel">Zrušiť</string>
     <string name="button_save">Uložiť</string>
-    <string name="button_webserver_toggle_text">Spustiť alebo zastaviť webserver pre odpovedanie na žiadosti pre blokované adresy.</string>
     <string name="button_help">Pomoc</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Upraviť</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Biela listina</string>
-    <string name="lists_tab_blacklist">Čierna listina</string>
-    <string name="lists_tab_redirection_list">Presmerovania</string>
     <string name="import_dialog">Importovanie…</string>
     <string name="import_success">Záloha úspešne importovaná z vášho externého úložiska.</string>
     <string name="import_failed">Nepodarilo sa importovať zálohu. Je jeho formát správny? Ďalšie podrobnosti nájdete v protokole logcat.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Otvoriť hosts súbor</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Kontrolovanie aktualizácií…</string>
-    <string name="status_reverting">Obnovovanie…</string>
     <string name="status_reverting_subtitle">Vytváranie štandardného hosts súboru</string>
     <string name="status_update_available">Aktualizácia dostupná</string>
     <string name="status_update_available_subtitle">Sú dostupné novšie hosts súbory</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Zakážte funkciu Systemless hosts v Magisk Manageri. V zozname modulov odinštalujte 1Systemless hosts1, a potom reštartujte zariadenie.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">SU binárny súbor nebol nájdený alebo ste nepovolili root oprávnenia pre AdAway.\n\nToto sa môže stať, ak vaše zariadenie nie je rootnuté\nInformácie ako rootnuť vaše zariadenie môžete nájsť na stránke wiki.lineageos.org alebo na inej stránke o zariadeniach s Androidom.</string>
-    <string name="no_root_title">Je potrebné rootnuté zariadenie</string>
     <string name="hosts_add_dialog">Zadajte URL k hosts súboru:</string>
     <string name="no_hostname">Toto nie je platná adresa!</string>
     <string name="no_hostname_title">Nesprávne formulovaná adresa</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Obnoviť</string>
     <string name="menu_add">Pridať</string>
-    <string name="menu_hosts_sources">Hosts zdroje</string>
     <string name="menu_help">Pomoc</string>
     <string name="menu_import">Importovať zálohu</string>
     <string name="menu_export">Exportovať zálohu</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Nebol nájdený žiadny adware.</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Použité:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Blokovanie reklám</string>
@@ -181,33 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Pridať položku do zoznamu presmerovaných</string>
 
     <!--Preferences-->
-    <string name="pref_download">Všeobecné nastavenia</string>
-    <string name="pref_dismiss_welcome">Schovať uvítaciu kartu</string>
-    <string name="pref_dismiss_welcome_summary">Nezobrazovať uvítaciu kartu na domovskej obrazovke</string>
-    <string name="pref_dark_theme_summary">Použije tmavú tému namiesto svetlej</string>
-    <string name="pref_dark_theme_notification">Téma bude aplikovaná pri ďalšom spustení aplikácie!</string>
-    <string name="pref_hosts">Hosts súbor</string>
-    <string name="pref_redirection_ipv4_summary">Všetky blokované adresy sú presmerované na túto IPv4 adresu.</string>
-    <string name="pref_redirection_ipv6_summary">Všetky blokované adresy sú presmerované na túto IPv6 adresu.</string>
-    <string name="pref_header_preferences">Nastavenia</string>
-    <string name="pref_header_preferences_summary">Všeobecné nastavenia pre AdAway</string>
-    <string name="pref_never_reboot_summary">Skryje okno s otázkou na reštartovanie zariadenia po úspešnom aplikovaní</string>
-    <string name="pref_webserver_on_boot_summary">Spustí webserver po naštartovaní zariadenia, počúva na lokálnych IP adresách</string>
-    <string name="pref_webserver_enabled_summary">Spustí webserver na lokálnych IP adresách pre odpovedanie na žiadosti pre blokované adresy</string>
-    <string name="pref_custom_target_summary">Použité iba ak je umiestnenie hosts súboru nastavené na vlastné umiestnenie</string>
-    <string name="pref_update_check_summary">Skontrolovať aktualizácie po spustení AdAway</string>
-    <string name="pref_sdcard_problem">Táto funkcia správne nefunguje, ak je AdAway nainštalovaný na SD kartu!</string>
-    <string name="pref_background">Služby na pozadí</string>
-    <string name="pref_update_check_daily_summary">Každý deň skontroluje aktualizácie na pozadí s oznámením</string>
-    <string name="pref_automatic_update_daily">Automatické aktualizácie</string>
-    <string name="pref_automatic_update_daily_summary">Automaticky aplikuje aktualizácie na pozadí, ak sú dostupné</string>
-    <string name="pref_update_only_on_wifi">Aktualizovať iba cez nemerané siete</string>
-    <string name="pref_update_only_on_wifi_summary">Spustí aktualizácie na pozadí iba pri pripojení nemeraných sietí.</string>
-    <string name="pref_whitelist_rules_summary">Povolí vkladať položky do bielej listiny z hosts zdrojov</string>
-    <string name="pref_debug">Odstraňovanie chýb</string>
-    <string name="pref_enable_ipv6_summary">Všetky položky súbor host získajú zodpovedajúcu položku presmerovania.</string>
-    <string name="pref_enable_systemless_summary">Zabrániť AdAway upravovať systémovú partíciu</string>
-    <string name="pref_enable_systemless">Povoliť bezsystémový režim</string>
     <string name="pref_edit_text_value">Upraviť hodnotu predvoľby textu</string>
     <string name="drawer_open">Otvoriť menu</string>
     <string name="drawer_close">Zatvoriť menu</string>
@@ -230,10 +192,6 @@
     <string name="drawer_support_dialog_button">Zobraziť moju podporu</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetria</string>
-    <string name="dialog_telemetry_message">Ahoj, milý užívateľ,\n\nTeraz sa môžeš podieľať na vývoji AdAway zdieľaním hlásení o chybách a základných informácií o používaní. Všetky údaje sú anonymné a telemetria bude povolená iba, ak s tým budeš súhlasiť.\n\nViac informácií nájdeš na <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Samozrejme, rád vám pomôžem!</string>
-    <string name="dialog_telemetry_disable">Nie, ďakujem</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS žiadosti</string>

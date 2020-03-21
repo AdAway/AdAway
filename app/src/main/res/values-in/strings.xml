@@ -9,7 +9,6 @@
     <string name="button_add">Tambah</string>
     <string name="button_cancel">Batal</string>
     <string name="button_save">Simpan</string>
-    <string name="button_webserver_toggle_text">Nyalakan atau matikan webserver lokal untuk menjawab permintaan dari hostname yang di blokir.</string>
     <string name="button_help">Bantuan</string>
 
     <!--Home-->
@@ -34,9 +33,6 @@
     <string name="checkbox_list_context_edit">Sunting</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Daftar Putih</string>
-    <string name="lists_tab_blacklist">Daftar Hitam</string>
-    <string name="lists_tab_redirection_list">Pengalihan</string>
     <string name="import_dialog">Mengimpor ...</string>
     <string name="import_success">Cadangan sukses diimpor dari penyimpanan eksternal anda</string>
     <string name="import_failed">Cadangan gagal diimpor. Apakah formatnya benar? Lihat logcat untuk detail lebih.</string>
@@ -51,8 +47,6 @@
     <string name="hosts_open_button">Buka file host</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Memeriksa pembaruan...</string>
-    <string name="status_reverting">Mengembalikan...</string>
     <string name="status_reverting_subtitle">Membuat host file standar</string>
     <string name="status_update_available">Pembaruan tersedia</string>
     <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
@@ -125,8 +119,6 @@
     <string name="disable_systemless_magisk">Matikan fitur systemless host dari Magisk Manager. Dari daftar modul, uninstall modul <cite>Systemless hosts</cite> lalu mulai ulang perangkatmu.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Aplikasi su tidak dapat ditemukan atau AdAway tidak diberikan akses root.\n\nIni dapat terjadi jika perangkat anda tidak di-root.\nTemukan informasi tentang cara melakukan root pada wiki.lineageos.org atau situs android lainnya.</string>
-    <string name="no_root_title">Dibutuhkan perangkat Android yang sudah di-root</string>
     <string name="hosts_add_dialog">Masukan URL ke file hosts:</string>
     <string name="no_hostname">Ini bukan hostname yang benar!</string>
     <string name="no_hostname_title">Hostname tidak diformat dengan benar</string>
@@ -138,7 +130,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Segarkan</string>
     <string name="menu_add">Tambah</string>
-    <string name="menu_hosts_sources">Sumber host</string>
     <string name="menu_help">Bantuan</string>
     <string name="menu_import">Impor cadangan</string>
     <string name="menu_export">Ekspor cadangan</string>
@@ -155,8 +146,6 @@
     <string name="adware_empty">Adware tidak ditemukan!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokal:</string>
-    <string name="hosts_last_modified_online">Online:</string>
 
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
@@ -181,34 +170,6 @@
     <string name="tcpdump_entry_add_redirection_list">Tambahkan pada daftar pengalihan</string>
 
     <!--Preferences-->
-    <string name="pref_download">Pengaturan umum</string>
-    <string name="pref_dismiss_welcome">Sembunyikan kartu sambutan</string>
-    <string name="pref_dismiss_welcome_summary">Jangan tampilkan kartu sambutan pada halaman utama</string>
-    <string name="pref_dark_theme_summary">Gunakan tema gelap, bukan tema cerah</string>
-    <string name="pref_dark_theme_notification">Tema akan berubah pada sesi aplikasi berikutnya!</string>
-    <string name="pref_hosts">Hosts File</string>
-    <string name="pref_redirection_ipv4_summary">Semua nama host yang diblok akan dialihkan ke alamat IPV4 ini.</string>
-    <string name="pref_redirection_ipv6_summary">Semua nama host yang diblok akan dialihkan ke alamat IPV6 ini.</string>
-    <string name="pref_header_preferences">Pengaturan</string>
-    <string name="pref_header_preferences_summary">Pengaturan normal Adaway</string>
-    <string name="pref_never_reboot_summary">Menyembunyikan dialog yang menanyakan untuk reboot Android setelah sukses menerapkan</string>
-    <string name="pref_webserver_on_boot_summary">Memulai server web pada saat boot, mendengarkan alamat IP lokal</string>
-    <string name="pref_webserver_enabled_summary">Aktifkan server web yang mendengarkan alamat IP lokal untuk menjawab permintaan ke nama host diblokir</string>
-    <string name="pref_custom_target_summary">Hanya digunakan bila target berkas hosts diatur untuk custom target</string>
-
-    <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
-    <string name="pref_sdcard_problem">Fitur ini tidak akan berfungsi dengan baik saat AdAway terpasang di Kartu SD!</string>
-    <string name="pref_background">Layanan latar Belakang</string>
-    <string name="pref_update_check_daily_summary">Periksa update harian di latar belakang dengan pemberitahuan</string>
-    <string name="pref_automatic_update_daily">Pembaruan otomatis</string>
-    <string name="pref_automatic_update_daily_summary">Update secara otomatis di latar belakang jika pembaruan tersedia.</string>
-    <string name="pref_update_only_on_wifi">Hanya perbarui saat tidak dibatasi</string>
-    <string name="pref_update_only_on_wifi_summary">Menjalankan pembaruan latar belakang hanya ketika terhubung ke jaringan yang tidak dibatasi saja.</string>
-    <string name="pref_whitelist_rules_summary">Perbolehkan daftar putih dari sumber host.</string>
-    <string name="pref_debug">Debug</string>
-    <string name="pref_enable_ipv6_summary">Semua entri berkas host akan mendapatkan entri pengalihan yang sesuai.</string>
-    <string name="pref_enable_systemless_summary">Cegah AdAway me-modifikasi partisi system</string>
-    <string name="pref_enable_systemless">Aktifkan Mode Systemless</string>
     <string name="pref_edit_text_value">Ubah nilai preferensi teks</string>
     <string name="drawer_open">Buka menu</string>
     <string name="drawer_close">Tutup menu</string>
@@ -231,10 +192,6 @@
     <string name="drawer_support_dialog_button">Tunjukkan dukungan saya</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetri</string>
-    <string name="dialog_telemetry_message">Hai pengguna terkasih,\n\nAnda sekarang dapat berpartisipasi untuk perkembangan dalam AdAway dengan membagikan laporan kerusakan dan informasi penggunaan dasar. Semua data adalah anonim dan telemetri hanya akan diaktifkan jikalau Anda menyetujui.\n\nAnda dapat menemukan lebih banyak di <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Tentu, Saya senang untuk membantu!</string>
-    <string name="dialog_telemetry_disable">Tidak, Terima kasih</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Aktifitas DNS</string>
