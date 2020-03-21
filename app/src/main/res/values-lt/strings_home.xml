@@ -3,21 +3,29 @@
 
     <!-- Hosts card -->
     <plurals name="blocked_hosts_label">
+        <item quantity="few">Blocked</item>
+        <item quantity="one">Blocked</item>
         <item quantity="other">Blocked</item>
     </plurals>
     <plurals name="allowed_hosts_label">
+        <item quantity="few">Allowed</item>
+        <item quantity="one">Allowed</item>
         <item quantity="other">Allowed</item>
     </plurals>
     <plurals name="redirect_hosts_label">
+        <item quantity="few">Redirected</item>
+        <item quantity="one">Redirected</item>
         <item quantity="other">Redirected</item>
     </plurals>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
+        <item quantity="few">%d up-to-date sources</item>
         <item quantity="one">%d up-to-date source</item>
         <item quantity="other">%d up-to-date sources</item>
     </plurals>
     <plurals name="outdated_source_label">
+        <item quantity="few">%d outdated sources</item>
         <item quantity="one">%d outdated source</item>
         <item quantity="other">%d outdated sources</item>
     </plurals>
