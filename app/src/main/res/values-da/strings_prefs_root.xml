@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Brugerdefineret destination</item>
     </string-array>
     <string name="pref_custom_target">Brugerdefineret destination</string>
     <string name="pref_never_reboot">Gem genstarts-dialogboksen</string>

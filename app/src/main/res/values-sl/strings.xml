@@ -110,15 +110,6 @@
     <string name="pref_webserver_on_boot_summary">Zaženi spletni strežnik ob zagonu, ki posluša na lokalnih IP naslovih.</string>
     <string name="pref_webserver_enabled_summary">Vključi spletni strežnik, ki posluša na lokalnih IP naslovih, da odgovori zahteve do blokiranih domen</string>
     <string name="pref_custom_target_summary">Uporabljeno le v primeru, da je pot do uporabljene hosts datoteke nastavljena po meri</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Pot do uporabljene hosts datoteke po meri</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Preveri za posodobitve ob zagonu</string>
     <string name="pref_background">Procesi v ozadju</string>
     <string name="pref_update_check_daily_summary">Dnevno preveri za posodobitve v ozadju z obvestili</string>

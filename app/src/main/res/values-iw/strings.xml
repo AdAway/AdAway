@@ -185,14 +185,6 @@
     <string name="pref_webserver_enabled_summary">הפעל את השרת להקשיב לכתובת IP מקומית ולענות לבקשות של כתובות חסומות</string>
     <string name="pref_custom_target_summary">בשימוש רק כאשר יעד קובץ ה hosts הוא יעד מותאם אישית</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>יעד מותאם אישית</item>
-    </string-array>
-
     <string name="pref_update_check_summary">בדוק עדכונים בעת הפעלת AdAway</string>
     <string name="pref_sdcard_problem">תכונה זו אינה פועלת כראוי כאשר אפליקציית AdAway מותקנת בכרטיס הזיכרון!</string>
     <string name="pref_background">שירותים ברקע</string>

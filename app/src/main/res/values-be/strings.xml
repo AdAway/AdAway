@@ -197,14 +197,6 @@
     <string name="pref_webserver_enabled_summary">Дазваляе вэб-серверу праслухоўваць лакальныя IP-адрасы і адказваць на запыты да заблакаваных host</string>
     <string name="pref_custom_target_summary">Выкарыстоўваецца толькі ў выпадку, калі размяшчэнне файла hosts зададзена карыстальнікам</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Карыстацкія налады</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Правяраць абнаўленні пры запуску AdAway</string>
     <string name="pref_sdcard_problem">Гэтая функцыя будзе працаваць няправільна, калі AdAway усталяваны на карту памяці!</string>
     <string name="pref_background">Фонавы рэжым</string>

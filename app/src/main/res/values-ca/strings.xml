@@ -179,14 +179,6 @@
     <string name="pref_webserver_enabled_summary">Activa el servidor web que escolta a l\'adreça IP local i respon a les peticions per a màquines bloquejades</string>
     <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Objectiu personalitzt</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Comprova actualitzacions a l\'inici d\'AdAway</string>
     <string name="pref_background">Serveis en segon pla</string>
     <string name="pref_update_check_daily_summary">Comprova actualitzacions diàriament en segon pla amb notificacions</string>

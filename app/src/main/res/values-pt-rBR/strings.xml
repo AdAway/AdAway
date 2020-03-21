@@ -195,15 +195,6 @@
     <string name="pref_webserver_on_boot_summary">Iniciar servidor web na inicialização, monitorando endereços de IP locais</string>
     <string name="pref_webserver_enabled_summary">Ativar servidor web para monitorar endereços de IP locais afim de responder solicitações de nomes de hosts bloqueados</string>
     <string name="pref_custom_target_summary">Apenas usado se o destino do arquivo hosts estiver definido como personalizado</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Destino personalizado</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Verificar por atualizações na inicialização do AdAway</string>
     <string name="pref_sdcard_problem">Este recurso não funcionará corretamente enquanto o AdAway estiver instalado no cartão SD!</string>
     <string name="pref_background">Serviços de Segundo Plano</string>

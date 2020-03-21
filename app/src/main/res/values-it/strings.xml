@@ -197,14 +197,6 @@ Vuoi installare OI File Manager?</string>
     <string name="pref_webserver_enabled_summary">Abilita il webserver in ascolto sull\'indirizzo locale per rispondere alle richieste bloccate</string>
     <string name="pref_custom_target_summary">In uso solo se si usa un file hosts personalizzato</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Percorso personalizzato</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Controlla aggiornamenti all\'avvio di AdAway</string>
     <string name="pref_sdcard_problem">Questa opzione non funzionerà correttamente quando AdAway è installato sulla scheda SD!</string>
     <string name="pref_background">Servizi in background</string>

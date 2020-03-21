@@ -196,14 +196,6 @@
     <string name="pref_webserver_enabled_summary">Позволява на уеб сървъра да слуша на локалните IP адреси, за да отговори на заявките към блокирани имена на хостове.</string>
     <string name="pref_custom_target_summary">Използва се само ако целевият Hosts файл е настроен на персонализирана цел.</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Персонализирана цел</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Проверка за актуализации при стартиране на AdAway</string>
     <string name="pref_sdcard_problem"> Тази функция няма да работи правилно, когато AdAway е инсталиран на SD картата!</string>
     <string name="pref_background">Услуги на заден план</string>

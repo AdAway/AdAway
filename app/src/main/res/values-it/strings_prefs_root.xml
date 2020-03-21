@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Percorso personalizzato</item>
     </string-array>
     <string name="pref_custom_target">Percorso personalizzato</string>
     <string name="pref_never_reboot">Nascondi la richiesta di riavvio</string>

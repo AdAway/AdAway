@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Doelwit teiken</item>
     </string-array>
     <string name="pref_custom_target">Doelwit teiken</string>
     <string name="pref_never_reboot">Versteek her-aansit dialoog</string>

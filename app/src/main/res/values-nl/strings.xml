@@ -204,15 +204,6 @@ Wilt u herstarten?
     <string name="pref_webserver_on_boot_summary">Start webserver bij het opstarten van het apparaat</string>
     <string name="pref_webserver_enabled_summary">Zorgt ervoor dat de webserver lokale IP-adressen afluistert om aanvragen naar geblokkeerde hostnamen te beantwoorden</string>
     <string name="pref_custom_target_summary">Wordt alleen gebruikt als u een aangepaste locatie voor het hosts-bestand heeft gekozen.</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Aangepaste locatie</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Controleer op updates bij openen van AdAway</string>
     <string name="pref_sdcard_problem">Deze feature zal niet correct werken als AdAway op de sdkaart wordt geïnstalleerd!</string>
     <string name="pref_background">Achtergronddiensten</string>

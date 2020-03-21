@@ -190,15 +190,6 @@
     <string name="pref_webserver_on_boot_summary">부팅 시 웹서버 시작, 로컬 IP 주소 수신 대기</string>
     <string name="pref_webserver_enabled_summary">로컬 IP 주소에 대한 웹서버 수신 대기를 활성화하여 차단된 호스트명의 요청을 응답함</string>
     <string name="pref_custom_target_summary">대상 호스트 파일이 사용자 지정 대상으로 설정되었을 경우에만 사용됨</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>사용자 지정 대상</item>
-    </string-array>
-
     <string name="pref_update_check_summary">AdAway 시작 시 업데이트 확인</string>
     <string name="pref_sdcard_problem">AdAway가 SD카드에 설치된 경우 해당 기능이 올바르게 작동하지 않습니다!</string>
     <string name="pref_background">배경 서비스</string>

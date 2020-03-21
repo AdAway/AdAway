@@ -195,15 +195,6 @@
     <string name="pref_webserver_on_boot_summary">Starta webbservern vid uppstart, lyssnande på lokala IP-adresser</string>
     <string name="pref_webserver_enabled_summary">Aktiverar en webbserver som lyssnar på lokala IP-Adresser för att svara på förfrågningar till blockerade värdnamn</string>
     <string name="pref_custom_target_summary">Används bara om vald målvärdfil är satt till ett anpassat mål</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Anpassat mål</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Sök efter uppdateringar när AdAway startas</string>
     <string name="pref_sdcard_problem">Denna funktionen inte korrekt när AdAway är installerad på ett SD-kort!</string>
     <string name="pref_background">Bakgrundstjänster</string>

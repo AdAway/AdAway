@@ -195,15 +195,6 @@
     <string name="pref_webserver_on_boot_summary">Başlangıçta WebSunucusunu 5 saniye gecikmeli çalıştır</string>
     <string name="pref_webserver_enabled_summary">Engelli adres isteklerine cevap vermek için yerel IP adresi üzerinde websunucusunu açar.</string>
     <string name="pref_custom_target_summary">Sadece hedef hosts dosyası, özel hedefe ayarlıysa kullanılır</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Özel hedef</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Açılışta AdAway güncellemelerini denetle</string>
     <string name="pref_sdcard_problem">AdAway SD karta yüklendiğinde bu özellik düzgün çalışmayacak!</string>
     <string name="pref_background">Arka Plan Hizmetleri</string>

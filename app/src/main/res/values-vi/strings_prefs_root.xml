@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Đích tự chọn</item>
     </string-array>
     <string name="pref_custom_target">Đích tự chọn</string>
     <string name="pref_never_reboot">Ẩn hộp thoại khởi động lại</string>

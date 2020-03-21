@@ -199,15 +199,6 @@
     <string name="pref_webserver_on_boot_summary">开机时，自动运行网络服务器并监听本地 IP 地址</string>
     <string name="pref_webserver_enabled_summary">允许网络服务器监听听本地 IP 地址以应答对已屏蔽的主机名的请求</string>
     <string name="pref_custom_target_summary">仅在“目标 hosts 文件”被设置为“自定义路径”时被使用</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>自定义路径</item>
-    </string-array>
-
     <string name="pref_update_check_summary">启动时检查更新 AdAway</string>
     <string name="pref_sdcard_problem">如果 AdAway 被安装到 SD 卡上，此功能可能无法运作！</string>
     <string name="pref_background">后台服务</string>

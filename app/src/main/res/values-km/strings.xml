@@ -61,13 +61,6 @@
     <string name="pref_header_preferences">ការកំណត់</string>
     <string name="pref_header_preferences_summary">ការកំណត់ទូរទៅសម្រាប់ AdAway</string>
     <string name="pref_never_reboot_summary">លាក់ប្រអប់ដែលសួរពីការចាប់ផ្ដើមឡើងវិញបន្ទាប់ពីបានអនុវត្តជោគជ័យ</string>
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Custom target</item>
-    </string-array>
 
     <string name="pref_update_check_summary">ស្វែងរកជំនាន់ថ្មី ពេលចាប់ផ្ដើម AdAway</string>
     <string name="pref_update_check_daily_summary">ពិនិត្យមើលភាពទាន់សម័យរាល់ថ្ងៃក្នុងផ្ទាំងខាងក្រោយជាមួយការជូនដំណឹង</string>

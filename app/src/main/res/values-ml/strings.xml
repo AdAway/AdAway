@@ -194,15 +194,6 @@
     <string name="pref_webserver_on_boot_summary">ബൂട്ടിൽ വെബ്‌സർവർ ആരംഭിക്കുക,പ്രാദേശിക ഐപി വിലാസങ്ങൾ കേൾക്കുന്നു</string>
     <string name="pref_webserver_enabled_summary">തടഞ്ഞ ഹോസ്റ്റ്നാമങ്ങളിലേക്കുള്ള അഭ്യർത്ഥനകൾക്ക് ഉത്തരം നൽകാൻ പ്രാദേശിക ഐപി വിലാസങ്ങളിൽ വെബ്സർവർ ശ്രവിക്കൽ പ്രാപ്തമാക്കുന്നു</string>
     <string name="pref_custom_target_summary">ടാർ‌ഗെറ്റ് ഹോസ്റ്റുകൾ‌ ഫയൽ‌ ഇച്ഛാനുസൃത ടാർ‌ഗെറ്റിലേക്ക് സജ്ജമാക്കിയിട്ടുണ്ടെങ്കിൽ‌ മാത്രമേ ഇത് ഉപയോഗിക്കൂ</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Custom target</item>
-    </string-array>
-
     <string name="pref_update_check_summary">AdAway- ന്റെ ആരംഭിക്കുമ്പോൾ അപ്‌ഡേറ്റുകൾക്കായി പരിശോധിക്കുക</string>
     <string name="pref_sdcard_problem">എസ് ഡി കാർഡിൽ AdAway ഇൻസ്റ്റാൾ ചെയ്യുമ്പോൾ ഈ സവിശേഷത ശരിയായി പ്രവർത്തിക്കില്ല!</string>
     <string name="pref_background">പശ്ചാത്തല സേവനങ്ങൾ</string>

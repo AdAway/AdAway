@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Egyéni cél</item>
     </string-array>
     <string name="pref_custom_target">Egyéni cél</string>
     <string name="pref_never_reboot">Újraindítási ablak elrejtése</string>

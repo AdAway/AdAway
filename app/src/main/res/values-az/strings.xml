@@ -126,13 +126,6 @@
     <string name="pref_dark_theme_summary">İşıqlı mövzu yerinə qaranlıq mövzu işlət</string>
     <string name="pref_hosts">Hosts faylı</string>
     <string name="pref_header_preferences">Tənzimləmələr</string>
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Fərdi hədəf</item>
-    </string-array>
 
     <string name="pref_update_check_summary">AdAway başladıldıqda yeniləmələri yoxla</string>
     <string name="pref_sdcard_problem">AdAway SD karta yüklənibsə bu xüsusiyyət düzgün işləməyəcək!</string>

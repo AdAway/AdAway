@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>自定义路径</item>
     </string-array>
     <string name="pref_custom_target">自定义 hosts 文件路径</string>
     <string name="pref_never_reboot">隐藏重启对话框</string>

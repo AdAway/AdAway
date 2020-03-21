@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Destino personalizado</item>
     </string-array>
     <string name="pref_custom_target">Destino personalizado</string>
     <string name="pref_never_reboot">Ocultar diálogo de reinício</string>

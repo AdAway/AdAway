@@ -215,15 +215,6 @@
     <string name="pref_webserver_on_boot_summary">Старт веб-сервера при загрузке системы для прослушивания локальных адресов IP</string>
     <string name="pref_webserver_enabled_summary">Позволяет веб-серверу прослушивать локальные IP-адреса и отвечать на запросы к заблокированным хостам</string>
     <string name="pref_custom_target_summary">Используется только в случае, когда расположение файла hosts задано пользователем</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Пользовательские настройки</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Проверять обновления при запуске AdAway</string>
     <string name="pref_sdcard_problem">Эта функция будет работать неправильно, если AdAway установлен на карту памяти!</string>
     <string name="pref_background">Фоновый режим</string>

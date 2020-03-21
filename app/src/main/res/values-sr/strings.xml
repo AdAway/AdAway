@@ -118,15 +118,6 @@
     <string name="pref_webserver_on_boot_summary">Pokreni web server pri pokretanju sistema, osluškujući lokalne IP adrese</string>
     <string name="pref_webserver_enabled_summary">Omogućuje web server koji osluškuje lokalne IP adrese u svrhu odgovora na blokirane nazive hostova</string>
     <string name="pref_custom_target_summary">Koristi se samo ako je ciljna hosts datoteka postavljena na prilagođeno odredište</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Prilagođeno odredište</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Proveri ažuriranja pri pokretanju AdAway-a</string>
     <string name="pref_background">Pozadinski servisi</string>
     <string name="pref_update_check_daily_summary">Dnevna proveravanja ažuriranja u pozadini sa obaveštenjima</string>

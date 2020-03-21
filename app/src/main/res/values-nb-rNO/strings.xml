@@ -119,15 +119,6 @@
     <string name="pref_webserver_on_boot_summary">Start nettjeneren ved oppstart, og lytter på lokale IP-adresser</string>
     <string name="pref_webserver_enabled_summary">Skrur på nettjenerlytting av lokale IP-adresse for å svare på forespørsler til blokkerte vertsnavn</string>
     <string name="pref_custom_target_summary">Brukes kun dersom målvertsfilen er satt til et tilpasset mål</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Tilpasset målpunkt</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Se etter oppdateringer når AdAway starter opp</string>
     <string name="pref_background">Bakgrunnstjenester</string>
     <string name="pref_update_check_daily_summary">Sjekk etter oppdateringer i bakgrunnen daglig med beskjeder</string>

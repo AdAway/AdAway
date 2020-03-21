@@ -196,14 +196,6 @@
     <string name="pref_webserver_enabled_summary">Habilita el servidor web escuchando en las direcciones IP locales para responder peticiones de nombres de servidor (host) bloqueados</string>
     <string name="pref_custom_target_summary">Solo se utiliza si la ruta al archivo hosts se configura como ruta personalizada</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Ruta personalizada</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Buscar actualizaciones al iniciar AdAway</string>
     <string name="pref_sdcard_problem">¡Esta función no funcionará correctamente cuando AdAway esté instalado en la memoria SD!</string>
     <string name="pref_background">Servicios en segundo plano</string>

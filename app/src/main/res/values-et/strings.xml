@@ -151,14 +151,6 @@
     <string name="pref_webserver_enabled_summary">Lubab veebiserveri, mis kuulab kohalikke IP aadresse ning vastab blokeeritud aadressitele.</string>
     <string name="pref_custom_target_summary">Kasutatakse vaid juhul, kui hosts-faili asukohaks on muu asukoht.</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Muu asukoht</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Uuendusi kontrollitakse AdAway käivitamisel</string>
     <string name="pref_background">Taustateenused</string>
     <string name="pref_update_check_daily_summary">Uuendusi kontrollitakse taustal ja neist teavitatakse igapäevaselt</string>

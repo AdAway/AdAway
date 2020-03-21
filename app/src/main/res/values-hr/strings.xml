@@ -191,14 +191,6 @@
     <string name="pref_webserver_enabled_summary">Omogućuje web poslužitelju osluškivanje lokalnih IP adresa u svrhu odgovora na blokirane nazive poslužitelja</string>
     <string name="pref_custom_target_summary">Koristi se samo ako je odredišna datoteka poslužitelja postavljena na prilagođenu lokaciju</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Prilagođena lokacija</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Provjeri ažuriranja pri pokretanju AdAwaya</string>
     <string name="pref_sdcard_problem">Ova značajka neće raditi ispravno ako je AdAway instaliran na memorijsku karticu!</string>
     <string name="pref_background">Pozadinske usluge</string>

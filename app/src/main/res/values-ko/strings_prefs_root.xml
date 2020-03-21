@@ -5,7 +5,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>사용자 지정 대상</item>
     </string-array>
     <!-- Redirection category -->
     <!-- Web server category -->

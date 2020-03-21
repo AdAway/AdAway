@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>יעד מותאם אישית</item>
     </string-array>
     <string name="pref_custom_target">יעד מותאם אישית</string>
     <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>

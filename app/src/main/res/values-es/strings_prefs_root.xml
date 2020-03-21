@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Ruta personalizada</item>
     </string-array>
     <string name="pref_custom_target">Ruta personalizada</string>
     <string name="pref_never_reboot">Ocultar cuadro de diálogo de reinicio</string>

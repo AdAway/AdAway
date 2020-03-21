@@ -174,14 +174,6 @@
     <string name="pref_webserver_enabled_summary">Web-zerbitzari aditzea gaitzen du tokiko IP helbidean hostalari-izenak blokeatzeko eskabideei erantzuteko</string>
     <string name="pref_custom_target_summary">Bakarrik erabiltzen da xede hostalari agiria norbere xede bezala ezartzen bada</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Norbere xedea</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Egiaztatu eguneraketak AdAway abiatzean</string>
     <string name="pref_sdcard_problem">Ezaugarri hau ez du ongi funtzionatuko AdAway SD txartelan instalatuta dagoenean!</string>
     <string name="pref_background">Barreneko Zerbitzuak</string>

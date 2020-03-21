@@ -195,15 +195,6 @@
     <string name="pref_webserver_on_boot_summary">Spustí webserver po naštartovaní zariadenia, počúva na lokálnych IP adresách</string>
     <string name="pref_webserver_enabled_summary">Spustí webserver na lokálnych IP adresách pre odpovedanie na žiadosti pre blokované adresy</string>
     <string name="pref_custom_target_summary">Použité iba ak je umiestnenie hosts súboru nastavené na vlastné umiestnenie</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Vlastné umiestnenie</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Skontrolovať aktualizácie po spustení AdAway</string>
     <string name="pref_sdcard_problem">Táto funkcia správne nefunguje, ak je AdAway nainštalovaný na SD kartu!</string>
     <string name="pref_background">Služby na pozadí</string>

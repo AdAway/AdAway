@@ -193,14 +193,6 @@
     <string name="pref_webserver_enabled_summary">تفعيل خادم الويب يتعرف على عناوين IP محلية للرد على طلبات أسماء المضيفين الذين منعوا.</string>
     <string name="pref_custom_target_summary">استخدمه فقط إذا حدد مسار مخصص لملفات المضيف</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>مسار مخصص</item>
-    </string-array>
-
     <string name="pref_update_check_summary">التحقق من وجود تحديثات عند تشغيل التطبيق</string>
     <string name="pref_sdcard_problem">هذه الخاصية لن تعمل بشكل صحيح عندما يكون AdAway مثبتاً على بطاقة الذاكرة</string>
     <string name="pref_background">الخدمات الخلفية</string>

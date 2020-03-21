@@ -196,14 +196,6 @@
     <string name="pref_webserver_enabled_summary">Aktifkan server web yang mendengarkan alamat IP lokal untuk menjawab permintaan ke nama host diblokir</string>
     <string name="pref_custom_target_summary">Hanya digunakan bila target berkas hosts diatur untuk custom target</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Kustom target</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Periksa pembaruan di awal AdAway</string>
     <string name="pref_sdcard_problem">Fitur ini tidak akan berfungsi dengan baik saat AdAway terpasang di Kartu SD!</string>
     <string name="pref_background">Layanan latar Belakang</string>

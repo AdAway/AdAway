@@ -102,14 +102,6 @@
     <string name="pref_webserver_enabled_summary">Aktiveer webbediener om te luister na plaaslike IP adresse en om versoeke na geblokkeerde gasheername te blokkeer</string>
     <string name="pref_custom_target_summary">Word slegs gebruik indien doelwit gasheer lêers gestel is as pasmaak teikens</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Doelwit teiken</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Kyk vir opdaterings as AdAway begin</string>
     <string name="pref_background">Agtergrond Dienste</string>
     <string name="pref_update_check_daily_summary">Kyk daagliks vir opdaterings in die agtergrond met kennisgewings</string>

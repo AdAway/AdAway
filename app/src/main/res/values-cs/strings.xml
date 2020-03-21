@@ -196,14 +196,6 @@
     <string name="pref_webserver_enabled_summary">Povolit webovému serveru naslouchání na lokální IP adrese pro odpovídání na dotazy na blokovaná jména hostitelů</string>
     <string name="pref_custom_target_summary">Použito pouze, pokud je cílový soubor hostitelů nastaven na vlastní cíl</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Vlastní cíl</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Zkontrolovat aktualizace při startu AdAway</string>
     <string name="pref_sdcard_problem">Tato funkce nebude pracovat správně, pokud je aplikace AdAway nainstalována na SD kartě!</string>
     <string name="pref_background">Služby na pozadí</string>

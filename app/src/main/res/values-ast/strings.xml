@@ -109,14 +109,6 @@
     <string name="pref_webserver_enabled_summary">Habilita\'l sirvidor web escuchando nes direiciones IP llocales pa responder a les solicitúes de nomes d\'agospiu bloquiaos</string>
     <string name="pref_custom_target_summary">Úsase namái si\'l ficheru «hosts» oxetivu ta afitáu como oxetivu personalizáu</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Oxetivu personalizáu</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Comprueba anovamientos nel aniciu d\'AdAway</string>
     <string name="pref_background">Servicios de fondu</string>
     <string name="pref_update_check_daily_summary">Comprueba de fondu con avisos anovamientos caldía</string>

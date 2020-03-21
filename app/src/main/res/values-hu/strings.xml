@@ -202,14 +202,6 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="pref_webserver_enabled_summary">Engedélyezi a webszervert, amely helyi címeken figyelve válaszol a blokkolt hosztnevekre érkező kérésekre</string>
     <string name="pref_custom_target_summary">Csak akkor legyen aktív, ha a cél hosts-fájl egyéni célra mutat</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Egyéni cél</item>
-    </string-array>
-
     <string name="pref_update_check_summary">Az AdAway induláskor keressen frissítéseket</string>
     <string name="pref_sdcard_problem">Ez a funkció nem működik megfelelően, ha az AdAway az SD kártyára van telepítve!</string>
     <string name="pref_background">Háttérszolgáltatások</string>

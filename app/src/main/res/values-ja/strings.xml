@@ -196,14 +196,6 @@
     <string name="pref_webserver_enabled_summary">ブロックしたホスト名の問い合わせに返答するためのウェブサーバーを有効にします。</string>
     <string name="pref_custom_target_summary">ターゲットhostsファイルがカスタムターゲットにセットされたときのみ使用されます</string>
 
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>カスタムターゲット</item>
-    </string-array>
-
     <string name="pref_update_check_summary">AdAway起動時に更新を確認</string>
     <string name="pref_sdcard_problem">この機能は AdAway がSDカードにインストールされているとうまく機能しないことがあります！</string>
     <string name="pref_background">バックグラウンドサービス</string>

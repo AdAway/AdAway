@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Norbere xedea</item>
     </string-array>
     <string name="pref_custom_target">Norbere xedea</string>
     <string name="pref_never_reboot">Ezkutatu berrabiarazte elkarrizketa</string>

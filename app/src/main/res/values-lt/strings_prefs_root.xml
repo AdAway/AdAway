@@ -7,7 +7,7 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Custom target</item>
+        <item>Pasirinktinis nukreipimas</item>
     </string-array>
     <string name="pref_custom_target">Pasirinktinis nukreipimas</string>
     <string name="pref_never_reboot">Slepti perkrovimo užklausą</string>
