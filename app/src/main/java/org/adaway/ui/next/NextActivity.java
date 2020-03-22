@@ -405,7 +405,7 @@ public class NextActivity extends AppCompatActivity {
         FrameLayout layout = findViewById(R.id.headerFrameLayout);
         int color = adBlocked ? getResources().getColor(R.color.primary, null) : Color.GRAY;
         layout.setBackgroundColor(color);
-        this.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.icon);
+        this.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.logo);
     }
 
     private void notifyError(HostError error) {

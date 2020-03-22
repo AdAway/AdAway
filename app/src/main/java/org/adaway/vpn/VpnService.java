@@ -222,7 +222,7 @@ public class VpnService extends android.net.VpnService {
                 .setPriority(IMPORTANCE_LOW)
                 .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0,
                         new Intent(getApplicationContext(), NextActivity.class), 0))
-                .setSmallIcon(R.drawable.icon)
+                .setSmallIcon(R.drawable.logo)
                 .setColorized(true)
                 .setColor(this.getColor(R.color.notification))
                 .setContentTitle(title);

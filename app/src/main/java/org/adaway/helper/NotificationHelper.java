@@ -93,7 +93,7 @@ public final class NotificationHelper {
         String title = context.getString(R.string.status_update_available);
         String text = context.getString(R.string.status_update_available_subtitle);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NotificationHelper.UPDATE_NOTIFICATION_CHANNEL)
-                .setSmallIcon(R.drawable.icon)
+                .setSmallIcon(R.drawable.logo)
                 .setShowWhen(false)
                 .setContentTitle(title)
                 .setContentText(text)
