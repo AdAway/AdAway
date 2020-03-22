@@ -36,9 +36,13 @@ public final class NotificationHelper {
      */
     private static final int UPDATE_HOSTS_NOTIFICATION_ID = 10;
     /**
-     * The VPN service notification identifier.
+     * The VPN running service notification identifier.
      */
-    public static final int VPN_SERVICE_NOTIFICATION_ID = 20;
+    public static final int VPN_RUNNING_SERVICE_NOTIFICATION_ID = 20;
+    /**
+     * The VPN resume service notification identifier.
+     */
+    public static final int VPN_RESUME_SERVICE_NOTIFICATION_ID = 21;
 
     /**
      * Private constructor.

@@ -26,8 +26,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.adaway.R;
@@ -45,8 +47,9 @@ import static android.net.ConnectivityManager.EXTRA_NETWORK_TYPE;
 import static android.net.ConnectivityManager.TYPE_VPN;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 import static android.os.Build.VERSION.SDK_INT;
+import static org.adaway.helper.NotificationHelper.VPN_RESUME_SERVICE_NOTIFICATION_ID;
+import static org.adaway.helper.NotificationHelper.VPN_RUNNING_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
-import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_ID;
 import static org.adaway.vpn.VpnCommand.START;
 import static org.adaway.vpn.VpnCommand.STOP;
 import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_NETWORK_CHANGED;
@@ -63,7 +66,6 @@ public class VpnService extends android.net.VpnService {
     public static final String VPN_UPDATE_STATUS_INTENT = "org.jak_linux.dns66.VPN_UPDATE_STATUS";
     public static final String VPN_UPDATE_STATUS_EXTRA = "VPN_STATUS";
     private static final String TAG = "VpnService";
-
     // TODO: Temporary Hack til refactor is done
     public static VpnStatus vpnStatus = STOPPED;
 
@@ -209,7 +211,17 @@ public class VpnService extends android.net.VpnService {
     private void updateVpnStatus(VpnStatus status) {
         vpnStatus = status;
 
-        startForeground(VPN_SERVICE_NOTIFICATION_ID, getNotification(status));
+        Notification notification = getNotification(status);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        switch (status) {
+            case STARTING:
+            case RUNNING:
+                notificationManager.cancel(VPN_RESUME_SERVICE_NOTIFICATION_ID);
+                startForeground(VPN_RUNNING_SERVICE_NOTIFICATION_ID, notification);
+                break;
+            default:
+                notificationManager.notify(VPN_RESUME_SERVICE_NOTIFICATION_ID, notification);
+        }
 
         Intent intent = new Intent(VPN_UPDATE_STATUS_INTENT);
         intent.putExtra(VPN_UPDATE_STATUS_EXTRA, status);
@@ -218,37 +230,33 @@ public class VpnService extends android.net.VpnService {
 
     private Notification getNotification(VpnStatus status) {
         String title = getString(R.string.vpn_notification_title, getString(status.getTextResource()));
+
+        Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
                 .setPriority(IMPORTANCE_LOW)
-                .setContentIntent(PendingIntent.getActivity(getApplicationContext(), 0,
-                        new Intent(getApplicationContext(), NextActivity.class), 0))
+                .setContentIntent(contentIntent)
                 .setSmallIcon(R.drawable.logo)
                 .setColorized(true)
-                .setColor(this.getColor(R.color.notification))
+                .setColor(getColor(R.color.notification))
                 .setContentTitle(title);
         switch (status) {
             case RUNNING:
+                Intent stopIntent = STOP.toIntent(this);
+                PendingIntent stopActionIntent = PendingIntent.getService(this, REQUEST_CODE_PAUSE, stopIntent, 0);
                 builder.addAction(
-                        R.drawable.ic_pause_black_24dp,
+                        R.drawable.ic_pause_24dp,
                         getString(R.string.vpn_notification_action_pause),
-                        PendingIntent.getService(
-                                this,
-                                REQUEST_CODE_PAUSE,
-                                STOP.toIntent(this),
-                                0
-                        )
+                        stopActionIntent
                 );
                 break;
             case STOPPED:
                 builder.setContentText(getString(R.string.vpn_notification_paused_text));
-                builder.setContentIntent(
-                        PendingIntent.getService(
-                                this,
-                                REQUEST_CODE_START,
-                                START.toIntent(this),
-                                0
-                        )
-                );
+                Intent startIntent = START.toIntent(this);
+                PendingIntent startActionIntent = PendingIntent.getService(this, REQUEST_CODE_START, startIntent, 0);
+                builder.setContentIntent(startActionIntent);
                 break;
         }
         return builder.build();
@@ -302,7 +310,7 @@ public class VpnService extends android.net.VpnService {
         }
 
         @Override
-        public void handleMessage(Message msg) {
+        public void handleMessage(@NonNull Message msg) {
             Callback callback = this.callback.get();
             if (callback != null) {
                 callback.handleMessage(msg);
