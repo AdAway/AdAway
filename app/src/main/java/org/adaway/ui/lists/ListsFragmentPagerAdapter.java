@@ -1,60 +1,70 @@
 package org.adaway.ui.lists;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import org.adaway.R;
 import org.adaway.ui.lists.type.AbstractListFragment;
+import org.adaway.ui.lists.type.AllowedHostsFragment;
 import org.adaway.ui.lists.type.BlockedHostsFragment;
 import org.adaway.ui.lists.type.RedirectedHostsFragment;
-import org.adaway.ui.lists.type.AllowedHostsFragment;
 
 import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
 import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
 import static org.adaway.ui.lists.ListsFragment.WHITELIST_TAB;
 
 /**
- * This class is a {@link PagerAdapter} to store lists tab fragments.
+ * This class is a {@link FragmentStateAdapter} to store lists tab fragments.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
+class ListsFragmentPagerAdapter extends FragmentStateAdapter {
     /**
      * The number of fragment.
      */
     private static final int FRAGMENT_COUNT = 3;
     /**
-     * The context activity.
-     */
-    private final Activity activity;
-    /**
      * The blacklist fragment (<code>null</code> until first retrieval).
      */
-    private AbstractListFragment blacklistFragment;
+    private final AbstractListFragment blacklistFragment;
     /**
      * The whitelist fragment (<code>null</code> until first retrieval).
      */
-    private AbstractListFragment whitelistFragment;
+    private final AbstractListFragment whitelistFragment;
     /**
      * The redirection list fragment (<code>null</code> until first retrieval).
      */
-    private AbstractListFragment redirectionListFragment;
+    private final AbstractListFragment redirectionListFragment;
 
     /**
      * Constructor.
      *
-     * @param activity        The context activity.
-     * @param fragmentManager The fragment manager.
      */
-    ListsFragmentPagerAdapter(Activity activity, FragmentManager fragmentManager) {
-        super(fragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        this.activity = activity;
+    ListsFragmentPagerAdapter(Fragment fragment) {
+        super(fragment);
+        this.blacklistFragment = new BlockedHostsFragment();
+        this.whitelistFragment = new AllowedHostsFragment();
+        this.redirectionListFragment = new RedirectedHostsFragment();
+    }
+
+    @NonNull
+    @Override
+    public Fragment createFragment(int position) {
+        switch (position) {
+            case BLACKLIST_TAB:
+                return this.blacklistFragment;
+            case WHITELIST_TAB:
+                return this.whitelistFragment;
+            case REDIRECTION_TAB:
+                return this.redirectionListFragment;
+            default:
+                throw new IllegalStateException("Position " + position + " is not supported.");
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return FRAGMENT_COUNT;
     }
 
     /**
@@ -95,59 +105,5 @@ class ListsFragmentPagerAdapter extends FragmentStatePagerAdapter {
                 }
                 break;
         }
-    }
-
-    @NonNull
-    @Override
-    public Fragment getItem(int position) {
-        // Check fragment position
-        switch (position) {
-            case WHITELIST_TAB:
-                return new AllowedHostsFragment();
-            case REDIRECTION_TAB:
-                return new RedirectedHostsFragment();
-            default:
-            case BLACKLIST_TAB:
-                return new BlockedHostsFragment();
-        }
-    }
-
-    @Override
-    public CharSequence getPageTitle(int position) {
-        // Check fragment position
-        switch (position) {
-            case BLACKLIST_TAB:
-                return this.activity.getString(R.string.lists_tab_blocked);
-            case WHITELIST_TAB:
-                return this.activity.getString(R.string.lists_tab_allowed);
-            case REDIRECTION_TAB:
-                return this.activity.getString(R.string.lists_tab_redirected);
-            default:
-                return null;
-        }
-    }
-
-    // More explanation here: https://stackoverflow.com/a/29288093/1538096
-    @Override
-    @NonNull
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
-        AbstractListFragment fragment = (AbstractListFragment) super.instantiateItem(container, position);
-        switch (position) {
-            case BLACKLIST_TAB:
-                this.blacklistFragment = fragment;
-                break;
-            case WHITELIST_TAB:
-                this.whitelistFragment = fragment;
-                break;
-            case REDIRECTION_TAB:
-                this.redirectionListFragment = fragment;
-                break;
-        }
-        return fragment;
-    }
-
-    @Override
-    public int getCount() {
-        return FRAGMENT_COUNT;
     }
 }

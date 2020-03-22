@@ -35,7 +35,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -94,15 +94,15 @@ public class ListsFragment extends Fragment {
          * Configure tabs.
          */
         // Get view pager
-        ViewPager viewPager = view.findViewById(R.id.lists_view_pager);
+        ViewPager2 viewPager = view.findViewById(R.id.lists_view_pager);
         // Create pager adapter
-        ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(activity, getParentFragmentManager());
+        ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(this);
         // Set view pager adapter
         viewPager.setAdapter(pagerAdapter);
         // Get navigation view
         BottomNavigationView navigationView = view.findViewById(R.id.navigation);
         // Add view pager on page listener to set selected tab according the selected page
-        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 navigationView.getMenu().getItem(position).setChecked(true);
