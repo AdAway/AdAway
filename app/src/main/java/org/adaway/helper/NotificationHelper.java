@@ -94,6 +94,8 @@ public final class NotificationHelper {
         String text = context.getString(R.string.status_update_available_subtitle);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NotificationHelper.UPDATE_NOTIFICATION_CHANNEL)
                 .setSmallIcon(R.drawable.logo)
+                .setColorized(true)
+                .setColor(context.getColor(R.color.notification))
                 .setShowWhen(false)
                 .setContentTitle(title)
                 .setContentText(text)
@@ -103,10 +105,6 @@ public final class NotificationHelper {
         Intent intent = new Intent(context, NextActivity.class);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
         builder.setContentIntent(getActivity(context, 0, intent, 0));
-        // Set color if supported
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            builder.setColorized(true).setColor(context.getColor(R.color.notification));
-        }
         // Notify the built notification
         notificationManager.notify(UPDATE_HOSTS_NOTIFICATION_ID, builder.build());
     }
