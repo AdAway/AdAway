@@ -43,33 +43,32 @@ public class HelpActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
+        setContentView(R.layout.help_activity);
 
-        mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.content_frame);
-
-        setContentView(mViewPager);
-        ActionBar bar = getSupportActionBar();
-        if (bar != null) {
-            bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-            bar.setDisplayShowTitleEnabled(true);
-            bar.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar == null) {
+            return;
         }
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
+        mViewPager = findViewById(R.id.helpViewPager);
         mTabsAdapter = new TabsAdapter(this, mViewPager);
 
         Bundle faqBundle = new Bundle();
         faqBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_faq);
-        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_faq)),
+        mTabsAdapter.addTab(actionBar.newTab().setText(getString(R.string.help_tab_faq)),
                 HelpFragmentHtml.class, faqBundle);
 
         Bundle problemsBundle = new Bundle();
         problemsBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_problems);
-        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_problems)),
+        mTabsAdapter.addTab(actionBar.newTab().setText(getString(R.string.help_tab_problems)),
                 HelpFragmentHtml.class, problemsBundle);
 
         Bundle sOnSOffBundle = new Bundle();
         sOnSOffBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_s_on_s_off);
-        mTabsAdapter.addTab(bar.newTab().setText(getString(R.string.help_tab_s_on_s_off)),
+        mTabsAdapter.addTab(actionBar.newTab().setText(getString(R.string.help_tab_s_on_s_off)),
                 HelpFragmentHtml.class, sOnSOffBundle);
     }
 
@@ -81,7 +80,7 @@ public class HelpActivity extends AppCompatActivity {
         private final ArrayList<TabInfo> mTabs = new ArrayList<>();
 
         public TabsAdapter(AppCompatActivity activity, ViewPager pager) {
-            super(activity.getSupportFragmentManager());
+            super(activity.getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             mContext = activity;
             mActionBar = activity.getSupportActionBar();
             mViewPager = pager;
