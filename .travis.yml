@@ -12,7 +12,7 @@ android:
     - build-tools-29.0.3
 
     # The SDK version used to compile your project
-    - android-28
+    - android-29
 
     # Additional components
     - extra-google-m2repository
