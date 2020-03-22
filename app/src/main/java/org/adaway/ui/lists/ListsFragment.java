@@ -46,7 +46,7 @@ import org.adaway.ui.lists.type.ListsFilterDialog;
 import org.adaway.ui.lists.type.ListsViewModel;
 
 /**
- * This class is a fragment to display black list, white list and redirect list fragments.
+ * This class is a fragment to display blocked, allowed and redirected hosts list fragments.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
@@ -56,17 +56,17 @@ public class ListsFragment extends Fragment {
      */
     public static final String TAB = "org.adaway.lists.tab";
     /**
-     * The blacklist tab index.
+     * The blocked hosts tab index.
      */
-    public static final int BLACKLIST_TAB = 0;
+    public static final int BLOCKED_HOSTS_TAB = 0;
     /**
-     * The whitelist tab index.
+     * The allowed hosts tab index.
      */
-    public static final int WHITELIST_TAB = 1;
+    public static final int ALLOWED_HOSTS_TAB = 1;
     /**
-     * The redirection tab index.
+     * The redirected hosts tab index.
      */
-    public static final int REDIRECTION_TAB = 2;
+    public static final int REDIRECTED_HOSTS_TAB = 2;
     /**
      * The view model.
      */
@@ -127,7 +127,7 @@ public class ListsFragment extends Fragment {
         // Display requested tab
         Bundle arguments = getArguments();
         if (arguments != null) {
-            viewPager.setCurrentItem(arguments.getInt(TAB, BLACKLIST_TAB));
+            viewPager.setCurrentItem(arguments.getInt(TAB, BLOCKED_HOSTS_TAB));
         }
         /*
          * Configure add action button.

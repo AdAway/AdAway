@@ -9,9 +9,9 @@ import org.adaway.ui.lists.type.AllowedHostsFragment;
 import org.adaway.ui.lists.type.BlockedHostsFragment;
 import org.adaway.ui.lists.type.RedirectedHostsFragment;
 
-import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
-import static org.adaway.ui.lists.ListsFragment.REDIRECTION_TAB;
-import static org.adaway.ui.lists.ListsFragment.WHITELIST_TAB;
+import static org.adaway.ui.lists.ListsFragment.BLOCKED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsFragment.REDIRECTED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsFragment.ALLOWED_HOSTS_TAB;
 
 /**
  * This class is a {@link FragmentStateAdapter} to store lists tab fragments.
@@ -51,11 +51,11 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         switch (position) {
-            case BLACKLIST_TAB:
+            case BLOCKED_HOSTS_TAB:
                 return this.blacklistFragment;
-            case WHITELIST_TAB:
+            case ALLOWED_HOSTS_TAB:
                 return this.whitelistFragment;
-            case REDIRECTION_TAB:
+            case REDIRECTED_HOSTS_TAB:
                 return this.redirectionListFragment;
             default:
                 throw new IllegalStateException("Position " + position + " is not supported.");
@@ -89,17 +89,17 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
      */
     void addItem(int position) {
         switch (position) {
-            case BLACKLIST_TAB:
+            case BLOCKED_HOSTS_TAB:
                 if (this.blacklistFragment != null) {
                     this.blacklistFragment.addItem();
                 }
                 break;
-            case WHITELIST_TAB:
+            case ALLOWED_HOSTS_TAB:
                 if (this.whitelistFragment != null) {
                     this.whitelistFragment.addItem();
                 }
                 break;
-            case REDIRECTION_TAB:
+            case REDIRECTED_HOSTS_TAB:
                 if (this.redirectionListFragment != null) {
                     this.redirectionListFragment.addItem();
                 }

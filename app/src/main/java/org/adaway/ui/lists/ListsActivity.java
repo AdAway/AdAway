@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.adaway.R;
 import org.adaway.helper.ThemeHelper;
 
-import static org.adaway.ui.lists.ListsFragment.BLACKLIST_TAB;
+import static org.adaway.ui.lists.ListsFragment.BLOCKED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsFragment.TAB;
 
 /**
@@ -26,7 +26,7 @@ public class ListsActivity extends AppCompatActivity {
          * Create fragment
          */
         Intent intent = getIntent();
-        int tab = intent.getIntExtra(TAB, BLACKLIST_TAB);
+        int tab = intent.getIntExtra(TAB, BLOCKED_HOSTS_TAB);
         ListsFragment fragment = new ListsFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(TAB, tab);
