@@ -20,25 +20,24 @@
 
 package org.adaway.ui.help;
 
-import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.adaway.R;
 import org.adaway.helper.ThemeHelper;
 
-import java.util.ArrayList;
-
 public class HelpActivity extends AppCompatActivity {
-    ViewPager mViewPager;
-    TabsAdapter mTabsAdapter;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,101 +45,64 @@ public class HelpActivity extends AppCompatActivity {
         setContentView(R.layout.help_activity);
 
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar == null) {
-            return;
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setDisplayHomeAsUpEnabled(true);
 
-        mViewPager = findViewById(R.id.helpViewPager);
-        mTabsAdapter = new TabsAdapter(this, mViewPager);
+        ViewPager2 viewPager = findViewById(R.id.pager);
+        viewPager.setAdapter(new TabsAdapter(this));
 
-        Bundle faqBundle = new Bundle();
-        faqBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_faq);
-        mTabsAdapter.addTab(actionBar.newTab().setText(getString(R.string.help_tab_faq)),
-                HelpFragmentHtml.class, faqBundle);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
 
-        Bundle problemsBundle = new Bundle();
-        problemsBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_problems);
-        mTabsAdapter.addTab(actionBar.newTab().setText(getString(R.string.help_tab_problems)),
-                HelpFragmentHtml.class, problemsBundle);
-
-        Bundle sOnSOffBundle = new Bundle();
-        sOnSOffBundle.putInt(HelpFragmentHtml.ARG_HTML_FILE, R.raw.help_s_on_s_off);
-        mTabsAdapter.addTab(actionBar.newTab().setText(getString(R.string.help_tab_s_on_s_off)),
-                HelpFragmentHtml.class, sOnSOffBundle);
+        new TabLayoutMediator(
+                tabLayout,
+                viewPager,
+                (tab, position) -> tab.setText(getTabName(position))
+        ).attach();
     }
 
-    public static class TabsAdapter extends FragmentPagerAdapter implements ActionBar.TabListener,
-            ViewPager.OnPageChangeListener {
-        private final Context mContext;
-        private final ActionBar mActionBar;
-        private final ViewPager mViewPager;
-        private final ArrayList<TabInfo> mTabs = new ArrayList<>();
+    private @StringRes
+    int getTabName(int position) {
+        switch (position) {
+            case 0:
+                return R.string.help_tab_faq;
+            case 1:
+                return R.string.help_tab_problems;
+            case 2:
+                return R.string.help_tab_s_on_s_off;
+            default:
+                throw new IllegalStateException("Position " + position + " is not supported.");
+        }
+    }
 
-        public TabsAdapter(AppCompatActivity activity, ViewPager pager) {
-            super(activity.getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-            mContext = activity;
-            mActionBar = activity.getSupportActionBar();
-            mViewPager = pager;
-            mViewPager.setAdapter(this);
-            mViewPager.setOnPageChangeListener(this);
+    private static class TabsAdapter extends FragmentStateAdapter {
+        private final Fragment faqFragment = HelpFragmentHtml.newInstance(R.raw.help_faq);
+        private final Fragment problemsFragment = HelpFragmentHtml.newInstance(R.raw.help_problems);
+        private final Fragment sonSofFragment = HelpFragmentHtml.newInstance(R.raw.help_s_on_s_off);
+
+        TabsAdapter(@NonNull FragmentActivity fragmentActivity) {
+            super(fragmentActivity);
         }
 
-        public void addTab(ActionBar.Tab tab, Class<?> clss, Bundle args) {
-            TabInfo info = new TabInfo(clss, args);
-            tab.setTag(info);
-            tab.setTabListener(this);
-            mTabs.add(info);
-            mActionBar.addTab(tab);
-            notifyDataSetChanged();
-        }
-
+        @NonNull
         @Override
-        public int getCount() {
-            return mTabs.size();
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            TabInfo info = mTabs.get(position);
-            return Fragment.instantiate(mContext, info.clss.getName(), info.args);
-        }
-
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        }
-
-        public void onPageSelected(int position) {
-            mActionBar.setSelectedNavigationItem(position);
-        }
-
-        public void onPageScrollStateChanged(int state) {
-        }
-
-        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-            Object tag = tab.getTag();
-            for (int i = 0; i < mTabs.size(); i++) {
-                if (mTabs.get(i) == tag) {
-                    mViewPager.setCurrentItem(i);
-                }
+        public Fragment createFragment(int position) {
+            switch (position) {
+                case 0:
+                    return this.faqFragment;
+                case 1:
+                    return this.problemsFragment;
+                case 2:
+                    return this.sonSofFragment;
+                default:
+                    throw new IllegalStateException("Position " + position + " is not supported.");
             }
         }
 
-        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-        }
-
-        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-        }
-
-        static final class TabInfo {
-            private final Class<?> clss;
-            private final Bundle args;
-
-            TabInfo(Class<?> _class, Bundle _args) {
-                clss = _class;
-                args = _args;
-            }
+        @Override
+        public int getItemCount() {
+            return 3;
         }
     }
 }
