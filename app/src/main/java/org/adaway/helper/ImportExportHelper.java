@@ -53,6 +53,7 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
@@ -113,14 +114,14 @@ public class ImportExportHelper {
         HostsSourceDao hostsSourceDao = database.hostsSourceDao();
         HostListItemDao hostListItemDao = database.hostsListItemDao();
 
-        List<HostListItem> allHosts = hostListItemDao.getAll();
-        List<HostListItem> blockedHosts = Stream.of(allHosts)
+        List<HostListItem> userHosts = hostListItemDao.getUserList();
+        List<HostListItem> blockedHosts = Stream.of(userHosts)
                 .filter(value -> value.getType() == BLOCKED)
                 .toList();
-        List<HostListItem> allowedHosts = Stream.of(allHosts)
+        List<HostListItem> allowedHosts = Stream.of(userHosts)
                 .filter(value -> value.getType() == ALLOWED)
                 .toList();
-        List<HostListItem> redirectedHosts = Stream.of(allHosts)
+        List<HostListItem> redirectedHosts = Stream.of(userHosts)
                 .filter(value -> value.getType() == REDIRECTED)
                 .toList();
 
@@ -208,6 +209,7 @@ public class ImportExportHelper {
             host.setRedirection(hostObject.getString(REDIRECT_ATTRIBUTE));
         }
         host.setEnabled(hostObject.getBoolean(ENABLED_ATTRIBUTE));
+        host.setSourceId(USER_SOURCE_ID);
         return host;
     }
 

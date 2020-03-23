@@ -48,6 +48,9 @@ public interface HostListItemDao {
     List<HostListItem> getAll();
 
     @Query("SELECT * FROM hosts_lists WHERE source_id = 1")
+    List<HostListItem> getUserList();
+
+    @Query("SELECT * FROM hosts_lists WHERE source_id = 1")
     LiveData<List<HostListItem>> loadUserList();
 
     @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 0 AND enabled = 1")
