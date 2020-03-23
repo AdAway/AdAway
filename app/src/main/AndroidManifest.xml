@@ -95,6 +95,11 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".broadcast.StatusCommandReceiver">
+            <intent-filter>
+                <action android:name="org.adaway.AD_BLOCK_STATUS" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".broadcast.UpdateReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />

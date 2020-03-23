@@ -33,7 +33,9 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.adaway.R;
+import org.adaway.broadcast.StatusCommandReceiver;
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.adblocking.AdBlockCommand;
 import org.adaway.ui.next.NextActivity;
 import org.adaway.vpn.VpnWorker.VpnStatusNotifier;
 
@@ -50,8 +52,8 @@ import static android.os.Build.VERSION.SDK_INT;
 import static org.adaway.helper.NotificationHelper.VPN_RESUME_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_RUNNING_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
-import static org.adaway.vpn.VpnCommand.START;
-import static org.adaway.vpn.VpnCommand.STOP;
+import static org.adaway.model.adblocking.AdBlockCommand.START;
+import static org.adaway.model.adblocking.AdBlockCommand.STOP;
 import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_NETWORK_CHANGED;
 import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_STATUS_UPDATE;
 import static org.adaway.vpn.VpnStatus.RECONNECTING;
@@ -120,7 +122,8 @@ public class VpnService extends android.net.VpnService {
             return true;
         }
         // Start the VPN service
-        Intent intent = START.toIntent(context);
+        Intent intent = new Intent(context, VpnService.class);
+        START.appendToIntent(intent);
         if (SDK_INT >= VERSION_CODES.O) {
             return context.startForegroundService(intent) != null;
         } else {
@@ -134,7 +137,9 @@ public class VpnService extends android.net.VpnService {
      * @param context The application context.
      */
     public static void stop(Context context) {
-        context.startService(STOP.toIntent(context));
+        Intent intent = new Intent(context, VpnService.class);
+        STOP.appendToIntent(intent);
+        context.startService(intent);
     }
 
     private static boolean checkAnyNetworkVpnCapability(Context context) {
@@ -151,7 +156,7 @@ public class VpnService extends android.net.VpnService {
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
         Log.i(TAG, "onStartCommand" + intent);
-        switch (VpnCommand.fromIntent(intent)) {
+        switch (AdBlockCommand.readFromIntent(intent)) {
             case START:
                 startVpn();
                 break;
@@ -244,8 +249,10 @@ public class VpnService extends android.net.VpnService {
                 .setContentTitle(title);
         switch (status) {
             case RUNNING:
-                Intent stopIntent = STOP.toIntent(this);
-                PendingIntent stopActionIntent = PendingIntent.getService(this, REQUEST_CODE_PAUSE, stopIntent, 0);
+                Intent stopIntent = new Intent(this, StatusCommandReceiver.class)
+                        .setAction(StatusCommandReceiver.STATUS_COMMAND_ACTION);
+                STOP.appendToIntent(stopIntent);
+                PendingIntent stopActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_PAUSE, stopIntent, 0);
                 builder.addAction(
                         R.drawable.ic_pause_24dp,
                         getString(R.string.vpn_notification_action_pause),
@@ -253,9 +260,11 @@ public class VpnService extends android.net.VpnService {
                 );
                 break;
             case STOPPED:
+                Intent startIntent = new Intent(this, StatusCommandReceiver.class)
+                        .setAction(StatusCommandReceiver.STATUS_COMMAND_ACTION);
+                START.appendToIntent(startIntent);
+                PendingIntent startActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_START, startIntent, 0);
                 builder.setContentText(getString(R.string.vpn_notification_paused_text));
-                Intent startIntent = START.toIntent(this);
-                PendingIntent startActionIntent = PendingIntent.getService(this, REQUEST_CODE_START, startIntent, 0);
                 builder.setContentIntent(startActionIntent);
                 break;
         }
