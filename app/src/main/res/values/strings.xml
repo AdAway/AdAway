@@ -287,6 +287,7 @@
     <string name="shortcut_preferences">Preferences</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Installed %1$s ago</string>
     <string name="hosts_source_up_to_date">Up-to-date for %1$s</string>
     <string name="hosts_source_need_update">Need update for %1$s</string>
     <string name="hosts_source_last_update">Last update %1$s ago</string>
