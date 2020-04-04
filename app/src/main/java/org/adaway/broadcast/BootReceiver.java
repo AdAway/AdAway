@@ -44,7 +44,7 @@ public class BootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-            Log.i(TAG, "BootReceiver invoked");
+            Log.d(TAG, "BootReceiver invoked");
             AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(context);
             // Start web server on boot if enabled in preferences
             if (adBlockMethod == ROOT && PreferenceHelper.getWebServerOnBoot(context)) {
