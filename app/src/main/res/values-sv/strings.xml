@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Nyaste värdfilerna aktiverade</string>
     <string name="status_disabled">Avaktiverad</string>
     <string name="status_disabled_subtitle">Standard värdfil är installerad</string>
-    <string name="notification_channel_update_name">Uppdateringar</string>
-    <string name="notification_channel_update_description">Aviseringar om nya värduppdateringar</string>
     <string name="notification_configuration_changed">Din konfiguration har ändrats. Du måste installera värdfilen för att tillämpa det.</string>
     <string name="notification_configuration_changed_action">Tillämpa</string>
     <string name="notification_configuration_installing">Installerar värdfilen…</string>

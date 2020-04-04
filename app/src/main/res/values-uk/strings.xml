@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Використовуються найновіші списки</string>
     <string name="status_disabled">Вимкнено</string>
     <string name="status_disabled_subtitle">Встановлено стандартний файл hosts</string>
-    <string name="notification_channel_update_name">Оновлення</string>
-    <string name="notification_channel_update_description">Сповіщення про оновлення нових хостів</string>
     <string name="notification_configuration_changed">Налаштування змінено. Зміни потрібно застосувати до файлу hosts.</string>
     <string name="notification_configuration_changed_action">Застосувати</string>
     <string name="notification_configuration_installing">Встановлення файлу hosts…</string>

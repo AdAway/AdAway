@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Os ficheiros de hosts mais recentes estão ativos</string>
     <string name="status_disabled">Desativado</string>
     <string name="status_disabled_subtitle">Instalado o ficheiro de hosts padrão.</string>
-    <string name="notification_channel_update_name">Atualizações</string>
-    <string name="notification_channel_update_description">Notificações de atualização de novos hospedeiros</string>
     <string name="notification_configuration_changed">A sua configuração foi alterada. Tem de instalar um ficheiro hosts para aplicar as alterações.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
     <string name="notification_configuration_installing">A instalar ficheiro hosts…</string>

@@ -57,8 +57,6 @@
     <string name="status_enabled_subtitle">Ən yeni hosts faylları açıldı</string>
     <string name="status_disabled">Bağlıdır</string>
     <string name="status_disabled_subtitle">Standart hosts faylı quruldu</string>
-    <string name="notification_channel_update_name">Yeniləmələr</string>
-    <string name="notification_channel_update_description">Yeni hosts yeniləməsi bildirişləri</string>
     <string name="notification_configuration_changed">Nizamlamanız dəyişdirildi. Tətbiq etmək üçün hosts faylını qurmalısınız. </string>
     <string name="notification_configuration_changed_action">Tətbiq et</string>
     <string name="notification_configuration_installing">Hosts faylı yüklənir…</string>

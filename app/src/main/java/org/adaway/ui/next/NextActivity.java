@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.net.VpnService;
 import android.os.Bundle;
@@ -83,7 +84,7 @@ public class NextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         checkFirstStep();
         ThemeHelper.applyTheme(this);
-        NotificationHelper.clearUpdateHostsNotification(this);
+        NotificationHelper.clearUpdateNotifications(this);
         Log.i(TAG, "Starting main activity");
         setContentView(R.layout.next_activity);
 
@@ -140,10 +141,6 @@ public class NextActivity extends AppCompatActivity {
     }
 
     private void applyActionBar() {
-//        ActionBar actionBar = getSupportActionBar();
-//        if (actionBar != null) {
-//            actionBar.hide();
-//        }
         setSupportActionBar(this.appBar);
     }
 
@@ -154,7 +151,12 @@ public class NextActivity extends AppCompatActivity {
 
         this.nextViewModel.getAppManifest().observe(
                 this,
-                manifest -> versionTextView.setText(R.string.update_available)
+                manifest -> {
+                    if (manifest.updateAvailable) {
+                        versionTextView.setTypeface(versionTextView.getTypeface(), Typeface.BOLD);
+                        versionTextView.setText(R.string.update_available);
+                    }
+                }
         );
     }
 
@@ -436,7 +438,7 @@ public class NextActivity extends AppCompatActivity {
             return;
         }
         // Format changelog
-        String message = " • " + String.join("\n • ", manifest.changelog.split("\n"));
+        String message = manifest.changelog;
         // Create dialog
         MaterialAlertDialogBuilder dialogBuilder = new MaterialAlertDialogBuilder(this);
         if (manifest.updateAvailable) {

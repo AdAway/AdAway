@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Nyeste hosts-fil aktiveret</string>
     <string name="status_disabled">Deaktiveret</string>
     <string name="status_disabled_subtitle">Standard hostsfil installeret</string>
-    <string name="notification_channel_update_name">Opdateringer</string>
-    <string name="notification_channel_update_description">Nye værtsopdateringsmeddelelser</string>
     <string name="notification_configuration_changed">Din konfiguration er ændret. Du skal installere hostsfil for at anvende den.</string>
     <string name="notification_configuration_changed_action">Anvend</string>
     <string name="notification_configuration_installing">Installere hostsfil….</string>

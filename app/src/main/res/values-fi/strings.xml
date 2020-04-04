@@ -48,7 +48,6 @@
     <string name="status_enabled">Käytössä</string>
     <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
     <string name="status_disabled">Pois käytöstä</string>
-    <string name="notification_channel_update_name">Päivityksiä</string>
     <string name="notification_configuration_changed_action">Hyväksy</string>
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>

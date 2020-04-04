@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">فایل های hosts جدید فعال شد</string>
     <string name="status_disabled">غیر فعال</string>
     <string name="status_disabled_subtitle">هاست فایل‌های پیشفرض نصب شدند</string>
-    <string name="notification_channel_update_name">بروزرسانی‌ها</string>
-    <string name="notification_channel_update_description">اطلاعیه هاست‌های جدید</string>
     <string name="notification_configuration_changed">تنظیمات شما تغییر کرد. برای اعمال تغییرات باید هاست فایل رو نصب کنید.</string>
     <string name="notification_configuration_changed_action">اعمال تغییرات</string>
     <string name="notification_configuration_installing">در حال نصب هاست فایل…</string>

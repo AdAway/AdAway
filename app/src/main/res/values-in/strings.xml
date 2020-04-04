@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
     <string name="status_disabled">Dimatikan</string>
     <string name="status_disabled_subtitle">File host bawaan dipasang</string>
-    <string name="notification_channel_update_name">Pembaruan</string>
-    <string name="notification_channel_update_description">Notifikasi pembaruan host baru</string>
     <string name="notification_configuration_changed">Konfigurasi anda berubah. Anda perlu memasang file hosts untuk menerapkannya.</string>
     <string name="notification_configuration_changed_action">Terapkan</string>
     <string name="notification_configuration_installing">Memasang file host..</string>

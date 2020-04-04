@@ -1,4 +1,4 @@
-package org.adaway.service.hosts;
+package org.adaway.model.source;
 
 import android.content.Context;
 
@@ -15,7 +15,6 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.model.source.SourceModel;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
@@ -32,20 +31,16 @@ import static java.util.concurrent.TimeUnit.DAYS;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public final class UpdateService {
-    /**
-     * The update service work tag.
-     */
-    private static final String WORKER_TAG = "UpdateServiceWorkTag";
+public final class SourceUpdateService {
     /**
      * The name of the periodic work.
      */
-    private static final String WORK_NAME = "HostUpdateWork";
+    private static final String WORK_NAME = "HostsUpdateWork";
 
     /**
      * Private constructor.
      */
-    private UpdateService() {
+    private SourceUpdateService() {
 
     }
 
@@ -57,9 +52,6 @@ public final class UpdateService {
      * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
      */
     public static void enable(Context context, boolean unmeteredNetworkOnly) {
-        // Cancel previous work
-        WorkManager workManager = WorkManager.getInstance(context);
-        workManager.cancelAllWorkByTag(WORKER_TAG);
         // Create worker constraints
         Constraints constraints = new Constraints.Builder()
                 .setRequiredNetworkType(unmeteredNetworkOnly ? NetworkType.UNMETERED : NetworkType.CONNECTED)
@@ -67,11 +59,11 @@ public final class UpdateService {
                 .build();
         // Create work request
         PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(HostsSourcesUpdateWorker.class, 1, DAYS)
-                .addTag(WORKER_TAG)
                 .setConstraints(constraints)
                 .setInitialDelay(1, DAYS)
                 .build();
         // Enqueue work request
+        WorkManager workManager = WorkManager.getInstance(context);
         workManager.enqueueUniquePeriodicWork(WORK_NAME, REPLACE, workRequest);
     }
 
@@ -106,7 +98,7 @@ public final class UpdateService {
         public Result doWork() {
             Log.i(Constants.TAG, "Starting update worker");
             // Create model
-            AdAwayApplication application = (AdAwayApplication) this.getApplicationContext();
+            AdAwayApplication application = (AdAwayApplication) getApplicationContext();
             SourceModel model = application.getSourceModel();
             // Check for update
             boolean hasUpdate;

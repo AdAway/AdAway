@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">ഏറ്റവും പുതിയ ഹോസ്റ്റുകളുടെ ഫയലുകൾ പ്രവർത്തനക്ഷമമാക്കി</string>
     <string name="status_disabled">അപ്രാപ്‌തമാക്കി</string>
     <string name="status_disabled_subtitle">സ്ഥിരസ്ഥിതി ഹോസ്റ്റുകളുടെ ഫയൽ ഇൻസ്റ്റാൾ ചെയ്തു</string>
-    <string name="notification_channel_update_name">നവീകരങ്ങൾ </string>
-    <string name="notification_channel_update_description">പുതിയ ഹോസ്റ്റുകളുടെ അറിയിപ്പുകൾ നവീകരിക്കുന്നു </string>
     <string name="notification_configuration_changed">നിങ്ങളുടെ രൂപരേഖ മാറ്റി.ഇത് പ്രയോഗിക്കുന്നതിന് നിങ്ങൾ ഹോസ്റ്റ്സ് ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യേണ്ടതുണ്ട്.</string>
     <string name="notification_configuration_changed_action">പ്രയോഗിക്കുക</string>
     <string name="notification_configuration_installing">ഹോസ്റ്റുകളുടെ ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യുന്നു…</string>

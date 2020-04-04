@@ -47,7 +47,7 @@ public class NextViewModel extends AndroidViewModel {
         this.sourceModel = awayApplication.getSourceModel();
         this.adBlockModel = awayApplication.getAdBlockModel();
         this.updateModel = awayApplication.getUpdateModel();
-        EXECUTORS.networkIO().execute(this.updateModel::checkUpdate);
+        EXECUTORS.networkIO().execute(this.updateModel::checkForUpdate);
 
         AppDatabase database = AppDatabase.getInstance(application);
         this.hostsSourceDao = database.hostsSourceDao();

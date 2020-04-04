@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Используются свежие списки</string>
     <string name="status_disabled">Выключено</string>
     <string name="status_disabled_subtitle">Установлен стандартный файл hosts</string>
-    <string name="notification_channel_update_name">Обновления</string>
-    <string name="notification_channel_update_description">Уведомления об обновлении новых хостов</string>
     <string name="notification_configuration_changed">Настройки изменены. Вам нужно установить файл hosts для их применения.</string>
     <string name="notification_configuration_changed_action">Применить</string>
     <string name="notification_configuration_installing">Установка файла hosts…</string>

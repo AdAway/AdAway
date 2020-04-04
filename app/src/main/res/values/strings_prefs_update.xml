@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Updates</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Application updates</string>
+    <string name="pref_update_check_app_daily">Periodically check for update</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Hosts updates</string>
     <string name="pref_update_check">Check for updates at startup</string>
-    <string name="pref_update_check_daily">Check for updates daily</string>
-    <string name="pref_sync_on_update">Sync if update</string>
-    <string name="pref_sync_unmetered_only">Sync on unmetered network only</string>
+    <string name="pref_update_check_hosts_daily">Periodically check for update</string>
+    <string name="pref_update_sync_on_update">Sync on update</string>
+    <string name="pref_update_sync_unmetered_only">Sync on unmetered network only</string>
 </resources>

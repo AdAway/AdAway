@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Nuevos archivos de hosts habilitados</string>
     <string name="status_disabled">Deshabilitado</string>
     <string name="status_disabled_subtitle">Archivo hosts predeterminado instalado</string>
-    <string name="notification_channel_update_name">Actualizaciones</string>
-    <string name="notification_channel_update_description">Notificaciones de actualización de nuevos hosts</string>
     <string name="notification_configuration_changed">Su configuración ha cambiado. Necesita instalar el archivo hosts para aplicarlo.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
     <string name="notification_configuration_installing">Instalando archivo hosts…</string>

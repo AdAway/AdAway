@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">S\'han activat els fitxers d\'amfitrions més recents</string>
     <string name="status_disabled">Desactivat</string>
     <string name="status_disabled_subtitle">S\'han instal·lat els fitxers d\'amfitrions per defecte</string>
-    <string name="notification_channel_update_name">Actualitzacions</string>
-    <string name="notification_channel_update_description">Notificacions d\'actualització de fitxers nous</string>
     <string name="notification_configuration_changed">Ha canviat la configuració. Instal·leu el fitxer d\'amfitrions per aplicar els canvis.</string>
     <string name="notification_configuration_changed_action">Aplica</string>
     <string name="notification_configuration_installing">S\'està instal·lant el fitxer…</string>

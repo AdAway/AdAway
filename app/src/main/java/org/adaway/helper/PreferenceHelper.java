@@ -97,14 +97,25 @@ public class PreferenceHelper {
         );
     }
 
-    public static boolean getUpdateCheckDaily(Context context) {
+    public static boolean getUpdateCheckAppDaily(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
                 Context.MODE_PRIVATE
         );
         return prefs.getBoolean(
-                context.getString(R.string.pref_update_check_daily_key),
-                context.getResources().getBoolean(R.bool.pref_update_check_daily_def)
+                context.getString(R.string.pref_update_check_app_daily_key),
+                context.getResources().getBoolean(R.bool.pref_update_check_app_daily_def)
+        );
+    }
+
+    public static boolean getUpdateCheckHostsDaily(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getBoolean(
+                context.getString(R.string.pref_update_check_hosts_daily_key),
+                context.getResources().getBoolean(R.bool.pref_update_check_hosts_daily_def)
         );
     }
 

@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Ενεργοποιήθηκαν τα πιο πρόσφατα αρχεία hosts</string>
     <string name="status_disabled">Απενεργοποιημένο</string>
     <string name="status_disabled_subtitle">Τα προεπιλεγμένα αρχεία hosts εγκαταστάθηκαν </string>
-    <string name="notification_channel_update_name">Ενημερώσεις</string>
-    <string name="notification_channel_update_description">Νέες ειδοποιήσεις ενημερώσεων hosts</string>
     <string name="notification_configuration_changed">Η διαμόρφωσή σας άλλαξε. Πρέπει να εγκαταστήσετε το αρχείο hosts για να το εφαρμόσετε.</string>
     <string name="notification_configuration_changed_action">Εφαρμογή</string>
     <string name="notification_configuration_installing">Εγκατάσταση αρχείου hosts</string>

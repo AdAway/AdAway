@@ -16,10 +16,10 @@ import static org.adaway.model.update.UpdateModel.TAG;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class UpdateDownloadReceiver extends BroadcastReceiver {
+public class ApkDownloadReceiver extends BroadcastReceiver {
     private final long downloadId;
 
-    public UpdateDownloadReceiver(long downloadId) {
+    public ApkDownloadReceiver(long downloadId) {
         this.downloadId = downloadId;
     }
 

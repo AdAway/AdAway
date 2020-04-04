@@ -2,6 +2,7 @@ package org.adaway.helper;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -36,6 +37,10 @@ public final class NotificationHelper {
      */
     private static final int UPDATE_HOSTS_NOTIFICATION_ID = 10;
     /**
+     * The update application notification identifier.
+     */
+    private static final int UPDATE_APP_NOTIFICATION_ID = 11;
+    /**
      * The VPN running service notification identifier.
      */
     public static final int VPN_RUNNING_SERVICE_NOTIFICATION_ID = 20;
@@ -62,17 +67,17 @@ public final class NotificationHelper {
             // Create update notification channel
             NotificationChannel updateChannel = new NotificationChannel(
                     UPDATE_NOTIFICATION_CHANNEL,
-                    context.getString(R.string.notification_channel_update_name),
+                    context.getString(R.string.notification_update_channel_name),
                     NotificationManager.IMPORTANCE_LOW
             );
-            updateChannel.setDescription(context.getString(R.string.notification_channel_update_description));
+            updateChannel.setDescription(context.getString(R.string.notification_update_channel_description));
             // Create VPN service notification channel
             NotificationChannel vpnServiceChannel = new NotificationChannel(
                     VPN_SERVICE_NOTIFICATION_CHANNEL,
-                    context.getString(R.string.notification_channel_vpn_service_name),
+                    context.getString(R.string.notification_vpn_channel_name),
                     NotificationManager.IMPORTANCE_LOW
             );
-            updateChannel.setDescription(context.getString(R.string.notification_channel_vpn_service_description));
+            updateChannel.setDescription(context.getString(R.string.notification_vpn_channel_description));
             // Register the channels with the system; you can't change the importance or other notification behaviors after this
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
             if (notificationManager != null) {
@@ -89,26 +94,59 @@ public final class NotificationHelper {
      */
     public static void showUpdateHostsNotification(@NonNull Context context) {
         // Get notification manager
-        NotificationManager notificationManager = (NotificationManager) context.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
         if (notificationManager == null) {
             return;
         }
         // Build notification
-        String title = context.getString(R.string.status_update_available);
-        String text = context.getString(R.string.status_update_available_subtitle);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, NotificationHelper.UPDATE_NOTIFICATION_CHANNEL)
+        int color = context.getColor(R.color.notification);
+        String title = context.getString(R.string.notification_update_host_available_title);
+        String text = context.getString(R.string.notification_update_host_available_text);
+        Intent intent = new Intent(context, NextActivity.class);
+        intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = getActivity(context, 0, intent, 0);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, UPDATE_NOTIFICATION_CHANNEL)
                 .setSmallIcon(R.drawable.logo)
                 .setColorized(true)
-                .setColor(context.getColor(R.color.notification))
+                .setColor(color)
                 .setShowWhen(false)
                 .setContentTitle(title)
                 .setContentText(text)
+                .setContentIntent(pendingIntent)
                 .setPriority(PRIORITY_LOW)
                 .setAutoCancel(true);
-        // Set action on notification tap
+        // Notify the built notification
+        notificationManager.notify(UPDATE_HOSTS_NOTIFICATION_ID, builder.build());
+    }
+
+    /**
+     * Show the notification about new application update available.
+     *
+     * @param context The application context.
+     */
+    public static void showUpdateApplicationNotification(@NonNull Context context) {
+        // Get notification manager
+        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+        if (notificationManager == null) {
+            return;
+        }
+        // Build notification
+        int color = context.getColor(R.color.notification);
+        String title = context.getString(R.string.notification_update_app_available_title);
+        String text = context.getString(R.string.notification_update_app_available_text);
         Intent intent = new Intent(context, NextActivity.class);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
-        builder.setContentIntent(getActivity(context, 0, intent, 0));
+        PendingIntent pendingIntent = getActivity(context, 0, intent, 0);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, UPDATE_NOTIFICATION_CHANNEL)
+                .setSmallIcon(R.drawable.logo)
+                .setColorized(true)
+                .setColor(color)
+                .setShowWhen(false)
+                .setContentTitle(title)
+                .setContentText(text)
+                .setContentIntent(pendingIntent)
+                .setPriority(PRIORITY_LOW)
+                .setAutoCancel(true);
         // Notify the built notification
         notificationManager.notify(UPDATE_HOSTS_NOTIFICATION_ID, builder.build());
     }
@@ -118,13 +156,14 @@ public final class NotificationHelper {
      *
      * @param context The application context.
      */
-    public static void clearUpdateHostsNotification(@NonNull Context context) {
+    public static void clearUpdateNotifications(@NonNull Context context) {
         // Get notification manager
-        NotificationManager notificationManager = (NotificationManager) context.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
         if (notificationManager == null) {
             return;
         }
         // Cancel the notification
         notificationManager.cancel(UPDATE_HOSTS_NOTIFICATION_ID);
+        notificationManager.cancel(UPDATE_APP_NOTIFICATION_ID);
     }
 }

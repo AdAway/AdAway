@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Máte najnovšie hosts súbory</string>
     <string name="status_disabled">Zakázané</string>
     <string name="status_disabled_subtitle">Predvolený súbor host nainštalovaný</string>
-    <string name="notification_channel_update_name">Aktualizácie</string>
-    <string name="notification_channel_update_description">Upozornenia na novú aktualizáciu hosts</string>
     <string name="notification_configuration_changed">Vaša konfigurácia sa zmenila. Musíte nainštalovať súbor host, aby ste ho mohli aplikovať.</string>
     <string name="notification_configuration_changed_action">Aplikovať</string>
     <string name="notification_configuration_installing">Inštalácia súboru hosts…</string>

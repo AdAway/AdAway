@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
     <string name="status_disabled">Uitgeschakeld</string>
     <string name="status_disabled_subtitle">Standaard hosts-bestand geïnstalleerd</string>
-    <string name="notification_channel_update_name">Updates</string>
-    <string name="notification_channel_update_description">Nieuwe hosts-updatemeldingen</string>
     <string name="notification_configuration_changed">Je configuratie is gewijzigd. Installeer het hosts-bestand opnieuw om het toe te passen.</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
     <string name="notification_configuration_installing">Hosts-bestand wordt geïnstalleerd…</string>

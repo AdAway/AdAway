@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Najnovija datoteka poslužitelja je omogućena</string>
     <string name="status_disabled">Onemogućeno</string>
     <string name="status_disabled_subtitle">Zadana datoteka poslužitelja je instalirana</string>
-    <string name="notification_channel_update_name">Ažuriranja</string>
-    <string name="notification_channel_update_description">Obavijest ažuriranja novog poslužitelja</string>
     <string name="notification_configuration_changed">Vaše podešavanje je promijenjeno. Morate instalirati datoteku poslužitelja kako bi ju primijenili.</string>
     <string name="notification_configuration_changed_action">Primijeni</string>
     <string name="notification_configuration_installing">Instalacija datoteke poslužitelja…</string>

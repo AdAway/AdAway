@@ -82,10 +82,6 @@
     <string name="status_copy_new_hosts">Copying a new hosts file</string>
     <string name="status_check_copy">Checking hosts file copy</string>
     <string name="status_hosts_updated">Hosts file successfully updated</string>
-    <string name="notification_channel_update_name">Updates</string>
-    <string name="notification_channel_update_description">New hosts update notifications</string>
-    <string name="notification_channel_vpn_service_name">VPN</string>
-    <string name="notification_channel_vpn_service_description">VPN running status</string>
     <string name="notification_configuration_changed">Your configuration changed. You need to install hosts file to apply it.</string>
     <string name="notification_configuration_changed_action">Apply</string>
     <string name="notification_configuration_installing">Installing hosts file…</string>

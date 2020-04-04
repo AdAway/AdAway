@@ -53,8 +53,6 @@
     <string name="status_enabled_subtitle">Uusimad hosts-failid kasutusel</string>
     <string name="status_disabled">Keelatud</string>
     <string name="status_disabled_subtitle">Vaikimisi hosts-fail paigaldatud</string>
-    <string name="notification_channel_update_name">Uuendused</string>
-    <string name="notification_channel_update_description">Uute hosts-uuenduste teated</string>
     <string name="notification_configuration_changed_action">Rakenda</string>
     <string name="notification_configuration_installing">Hosts-faili paigaldamine…</string>
     <string name="notification_configuration_failed">Hosts-faili paigaldamine ebaõnnestus.</string>

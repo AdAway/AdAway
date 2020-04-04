@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Nejnovější soubory hostitelů povoleny</string>
     <string name="status_disabled">Zakázáno</string>
     <string name="status_disabled_subtitle">Výchozí soubor hostitelů aplikován</string>
-    <string name="notification_channel_update_name">Aktualizace</string>
-    <string name="notification_channel_update_description">Upozornění na nové aktualizace hostitelů</string>
     <string name="notification_configuration_changed">Kofigurace byla změněna. Aby se změny projevily, je nutné soubor hostitelů znovu aplikovat.</string>
     <string name="notification_configuration_changed_action">Aplikovat</string>
     <string name="notification_configuration_installing">Aplikování souboru hostitelů…</string>

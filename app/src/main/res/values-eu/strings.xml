@@ -56,8 +56,6 @@
     <string name="status_enabled_subtitle">Hostalari agiri berrienak gaituta</string>
     <string name="status_disabled">Ezgaituta</string>
     <string name="status_disabled_subtitle">Hostalari fitxategi lehenetsia instalatuta</string>
-    <string name="notification_channel_update_name">Eguneraketak</string>
-    <string name="notification_channel_update_description">Hostalari berrien eguneraketaren jakinarazpena</string>
     <string name="notification_configuration_changed">Zure konfigurazioa aldatu da. Hostalari fitxategia instalatu behar duzu aldaketak aplikatzeko.</string>
     <string name="notification_configuration_changed_action">Aplikatu</string>
     <string name="notification_configuration_installing">Hostalari fitxategia instalatzen…</string>

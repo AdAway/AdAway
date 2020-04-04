@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
     <string name="status_disabled">停用</string>
     <string name="status_disabled_subtitle">預設 hosts 檔案已安裝</string>
-    <string name="notification_channel_update_name">更新</string>
-    <string name="notification_channel_update_description">新主機更新通知</string>
     <string name="notification_configuration_changed">您的配置已變更。您需要安裝 hosts 檔案來套用它。</string>
     <string name="notification_configuration_changed_action">套用</string>
     <string name="notification_configuration_installing">正在安裝 hosts 檔案…</string>

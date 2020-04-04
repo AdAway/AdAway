@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
     <string name="status_disabled">Devre dışı</string>
     <string name="status_disabled_subtitle">Varsayılan sunucu dosyası yüklendi</string>
-    <string name="notification_channel_update_name">Güncellemeler</string>
-    <string name="notification_channel_update_description">Yeni hosts güncelleme bildirimleri</string>
     <string name="notification_configuration_changed">Yapılandırmanız değişti. Uygulamak için sunucu dosyasını yüklemeniz gerekir.</string>
     <string name="notification_configuration_changed_action">Uygula</string>
     <string name="notification_configuration_installing">Sunucu dosyası yükleniyor…</string>

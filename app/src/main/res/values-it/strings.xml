@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">File host più recenti abilitati</string>
     <string name="status_disabled">Disabilitato</string>
     <string name="status_disabled_subtitle">Host predefiniti installati</string>
-    <string name="notification_channel_update_name">Aggiornamenti</string>
-    <string name="notification_channel_update_description">Notifiche aggiornamento nuovi host</string>
     <string name="notification_configuration_changed">La configurazione è stata cambiata. Devi installare i file host per applicarla.</string>
     <string name="notification_configuration_changed_action">Applica</string>
     <string name="notification_configuration_installing">Installazione host file…</string>

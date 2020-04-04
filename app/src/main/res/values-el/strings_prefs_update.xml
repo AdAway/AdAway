@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_update_check">Έλεγχος για ενημερώσεις</string>
-    <string name="pref_update_check_daily">Ημερήσιος έλεγχος για ενημερώσεις</string>
+    <string name="pref_update_check_hosts_daily">Ημερήσιος έλεγχος για ενημερώσεις</string>
 </resources>

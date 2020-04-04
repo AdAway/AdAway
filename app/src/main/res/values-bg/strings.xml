@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Най-новите Hosts файлове са активирани</string>
     <string name="status_disabled">Деактивиран</string>
     <string name="status_disabled_subtitle">Hosts файлът по подразбиране е инсталиран</string>
-    <string name="notification_channel_update_name">Актуализации</string>
-    <string name="notification_channel_update_description">Известия за нови актуализации на хостове</string>
     <string name="notification_configuration_changed">Конфигурацията ви е променена. Трябва да инсталирате Hosts файла, за да го приложите.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
     <string name="notification_configuration_installing">Инсталиране на Hosts файла…</string>

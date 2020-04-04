@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Najnowsze pliki hostów zostały włączone</string>
     <string name="status_disabled">Wyłączone</string>
     <string name="status_disabled_subtitle">Domyślny plik hosts został zainstalowany</string>
-    <string name="notification_channel_update_name">Aktualizacje</string>
-    <string name="notification_channel_update_description">Powiadomienia o aktualizacjach nowych hostów</string>
     <string name="notification_configuration_changed">Twoja konfiguracja się zmieniła. Musisz zainstalować plik hosts, aby go zastosować.</string>
     <string name="notification_configuration_changed_action">Zastosuj</string>
     <string name="notification_configuration_installing">Instaluję plik hosts…</string>

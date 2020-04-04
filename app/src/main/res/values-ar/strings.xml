@@ -63,8 +63,6 @@
     <string name="status_enabled_subtitle">ملفات المضيف الحديثة مفعلة</string>
     <string name="status_disabled">معطل</string>
     <string name="status_disabled_subtitle">ملف المضيف الإفتراضي مُثبّت</string>
-    <string name="notification_channel_update_name">تحديثات</string>
-    <string name="notification_channel_update_description">إشعارات تَوفُّر تحديث لملف المضيف </string>
     <string name="notification_configuration_changed">لقد تغيرت التّهيِئَة. يرجى تثبيت ملف المضيف لتطبيق التغييرات.</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
     <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف…</string>

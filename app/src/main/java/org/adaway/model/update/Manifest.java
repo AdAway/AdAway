@@ -11,8 +11,6 @@ import org.json.JSONObject;
 public class Manifest {
     public final String version;
     public final int versionCode;
-    public final long fid;
-    public final String link;
     public final String changelog;
     public final boolean updateAvailable;
 
@@ -20,8 +18,6 @@ public class Manifest {
         JSONObject manifestObject = new JSONObject(manifest);
         this.version = manifestObject.getString("version");
         this.versionCode = manifestObject.getInt("versionCode");
-        this.fid = manifestObject.getLong("fid");
-        this.link = manifestObject.getString("link");
         this.changelog = manifestObject.getString("changelog");
         this.updateAvailable = this.versionCode > currentVersionCode;
     }

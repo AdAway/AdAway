@@ -52,8 +52,6 @@
     <string name="status_enabled_subtitle">เปิดใช้งานไฟล์โฮสต์แล้ว</string>
     <string name="status_disabled">ปิดใช้งาน</string>
     <string name="status_disabled_subtitle">คืนค่าไฟล์โฮสต์เป็นค่าเริ่มต้นแล้ว</string>
-    <string name="notification_channel_update_name">อัพเดท</string>
-    <string name="notification_channel_update_description">แจ้งเตือนการอัพเดทโฮสต์ใหม่</string>
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink จากเป้าหมายของคุณไปยัง /system/etc/hosts ไม่พบหรือไม่ถูกต้อง AdAway จะไม่ทำงานหากไม่เลือกไปยังไฟล์ที่ถูกต้อง\n\nต้องการสร้างไฟล์ Symlink?</string>
     <string name="apply_symlink_missing_title">ไม่พบ Symlink</string>

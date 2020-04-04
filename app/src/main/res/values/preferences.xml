@@ -10,10 +10,12 @@
     <bool name="pref_never_reboot_def">false</bool>
     <string name="pref_enable_ipv6_key" translatable="false">enableIpv6</string>
     <bool name="pref_enable_ipv6_def">false</bool>
-    <string name="pref_update_check_daily_key" translatable="false">updateCheckDaily</string>
-    <bool name="pref_update_check_daily_def">false</bool>
+    <string name="pref_update_check_app_daily_key" translatable="false">updateCheckAppDaily</string>
+    <bool name="pref_update_check_app_daily_def">true</bool>
+    <string name="pref_update_check_hosts_daily_key" translatable="false">updateCheckHostsDaily</string>
+    <bool name="pref_update_check_hosts_daily_def">true</bool>
     <string name="pref_automatic_update_daily_key" translatable="false">automaticUpdateDaily</string>
-    <bool name="pref_automatic_update_daily_def">false</bool>
+    <bool name="pref_automatic_update_daily_def">true</bool>
     <string name="pref_update_only_on_wifi_key" translatable="false">updateOnlyOnWifi</string>
     <bool name="pref_update_only_on_wifi_def">false</bool>
     <string name="pref_whitelist_rules_key" translatable="false">whitelistRules</string>

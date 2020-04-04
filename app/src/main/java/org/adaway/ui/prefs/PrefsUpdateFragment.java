@@ -4,12 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.preference.CheckBoxPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.service.hosts.UpdateService;
+import org.adaway.model.source.SourceUpdateService;
+import org.adaway.model.update.ApkUpdateService;
 
 import static org.adaway.util.Constants.PREFS_NAME;
 
@@ -24,8 +26,9 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
         // Configure preferences
         getPreferenceManager().setSharedPreferencesName(PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences_update);
-        // Bind pref action
-        bindUpdatePrefAction();
+        // Bind pref actions
+        bindAppUpdatePrefAction();
+        bindHostsUpdatePrefAction();
     }
 
     @Override
@@ -34,25 +37,33 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
         PrefsActivity.setAppBarTitle(this, R.string.pref_update_title);
     }
 
-    private void bindUpdatePrefAction() {
+    private void bindAppUpdatePrefAction() {
         Context context = requireContext();
-        /*
-         * Listen on click of update daily pref, register UpdateService if enabled,
-         * setOnPreferenceChangeListener is not used because it is executed before setting the
-         * preference value, this would lead to a false check in UpdateListener
-         */
-        Preference updateDailyPref = findPreference(getString(R.string.pref_update_check_daily_key));
-        Preference updateOnlyOnWifiPref = findPreference(this.getString(R.string.pref_update_only_on_wifi_key));
-        Preference.OnPreferenceClickListener onPreferenceClickListener = preference -> {
-            if (PreferenceHelper.getUpdateCheckDaily(context)) {
-                boolean unmeteredNetworkOnly = PreferenceHelper.getUpdateOnlyOnWifi(context);
-                UpdateService.enable(context, unmeteredNetworkOnly);
+        CheckBoxPreference checkAppDailyPref = findPreference(getString(R.string.pref_update_check_app_daily_key));
+        checkAppDailyPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if (Boolean.TRUE.equals(newValue)) {
+                ApkUpdateService.enable(context);
             } else {
-                UpdateService.disable(context);
+                ApkUpdateService.disable(context);
             }
-            return false;
+            return true;
+        });
+    }
+
+    private void bindHostsUpdatePrefAction() {
+        Context context = requireContext();
+        Preference checkHostsDailyPref = findPreference(getString(R.string.pref_update_check_hosts_daily_key));
+        Preference updateOnlyOnWifiPref = findPreference(this.getString(R.string.pref_update_only_on_wifi_key));
+        Preference.OnPreferenceChangeListener onPreferenceChangeListener = (preference, newValue) -> {
+            if (PreferenceHelper.getUpdateCheckHostsDaily(context)) {
+                boolean unmeteredNetworkOnly = PreferenceHelper.getUpdateOnlyOnWifi(context);
+                SourceUpdateService.enable(context, unmeteredNetworkOnly);
+            } else {
+                SourceUpdateService.disable(context);
+            }
+            return true;
         };
-        updateDailyPref.setOnPreferenceClickListener(onPreferenceClickListener);
-        updateOnlyOnWifiPref.setOnPreferenceClickListener(onPreferenceClickListener);
+        checkHostsDailyPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
+        updateOnlyOnWifiPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
     }
 }

@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">최신 호스트 파일이 활성화됨</string>
     <string name="status_disabled">비활성화됨</string>
     <string name="status_disabled_subtitle">기본 호스트 파일들이 설치되어있습니다.</string>
-    <string name="notification_channel_update_name">업데이트</string>
-    <string name="notification_channel_update_description">새로운 호스트 파일 업데이트 알림</string>
     <string name="notification_configuration_changed">당신의 옵션이 변경되었습니다. 적용하시려면 호스트 파일을 설치하십시오.</string>
     <string name="notification_configuration_changed_action">적용</string>
     <string name="notification_configuration_installing">호스트 파일 설치 중…</string>

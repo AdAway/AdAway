@@ -62,8 +62,6 @@
     <string name="status_enabled_subtitle">Die neuesten Hosts-Dateien sind aktiv</string>
     <string name="status_disabled">Deaktiviert</string>
     <string name="status_disabled_subtitle">Standard-Hosts-Datei installiert</string>
-    <string name="notification_channel_update_name">Aktualisierungen</string>
-    <string name="notification_channel_update_description">Benachrichtigung bei Hosts-Aktualisierungen</string>
     <string name="notification_configuration_changed">Die Konfiguration wurde verändert. Installieren Sie die Hosts-Datei um die Änderungen anzuwenden.</string>
     <string name="notification_configuration_changed_action">Anwenden</string>
     <string name="notification_configuration_installing">Hosts-Datei wird installiert…</string>
