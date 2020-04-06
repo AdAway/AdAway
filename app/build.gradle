@@ -120,6 +120,7 @@ dependencies {
     implementation 'org.pcap4j:pcap4j-core:1.8.2'
     implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
     implementation 'dnsjava:dnsjava:3.0.0'
+    implementation 'org.slf4j:slf4j-android:1.7.30'
 
     // Test related
     testImplementation 'junit:junit:4.13'
