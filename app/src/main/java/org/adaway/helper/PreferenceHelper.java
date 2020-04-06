@@ -32,17 +32,6 @@ import java.util.Collections;
 import java.util.Set;
 
 public class PreferenceHelper {
-    public static boolean getDismissWelcome(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(
-                Constants.PREFS_NAME,
-                Context.MODE_PRIVATE
-        );
-        return prefs.getBoolean(
-                context.getString(R.string.pref_dismiss_welcome_key),
-                context.getResources().getBoolean(R.bool.pref_dismiss_welcome_def)
-        );
-    }
-
     public static boolean getDarkTheme(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,

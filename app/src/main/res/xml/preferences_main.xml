@@ -4,11 +4,6 @@
     android:title="@string/pref_main_title">
 
     <PreferenceCategory android:title="@string/pref_general_category">
-        <!--        <CheckBoxPreference
-                    android:defaultValue="@bool/pref_dismiss_welcome_def"
-                    android:key="@string/pref_dismiss_welcome_key"
-                    android:summary="@string/pref_dismiss_welcome_summary"
-                    android:title="@string/pref_dismiss_welcome" />-->
         <CheckBoxPreference
             android:defaultValue="@bool/pref_dark_theme_def"
             android:icon="@drawable/ic_brightness_medium_24dp"
