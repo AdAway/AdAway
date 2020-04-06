@@ -1,5 +1,12 @@
 -keep public class * extends android.content.ContentProvider
 
+# Temporary fix for androidx preference fragement reference
+# See https://issuetracker.google.com/issues/145316223
+-keep public class org.adaway.ui.prefs.PrefsBackupRestoreFragment
+-keep public class org.adaway.ui.prefs.PrefsRootFragment
+-keep public class org.adaway.ui.prefs.PrefsUpdateFragment
+-keep public class org.adaway.ui.prefs.PrefsVpnFragment
+
 -keepclassmembers class io.sentry.Sentry {
     public static final boolean STUB;
 }
