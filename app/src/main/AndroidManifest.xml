@@ -10,6 +10,12 @@
         android:name="android.hardware.telephony"
         android:required="false" />
 
+    <permission
+        android:name="org.adaway.permission.STATUS_COMMAND"
+        android:icon="@mipmap/icon"
+        android:label="permission_status_command_label"
+        android:protectionLevel="dangerous" />
+
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -95,7 +101,9 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".broadcast.StatusCommandReceiver">
+        <receiver
+            android:name=".broadcast.StatusCommandReceiver"
+            android:permission="org.adaway.permission.STATUS_COMMAND">
             <intent-filter>
                 <action android:name="org.adaway.AD_BLOCK_STATUS" />
             </intent-filter>
