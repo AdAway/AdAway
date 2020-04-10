@@ -35,7 +35,7 @@ import org.adaway.util.Log;
 
 public class AdAwayDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "adaway.db";
-    private static final int DATABASE_VERSION = 14;
+    private static final int DATABASE_VERSION = 15;
 
     public interface Tables {
         String HOSTS_SOURCES = "hosts_sources";
@@ -68,7 +68,7 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
-    public long insertHostsSource(SQLiteStatement insertStmt, String url) {
+    private long insertHostsSource(SQLiteStatement insertStmt, String url) {
         insertStmt.bindString(1, url);
         insertStmt.bindLong(2, 0); // last_modified_local starts at 0
         insertStmt.bindLong(3, 0); // last_modified_online starts at 0
@@ -83,12 +83,11 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
                 + "(url, last_modified_local, last_modified_online, enabled) VALUES (?, ?, ?, ?)";
         insertStmt = db.compileStatement(insertHostsSources);
 
-        // https://hosts-file.net
-        insertHostsSource(insertStmt, "https://hosts-file.net/ad_servers.txt");
+        // https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+        insertHostsSource(insertStmt, "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
 
         // https://pgl.yoyo.org/adservers/
-        insertHostsSource(insertStmt,
-                "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
+        insertHostsSource(insertStmt, "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
 
         // AdAway's own mobile hosts
         insertHostsSource(insertStmt, "https://adaway.org/hosts.txt");
@@ -205,6 +204,12 @@ public class AdAwayDatabase extends SQLiteOpenHelper {
             db.execSQL("UPDATE " + Tables.HOSTS_SOURCES
                     + " SET url=\"https://hosts-file.net/ad_servers.txt\""
                     + " WHERE url=\"http://hosts-file.net/ad_servers.txt\"");
+        }
+        if (oldVersion <= 14) {
+            // change https://hosts-file.net/ad_servers.txt to https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+            db.execSQL("UPDATE " + Tables.HOSTS_SOURCES
+                    + " SET url=\"https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts\""
+                    + " WHERE url=\"https://hosts-file.net/ad_servers.txt\"");
         } else {
             db.execSQL("DROP TABLE IF EXISTS " + Tables.HOSTS_SOURCES);
             db.execSQL("DROP TABLE IF EXISTS " + Tables.WHITELIST);
