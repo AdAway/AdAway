@@ -1,3 +1,14 @@
+## [4.3.3] - 2020-10-04
+
+hpHosts service is down.
+If you are looking for a replacement, give a try at [StevenBlack's one](https://github.com/StevenBlack/hosts).
+
+- Replace hpHosts default hosts file by StevenBlack hosts file
+- Improve tcpdump icons
+- Update translations
+
+Special thanks to damoasda its contribution and gallegonovato for its bug report.
+
 ## [4.3.2] - 2019-12-29
 
 - Fix GitLab source hosting
