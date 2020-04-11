@@ -148,10 +148,6 @@
         <item>ช่วยเหลือ</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 สนับสนุนการพัฒนา \u2764</string>
-    <string name="drawer_support_dialog_title">สนับสนุนการพัฒนา</string>
-    <string name="drawer_support_dialog_text">AdAway เป็นซอฟต์แวร์ฟรีและโอเพ่นซอร์สที่พัฒนาและดูแลโดยชุมชนเท่านั้น ใช้เวลาสองปีในการทำโครงการและใช้เวลาว่างในการสร้างแอพฯรุ่นใหม่นี้\n\nหากคุณต้องการดูข้อมูลอัพเดทเพิ่มเติมโปรดอย่าลังเลที่จะสนับสนุนโครงการ</string>
-    <string name="drawer_support_dialog_button">แสดงการสนับสนุนของฉัน</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">คำขอ DNS</string>

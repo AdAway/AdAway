@@ -42,6 +42,7 @@ import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.hosts.HostsSourcesActivity;
 import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
+import org.adaway.ui.support.SupportActivity;
 import org.adaway.ui.tcpdump.TcpdumpLogActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
 import org.adaway.util.Log;
@@ -65,15 +66,10 @@ import static org.adaway.util.Constants.TAG;
  */
 public class NextActivity extends AppCompatActivity {
     /**
-     * The support link.
-     */
-    public static final String SUPPORT_LINK = "https://paypal.me/BruceBUJON";
-    /**
      * The project link.
      */
     private static final String PROJECT_LINK = "https://github.com/AdAway/AdAway";
 
-    //    protected CoordinatorLayout coordinatorLayout;
     private BottomAppBar appBar;
     private FloatingActionButton fab;
     private BottomSheetBehavior<View> drawerBehavior;
@@ -229,7 +225,7 @@ public class NextActivity extends AppCompatActivity {
         CardView projectCardView = findViewById(R.id.projectCardView);
         projectCardView.setOnClickListener(this::showProjectPage);
         CardView supportCardView = findViewById(R.id.supportCardView);
-        supportCardView.setOnClickListener(this::showSupportPage);
+        supportCardView.setOnClickListener(this::showSupportActivity);
     }
 
     private void setUpBottomDrawer() {
@@ -370,23 +366,12 @@ public class NextActivity extends AppCompatActivity {
     }
 
     /**
-     * Show support page.
+     * Show support activity.
      *
      * @param view The source event view.
      */
-    private void showSupportPage(@SuppressWarnings("unused") View view) {
-        // Show support dialog
-        new MaterialAlertDialogBuilder(this)
-                .setIcon(R.drawable.baseline_favorite_24)
-                .setTitle(R.string.drawer_support_dialog_title)
-                .setMessage(R.string.drawer_support_dialog_text)
-                .setPositiveButton(R.string.drawer_support_dialog_button, (d, which) -> {
-                    // Show support page
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(SUPPORT_LINK));
-                    startActivity(browserIntent);
-                })
-                .create()
-                .show();
+    private void showSupportActivity(@SuppressWarnings("unused") View view) {
+        startActivity(new Intent(this, SupportActivity.class));
     }
 
     /**

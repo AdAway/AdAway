@@ -169,7 +169,6 @@
         <item>Ajuda</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Desenvolupament de suport \u2764</string>
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Sol·licituds DNS</string>
     <string name="shortcut_your_lists">Les vostre llistes</string>

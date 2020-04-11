@@ -193,10 +193,6 @@ Wilt u herstarten?
         <item>Hulp</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Support development \u2764</string>
-    <string name="drawer_support_dialog_title">Ondersteun ontwikkeling</string>
-    <string name="drawer_support_dialog_text">AdAway is een gratis en Open-Source software ontwikkelt en wordt alleen onderhouden door de gemeenschap. Het koste me 2 jaren om als vrijetijdsproject deze nieuwe versie te ontwikkelen.\n\nAls het je aanspreekt en je wilt meer updates, voel je vrij om mee te werken aan het project.</string>
-    <string name="drawer_support_dialog_button">Betuig mij uw steun</string>
 
     <!--Telemetry-->
 

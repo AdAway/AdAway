@@ -184,10 +184,6 @@
         <item>Hjälp</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Stöd utvecklingen \u2764</string>
-    <string name="drawer_support_dialog_title">Stöd utvecklingen</string>
-    <string name="drawer_support_dialog_text">AdAway är gratis och öppen källkod som har utvecklats och underhålls av gemenskapen. Det tog mig två år som ett fritidsprojekt att skapa denna nya versionen av appen.\n\nOm du gillar AdAway och vill se fler uppdateringar, stöd då gärna projektet.</string>
-    <string name="drawer_support_dialog_button">Visa mitt stöd</string>
 
     <!--Telemetry-->
 

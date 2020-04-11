@@ -161,9 +161,6 @@
         <item>Laguntza</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Lagundu garapena \u2764</string>
-    <string name="drawer_support_dialog_title">Lagundu garapena</string>
-    <string name="drawer_support_dialog_button">Nire laguntza ikustarazi</string>
 
     <!--Telemetry-->
 

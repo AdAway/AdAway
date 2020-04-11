@@ -208,10 +208,6 @@
         <item>Help</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Support development \u2764</string>
-    <string name="drawer_support_dialog_title">Support development</string>
-    <string name="drawer_support_dialog_text">AdAway is a Free and Open-Source software developed and maintained by the community only. It took me two years as a spare time project to build this new version of the app.\n\nIf you like it and want to see more updates, feel free to support the project.</string>
-    <string name="drawer_support_dialog_button">Show my support</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS requests</string>

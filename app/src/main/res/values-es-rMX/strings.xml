@@ -184,10 +184,6 @@
         <item>Ayuda</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Equipo de desarrollo \u2764</string>
-    <string name="drawer_support_dialog_title">Soporte de desarrollo</string>
-    <string name="drawer_support_dialog_text">AdAway es gratis y un programa de código abierto desarrollado y mantenido solamente por la comunidad. Me tomó dos años como un proyecto en mi tiempo libre para crear esta nueva versión de la aplicación.  Si te gusta y deseas ver más actualizaciones, puedes apoyar este proyecto.</string>
-    <string name="drawer_support_dialog_button">Muestra mi apoyo</string>
 
     <!--Telemetry-->
 

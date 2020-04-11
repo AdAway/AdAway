@@ -206,10 +206,6 @@
         <item>Βοήθεια</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Support development \u2764</string>
-    <string name="drawer_support_dialog_title">Υποστήριξη ανάπτυξης</string>
-    <string name="drawer_support_dialog_text">Το AdAway είναι ένα λογισμικό ελεύθερου και ανοιχτού κώδικα που αναπτύσσεται και συντηρείται μόνο από την κοινότητα. Χρειάστηκαν δύο χρόνια ως έργο ελεύθερου χρόνου για τη δημιουργία αυτής της νέας έκδοσης της εφαρμογής. \ N \ nΑν σας αρέσει και θέλετε να δείτε περισσότερες ενημερώσεις, μην διστάσετε να υποστηρίξετε το έργο.</string>
-    <string name="drawer_support_dialog_button">Δείξε μου την υποστήριξή</string>
 
     <!--Telemetry-->
 

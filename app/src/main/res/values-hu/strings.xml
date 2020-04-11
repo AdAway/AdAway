@@ -190,10 +190,6 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
         <item>Súgó</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 A fejlesztés támogatása \u2764</string>
-    <string name="drawer_support_dialog_title">Fejlesztés támogatása</string>
-    <string name="drawer_support_dialog_text">Az AdAway ingyenes és nyílt forráskodú szoftver, melyet kizárólag a közösség fejleszt és tart karban. Két évnyi szabadidőmbe került az app új verziójának fejlesztése.\n\nHa tetszik, és szívesen vennéd az újabb frissítések érkezését, kérlek támogasd a projektet!</string>
-    <string name="drawer_support_dialog_button">Támogatás</string>
 
     <!--Telemetry-->
 

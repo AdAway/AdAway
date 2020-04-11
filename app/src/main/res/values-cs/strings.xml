@@ -184,10 +184,6 @@
         <item>Nápověda</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Podpořit vývoj \u2764</string>
-    <string name="drawer_support_dialog_title">Podpořit vývoj</string>
-    <string name="drawer_support_dialog_text">Aplikace AdAway je open-source a je dostupná zdarma. Je vyvíjena a udržována pouze komunitou. Vytvoření této nové verze aplikace mi zabralo dva roky mého volného času.\n\nPokud se vám aplikace líbí a chcete vidět další aktualizace, neváhejte a podpořte tento projekt.</string>
-    <string name="drawer_support_dialog_button">Podpořit vývoj</string>
 
     <!--Telemetry-->
 

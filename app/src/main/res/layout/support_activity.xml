@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/supportRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary"
@@ -70,27 +71,29 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/telemetryTextView"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sponsorshipCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:justificationMode="inter_word"
-        android:text="@string/welcome_support_telemetry_summary"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="32dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="24dp"
+        app:contentPaddingRight="24dp"
+        app:contentPaddingTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paypalCardView">
 
-    <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/welcome_support_telemetry_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/sponsorshipTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_github_32dp"
+            android:drawablePadding="8dp"
+            android:text="@string/support_sponsorship_button"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

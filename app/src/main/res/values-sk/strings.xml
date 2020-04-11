@@ -184,10 +184,6 @@
         <item>Pomoc</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Podpora vývoja \u2764</string>
-    <string name="drawer_support_dialog_title">Podpora vývoja</string>
-    <string name="drawer_support_dialog_text">AdAway je bezplatný open source softvér vyvíjaný a udržiavaný iba komunitou. Trvalo mi dva roky voľného času na vybudovanie tejto novej verzie aplikácie.\n\nAk sa vám páči a chcete vidieť viac aktualizácií, neváhajte a podporte projekt.</string>
-    <string name="drawer_support_dialog_button">Zobraziť moju podporu</string>
 
     <!--Telemetry-->
 

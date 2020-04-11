@@ -184,12 +184,6 @@
         <item>Hilfe</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Entwicklung fördern \u2764</string>
-    <string name="drawer_support_dialog_title">Weiterentwicklung fördern</string>
-    <string name="drawer_support_dialog_text">AdAway ist eine freie und quelloffene Software, die nur von der Community entwickelt und gepflegt wird. Als ein Freizeitprojekt hat es mich zwei Jahre gekostet, um diese neue Version der App zu entwickeln.
-
-Wenn Sie Ihnen gefällt und Sie sich weitere Updates wünschen, können Sie gerne das Projekt unterstützen.</string>
-    <string name="drawer_support_dialog_button">Meine Unterstützung anzeigen</string>
 
     <!--Telemetry-->
 

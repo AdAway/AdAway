@@ -179,10 +179,6 @@
         <item>도움말</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 개발 돕기 \u2764</string>
-    <string name="drawer_support_dialog_title">도와준 사람들</string>
-    <string name="drawer_support_dialog_text">AdAway는 무료 오픈소스 소프트웨어로 커뮤니티로만 개발되고 유지되고 있습니다. 자투리 시간을 활용하여 새로운 버전을 만드는데 2년이 걸렸습니다.\n\n만약 이것을 좋아하고 더 많은 업데이트를 원한다면 프로젝트에 도움을 주십시오.</string>
-    <string name="drawer_support_dialog_button">내 기여 보기</string>
 
     <!--Telemetry-->
 

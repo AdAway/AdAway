@@ -173,9 +173,6 @@
         <item>עזרה</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 תמיכה בפיתוח \u2764</string>
-    <string name="drawer_support_dialog_title">תמיכה בפיתוח</string>
-    <string name="drawer_support_dialog_button">הצג את התמיכה שלי</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">בקשות DNS</string>

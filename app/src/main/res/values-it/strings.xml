@@ -185,10 +185,6 @@ Vuoi installare OI File Manager?</string>
         <item>Aiuto</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Supporta lo sviluppo \u2764</string>
-    <string name="drawer_support_dialog_title">Supporta lo sviluppo</string>
-    <string name="drawer_support_dialog_text">AdAway è un software Gratuito e Open-Source sviluppato e mantenuto esclusivamente dalla comunità. Ci sono voluti due anni come progetto nel tempo libero per rilasciare questa nuova versione dell\'app. .\n\nSe ti piace e vuoi vedere ulteriori aggiornamenti, per favore considera di supportare il progetto.</string>
-    <string name="drawer_support_dialog_button">Mostra il mio supporto</string>
 
     <!--Telemetry-->
 

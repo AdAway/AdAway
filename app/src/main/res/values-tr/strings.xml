@@ -184,10 +184,6 @@
         <item>Yardım</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Geliştirmeyi destekleyin \u2764</string>
-    <string name="drawer_support_dialog_title">Geliştirmeyi destekleyin</string>
-    <string name="drawer_support_dialog_text">AdAway, yalnızca topluluk tarafından geliştirilmiş ve sürdürülen bir Serbest ve Açık Kaynak yazılımdır. Uygulamanın bu yeni sürümünü oluşturmak bir boş zaman projesi olarak 2 yılımı aldı.\n\nBeğendiyseniz ve daha fazla güncelleme görmek istiyorsanız, projeyi desteklemekten çekinmeyin.</string>
-    <string name="drawer_support_dialog_button">Bana desteğinizi gösterin</string>
 
     <!--Telemetry-->
 

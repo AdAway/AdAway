@@ -142,10 +142,6 @@
         <item>Abi</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Toeta arendust \u2764</string>
-    <string name="drawer_support_dialog_title">Toeta arendust</string>
-    <string name="drawer_support_dialog_text">AdAway on vaba ja avatud lähtekoodiga, arendatud ja hallatud vaid kogukonna poolt. Mul võttis kaks aastat vabast ajast, et rakendusest see uus versioon luua.\n\nKui see sulle meeldib ning soovid näha rohkem uuendusi, võid antud projekti toetada.</string>
-    <string name="drawer_support_dialog_button">Näita minu toetust</string>
 
     <!--Telemetry-->
 

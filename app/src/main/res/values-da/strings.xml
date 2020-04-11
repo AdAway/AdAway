@@ -179,10 +179,6 @@
         <item>Hjælp</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Støtte til udvikling af app \u2764</string>
-    <string name="drawer_support_dialog_title">Støtte til udvikling af app</string>
-    <string name="drawer_support_dialog_text">AdAway er en gratis og open source-software, der kun udvikles og vedligeholdes af samfundet. Det tog mig to år som et fritidsprojekt at opbygge denne nye version af appen. \n\nHvis du kan lide det og ønsker at se flere opdateringer, er du velkommen til at støtte projektet.</string>
-    <string name="drawer_support_dialog_button">Vis min støtte</string>
 
     <!--Telemetry-->
 

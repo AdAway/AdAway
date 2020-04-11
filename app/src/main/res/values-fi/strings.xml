@@ -132,9 +132,6 @@
         <item>Ohjeet</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Tue kehitystä \u2764</string>
-    <string name="drawer_support_dialog_title">Tue kehitystä</string>
-    <string name="drawer_support_dialog_button">Näytä tukeni</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS-pyynnöt</string>

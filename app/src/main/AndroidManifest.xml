@@ -79,6 +79,12 @@
             android:label="@string/menu_help"
             android:parentActivityName=".ui.next.NextActivity" />
         <activity
+            android:name=".ui.support.SupportActivity"
+            android:exported="false"
+            android:label="@string/support_title"
+            android:parentActivityName=".ui.next.NextActivity"
+            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
+        <activity
             android:name=".ui.prefs.PrefsActivity"
             android:exported="false"
             android:label="@string/preferences_drawer_item"

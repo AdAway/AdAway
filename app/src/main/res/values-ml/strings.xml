@@ -183,10 +183,6 @@
         <item>Help</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 വികസനത്തെ പിന്തുണയ്ക്കുക \u2764</string>
-    <string name="drawer_support_dialog_title">വികസനത്തെ പിന്തുണയ്ക്കുക</string>
-    <string name="drawer_support_dialog_text">കമ്മ്യൂണിറ്റി മാത്രം വികസിപ്പിക്കുകയും പരിപാലിക്കുകയും ചെയ്യുന്ന ഒരു സ്വതന്ത്ര ഓപ്പൺ സോഴ്‌സ് സോഫ്റ്റ്വെയറാണ് AdAway.അപ്ലിക്കേഷന്റെ ഈ പുതിയ പതിപ്പ് നിർമ്മിക്കുന്നതിന് ഒരു സ്‌പെയർ ടൈം പ്രോജക്റ്റായി എനിക്ക് രണ്ട് വർഷമെടുത്തു.\nനിങ്ങൾക്കിഷ്ടപ്പെടുകയും കൂടുതൽ അപ്‌ഡേറ്റുകൾ കാണാൻ ആഗ്രഹിക്കുകയും ചെയ്യുന്നുവെങ്കിൽ,പദ്ധതിയെ പിന്തുണയ്ക്കാൻ മടിക്കേണ്ട.</string>
-    <string name="drawer_support_dialog_button">എന്റെ പിന്തുണ കാണിക്കുക</string>
 
     <!--Telemetry-->
 

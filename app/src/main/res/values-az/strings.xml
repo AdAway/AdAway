@@ -124,9 +124,6 @@
         <item>Kömək</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Təkmilləşməyə dəstək ol \u2764</string>
-    <string name="drawer_support_dialog_title">Təkmilləşməyə dəstək ol</string>
-    <string name="drawer_support_dialog_button">Dəstəyimi göstər</string>
 
     <!--Telemetry-->
 

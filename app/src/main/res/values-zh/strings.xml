@@ -185,10 +185,6 @@
         <item>帮助</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 支持开发 \u2764</string>
-    <string name="drawer_support_dialog_title">支持开发</string>
-    <string name="drawer_support_dialog_text">AdAway 是一个由社区开发和维护的自由开源软件。我花了两年的业余时间来重构这个应用程序的新版本。如果你喜欢它，并希望收到更多后续更新，欢迎支持本项目。</string>
-    <string name="drawer_support_dialog_button">支持开发者</string>
 
     <!--Telemetry-->
 

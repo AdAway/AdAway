@@ -184,10 +184,6 @@
         <item>Bantuan</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Dukung pengembangan \u2764</string>
-    <string name="drawer_support_dialog_title">Dukung pengembangan</string>
-    <string name="drawer_support_dialog_text">AdAway adalah sebuah perangkat lunak gratis dan sumber terbuka yang dikembangkan dan dikelolan oleh komunitas saja. Saya membutuhkan waktu dua tahun sebagai proyek waktu luang untuk membangun versi baru dari aplikasi ini.\n\nJika Anda menyukai itu dan menginginkan untuk melihat pembaruan lagi, jangan ragu untuk mendukung proyek ini.</string>
-    <string name="drawer_support_dialog_button">Tunjukkan dukungan saya</string>
 
     <!--Telemetry-->
 
