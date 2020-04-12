@@ -14,13 +14,13 @@ Special thanks to damoasda its contribution and gallegonovato for its bug report
 *This version is a pre-release*
 
 - Add new home screen
- - Provides all main controls from one screen
- - Displays currently blocked, allowed and redirected domains
- - Displays current hosts sources status and control to force apply
+  - Provides all main controls from one screen
+  - Displays currently blocked, allowed and redirected domains
+  - Displays current hosts sources status and control to force apply
 - Add non root ad-blocking feature
- - Uses a builtin local VPN to filter DNS request to blocked domains
- - Based on the work of [dns66 by julian-klode](https://github.com/julian-klode/dns66/issues/39)
- - Allows to excluded system applications and per user applications
+  - Uses a builtin local VPN to filter DNS request to blocked domains
+  - Based on the work of [dns66 by julian-klode](https://github.com/julian-klode/dns66/issues/39)
+  - Allows to excluded system applications and per user applications
 - Add builtin updater with changelog display
 - Add feature to quickly pause and resume ad-blocking
 - Add wizard screen for first run setup
