@@ -1,4 +1,4 @@
-# ![AdAway logo](https://raw.githubusercontent.com/AdAway/AdAway/master/app/src/main/res/mipmap-mdpi/icon.png) AdAway
+# ![AdAway logo](app/src/main/res/mipmap-mdpi/icon.png) AdAway
 
 [![Build Status](https://travis-ci.com/AdAway/AdAway.svg?branch=master)](https://travis-ci.com/AdAway/AdAway) [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=org.adaway&metric=security_rating)](https://sonarcloud.io/dashboard?id=org.adaway) [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](blob/master/LICENSE)
 
@@ -12,23 +12,32 @@ There are two kinds of release:
 * The preview builds: on the bleeding edge of development - for testers or adventurous
 * The stable builds: ready for every day usage - for end users
 
-### Requirements
-
-Installing the application requires:
-* Android 4.1 _Jelly Bean_ or above
-* A **rooted device**
-
 ### Preview builds
-For users with bugs, there may be preview builds available from the [XDA development thread](https://forum.xda-developers.com/showthread.php?t=2190753) or the related [Android File Host folder](https://androidfilehost.com/?w=files&flid=249276&sort_by=date&sort_dir=DESC).
+
+**Requirements:** Android 8 _Oreo_ or above
+
+For users with bugs, there may be preview builds available from the [XDA development thread](https://forum.xda-developers.com/showthread.php?t=2190753) and [AdAway official website](https://app.adaway.org/beta.apk).
 It is recommended to try those builds to see if your issue is resolved before creating an issue.
 The preview builds may contain bug fixes or new features for new android versions.
 
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/XDADevelopers.svg/512px-XDADevelopers.svg.png" alt="Get it on XDA forum" height="60">](https://forum.xda-developers.com/showthread.php?t=2190753) [<img src="https://androidfilehost.com/images/afh.png" alt="Get it on Android File Host" height="60">](https://androidfilehost.com/?w=files&flid=249276)
+[<img src="Resources/XDADevelopers.png"
+      raw="true"
+      alt="Get it on XDA forum"
+      height="60">](https://forum.xda-developers.com/showthread.php?t=2190753) 
+[<img src="Resources/get-it-on-adaway.png"
+      alt="Get it on official AdAway website"
+      height="80">](https://app.adaway.org/beta.apk)
 
 ### Stable builds
+
+**Requirements:**
+* Android 4.1 _Jelly Bean_ or above
+* A **rooted device**
+
 After preview builds have been tested by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
 
-[<img src="https://f-droid.org/badge/get-it-on.png"
+[<img src="Resources/get-it-on-fdroid.png"
+      raw="true"
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/org.adaway)
 
@@ -54,7 +63,7 @@ If you are looking for translating the application in your language, [the transl
 
 AdAway is actively developed by:
 * Bruce Bujon ([@PerfectSlayer](https://github.com/PerfectSlayer)) - Developer  
-[PayPal](https://paypal.me/BruceBUJON) | BTC: `1Cm1df83VCdpzBCSiqBRZzE5oMuLhkQdFF`
+[PayPal](https://paypal.me/BruceBUJON) | [GitHub Sponsorship](https://github.com/sponsors/PerfectSlayer) | BTC: `1Cm1df83VCdpzBCSiqBRZzE5oMuLhkQdFF`
 * Daniel Mönch ([@Vankog](https://github.com/Vankog)) - Translations
 
 We do not forget the past maintainers:
