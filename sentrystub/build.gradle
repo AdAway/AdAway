@@ -6,24 +6,10 @@ android {
     defaultConfig {
         minSdkVersion 26
         targetSdkVersion 28
-        versionCode 1
-        versionName '1.0.0'
-
     }
 
     compileOptions {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
-        }
-    }
-}
-
-dependencies {
-
 }

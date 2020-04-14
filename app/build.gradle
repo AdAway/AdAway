@@ -5,12 +5,6 @@ def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingKeyAlias') &&
         project.hasProperty('signingKeyPassword')
 
-repositories {
-    maven {
-        url 'https://jitpack.io'
-    }
-}
-
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
@@ -29,6 +23,8 @@ android {
             }
         }
     }
+
+    ndkVersion "21.0.6113669"
 
     /*
      * To sign release build, create file gradle.properties in ~/.gradle/ with this content:
@@ -71,8 +67,8 @@ android {
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //        }
         release {
-            shrinkResources true
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -88,9 +84,9 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.fragment:fragment:1.2.4'
-    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
     implementation 'androidx.paging:paging-runtime:2.1.2'
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
@@ -101,15 +97,15 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
 
     // Miscellaneous
-    implementation 'com.google.guava:guava:28.2-android'
+    implementation 'com.google.guava:guava:29.0-android'
     implementation 'com.annimon:stream:1.2.1'
-    implementation 'com.google.android:flexbox:1.1.0'   // TODO To remove with the old home screen
-    implementation 'com.squareup.okhttp3:okhttp:3.14.6'
-    implementation 'org.sufficientlysecure:html-textview:3.4'
+    implementation 'com.google.android:flexbox:1.1.1'   // TODO To remove with the old home screen
+    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    implementation 'org.sufficientlysecure:html-textview:3.9'
     if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {
-        implementation 'io.sentry:sentry-android:1.7.14'
+        implementation 'io.sentry:sentry-android:1.7.30'
     }
 
     // Root related
@@ -119,7 +115,7 @@ dependencies {
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.8.2'
     implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
-    implementation 'dnsjava:dnsjava:3.0.0'
+    implementation 'dnsjava:dnsjava:3.0.2'
     implementation 'org.slf4j:slf4j-android:1.7.30'
 
     // Test related
