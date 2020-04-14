@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">Güncellemeler</string>
+    <string name="notification_update_channel_description">Yeni güncelleme bildirimleri</string>
+    <string name="notification_update_host_available_title">Güncelleme mevcut</string>
+    <string name="notification_update_host_available_text">İndirilebilecek yeni hosts dosyaları.</string>
+    <string name="notification_update_app_available_title">Uygulama güncellemesi mevcut</string>
+    <string name="notification_update_app_available_text">AdAway\'in yeni bir sürümü indirilebilir.</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
+    <string name="notification_vpn_channel_description">VPN çalışma bildirimleri</string>
+</resources>
