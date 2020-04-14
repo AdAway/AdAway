@@ -1,7 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lists_title">Mijn lijsten</string>
     <!-- Tab -->
+    <string name="lists_tab_blocked">Geblokkeerd</string>
+    <string name="lists_tab_allowed">Toegestaan</string>
+    <string name="lists_tab_redirected">Doorverwezen</string>
     <!-- Menu -->
+    <string name="lists_menu_filter">Hosts filteren</string>
     <!-- Filter dialog -->
+    <string name="lists_filter_host_title">Hostnaam filteren:</string>
+    <string name="lists_filter_include_sources">Hosts opnemen uit bronnen</string>
+    <string name="lists_filter_apply">Toepassen</string>
+    <string name="lists_filter_reset">Standaardwaarden</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Host toevoegen aan zwarte lijst</string>
+    <string name="list_add_dialog_white">Host toevoegen aan witte lijst</string>
+    <string name="list_add_dialog_redirect">Hostdoorschakeling toevoegen</string>
+    <string name="list_edit_dialog_black">Host op zwarte lijst bewerken</string>
+    <string name="list_edit_dialog_white">Host op witte lijst bewerken</string>
+    <string name="list_edit_dialog_redirect">Doorverwijzing bewerken</string>
+    <string name="list_dialog_hostname">Hostnaam:</string>
+    <string name="list_dialog_hostname_hint">De url van de hosts-bron</string>
+    <string name="list_dialog_wildcard">(jokertekens * en ? zijn toegestaan)</string>
+    <string name="list_dialog_ip">IP-adres (IPv4 of IPv6):</string>
 </resources>
