@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/pref_update_title">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="@string/pref_update_title">
 
-    <PreferenceCategory android:title="@string/pref_update_app_category">
+    <PreferenceCategory app:title="@string/pref_update_app_category">
         <CheckBoxPreference
-            android:defaultValue="@bool/pref_update_check_app_daily_def"
-            android:key="@string/pref_update_check_app_daily_key"
-            android:title="@string/pref_update_check_app_daily" />
+            app:defaultValue="@bool/pref_update_check_app_daily_def"
+            app:key="@string/pref_update_check_app_daily_key"
+            app:title="@string/pref_update_check_app_daily" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/pref_update_hosts_category">
+    <PreferenceCategory app:title="@string/pref_update_hosts_category">
         <CheckBoxPreference
-            android:defaultValue="@bool/pref_update_check_def"
-            android:key="@string/pref_update_check_key"
-            android:title="@string/pref_update_check" />
+            app:defaultValue="@bool/pref_update_check_def"
+            app:key="@string/pref_update_check_key"
+            app:title="@string/pref_update_check" />
         <CheckBoxPreference
-            android:defaultValue="@bool/pref_update_check_hosts_daily_def"
-            android:key="@string/pref_update_check_hosts_daily_key"
-            android:title="@string/pref_update_check_hosts_daily" />
+            app:defaultValue="@bool/pref_update_check_hosts_daily_def"
+            app:key="@string/pref_update_check_hosts_daily_key"
+            app:title="@string/pref_update_check_hosts_daily" />
         <CheckBoxPreference
-            android:defaultValue="@bool/pref_automatic_update_daily_def"
-            android:dependency="@string/pref_update_check_hosts_daily_key"
-            android:key="@string/pref_automatic_update_daily_key"
-            android:title="@string/pref_update_sync_on_update" />
+            app:defaultValue="@bool/pref_automatic_update_daily_def"
+            app:dependency="@string/pref_update_check_hosts_daily_key"
+            app:key="@string/pref_automatic_update_daily_key"
+            app:title="@string/pref_update_sync_on_update" />
         <CheckBoxPreference
-            android:defaultValue="@bool/pref_update_only_on_wifi_def"
-            android:dependency="@string/pref_update_check_hosts_daily_key"
-            android:key="@string/pref_update_only_on_wifi_key"
-            android:title="@string/pref_update_sync_unmetered_only" />
+            app:defaultValue="@bool/pref_update_only_on_wifi_def"
+            app:dependency="@string/pref_update_check_hosts_daily_key"
+            app:key="@string/pref_update_only_on_wifi_key"
+            app:title="@string/pref_update_sync_unmetered_only" />
     </PreferenceCategory>
 
 </PreferenceScreen>

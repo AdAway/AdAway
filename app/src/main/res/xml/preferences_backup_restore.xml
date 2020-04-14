@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/pref_backup_restore_title">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="@string/pref_backup_restore_title">
 
     <Preference
-        android:icon="@drawable/ic_save_24dp"
-        android:key="@string/pref_backup_key"
-        android:summary="@string/pref_backup_summary"
-        android:title="@string/pref_backup" />
+        app:icon="@drawable/ic_save_24dp"
+        app:key="@string/pref_backup_key"
+        app:summary="@string/pref_backup_summary"
+        app:title="@string/pref_backup" />
     <Preference
-        android:icon="@drawable/ic_settings_backup_restore_24dp"
-        android:key="@string/pref_restore_key"
-        android:summary="@string/pref_restore_summary"
-        android:title="@string/pref_restore" />
+        app:icon="@drawable/ic_settings_backup_restore_24dp"
+        app:key="@string/pref_restore_key"
+        app:summary="@string/pref_restore_summary"
+        app:title="@string/pref_restore" />
 
 </PreferenceScreen>
