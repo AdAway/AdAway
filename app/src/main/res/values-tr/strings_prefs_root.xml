@@ -1,21 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Kök tabanlı reklam engelleyici</string>
     <!-- Hosts install category -->
-    <string name="pref_apply_method">Hedef Hosts dosyası</string>
-    <string name="pref_apply_method_summary">Bu ayarı değiştirmeden önce, bu işlevsellik hakkındaki yardımı okuyun.</string>
+    <string name="pref_hosts_installation">Hosts kurulumu</string>
+    <string name="pref_root_open_hosts">Host dosyasını aç</string>
+    <string name="pref_apply_method">Hedef hosts dosyası</string>
+    <string name="pref_apply_method_summary">Bu özelliği kullanmadan önce Yardımı okuyun</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Özel hedef</item>
     </string-array>
-    <string name="pref_custom_target">Özel hedef</string>
-    <string name="pref_never_reboot">Yeniden başlatma diyaloğunu gizle</string>
+    <string name="pref_custom_target">Özel hedef konumu</string>
+    <string name="pref_never_reboot">Uyguladıktan sonra yeniden başlatma iletişim kutusunu gizle</string>
     <!-- Redirection category -->
-    <string name="pref_redirection_ipv4">IPv4 Yönlendirme</string>
-    <string name="pref_redirection_ipv6">IPv6 Yönlendirme</string>
+    <string name="pref_hosts_redirection">Yönlendirme</string>
+    <string name="pref_hosts_redirection_summary">Engellenen hosts\'u nereye yönlendireceğinizi tanımlayın</string>
+    <string name="pref_redirection_ipv4">IPv4 yönlendirmesi</string>
+    <string name="pref_redirection_ipv6">IPv6 yönlendirmesi</string>
     <!-- Web server category -->
-    <string name="pref_webserver">Yerel WebSunucusu</string>
-    <string name="pref_webserver_enabled">Websunucusunu etkinleştir</string>
-    <string name="pref_webserver_on_boot">Başlangıçta websunucusunu çalıştır</string>
+    <string name="pref_webserver">Yerel web sunucu</string>
+    <string name="pref_webserver_summary">Yerel web sunucusu, engellenen ana bilgisayar adı isteklerine yanıt vermek için yerel IP adreslerini dinler. Engellenen bağlantıda uygulamanın donmasına yardımcı olabilir.</string>
+    <string name="pref_webserver_enabled">Web sunucusunu etkinleştir</string>
+    <string name="pref_webserver_on_boot">Web sunucusunu ön yüklemede başlat</string>
 </resources>
