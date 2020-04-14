@@ -1,5 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Actualizaciones</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Actualizaciones de la aplicación</string>
+    <string name="pref_update_check_app_daily">Buscar actualizaciones diariamente</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Actualizaciones de Hosts</string>
     <string name="pref_update_check">Buscar actualizaciones</string>
     <string name="pref_update_check_hosts_daily">Buscar actualizaciones diariamente</string>
+    <string name="pref_update_sync_on_update">Sincronizar durante la actualización</string>
+    <string name="pref_update_sync_unmetered_only">Sincronizar sólo en redes sin limitaciones</string>
 </resources>
