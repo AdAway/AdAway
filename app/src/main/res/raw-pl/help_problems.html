@@ -6,8 +6,8 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>Typowe problemy</title></head>
 <body>
 <h2>Kopiowanie pliku hosts nie powiodło się na Androidzie 9+</h2>
-<p>Najnowsze wersje systemu Android używają partycji<code>/system</code> tylko do odczytu.<br>
-Jeśli używasz Magisk jako rozwiązania root, upewnij się, że włączyłeś systemowy moduł hostów, a następnie uruchom ponownie.</p>
+<p>Latest versions of Android use read-only <code>/system</code> partition.<br>
+If you are using Magisk as root solution, ensure you enable the systemless hosts module then reboot.</p>
 
 <h2>Brak wystarczającego miejsca na partycji</h2>
 <p>Spróbuj zmienić docelowy plik hosts w preferencjach na <code>/data/data/hosts</code> (lub <code>/data/hosts</code>) i ponownie zastosuj AdAway.</p>
@@ -25,6 +25,9 @@ Możesz rejestrować żądania DNS (Menu-&gt;Rejestruj żądania DNS) od AdAway,
 
 <h2>Aplikacja XYZ nie działa teraz prawidłowo!</h2>
 <p>Niektóre aplikacje muszą komunikować się z nazwą hosta zablokowaną przez AdAway lub odmówić pracy, gdy nazwy hostów, które powinny wyświetlać reklamy, są niedostępne. Zobacz <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> aby uzyskać listę znanych aplikacji, które mają problemy. W przeciwnym razie sprawdź, które nazwy hostów są potrzebne i dodaj je do <cite>Białej listy</cite> pod <cite>Twoimi listami</cite> i zgłoś je do <a href="https://github.com/AdAway/AdAway/issues">modułu śledzenia błędów AdAway</a>.</p>
+
+<h2>Nie działa przycisk Wstecz w przeglądarkach internetowych</h2>
+<p>Możesz włączyć w opcjach lokalny serwer www jako tymczasowe rozwiązanie problemu.</p>
 
 <h2>Nie działa przycisk Wstecz w przeglądarkach internetowych</h2>
 <p>Możesz włączyć w opcjach lokalny serwer www jako tymczasowe rozwiązanie problemu.</p>
