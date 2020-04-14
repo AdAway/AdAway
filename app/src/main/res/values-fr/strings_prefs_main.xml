@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Préférences</string>
     <!-- General category -->
+    <string name="pref_general_category">Général</string>
+    <string name="pref_dark_theme">Thème sombre</string>
+    <string name="pref_update_configuration">Mises à jour automatiques</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Blocage des publicités</string>
+    <string name="pref_root_ad_blocker_configuration">Bloqueur de publicités utilisant le root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Bloqueur de publicités utilisant un VPN</string>
+    <string name="pref_whitelist_rules">Appliquer les hôtes autorisés depuis les sources</string>
+    <string name="pref_redirection_rules">Appliquer les hôtes redirigés depuis les sources</string>
+    <string name="pref_redirection_rules_summary">CAUSE UN RISQUE DE SÉCURITÉ !</string>
+    <string name="pref_enable_ipv6">Activer le support de l\'IPv6</string>
+    <string name="pref_backup_restore">Sauvegarder / restaurer les règles de blocage</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Débogage</string>
+    <string name="pref_enable_telemetry">Envoyer les rapports de plantage</string>
+    <string name="pref_enable_telemetry_summary">Rapporter à Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Non supporté dans cette version</string>
+    <string name="pref_enable_debug">Journal verbeux</string>
+    <string name="pref_enable_debug_summary">Un redémarrage de l\'application est nécessaire</string>
 </resources>
