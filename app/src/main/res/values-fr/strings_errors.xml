@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Aucune connexion à Internet</string>
+    <string name="error_no_connection_details">Impossible d’établir une connexion vers Internet. Veuillez vérifier la connectivité de votre appareil.</string>
+    <string name="error_download_failed_message">Échec de téléchargement de la source du fichier hosts</string>
+    <string name="error_download_failed_details">Aucune de vos sources de fichiers hosts activées n’est accessible. Veuillez vous assurer d’être correctement connecté à Internet ?</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Échec de création du fichier privé</string>
+    <string name="error_private_file_failed_details">Impossible de créer un fichier privé pour construire une nouvelle source d’hosts. Veuillez vérifier l’espace libre sur votre appareil.</string>
+    <string name="error_not_enough_space_message">Il manque d’espace</string>
+    <string name="error_not_enough_space_details">Impossible de copier le fichier hosts vers votre partition système. Veuillez vous assurer que le module « Systemless Hosts » de Magisk est activé, puis redémarrez.</string>
+    <string name="error_copy_failed_message">Échec d’installation des nouveaux fichiers hosts.</string>
+    <string name="error_copy_failed_details">Impossible de copier le fichier hosts vers la partition /system. Veuillez vous assurer que le module « Systemless Hosts » de Magisk est activé, puis redémarrez.</string>
+    <string name="error_revert_failed_message">Échec de rétablissement du fichier hosts</string>
+    <string name="error_revert_failed_details">Impossible de restaurer la configuration du fichier hosts par défaut.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Échec d’activation du blocage des publicités par RPV.</string>
+    <string name="error_enable_vpn_failed_details">Veuillez vérifier les paramètres de votre RPV pour autoriser le démarrage du RPV de l’application.</string>
+    <string name="error_disable_vpn_failed_message">Échec de désactivation du blocage des publicités par RPV.</string>
+    <string name="error_disable_vpn_failed_details">Veuillez vérifier les paramètres de votre RPV pour le désactiver manuellement.</string>
 </resources>
