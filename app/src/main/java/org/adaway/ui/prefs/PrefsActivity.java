@@ -38,10 +38,12 @@ public class PrefsActivity extends AppCompatActivity implements PreferenceFragme
          * Set view content.
          */
         setContentView(R.layout.prefs_activity);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings_container, new PrefsMainFragment())
-                .commit();
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.settings_container, new PrefsMainFragment())
+                    .commit();
+        }
         /*
          * Configure actionbar.
          */
