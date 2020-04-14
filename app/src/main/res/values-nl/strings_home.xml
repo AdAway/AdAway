@@ -1,28 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Geblokkeerd</string>
+    <string name="allowed_hosts_label">Toegestaan</string>
+    <string name="redirect_hosts_label">Doorverwezen</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d up-to-date bron</item>
+        <item quantity="other">%d up-to-date bronnen</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d verouderde bron</item>
+        <item quantity="other">%d verouderde bronnen</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Hulpsectie tonen</string>
 
     <!-- Project card -->
+    <string name="project_label">GitHub-pagina openen</string>
 
     <!-- Support card -->
+    <string name="support_label">Project steunen</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS-logboek</string>
+    <string name="preferences_drawer_item">Instellingen</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Navigatiemenu openen</string>
+    <string name="adblock_pause_button_description">Advertentieblokkering onderbreken/hervatten</string>
+    <string name="update_button">Geblokkeerde domeinen bijwerken</string>
+    <string name="show_log_button">Domeinaanvragen tonen</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Bekijk de hulpsectie voor meer informatie.</string>
 
 </resources>
