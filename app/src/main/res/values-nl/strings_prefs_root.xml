@@ -1,12 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Advertentieblokkeerder voor geroote apparaten</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Host installeren</string>
+    <string name="pref_root_open_hosts">Hosts-bestand openen</string>
+    <string name="pref_apply_method">Locatie van hosts-bestand</string>
+    <string name="pref_apply_method_summary">Lees Help voordat je deze functie gebruikt</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Aangepaste locatie</item>
     </string-array>
+    <string name="pref_custom_target">Aangepaste doellocatie</string>
+    <string name="pref_never_reboot">Verberg herstart dialoogscherm</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Doorverwijzing</string>
+    <string name="pref_hosts_redirection_summary">Bepaal waar de geblokkeerde hosts naar moeten worden omgeleid</string>
+    <string name="pref_redirection_ipv4">IPv4 doorverwijzing</string>
+    <string name="pref_redirection_ipv6">IPv6 doorverwijzing</string>
     <!-- Web server category -->
+    <string name="pref_webserver">Lokale webserver</string>
+    <string name="pref_webserver_summary">De lokale webserver luistert naar lokale ip-adressen om aanvragen van geblokkeerde hostnamen te beantwoorden. indien de connectie blokkeert kan app freezing helpen.</string>
+    <string name="pref_webserver_enabled">Webserver inschakelen</string>
+    <string name="pref_webserver_on_boot">Start webserver bij opstarten</string>
 </resources>
