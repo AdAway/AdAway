@@ -8,8 +8,6 @@ android {
     defaultConfig {
         minSdkVersion 26
         targetSdkVersion 29
-        versionCode 1
-        versionName '1.0'
     }
 
     externalNativeBuild {
@@ -19,39 +17,36 @@ android {
     }
 }
 
-dependencies {
-}
-
 /**
  * Task to rename executables from hello_world to libhello_world_exec.so
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
- * Help with files: https://docs.gradle.org/current/userguide/working_with_files.html
+ * Help with files: https://docs.gradle.org/current/userguide/working_with_files.html
  * Implementation from: https://gitlab.com/fengshaun/syncopoli/blob/master/app/build.gradle
  */
 gradle.taskGraph.afterTask { task ->
-	if (task.name == "externalNativeBuildRelease" || task.name == "externalNativeBuildDebug") {
-		def mode = task.name == "externalNativeBuildDebug" ? "debug" : "release"
-		def buildFolder = file("${buildDir}/intermediates/ndkBuild/${mode}/obj/local/")
+    if (task.name == "externalNativeBuildRelease" || task.name == "externalNativeBuildDebug") {
+        def mode = task.name == "externalNativeBuildDebug" ? "debug" : "release"
+        def buildFolder = file("${buildDir}/intermediates/ndkBuild/${mode}/obj/local/")
 
-		copy {
-			from(buildFolder) {
-				exclude "**/objs"
-				exclude "**/objs-debug"
-				exclude "**/*.a"
-				exclude "**/*.d"
-				exclude "**/*.o"
-				exclude "**/*.so"
-				exclude "**/*.txt"
-			}
+        copy {
+            from(buildFolder) {
+                exclude "**/objs"
+                exclude "**/objs-debug"
+                exclude "**/*.a"
+                exclude "**/*.d"
+                exclude "**/*.o"
+                exclude "**/*.so"
+                exclude "**/*.txt"
+            }
 
-			into buildFolder
+            into buildFolder
 
             rename '(.+)', 'lib$1_exec.so'
 
-			eachFile {
-				println "Replacing " + it.getPath() + " from ndkBuild directory"
-			}
-		}
-	}
+            eachFile {
+                println "Replacing " + it.getPath() + " from ndkBuild directory"
+            }
+        }
+    }
 }
