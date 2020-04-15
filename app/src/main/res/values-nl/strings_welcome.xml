@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Welkom</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Welkomstlogo</string>
+    <string name="welcome_method_header">Welkom bij AdAway!</string>
+    <string name="welcome_method_summary">AdAway biedt twee blokkeermethoden aan. Kies de gewenste methode:</string>
+
+    <string name="welcome_root_method_logo">Rootlogo</string>
+    <string name="welcome_root_method_title">Blokkering op basis van root</string>
+    <string name="welcome_root_method_text1">Sneller</string>
+    <string name="welcome_root_method_text2">Bespaart accu</string>
+    <string name="welcome_root_method_text3">Root vereist</string>
+
+    <string name="welcome_vpn_method_logo">VPN-logo</string>
+    <string name="welcome_vpn_method_title">Blokkering op basis van VPN</string>
+    <string name="welcome_vpn_method_text1">Langzamer</string>
+    <string name="welcome_vpn_method_text2">Actief op de achtergrond</string>
+    <string name="welcome_vpn_method_text3">Comptabiliteit</string>
+
+    <string name="welcome_root_missing_title">Geroote Android vereist</string>
+    <string name="welcome_root_missile_description">De su-binary is niet aangetroffen of u heeft AdAway geen roottoegang verleend.\n\nDit komt voor als uw apparaat niet geroot is. Informatie over het rooten van uw apparaat vindt u op wiki.lineageos.org of andere Android-websites.</string>
+
+    <string name="welcome_method_pro_logo">Voordeel</string>
+    <string name="welcome_method_con_logo">Nadeel</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Synchroniseren voltooid</string>
+    <string name="welcome_sync_error_logo">Fout tijdens synchronisatie</string>
+
+    <string name="welcome_sync_header">Bezig met synchroniseren</string>
+    <string name="welcome_synced_header">Gesynchroniseerd!</string>
+    <string name="welcome_sync_summary">AdAway haalt reclamenetwerken op uit online-bronnen. U kunt deze later aanpassen in de instellingen.</string>
+    <string name="welcome_sync_retry_logo">Opnieuw proberen</string>
+    <string name="welcome_sync_error">Het synchroniseren is mislukt:\n%s\n Wilt u het opnieuw proberen?</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Ondersteuning</string>
+    <string name="welcome_support_header">Ondersteun mij!</string>
+    <string name="welcome_support_summary">Het is een gratis en open-source app. Ik ontwikkel dit in mijn vrije tijd. Als je het dus leuk vindt, voel je vrij om je support te laten zien:</string>
+    <string name="welcome_support_button">Doneren via PayPal</string>
+    <string name="welcome_support_telemetry_summary">Houdt u van bugs? Nee, ik ook niet.</string>
+    <string name="welcome_support_telemetry_button">Schakel telemetrie in om mij crashverslagen te sturen</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Vorige</string>
+    <string name="welcome_next_button">Volgende</string>
+    <string name="welcome_finish_button">Afronden</string>
 </resources>
