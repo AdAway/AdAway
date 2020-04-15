@@ -1,21 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Korijenski (root) temeljen blokator oglasa</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instalacija poslužitelja</string>
+    <string name="pref_root_open_hosts">Otvori datoteku poslužitelja</string>
     <string name="pref_apply_method">Odredišna datoteka poslužitelja</string>
-    <string name="pref_apply_method_summary">Prije promjene ove postavke, pročitajte u Pomoći o ovoj funkcionalnosti.</string>
+    <string name="pref_apply_method_summary">Prije korištenja ove značajke pročitajte Pomoć</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Prilagođena lokacija</item>
+        <item>Prilagođeno odredište</item>
     </string-array>
-    <string name="pref_custom_target">Prilagođena lokacija</string>
-    <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja</string>
+    <string name="pref_custom_target">Prilagođena lokacija odredišta</string>
+    <string name="pref_never_reboot">Sakrij dijalog ponovnog pokretanja nakon primjenjivanja</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Preusmjeravanje</string>
+    <string name="pref_hosts_redirection_summary">Odredite gdje će se preusmjeravati blokirani poslužitelji</string>
     <string name="pref_redirection_ipv4">IPv4 preusmjeravanja</string>
     <string name="pref_redirection_ipv6">IPv6 preusmjeravanja</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokalni web poslužitelj</string>
+    <string name="pref_webserver_summary">Lokalni web poslužitelj osluškuje lokalne IP adrese u svrhu odgovora na blokirane nazive poslužitelja. Može pomoći pri smrzavanju aplikacija kod blokiranih povezivanja.</string>
     <string name="pref_webserver_enabled">Omogući web poslužitelj</string>
     <string name="pref_webserver_on_boot">Pokreni web poslužitelja pri pokretanju sustava</string>
 </resources>
