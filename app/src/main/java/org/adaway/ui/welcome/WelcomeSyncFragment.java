@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.adaway.R;
 import org.adaway.model.error.HostError;
-import org.adaway.ui.next.NextViewModel;
+import org.adaway.ui.home.HomeViewModel;
 
 import static org.adaway.ui.welcome.WelcomeActivity.hideView;
 import static org.adaway.ui.welcome.WelcomeActivity.showView;
@@ -32,7 +32,7 @@ public class WelcomeSyncFragment extends WelcomeFragment {
     private ImageView errorImageView;
     private ImageView retryImageView;
     private TextView errorTextView;
-    private NextViewModel nextViewModel;
+    private HomeViewModel homeViewModel;
 
     @Nullable
     @Override
@@ -46,15 +46,15 @@ public class WelcomeSyncFragment extends WelcomeFragment {
 
         this.bindRetry(view);
 
-        this.nextViewModel = new ViewModelProvider(this).get(NextViewModel.class);
+        this.homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
-        this.nextViewModel.isAdBlocked().observe(lifecycleOwner, adBlocked -> {
+        this.homeViewModel.isAdBlocked().observe(lifecycleOwner, adBlocked -> {
             if (adBlocked) {
                 notifySynced();
             }
         });
-        this.nextViewModel.getError().observe(lifecycleOwner, this::notifyError);
-        this.nextViewModel.sync();
+        this.homeViewModel.getError().observe(lifecycleOwner, this::notifyError);
+        this.homeViewModel.sync();
 
         return view;
     }
@@ -67,7 +67,7 @@ public class WelcomeSyncFragment extends WelcomeFragment {
     }
 
     private void notifySynced() {
-        this.nextViewModel.enableAllSources();
+        this.homeViewModel.enableAllSources();
         this.headerTextView.setText(R.string.welcome_synced_header);
         hideView(this.progressBar);
         showView(this.syncedImageView);
@@ -90,6 +90,6 @@ public class WelcomeSyncFragment extends WelcomeFragment {
         hideView(this.retryImageView);
         hideView(this.errorTextView);
         showView(this.progressBar);
-        this.nextViewModel.sync();
+        this.homeViewModel.sync();
     }
 }

@@ -1,4 +1,4 @@
-package org.adaway.ui.next;
+package org.adaway.ui.home;
 
 import android.app.Application;
 
@@ -22,11 +22,11 @@ import org.adaway.util.AppExecutors;
 import org.adaway.util.Log;
 
 /**
- * This class is an {@link AndroidViewModel} for the {@link NextActivity} cards.
+ * This class is an {@link AndroidViewModel} for the {@link HomeActivity} cards.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class NextViewModel extends AndroidViewModel {
+public class HomeViewModel extends AndroidViewModel {
     private static final String TAG = "NextViewModel";
     private static final AppExecutors EXECUTORS = AppExecutors.getInstance();
 
@@ -41,7 +41,7 @@ public class NextViewModel extends AndroidViewModel {
     private final MediatorLiveData<String> state;
     private final MutableLiveData<HostError> error;
 
-    public NextViewModel(@NonNull Application application) {
+    public HomeViewModel(@NonNull Application application) {
         super(application);
         AdAwayApplication awayApplication = (AdAwayApplication) application;
         this.sourceModel = awayApplication.getSourceModel();

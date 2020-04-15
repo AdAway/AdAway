@@ -36,7 +36,7 @@ import org.adaway.R;
 import org.adaway.broadcast.StatusCommandReceiver;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockCommand;
-import org.adaway.ui.next.NextActivity;
+import org.adaway.ui.home.HomeActivity;
 import org.adaway.vpn.VpnWorker.VpnStatusNotifier;
 
 import java.lang.ref.WeakReference;
@@ -236,7 +236,7 @@ public class VpnService extends android.net.VpnService {
     private Notification getNotification(VpnStatus status) {
         String title = getString(R.string.vpn_notification_title, getString(status.getTextResource()));
 
-        Intent intent = new Intent(getApplicationContext(), NextActivity.class);
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
 

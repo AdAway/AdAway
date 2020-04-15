@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import org.adaway.R;
-import org.adaway.ui.next.NextActivity;
+import org.adaway.ui.home.HomeActivity;
 
 import static android.app.PendingIntent.getActivity;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
@@ -102,7 +102,7 @@ public final class NotificationHelper {
         int color = context.getColor(R.color.notification);
         String title = context.getString(R.string.notification_update_host_available_title);
         String text = context.getString(R.string.notification_update_host_available_text);
-        Intent intent = new Intent(context, NextActivity.class);
+        Intent intent = new Intent(context, HomeActivity.class);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = getActivity(context, 0, intent, 0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, UPDATE_NOTIFICATION_CHANNEL)
@@ -134,7 +134,7 @@ public final class NotificationHelper {
         int color = context.getColor(R.color.notification);
         String title = context.getString(R.string.notification_update_app_available_title);
         String text = context.getString(R.string.notification_update_app_available_text);
-        Intent intent = new Intent(context, NextActivity.class);
+        Intent intent = new Intent(context, HomeActivity.class);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = getActivity(context, 0, intent, 0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, UPDATE_NOTIFICATION_CHANNEL)

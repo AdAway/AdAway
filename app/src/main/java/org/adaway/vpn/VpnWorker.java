@@ -31,7 +31,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.ui.next.NextActivity;
+import org.adaway.ui.home.HomeActivity;
 import org.pcap4j.packet.IpPacket;
 
 import java.io.FileDescriptor;
@@ -437,7 +437,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
                 .setConfigureIntent(PendingIntent.getActivity(
                         vpnService,
                         1,
-                        new Intent(vpnService, NextActivity.class),
+                        new Intent(vpnService, HomeActivity.class),
                         PendingIntent.FLAG_CANCEL_CURRENT
                 ))
                 .establish();

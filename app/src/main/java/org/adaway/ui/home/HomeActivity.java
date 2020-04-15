@@ -1,4 +1,4 @@
-package org.adaway.ui.next;
+package org.adaway.ui.home;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -64,7 +64,7 @@ import static org.adaway.util.Constants.TAG;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class NextActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     /**
      * The project link.
      */
@@ -73,7 +73,7 @@ public class NextActivity extends AppCompatActivity {
     private BottomAppBar appBar;
     private FloatingActionButton fab;
     private BottomSheetBehavior<View> drawerBehavior;
-    private NextViewModel nextViewModel;
+    private HomeViewModel homeViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,11 +82,11 @@ public class NextActivity extends AppCompatActivity {
         ThemeHelper.applyTheme(this);
         NotificationHelper.clearUpdateNotifications(this);
         Log.i(TAG, "Starting main activity");
-        setContentView(R.layout.next_activity);
+        setContentView(R.layout.home_activity);
 
-        this.nextViewModel = new ViewModelProvider(this).get(NextViewModel.class);
-        this.nextViewModel.isAdBlocked().observe(this, this::notifyAdBlocked);
-        this.nextViewModel.getError().observe(this, this::notifyError);
+        this.homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        this.homeViewModel.isAdBlocked().observe(this, this::notifyAdBlocked);
+        this.homeViewModel.getError().observe(this, this::notifyError);
 
         this.appBar = findViewById(R.id.bar);
         applyActionBar();
@@ -142,10 +142,10 @@ public class NextActivity extends AppCompatActivity {
 
     private void bindAppVersion() {
         TextView versionTextView = findViewById(R.id.versionTextView);
-        versionTextView.setText(this.nextViewModel.getVersionName());
+        versionTextView.setText(this.homeViewModel.getVersionName());
         versionTextView.setOnClickListener(this::showChangelog);
 
-        this.nextViewModel.getAppManifest().observe(
+        this.homeViewModel.getAppManifest().observe(
                 this,
                 manifest -> {
                     if (manifest.updateAvailable) {
@@ -160,15 +160,15 @@ public class NextActivity extends AppCompatActivity {
         Function<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
 
         TextView blockedHostCountTextView = findViewById(R.id.blockedHostCounterTextView);
-        LiveData<Integer> blockedHostCount = this.nextViewModel.getBlockedHostCount();
+        LiveData<Integer> blockedHostCount = this.homeViewModel.getBlockedHostCount();
         Transformations.map(blockedHostCount, stringMapper).observe(this, blockedHostCountTextView::setText);
 
         TextView allowedHostCountTextView = findViewById(R.id.allowedHostCounterTextView);
-        LiveData<Integer> allowedHostCount = this.nextViewModel.getAllowedHostCount();
+        LiveData<Integer> allowedHostCount = this.homeViewModel.getAllowedHostCount();
         Transformations.map(allowedHostCount, stringMapper).observe(this, allowedHostCountTextView::setText);
 
         TextView redirectHostCountTextView = findViewById(R.id.redirectHostCounterTextView);
-        LiveData<Integer> redirectHostCount = this.nextViewModel.getRedirectHostCount();
+        LiveData<Integer> redirectHostCount = this.homeViewModel.getRedirectHostCount();
         Transformations.map(redirectHostCount, stringMapper).observe(this, redirectHostCountTextView::setText);
     }
 
@@ -176,13 +176,13 @@ public class NextActivity extends AppCompatActivity {
         Resources resources = getResources();
 
         TextView upToDateSourcesTextView = findViewById(R.id.upToDateSourcesTextView);
-        LiveData<Integer> upToDateSourceCount = this.nextViewModel.getUpToDateSourceCount();
+        LiveData<Integer> upToDateSourceCount = this.homeViewModel.getUpToDateSourceCount();
         upToDateSourceCount.observe(this, count ->
                 upToDateSourcesTextView.setText(resources.getQuantityString(R.plurals.up_to_date_source_label, count, count))
         );
 
         TextView outdatedSourcesTextView = findViewById(R.id.outdatedSourcesTextView);
-        LiveData<Integer> outdatedSourceCount = this.nextViewModel.getOutdatedSourceCount();
+        LiveData<Integer> outdatedSourceCount = this.homeViewModel.getOutdatedSourceCount();
         outdatedSourceCount.observe(this, count ->
                 outdatedSourcesTextView.setText(resources.getQuantityString(R.plurals.outdated_source_label, count, count))
         );
@@ -191,7 +191,7 @@ public class NextActivity extends AppCompatActivity {
     private void bindPending() {
         View sourcesImageView = findViewById(R.id.sourcesImageView);
         View sourcesProgressBar = findViewById(R.id.sourcesProgressBar);
-        this.nextViewModel.getPending().observe(this, pending -> {
+        this.homeViewModel.getPending().observe(this, pending -> {
             if (pending) {
                 hideView(sourcesImageView);
                 showView(sourcesProgressBar);
@@ -204,7 +204,7 @@ public class NextActivity extends AppCompatActivity {
 
     private void bindState() {
         TextView stateTextView = findViewById(R.id.stateTextView);
-        this.nextViewModel.getState().observe(this, stateTextView::setText);
+        this.homeViewModel.getState().observe(this, stateTextView::setText);
     }
 
     private void bindClickListeners() {
@@ -240,7 +240,7 @@ public class NextActivity extends AppCompatActivity {
 
     private void bindFab() {
         this.fab = findViewById(R.id.fab);
-        this.fab.setOnClickListener(v -> this.nextViewModel.toggleAdBlocking());
+        this.fab.setOnClickListener(v -> this.homeViewModel.toggleAdBlocking());
     }
 
     private boolean showFragment(@IdRes int actionId) {
@@ -331,7 +331,7 @@ public class NextActivity extends AppCompatActivity {
      */
     private void updateHostsList(@SuppressWarnings("unused") View view) {
         notifyUpdating(true);
-        this.nextViewModel.update();
+        this.homeViewModel.update();
     }
 
     /**
@@ -341,7 +341,7 @@ public class NextActivity extends AppCompatActivity {
      */
     private void syncHostsList(@SuppressWarnings("unused") View view) {
         notifyUpdating(true);
-        this.nextViewModel.sync();
+        this.homeViewModel.sync();
     }
 
 
@@ -418,7 +418,7 @@ public class NextActivity extends AppCompatActivity {
 
     private void showChangelog(@SuppressWarnings("unused") View view) {
         // Check manifest
-        Manifest manifest = this.nextViewModel.getAppManifest().getValue();
+        Manifest manifest = this.homeViewModel.getAppManifest().getValue();
         if (manifest == null) {
             return;
         }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/next_content" />
+    <include layout="@layout/home_content" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bar"
