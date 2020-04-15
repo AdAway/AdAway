@@ -1,15 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Postavke</string>
     <!-- General category -->
-    <string name="pref_dark_theme">Omogući tamnu temu</string>
+    <string name="pref_general_category">Općenito</string>
+    <string name="pref_dark_theme">Tamna tema</string>
+    <string name="pref_update_configuration">Automatska ažuriranja</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Blokiranje oglasa</string>
+    <string name="pref_root_ad_blocker_configuration">Korijenski (root) temeljen blokator oglasa</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN temeljen blokator oglasa</string>
     <string name="pref_whitelist_rules">Dopusti dodavanje na popis neblokiranih</string>
-    <string name="pref_redirection_rules">Dopusti dodavanja na popis preusmjernih</string>
-    <string name="pref_redirection_rules_summary">PREDSTAVLJA SIGURNOSNI RIZIK! Omogućuje stavke preusmjeravanja sa izvora poslužitelja.</string>
-    <string name="pref_enable_ipv6">Omogući IPv6</string>
+    <string name="pref_redirection_rules">Dopusti dodavanja na popis preusmjerenih</string>
+    <string name="pref_redirection_rules_summary">PREDSTAVLJA SIGURNOSNI RIZIK!</string>
+    <string name="pref_enable_ipv6">Omogući IPv6 podršku</string>
+    <string name="pref_backup_restore">Sigurnosno kopiraj / Obnovi pravila blokiranja</string>
     <!-- Debug category -->
-    <string name="pref_enable_telemetry">Omogući izvještaj rušenja</string>
-    <string name="pref_enable_telemetry_summary">Dopusti aplikaciji slanje izvještaja grešaka i rušenja na Sentry (sentry.io).</string>
+    <string name="pref_debug_category">Otklanjanje grešaka</string>
+    <string name="pref_enable_telemetry">Pošalji izvještaj rušenja</string>
+    <string name="pref_enable_telemetry_summary">Pošalji na Sentry (sentry.io).</string>
+    <string name="pref_enable_telemetry_disabled_summary">Nije podržano na ovoj izgradnji</string>
     <string name="pref_enable_debug">Omogući opširnije zapisivanje</string>
     <string name="pref_enable_debug_summary">Morate ponovno pokrenuti AdAway kako bi se ova postavka primijenila.</string>
 </resources>
