@@ -15,7 +15,6 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.util.Constants;
 import org.adaway.util.Log;
 
 import static androidx.work.ExistingPeriodicWorkPolicy.REPLACE;
@@ -32,6 +31,7 @@ import static java.util.concurrent.TimeUnit.DAYS;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public final class SourceUpdateService {
+    private static final String TAG = "SourceUpdateService";
     /**
      * The name of the periodic work.
      */
@@ -47,8 +47,7 @@ public final class SourceUpdateService {
     /**
      * Enable update service.
      *
-     * @param context The application context.
-     *
+     * @param context              The application context.
      * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
      */
     public static void enable(Context context, boolean unmeteredNetworkOnly) {
@@ -96,7 +95,7 @@ public final class SourceUpdateService {
         @NonNull
         @Override
         public Result doWork() {
-            Log.i(Constants.TAG, "Starting update worker");
+            Log.i(TAG, "Starting update worker");
             // Create model
             AdAwayApplication application = (AdAwayApplication) getApplicationContext();
             SourceModel model = application.getSourceModel();
@@ -106,7 +105,7 @@ public final class SourceUpdateService {
                 hasUpdate = model.checkForUpdate();
             } catch (HostErrorException exception) {
                 // An error occurred, check will be retried
-                Log.e(Constants.TAG, "Failed to check for update. Will retry later.", exception);
+                Log.e(TAG, "Failed to check for update. Will retry later.", exception);
                 return retry();
             }
             if (hasUpdate) {
@@ -115,7 +114,7 @@ public final class SourceUpdateService {
                     doUpdate(application);
                 } catch (HostErrorException exception) {
                     // Installation failed. Worker failed.
-                    Log.e(Constants.TAG, "Failed to apply hosts file during background update.", exception);
+                    Log.e(TAG, "Failed to apply hosts file during background update.", exception);
                     return failure();
                 }
             }
