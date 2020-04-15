@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Välkommen</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Välkomstlogo</string>
+    <string name="welcome_method_header">Välkommen till AdAway!</string>
+    <string name="welcome_method_summary">AdAway tillhandahåller två annonsblockeringsmetoder. Välj den du gillar:</string>
+
+    <string name="welcome_root_method_logo">Root-logo</string>
+    <string name="welcome_root_method_title">Root-baserad\nannonsblockering</string>
+    <string name="welcome_root_method_text1">Snabbare</string>
+    <string name="welcome_root_method_text2">Batterivänlig</string>
+    <string name="welcome_root_method_text3">Root krävs</string>
+
+    <string name="welcome_vpn_method_logo">VPN-logo</string>
+    <string name="welcome_vpn_method_title">VPN-baserad\nannonsblockering</string>
+    <string name="welcome_vpn_method_text1">Långsammare</string>
+    <string name="welcome_vpn_method_text2">Kör i bakgrunden</string>
+    <string name="welcome_vpn_method_text3">Kompatibilitet</string>
+
+    <string name="welcome_root_missing_title">Rootad Android krävs</string>
+    <string name="welcome_root_missile_description">Antingen så kunde binärfilen för su inte hittas eller så tillät du inte root-åtkomst för AdAway.\n\nDetta kan hända när din enhet inte är rootad. Du kan hitta mer information om hur du rootar din enhet på wiki.lineageos.org eller andra Android-webbplatser.</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Synkriniserad</string>
+    <string name="welcome_sync_error_logo">Fel vid synkronisering</string>
+
+    <string name="welcome_sync_header">Synkroniserar</string>
+    <string name="welcome_synced_header">Synkroniserad!</string>
+    <string name="welcome_sync_summary">AdAway laddar ner annonsnätverk att blockera från online-källor. Du kan anpassa dem senare i inställningarna.</string>
+    <string name="welcome_sync_retry_logo">Försök synkronisera igen</string>
+    <string name="welcome_sync_error">Det gick inte att synkronisera:\n%s.\nFörsöka igen?</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Support</string>
+    <string name="welcome_support_header">Stöd mig!</string>
+    <string name="welcome_support_summary">Detta är en app som är gratis och öppen källkod. Jag utvecklar den på min fritid. Så om du tycker om den, för du gärna visa ditt stöd:</string>
+    <string name="welcome_support_button">Donera på PayPal</string>
+    <string name="welcome_support_telemetry_summary">Gillar du fel? Inte jag heller.</string>
+    <string name="welcome_support_telemetry_button">Aktivera telemetri för att skicka mig kraschrapporter</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Bakåt</string>
+    <string name="welcome_next_button">Nästa</string>
+    <string name="welcome_finish_button">Avsluta</string>
 </resources>
