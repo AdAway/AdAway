@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Inställningar</string>
     <!-- General category -->
+    <string name="pref_general_category">Allmänt</string>
+    <string name="pref_dark_theme">Mörk tema</string>
+    <string name="pref_update_configuration">Automatisk uppdatering</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Annonsblockering</string>
+    <string name="pref_root_ad_blocker_configuration">Root-baserad annonsblockering</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN-baserad annonsblockering</string>
+    <string name="pref_whitelist_rules">Tillämpa tillåtna värdar från källor</string>
+    <string name="pref_redirection_rules">Tillämpa omdirigerade värdar från källor</string>
+    <string name="pref_redirection_rules_summary">UTGÖR EN SÄKERHETSRISK!</string>
+    <string name="pref_enable_ipv6">Aktivera IPv6-stöd</string>
+    <string name="pref_backup_restore">Säkerhetskopiera / återställ blockregler</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Felsökning</string>
+    <string name="pref_enable_telemetry">Skicka kraschrapport</string>
+    <string name="pref_enable_telemetry_summary">Rapportera till Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Stöds inte i denna versionen</string>
+    <string name="pref_enable_debug">Utökad loggning</string>
+    <string name="pref_enable_debug_summary">Appen måste startas om för att tillämpa</string>
 </resources>
