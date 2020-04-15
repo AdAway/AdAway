@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Bez připojení k internetu</string>
+    <string name="error_no_connection_details">Není možné navázat připojení k internetu. Zkontrolujte, prosím, internetové připojení vašeho zařízení.</string>
+    <string name="error_download_failed_message">Není možné stáhnout zdroj hostitelů</string>
+    <string name="error_download_failed_details">Žádný z vašich povolených zdrojů hostitelů není dostupný. Zkontrolujte, prosím, že je vaše připojení k internetu v pořádku.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Vytváření soukromého souboru selhalo</string>
+    <string name="error_private_file_failed_details">Není možné vytvořit soukromý soubor potřebný pro sestavení nového souboru hostitelů. Zkontrolujte, prosím, že je na vašem zařízení dostatek volného místa.</string>
+    <string name="error_not_enough_space_message">Nedostatek místa</string>
+    <string name="error_not_enough_space_details">Není možné zkopírovat soubor hostitelů na váš systémový oddíl. Zkontrolujte, prosím, zda je funkce nesystémoví hostitelé v Magisk Manageru povolena a poté restartujte zařízení.</string>
+    <string name="error_copy_failed_message">Aplikování nového souboru hostitelů selhalo</string>
+    <string name="error_copy_failed_details">Není možné zkopírovat soubor hostitelů na oddíl /system. Zkontrolujte, prosím, zda je funkce nesystémoví hostitelé v Magisk Manageru povolena a poté restartujte zařízení.</string>
+    <string name="error_revert_failed_message">Obnovení souboru hostitelů selhalo</string>
+    <string name="error_revert_failed_details">Výchozí soubor hostitelů nelze obnovit.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Povolení blokování reklam pomocí VPN se nezdařilo.</string>
+    <string name="error_enable_vpn_failed_details">Zkontrolujte, prosím, vaše nastavení VPN, aby aplikace byla autorizovaná ke spuštění VPN.</string>
+    <string name="error_disable_vpn_failed_message">Zakázání blokování reklam pomocí VPN se nezdařilo.</string>
+    <string name="error_disable_vpn_failed_details">Zkontrolujte, prosím, vaše nastavení VPN a deaktivujte jej ručně.</string>
 </resources>
