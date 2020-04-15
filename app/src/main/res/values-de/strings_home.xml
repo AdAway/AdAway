@@ -1,28 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Blockiert</string>
+    <string name="allowed_hosts_label">Gestattet</string>
+    <string name="redirect_hosts_label">Umgeleitet</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d aktuelle Quelle</item>
+        <item quantity="other">%d aktuelle Quellen</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d veraltete Quelle</item>
+        <item quantity="other">%d veraltete Quellen</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Hilfe anzeigen</string>
 
     <!-- Project card -->
+    <string name="project_label">GitHub-Seite öffnen</string>
 
     <!-- Support card -->
+    <string name="support_label">Projekt fördern</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS-Protokolle</string>
+    <string name="preferences_drawer_item">Einstellungen</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">App-Navigation öffnen</string>
+    <string name="adblock_pause_button_description">Werbeblockade anhalten/wiederaufnehmen</string>
+    <string name="update_button">Blockierte Domänen aktualisieren</string>
+    <string name="show_log_button">Abgefragte Domänen anzeigen</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Bitte die Hilfe für mehr Informationen lesen.</string>
 
 </resources>
