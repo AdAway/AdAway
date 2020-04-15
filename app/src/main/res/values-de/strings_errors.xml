@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Keine Internetverbindung</string>
+    <string name="error_no_connection_details">Es kann keine Verbindung zum Internet hergestellt werden. Prüfen Sie bitte die Verbindungsfähigkeit Ihres Geräts.</string>
+    <string name="error_download_failed_message">Download der Hosts-Quelle fehlgeschlagen</string>
+    <string name="error_download_failed_details">Keine der von Ihnen aktivierten Hosts-Quellen ist erreichbar. Prüfen Sie bitte, ob Ihre Internetverbindung funktioniert.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Erstellung der privaten Datei fehlgeschlagen</string>
+    <string name="error_private_file_failed_details">Es ist nicht möglich, eine private Datei zu erstellen, um eine neue Hosts-Quelle aufzubauen. Prüfen Sie bitte, ob auf Ihrem Gerät ausreichend Speicherplatz zur Verfügung steht.</string>
+    <string name="error_not_enough_space_message">Nicht genügend Speicherplatz</string>
+    <string name="error_not_enough_space_details">Es ist nicht möglich, die Hosts-Datei in Ihre Systempartition zu kopieren. Prüfen Sie bitte, ob das systemlose Magisk-Modul aktiviert ist, und starten Sie dann das Gerät neu.</string>
+    <string name="error_copy_failed_message">Installation der neuen Hosts-Datei fehlgeschlagen</string>
+    <string name="error_copy_failed_details">Es ist nicht möglich, die Hosts-Datei in die Partition »/system« zu kopieren. Prüfen Sie bitte, ob das systemlose Magisk-Modul aktiviert ist, und starten Sie dann das Gerät neu.</string>
+    <string name="error_revert_failed_message">Zurücksetzen der Hosts-Datei fehlgeschlagen</string>
+    <string name="error_revert_failed_details">Es ist nicht möglich, die Standardkonfiguration der Hosts-Datei wiederherzustellen.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Aktivierung der VPN-Werbeblockade fehlgeschlagen</string>
+    <string name="error_enable_vpn_failed_details">Überprüfen Sie bitte Ihre VPN-Einstellungen, um der App den VPN-Start zu genehmigen.</string>
+    <string name="error_disable_vpn_failed_message">Deaktivierung der VPN-Werbeblockade fehlgeschlagen</string>
+    <string name="error_disable_vpn_failed_details">Überprüfen Sie bitte Ihre VPN-Einstellungen, um sie manuell zu deaktivieren.</string>
 </resources>
