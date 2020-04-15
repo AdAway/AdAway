@@ -1,28 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Blockerad</string>
+    <string name="allowed_hosts_label">Tillåten</string>
+    <string name="redirect_hosts_label">Omdirigerad</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d uppdaterad källa</item>
+        <item quantity="other">%d uppdaterade källor</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d inaktuell källa</item>
+        <item quantity="other">%d inaktuella källor</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Visa hjälp</string>
 
     <!-- Project card -->
+    <string name="project_label">Öppna GitHub-sidan</string>
 
     <!-- Support card -->
+    <string name="support_label">Stöd projektet</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS-loggar</string>
+    <string name="preferences_drawer_item">Inställningar</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Öppna navigeringsmapp</string>
+    <string name="adblock_pause_button_description">Pausa/återuppta annonsblockering</string>
+    <string name="update_button">Uppdatera blockerade domäner</string>
+    <string name="show_log_button">Visa begärda domäner</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Läs Hjälp för mer information.</string>
 
 </resources>
