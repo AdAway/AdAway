@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Ukončit</string>
     <string name="button_close">Zavřít</string>
@@ -16,16 +15,23 @@
     <string name="text_help">AdAway je bezplatná open-source aplikace pro blokování reklam. AdAway stahuje síťové adresy reklam za účelem jejich blokování na vašem zařízení.\nChcete vědět více? Podívejte se na nápovědu níže!</string>
     <string name="button_show_help">Zobrazit další nápovědu</string>
     <string name="icon_update_status">Aktualizovat status</string>
-    <string name="text_update">Všechny soubory hostitelů z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a instalovány do vašeho systému jako jeden soubor hostitelů.</string>
+    <string name="text_update">Všechny soubory hostitelů z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a aplikovány do vašeho systému jako jeden soubor hostitelů.</string>
     <string name="button_check_update_hosts">Zkontrolovat aktualizace</string>
     <string name="button_update_hosts">Aktualizovat hostitele</string>
     <string name="button_enable_hosts">Zapnout blokování reklamy</string>
     <string name="button_disable_hosts">Vypnout blokování reklamy</string>
     <string name="header_webserver">Webový server</string>
-    <string name="webserver_status_running">Běží</string>
-    <string name="webserver_status_stopped">Zastaven</string>
+    <string name="webserver_status_running">Spuštěn</string>
+    <string name="webserver_status_stopped">Vypnut</string>
+    <string name="webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na blokované hostitele.</string>
     <string name="button_enable_webserver">Povolit webový server</string>
     <string name="button_disable_webserver">Zakázat webový server</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Spuštěna</string>
+    <string name="vpn_status_stopped">Vypnuta</string>
+    <string name="vpn_toggle_text">Zapnout nebo vypnout VPN pro filtrování požadavků.</string>
+    <string name="button_enable_vpn">Povolit VPN</string>
+    <string name="button_disable_vpn">Zakázat VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Smazat</string>
@@ -47,11 +53,20 @@
     <string name="hosts_open_button">Otevřít soubor hostitelů</string>
 
     <!--Status Notification-->
-    <string name="status_reverting_subtitle">Vytvářím standardní soubor hostitelů</string>
-    <string name="status_update_available">Aktualizace je k dispozici</string>
+    <string name="status_check">Kontrola aktualizace</string>
+    <string name="status_check_source">Kontrola aktualizace zdroje %s</string>
+    <string name="status_retrieve">Načítání zdrojů</string>
+    <string name="status_download_source">Stahování zdroje %s</string>
+    <string name="status_copy_source">Kopírování zdroje %s</string>
+    <string name="status_parse_source">Analýza zdroje %s</string>
+    <string name="status_revert">Obnovování výchozího souboru hostitelů</string>
+    <string name="status_revert_done">Výchozí soubor hostitelů obnoven</string>
+    <string name="status_reverting_subtitle">Vytváření standardního souboru hostitelů</string>
+    <string name="status_update_available">Aktualizace zdroje k dispozici</string>
     <string name="status_update_available_subtitle">Jsou dostupné novější soubory hostitelů</string>
+    <string name="status_no_update_found">Nebyla nalezena žádná aktualizace zdroje</string>
     <string name="status_no_connection">Bez připojení k internetu</string>
-    <string name="status_no_connection_subtitle">Bez dostupného připojení na internet</string>
+    <string name="status_no_connection_subtitle">Bez dostupného připojení k internetu</string>
     <string name="status_download_fail">Nedostupné zdroje</string>
     <string name="status_download_fail_subtitle_new">Nejsou dostupné žádné zdroje souborů hostitelů!</string>
     <string name="status_root_access_denied">ROOT přístup odepřen</string>
@@ -62,13 +77,19 @@
     <string name="status_enabled_subtitle">Nejnovější soubory hostitelů povoleny</string>
     <string name="status_disabled">Zakázáno</string>
     <string name="status_disabled_subtitle">Výchozí soubor hostitelů aplikován</string>
+    <string name="status_apply_sources">Aplikovat nejnovější zdroje</string>
+    <string name="status_create_new_hosts">Vytváření nového souboru hostitelů</string>
+    <string name="status_copy_new_hosts">Kopírování nového souboru hostitelů</string>
+    <string name="status_check_copy">Kontrola kopie souboru hostitelů</string>
+    <string name="status_hosts_updated">Soubor hostitelů úspěšně aktualizován</string>
     <string name="notification_configuration_changed">Kofigurace byla změněna. Aby se změny projevily, je nutné soubor hostitelů znovu aplikovat.</string>
     <string name="notification_configuration_changed_action">Aplikovat</string>
     <string name="notification_configuration_installing">Aplikování souboru hostitelů…</string>
     <string name="notification_configuration_failed">Aplikování souboru hostitelů se nezdařilo.</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing">Symbolický odkaz z vašeho cíle na /system/etc/hosts neexistuje nebo je špatný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
+    <string name="apply_symlink_missing_status">Chybí symbolický odkaz na cílový soubor hostitelů</string>
+    <string name="apply_symlink_missing">Symbolický odkaz z vašeho cíle na /system/etc/hosts neexistuje nebo je chybný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
     <string name="apply_symlink_missing_title">Chybějící symbolický odkaz</string>
     <string name="apply_not_enough_space">Na oddílu není dostatek volného místa!\nZkuste v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
     <string name="apply_not_enough_space_title">Nedostatek místa</string>
@@ -76,6 +97,7 @@
     <string name="apply_private_file_fail_title">Selhání soukromého souboru</string>
     <string name="apply_remount_fail">Připojení oddílu pro čtení/zápis selhalo!</string>
     <string name="apply_remount_fail_title">Připojení oddílu selhalo!</string>
+    <string name="apply_copy_fail_status">Nepodařilo se zkopírovat soubor hostitelů</string>
     <string name="apply_copy_fail">Kopírování souboru hostitelů selhalo!</string>
     <string name="apply_copy_fail_title">Kopírování selhalo</string>
     <string name="apply_success_subtitle">Použité zdroje hostitelů</string>
@@ -96,28 +118,33 @@
     <string name="apply_dialog_hostnames">Analýza a slučování souborů hostitelů</string>
     <string name="apply_dialog_hosts">Vytváření souboru hostitelů</string>
     <string name="apply_dialog_apply">Aplikování souboru hostitelů</string>
+    <string name="apply_fail_status">Nepodařilo se aplikovat nový soubor hostitelů</string>
     <string name="apply_fail">Při aplikaci souboru hostitelů došlo k chybě!\nZkuste v nastavení změnit cílový soubor hostitelů na /data/data/hosts.</string>
     <string name="apply_fail_title">Aplikování se nezdařilo</string>
     <string name="root_access_fail">Ujistěte se, prosím, že jste v aplikaci pro správu ROOT přístupů udělili oprávnění pro ROOT přístup.</string>
     <string name="revert_successful">Obnovili jste výchozí soubor hostitelů.\nAby se změny projevily, může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
     <string name="revert_successful_title">Obnova úspěšná</string>
+    <string name="revert_failed_status">Soubor hostitelů nelze obnovit</string>
     <string name="revert_problem">Obnova souboru hostitelů z neznámých příčin selhala!</string>
     <string name="revert_problem_title">Obnova souboru hostitelů selhala!</string>
     <string name="download_fail_dialog">Žádný z povolených zdrojů souboru hostitelů není dostupný! Jste správně připojeni k internetu?</string>
     <string name="download_fail_title">Stahování selhalo</string>
+    <string name="no_private_file_status">Nepodařilo se zapsat nový soukromý soubor hostitelů</string>
     <string name="no_private_file">Soukromý soubor nelze vytvořit.</string>
     <string name="no_private_file_title">Vytváření soukromého souboru selhalo</string>
     <string name="enable_systemless_successful">Povolili jste mód systemless.\nAby se změny projevily, může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
     <string name="enable_systemless_successful_title">Úspěšně povoleno</string>
     <string name="disable_systemless_successful">Zakázali jste mód systemless.\nAby se změny projevily, může být nutné restartovat vaše zařízení.\n\nChcete zařízení restartovat?\n(Abyste předešli ztrátě dat, ujistěte se, že žádná aplikace momentálně nepoužívá SD kartu!)</string>
     <string name="disable_systemless_successful_title">Úspěšně zakázáno</string>
+    <string name="enable_vpn_fail">Povolení blokování reklam pomocí VPN se nezdařilo.</string>
+    <string name="disable_vpn_fail">Zakázání blokování reklam pomocí VPN se nezdařilo.</string>
     <string name="enable_systemless_magisk_title">Povolování Magisk modulu hosts</string>
     <string name="enable_systemless_magisk">Povolte funkci nesystémoví hostitelé v Magisk Manageru. V jeho nastavení povolte možnost <cite>Nesystémoví hostitelé</cite> a poté restartujte zařízení.</string>
     <string name="disable_systemless_magisk_title">Zakazování Magisk modulu hosts</string>
     <string name="disable_systemless_magisk">Zakažte funkci nesystémoví hostitelé v Magisk Manageru. V seznamu modulů odinstalujte modul <cite>Systemless Hosts</cite> a poté restartujte zařízení.</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Zadej URL k souboru hostitelů:</string>
+    <string name="hosts_add_dialog">Zadejte URL k souboru hostitelů:</string>
     <string name="no_hostname">Toto není platný název hostitele!</string>
     <string name="no_hostname_title">Chybný formát názvu hostitele</string>
     <string name="no_ip">Toto není platná IP!</string>
@@ -140,10 +167,8 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Zde můžete vyhledat nainstalovaný Adware, špatné aplikace, které nemohou být aplikací AdAway blokovány. Tyto aplikace používají například oznámení Airpush, které se objevují i v případě, že aplikace není spuštěna, nebo dokonce změní vaše vyzvánění. Jediné protiopatření je odinstalování těchto aplikací klepnutím na položky seznamu!</string>
-    <string name="adware_scanning">Skenování…</string>
+    <string name="adware_scanning">Skenování&#8230;</string>
     <string name="adware_empty">Žádný Adware nebyly nalezen!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Blokování reklam</string>
@@ -167,7 +192,6 @@
     <string name="tcpdump_entry_add_whitelist">Přidat položku na bílou listinu</string>
     <string name="tcpdump_entry_add_redirection_list">Přidat položku na listinu přesměrování</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Upravit textovou hodnotu předvolby</string>
     <string name="drawer_open">Otevřít menu</string>
     <string name="drawer_close">Zavřít menu</string>
@@ -185,14 +209,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS požadavky</string>
     <string name="shortcut_your_lists">Vaše seznamy</string>
     <string name="shortcut_preferences">Nastavení</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Aplikováno před %1$s</string>
     <string name="hosts_source_up_to_date">Aktualizováno před %1$s</string>
     <string name="hosts_source_need_update">Aktualizace potřebná před %1$s</string>
     <string name="hosts_source_last_update">Poslední aktualizace před %1$s</string>
@@ -221,5 +244,21 @@
         <item quantity="many">%d měsíci</item>
         <item quantity="other">%d měsíci</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">spouštění</string>
+    <string name="vpn_notification_running">spuštěno</string>
+    <string name="vpn_notification_stopping">vypínání</string>
+    <string name="vpn_notification_waiting_for_net">čekání na síť</string>
+    <string name="vpn_notification_reconnecting">obnovování připojení</string>
+    <string name="vpn_notification_reconnecting_error">obnovování připojení selhalo</string>
+    <string name="vpn_notification_paused">pozastaveno</string>
+    <string name="vpn_notification_stopped">vypnuto</string>
+    <string name="vpn_notification_title">Blokování reklam pomocí VPN: %1$s</string>
+    <string name="vpn_notification_action_pause">Pozastavit</string>
+    <string name="vpn_notification_paused_text">Stiskněte pro pokračování</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Povolit a zakázat systémové blokování reklamy</string>
 
 </resources>
