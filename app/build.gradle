@@ -5,6 +5,12 @@ def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingKeyAlias') &&
         project.hasProperty('signingKeyPassword')
 
+repositories {
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
@@ -25,8 +31,6 @@ android {
             }
         }
     }
-
-    ndkVersion "21.0.6113669"
 
     /*
      * To sign release build, create file gradle.properties in ~/.gradle/ with this content:
@@ -101,7 +105,6 @@ dependencies {
     // Miscellaneous
     implementation 'com.google.guava:guava:29.0-android'
     implementation 'com.annimon:stream:1.2.1'
-    implementation 'com.google.android:flexbox:1.1.1'   // TODO To remove with the old home screen
     implementation 'com.squareup.okhttp3:okhttp:3.14.7'
     implementation 'org.sufficientlysecure:html-textview:3.9'
     if (keyStoreDefined) {
