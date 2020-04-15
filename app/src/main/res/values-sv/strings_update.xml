@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Home screen -->
+    <string name="update_available">Uppdatering tillgänglig!</string>
 
     <!-- Changelog dialog -->
+    <string name="update_update_title">En ny version finns tillgänglig</string>
+    <string name="update_update_message">Den ny versionen har följande ändringar:\n\n</string>
+    <string name="update_up_to_date_title">Allt är uppdaterat</string>
+    <string name="update_up_to_date_message">Den senaste versionen innehåller dessa ändringar:\n\n</string>
+    <string name="update_changelog">Ändringslogg</string>
+    <string name="update_update_button">Uppdatera nu</string>
 </resources>
