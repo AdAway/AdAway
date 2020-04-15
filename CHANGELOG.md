@@ -1,3 +1,15 @@
+## [5.0.1] - 2020-04-15
+
+*This version is a pre-release*
+
+- Fix redirect label from home screen
+- Fix preference screen duplication on screen orientation change
+- Improve hosts list readability
+- Update dependencies
+- Fix ndk configuration
+
+Special thanks to TacoTheDank for its contribution and rmw98 and Luniz2k1 for its bug reports.
+
 ## [4.3.3] - 2020-04-10
 
 hpHosts service is down.
