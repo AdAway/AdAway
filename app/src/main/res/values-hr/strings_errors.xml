@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Internet nedostupan</string>
+    <string name="error_no_connection_details">Nemoguće uspostavljanje povezivanja s internetom. Provjerite svoju mrežnu povezivost uređaja.</string>
+    <string name="error_download_failed_message">Neuspjelo preuzimanje izvora poslužitelja</string>
+    <string name="error_download_failed_details">Niti jedan od vaših omogućenih izvora poslužitelja nije dostupan! Provjerite jeste li ispravno povezani na internet?</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Neuspjelo stvaranje privatne datoteke</string>
+    <string name="error_private_file_failed_details">Neuspjelo stvaranje privatne datoteke za izgradnju novog izvora poslužitelja. Provjerite slobodan prostor na vašem uređaju.</string>
+    <string name="error_not_enough_space_message">Nedovoljno prostora</string>
+    <string name="error_not_enough_space_details">Neuspjelo kopiranje datoteke poslužitelja na vašu particiju sustava. Provjerite je li Magisk systemless modul omogućen a zatim ponovno pokrenite uređaj.</string>
+    <string name="error_copy_failed_message">Neuspjela instalacija nove datoteke poslužitelja.</string>
+    <string name="error_copy_failed_details">Neuspjelo kopiranje datoteke poslužitelja na /system particiju. Provjerite je li Magisk systemless modul omogućen a zatim ponovno pokrenite uređaj.</string>
+    <string name="error_revert_failed_message">Neuspjelo vraćanje datoteke poslužitelja</string>
+    <string name="error_revert_failed_details">Neuspjelo vraćanje izvorne datoteke podešavanja poslužitelja.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Neuspjelo omogućavanje VPN blokiranja oglasa.</string>
+    <string name="error_enable_vpn_failed_details">Provjerite svoje VPN postavke za dopuštenje aplikaciji VPN pokretanje. </string>
+    <string name="error_disable_vpn_failed_message">Neuspjelo onemogućavanje VPN blokiranja oglasa.</string>
+    <string name="error_disable_vpn_failed_details">Provjerite svoje VPN postavke kako bi ih ručno onemogućili.. </string>
 </resources>
