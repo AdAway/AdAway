@@ -32,6 +32,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
@@ -287,7 +288,7 @@ public class SourceModel {
             }
             if (copySuccess) {
                 // Update local and online modification dates to now
-                Date now = new Date();
+                Date now = Date.from(Instant.now());
                 this.hostsSourceDao.updateModificationDates(hostsSource.getId(), now);
             } else {
                 // Increment number of failed copy
