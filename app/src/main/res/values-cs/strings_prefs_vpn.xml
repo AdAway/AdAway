@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">Blokování reklamy pomocí VPN</string>
+    <string name="pref_vpn_service_on_boot">Povolit při spuštění</string>
     <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Vyloučené aplikace</string>
+    <string name="pref_vpn_excluded_apps_description">Nakonfigurujte, které aplikace by neměly používat VPN, takže nebudou blokována žádná spojení.</string>
+    <string name="pref_vpn_exclude_system_apps">Vyloučit systémové aplikace</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Žádné</item>
+        <item>Všechny kromě prohlížečů</item>
+        <item>Všechny</item>
     </string-array>
+    <string name="pref_vpn_exclude_user_apps">Vyloučit uživatelské aplikace</string>
 
     <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Vyloučené aplikace</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Vybrat vše</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Zrušit výběr</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Ikona aplikace</string>
 </resources>
