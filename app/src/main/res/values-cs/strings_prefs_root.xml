@@ -1,12 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Blokování reklamy pomocí přístupu ROOT</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instalace hostitelů</string>
+    <string name="pref_root_open_hosts">Otevřít soubor hostitelů</string>
+    <string name="pref_apply_method">Cílový soubor hostitelů</string>
+    <string name="pref_apply_method_summary">Před používáním této funkce si přečtěte nápovědu</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Vlastní cíl</item>
     </string-array>
+    <string name="pref_custom_target">Umístění vlastního cíle</string>
+    <string name="pref_never_reboot">Skrýt dialogové okno restartu po aplikování</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Přesměrování</string>
+    <string name="pref_hosts_redirection_summary">Určit kam přesměrovat zablokované hostitele</string>
+    <string name="pref_redirection_ipv4">Přesměrování IPv4</string>
+    <string name="pref_redirection_ipv6">Přesměrování IPv6</string>
     <!-- Web server category -->
+    <string name="pref_webserver">Lokální webový server</string>
+    <string name="pref_webserver_summary">Lokální webový server naslouchá na lokálních IP adresách a odpovídá na požadavky na zablokovaná jména hostitelů. To může pomoci se zamrzáváním aplikací po zablokování spojení.</string>
+    <string name="pref_webserver_enabled">Povolit webový server</string>
+    <string name="pref_webserver_on_boot">Spustit webový server při startu systému</string>
 </resources>
