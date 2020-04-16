@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Nastavení</string>
     <!-- General category -->
+    <string name="pref_general_category">Obecné</string>
+    <string name="pref_dark_theme">Tmavé téma</string>
+    <string name="pref_update_configuration">Automatické aktualizace</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Blokování reklamy</string>
+    <string name="pref_root_ad_blocker_configuration">Blokování reklamy pomocí přístupu ROOT</string>
+    <string name="pref_vpn_ad_blocker_configuration">Blokování reklamy pomocí VPN</string>
+    <string name="pref_whitelist_rules">Aplikovat povolené hostitele ze zdrojů</string>
+    <string name="pref_redirection_rules">Aplikovat přesměrované hostitele ze zdrojů</string>
+    <string name="pref_redirection_rules_summary">PŘEDSTAVUJE BEZPEČNOSTNÍ RIZIKO!</string>
+    <string name="pref_enable_ipv6">Povolit podporu IPv6</string>
+    <string name="pref_backup_restore">Zálohovat / obnovit pravidla pro blokování</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Ladění</string>
+    <string name="pref_enable_telemetry">Odesílat zprávy o selhání</string>
+    <string name="pref_enable_telemetry_summary">Nahlašovat na Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Na tomto sestavení není k dispozici</string>
+    <string name="pref_enable_debug">Záznam s více informacemi</string>
+    <string name="pref_enable_debug_summary">Pro aplikování je potřeba restartovat aplikaci</string>
 </resources>
