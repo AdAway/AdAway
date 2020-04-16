@@ -28,6 +28,8 @@ import org.adaway.util.RemountException;
 import org.adaway.util.Utils;
 import org.sufficientlysecure.rootcommands.Shell;
 import org.sufficientlysecure.rootcommands.util.RootAccessDeniedException;
+import org.threeten.bp.DateTimeUtils;
+import org.threeten.bp.Instant;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -754,7 +756,7 @@ public class HostsInstallModel extends Observable {
     private void markHostsSourcesAsInstalled() {
         // Get application context and database
         HostsSourceDao hostsSourceDao = AppDatabase.getInstance(this.context).hostsSourceDao();
-        Date now = new Date();
+        Date now = DateTimeUtils.toDate(Instant.now());
         hostsSourceDao.updateEnabledLocalModificationDates(now);
     }
 

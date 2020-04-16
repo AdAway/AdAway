@@ -22,6 +22,8 @@ package org.adaway.ui;
 
 import android.app.Application;
 
+import com.jakewharton.threetenabp.AndroidThreeTen;
+
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.hostsinstall.HostsInstallModel;
@@ -47,6 +49,8 @@ public class AdAwayApplication extends Application {
         super.onCreate();
         // Initialize sentry
         SentryLog.init(this);
+        // Initialize timezone
+        AndroidThreeTen.init(this);
         // Set Debug level based on preference
         if (PreferenceHelper.getDebugEnabled(this)) {
             Log.d(Constants.TAG, "Debug set to true by preference!");

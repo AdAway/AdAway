@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import org.adaway.R;
+import org.threeten.bp.Instant;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -85,10 +86,10 @@ public class DateUtils {
     public static String getApproximateDelay(Context context, Date from) {
         // Get resource for plurals
         Resources resources = context.getResources();
-        // Get current date
-        Date date = new Date();
+        // Get current date in UTC timezone
+        long now = Instant.now().toEpochMilli();
         // Get delay between from and now in minutes
-        long delay = (date.getTime() - from.getTime()) / (1000 * 60);
+        long delay = (now - from.getTime()) / (1000 * 60);
         // Check if delay is lower than an hour
         if (delay < 60) {
             int minutes = (int) delay;
