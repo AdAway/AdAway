@@ -1,7 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lists_title">Listele dvs.</string>
     <!-- Tab -->
+    <string name="lists_tab_blocked">Blocate</string>
+    <string name="lists_tab_allowed">Permise</string>
+    <string name="lists_tab_redirected">Redirecționate</string>
     <!-- Menu -->
+    <string name="lists_menu_filter">Filtru domenii</string>
     <!-- Filter dialog -->
+    <string name="lists_filter_host_title">Filtru nume domeniu:</string>
+    <string name="lists_filter_include_sources">Include domenii din surse</string>
+    <string name="lists_filter_apply">Aplică</string>
+    <string name="lists_filter_reset">Resetare</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Adauga domeniu in black list</string>
+    <string name="list_add_dialog_white">Adauga domeniu in white list</string>
+    <string name="list_add_dialog_redirect">Adauga redirectionare</string>
+    <string name="list_edit_dialog_black">Editeaza domeniu in black list</string>
+    <string name="list_edit_dialog_white">Editeaza domeniul in white list</string>
+    <string name="list_edit_dialog_redirect">Editeaza redirectionarea</string>
+    <string name="list_dialog_hostname">Nume domeniu:</string>
+    <string name="list_dialog_hostname_hint">URL domeniu</string>
+    <string name="list_dialog_wildcard">(Sunt permise caracterele generice * și ?)</string>
+    <string name="list_dialog_ip">Adresă IP (IPv4 sau IPv6):</string>
 </resources>
