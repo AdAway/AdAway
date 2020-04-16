@@ -264,33 +264,35 @@ public class SourceModel {
         // Initialize copy counters
         int numberOfCopies = 0;
         int numberOfFailedCopies = 0;
+        // Compute current date in UTC timezone
+        Date now = Date.from(Instant.now());
         // Get each hosts source
         for (HostsSource hostsSource : this.hostsSourceDao.getEnabled()) {
             // Increment number of copy
             numberOfCopies++;
-            boolean copySuccess = false;
             try {
                 // Check hosts source protocol
                 String url = hostsSource.getUrl();
                 String protocol = new URL(url).getProtocol();
                 switch (protocol) {
                     case "https":
-                        copySuccess = downloadHostSource(hostsSource);
+                        downloadHostSource(hostsSource);
                         break;
                     case "file":
-                        copySuccess = copyHostSourceFile(hostsSource);
+                        copyHostSourceFile(hostsSource);
                         break;
                     default:
                         Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
                 }
+                // Get hosts source last update
+                Date lastModifiedOnline = getHostsSourceLastUpdate(hostsSource.getUrl());
+                if (lastModifiedOnline == null) {
+                    lastModifiedOnline = now;
+                }
+                // Update local and online modification dates to now
+                this.hostsSourceDao.updateModificationDates(hostsSource.getId(), now, lastModifiedOnline);
             } catch (IOException exception) {
                 Log.w(TAG, "Failed to retrieve host source " + hostsSource.getUrl() + ".", exception);
-            }
-            if (copySuccess) {
-                // Update local and online modification dates to now
-                Date now = Date.from(Instant.now());
-                this.hostsSourceDao.updateModificationDates(hostsSource.getId(), now);
-            } else {
                 // Increment number of failed copy
                 numberOfFailedCopies++;
             }
@@ -322,9 +324,9 @@ public class SourceModel {
      * Download an hosts source file and append it to a private file.
      *
      * @param hostsSource The hosts source to download.
-     * @return {@code true} if the hosts was successfully downloaded, {@code false} otherwise.
+     * @throws IOException If the hosts source could not be downloaded.
      */
-    private boolean downloadHostSource(HostsSource hostsSource) {
+    private void downloadHostSource(HostsSource hostsSource) throws IOException {
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
         Log.v(TAG, "Downloading hosts file: " + hostsFileUrl);
@@ -341,21 +343,17 @@ public class SourceModel {
              InputStream inputStream = response.body().byteStream()) {
             parseSourceInputStream(hostsSource, inputStream);
         } catch (IOException exception) {
-            Log.e(TAG, "Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
-            // Return download failed
-            return false;
+            throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
         }
-        // Return download successful
-        return true;
     }
 
     /**
      * Copy a hosts source file and append it to a private file.
      *
-     * @param hostsSource The hosts source to download.
-     * @return {@code true} if the hosts was successfully downloaded, {@code false} otherwise.
+     * @param hostsSource The hosts source to copy.
+     * @throws IOException If the hosts source could not be copied.
      */
-    private boolean copyHostSourceFile(HostsSource hostsSource) {
+    private void copyHostSourceFile(HostsSource hostsSource) throws IOException {
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
         Log.v(TAG, "Copying hosts source file: " + hostsFileUrl);
@@ -369,12 +367,8 @@ public class SourceModel {
                 parseSourceInputStream(hostsSource, inputStream);
             }
         } catch (IOException | URISyntaxException exception) {
-            Log.e(TAG, "Error while copying hosts file from " + hostsFileUrl + ".", exception);
-            // Return copy failed
-            return false;
+            throw new IOException("Error while copying hosts file from " + hostsFileUrl + ".", exception);
         }
-        // Return copy successful
-        return true;
     }
 
     /**
@@ -392,7 +386,7 @@ public class SourceModel {
         SourceBatchUpdater updater = new SourceBatchUpdater(this.hostListItemDao);
         updater.updateSource(hostsSource, sourceParser.getItems());
         long endTime = System.currentTimeMillis();
-        Log.i(TAG, "Parsed "+hostsSource.getUrl()+" in "+(endTime-startTime) / 1000 + "s");
+        Log.i(TAG, "Parsed " + hostsSource.getUrl() + " in " + (endTime - startTime) / 1000 + "s");
     }
 
     /**

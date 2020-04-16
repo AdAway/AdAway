@@ -41,8 +41,8 @@ public interface HostsSourceDao {
     @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
     LiveData<List<HostsSource>> loadAll();
 
-    @Query("UPDATE hosts_sources SET last_modified_local = :date, last_modified_online = :date WHERE id = :id")
-    void updateModificationDates(int id, Date date);
+    @Query("UPDATE hosts_sources SET last_modified_local = :localModificationDate, last_modified_online = :onlineModificationDate WHERE id = :id")
+    void updateModificationDates(int id, Date localModificationDate, Date onlineModificationDate);
 
     @Query("UPDATE hosts_sources SET last_modified_online = :date WHERE id = :id")
     void updateOnlineModificationDate(int id, Date date);
