@@ -1,3 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">Záloha a obnovení</string>
+    <string name="pref_backup">Zálohovat</string>
+    <string name="pref_backup_summary">Zálohovat vaše pravidla pro blokování na externí úložiště</string>
+    <string name="pref_restore">Obnovit</string>
+    <string name="pref_restore_summary">Obnovit vaše pravidla pro blokování ze souboru zálohy</string>
 </resources>
