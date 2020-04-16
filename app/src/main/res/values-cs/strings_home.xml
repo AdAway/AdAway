@@ -1,30 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Zablokované</string>
+    <string name="allowed_hosts_label">Povolené</string>
+    <string name="redirect_hosts_label">Přesměrované</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="few">%d up-to-date sources</item>
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d aktuální zdroj</item>
+        <item quantity="few">%d aktuální zdroje</item>
+        <item quantity="many">%d aktuální zdroje</item>
+        <item quantity="other">%d aktuálních zdrojů</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="few">%d outdated sources</item>
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d zastaralý zdroj</item>
+        <item quantity="few">%d zastaralé zdroje</item>
+        <item quantity="many">%d zastaralé zdroje</item>
+        <item quantity="other">%d zastaralých zdrojů</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Zobrazit nápovědu</string>
 
     <!-- Project card -->
+    <string name="project_label">Otevřít stránku GitHub</string>
 
     <!-- Support card -->
+    <string name="support_label">Podpořit projekt</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Protokoly DNS</string>
+    <string name="preferences_drawer_item">Nastavení</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Otevřít navigační panel</string>
+    <string name="adblock_pause_button_description">Pozastavit/pokračovat v blokování reklam</string>
+    <string name="update_button">Aktualizovat zablokované domény</string>
+    <string name="show_log_button">Zobrazit požadované domény</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Pro více informací si prosím přečtěte nápovědu.</string>
 
 </resources>
