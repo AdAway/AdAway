@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">Aktualizace</string>
+    <string name="notification_update_channel_description">Upozornění na nové aktualizace</string>
+    <string name="notification_update_host_available_title">Je k dispozici aktualizace zdroje</string>
+    <string name="notification_update_host_available_text">Ke stažení jsou dostupné novější soubory hostitelů.</string>
+    <string name="notification_update_app_available_title">Je k dispozici aktualizace aplikace</string>
+    <string name="notification_update_app_available_text">Ke stažení je dostupná nová verze AdAway.</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
+    <string name="notification_vpn_channel_description">Upozornění na běžící VPN</string>
+</resources>
