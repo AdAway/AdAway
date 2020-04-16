@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Home screen -->
+    <string name="update_available">Aktualizace k dispozici!</string>
 
     <!-- Changelog dialog -->
+    <string name="update_update_title">Je k dispozici nová verze</string>
+    <string name="update_update_message">Nová verze přináší následující změny:\n\n</string>
+    <string name="update_up_to_date_title">Máte nejnovější verzi</string>
+    <string name="update_up_to_date_message">Tato nová verze přináší následující změny:\n\n</string>
+    <string name="update_changelog">Seznam změn</string>
+    <string name="update_update_button">Aktualizovat nyní</string>
 </resources>
