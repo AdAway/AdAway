@@ -41,7 +41,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
-import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
+import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
 import org.adaway.ui.lists.type.ListsFilterDialog;
 import org.adaway.ui.lists.type.ListsViewModel;
 
@@ -85,11 +85,11 @@ public class ListsFragment extends Fragment {
          */
         // Get lists layout to attached snackbar to
         CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
-        // Create install snackbar
-        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout, false);
+        // Create apply snackbar
+        ApplyConfigurationSnackbar applySnackbar = new ApplyConfigurationSnackbar(coordinatorLayout, false, false);
         // Bind snackbar to view models
         this.listsViewModel = new ViewModelProvider(activity).get(ListsViewModel.class);
-        this.listsViewModel.getUserListItems().observe(getViewLifecycleOwner(), installSnackbar.createObserver());
+        this.listsViewModel.getUserListItems().observe(getViewLifecycleOwner(), applySnackbar.createObserver());
         /*
          * Configure tabs.
          */

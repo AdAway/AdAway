@@ -83,10 +83,10 @@
     <string name="status_check_copy">Checking hosts file copy</string>
     <string name="status_hosts_updated">Hosts file successfully updated</string>
     <string name="status_vpn_configuration_updated">VPN configuration successfully updated</string>
-    <string name="notification_configuration_changed">Your configuration changed. You need to install hosts file to apply it.</string>
+    <string name="notification_configuration_changed">Your configuration changed. You need to apply it.</string>
     <string name="notification_configuration_changed_action">Apply</string>
-    <string name="notification_configuration_installing">Installing hosts file…</string>
-    <string name="notification_configuration_failed">Failed to install hosts file.</string>
+    <string name="notification_configuration_installing">Applying new configuration…</string>
+    <string name="notification_configuration_failed">Failed to apply new configuration.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">The symlink to the hosts file target is missing</string>

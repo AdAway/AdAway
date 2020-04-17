@@ -1,4 +1,4 @@
-package org.adaway.ui.hostsinstall;
+package org.adaway.ui.adblocking;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +13,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.adaway.AdAwayApplication;
 import org.adaway.R;
-import org.adaway.model.error.HostErrorException;
 import org.adaway.model.adblocking.AdBlockModel;
+import org.adaway.model.error.HostErrorException;
 import org.adaway.model.source.SourceModel;
 import org.adaway.util.AppExecutors;
 
@@ -24,15 +24,23 @@ import static com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
 
 /**
- * This class is a {@link Snackbar} to notify about hosts install need.
+ * This class is a {@link Snackbar} to notify about adblock model new configuration to apply.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class HostsInstallSnackbar {
+public class ApplyConfigurationSnackbar {
     /**
      * The view to bind the snackbar to.
      */
-    private final View mView;
+    private final View view;
+    /**
+     * The notify snackbar when hosts update available.
+     */
+    private final Snackbar notifySnackbar;
+    /**
+     * The wait snackbar during hosts install.
+     */
+    private final Snackbar waitSnackbar;
     /**
      * To synchronize sources before installing or not.
      */
@@ -49,36 +57,24 @@ public class HostsInstallSnackbar {
      * Whether or not ignore update events during the install ({@code true} to ignore, {@code false} otherwise).
      */
     private boolean ignoreEventDuringInstall;
-    /**
-     * The notify snackbar when hosts update available ({@code null} if no hosts update).
-     */
-    private Snackbar notifySnackbar;
-    /**
-     * The wait snackbar during hosts install ({@code null} if no pending hosts install).
-     */
-    private Snackbar waitSnackbar;
 
     /**
      * Constructor.
      *
-     * @param view        The view to bind the snackbar to.
-     * @param syncSources To synchronize sources before installing or not.
+     * @param view                     The view to bind the snackbar to.
+     * @param syncSources              To synchronize sources before installing or not.
+     * @param ignoreEventDuringInstall {@code true} to ignore events, {@code false} otherwise.
      */
-    public HostsInstallSnackbar(@NonNull View view, boolean syncSources) {
-        this.mView = view;
+    public ApplyConfigurationSnackbar(@NonNull View view, boolean syncSources, boolean ignoreEventDuringInstall) {
+        this.view = view;
+        this.notifySnackbar = Snackbar.make(this.view, R.string.notification_configuration_changed, LENGTH_INDEFINITE)
+                .setAction(R.string.notification_configuration_changed_action, v -> apply());
+        this.waitSnackbar = Snackbar.make(this.view, R.string.notification_configuration_installing, LENGTH_INDEFINITE);
+        appendViewToSnackbar(this.waitSnackbar, new ProgressBar(this.view.getContext()));
         this.syncSources = syncSources;
+        this.ignoreEventDuringInstall = ignoreEventDuringInstall;
         this.update = false;
         this.skipUpdate = false;
-        this.ignoreEventDuringInstall = false;
-    }
-
-    /**
-     * Set whether or not ignore update events during the install.
-     *
-     * @param ignore {@code true} to ignore events, {@code false} otherwise.
-     */
-    public void setIgnoreEventDuringInstall(boolean ignore) {
-        this.ignoreEventDuringInstall = ignore;
     }
 
     /**
@@ -102,7 +98,7 @@ public class HostsInstallSnackbar {
                     this.firstUpdate = false;
                     return;
                 }
-                HostsInstallSnackbar.this.notifyUpdateAvailable();
+                ApplyConfigurationSnackbar.this.notifyUpdateAvailable();
             }
         };
     }
@@ -112,11 +108,11 @@ public class HostsInstallSnackbar {
      */
     public void notifyUpdateAvailable() {
         // Check if notify snackbar is already displayed
-        if (this.notifySnackbar != null) {
+        if (this.notifySnackbar.isShown()) {
             return;
         }
         // Check if wait snackbar is displayed
-        if (this.waitSnackbar != null) {
+        if (this.waitSnackbar.isShown()) {
             // Mark update available
             this.update = true;
             return;
@@ -127,17 +123,15 @@ public class HostsInstallSnackbar {
             return;
         }
         // Show notify snackbar
-        this.notifySnackbar = Snackbar.make(this.mView, R.string.notification_configuration_changed, LENGTH_INDEFINITE)
-                .setAction(R.string.notification_configuration_changed_action, v -> install());
         this.notifySnackbar.show();
         // Mark update as notified
         this.update = false;
     }
 
-    private void install() {
-        this.showLoading();
+    private void apply() {
+        showLoading();
         AppExecutors.getInstance().diskIO().execute(() -> {
-            AdAwayApplication application = (AdAwayApplication) this.mView.getContext().getApplicationContext();
+            AdAwayApplication application = (AdAwayApplication) this.view.getContext().getApplicationContext();
             SourceModel sourceModel = application.getSourceModel();
             AdBlockModel adBlockModel = application.getAdBlockModel();
             try {
@@ -147,33 +141,31 @@ public class HostsInstallSnackbar {
                 adBlockModel.apply();
                 endLoading(true);
             } catch (HostErrorException exception) {
-                this.endLoading(false);
+                endLoading(false);
             }
         });
     }
 
     private void showLoading() {
         // Clear notify snackbar
-        if (this.notifySnackbar != null) {
-            this.notifySnackbar.dismiss();
-            this.notifySnackbar = null;
-        }
-        // Create and show wait snackbar
-        this.waitSnackbar = Snackbar.make(this.mView, R.string.notification_configuration_installing, LENGTH_INDEFINITE);
-        appendViewToSnackbar(this.waitSnackbar, new ProgressBar(this.mView.getContext()));
+        this.notifySnackbar.dismiss();
+        // Show wait snackbar
         this.waitSnackbar.show();
     }
 
     private void endLoading(boolean successfulInstall) {
-        // Clear wait snackbar
-        if (this.waitSnackbar != null) {
-            this.waitSnackbar.dismiss();
-            this.waitSnackbar = null;
+        // Ensure the snackbar has time to display
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
+        // Clear snackbars
+        this.waitSnackbar.dismiss();
         // Check install failure
         if (!successfulInstall) {
-            Snackbar failureSnackbar = Snackbar.make(this.mView, R.string.notification_configuration_failed, LENGTH_LONG);
-            ImageView view = new ImageView(this.mView.getContext());
+            Snackbar failureSnackbar = Snackbar.make(this.view, R.string.notification_configuration_failed, LENGTH_LONG);
+            ImageView view = new ImageView(this.view.getContext());
             view.setImageResource(R.drawable.status_fail);
             appendViewToSnackbar(failureSnackbar, view);
             failureSnackbar.show();
@@ -185,7 +177,7 @@ public class HostsInstallSnackbar {
                 this.skipUpdate = true;
             } else {
                 // Otherwise display update notification
-                this.notifyUpdateAvailable();
+                notifyUpdateAvailable();
             }
         }
     }

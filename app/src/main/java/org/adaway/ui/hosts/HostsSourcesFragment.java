@@ -48,8 +48,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
 import org.adaway.ui.dialog.AlertDialogValidator;
-import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
 
 /**
  * This class is a {@link Fragment} to display and manage hosts sources.
@@ -96,11 +96,10 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
          */
         // Get lists layout to attached snackbar to
         CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
-        // Create install snackbar
-        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout, true);
-        installSnackbar.setIgnoreEventDuringInstall(true);
+        // Create apply snackbar
+        ApplyConfigurationSnackbar applySnackbar = new ApplyConfigurationSnackbar(coordinatorLayout, true, true);
         // Bind snakbar to view models
-        this.mViewModel.getHostsSources().observe(lifecycleOwner, installSnackbar.createObserver());
+        this.mViewModel.getHostsSources().observe(lifecycleOwner, applySnackbar.createObserver());
         /*
          * Configure recycler view.
          */
