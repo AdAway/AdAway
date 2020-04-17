@@ -3,6 +3,7 @@ package org.adaway.model.vpn;
 import android.content.Context;
 import android.util.LruCache;
 
+import org.adaway.R;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.model.adblocking.AdBlockMethod;
@@ -67,6 +68,7 @@ public class VpnModel extends AdBlockModel {
         if (!started) {
             throw new HostErrorException(ENABLE_VPN_FAIL);
         }
+        setState(R.string.status_vpn_configuration_updated);
     }
 
     @Override
