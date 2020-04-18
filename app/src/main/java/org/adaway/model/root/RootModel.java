@@ -242,7 +242,7 @@ public class RootModel extends AdBlockModel {
         // Write redirected hosts
         List<HostListItem> redirectedHosts = this.hostListItemDao.getEnabledRedirectList();
         for (HostListItem redirectedHost : redirectedHosts) {
-            writer.write(redirectedHost.getHost() + " " + redirectedHost.getRedirection());
+            writer.write(redirectedHost.getRedirection() + " " + redirectedHost.getHost());
             writer.newLine();
         }
     }
