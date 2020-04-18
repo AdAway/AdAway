@@ -267,7 +267,11 @@ public class SourceModel {
         // Compute current date in UTC timezone
         Date now = Date.from(Instant.now());
         // Get each hosts source
-        for (HostsSource hostsSource : this.hostsSourceDao.getEnabled()) {
+        for (HostsSource hostsSource : this.hostsSourceDao.getAll()) {
+            if (!hostsSource.isEnabled()) {
+                this.hostListItemDao.clearSourceHosts(hostsSource.getId());
+                continue;
+            }
             // Increment number of copy
             numberOfCopies++;
             try {
