@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_apply_method">יעד קובץ Hosts</string>
+    <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>יעד מותאם אישית</item>
+    </string-array>
+    <string name="pref_custom_target">יעד מותאם אישית</string>
+    <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
+    <!-- Redirection category -->
+    <string name="pref_redirection_ipv4">הפניית IPv4</string>
+    <string name="pref_redirection_ipv6">הפניית IPv6</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">שרת מקומי</string>
+    <string name="pref_webserver_enabled">הפעל שירות</string>
+    <string name="pref_webserver_on_boot">הפעל את השירות בעת הפעלת המערכת</string>
+</resources>

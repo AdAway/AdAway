@@ -20,7 +20,7 @@ public class UpdateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
             Log.d(TAG, "UpdateReceiver invoked");
-            Log.w(TAG, "Application update to version " + VERSION_NAME);
+            Log.i(TAG, "Application update to version " + VERSION_NAME);
         }
     }
 }

@@ -53,9 +53,10 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import static org.adaway.db.entity.ListType.BLACK_LIST;
-import static org.adaway.db.entity.ListType.REDIRECTION_LIST;
-import static org.adaway.db.entity.ListType.WHITE_LIST;
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+import static org.adaway.db.entity.ListType.ALLOWED;
+import static org.adaway.db.entity.ListType.BLOCKED;
+import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.util.Constants.TAG;
 
 /**
@@ -67,11 +68,11 @@ public class ImportExportHelper {
     /**
      * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
      */
-    public static final int REQUEST_CODE_WRITE_STORAGE_PERMISSION = 10;
+    public static final int WRITE_STORAGE_PERMISSION_REQUEST_CODE = 10;
     /**
      * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
      */
-    public static final int REQUEST_CODE_IMPORT = 42;
+    public static final int IMPORT_REQUEST_CODE = 42;
     /**
      * The default backup file name.
      */
@@ -113,15 +114,15 @@ public class ImportExportHelper {
         HostsSourceDao hostsSourceDao = database.hostsSourceDao();
         HostListItemDao hostListItemDao = database.hostsListItemDao();
 
-        List<HostListItem> allHosts = hostListItemDao.getAll();
-        List<HostListItem> blockedHosts = Stream.of(allHosts)
-                .filter(value -> value.getType() == BLACK_LIST)
+        List<HostListItem> userHosts = hostListItemDao.getUserList();
+        List<HostListItem> blockedHosts = Stream.of(userHosts)
+                .filter(value -> value.getType() == BLOCKED)
                 .toList();
-        List<HostListItem> allowedHosts = Stream.of(allHosts)
-                .filter(value -> value.getType() == WHITE_LIST)
+        List<HostListItem> allowedHosts = Stream.of(userHosts)
+                .filter(value -> value.getType() == ALLOWED)
                 .toList();
-        List<HostListItem> redirectedHosts = Stream.of(allHosts)
-                .filter(value -> value.getType() == REDIRECTION_LIST)
+        List<HostListItem> redirectedHosts = Stream.of(userHosts)
+                .filter(value -> value.getType() == REDIRECTED)
                 .toList();
 
         JSONObject backupObject = new JSONObject();
@@ -139,9 +140,9 @@ public class ImportExportHelper {
         HostListItemDao hostListItemDao = database.hostsListItemDao();
 
         importSourceBackup(hostsSourceDao, backupObject.getJSONArray(SOURCES_KEY));
-        importListBackup(hostListItemDao, BLACK_LIST, backupObject.getJSONArray(BLOCKED_KEY));
-        importListBackup(hostListItemDao, WHITE_LIST, backupObject.getJSONArray(ALLOWED_KEY));
-        importListBackup(hostListItemDao, REDIRECTION_LIST, backupObject.getJSONArray(REDIRECTED_KEY));
+        importListBackup(hostListItemDao, BLOCKED, backupObject.getJSONArray(BLOCKED_KEY));
+        importListBackup(hostListItemDao, ALLOWED, backupObject.getJSONArray(ALLOWED_KEY));
+        importListBackup(hostListItemDao, REDIRECTED, backupObject.getJSONArray(REDIRECTED_KEY));
     }
 
     private static JSONArray buildSourcesBackup(List<HostsSource> sources) throws JSONException {
@@ -192,7 +193,7 @@ public class ImportExportHelper {
 
     private static JSONObject hostToJson(HostListItem host) throws JSONException {
         JSONObject hostObject = new JSONObject();
-        hostObject.put(HOST_ATTRIBUTE, host.getHost());
+        hostObject.put(HOST_ATTRIBUTE, host.getDisplayedHost());
         String redirection = host.getRedirection();
         if (redirection != null && !redirection.isEmpty()) {
             hostObject.put(REDIRECT_ATTRIBUTE, redirection);
@@ -203,11 +204,12 @@ public class ImportExportHelper {
 
     private static HostListItem hostFromJson(JSONObject hostObject) throws JSONException {
         HostListItem host = new HostListItem();
-        host.setHost(hostObject.getString(HOST_ATTRIBUTE));
+        host.setDisplayedHost(hostObject.getString(HOST_ATTRIBUTE));
         if (hostObject.has(REDIRECT_ATTRIBUTE)) {
             host.setRedirection(hostObject.getString(REDIRECT_ATTRIBUTE));
         }
         host.setEnabled(hostObject.getBoolean(ENABLED_ATTRIBUTE));
+        host.setSourceId(USER_SOURCE_ID);
         return host;
     }
 
@@ -396,12 +398,11 @@ public class ImportExportHelper {
                 return;
             }
             // Display user toast notification
-            Toast toast = Toast.makeText(
+            Toast.makeText(
                     context,
                     context.getString(exported ? R.string.export_success : R.string.export_failed),
                     Toast.LENGTH_LONG
-            );
-            toast.show();
+            ).show();
         }
     }
 }

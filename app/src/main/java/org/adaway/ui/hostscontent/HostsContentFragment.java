@@ -1,23 +1,27 @@
 package org.adaway.ui.hostscontent;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.topjohnwu.superuser.io.SuFile;
+
 import org.adaway.R;
-import org.adaway.helper.OpenHelper;
+import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
+import org.adaway.util.MountType;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,20 +31,29 @@ import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.function.Consumer;
 
+import static org.adaway.util.ShellUtils.remountPartition;
+
 /**
  * This class is a {@link Fragment} to explains and display the hosts files.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HostsContentFragment extends Fragment {
+    /**
+     * The request code to identify the hosts file edition without remount action.
+     */
+    private static final int EDIT_HOSTS_REQUEST_CODE = 20;
+    /**
+     * The request code to identify the hosts file edition with remount action.
+     */
+    private static final int EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE = 21;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         /*
          * Create view.
          */
-        // Retrieve activity
-        FragmentActivity activity = this.getActivity();
         // Create fragment view
         View view = inflater.inflate(R.layout.hosts_content_fragment, container, false);
         /*
@@ -56,22 +69,31 @@ public class HostsContentFragment extends Fragment {
         // Get open file button
         Button openFileButton = view.findViewById(R.id.hosts_open_file);
         // Bind on click listener
-        openFileButton.setOnClickListener(button -> OpenHelper.openHostsFile(activity));
+        openFileButton.setOnClickListener(button -> openHostsFile());
         // Return created view
         return view;
     }
 
-    /**
-     * This interface is a backport of {@link Consumer} for lower Android API.
-     */
-    private interface SupportStringConsumer {
-        /**
-         * Consume the string.
-         *
-         * @param string The string to consume.
-         * @see Consumer#accept(Object)
-         */
-        void acceptString(String string);
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE) {
+            SuFile hostFile = new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
+            remountPartition(hostFile, MountType.READ_ONLY);
+        }
+    }
+
+    private void openHostsFile() {
+        SuFile hostFile = new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
+        boolean remount = !hostFile.canWrite() && remountPartition(hostFile, MountType.READ_WRITE);
+        try {
+            Intent intent = new Intent()
+                    .setAction(Intent.ACTION_VIEW)
+                    .setDataAndType(Uri.parse("file://" + hostFile.getAbsolutePath()), "text/plain");
+            startActivityForResult(intent, remount ? EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE : EDIT_HOSTS_REQUEST_CODE);
+        } catch (ActivityNotFoundException exception) {
+            MissingAppDialog.showTextEditorMissingDialog(getContext());
+        }
     }
 
     /**
@@ -86,14 +108,14 @@ public class HostsContentFragment extends Fragment {
         /**
          * The callback to call with the hosts file content.
          */
-        private final WeakReference<SupportStringConsumer> callback;
+        private final WeakReference<Consumer<String>> callback;
 
         /**
          * Constructor.
          *
          * @param callback The callback to call with the hosts file content.
          */
-        private HostsContentLoader(SupportStringConsumer callback) {
+        private HostsContentLoader(Consumer<String> callback) {
             this.callback = new WeakReference<>(callback);
         }
 
@@ -129,10 +151,10 @@ public class HostsContentFragment extends Fragment {
         @Override
         protected void onPostExecute(String content) {
             // Get callback
-            SupportStringConsumer callback = this.callback.get();
+            Consumer<String> callback = this.callback.get();
             if (callback != null) {
                 // Apply result
-                callback.acceptString(content);
+                callback.accept(content);
             }
         }
     }

@@ -1,6 +1,7 @@
 package org.adaway.db.dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -28,6 +29,9 @@ public interface HostListItemDao {
     @Delete
     void delete(HostListItem item);
 
+    @Query("DELETE FROM hosts_lists WHERE source_id = 1 AND host = :host")
+    void deleteUserFromHost(String host);
+
     @Query("SELECT host FROM hosts_lists WHERE type = 0 AND enabled = 1")
     List<String> getEnabledBlackListHosts();
 
@@ -37,15 +41,30 @@ public interface HostListItemDao {
     @Query("SELECT * FROM hosts_lists WHERE type = 2 AND enabled = 1")
     List<HostListItem> getEnabledRedirectList();
 
+    @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND source_id IN(:sourceIds) ORDER BY host ASC")
+    DataSource.Factory<Integer, HostListItem> loadList(int type, int[] sourceIds, String query);
+
     @Query("SELECT * FROM hosts_lists ORDER BY host ASC")
     List<HostListItem> getAll();
 
-    @Query("SELECT * FROM hosts_lists WHERE type = 0 ORDER BY host ASC")
-    LiveData<List<HostListItem>> loadBlackList();
+    @Query("SELECT * FROM hosts_lists WHERE source_id = 1")
+    List<HostListItem> getUserList();
 
-    @Query("SELECT * FROM hosts_lists WHERE type = 1 ORDER BY host ASC")
-    LiveData<List<HostListItem>> loadWhiteList();
+    @Query("SELECT * FROM hosts_lists WHERE source_id = 1")
+    LiveData<List<HostListItem>> loadUserList();
 
-    @Query("SELECT * FROM hosts_lists WHERE type = 2 ORDER BY host ASC")
-    LiveData<List<HostListItem>> loadRedirectionList();
+    @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 0 AND enabled = 1")
+    LiveData<Integer> getBlockedHostCount();
+
+    @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 1 AND enabled = 1")
+    LiveData<Integer> getAllowedHostCount();
+
+    @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 2 AND enabled = 1")
+    LiveData<Integer> getRedirectHostCount();
+
+    @Query("SELECT COUNT(id)>0 FROM hosts_lists WHERE type = 0 AND enabled = 1 AND host = :host")
+    boolean isHostBlocked(String host);
+
+    @Query("DELETE FROM hosts_lists WHERE source_id = :sourceId")
+    void clearSourceHosts(int sourceId);
 }

@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">ปิด</string>
@@ -11,7 +9,6 @@
     <string name="button_add">เพิ่ม</string>
     <string name="button_cancel">ยกเลิก</string>
     <string name="button_save">บันทึก</string>
-    <string name="button_webserver_toggle_text">เปิดหรือปิดเว็บเซิร์ฟเวอร์บนโลเคิลโฮสต์เพื่อบล็อคตอบรับคำขอไปยังไฟล์โฮสต์</string>
     <string name="button_help">ช่วยเหลือ</string>
 
     <!--Home-->
@@ -35,27 +32,14 @@
     <string name="checkbox_list_context_edit">แก้ไข</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">บัญชีขาว</string>
-    <string name="lists_tab_blacklist">บัญชีดำ</string>
-    <string name="lists_tab_redirection_list">เปลี่ยนเส้นทาง</string>
-    <string name="list_add_dialog_black">เพิ่มโฮสต์ลงในบัญชีดำ</string>
-    <string name="list_add_dialog_white">เพิ่มโฮสต์ไปยังบัญชีขาว</string>
-    <string name="list_add_dialog_redirect">เพิ่มการเปลี่ยนเส้นทางของโฮสต์</string>
-    <string name="list_edit_dialog_redirect">แก้ไขการเปลี่ยนเส้นทาง</string>
-    <string name="list_dialog_hostname">ชื่อโฮสต์:</string>
-    <string name="list_dialog_hostname_hint">URL แหล่งที่มาของโฮสต์</string>
-    <string name="list_dialog_wildcard">(อนุญาตให้ใช้อักขระ * และ ? แล้ว)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">กำลังนำเข้า…</string>
     <string name="export_dialog">กำลังส่งออก…</string>
     <!--Hosts content-->
     <string name="hosts_header">ไฟล์โฮสต์</string>
-    <string name="hosts_content">กำลังโหลดเนื้อหาไฟล์โฮสต์...</string>
+    <string name="hosts_content">กำลังโหลดเนื้อหาไฟล์โฮสต์…</string>
     <string name="hosts_open_button">เปิดไฟล์ hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">กำลังตรวจสอบอัพเดต…</string>
-    <string name="status_reverting">กำลังคืนค่า…</string>
     <string name="status_reverting_subtitle">กำลังสร้างไฟล์โฮสต์มาตรฐาน</string>
     <string name="status_update_available">สามารถอัพเดตได้</string>
     <string name="status_update_available_subtitle">สามารถอัพเดตไฟล์โฮสต์ได้</string>
@@ -68,8 +52,6 @@
     <string name="status_enabled_subtitle">เปิดใช้งานไฟล์โฮสต์แล้ว</string>
     <string name="status_disabled">ปิดใช้งาน</string>
     <string name="status_disabled_subtitle">คืนค่าไฟล์โฮสต์เป็นค่าเริ่มต้นแล้ว</string>
-    <string name="notification_channel_update_name">อัพเดท</string>
-    <string name="notification_channel_update_description">แจ้งเตือนการอัพเดทโฮสต์ใหม่</string>
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink จากเป้าหมายของคุณไปยัง /system/etc/hosts ไม่พบหรือไม่ถูกต้อง AdAway จะไม่ทำงานหากไม่เลือกไปยังไฟล์ที่ถูกต้อง\n\nต้องการสร้างไฟล์ Symlink?</string>
     <string name="apply_symlink_missing_title">ไม่พบ Symlink</string>
@@ -107,8 +89,6 @@
     <string name="enable_systemless_successful_title">การเปิดใช้งานเสร็จสมบูรณ์</string>
     <string name="disable_systemless_successful_title">การปิดใช้งานเสร็จสมบูรณ์</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">ไม่พบไบนารี su หรือคุณไม่มีสิทธิ์รูทสำหรับ AdAway \n\n คุณสามารถหาข้อมูลเกี่ยวกับวิธีการรูทอุปกรณ์ของคุณด้วย Magisk หรือ SuperSU</string>
-    <string name="no_root_title">จำเป็นต้องรูท</string>
     <string name="hosts_add_dialog">ใส่ URL ไปยังไฟล์โฮสต์:</string>
     <string name="no_hostname">ชื่อโฮสต์ไม่ถูกต้อง!</string>
     <string name="no_hostname_title">รูปแบบชื่อโฮสต์ไม่ถูกต้อง</string>
@@ -119,7 +99,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">รีเฟรช</string>
     <string name="menu_add">เพิ่ม</string>
-    <string name="menu_hosts_sources">แหล่งที่มาโฮสต์</string>
     <string name="menu_help">ช่วยเหลือ</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -129,13 +108,6 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">เครื่อง:</string>
-    <string name="hosts_last_modified_online">ออนไลน์:</string>
-    <string name="hosts_not_available">ไม่สามารถใช้งานได้</string>
-    <string name="hosts_add_dialog_title">เพิ่มแหล่งที่มา</string>
-    <string name="hosts_edit_dialog_title">แก้ไขแหล่งข้อมูล</string>
-    <string name="hosts_dialog_url">URL: (https:// หรือ file://)</string>
-    <string name="hosts_dialog_url_hint">URL แหล่งที่มาของโฮสต์</string>
 
     <!--Other-->
     <string name="app_subtitle">บล็อคโฆษณา</string>
@@ -160,53 +132,6 @@
     <string name="tcpdump_entry_add_redirection_list">เพิ่มรายการไปยังรายการเปลี่ยนเส้นทาง</string>
 
     <!--Preferences-->
-    <string name="pref_download">การตั้งค่าทั่วไป</string>
-    <string name="pref_dismiss_welcome">ซ่อนหน้าต้อนรับ</string>
-    <string name="pref_dismiss_welcome_summary">อย่าแสดงหน้าต้อนรับบนหน้าจอหลัก</string>
-    <string name="pref_dark_theme">เปิดใช้ธีมสีดำ</string>
-    <string name="pref_dark_theme_summary">ใช้ธีมสีดำเพื่อลดความสว่างของหน้าจอ</string>
-    <string name="pref_dark_theme_notification">ธีมจะถูกใช้เมื่อเริ่มต้นแอพฯครั้งต่อไป!</string>
-    <string name="pref_hosts">ไฟล์โฮสต์</string>
-    <string name="pref_update_check">ตรวจสอบอัพเดท</string>
-    <string name="pref_apply_method">ไฟล์โฮสต์</string>
-    <string name="pref_apply_method_summary">ก่อนจะเปลี่ยนการตั้งค่า กรุณาอ่านช่วยเหลือเกี่ยวกับฟังก์ชั่นนี้</string>
-    <string name="pref_header_preferences">การตั้งค่า</string>
-    <string name="pref_header_preferences_summary">การตั้งค่าทั่วไป AdAway</string>
-    <string name="pref_never_reboot">ซ่อนกล่องรีบูต</string>
-    <string name="pref_never_reboot_summary">ซ่อนกล่องรีบูตหลังจากใช้งานเสร็จสิ้น</string>
-    <string name="pref_webserver_on_boot">เริ่มเว็บเซิร์ฟเวอร์เมื่อบูตระบบ</string>
-    <string name="pref_webserver_on_boot_summary">เริ่มใช้งานเว็บเซิร์ฟเวอร์เมื่อบูตระบบ</string>
-    <string name="pref_webserver_enabled">เปิดใช้งานเว็บเซิร์ฟเวอร์</string>
-    <string name="pref_webserver_enabled_summary">เปิดใช้งานเว็บเซิร์ฟเวอร์เพื่อตอบรับคำขอบล็อคโฆษณา</string>
-    <string name="pref_webserver">เว็บเซิร์ฟเวอร์ในระบบ</string>
-    <string name="pref_custom_target">กำหนดเอง</string>
-    <string name="pref_custom_target_summary">ใช้งานเท่านั้นหากไฟล์โฮสต์ถูกตั้งเป็นกำหนดเอง</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>กำหนดเอง</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">ตรวจสอบอัพเดตเมื่อเปิดแอพพลิเคชั่น</string>
-    <string name="pref_background">บริการพื้นหลัง</string>
-    <string name="pref_update_check_daily">ตรวจสอบอัพเดตทุกวัน</string>
-    <string name="pref_update_check_daily_summary">ตรวจสอบการอัพเดตในพื้นหลังและแสดงการแจ้งเตือน</string>
-    <string name="pref_automatic_update_daily">อัพเดตอัตโนมัติ</string>
-    <string name="pref_automatic_update_daily_summary">อัพเดตอัตโนมัติในพื้นหลังหากสามารถอัพเดตได้</string>
-    <string name="pref_update_only_on_wifi">อัพเดทเมื่อไม่มีการตรวจสอบเท่านั้น</string>
-    <string name="pref_update_only_on_wifi_summary">ดำเนินการปรับปรุงพื้นหลังเฉพาะเมื่อเชื่อมต่อกับเครือข่ายที่ไม่มีการตรวจสอบเท่านั้น</string>
-    <string name="pref_whitelist_rules">อนุญาตบัญชีขาว</string>
-    <string name="pref_whitelist_rules_summary">อนุญาตบัญชีขาวจากแหล่งที่มาโฮสต์</string>
-    <string name="pref_redirection_rules">อนุญาตให้เปลี่ยนเส้นทาง</string>
-    <string name="pref_redirection_rules_summary">อนุญาตให้เปลี่ยนเส้นทางจากแหล่งที่มาโฮสต์</string>
-    <string name="pref_debug">ดีบัค</string>
-    <string name="pref_enable_debug_summary">จำเป็นต้องรีสตาร์ท AdAway เพื่ออัพเดตการตั้งค่า</string>
-    <string name="pref_enable_ipv6">เปิดใช้งาน IPv6</string>
-    <string name="pref_enable_systemless_summary">ป้องกันไม่ให้ AdAway แก้ไขไฟล์ในระบบ</string>
-    <string name="pref_enable_systemless">เปิดใช้งานโหมดไม่เข้าไปแก้ไขไฟล์ของระบบ</string>
     <string name="pref_edit_text_value">แก้ไขค่ากำหนดของข้อความ</string>
     <string name="drawer_open">เปิดเมนู</string>
     <string name="drawer_close">ปิดเมนู</string>
@@ -223,10 +148,6 @@
         <item>ช่วยเหลือ</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 สนับสนุนการพัฒนา \u2764</string>
-    <string name="drawer_support_dialog_title">สนับสนุนการพัฒนา</string>
-    <string name="drawer_support_dialog_text">AdAway เป็นซอฟต์แวร์ฟรีและโอเพ่นซอร์สที่พัฒนาและดูแลโดยชุมชนเท่านั้น ใช้เวลาสองปีในการทำโครงการและใช้เวลาว่างในการสร้างแอพฯรุ่นใหม่นี้\n\nหากคุณต้องการดูข้อมูลอัพเดทเพิ่มเติมโปรดอย่าลังเลที่จะสนับสนุนโครงการ</string>
-    <string name="drawer_support_dialog_button">แสดงการสนับสนุนของฉัน</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">คำขอ DNS</string>
@@ -238,4 +159,4 @@
     <string name="hosts_source_need_update">ต้องการอัพเดทสำหรับ %1$s</string>
     <string name="hosts_source_last_update">ปรับปรุงครั้งล่าสุด %1$s ที่ผ่านมา</string>
     <string name="hosts_source_unknown_status">สถานะอัพเดทที่ไม่รู้จัก</string>
-    </resources>
+</resources>

@@ -1,8 +1,8 @@
 # Android specific
-lint.xml
 local.properties
 
 # Gradle
+.cxx
 .externalNativeBuild
 .gradle
 build

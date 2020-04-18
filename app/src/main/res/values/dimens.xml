@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="button_spacing">8dp</dimen>
+    <!-- Card -->
     <dimen name="card_spacing">8dp</dimen>
     <dimen name="card_inner_padding">16dp</dimen>
+    <!-- Dialog -->
+    <dimen name="dialog_spacing">16dp</dimen>
+    <dimen name="dialog_inner_padding">16dp</dimen>
 </resources>

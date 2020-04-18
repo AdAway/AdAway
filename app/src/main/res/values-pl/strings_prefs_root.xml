@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_apply_method">Docelowy plik hosts</string>
+    <string name="pref_apply_method_summary">Zanim zmienisz to ustawienie, przeczytaj pomoc dotyczącą tej funkcjonalności.</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Niestandardowy plik docelowy</item>
+    </string-array>
+    <string name="pref_custom_target">Niestandardowy plik docelowy</string>
+    <string name="pref_never_reboot">Ukryj komunikat o restarcie</string>
+    <!-- Redirection category -->
+    <string name="pref_redirection_ipv4">Przekierowanie IPv4</string>
+    <string name="pref_redirection_ipv6">Przekierowanie IPv6</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Lokalny serwer www</string>
+    <string name="pref_webserver_enabled">Włącz serwer www</string>
+    <string name="pref_webserver_on_boot">Włącz serwer www przy uruchomieniu systemu</string>
+</resources>

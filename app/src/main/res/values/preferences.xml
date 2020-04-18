@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_dismiss_welcome_key" translatable="false">dismissWelcome</string>
-    <bool name="pref_dismiss_welcome_def">false</bool>
     <string name="pref_dark_theme_key" translatable="false">darkTheme</string>
     <bool name="pref_dark_theme_def">true</bool>
     <string name="pref_update_check_key" translatable="false">updateCheck</string>
@@ -10,10 +8,12 @@
     <bool name="pref_never_reboot_def">false</bool>
     <string name="pref_enable_ipv6_key" translatable="false">enableIpv6</string>
     <bool name="pref_enable_ipv6_def">false</bool>
-    <string name="pref_update_check_daily_key" translatable="false">updateCheckDaily</string>
-    <bool name="pref_update_check_daily_def">false</bool>
+    <string name="pref_update_check_app_daily_key" translatable="false">updateCheckAppDaily</string>
+    <bool name="pref_update_check_app_daily_def">true</bool>
+    <string name="pref_update_check_hosts_daily_key" translatable="false">updateCheckHostsDaily</string>
+    <bool name="pref_update_check_hosts_daily_def">true</bool>
     <string name="pref_automatic_update_daily_key" translatable="false">automaticUpdateDaily</string>
-    <bool name="pref_automatic_update_daily_def">false</bool>
+    <bool name="pref_automatic_update_daily_def">true</bool>
     <string name="pref_update_only_on_wifi_key" translatable="false">updateOnlyOnWifi</string>
     <bool name="pref_update_only_on_wifi_def">false</bool>
     <string name="pref_whitelist_rules_key" translatable="false">whitelistRules</string>
@@ -24,6 +24,7 @@
     <string name="pref_redirection_ipv4_def" translatable="false">127.0.0.1</string>
     <string name="pref_redirection_ipv6_key" translatable="false">redirectionIPv6</string>
     <string name="pref_redirection_ipv6_def" translatable="false">::1</string>
+    <string name="pref_open_hosts_key" translatable="false">openHosts</string>
     <string name="pref_apply_method_key" translatable="false">applyMethod</string>
     <string-array name="pref_apply_method_entries_values" translatable="false">
         <item>writeToSystem</item>
@@ -38,12 +39,31 @@
     <bool name="pref_webserver_enabled_def">false</bool>
     <string name="pref_webserver_on_boot_key" translatable="false">webserverOnBoot</string>
     <bool name="pref_webserver_on_boot_def">false</bool>
+    <string name="pref_ad_block_method_key" translatable="false">adBlockMethod</string>
+    <integer name="pref_ad_block_method_key_def">0</integer>
+    <string name="pref_root_ad_block_method_key" translatable="false">rootAdBlockMethod</string>
+    <string name="pref_vpn_ad_block_method_key" translatable="false">vpnAdBlockMethod</string>
+    <string name="pref_vpn_service_status_key" translatable="false">vpnPaused</string>
+    <integer name="pref_vpn_service_status_def">0</integer>
+    <string name="pref_vpn_service_on_boot_key" translatable="false">vpnOnBoot</string>
+    <bool name="pref_vpn_service_on_boot_def">true</bool>
+    <string name="pref_vpn_watchdog_enabled_key" translatable="false">vpnEnabled</string>
+    <bool name="pref_vpn_watchdog_enabled_def">false</bool>
     <string name="pref_enable_debug_key" translatable="false">debugEnabled</string>
     <bool name="pref_enable_debug_def">false</bool>
-    <string name="pref_enable_systemless_key" translatable="false">enableSystemless</string>
-    <bool name="pref_enable_systemless_def">false</bool>
     <string name="pref_enable_telemetry_key" translatable="false">enableTelemetry</string>
     <bool name="pref_enable_telemetry_def">false</bool>
     <string name="pref_display_telemetry_consent_key" translatable="false">displayTelemetryConsent</string>
     <bool name="pref_display_telemetry_consent_def">true</bool>
+    <string name="pref_backup_key" translatable="false">backup</string>
+    <string name="pref_restore_key" translatable="false">restore</string>
+    <string name="pref_vpn_excluded_system_apps_key" translatable="false">excludeSystemAppFromVpn</string>
+    <string name="pref_vpn_excluded_system_apps_default" translatable="false">none</string>
+    <string-array name="pref_vpn_excluded_system_apps_values">
+        <item>none</item>
+        <item>allExceptBrowsers</item>
+        <item>all</item>
+    </string-array>
+    <string name="pref_vpn_excluded_user_apps_key" translatable="false">excludeUserAppFromVpn</string>
+    <string name="pref_vpn_excluded_user_apps_default" translatable="false"/>
 </resources>

@@ -17,6 +17,10 @@ import android.widget.TextView;
 import org.adaway.R;
 import org.adaway.db.entity.ListType;
 
+import static org.adaway.db.entity.ListType.ALLOWED;
+import static org.adaway.db.entity.ListType.BLOCKED;
+import static org.adaway.db.entity.ListType.REDIRECTED;
+
 /**
  * This class is a the {@link RecyclerView.Adapter} for the tcpdump log view.
  *
@@ -51,23 +55,23 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
 
     @NonNull
     @Override
-    public TcpdumpLogAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.tcpdump_log_entry, parent, false);
-        return new TcpdumpLogAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TcpdumpLogAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Get log entry
-        LogEntry entry = this.getItem(position);
+        LogEntry entry = getItem(position);
         // Set host name
         holder.hostnameTextView.setText(entry.getHost());
         holder.hostnameTextView.setOnClickListener(v -> this.callback.openHostInBrowser(entry.getHost()));
         // Set type status
-        bindImageView(holder.blackImageView, ListType.BLACK_LIST, entry);
-        bindImageView(holder.whiteImageView, ListType.WHITE_LIST, entry);
-        bindImageView(holder.redirectionImageView, ListType.REDIRECTION_LIST, entry);
+        bindImageView(holder.blackImageView, BLOCKED, entry);
+        bindImageView(holder.whiteImageView, ALLOWED, entry);
+        bindImageView(holder.redirectionImageView, REDIRECTED, entry);
     }
 
     private void bindImageView(ImageView imageView, ListType type, LogEntry entry) {

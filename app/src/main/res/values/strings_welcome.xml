@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome_title">Welcome</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Welcome logo</string>
+    <string name="welcome_method_header">Welcome to AdAway!</string>
+    <string name="welcome_method_summary">AdAway provides two ad blocking methods. Pick the one you like:</string>
+
+    <string name="welcome_root_method_logo">Root logo</string>
+    <string name="welcome_root_method_title">Root based\nad blocking</string>
+    <string name="welcome_root_method_text1">Faster</string>
+    <string name="welcome_root_method_text2">Battery friendly</string>
+    <string name="welcome_root_method_text3">Root required</string>
+
+    <string name="welcome_vpn_method_logo">VPN logo</string>
+    <string name="welcome_vpn_method_title">VPN based\nad blocking</string>
+    <string name="welcome_vpn_method_text1">Slower</string>
+    <string name="welcome_vpn_method_text2">Run in background</string>
+    <string name="welcome_vpn_method_text3">Compatibility</string>
+
+    <string name="welcome_root_missing_title">Rooted Android required</string>
+    <string name="welcome_root_missile_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted. You can find information about how to root your device on wiki.lineageos.org or other Android websites.</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sync done</string>
+    <string name="welcome_sync_error_logo">Error during sync</string>
+
+    <string name="welcome_sync_header">Syncing</string>
+    <string name="welcome_synced_header">Synced!</string>
+    <string name="welcome_sync_summary">AdAway downloads ad networks to block from online sources. You can customize them later in the settings.</string>
+    <string name="welcome_sync_retry_logo">Retry sync</string>
+    <string name="welcome_sync_error">Failed to sync:\n%s.\nRetry now?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Support</string>
+    <string name="welcome_support_header">Support me!</string>
+    <string name="welcome_support_summary">It\'s a free and open-source app. I develop it on my free time. So if you enjoy it, feel free to show your support:</string>
+    <string name="welcome_support_button">Donate on PayPal</string>
+    <string name="welcome_support_telemetry_summary">Do you like bugs? Me neither.</string>
+    <string name="welcome_support_telemetry_button">Enable telemetry to send me crash reports</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Back</string>
+    <string name="welcome_next_button">Next</string>
+    <string name="welcome_finish_button">Finish</string>
+</resources>

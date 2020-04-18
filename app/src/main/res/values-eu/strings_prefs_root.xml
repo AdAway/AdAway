@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_apply_method">Xede hostalari agiria</string>
+    <string name="pref_apply_method_summary">Ezarpen hau aldatu aurretik, irakurri bere eginkizunari buruz Laguntza.</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Norbere xedea</item>
+    </string-array>
+    <string name="pref_custom_target">Norbere xedea</string>
+    <string name="pref_never_reboot">Ezkutatu berrabiarazte elkarrizketa</string>
+    <!-- Redirection category -->
+    <string name="pref_redirection_ipv4">IPv4 birbideratzea</string>
+    <string name="pref_redirection_ipv6">IPv6 birbideratzea</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Tokiko Web-zerbitzaria</string>
+    <string name="pref_webserver_enabled">Gaitu web-zerbitzaria</string>
+    <string name="pref_webserver_on_boot">Hasi web-zerbitzaria abiatzerakoan</string>
+</resources>

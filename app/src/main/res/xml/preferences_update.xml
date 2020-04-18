@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="@string/pref_update_title">
+
+    <PreferenceCategory app:title="@string/pref_update_app_category">
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_update_check_app_daily_def"
+            app:key="@string/pref_update_check_app_daily_key"
+            app:title="@string/pref_update_check_app_daily" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pref_update_hosts_category">
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_update_check_def"
+            app:key="@string/pref_update_check_key"
+            app:title="@string/pref_update_check" />
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_update_check_hosts_daily_def"
+            app:key="@string/pref_update_check_hosts_daily_key"
+            app:title="@string/pref_update_check_hosts_daily" />
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_automatic_update_daily_def"
+            app:dependency="@string/pref_update_check_hosts_daily_key"
+            app:key="@string/pref_automatic_update_daily_key"
+            app:title="@string/pref_update_sync_on_update" />
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_update_only_on_wifi_def"
+            app:dependency="@string/pref_update_check_hosts_daily_key"
+            app:key="@string/pref_update_only_on_wifi_key"
+            app:title="@string/pref_update_sync_unmetered_only" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

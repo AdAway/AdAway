@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Dodaj host do czarnej listy</string>
+    <string name="list_add_dialog_white">Dodaj host do białej listy</string>
+    <string name="list_add_dialog_redirect">Dodaj przekierowanie hosta</string>
+    <string name="list_edit_dialog_black">Edycja hostów umieszczonych na czarnej liście</string>
+    <string name="list_edit_dialog_white">Edycja hostów umieszczonych na białej liście</string>
+    <string name="list_edit_dialog_redirect">Edytuj przekierowanie</string>
+    <string name="list_dialog_hostname">Nazwa hosta:</string>
+    <string name="list_dialog_hostname_hint">Adres URL źródła hostów</string>
+    <string name="list_dialog_wildcard">(Znaki wieloznaczne * i ? są dozwolone)</string>
+    <string name="list_dialog_ip">IP (IPv4 lub IPv6):</string>
+</resources>

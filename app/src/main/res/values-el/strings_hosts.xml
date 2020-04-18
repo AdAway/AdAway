@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Προσθήκη πηγής</string>
+    <string name="hosts_edit_dialog_title">Επεξεργασία πηγής</string>
+    <string name="hosts_dialog_url">URL: (a https:// or file:// resource)</string>
+    <string name="hosts_dialog_url_hint">Το πηγαίο URL του αρχείου hosts</string>
+</resources>

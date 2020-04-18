@@ -16,6 +16,10 @@ If not, see <https://www.gnu.org/licenses/>.
 * Android Jetpack  
   https://developer.android.com/jetpack/  
   Apache License v2
+  
+* DNS66  
+  https://github.com/julian-klode/dns66  
+  GPLv3
 
 * FlexboxLayout
   https://github.com/google/flexbox-layout
@@ -27,6 +31,10 @@ If not, see <https://www.gnu.org/licenses/>.
 
 * HtmlTextView  
   https://github.com/dschuermann/html-textview  
+  Apache License v2
+
+* libsu 
+  https://github.com/topjohnwu/libsu  
   Apache License v2
 
 * Lightweight-Stream-API  
@@ -41,10 +49,6 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/square/okhttp  
   Apache License v2
 
-* RootCommands  
-  https://github.com/dschuermann/root-commands  
-  Apache License v2
-
 * Sentry Java  
   https://github.com/getsentry/sentry-java  
   BSD 3-Clause License
@@ -57,12 +61,8 @@ If not, see <https://www.gnu.org/licenses/>.
   https://www.tcpdump.org/  
   BSD 3-Clause License
 
-* Trove  
-  https://trove.starlight-systems.com/  
-  [multiple licenses](https://trove.starlight-systems.com/license)
-
-
 ## Images
+
 * status_enabled.svg, status_disabled.svg, status_update.svg  
   Dropbox Emblems Tango by Charles A.  
   https://forums.dropbox.com/topic.php?id=7818&replies=19  

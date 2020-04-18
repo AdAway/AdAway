@@ -5,20 +5,29 @@ def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingKeyAlias') &&
         project.hasProperty('signingKeyPassword')
 
-android {
-    compileSdkVersion 28
-    buildToolsVersion '28.0.3'
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 40302   // Read 4.xx.yy to match version name
-        versionName '4.3.2'
+repositories {
+    maven {
+        url 'https://jitpack.io'
+    }
+}
 
-        vectorDrawables.useSupportLibrary = true
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
+    ndkVersion '21.0.6113669'
+
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode 50001   // Read x.yy.zz to match version name
+        versionName '5.0.1'
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+                arguments = [
+                        "room.schemaLocation": "$projectDir/schemas".toString(),
+                        "room.incremental"   : "true"
+                ]
             }
         }
     }
@@ -48,73 +57,73 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     // Do not abort build if lint finds errors
     lintOptions {
-        abortOnError false
+        disable 'MissingTranslation'
     }
 
     buildTypes {
-        debug {
-            shrinkResources true
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+//        debug {
+//            shrinkResources false
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
         release {
-            shrinkResources true
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-}
-
-ext {
-    appcompat = '1.1.0-alpha2'
-    constraint_layout = '1.1.3'
-    lifecycle = '2.0.0'
-    material = '1.1.0-alpha04'
-    room = '2.0.0'
-    support = '1.0.0'
-    work = '1.0.0'
 }
 
 dependencies {
-    implementation project(':libraries:RootCommands')
+    // Native modules
     implementation project(':tcpdump')
     implementation project(':webserver')
 
-    // Architecture components
-    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle}"
-    implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycle}"
-    implementation "androidx.room:room-runtime:${room}"
-    annotationProcessor "androidx.room:room-compiler:${room}"
-    implementation "android.arch.work:work-runtime:${work}"
-
-    // Support libraries
-    implementation "androidx.appcompat:appcompat:1.1.0-alpha03"
-    implementation "androidx.cardview:cardview:${support}"
-    implementation "androidx.constraintlayout:constraintlayout:${constraint_layout}"
-    implementation "androidx.preference:preference:${support}"
-    implementation "androidx.recyclerview:recyclerview:1.1.0-alpha03"
-    implementation "androidx.fragment:fragment:1.1.0-alpha4"
-    implementation "com.google.android.material:material:${material}"
+    // AndroidX components
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.fragment:fragment:1.2.4'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.room:room-runtime:2.2.5'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'androidx.work:work-runtime:2.3.4'
+    implementation 'com.google.android.material:material:1.1.0'
 
     // Miscellaneous
-    api 'com.google.guava:guava:27.0.1-android'
+    implementation 'com.google.guava:guava:29.0-android'
     implementation 'com.annimon:stream:1.2.1'
-    implementation 'com.google.android:flexbox:1.1.0'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
-    implementation 'net.sf.trove4j:trove4j:3.0.3'
-    implementation 'org.sufficientlysecure:html-textview:3.4'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    implementation 'org.sufficientlysecure:html-textview:3.9'
     if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {
-        implementation 'io.sentry:sentry-android:1.7.14'
+        implementation 'io.sentry:sentry-android:1.7.30'
     }
-    implementation 'org.slf4j:slf4j-nop:1.7.25'
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.json:json:20180130'
+
+    // Root related
+    implementation 'com.github.topjohnwu.libsu:core:2.5.1'
+    implementation 'com.github.topjohnwu.libsu:io:2.5.1'
+
+    // VPN related
+    implementation 'org.pcap4j:pcap4j-core:1.8.2'
+    implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
+    implementation 'dnsjava:dnsjava:3.0.2'
+    implementation 'org.slf4j:slf4j-android:1.7.30'
+
+    // Test related
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.json:json:20190722'
 }

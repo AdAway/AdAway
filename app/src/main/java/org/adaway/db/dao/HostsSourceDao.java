@@ -29,21 +29,27 @@ public interface HostsSourceDao {
     @Delete
     void delete(HostsSource source);
 
-    @Query("SELECT * FROM hosts_sources WHERE enabled = 1 ORDER BY url ASC")
+    @Query("SELECT * FROM hosts_sources WHERE enabled = 1 AND id != 1 ORDER BY url ASC")
     List<HostsSource> getEnabled();
 
-    @Query("SELECT * FROM hosts_sources ORDER BY url ASC")
+    @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
     List<HostsSource> getAll();
 
-    @Query("SELECT * FROM hosts_sources ORDER BY url ASC")
+    @Query("SELECT id FROM hosts_sources")
+    int[] getAllIds();
+
+    @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
     LiveData<List<HostsSource>> loadAll();
 
-    @Query("UPDATE hosts_sources SET last_modified_online = :date WHERE url = :url")
-    void updateOnlineModificationDate(String url, Date date);
+    @Query("UPDATE hosts_sources SET last_modified_local = :localModificationDate, last_modified_online = :onlineModificationDate WHERE id = :id")
+    void updateModificationDates(int id, Date localModificationDate, Date onlineModificationDate);
 
-    @Query("UPDATE hosts_sources SET last_modified_local = :date WHERE enabled = 1")
-    void updateEnabledLocalModificationDates(Date date);
+    @Query("UPDATE hosts_sources SET last_modified_online = :date WHERE id = :id")
+    void updateOnlineModificationDate(int id, Date date);
 
-    @Query("UPDATE hosts_sources SET last_modified_local = NULL")
-    void clearLocalModificationDates();
+    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online > last_modified_local")
+    LiveData<Integer> countOutdated();
+
+    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online <= last_modified_local")
+    LiveData<Integer> countUpToDate();
 }

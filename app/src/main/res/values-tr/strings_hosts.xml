@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">Uygun değil</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Kaynak ekle</string>
+    <string name="hosts_edit_dialog_title">Kaynak düzenle</string>
+    <string name="hosts_dialog_url">URL: (bir https:// veya file:// kaynak)</string>
+    <string name="hosts_dialog_url_hint">Hosts kaynak URL\'si</string>
+</resources>

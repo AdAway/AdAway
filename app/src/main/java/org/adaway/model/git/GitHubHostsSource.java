@@ -71,11 +71,8 @@ class GitHubHostsSource extends GitHostsSource {
         // Create client and request
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(commitApiUrl).build();
-        try (Response execute = client.newCall(request).execute()) {
-            ResponseBody body = execute.body();
-            if (body == null) {
-                throw new IOException("Empty body content for URL:" + commitApiUrl);
-            }
+        try (Response execute = client.newCall(request).execute();
+             ResponseBody body = execute.body()) {
             return parseJsonBody(body.string());
         } catch (IOException | JSONException exception) {
             Log.e(Constants.TAG, "Unable to get commits from API.", exception);

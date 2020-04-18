@@ -1,8 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
-    <string name="app_name">AdAway</string>
-
     <!--Buttons-->
     <string name="button_exit">Exit</string>
     <string name="button_close">Close</string>
@@ -11,7 +8,6 @@
     <string name="button_add">Add</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
-    <string name="button_webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
     <string name="button_help">Help</string>
 
     <!--Home-->
@@ -27,8 +23,15 @@
     <string name="header_webserver">Web server</string>
     <string name="webserver_status_running">Running</string>
     <string name="webserver_status_stopped">Stopped</string>
+    <string name="webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
     <string name="button_enable_webserver">Enable web server</string>
     <string name="button_disable_webserver">Disable web server</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Running</string>
+    <string name="vpn_status_stopped">Stopped</string>
+    <string name="vpn_toggle_text">Start or stop VPN to filter requests.</string>
+    <string name="button_enable_vpn">Enable VPN</string>
+    <string name="button_disable_vpn">Disable VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Delete</string>
@@ -36,19 +39,6 @@
     <string name="checkbox_list_context_edit">Edit</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Whitelist</string>
-    <string name="lists_tab_blacklist">Blacklist</string>
-    <string name="lists_tab_redirection_list">Redirects</string>
-    <string name="list_add_dialog_black">Add host to blacklist</string>
-    <string name="list_add_dialog_white">Add host to whitelist</string>
-    <string name="list_add_dialog_redirect">Add host redirect</string>
-    <string name="list_edit_dialog_black">Edit blacklisted host</string>
-    <string name="list_edit_dialog_white">Edit whitelisted host</string>
-    <string name="list_edit_dialog_redirect">Edit redirect</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_hostname_hint">The hosts source URL</string>
-    <string name="list_dialog_wildcard">(Wildcard characters * and ? are allowed)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
     <string name="import_dialog">Importing…</string>
     <string name="import_success">Backup successfully imported from your external storage.</string>
     <string name="import_failed">Failed to import backup. Is its format correct? Check logcat for more details.</string>
@@ -63,11 +53,18 @@
     <string name="hosts_open_button">Open the hosts file</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Checking for update…</string>
-    <string name="status_reverting">Reverting…</string>
+    <string name="status_check">Checking for update</string>
+    <string name="status_check_source">Checking source %s for update</string>
+    <string name="status_retrieve">Retrieving sources</string>
+    <string name="status_download_source">Downloading source %s</string>
+    <string name="status_copy_source">Copying source %s</string>
+    <string name="status_parse_source">Parsing source %s</string>
+    <string name="status_revert">Reverting to default hosts file</string>
+    <string name="status_revert_done">Default hosts file restored</string>
     <string name="status_reverting_subtitle">Creating standard hosts file</string>
-    <string name="status_update_available">Update available</string>
+    <string name="status_update_available">Source update available</string>
     <string name="status_update_available_subtitle">Newer hosts files available</string>
+    <string name="status_no_update_found">No source update found</string>
     <string name="status_no_connection">No Internet connection</string>
     <string name="status_no_connection_subtitle">No Internet connection available</string>
     <string name="status_download_fail">Unavailable sources</string>
@@ -80,14 +77,19 @@
     <string name="status_enabled_subtitle">Newest hosts files enabled</string>
     <string name="status_disabled">Disabled</string>
     <string name="status_disabled_subtitle">Default hosts file installed</string>
-    <string name="notification_channel_update_name">Updates</string>
-    <string name="notification_channel_update_description">New hosts update notifications</string>
-    <string name="notification_configuration_changed">Your configuration changed. You need to install hosts file to apply it.</string>
+    <string name="status_apply_sources">Apply latest sources</string>
+    <string name="status_create_new_hosts">Creating a new hosts file</string>
+    <string name="status_copy_new_hosts">Copying a new hosts file</string>
+    <string name="status_check_copy">Checking hosts file copy</string>
+    <string name="status_hosts_updated">Hosts file successfully updated</string>
+    <string name="status_vpn_configuration_updated">VPN configuration successfully updated</string>
+    <string name="notification_configuration_changed">Your configuration changed. You need to apply it.</string>
     <string name="notification_configuration_changed_action">Apply</string>
-    <string name="notification_configuration_installing">Installing hosts file…</string>
-    <string name="notification_configuration_failed">Failed to install hosts file.</string>
+    <string name="notification_configuration_installing">Applying new configuration…</string>
+    <string name="notification_configuration_failed">Failed to apply new configuration.</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">The symlink to the hosts file target is missing</string>
     <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
     <string name="apply_symlink_missing_title">Symlink missing</string>
     <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
@@ -96,6 +98,7 @@
     <string name="apply_private_file_fail_title">Private file fail</string>
     <string name="apply_remount_fail">Remounting the partition as read/write failed!</string>
     <string name="apply_remount_fail_title">Remount failed</string>
+    <string name="apply_copy_fail_status">Failed to copy hosts file</string>
     <string name="apply_copy_fail">Copying of hosts file failed!</string>
     <string name="apply_copy_fail_title">Copy failed</string>
     <string name="apply_success_subtitle">Applied hosts sources</string>
@@ -116,29 +119,32 @@
     <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
     <string name="apply_dialog_hosts">Building hosts file</string>
     <string name="apply_dialog_apply">Applying hosts file</string>
+    <string name="apply_fail_status">Failed to apply new hosts file.</string>
     <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
     <string name="apply_fail_title">Applying failed</string>
     <string name="root_access_fail">Please check your root management app to ensure root access has been granted.</string>
     <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!) </string>
     <string name="revert_successful_title">Reverting successful</string>
+    <string name="revert_failed_status">Unable to revert hosts file</string>
     <string name="revert_problem">Reverting failed due to unknown reasons.</string>
     <string name="revert_problem_title">Reverting failed!</string>
     <string name="download_fail_dialog">None of your enabled hosts sources are reachable! Are you properly connected to the Internet?</string>
     <string name="download_fail_title">Download failed</string>
+    <string name="no_private_file_status">Failed to write new private hosts file</string>
     <string name="no_private_file">Private file can not be created.</string>
     <string name="no_private_file_title">Private file creation failed</string>
     <string name="enable_systemless_successful">You enabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
     <string name="enable_systemless_successful_title">Enabling successful</string>
     <string name="disable_systemless_successful">You disabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
     <string name="disable_systemless_successful_title">Disabling successful</string>
+    <string name="enable_vpn_fail">Failed to enable VPN ad blocking.</string>
+    <string name="disable_vpn_fail">Failed to disable VPN ad blocking.</string>
     <string name="enable_systemless_magisk_title">Enabling hosts Magisk module</string>
     <string name="enable_systemless_magisk">Enable systemless hosts feature from Magisk manager. From its settings, enable the <cite>Systemless hosts</cite> option then reboot your device.</string>
     <string name="disable_systemless_magisk_title">Disabling hosts Magisk module</string>
     <string name="disable_systemless_magisk">Disable systemless hosts feature from Magisk manager. From the module list, uninstall the <cite>Systemless hosts</cite> module then reboot your device.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Either the su binary could not be found or you did not allow root permission for AdAway.\n\nThis can happen when your device is not rooted.\nYou can find information about how to root your device on wiki.lineageos.org or other Android websites.</string>
-    <string name="no_root_title">Rooted Android required</string>
     <string name="hosts_add_dialog">Input URL to hosts file:</string>
     <string name="no_hostname">This is not a valid hostname!</string>
     <string name="no_hostname_title">Improperly formatted hostname</string>
@@ -150,7 +156,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Refresh</string>
     <string name="menu_add">Add</string>
-    <string name="menu_hosts_sources">Hosts sources</string>
     <string name="menu_help">Help</string>
     <string name="menu_import">Import backup</string>
     <string name="menu_export">Export backup</string>
@@ -165,15 +170,6 @@
     <string name="adware_description">Here you can find installed adware, bad applications which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to uninstall those apps by clicking on the list items.</string>
     <string name="adware_scanning">Scanning&#8230;</string>
     <string name="adware_empty">No Adware were found!</string>
-
-    <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Local:</string>
-    <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">not available</string>
-    <string name="hosts_add_dialog_title">Add source</string>
-    <string name="hosts_edit_dialog_title">Edit source</string>
-    <string name="hosts_dialog_url">URL: (a https:// or file:// resource)</string>
-    <string name="hosts_dialog_url_hint">The hosts source URL</string>
 
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
@@ -197,63 +193,6 @@
     <string name="tcpdump_entry_add_whitelist">Add entry to white list</string>
     <string name="tcpdump_entry_add_redirection_list">Add entry to redirect list</string>
 
-    <!--Preferences-->
-    <string name="pref_download">General Preferences</string>
-    <string name="pref_dismiss_welcome">Hide welcome card</string>
-    <string name="pref_dismiss_welcome_summary">Do not show the welcome card on the home screen</string>
-    <string name="pref_dark_theme">Enable dark theme</string>
-    <string name="pref_dark_theme_summary">Use dark theme instead of light one</string>
-    <string name="pref_dark_theme_notification">Theme will be applied on next application start!</string>
-    <string name="pref_hosts">Hosts File</string>
-    <string name="pref_update_check">Check for updates</string>
-    <string name="pref_apply_method">Target hosts file</string>
-    <string name="pref_apply_method_summary">Before changing this setting, read Help about this functionality.</string>
-    <string name="pref_redirection_ipv4">Redirection IPv4</string>
-    <string name="pref_redirection_ipv4_summary">All blocked hostnames are redirected to this IPv4 address.</string>
-    <string name="pref_redirection_ipv6">Redirection IPv6</string>
-    <string name="pref_redirection_ipv6_summary">All blocked hostnames are redirected to this IPv6 address.</string>
-    <string name="pref_header_preferences">Preferences</string>
-    <string name="pref_header_preferences_summary">General preferences for AdAway</string>
-    <string name="pref_never_reboot">Hide reboot dialog</string>
-    <string name="pref_never_reboot_summary">Hides the dialog that asks to reboot Android after successful applying</string>
-    <string name="pref_webserver_on_boot">Start webserver on boot</string>
-    <string name="pref_webserver_on_boot_summary">Start webserver on boot, listening on local IP addresses</string>
-    <string name="pref_webserver_enabled">Enable webserver</string>
-    <string name="pref_webserver_enabled_summary">Enables webserver listening on local IP addresses to answer requests to blocked hostnames</string>
-    <string name="pref_webserver">Local Webserver</string>
-    <string name="pref_custom_target">Custom target</string>
-    <string name="pref_custom_target_summary">Only used if target hosts file is set to custom target</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Custom target</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">Check for updates on start of AdAway</string>
-    <string name="pref_sdcard_problem">This feature will not work correctly when AdAway is installed on SD card!</string>
-    <string name="pref_background">Background Services</string>
-    <string name="pref_update_check_daily">Check for updates daily</string>
-    <string name="pref_update_check_daily_summary">Check for updates daily in background with notifications</string>
-    <string name="pref_automatic_update_daily">Automatic update</string>
-    <string name="pref_automatic_update_daily_summary">Update automatically in background if updates are available.</string>
-    <string name="pref_update_only_on_wifi">Update when not metered only</string>
-    <string name="pref_update_only_on_wifi_summary">Execute background updates only when connected to an unmetered network only.</string>
-    <string name="pref_whitelist_rules">Allow whitelisting</string>
-    <string name="pref_whitelist_rules_summary">Allow whitelist entries from Hosts Sources.</string>
-    <string name="pref_redirection_rules">Allow redirects</string>
-    <string name="pref_redirection_rules_summary">POSES SECURITY RISK! Allow redirection entries from Hosts Sources.</string>
-    <string name="pref_debug">Debug</string>
-    <string name="pref_enable_debug">Enable verbose logging</string>
-    <string name="pref_enable_debug_summary">You need to restart AdAway for this setting to take effect.</string>
-    <string name="pref_enable_telemetry">Enable crash reports</string>
-    <string name="pref_enable_telemetry_summary">Allow the application to send errors and crash reports to Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Enable IPv6</string>
-    <string name="pref_enable_ipv6_summary">All host file entries will get a corresponding redirection entry.</string>
-    <string name="pref_enable_systemless_summary">Prevent AdAway from modifying the system partition</string>
-    <string name="pref_enable_systemless">Enable systemless mode</string>
     <string name="pref_edit_text_value">Edit text preference value</string>
     <string name="drawer_open">Open menu</string>
     <string name="drawer_close">Close menu</string>
@@ -270,16 +209,6 @@
         <item>Help</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Support development \u2764</string>
-    <string name="drawer_support_dialog_title">Support development</string>
-    <string name="drawer_support_dialog_text">AdAway is a Free and Open-Source software developed and maintained by the community only. It took me two years as a spare time project to build this new version of the app.\n\nIf you like it and want to see more updates, feel free to support the project.</string>
-    <string name="drawer_support_dialog_button">Show my support</string>
-
-    <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetry</string>
-    <string name="dialog_telemetry_message">Hello dear user,\n\nYou could now participate to the development of AdAway by sharing your crash reports and basic usage information. All data are anonymous and telemetry will only be enabled if you agree to.\n\nYou can find more details on <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Sure, I\'m glad to help!</string>
-    <string name="dialog_telemetry_disable">No thanks</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS requests</string>
@@ -287,6 +216,7 @@
     <string name="shortcut_preferences">Preferences</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Installed %1$s ago</string>
     <string name="hosts_source_up_to_date">Up-to-date for %1$s</string>
     <string name="hosts_source_need_update">Need update for %1$s</string>
     <string name="hosts_source_last_update">Last update %1$s ago</string>
@@ -307,5 +237,21 @@
         <item quantity="one">%d month</item>
         <item quantity="other">%d months</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">starting</string>
+    <string name="vpn_notification_running">active</string>
+    <string name="vpn_notification_stopping">stopping</string>
+    <string name="vpn_notification_waiting_for_net">wait for network</string>
+    <string name="vpn_notification_reconnecting">reconnecting</string>
+    <string name="vpn_notification_reconnecting_error">reconnecting error</string>
+    <string name="vpn_notification_paused">paused</string>
+    <string name="vpn_notification_stopped">stopped</string>
+    <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Pause</string>
+    <string name="vpn_notification_paused_text">Tap to resume</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Enable and disable system ad-blocking</string>
 
 </resources>

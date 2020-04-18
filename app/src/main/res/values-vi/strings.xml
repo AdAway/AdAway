@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Thoát</string>
@@ -11,7 +9,6 @@
     <string name="button_add">Thêm</string>
     <string name="button_cancel">Huỷ bỏ</string>
     <string name="button_save">Lưu</string>
-    <string name="button_webserver_toggle_text">Bật hoặc dừng webserver trên miền cục bộ để phản hồi yêu cầu từ các tên miền đã chặn.</string>
     <string name="button_help">Trợ giúp</string>
 
     <string name="text_update">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
@@ -22,15 +19,9 @@
     <string name="checkbox_list_context_edit">Chỉnh sửa</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Danh sách trắng</string>
-    <string name="lists_tab_blacklist">Danh sách đen</string>
-    <string name="list_dialog_hostname">Tên miền:</string>
-    <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
-    <string name="import_dialog">Đang nhập...</string>
-    <string name="export_dialog">Đang xuất...</string>
+    <string name="import_dialog">Đang nhập…</string>
+    <string name="export_dialog">Đang xuất…</string>
     <!--Status Notification-->
-    <string name="status_checking">Đang kiểm tra cập nhật...</string>
-    <string name="status_reverting">Đang đổi lại...</string>
     <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
     <string name="status_update_available">Đã có bản cập nhật</string>
     <string name="status_update_available_subtitle">Đã có tập tin miền mới</string>
@@ -59,8 +50,8 @@
     <string name="apply_apn_proxy_title">Đã tạo proxy APN!</string>
     <string name="no_connection">Kết nối mạng không hoạt động.</string>
     <string name="no_connection_title">Không có kết nối</string>
-    <string name="download_dialog">Đang tải xuống...</string>
-    <string name="apply_dialog">Đang áp dụng...</string>
+    <string name="download_dialog">Đang tải xuống…</string>
+    <string name="apply_dialog">Đang áp dụng…</string>
     <string name="apply_dialog_lists">Đang áp dụng Danh sách đen và Danh sách trắng</string>
     <string name="apply_dialog_hostnames">Đang xử lý và hợp nhất các tập tin miền</string>
     <string name="apply_dialog_hosts">Đang tạo tập tin miền</string>
@@ -77,19 +68,16 @@
     <string name="enable_systemless_successful_title">Kích hoạt thành công</string>
     <string name="disable_systemless_successful_title">Vô hiệu hóa thành công</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">Không tìm thấy tập tin su hoặc bạn không trao quyền root cho AdAway.\n\nĐiều này có thể xảy ra khi thiết bị chưa được root.\nBạn có thể tìm thông tin về cách root máy tại wiki.lineageos.org hoặc ở các trang web về Android khác.</string>
-    <string name="no_root_title">Yêu cầu Android đã root</string>
     <string name="hosts_add_dialog">Nhập URL vào tập tin miền:</string>
     <string name="no_hostname">Tên miền không hợp lệ!</string>
     <string name="no_hostname_title">Định dạng tên miền không đúng</string>
     <string name="no_ip">IP không hợp lệ!</string>
     <string name="no_ip_title">Định dạng IP không đúng</string>
-    <string name="loading">Đang tải...</string>
+    <string name="loading">Đang tải…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Làm mới</string>
     <string name="menu_add">Thêm</string>
-    <string name="menu_hosts_sources">Các nguồn miền</string>
     <string name="menu_help">Trợ giúp</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -97,9 +85,6 @@
     <string name="help_tab_problems">Vấn đề</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Cục bộ:</string>
-    <string name="hosts_last_modified_online">Trực tuyến:</string>
-    <string name="hosts_not_available">không có sẵn</string>
     <!--Other-->
     <string name="app_subtitle">Ứng dụng chặn quảng cáo</string>
     <string name="no_text_editor_title">Chưa cài trình sửa văn bản</string>
@@ -109,45 +94,6 @@
 
     <string name="tcpdump_description">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
     <!--Preferences-->
-    <string name="pref_download">Tuỳ chỉnh tổng quát</string>
-    <string name="pref_hosts">Tập tin miền</string>
-    <string name="pref_update_check">Kiểm tra cập nhật</string>
-    <string name="pref_apply_method">Tập tin miền mục tiêu</string>
-    <string name="pref_apply_method_summary">Trước khi thay đổi cài đặt, hãy đọc Trợ giúp về tính năng này.</string>
-    <string name="pref_header_preferences">Tuỳ chỉnh</string>
-    <string name="pref_header_preferences_summary">Tuỳ chỉnh tổng quát cho AdAway</string>
-    <string name="pref_never_reboot">Ẩn hộp thoại khởi động lại</string>
-    <string name="pref_never_reboot_summary">Ẩn hộp thoại đòi khởi động lại Android sau khi áp dụng thành công</string>
-    <string name="pref_webserver_on_boot">Bật webserver khi khởi động máy</string>
-    <string name="pref_webserver_on_boot_summary">Bật webserver khi khởi động máy, lắng nghe các địa chỉ IP cục bộ</string>
-    <string name="pref_webserver_enabled">Bật webserver</string>
-    <string name="pref_webserver_enabled_summary">Bật webserver để lắng nghe các địa chỉ IP cục bộ và phản hồi yêu cầu đến các tên miền bị chặn</string>
-    <string name="pref_webserver">Webserver cục bộ</string>
-    <string name="pref_custom_target">Đích tự chọn</string>
-    <string name="pref_custom_target_summary">Chỉ dùng nếu tập tin miền mục tiêu được đặt làm đích tự chọn</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Đích tự chọn</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">Kiểm tra cập nhật khi khởi động AdAway</string>
-    <string name="pref_background">Dịch vụ chạy nền</string>
-    <string name="pref_update_check_daily">Kiểm tra cập nhật mỗi ngày</string>
-    <string name="pref_update_check_daily_summary">Kiểm tra cập nhật mỗi ngày ở chế độ nền có kèm thông báo</string>
-    <string name="pref_automatic_update_daily">Tự động cập nhật</string>
-    <string name="pref_automatic_update_daily_summary">Tự động cập nhật ở chế độ nền nếu có bản nâng cấp.</string>
-    <string name="pref_whitelist_rules">Cho phép tạo danh sách trắng</string>
-    <string name="pref_whitelist_rules_summary">Cho phép các mục trong danh sách trắng từ Các nguồn tên miền.</string>
-    <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
-    <string name="pref_debug">Dò lỗi</string>
-    <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
-    <string name="pref_enable_ipv6">Bật IPv6</string>
-    <string name="pref_enable_systemless_summary">Ngăn AdAway khỏi chỉnh sửa phân vùng hệ thống</string>
-    <string name="pref_enable_systemless">kích hoạt chế độ systemless</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -161,4 +107,4 @@
     </string-array>
     <string name="shortcut_preferences">Tuỳ chỉnh</string>
 
-    </resources>
+</resources>

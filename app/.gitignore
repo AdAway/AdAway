@@ -9,7 +9,6 @@ libs/mips
 libs/mips64
 libs/x86
 libs/x86_64
-lint.xml
 local.properties
 release.properties
 ant.properties

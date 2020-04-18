@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">ez dago eskuragarri</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Gehitu iturria</string>
+    <string name="hosts_edit_dialog_title">Editatu iturria</string>
+    <string name="hosts_dialog_url">URL: (https:// edo file:// baliabidea)</string>
+    <string name="hosts_dialog_url_hint">Hostalari iturriaren URLa</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Tilføj host til sortliste</string>
+    <string name="list_add_dialog_white">Tilføj host til hvidliste</string>
+    <string name="list_add_dialog_redirect">Tilføj host omdirigering</string>
+    <string name="list_edit_dialog_black">Rediger sortlistet host</string>
+    <string name="list_edit_dialog_white">Rediger hvidlistet host</string>
+    <string name="list_edit_dialog_redirect">Rediger viderestilling</string>
+    <string name="list_dialog_hostname">Værtsnavn:</string>
+    <string name="list_dialog_hostname_hint">Værts kilde URL</string>
+    <string name="list_dialog_wildcard">(Wildcard tegn * og ? er tilladt)</string>
+    <string name="list_dialog_ip">IP (IPv4 eller IPv6):</string>
+</resources>

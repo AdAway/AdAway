@@ -4,8 +4,9 @@
 
 1. [Checking bugs and technical debt](#1---checking-bugs-and-technical-debt)
 2. [Updating application version](#2---updating-application-version)
-3. [Building release apk](#3---building-release-apk)
-4. [Distributing release](#4---distributing-release)
+3. [Updating the changelog](#3---updating-the-changelog)
+3. [Building release apk](#4---building-release-apk)
+4. [Distributing release](#5---distributing-release)
 
 ## 1 - Checking bugs and technical debt
 
@@ -69,12 +70,21 @@ Special thanks to <contributors> for theirs contributions and <bug reporters> fo
 
 [U][SIZE="4"]Download:[/SIZE][/U]
 
-[URL="https://www.androidfilehost.com/?fid=<version file id>"]AdAway <application version> on AndroidFileHost[/URL] (md5: <apk file md5>)
+[URL="https://app.adaway.org/adaway.apk"]AdAway <application version>[/URL] (sha2: <apk file checksum>)
 ```
 
 ### Beta releases
-The beta releases only announced in the XDA development thread.
+
+The beta releases are only announced in the XDA development thread.
 
 ### Stable releases
-The stable releases are distributed through F-Droid store and posted of the first post of XDA development thread.
-To publish the application in F-Droid store, add a tag using `vX.Y.Z` format on GitHub repository.
+
+The stable releases are distributed through [GitHub releases](https://github.com/AdAway/AdAway/releases) and [F-Droid store](https://f-droid.org/packages/org.adaway/) and are posted of the first post of XDA development thread.
+Once ready, create and push a tag on GitHub repository using  `vX.Y.Z` format.
+To publish the application in GitHub:
+
+* Create a new version based on this tag,
+* Copy the changelog part related to the version as description of the release,
+* Upload apk binary to the release.
+
+To publish the application in F-Droid store, only a pushed tag is needed.

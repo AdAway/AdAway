@@ -1,3 +1,49 @@
+## [5.0.1] - 2020-04-15
+
+*This version is a pre-release*
+
+- Fix redirect label from home screen
+- Fix preference screen duplication on screen orientation change
+- Improve hosts list readability
+- Update dependencies
+- Fix ndk configuration
+
+Special thanks to TacoTheDank for its contribution and rmw98 and Luniz2k1 for its bug reports.
+
+## [4.3.3] - 2020-04-10
+
+hpHosts service is down.
+If you are looking for a replacement, give a try at [StevenBlack's one](https://github.com/StevenBlack/hosts).
+
+- Replace hpHosts default hosts file by StevenBlack hosts file
+- Improve tcpdump icons
+- Update translations
+
+Special thanks to damoasda its contribution and gallegonovato for its bug report.
+
+## [5.0.0] - 2020-04-07
+
+*This version is a pre-release*
+
+- Add new home screen
+  - Provides all main controls from one screen
+  - Displays currently blocked, allowed and redirected domains
+  - Displays current hosts sources status and control to force apply
+- Add non root ad-blocking feature
+  - Uses a builtin local VPN to filter DNS request to blocked domains
+  - Based on the work of [dns66 by julian-klode](https://github.com/julian-klode/dns66/issues/39)
+  - Allows to excluded system applications and per user applications
+- Add builtin updater with changelog display
+- Add feature to quickly pause and resume ad-blocking
+- Add wizard screen for first run setup
+- Add feature to display and filter all blocked, allowed, redirect domains
+- Improve preferences screen
+- Add broadcast receiver to control ad-blocking from third party applications
+- Update Android target to Android 10
+- Improve root and shell support
+- Split translation files to easier understand their context
+- Add GitHub action test and build tasks
+
 ## [4.3.2] - 2019-12-29
 
 - Fix GitLab source hosting

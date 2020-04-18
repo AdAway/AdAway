@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Aggiungi gli host alla blacklist</string>
+    <string name="list_add_dialog_white">Aggiungi gli host alla whitelist</string>
+    <string name="list_add_dialog_redirect">Inoltra un host</string>
+    <string name="list_edit_dialog_black">Modifica host in blacklist</string>
+    <string name="list_edit_dialog_white">Modifica host in whitelist</string>
+    <string name="list_edit_dialog_redirect">Modifica un inoltro</string>
+    <string name="list_dialog_hostname">Nome host:</string>
+    <string name="list_dialog_hostname_hint">URL sorgente hosts</string>
+    <string name="list_dialog_wildcard">(I caratteri * e ? sono consentiti)</string>
+    <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">将 hosts 添加到黑名单</string>
+    <string name="list_add_dialog_white">将 hosts 添加到白名单</string>
+    <string name="list_add_dialog_redirect">将 hosts 添加到重定向</string>
+    <string name="list_edit_dialog_black">编辑黑名单 host</string>
+    <string name="list_edit_dialog_white">编辑白名单主机</string>
+    <string name="list_edit_dialog_redirect">编辑重定向</string>
+    <string name="list_dialog_hostname">主机名：</string>
+    <string name="list_dialog_hostname_hint">hosts 源网址</string>
+    <string name="list_dialog_wildcard">（允许使用通配符 * 和 ? ）</string>
+    <string name="list_dialog_ip">IP 地址（IPv4 或 IPv6）：</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Kara listeye host ekle</string>
+    <string name="list_add_dialog_white">Beyaz listeye host ekle</string>
+    <string name="list_add_dialog_redirect">Host yönlendirmesi ekle</string>
+    <string name="list_edit_dialog_black">Kara listeye alınan sunucuyu düzenle</string>
+    <string name="list_edit_dialog_white">Beyaz listeye alınan sunucuyu düzenle</string>
+    <string name="list_edit_dialog_redirect">Yönlendirmeyi düzenle</string>
+    <string name="list_dialog_hostname">Adres:</string>
+    <string name="list_dialog_hostname_hint">Hosts kaynak URL\'si</string>
+    <string name="list_dialog_wildcard">(Joker karakterler * ve ? izin verilir)</string>
+    <string name="list_dialog_ip">IP (IPv4 veya IPv6):</string>
+</resources>

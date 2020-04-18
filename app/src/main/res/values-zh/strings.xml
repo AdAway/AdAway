@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">退出</string>
@@ -11,7 +9,6 @@
     <string name="button_add">添加</string>
     <string name="button_cancel">取消</string>
     <string name="button_save">保存</string>
-    <string name="button_webserver_toggle_text">运行或停止本地主机上的 Web 服务器，以响应对被屏蔽的主机名的请求。</string>
     <string name="button_help">帮助</string>
 
     <!--Home-->
@@ -36,35 +33,20 @@
     <string name="checkbox_list_context_edit">编辑</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">白名单</string>
-    <string name="lists_tab_blacklist">黑名单</string>
-    <string name="lists_tab_redirection_list">重定向</string>
-    <string name="list_add_dialog_black">将 hosts 添加到黑名单</string>
-    <string name="list_add_dialog_white">将 hosts 添加到白名单</string>
-    <string name="list_add_dialog_redirect">将 hosts 添加到重定向</string>
-    <string name="list_edit_dialog_black">编辑黑名单 host</string>
-    <string name="list_edit_dialog_white">编辑白名单主机</string>
-    <string name="list_edit_dialog_redirect">编辑重定向</string>
-    <string name="list_dialog_hostname">主机名：</string>
-    <string name="list_dialog_hostname_hint">hosts 源网址</string>
-    <string name="list_dialog_wildcard">（允许使用通配符 * 和 ? ）</string>
-    <string name="list_dialog_ip">IP 地址（IPv4 或 IPv6）：</string>
-    <string name="import_dialog">正在导入...</string>
+    <string name="import_dialog">正在导入…</string>
     <string name="import_success">已成功从外置存储中导入备份。</string>
     <string name="import_failed">导入备份失败，请检查格式是否正确。查看日志文件以获取更多信息。</string>
-    <string name="export_dialog">正在导出...</string>
+    <string name="export_dialog">正在导出…</string>
     <string name="export_success">已成功导出备份至外置存储中的“adaway-backup.json”文件。</string>
     <string name="export_failed">导出备份失败。</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 文件</string>
     <string name="hosts_description">hosts 文件是一个将主机名映射到 IP 地址的系统文件。它是一个纯文本文件，由 AdAway 处理、配置。这是它的前几行：</string>
-    <string name="hosts_content">正在加载 hosts 文件内容...</string>
+    <string name="hosts_content">正在加载 hosts 文件内容…</string>
     <string name="hosts_open_button">打开 hosts 文件</string>
 
     <!--Status Notification-->
-    <string name="status_checking">正在检查更新...</string>
-    <string name="status_reverting">正在恢复...</string>
     <string name="status_reverting_subtitle">创建标准 hosts 文件</string>
     <string name="status_update_available">有更新可用</string>
     <string name="status_update_available_subtitle">有新的 hosts 文件可用</string>
@@ -80,11 +62,9 @@
     <string name="status_enabled_subtitle">已启用最新的 hosts 文件</string>
     <string name="status_disabled">已禁用</string>
     <string name="status_disabled_subtitle">已安装默认 hosts 文件</string>
-    <string name="notification_channel_update_name">更新</string>
-    <string name="notification_channel_update_description">hosts 文件更新通知</string>
     <string name="notification_configuration_changed">您的配置已更改。需要重新安装 hosts 文件才能应用至系统。</string>
     <string name="notification_configuration_changed_action">应用</string>
-    <string name="notification_configuration_installing">正在安装 hosts 文件...</string>
+    <string name="notification_configuration_installing">正在安装 hosts 文件…</string>
     <string name="notification_configuration_failed">hosts 文件安装失败。</string>
 
     <!--Apply and Revert Dialogs-->
@@ -107,12 +87,12 @@
     <string name="apply_symlink_fail">Android 无法创建符号链接。\n失败的常见原因是 HTC 的 S-ON 的功能。\n\n一个解决方案是重启设备到恢复模式，并使用如下命令创建符号链接：\'ln -s /data/data/hosts /system/etc/hosts\'。\n\n如果这不起作用，请搜索如何将您的设备设成 S-OFF。\n\n译者注：这是 2015 年的事情了，现在基本已经没有 S-ON 了。</string>
     <string name="apply_symlink_fail_title">符号链接创建失败</string>
     <string name="apply_help">请阅读帮助以获取更多信息。</string>
-    <string name="apply_apn_proxy">您的设备设置了一个 APN 代理！\n当在 3G 等移动网络上时，AdAway 将无法可靠地工作。您可以尝试禁用 APN 代理：进入您选择的 APN（设置 -> 网络和移动网络 -> 高级 -> 接入点名称），并删除“代理”字段中的值。</string>
+    <string name="apply_apn_proxy">您的设备设置了一个 APN 代理！\n当在 3G 等移动网络上时，AdAway 将无法可靠地工作。您可以尝试禁用 APN 代理：进入您选择的 APN（设置 -&gt; 网络和移动网络 -&gt; 高级 -&gt; 接入点名称），并删除“代理”字段中的值。</string>
     <string name="apply_apn_proxy_title">已设置 APN 代理！</string>
     <string name="no_connection">网络连接缓慢。</string>
     <string name="no_connection_title">没有连接</string>
-    <string name="download_dialog">正在下载...</string>
-    <string name="apply_dialog">正在应用...</string>
+    <string name="download_dialog">正在下载…</string>
+    <string name="apply_dialog">正在应用…</string>
     <string name="apply_dialog_lists">正在应用黑名单与白名单</string>
     <string name="apply_dialog_hostnames">正在解析、合并 hosts 文件</string>
     <string name="apply_dialog_hosts">正在构建 hosts 文件</string>
@@ -138,23 +118,17 @@
     <string name="disable_systemless_magisk">请在 Magisk Manager 中禁用 systemless hosts 特性。从模块列表中卸载<cite>Systemless Hosts</cite>模块，并重启设备。</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">未找到 su 二进制文件，或未授予 Root 权限。
-
-请检查您的设备！
-您可以在维基或其他安卓网站上查找有关如何获取 Root 权限的信息。</string>
-    <string name="no_root_title">需要已获得 root 权限的 Android 设备</string>
     <string name="hosts_add_dialog">输入 hosts 文件网址：</string>
     <string name="no_hostname">主机名无效！</string>
     <string name="no_hostname_title">主机名格式不正确</string>
     <string name="no_ip">IP 地址无效！</string>
     <string name="no_ip_title">IP 地址格式不正确</string>
     <string name="reboot_never_reboot">从不重启，且不再显示此信息！</string>
-    <string name="loading">正在加载...</string>
+    <string name="loading">正在加载…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">刷新</string>
     <string name="menu_add">添加</string>
-    <string name="menu_hosts_sources">hosts 源</string>
     <string name="menu_help">帮助</string>
     <string name="menu_import">导入备份</string>
     <string name="menu_export">导出备份</string>
@@ -167,17 +141,10 @@
     <!--Adware-->
     <string name="adware_header">广告软件</string>
     <string name="adware_description">在这里，你可以找到已安装的广告软件，AdAway 无法对其进行有效的广告屏蔽。比如说，这些应用程序可能会在没有运行的时候弹出 Airpush 通知，甚至改变通知铃声。唯一可行的对策是，通过点击下面的列表项，卸载这些应用程序。</string>
-    <string name="adware_scanning">正在扫描&#8230;</string>
+    <string name="adware_scanning">正在扫描…</string>
     <string name="adware_empty">没有已知的广告软件！</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">本地：</string>
-    <string name="hosts_last_modified_online">在线：</string>
-    <string name="hosts_not_available">无法使用</string>
-    <string name="hosts_add_dialog_title">添加源</string>
-    <string name="hosts_edit_dialog_title">编辑源</string>
-    <string name="hosts_dialog_url">URL：（以 https:// 或 file:// 开头）</string>
-    <string name="hosts_dialog_url_hint">hosts 源网址</string>
 
     <!--Other-->
     <string name="app_subtitle">广告拦截器</string>
@@ -202,62 +169,6 @@
     <string name="tcpdump_entry_add_redirection_list">添加条目到重定向</string>
 
     <!--Preferences-->
-    <string name="pref_download">常规首选项</string>
-    <string name="pref_dismiss_welcome">隐藏欢迎卡片</string>
-    <string name="pref_dismiss_welcome_summary">隐藏主屏幕上的欢迎卡片</string>
-    <string name="pref_dark_theme">启用深色主题</string>
-    <string name="pref_dark_theme_summary">使用深色主题而不是浅色主题</string>
-    <string name="pref_dark_theme_notification">更改主题需要重启应用后才能生效！</string>
-    <string name="pref_hosts">hosts 文件</string>
-    <string name="pref_update_check">检查更新</string>
-    <string name="pref_apply_method">目标 hosts 文件</string>
-    <string name="pref_apply_method_summary">在更改此设置之前，请阅读有关此功能的帮助条目。</string>
-    <string name="pref_redirection_ipv4">IPv4 重定向</string>
-    <string name="pref_redirection_ipv4_summary">所有被屏蔽的主机名都将被重定向至此 IPv4 地址。</string>
-    <string name="pref_redirection_ipv6">IPv6 重定向</string>
-    <string name="pref_redirection_ipv6_summary">所有被屏蔽的主机名都将被重定向至此 IPv6 地址。</string>
-    <string name="pref_header_preferences">首选项</string>
-    <string name="pref_header_preferences_summary">AdAway 的常规设置</string>
-    <string name="pref_never_reboot">隐藏重启对话框</string>
-    <string name="pref_never_reboot_summary">隐藏应用要求重启应用的对话框</string>
-    <string name="pref_webserver_on_boot">启动时启用网络服务器</string>
-    <string name="pref_webserver_on_boot_summary">开机时，自动运行网络服务器并监听本地 IP 地址</string>
-    <string name="pref_webserver_enabled">启用网络服务器</string>
-    <string name="pref_webserver_enabled_summary">允许网络服务器监听听本地 IP 地址以应答对已屏蔽的主机名的请求</string>
-    <string name="pref_webserver">本地网络服务器</string>
-    <string name="pref_custom_target">自定义 hosts 文件路径</string>
-    <string name="pref_custom_target_summary">仅在“目标 hosts 文件”被设置为“自定义路径”时被使用</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>自定义路径</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">启动时检查更新 AdAway</string>
-    <string name="pref_sdcard_problem">如果 AdAway 被安装到 SD 卡上，此功能可能无法运作！</string>
-    <string name="pref_background">后台服务</string>
-    <string name="pref_update_check_daily">每天检查更新</string>
-    <string name="pref_update_check_daily_summary">每天在后台检查更新并显示通知</string>
-    <string name="pref_automatic_update_daily">自动更新</string>
-    <string name="pref_automatic_update_daily_summary">有可用更新时，在后台自动进行更新。</string>
-    <string name="pref_update_only_on_wifi">仅在非计费网络下更新</string>
-    <string name="pref_update_only_on_wifi_summary">只有在连接至非计费网络时，才进行后台更新。</string>
-    <string name="pref_whitelist_rules">允许白名单</string>
-    <string name="pref_whitelist_rules_summary">允许 hosts 源中的白名单条目</string>
-    <string name="pref_redirection_rules">允许重定向</string>
-    <string name="pref_redirection_rules_summary">可能会带来安全隐患！允许在线 hosts 源中的重定向条目。</string>
-    <string name="pref_debug">调试</string>
-    <string name="pref_enable_debug">启用详细日志</string>
-    <string name="pref_enable_debug_summary">具体的详细级别为 verbose，重启 AdAway 才能使此设置生效。</string>
-    <string name="pref_enable_telemetry">启用崩溃报告</string>
-    <string name="pref_enable_telemetry_summary">允许本应用程序向 Sentry（sentry.io）发送错误与崩溃报告。</string>
-    <string name="pref_enable_ipv6">启用 IPv6</string>
-    <string name="pref_enable_ipv6_summary">将 hosts 文件中的所有 IP 地址改为相应的 IPv6 地址</string>
-    <string name="pref_enable_systemless_summary">防止 AdAway 修改系统分区</string>
-    <string name="pref_enable_systemless">启用 systemless 模式</string>
     <string name="pref_edit_text_value">编辑文本首选项值</string>
     <string name="drawer_open">打开菜单</string>
     <string name="drawer_close">关闭菜单</string>
@@ -274,16 +185,8 @@
         <item>帮助</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 支持开发 \u2764</string>
-    <string name="drawer_support_dialog_title">支持开发</string>
-    <string name="drawer_support_dialog_text">AdAway 是一个由社区开发和维护的自由开源软件。我花了两年的业余时间来重构这个应用程序的新版本。如果你喜欢它，并希望收到更多后续更新，欢迎支持本项目。</string>
-    <string name="drawer_support_dialog_button">支持开发者</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">遥测</string>
-    <string name="dialog_telemetry_message">您好，亲爱的用户，您现在可以通过分享您的崩溃报告和基本使用信息来参与 AdAway 的开发。所有的数据都是匿名的，且只有在您同意的情况下，才能启用遥测。您可以在<a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>上找到更多的细节。</string>
-    <string name="dialog_telemetry_enable">当然，我很乐意帮忙！</string>
-    <string name="dialog_telemetry_disable">不用了，谢谢</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 请求</string>

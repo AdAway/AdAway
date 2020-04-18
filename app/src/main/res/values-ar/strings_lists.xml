@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">إضافة المضيف للقائمة السوداء </string>
+    <string name="list_add_dialog_white">إضافة المضيف للقائمة البيضاء</string>
+    <string name="list_add_dialog_redirect">إضافة عملية إعادة توجيه المضيف</string>
+    <string name="list_edit_dialog_black">تحرير المضيف المُدرج في القائمة السوداء</string>
+    <string name="list_edit_dialog_white">تحرير المضيف المُدرج في القائمة البيضاء</string>
+    <string name="list_edit_dialog_redirect">تحرير عملية إعادة التوجيه</string>
+    <string name="list_dialog_hostname">اسم المضيف:</string>
+    <string name="list_dialog_hostname_hint">مصدر رابط المضيف</string>
+    <string name="list_dialog_wildcard">(يسمح اسخدام رموز البدل * و ?)</string>
+    <string name="list_dialog_ip">بروتكول الانترنت (IPv4 أو IPv6):</string>
+</resources>

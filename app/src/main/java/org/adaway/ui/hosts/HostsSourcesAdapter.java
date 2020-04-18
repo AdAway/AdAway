@@ -83,13 +83,21 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
                 source.getLastOnlineModification().getTime() != 0;
         boolean lastLocalModificationDefined = source.getLastLocalModification() != null &&
                 source.getLastLocalModification().getTime() != 0;
-        // Get last online modification delay
-        String approximateDelay = lastOnlineModificationDefined ? DateUtils.getApproximateDelay(context, source.getLastOnlineModification()) : "";
         // Declare update text
         String updateText;
+        // Check if online modification date is unknown
         if (!lastOnlineModificationDefined) {
-            updateText = context.getString(R.string.hosts_source_unknown_status);
-        } else if (!source.isEnabled() || !lastLocalModificationDefined) {
+            if (lastLocalModificationDefined) {
+                String approximateDelay = DateUtils.getApproximateDelay(context, source.getLastLocalModification());
+                updateText = context.getString(R.string.hosts_source_installed, approximateDelay);
+            } else {
+                updateText = context.getString(R.string.hosts_source_unknown_status);
+            }
+            return updateText;
+        }
+        // Get last online modification delay
+        String approximateDelay = DateUtils.getApproximateDelay(context, source.getLastOnlineModification());
+        if (!source.isEnabled() || !lastLocalModificationDefined) {
             updateText = context.getString(R.string.hosts_source_last_update, approximateDelay);
         } else if (source.getLastOnlineModification().after(source.getLastLocalModification())) {
             updateText = context.getString(R.string.hosts_source_need_update, approximateDelay);

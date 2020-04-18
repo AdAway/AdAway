@@ -8,11 +8,8 @@
         android:shortcutShortLabel="@string/shortcut_preferences">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="org.adaway.ui.MainActivity"
+            android:targetClass="org.adaway.ui.prefs.PrefsActivity"
             android:targetPackage="org.adaway">
-            <extra
-                android:name="shortcut"
-                android:value="preferences" />
         </intent>
     </shortcut>
     <shortcut
@@ -24,11 +21,8 @@
         android:shortcutShortLabel="@string/shortcut_dns_requests">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="org.adaway.ui.MainActivity"
+            android:targetClass="org.adaway.ui.tcpdump.TcpdumpLogActivity"
             android:targetPackage="org.adaway">
-            <extra
-                android:name="shortcut"
-                android:value="dns_requests" />
         </intent>
     </shortcut>
     <shortcut
@@ -40,11 +34,8 @@
         android:shortcutShortLabel="@string/shortcut_your_lists">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="org.adaway.ui.MainActivity"
+            android:targetClass="org.adaway.ui.lists.ListsActivity"
             android:targetPackage="org.adaway">
-            <extra
-                android:name="shortcut"
-                android:value="your_lists" />
         </intent>
     </shortcut>
 </shortcuts>

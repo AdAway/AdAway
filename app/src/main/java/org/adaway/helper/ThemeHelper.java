@@ -1,8 +1,11 @@
 package org.adaway.helper;
 
-import android.app.Activity;
+import android.content.Context;
 
-import org.adaway.R;
+import androidx.appcompat.app.AppCompatDelegate;
+
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES;
 
 /**
  * This class is a helper to apply user selected theme on the application activity.
@@ -21,11 +24,11 @@ public final class ThemeHelper {
     /**
      * Apply the user selected theme.
      *
-     * @param activity The activity to apply theme.
+     * @param context The context to apply theme.
      */
-    public static void applyTheme(Activity activity) {
-        if (!PreferenceHelper.getDarkTheme(activity.getApplicationContext())) {
-            activity.setTheme(R.style.Theme_AdAway_Light);
-        }
+    public static void applyTheme(Context context) {
+        AppCompatDelegate.setDefaultNightMode(
+                PreferenceHelper.getDarkTheme(context) ? MODE_NIGHT_YES : MODE_NIGHT_NO
+        );
     }
 }

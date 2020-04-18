@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Surt</string>
@@ -11,7 +9,6 @@
     <string name="button_add">Afegeix</string>
     <string name="button_cancel">Cancel·la</string>
     <string name="button_save">Desa</string>
-    <string name="button_webserver_toggle_text">Atura o inicia el servidor web a aquest sistema per respondre les peticions per a les màquines blocades.</string>
     <string name="button_help">Ajuda</string>
 
     <!--Home-->
@@ -36,35 +33,20 @@
     <string name="checkbox_list_context_edit">Edita</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Llista blanca</string>
-    <string name="lists_tab_blacklist">Llista negra</string>
-    <string name="lists_tab_redirection_list">Redirigeix</string>
-    <string name="list_add_dialog_black">Afegeix l\'amfitrió a la llista negra</string>
-    <string name="list_add_dialog_white">Afegeix l\'amfitrió a la llista blanca</string>
-    <string name="list_add_dialog_redirect">Afegeix la redirecció de l\'amfitrió</string>
-    <string name="list_edit_dialog_black">Edita l\'amfitrió d\'una llista negra</string>
-    <string name="list_edit_dialog_white">Edita l\'amfitrió d\'una llista blanca</string>
-    <string name="list_edit_dialog_redirect">Edita la redirecció</string>
-    <string name="list_dialog_hostname">Servidor:</string>
-    <string name="list_dialog_hostname_hint">URL de la font de l\'amfitrió</string>
-    <string name="list_dialog_wildcard">(Els caràcters comodí * i ? estan permesos)</string>
-    <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
-    <string name="import_dialog">S\'està important....</string>
+    <string name="import_dialog">S\'està important….</string>
     <string name="import_success">S\'ha importat correctament la còpia de l\'emmagatzematge extern.</string>
     <string name="import_failed">Ha fallat en importar la còpia. El format és correcte? Mireu l\'informe del logcat per a més informació.</string>
-    <string name="export_dialog">S\'està exportant...</string>
+    <string name="export_dialog">S\'està exportant…</string>
     <string name="export_success">S\'ha exportat correctament el fitxer «adaway-backup.json» a l\'emmagatzematge extern.</string>
     <string name="export_failed">Ha fallat en exportar la còpia de seguretat.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">El fitxer d\'amfitrions</string>
     <string name="hosts_description">El fitxer d\'amfitrions és un fitxer del sistema on s\'associen  noms d\'amfitrió a les corresponents adreces IP. És un fitxer en text pla on la seva configuració és administrada per l\'AdAway. Aquí podeu veure les primeres línies:</string>
-    <string name="hosts_content">S\'està carregant el contingut del fitxer d\'amfitrions...</string>
+    <string name="hosts_content">S\'està carregant el contingut del fitxer d\'amfitrions…</string>
     <string name="hosts_open_button">Obre el fitxer d\'amfitrions</string>
 
     <!--Status Notification-->
-    <string name="status_checking">S\'estan comprovant les actualitzacions...</string>
-    <string name="status_reverting">S\'està revertint...</string>
     <string name="status_reverting_subtitle">Creació del fitxer estàndard de servidors</string>
     <string name="status_update_available">Actualització disponible</string>
     <string name="status_update_available_subtitle">Amfitrions nous disponibles</string>
@@ -80,11 +62,9 @@
     <string name="status_enabled_subtitle">S\'han activat els fitxers d\'amfitrions més recents</string>
     <string name="status_disabled">Desactivat</string>
     <string name="status_disabled_subtitle">S\'han instal·lat els fitxers d\'amfitrions per defecte</string>
-    <string name="notification_channel_update_name">Actualitzacions</string>
-    <string name="notification_channel_update_description">Notificacions d\'actualització de fitxers nous</string>
     <string name="notification_configuration_changed">Ha canviat la configuració. Instal·leu el fitxer d\'amfitrions per aplicar els canvis.</string>
     <string name="notification_configuration_changed_action">Aplica</string>
-    <string name="notification_configuration_installing">S\'està instal·lant el fitxer...</string>
+    <string name="notification_configuration_installing">S\'està instal·lant el fitxer…</string>
     <string name="notification_configuration_failed">Ha fallat en instal·lar el fitxer.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -106,12 +86,12 @@
     <string name="apply_symlink_fail">L\'Android no ha pogut crear l\'enllaç simbòlic.\nAixò falla normalment per una característica anomenada S-ON als telèfons HTC.\n\nUna solució és iniciar el telèfon en mode recuperació i crear l\'enllaç simbòlic allà amb \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSi no funciona, cerqueu a Internet S-OFF i el model del vostre telèfon.</string>
     <string name="apply_symlink_fail_title">S\'ha produït un error en la creació de l\'enllaç simbòlic</string>
     <string name="apply_help">Veieu l\'ajuda per a més informació.</string>
-    <string name="apply_apn_proxy">S\'ha configurat un servidor intermediari APN al vostre Android!\nL\'AdAway no funcionarà correctament amb xarxes com ara 3G. Podeu desactivar aquest servidor intermediari d\'aquest APN (des del menú Configuració -> Connexions sense fils i xarxes -> Xarxes mòbils -> APN -> Nom del vostre APN) i suprimint el valor del camp Servidor intermediari.</string>
+    <string name="apply_apn_proxy">S\'ha configurat un servidor intermediari APN al vostre Android!\nL\'AdAway no funcionarà correctament amb xarxes com ara 3G. Podeu desactivar aquest servidor intermediari d\'aquest APN (des del menú Configuració -&gt; Connexions sense fils i xarxes -&gt; Xarxes mòbils -&gt; APN -&gt; Nom del vostre APN) i suprimint el valor del camp Servidor intermediari.</string>
     <string name="apply_apn_proxy_title">S\'ha desat el servidor intermediari d\'APN</string>
     <string name="no_connection">La connexió a Internet no funciona.</string>
     <string name="no_connection_title">Sense connexió</string>
-    <string name="download_dialog">S\'està baixant...</string>
-    <string name="apply_dialog">S\'està aplicant...</string>
+    <string name="download_dialog">S\'està baixant…</string>
+    <string name="apply_dialog">S\'està aplicant…</string>
     <string name="apply_dialog_lists">Aplicant llista negra i llista blanca</string>
     <string name="apply_dialog_hostnames">Processant i unint els fitxers hosts</string>
     <string name="apply_dialog_hosts">Construïnt fitxer hosts</string>
@@ -130,8 +110,6 @@
     <string name="enable_systemless_successful_title">S\'ha habilitat correctament</string>
     <string name="disable_systemless_successful_title">S\'ha inhabilitat correctament</string>
     <!--Other Dialogs-->
-    <string name="no_root_description">El binari su no s\'ha trobat o no s\'ha permès el root a l\'dAway.\n\n Això succeeix quan el terminal no esta rootejat.\n Podeu trobar informació de com rootejar el vostre terminal a wiki.lineageos.org o en altres webs d\'Android.</string>
-    <string name="no_root_title">És necessari tenir l\'Android rootejat</string>
     <string name="hosts_add_dialog">Introduïu l\'adreça URL cap el fitxer hosts:</string>
     <string name="no_hostname">Aquest no és un nom de servidor vàlid!</string>
     <string name="no_hostname_title">Nom de màquina incorrecte</string>
@@ -142,7 +120,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Refresca</string>
     <string name="menu_add">Afegiu</string>
-    <string name="menu_hosts_sources">Servidors de fitxers hosts</string>
     <string name="menu_help">Ajuda</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -152,13 +129,6 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Local:</string>
-    <string name="hosts_last_modified_online">En línia:</string>
-    <string name="hosts_not_available">no disponible</string>
-    <string name="hosts_add_dialog_title">Afegeix una font</string>
-    <string name="hosts_edit_dialog_title">Edita la font</string>
-    <string name="hosts_dialog_url">URL: (un recurs https:// o fitxer://)</string>
-    <string name="hosts_dialog_url_hint">URL de la font hosts</string>
 
     <!--Other-->
     <string name="app_subtitle">Bloquejador d\'anuncis</string>
@@ -183,53 +153,6 @@
     <string name="tcpdump_entry_add_redirection_list">Afegeix una entrada a la llista de redireccions</string>
 
     <!--Preferences-->
-    <string name="pref_download">Preferències generals</string>
-    <string name="pref_dismiss_welcome">Amaga la targeta de benvinguda</string>
-    <string name="pref_dismiss_welcome_summary">No mostrar la targeta de benvinguda a la pantalla d\'inici</string>
-    <string name="pref_dark_theme">Activa el tema fosc</string>
-    <string name="pref_dark_theme_summary">Utilitza el tema fosc enlloc del clar</string>
-    <string name="pref_dark_theme_notification">El tema s\'aplicarà en el proper inici de l\'aplicació!</string>
-    <string name="pref_hosts">Fitxer de servidors</string>
-    <string name="pref_update_check">Comprova actualitzacions</string>
-    <string name="pref_apply_method">Fitxer hosts objectiu</string>
-    <string name="pref_apply_method_summary">Abans de canviar aquests paràmetres, llegiu l\'ajuda sobre aquesta funció.</string>
-    <string name="pref_header_preferences">Preferències</string>
-    <string name="pref_header_preferences_summary">Preferències generals d\'AdAway</string>
-    <string name="pref_never_reboot">Amaga el missatge de reinici</string>
-    <string name="pref_never_reboot_summary">Amaga el missatge que demana que es reiniciï Android després d\'aplicar correctament els canvis </string>
-    <string name="pref_webserver_on_boot">Inicia el servidor web a l\'inici</string>
-    <string name="pref_webserver_on_boot_summary">Iniciar el servidor web que escoltarà a les adreçes IP locals durant l\'arrancada</string>
-    <string name="pref_webserver_enabled">Activa el servidor web</string>
-    <string name="pref_webserver_enabled_summary">Activa el servidor web que escolta a l\'adreça IP local i respon a les peticions per a màquines bloquejades</string>
-    <string name="pref_webserver">Servidor web local</string>
-    <string name="pref_custom_target">Objectiu personalitzt</string>
-    <string name="pref_custom_target_summary">Només s\'utilitza si el fitxer hosts objectiu s\'ha ajustat a un objectiu personalitzat</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Objectiu personalitzt</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">Comprova actualitzacions a l\'inici d\'AdAway</string>
-    <string name="pref_background">Serveis en segon pla</string>
-    <string name="pref_update_check_daily">Comprova actualitzacions diàriament</string>
-    <string name="pref_update_check_daily_summary">Comprova actualitzacions diàriament en segon pla amb notificacions</string>
-    <string name="pref_automatic_update_daily">Actualitza automàticament</string>
-    <string name="pref_automatic_update_daily_summary">Actualitza automàticament en segon pla si es troben actualitzacions.</string>
-    <string name="pref_update_only_on_wifi">Actualitza només amb connexions que no siguin de consum</string>
-    <string name="pref_update_only_on_wifi_summary">Realitza actualitzacions de fons només quan estigueu connectat a una xarxa no consumible.</string>
-    <string name="pref_whitelist_rules">Permet posar a la llista blanca</string>
-    <string name="pref_whitelist_rules_summary">Permet entrades a la llista blanca de les fonts d\'amfitrions.</string>
-    <string name="pref_redirection_rules">Permet les redireccions</string>
-    <string name="pref_redirection_rules_summary">HI HA RISCOS DE SEGURETAT! Permet entrades de redireccions de les fonts d\'amfitrions.</string>
-    <string name="pref_debug">Depuració</string>
-    <string name="pref_enable_debug_summary">Necessiteu reiniciar AdAway per tal que aquest ajustament faci a efecte.</string>
-    <string name="pref_enable_ipv6">Habilita IPv6</string>
-    <string name="pref_enable_systemless_summary">Evita que l\'AdAway modifiqui la partició del sistema</string>
-    <string name="pref_enable_systemless">Habilita el mode «systemless»</string>
     <string name="pref_edit_text_value">Edita el valor de preferència del text</string>
     <string name="drawer_open">Obre el menú</string>
     <string name="drawer_close">Tanca el menú</string>
@@ -246,7 +169,6 @@
         <item>Ajuda</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Desenvolupament de suport \u2764</string>
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Sol·licituds DNS</string>
     <string name="shortcut_your_lists">Les vostre llistes</string>
@@ -257,4 +179,4 @@
     <string name="hosts_source_need_update">Actualització necessària per %1$s</string>
     <string name="hosts_source_last_update">Darrera actualització fa %1$s</string>
     <string name="hosts_source_unknown_status">Estat d\'actualització desconegut</string>
-    </resources>
+</resources>

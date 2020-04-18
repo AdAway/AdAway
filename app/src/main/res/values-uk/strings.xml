@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Вийти</string>
@@ -11,7 +9,6 @@
     <string name="button_add">Додати</string>
     <string name="button_cancel">Скасувати</string>
     <string name="button_save">Зберегти</string>
-    <string name="button_webserver_toggle_text">Запуск або зупинка локального веб-сервера для відповідей на запити заблокованих хостів.</string>
     <string name="button_help">Довідка</string>
 
     <!--Home-->
@@ -36,19 +33,6 @@
     <string name="checkbox_list_context_edit">Редагувати</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Білий список</string>
-    <string name="lists_tab_blacklist">Чорний список</string>
-    <string name="lists_tab_redirection_list">Перенаправлення</string>
-    <string name="list_add_dialog_black">Додати хост в Чорний список</string>
-    <string name="list_add_dialog_white">Додати хост в Білий список</string>
-    <string name="list_add_dialog_redirect">Додати перенаправлення хоста</string>
-    <string name="list_edit_dialog_black">Редагувати хост з Чорного списку</string>
-    <string name="list_edit_dialog_white">Редагувати хост з Білого списку</string>
-    <string name="list_edit_dialog_redirect">Редагувати перенаправлення</string>
-    <string name="list_dialog_hostname">Ім\'я джерела:</string>
-    <string name="list_dialog_hostname_hint">URL джерела хостів</string>
-    <string name="list_dialog_wildcard">(Допускають символи підстановки * та ?)</string>
-    <string name="list_dialog_ip">IP (IPv4 або IPv6):</string>
     <string name="import_dialog">Імпортування…</string>
     <string name="import_success">Резервну копію успішно імпортовано із зовнішнього сховища.</string>
     <string name="import_failed">Не вдалося імпортувати резервну копію. Можливо формат не вірний. Перевірте logcat для з\'ясування подробиць.</string>
@@ -59,12 +43,10 @@
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts — це системний файл, який містить співставлення імен хостів з IP-адресами. Це звичайний текстовий файл, вміст якого обробляє AdAway. Ось його перші рядки:</string>
-    <string name="hosts_content">Завантаження вмісту файлу hosts...</string>
+    <string name="hosts_content">Завантаження вмісту файлу hosts…</string>
     <string name="hosts_open_button">Відкрити файл hosts</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Перевірка оновлень…</string>
-    <string name="status_reverting">Відновлення…</string>
     <string name="status_reverting_subtitle">Створення стандартного файлу hosts</string>
     <string name="status_update_available">Доступне оновлення</string>
     <string name="status_update_available_subtitle">Доступні свіжі списки хостів</string>
@@ -80,11 +62,9 @@
     <string name="status_enabled_subtitle">Використовуються найновіші списки</string>
     <string name="status_disabled">Вимкнено</string>
     <string name="status_disabled_subtitle">Встановлено стандартний файл hosts</string>
-    <string name="notification_channel_update_name">Оновлення</string>
-    <string name="notification_channel_update_description">Сповіщення про оновлення нових хостів</string>
     <string name="notification_configuration_changed">Налаштування змінено. Зміни потрібно застосувати до файлу hosts.</string>
     <string name="notification_configuration_changed_action">Застосувати</string>
-    <string name="notification_configuration_installing">Встановлення файлу hosts...</string>
+    <string name="notification_configuration_installing">Встановлення файлу hosts…</string>
     <string name="notification_configuration_failed">Не вдалося встановити файл hosts.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -106,7 +86,7 @@
     <string name="apply_symlink_fail">Android не зміг створити посилання. \nМожливо, це через особливість S-ON на телефонах HTC! \n\nРішення полягає в завантаженні телефону в режимі відновлення і створення символічного посилання через \'\'ln -s /data/data/hosts /system/etc/hosts\'.\n\n Якщо це не спрацьовує, то необхідно шукати інформацію в інтернеті по S-OFF і вашому телефону.</string>
     <string name="apply_symlink_fail_title">Помилка створення посилання</string>
     <string name="apply_help">Будь ласка, читайте Довідку для отримання додаткової інформації.</string>
-    <string name="apply_apn_proxy">У налаштуваннях APN вказаний проксі сервер!\nAdAway не буде працювати в мобільних мережах, таких як 3G. Ви можете вимкнути цей проксі сервер в налаштуваннях використовуваної APN (в Android 4: Бездротові мережі -> Більше ... -> Мобільна мережа -> Точки доступу APN) і вилучити значення у полі проксі.</string>
+    <string name="apply_apn_proxy">У налаштуваннях APN вказаний проксі сервер!\nAdAway не буде працювати в мобільних мережах, таких як 3G. Ви можете вимкнути цей проксі сервер в налаштуваннях використовуваної APN (в Android 4: Бездротові мережі -&gt; Більше … -&gt; Мобільна мережа -&gt; Точки доступу APN) і вилучити значення у полі проксі.</string>
     <string name="apply_apn_proxy_title">У використовуваної точки доступу APN встановлений проксі!</string>
     <string name="no_connection">Відсутнє підключення до мережі інтернет.</string>
     <string name="no_connection_title">Немає з\'єднання</string>
@@ -137,8 +117,6 @@
     <string name="disable_systemless_magisk">Вимкнути позасистемні хости в Magisk Manager. Для цього потрібно зі списку модулів видалити модуль <cite>Systemless Hosts</cite> і перезавантажити пристрій.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">Програмний файл su не знайдено, або AdAway не були надані права суперкористувача.\n\nЦе могло статися, якщо у вас на пристрої немає прав суперкористувача.\nІнформацію про те, як отримати права суперкористувача на вашому пристрої, можна знайти на wiki.lineageos.org або інших веб-сайтах про Android.</string>
-    <string name="no_root_title">Необхідні права суперкористувача (root)</string>
     <string name="hosts_add_dialog">Вставте URL у файл hosts:</string>
     <string name="no_hostname">Це недопустима назва джерела!</string>
     <string name="no_hostname_title">Неправильно відформатована назва хоста</string>
@@ -150,7 +128,6 @@
     <!--Menu entries-->
     <string name="menu_refresh">Оновити</string>
     <string name="menu_add">Додати</string>
-    <string name="menu_hosts_sources">Джерела списків хостів</string>
     <string name="menu_help">Довідка</string>
     <string name="menu_import">Імпортувати резервну копію</string>
     <string name="menu_export">Експортувати резервну копію</string>
@@ -163,17 +140,10 @@
     <!--Adware-->
     <string name="adware_header">Додатки з рекламою</string>
     <string name="adware_description">Тут ви можете знайти встановлені додатки з рекламою, так звані Adware – погані додатки, які AdAway не може заблокувати. Вони використовують систему сповіщень Airpush, яка показує рекламу навіть тоді, коли застосунок не працює і навіть можуть змінити мелодію вашого дзвінка. Позбутися такої реклами можливо лише видаливши такі застосунки, натиснувши на них в цьому списку.</string>
-    <string name="adware_scanning">Сканування&#8230;</string>
+    <string name="adware_scanning">Сканування…</string>
     <string name="adware_empty">Додатків з рекламою не знайдено!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Локальний:</string>
-    <string name="hosts_last_modified_online">Інтернет:</string>
-    <string name="hosts_not_available">недоступно</string>
-    <string name="hosts_add_dialog_title">Додати джерело</string>
-    <string name="hosts_edit_dialog_title">Редагувати джерело</string>
-    <string name="hosts_dialog_url">URL: (ресурс https:// або file://)</string>
-    <string name="hosts_dialog_url_hint">URL джерела хостів</string>
 
     <!--Other-->
     <string name="app_subtitle">Блокувальник реклами</string>
@@ -198,62 +168,6 @@
     <string name="tcpdump_entry_add_redirection_list">Додати запис в Список перенаправлень</string>
 
     <!--Preferences-->
-    <string name="pref_download">Основні налаштування</string>
-    <string name="pref_dismiss_welcome">Приховати привітання</string>
-    <string name="pref_dismiss_welcome_summary">Не показувати привітання на головному екрані</string>
-    <string name="pref_dark_theme">Увімкнути темну тему</string>
-    <string name="pref_dark_theme_summary">Використовувати темне оформлення замість світлого</string>
-    <string name="pref_dark_theme_notification">Тема набуде чинності при наступному запуску!</string>
-    <string name="pref_hosts">Файл hosts</string>
-    <string name="pref_update_check">Перевіряти оновлення</string>
-    <string name="pref_apply_method">Шлях до файлу hosts</string>
-    <string name="pref_apply_method_summary">Перед зміною цього параметра прочитайте про цю функцію в Довідці.</string>
-    <string name="pref_redirection_ipv4">Перенаправлення IPv4</string>
-    <string name="pref_redirection_ipv4_summary">Всі заблоковані хости перенаправляються на цю адресу IPv4.</string>
-    <string name="pref_redirection_ipv6">Перенаправлення IPv6</string>
-    <string name="pref_redirection_ipv6_summary">Всі заблоковані хости перенаправляються на цю адресу IPv6.</string>
-    <string name="pref_header_preferences">Налаштування</string>
-    <string name="pref_header_preferences_summary">Основні налаштування AdAway</string>
-    <string name="pref_never_reboot">Приховати діалог перезавантаження</string>
-    <string name="pref_never_reboot_summary">Приховати діалог перезавантаження пристрою після успішного застосування</string>
-    <string name="pref_webserver_on_boot">Автоматично запускати веб-сервер</string>
-    <string name="pref_webserver_on_boot_summary">Запускати веб-сервер при завантаженні системи для прослуховування локальних IP-адрес</string>
-    <string name="pref_webserver_enabled">Увімкнути веб-сервер</string>
-    <string name="pref_webserver_enabled_summary">Дозволяє веб-серверу прослуховувати локальні IP-адреси і відповідати на запити до заблокованих хостів</string>
-    <string name="pref_webserver">Локальний веб-сервер</string>
-    <string name="pref_custom_target">Користувацькі налаштування</string>
-    <string name="pref_custom_target_summary">Використовується тільки в тому випадку, коли розташування файлу hosts задано користувачем</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Користувацькі налаштування</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">Перевіряти на наявність оновлень при кожному запуску AdAway</string>
-    <string name="pref_sdcard_problem">Ця функція буде працювати неправильно, якщо AdAway встановлено на карту пам\'яті!</string>
-    <string name="pref_background">Фоновий режим</string>
-    <string name="pref_update_check_daily">Перевіряти щодня</string>
-    <string name="pref_update_check_daily_summary">Щодня перевіряти оновлення у фоновому режимі зі сповіщенням</string>
-    <string name="pref_automatic_update_daily">Автоматичне оновлення</string>
-    <string name="pref_automatic_update_daily_summary">Автоматично оновлювати у фоновому режимі, якщо доступні оновлення</string>
-    <string name="pref_update_only_on_wifi">Оновлювати тільки по Wi-Fi</string>
-    <string name="pref_update_only_on_wifi_summary">Виконувати фонове оновлення тільки через безлімітне підключення</string>
-    <string name="pref_whitelist_rules">Дозволити білі списки</string>
-    <string name="pref_whitelist_rules_summary">Дозволити білі списки з джерел хостів</string>
-    <string name="pref_redirection_rules">Дозволити перенаправлення</string>
-    <string name="pref_redirection_rules_summary">СТАНОВИТЬ РИЗИК БЕЗПЕКИ! Дозволити перенаправлення із джерел хостів</string>
-    <string name="pref_debug">Режим налагодженя</string>
-    <string name="pref_enable_debug">Увімкнути журнал налагодження</string>
-    <string name="pref_enable_debug_summary">Необхідно перезапустити AdAway, щоб зміни набули чинності</string>
-    <string name="pref_enable_telemetry">Відправляти звіти про помилки</string>
-    <string name="pref_enable_telemetry_summary">Дозволити додаткові відправляти звіти про помилки і падіння до Sentry (sentry.io).</string>
-    <string name="pref_enable_ipv6">Увімкнути IPv6</string>
-    <string name="pref_enable_ipv6_summary">Усі записи в файлі hosts отримуватимуть відповідний запис перенаправлення.</string>
-    <string name="pref_enable_systemless_summary">Заборонити AdAway змінювати системний розділ</string>
-    <string name="pref_enable_systemless">Увімкнути безсистемний режим</string>
     <string name="pref_edit_text_value">Змінити значення текстової переваги</string>
     <string name="drawer_open">Відкрити меню</string>
     <string name="drawer_close">Закрити меню</string>
@@ -270,16 +184,8 @@
         <item>Довідка</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Підтримати розробку \u2764</string>
-    <string name="drawer_support_dialog_title">Підтримати розробку</string>
-    <string name="drawer_support_dialog_text">AdAway — це безкоштовний застосунок з відкритим вихідним кодом, розвитком і підтримкою якого займається лише спільнота. Мені знадобилося два роки, щоб у вільний час зібрати нову версію застосунку.\n\nЯкщо вам подобається застосунок, і ви хотіли б бачити більше оновлень, не вагайтеся підтримати проект.</string>
-    <string name="drawer_support_dialog_button">Показати мою підтримку</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Телеметрія</string>
-    <string name="dialog_telemetry_message">Привіт, дорогий користувач,\n\nТепер ви можете брати участь у розробці AdAway, шляхом надсилання звітів про помилки із базовою інформацією про використання. Всі дані анонімні, телеметрію буде увімкнено лише після вашої згоди.\n\nДетальніше про це можна дізнатися на <a href="https://github.com/AdAway/AdAway/wiki/telemetry.md">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Звичайно, я хочу допомогти!</string>
-    <string name="dialog_telemetry_disable">Ні, дякую</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS запити</string>

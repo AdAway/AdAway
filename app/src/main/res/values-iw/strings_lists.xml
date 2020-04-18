@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">הוסף host לרשימה שחורה</string>
+    <string name="list_add_dialog_white">הוסף host לרשימה לבנה</string>
+    <string name="list_add_dialog_redirect">הוסף הפניית host</string>
+    <string name="list_edit_dialog_black">ערוך host ברשימה שחורה</string>
+    <string name="list_edit_dialog_white">ערוך host ברשימה לבנה</string>
+    <string name="list_edit_dialog_redirect">ערוך הפנייה</string>
+    <string name="list_dialog_hostname">שם שרת:</string>
+    <string name="list_dialog_hostname_hint">כתובת URL למקור hosts</string>
+    <string name="list_dialog_wildcard">(תווים כלליים * ו ? מותרים)</string>
+    <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
+</resources>

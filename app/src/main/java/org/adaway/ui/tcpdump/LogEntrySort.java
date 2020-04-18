@@ -49,7 +49,7 @@ enum LogEntrySort {
                     index2--;
                 }
 
-                return index1 < 0 ? -1 : +1;
+                return index1 < 0 ? (index2 < 0 ? 0 : -1) : +1;
             };
         }
     };

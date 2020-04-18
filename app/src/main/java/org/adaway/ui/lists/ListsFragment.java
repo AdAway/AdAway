@@ -20,10 +20,7 @@
 
 package org.adaway.ui.lists;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,104 +32,77 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.viewpager.widget.ViewPager;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
-import org.adaway.helper.ImportExportHelper;
-import org.adaway.ui.dialog.ActivityNotFoundDialogFragment;
-import org.adaway.ui.hostsinstall.HostsInstallSnackbar;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-
-import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.app.Activity.RESULT_OK;
-import static android.content.Intent.ACTION_GET_CONTENT;
-import static android.content.Intent.CATEGORY_OPENABLE;
-import static android.content.pm.PackageManager.PERMISSION_GRANTED;
-import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_IMPORT;
-import static org.adaway.helper.ImportExportHelper.REQUEST_CODE_WRITE_STORAGE_PERMISSION;
+import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
+import org.adaway.ui.lists.type.ListsFilterDialog;
+import org.adaway.ui.lists.type.ListsViewModel;
 
 /**
- * This class is a fragment to display black list, white list and redirect list fragments.
+ * This class is a fragment to display blocked, allowed and redirected hosts list fragments.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class ListsFragment extends Fragment {
     /**
-     * The fragment activity (<code>null</code> if view not created).
+     * The tab to display argument.
      */
-    private FragmentActivity mActivity;
-
+    public static final String TAB = "org.adaway.lists.tab";
     /**
-     * Ensure a permission is granted.<br>
-     * If the permission is not granted, a request is shown to user.
-     *
-     * @param permission The permission to check
-     * @return <code>true</code> if the permission is granted, <code>false</code> otherwise.
+     * The blocked hosts tab index.
      */
-    private boolean checkPermission(String permission) {
-        // Get application context
-        Context context = this.getContext();
-        if (context == null) {
-            // Return permission failed as no context to check
-            return false;
-        }
-        int permissionCheck = ContextCompat.checkSelfPermission(context, permission);
-        if (permissionCheck != PERMISSION_GRANTED) {
-            // Request write external storage permission
-            this.requestPermissions(
-                    new String[]{permission},
-                    REQUEST_CODE_WRITE_STORAGE_PERMISSION
-            );
-            // Return permission not granted yes
-            return false;
-        }
-        // Return permission granted
-        return true;
-    }
+    public static final int BLOCKED_HOSTS_TAB = 0;
+    /**
+     * The allowed hosts tab index.
+     */
+    public static final int ALLOWED_HOSTS_TAB = 1;
+    /**
+     * The redirected hosts tab index.
+     */
+    public static final int REDIRECTED_HOSTS_TAB = 2;
+    /**
+     * The view model.
+     */
+    private ListsViewModel listsViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Store activity
-        this.mActivity = this.getActivity();
         // Enable option menu
-        this.setHasOptionsMenu(true);
+        setHasOptionsMenu(true);
         // Create fragment view
         View view = inflater.inflate(R.layout.lists_fragment, container, false);
+        // Get activity
+        FragmentActivity activity = requireActivity();
         /*
          * Configure snackbar.
          */
         // Get lists layout to attached snackbar to
         CoordinatorLayout coordinatorLayout = view.findViewById(R.id.coordinator);
-        // Create install snackbar
-        HostsInstallSnackbar installSnackbar = new HostsInstallSnackbar(coordinatorLayout);
-        // Bind snakbar to view models
-        ListsViewModel listsViewModel = ViewModelProviders.of(this).get(ListsViewModel.class);
-        listsViewModel.getBlackListItems().observe(this, installSnackbar.createObserver());
-        listsViewModel.getWhiteListItems().observe(this, installSnackbar.createObserver());
-        listsViewModel.getRedirectionListItems().observe(this, installSnackbar.createObserver());
+        // Create apply snackbar
+        ApplyConfigurationSnackbar applySnackbar = new ApplyConfigurationSnackbar(coordinatorLayout, false, false);
+        // Bind snackbar to view models
+        this.listsViewModel = new ViewModelProvider(activity).get(ListsViewModel.class);
+        this.listsViewModel.getUserListItems().observe(getViewLifecycleOwner(), applySnackbar.createObserver());
         /*
          * Configure tabs.
          */
         // Get view pager
-        final ViewPager viewPager = view.findViewById(R.id.lists_view_pager);
+        ViewPager2 viewPager = view.findViewById(R.id.lists_view_pager);
         // Create pager adapter
-        final ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(this.getActivity(), this.getFragmentManager());
+        ListsFragmentPagerAdapter pagerAdapter = new ListsFragmentPagerAdapter(this);
         // Set view pager adapter
         viewPager.setAdapter(pagerAdapter);
         // Get navigation view
         BottomNavigationView navigationView = view.findViewById(R.id.navigation);
         // Add view pager on page listener to set selected tab according the selected page
-        viewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
                 navigationView.getMenu().getItem(position).setChecked(true);
@@ -142,18 +112,23 @@ public class ListsFragment extends Fragment {
         // Add navigation view item selected listener to change view pager current item
         navigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.lists_navigation_blacklist:
+                case R.id.lists_navigation_blocked:
                     viewPager.setCurrentItem(0);
                     return true;
-                case R.id.lists_navigation_whitelist:
+                case R.id.lists_navigation_allowed:
                     viewPager.setCurrentItem(1);
                     return true;
-                case R.id.lists_navigation_redirection_list:
+                case R.id.lists_navigation_redirected:
                     viewPager.setCurrentItem(2);
                     return true;
             }
             return false;
         });
+        // Display requested tab
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            viewPager.setCurrentItem(arguments.getInt(TAB, BLOCKED_HOSTS_TAB));
+        }
         /*
          * Configure add action button.
          */
@@ -170,108 +145,31 @@ public class ListsFragment extends Fragment {
         return view;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Check request code
-        if (requestCode != REQUEST_CODE_IMPORT) {
-            return;
-        }
-        // Check result
-        if (resultCode != RESULT_OK) {
-            return;
-        }
-        // Check data
-        if (data != null && data.getData() != null) {
-            // Get selected file URI
-            Uri backupUri = data.getData();
-            Log.d(Constants.TAG, "Backup URI: " + backupUri.toString());
-            // Import from backup
-            ImportExportHelper.importFromBackup(this.getContext(), backupUri);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        // Check permission request code
-        if (requestCode != REQUEST_CODE_WRITE_STORAGE_PERMISSION) {
-            return;
-        }
-        // Check results
-        if (grantResults.length == 0 || grantResults[0] != PERMISSION_GRANTED) {
-            return;
-        }
-        // Restart action according granted permission
-        switch (permissions[0]) {
-            case READ_EXTERNAL_STORAGE:
-                importFromBackup();
-                break;
-            case WRITE_EXTERNAL_STORAGE:
-                exportToBackup();
-                break;
-        }
-    }
-
     /*
      * Menu related.
      */
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.backup_menu, menu);
+        inflater.inflate(R.menu.list_menu, menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Check item identifier
-        switch (item.getItemId()) {
-            case R.id.menu_import:
-                // Check read storage permission
-                if (checkPermission(READ_EXTERNAL_STORAGE)) {
-                    importFromBackup();
-                }
-                return true;
-            case R.id.menu_export:
-                // Check write storage permission
-                if (checkPermission(WRITE_EXTERNAL_STORAGE)) {
-                    exportToBackup();
-                }
-                return true;
-            default:
-                // Delegate item selection
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_filter) {
+            openFilterDialog();
+            return true;
         }
+        // Delegate item selection
+        return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Import from a user backup.
-     */
-    private void importFromBackup() {
-        Intent intent = new Intent(ACTION_GET_CONTENT);
-        intent.setType("*/*");
-        intent.addCategory(CATEGORY_OPENABLE);
-        // Start file picker activity
-        try {
-            startActivityForResult(intent, REQUEST_CODE_IMPORT);
-        } catch (ActivityNotFoundException exception) {
-            // Show dialog to install file picker
-            FragmentManager fragmentManager = getFragmentManager();
-            if (fragmentManager != null) {
-                ActivityNotFoundDialogFragment.newInstance(
-                        R.string.no_file_manager_title,
-                        R.string.no_file_manager,
-                        "market://details?id=org.openintents.filemanager",
-                        "OI File Manager"
-                ).show(fragmentManager, "notFoundDialog");
-            }
+    private void openFilterDialog() {
+        Context context = getContext();
+        if (context == null || this.listsViewModel == null) {
+            return;
         }
-    }
-
-    /**
-     * Exports to a user backup.
-     */
-    private void exportToBackup() {
-        ImportExportHelper.exportToBackup(this.mActivity);
+        ListsFilterDialog.show(context, this.listsViewModel.getFilter(), this.listsViewModel::applyFilter);
     }
 }

@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Afsluiten</string>
@@ -11,7 +9,6 @@
     <string name="button_add">Toevoegen</string>
     <string name="button_cancel">Annuleren</string>
     <string name="button_save">Opslaan</string>
-    <string name="button_webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
     <string name="button_help">Hulp</string>
 
     <!--Home-->
@@ -36,23 +33,10 @@
     <string name="checkbox_list_context_edit">Bewerken</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Witte lijst</string>
-    <string name="lists_tab_blacklist">Zwarte lijst</string>
-    <string name="lists_tab_redirection_list">Doorschakeling</string>
-    <string name="list_add_dialog_black">Host toevoegen aan blacklist</string>
-    <string name="list_add_dialog_white">Host toevoegen aan whitelist</string>
-    <string name="list_add_dialog_redirect">Hostdoorschakeling toevoegen</string>
-    <string name="list_edit_dialog_black">Host in blacklist bewerken</string>
-    <string name="list_edit_dialog_white">Host in whitelist bewerken</string>
-    <string name="list_edit_dialog_redirect">Doorschakeling bewerken</string>
-    <string name="list_dialog_hostname">Hostnaam:</string>
-    <string name="list_dialog_hostname_hint">De hosts-bron-URL</string>
-    <string name="list_dialog_wildcard">(Jokertekens * en ? zijn toegelaten)</string>
-    <string name="list_dialog_ip">IP (IPv4 of IPv6):</string>
-    <string name="import_dialog">Bezig met importeren...</string>
+    <string name="import_dialog">Bezig met importeren…</string>
     <string name="import_success">Backup succesvol geïmporteerd vanuit je externe opslag.</string>
     <string name="import_failed">Import van backup is mislukt. Is het format juist ? Check de logcat voor meer details.</string>
-    <string name="export_dialog">Bezig met exporteren...</string>
+    <string name="export_dialog">Bezig met exporteren…</string>
     <string name="export_success">Backup succesvol geexporteerd naar \'adaway-backup.json\' bestand op je externe opslag.</string>
     <string name="export_failed">Export van backup is mislukt.</string>
 
@@ -63,8 +47,6 @@
     <string name="hosts_open_button">Hosts-bestand openen</string>
 
     <!--Status Notification-->
-    <string name="status_checking">Controleren op updates...</string>
-    <string name="status_reverting">Bezig met terugzetten...</string>
     <string name="status_reverting_subtitle">Standaard hosts-bestand aanmaken</string>
     <string name="status_update_available">Er is een update beschikbaar</string>
     <string name="status_update_available_subtitle">Nieuwere hosts-bestanden beschikbaar</string>
@@ -80,8 +62,6 @@
     <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
     <string name="status_disabled">Uitgeschakeld</string>
     <string name="status_disabled_subtitle">Standaard hosts-bestand geïnstalleerd</string>
-    <string name="notification_channel_update_name">Updates</string>
-    <string name="notification_channel_update_description">Nieuwe hosts-updatemeldingen</string>
     <string name="notification_configuration_changed">Je configuratie is gewijzigd. Installeer het hosts-bestand opnieuw om het toe te passen.</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
     <string name="notification_configuration_installing">Hosts-bestand wordt geïnstalleerd…</string>
@@ -114,7 +94,7 @@ Wilt u herstarten?
     <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt. Dit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons! Een oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'. Als dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
     <string name="apply_symlink_fail_title">Symlink aanmaken mislukt</string>
     <string name="apply_help">Lees de hulp voor meer informatie.</string>
-    <string name="apply_apn_proxy">Een APN proxy is ingesteld op jouw Android! AdAway zal niet betrouwbaar werken als er gebruik gemaakt wordt van mobiele netwerken zoals 3G/4G. Je kan je proxy uitschakelen door naar je geselecteerde APN te gaan. (Op Android 4: draadloos en netwerken -> meer... -> Mobiele netwerken -> namen toegangspunten) en de waarde in het proxy veld te verwijderen.</string>
+    <string name="apply_apn_proxy">Een APN proxy is ingesteld op jouw Android! AdAway zal niet betrouwbaar werken als er gebruik gemaakt wordt van mobiele netwerken zoals 3G/4G. Je kan je proxy uitschakelen door naar je geselecteerde APN te gaan. (Op Android 4: draadloos en netwerken -&gt; meer… -&gt; Mobiele netwerken -&gt; namen toegangspunten) en de waarde in het proxy veld te verwijderen.</string>
     <string name="apply_apn_proxy_title">APN-proxy ingesteld!</string>
     <string name="no_connection">De internetverbinding werkt niet.</string>
     <string name="no_connection_title">Geen verbinding</string>
@@ -146,8 +126,6 @@ Wilt u herstarten?
     <string name="disable_systemless_magisk">De-activeer systemless hosts van Magisk manager. De-installeer uit de module lijst<cite>Systemless hosts</cite> en start de telefoon opnieuw op.</string>
 
     <!--Other Dialogs-->
-    <string name="no_root_description">De su-binary is niet gevonden of u heeft geen root-toegang verleend aan AdAway.\n\nDit kan gebeuren als uw apparaat niet geroot is.\nInformatie over het rooten van uw apparaat vindt u op wiki.lineageos.org en andere Android-websites.</string>
-    <string name="no_root_title">Geroote Android vereist</string>
     <string name="hosts_add_dialog">Voer URL naar het hosts-bestand in:</string>
     <string name="no_hostname">Dit is geen correcte hostnaam!</string>
     <string name="no_hostname_title">Hostnaam is verkeerd opgemaakt</string>
@@ -159,7 +137,6 @@ Wilt u herstarten?
     <!--Menu entries-->
     <string name="menu_refresh">Verversen</string>
     <string name="menu_add">Toevoegen</string>
-    <string name="menu_hosts_sources">Hosts-bronnen</string>
     <string name="menu_help">Hulp</string>
     <string name="menu_import">Importeer backup</string>
     <string name="menu_export">Exporteer backup</string>
@@ -172,17 +149,10 @@ Wilt u herstarten?
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Hier kunt u scannen naar slechte Adware applicaties, welke niet door AdAway geblokkeerd kunnen worden. Deze applicaties gebruiken bijvoorbeeld Airpush notificaties, welke zelfs opkomen als de applicatie niet draait, of veranderen zelfs uw ringtone. De enige beschikbare oplossing is deze applicaties te deïnstalleren door op de lijst elementen te klikken!</string>
-    <string name="adware_scanning">Scannen&#8230;</string>
+    <string name="adware_scanning">Scannen…</string>
     <string name="adware_empty">Geen slechte Adware apps gevonden!</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Lokaal:</string>
-    <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">niet beschikbaar</string>
-    <string name="hosts_add_dialog_title">Hosts-bronnen</string>
-    <string name="hosts_edit_dialog_title">Wijzig bron</string>
-    <string name="hosts_dialog_url">URL: (a https:// or file:// resource)</string>
-    <string name="hosts_dialog_url_hint">De hosts-bron-URL</string>
 
     <!--Other-->
     <string name="app_subtitle">Adblocker</string>
@@ -207,62 +177,6 @@ Wilt u herstarten?
     <string name="tcpdump_entry_add_redirection_list">Hostdoorschakeling toevoegen</string>
 
     <!--Preferences-->
-    <string name="pref_download">Algemene voorkeuren</string>
-    <string name="pref_dismiss_welcome">Verberg welkomstscherm</string>
-    <string name="pref_dismiss_welcome_summary">Verberg de welkomstboodschap op de homepage.</string>
-    <string name="pref_dark_theme">Donker thema toepassen</string>
-    <string name="pref_dark_theme_summary">Gebruik donker thema in plaats van het lichte thema</string>
-    <string name="pref_dark_theme_notification">Thema zal toegepast worden na het opnieuw starten van Adaway!</string>
-    <string name="pref_hosts">Hosts-bestand</string>
-    <string name="pref_update_check">Controleren op updates</string>
-    <string name="pref_apply_method">Locatie van hosts-bestand</string>
-    <string name="pref_apply_method_summary">Lees de hulp over deze functie voordat u dit aanpast.</string>
-    <string name="pref_redirection_ipv4">Redirection IPv4</string>
-    <string name="pref_redirection_ipv4_summary">Alle geblokkeerde hostnamen worden doorgestuurd naar dit IPv4 adres.</string>
-    <string name="pref_redirection_ipv6">Redirect IPv6</string>
-    <string name="pref_redirection_ipv6_summary">Alle geblokkeerde hostnamen worden doorgestuurd naar dit IPv6 adres.</string>
-    <string name="pref_header_preferences">Voorkeuren</string>
-    <string name="pref_header_preferences_summary">Algemene voorkeuren voor AdAway</string>
-    <string name="pref_never_reboot">Verberg het herstart-dialoogvenster</string>
-    <string name="pref_never_reboot_summary">Verbergt het dialoogvenster dat vraagt om Android opnieuw op te starten na het plaatsen van hosts-bestand</string>
-    <string name="pref_webserver_on_boot">Start webserver tijdens het opstarten van de telefoon</string>
-    <string name="pref_webserver_on_boot_summary">Start webserver bij het opstarten van het apparaat</string>
-    <string name="pref_webserver_enabled">Webserver inschakelen</string>
-    <string name="pref_webserver_enabled_summary">Zorgt ervoor dat de webserver lokale IP-adressen afluistert om aanvragen naar geblokkeerde hostnamen te beantwoorden</string>
-    <string name="pref_webserver">Lokale webserver</string>
-    <string name="pref_custom_target">Aangepaste locatie</string>
-    <string name="pref_custom_target_summary">Wordt alleen gebruikt als u een aangepaste locatie voor het hosts-bestand heeft gekozen.</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Aangepaste locatie</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">Controleer op updates bij openen van AdAway</string>
-    <string name="pref_sdcard_problem">Deze feature zal niet correct werken als AdAway op de sdkaart wordt geïnstalleerd!</string>
-    <string name="pref_background">Achtergronddiensten</string>
-    <string name="pref_update_check_daily">Controleer dagelijks op updates</string>
-    <string name="pref_update_check_daily_summary">Toon een melding als er wordt gecontroleerd op updates</string>
-    <string name="pref_automatic_update_daily">Automatisch bijwerken</string>
-    <string name="pref_automatic_update_daily_summary">Werk automatisch bij in de achtergrond als er updates beschikbaar zijn</string>
-    <string name="pref_update_only_on_wifi">Update alleen met wifi</string>
-    <string name="pref_update_only_on_wifi_summary">Voer achtergrond updates alleen uit bij verbinding met een wifi netwerk.</string>
-    <string name="pref_whitelist_rules">Sta het gebruik van de witte lijst toe</string>
-    <string name="pref_whitelist_rules_summary">Sta toe dat hosts-bronnen regels toevoegen aan de witte lijst.</string>
-    <string name="pref_redirection_rules">Sta doorverwijzingen toe </string>
-    <string name="pref_redirection_rules_summary">Potentieel beveiligingsrisico! Sta doorverwijzingsregels van hosts-bronnen toe.</string>
-    <string name="pref_debug">Foutopsporing</string>
-    <string name="pref_enable_debug">Uitgebreide logging inschakelen</string>
-    <string name="pref_enable_debug_summary">AdAway moet opnieuw gestart worden om deze wijziging door te voeren.</string>
-    <string name="pref_enable_telemetry">Crash rapporten inschakelen</string>
-    <string name="pref_enable_telemetry_summary">Toestaan dat de applicatie fouten en crash verslagen naar Sentry (sentry.io) zendt</string>
-    <string name="pref_enable_ipv6">IPv6 inschakelen</string>
-    <string name="pref_enable_ipv6_summary">Alle host file items zullen een corresponderend doorstuur adres krijgen.</string>
-    <string name="pref_enable_systemless_summary">Voorkomt dat AdAway de systeempartitie aanpast</string>
-    <string name="pref_enable_systemless">Systeemloze modus inschakelen</string>
     <string name="pref_edit_text_value">Wijzig tekst voorkeurswaarde</string>
     <string name="drawer_open">Menu openen</string>
     <string name="drawer_close">Menu sluiten</string>
@@ -279,16 +193,8 @@ Wilt u herstarten?
         <item>Hulp</item>
     </string-array>
     <!--Drawer menu labels-->
-    <string name="drawer_support_text">\u2764 Support development \u2764</string>
-    <string name="drawer_support_dialog_title">Ondersteun ontwikkeling</string>
-    <string name="drawer_support_dialog_text">AdAway is een gratis en Open-Source software ontwikkelt en wordt alleen onderhouden door de gemeenschap. Het koste me 2 jaren om als vrijetijdsproject deze nieuwe versie te ontwikkelen.\n\nAls het je aanspreekt en je wilt meer updates, voel je vrij om mee te werken aan het project.</string>
-    <string name="drawer_support_dialog_button">Betuig mij uw steun</string>
 
     <!--Telemetry-->
-    <string name="dialog_telemetry_title">Telemetrie</string>
-    <string name="dialog_telemetry_message">Beste gebruiker,\n\nU kunt nu meewerken aan de ontwikkeling van AdAway door het delen van jouw crash verslagen en basis gebruik gegevens. Alle data blijft anoniem en telemetrie zal alleen worden ingeschakeld als je akkoord gaat. .\n\nMeer details kun je vinden op <a href="https://github.com/AdAway/AdAway/wiki/Telemetry">GitHub</a>.</string>
-    <string name="dialog_telemetry_enable">Natuurlijk. Ik wil graag helpen!</string>
-    <string name="dialog_telemetry_disable">Nee bedankt</string>
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS verzoeken</string>

@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">Ieșire</string>
@@ -11,7 +9,6 @@
     <string name="button_add">Adaugă</string>
     <string name="button_cancel">Anulează</string>
     <string name="button_save">Salvează</string>
-    <string name="button_webserver_toggle_text">Activeaza sau dezactiveaza serverul in mod local, pentru a raspunde cererilor pentru \"hostname\" blocate.</string>
     <string name="button_help">Ajutor</string>
 
     <!--Home-->
@@ -35,26 +32,11 @@
     <string name="checkbox_list_context_edit">Editeaza</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">Lista cu permisiuni acceptate (white list)</string>
-    <string name="lists_tab_blacklist">Lista cu permisiuni blocate (black list)</string>
-    <string name="lists_tab_redirection_list">Redirectionari</string>
-    <string name="list_add_dialog_black">Adauga domeniu in black list</string>
-    <string name="list_add_dialog_white">Adauga domeniu in white list</string>
-    <string name="list_add_dialog_redirect">Adauga redirectionare</string>
-    <string name="list_edit_dialog_black">Editeaza domeniu in black list</string>
-    <string name="list_edit_dialog_white">Editeaza domeniul in white list</string>
-    <string name="list_edit_dialog_redirect">Editeaza redirectionarea</string>
-    <string name="list_dialog_hostname">Numele de \'host\"</string>
-    <string name="list_dialog_hostname_hint">Sursa pt fisier \'host\'</string>
-    <string name="list_dialog_wildcard">Inlocuitor de caracter * sau ? sunt permise</string>
-    <string name="list_dialog_ip">Adresa IP (IPv4 or IPv6):</string>
-    <string name="import_dialog">Importa...</string>
-    <string name="export_dialog">Exporta...</string>
+    <string name="import_dialog">Importa…</string>
+    <string name="export_dialog">Exporta…</string>
     <!--Hosts content-->
     <string name="hosts_header">Fisierul \'host\'</string>
     <!--Status Notification-->
-    <string name="status_checking">Verifica daca exista versiuni noi...</string>
-    <string name="status_reverting">Reinstaurare valori anterioare...</string>
     <string name="status_reverting_subtitle">Sistemul creaza fisiere \"hosts\" standard.</string>
     <string name="status_update_available">O noua versiune este disponibila </string>
     <string name="status_update_available_subtitle">Noi fisiere \"host\" sunt disponibile</string>
@@ -85,7 +67,7 @@
     <string name="no_connection">Conexiunea internet nu functioneaza</string>
     <string name="no_connection_title">Nu exista conexiune!</string>
     <string name="download_dialog">Descarca…</string>
-    <string name="apply_dialog">Aplica modificarile...</string>
+    <string name="apply_dialog">Aplica modificarile…</string>
     <string name="apply_dialog_lists">Sistemul aplica atributele ambelor liste (acceptate + blocate) </string>
     <string name="apply_dialog_hostnames">Analizeaza nodurile si atributele (parsing) si combina fisierele (hosts)</string>
     <string name="apply_dialog_hosts">Sistemul genereaza fisiere \"hosts\"</string>
@@ -101,18 +83,16 @@
     <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
     <string name="enable_systemless_successful_title">Activarea a fost reușită</string>
     <string name="disable_systemless_successful_title">Dezactivarea a fost reușită</string>
-    <string name="no_root_title">Android are nevoie de \"root\"</string>
     <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
     <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
     <string name="no_hostname_title">Hostname formatat incorect</string>
     <string name="no_ip">Invalid IP!</string>
     <string name="no_ip_title">IP formatat incorect</string>
-    <string name="loading">Incarca...</string>
+    <string name="loading">Incarca…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Regenerare</string>
     <string name="menu_add">Adaugă</string>
-    <string name="menu_hosts_sources">Sursele (hosts)</string>
     <string name="menu_help">Ajutor</string>
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -120,10 +100,6 @@
     <string name="help_tab_problems">Probleme</string>
 
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">Local:</string>
-    <string name="hosts_last_modified_online">Online:</string>
-    <string name="hosts_not_available">Indisponibil</string>
-    <string name="hosts_dialog_url_hint">Sursa pt fisier \'host\'</string>
 
     <!--Other-->
     <string name="app_subtitle">Program care blocheaza reclame</string>
@@ -134,45 +110,6 @@
 
     <string name="tcpdump_description">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
     <!--Preferences-->
-    <string name="pref_download">Preferinte generale</string>
-    <string name="pref_hosts">Fisier \"hosts\"</string>
-    <string name="pref_update_check">Verifica daca exista o versiune noua</string>
-    <string name="pref_apply_method">Locatie fisier \"hosts\" </string>
-    <string name="pref_apply_method_summary">Citeste sectiunea \"Ajutor\" inainte de a modifica aceste setari!</string>
-    <string name="pref_header_preferences">Preferinte</string>
-    <string name="pref_header_preferences_summary">Preferinte generale pentru AdAway</string>
-    <string name="pref_never_reboot">Ascunde dialogul pentru repornire (reboot)</string>
-    <string name="pref_never_reboot_summary">Ascunde dialogul care cere repornirea sistemului dupa ce modificarile au fost aplicate cu succes. </string>
-    <string name="pref_webserver_on_boot">Activeaza serverul la repornire</string>
-    <string name="pref_webserver_on_boot_summary">Porneste \"webserver\" la bootare, si cauta numai adrese IP locale.  </string>
-    <string name="pref_webserver_enabled">Activeaza serverul</string>
-    <string name="pref_webserver_enabled_summary">Activeaza serverul care verifica adresele de IP locale, pentru a raspunde cererilor pentru \"hostname\" blocate.</string>
-    <string name="pref_webserver">Server local</string>
-    <string name="pref_custom_target">Locatie aleasa de utilizator</string>
-    <string name="pref_custom_target_summary">Folosit numai daca locatia fisierul \"hosts\" este setat ca \"locatie aleasa de utilizator\" </string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>Locatie aleasa de utilizator</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">La repornirea programului verifica daca exista o versiune noua.</string>
-    <string name="pref_background">Serviciu in \"background\"</string>
-    <string name="pref_update_check_daily">Verifica zilnic daca exista o versiune noua </string>
-    <string name="pref_update_check_daily_summary">Verifica zilnic (in background) daca exista o versiune noua si notifica. </string>
-    <string name="pref_automatic_update_daily">Update automat</string>
-    <string name="pref_automatic_update_daily_summary">Update automat (in background) daca exista versiune noua.</string>
-    <string name="pref_whitelist_rules">Permiteți whitelisting</string>
-    <string name="pref_whitelist_rules_summary">Permiteți înscrieri în whitelist din sursele de hosts. </string>
-    <string name="pref_redirection_rules_summary">PREZINTĂ RISC DE SECURITATE! Permiteți înregistrări de redirecționare din sursele Hosts. </string>
-    <string name="pref_debug">Debug</string>
-    <string name="pref_enable_debug_summary">Reporneste AdAway pentru ca modificarile sa fie aplicate!</string>
-    <string name="pref_enable_ipv6">Activați IPv6</string>
-    <string name="pref_enable_systemless_summary">Împiedică modificarea partiției de sistem de către AdAway</string>
-    <string name="pref_enable_systemless">Activează modul systemless</string>
     <string name="drawer_open">Deschideți meniul</string>
     <string name="drawer_close">Închideți meniul</string>
 
@@ -187,8 +124,7 @@
         <item>Preferinte</item>
         <item>Ajutor</item>
     </string-array>
-    <string name="dialog_telemetry_disable">Nu mulțumesc</string>
 
     <string name="shortcut_preferences">Preferinte</string>
 
-    </resources>
+</resources>

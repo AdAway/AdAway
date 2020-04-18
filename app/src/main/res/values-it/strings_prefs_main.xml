@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- General category -->
+    <string name="pref_dark_theme">Abilita il tema scuro</string>
+    <!-- Ad block category -->
+    <string name="pref_whitelist_rules">Consenti whitelisting</string>
+    <string name="pref_redirection_rules">Abilita inoltro</string>
+    <string name="pref_redirection_rules_summary">RISCHIO PER LA SICUREZZA! Permetti valori di inoltro dalle fonti host.</string>
+    <string name="pref_enable_ipv6">Abilita IPv6</string>
+    <!-- Debug category -->
+    <string name="pref_enable_telemetry">Abilita segnalazione errori</string>
+    <string name="pref_enable_telemetry_summary">Permette all\'applicazione di mandare errori e crash report a Sentry (sentry.io).</string>
+    <string name="pref_enable_debug">Abilita log dettagliati</string>
+    <string name="pref_enable_debug_summary">Devi riavviare AdAway perchè questi cambiamenti abbiano effetto.</string>
+</resources>

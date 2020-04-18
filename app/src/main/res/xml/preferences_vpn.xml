@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:title="@string/pref_root_title">
+
+    <CheckBoxPreference
+        app:defaultValue="@bool/pref_vpn_service_on_boot_def"
+        app:key="@string/pref_vpn_service_on_boot_key"
+        app:title="@string/pref_vpn_service_on_boot" />
+
+    <!-- App bypass-->
+    <PreferenceCategory app:title="@string/pref_vpn_excluded_apps">
+        <Preference
+            app:persistent="false"
+            app:selectable="false"
+            app:summary="@string/pref_vpn_excluded_apps_description" />
+
+        <ListPreference
+            app:defaultValue="@string/pref_vpn_excluded_system_apps_default"
+            app:entries="@array/pref_vpn_excluded_system_apps_entries"
+            app:entryValues="@array/pref_vpn_excluded_system_apps_values"
+            app:key="@string/pref_vpn_excluded_system_apps_key"
+            app:title="@string/pref_vpn_exclude_system_apps"
+            app:useSimpleSummaryProvider="true" />
+
+        <Preference
+            app:defaultValue="@string/pref_vpn_excluded_user_apps_default"
+            app:key="@string/pref_vpn_excluded_user_apps_key"
+            app:title="@string/pref_vpn_exclude_user_apps"
+            app:fragment="org.adaway.ui.prefs.PrefsVpnExcludedAppsFragment" />
+    </PreferenceCategory>
+
+    <!-- Custom DNS-->
+
+</PreferenceScreen>

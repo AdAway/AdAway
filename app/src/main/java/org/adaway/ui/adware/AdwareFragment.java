@@ -20,22 +20,20 @@
 
 package org.adaway.ui.adware;
 
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.adaway.R;
 
@@ -75,21 +73,19 @@ public class AdwareFragment extends Fragment {
          * Get model and bind it to view.
          */
         // Get the model scope
-        FragmentActivity activity = this.getActivity();
-        if (activity != null) {
-            // Get the model
-            AdwareViewModel model = ViewModelProviders.of(activity).get(AdwareViewModel.class);
-            // Bind model to views
-            model.getAdware().observe(this, data -> {
-                if (data == null) {
-                    this.displayStatusText(R.string.adware_scanning);
-                } else if (data.isEmpty()) {
-                    this.displayStatusText(R.string.adware_empty);
-                } else {
-                    this.displayAdware(data);
-                }
-            });
-        }
+        FragmentActivity activity = requireActivity();
+        // Get the model
+        AdwareViewModel model = new ViewModelProvider(activity).get(AdwareViewModel.class);
+        // Bind model to views
+        model.getAdware().observe(getViewLifecycleOwner(), data -> {
+            if (data == null) {
+                this.displayStatusText(R.string.adware_scanning);
+            } else if (data.isEmpty()) {
+                this.displayStatusText(R.string.adware_empty);
+            } else {
+                this.displayAdware(data);
+            }
+        });
         // Return created view
         return view;
     }

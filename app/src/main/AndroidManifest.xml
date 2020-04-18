@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.adaway">
 
     <uses-feature
@@ -8,6 +9,12 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+
+    <permission
+        android:name="org.adaway.permission.STATUS_COMMAND"
+        android:icon="@mipmap/icon"
+        android:label="permission_status_command_label"
+        android:protectionLevel="dangerous" />
 
     <supports-screens
         android:anyDensity="true"
@@ -19,19 +26,25 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-        android:name=".ui.AdAwayApplication"
+        android:name=".AdAwayApplication"
         android:allowBackup="true"
+        android:extractNativeLibs="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AdAway.Dark">
+        android:theme="@style/Theme.AdAway"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.home.HomeActivity"
             android:label="@string/app_name"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AdAway.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -41,16 +54,64 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
+            android:name=".ui.welcome.WelcomeActivity"
+            android:exported="false"
+            android:label="@string/welcome_title"
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
+        <activity
+            android:name=".ui.hosts.HostsSourcesActivity"
+            android:exported="false"
+            android:label="@string/hosts_title"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
             android:name=".ui.tcpdump.TcpdumpLogActivity"
-            android:label="@string/shortcut_dns_requests" />
+            android:label="@string/shortcut_dns_requests"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.lists.ListsActivity"
+            android:exported="false"
+            android:label="@string/lists_title"
+            android:parentActivityName=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.help.HelpActivity"
             android:exported="false"
-            android:label="@string/menu_help" />
+            android:label="@string/menu_help"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.support.SupportActivity"
+            android:exported="false"
+            android:label="@string/support_title"
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
+        <activity
+            android:name=".ui.prefs.PrefsActivity"
+            android:exported="false"
+            android:label="@string/preferences_drawer_item"
+            android:parentActivityName=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.prefs.exclusion.PrefsVpnExcludedAppsActivity"
+            android:exported="false"
+            android:label="@string/pref_vpn_exclude_user_apps_activity" />
+
+        <service
+            android:name=".vpn.VpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
 
         <receiver android:name=".broadcast.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.StatusCommandReceiver"
+            android:permission="org.adaway.permission.STATUS_COMMAND">
+            <intent-filter>
+                <action android:name="org.adaway.AD_BLOCK_STATUS" />
             </intent-filter>
         </receiver>
         <receiver android:name=".broadcast.UpdateReceiver">
@@ -58,12 +119,6 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
-
-        <!-- Could be removed after migration to room -->
-        <provider
-            android:name=".provider.AdAwayProvider"
-            android:authorities="org.adaway"
-            android:exported="false" />
     </application>
 
 </manifest>

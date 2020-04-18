@@ -1,7 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-
-    <string name="app_name">AdAway</string>
 
     <!--Buttons-->
     <string name="button_exit">خروج</string>
@@ -11,7 +9,6 @@
     <string name="button_add">اضافه کردن</string>
     <string name="button_cancel">لغو</string>
     <string name="button_save">ذخیره</string>
-    <string name="button_webserver_toggle_text">شروع یا توقف وب سرور در لوکالهاست برای پاسخ گویی به درخواستها به منظور مسدود کردن hostnames ها.</string>
     <string name="button_help">راهنما</string>
 
     <!--Home-->
@@ -36,35 +33,20 @@
     <string name="checkbox_list_context_edit">ویرایش</string>
 
     <!--Your lists-->
-    <string name="lists_tab_whitelist">لیست سفید</string>
-    <string name="lists_tab_blacklist">لیست سیاه</string>
-    <string name="lists_tab_redirection_list">هدایت مجدد</string>
-    <string name="list_add_dialog_black">اضافه کردن هاست به لیست سیاه</string>
-    <string name="list_add_dialog_white">اضافه کردن هاست به لیست سفید</string>
-    <string name="list_add_dialog_redirect">اضافه کردن هدایت مجدد هاست</string>
-    <string name="list_edit_dialog_black">ویرایش هاست‌های لیست سیاه</string>
-    <string name="list_edit_dialog_white">ویرایش هاست‌های لیست سفید</string>
-    <string name="list_edit_dialog_redirect">ویرایش هدایت مجدد</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_hostname_hint">لینک منبع هاست ها</string>
-    <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز میباشند)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
-    <string name="import_dialog">بارگیری...</string>
+    <string name="import_dialog">بارگیری…</string>
     <string name="import_success">فایل پشتیبانی با موفقیت از کارت حافظه شما بارگذاری شد.</string>
     <string name="import_failed">بارگذاری فایل پشتبانی با شکست مواجه شد. فرمت فایل درست است؟ فایل ثبت رویدادها رو چک کنید.</string>
-    <string name="export_dialog">در حال خروجی گرفتن...</string>
+    <string name="export_dialog">در حال خروجی گرفتن…</string>
     <string name="export_success">فایل بکاپ با موفقیت در حافظه جانبی شما به اسم \'adaway-backup.json\' ساخته شد.</string>
     <string name="export_failed">عملیات ساخت بکاپ با شکست مواجه شد.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">فایل هاست ها</string>
     <string name="hosts_description">فایل هاست ها یک فایل سیستمی است که نام هاست ها را به آی پی آدرس ها مرتبط میکند.این یک فایل متنی ساده است که توسط  AdAway تنظیم شده است.در اینجا چند خط ابتدایی آن را داریم:</string>
-    <string name="hosts_content">بارگذاری محتوای فایل هاست...</string>
+    <string name="hosts_content">بارگذاری محتوای فایل هاست…</string>
     <string name="hosts_open_button">بازکردن هاست فایل</string>
 
     <!--Status Notification-->
-    <string name="status_checking">چک کردن برای به روز رسانی...</string>
-    <string name="status_reverting">برگشتن...</string>
     <string name="status_reverting_subtitle">ایجاد فایل hosts استاندارد</string>
     <string name="status_update_available">به روز رسانی موجود میباشد</string>
     <string name="status_update_available_subtitle">فایلهای hosts جدیدتری موجود میباشد</string>
@@ -80,11 +62,9 @@
     <string name="status_enabled_subtitle">فایل های hosts جدید فعال شد</string>
     <string name="status_disabled">غیر فعال</string>
     <string name="status_disabled_subtitle">هاست فایل‌های پیشفرض نصب شدند</string>
-    <string name="notification_channel_update_name">بروزرسانی‌ها</string>
-    <string name="notification_channel_update_description">اطلاعیه هاست‌های جدید</string>
     <string name="notification_configuration_changed">تنظیمات شما تغییر کرد. برای اعمال تغییرات باید هاست فایل رو نصب کنید.</string>
     <string name="notification_configuration_changed_action">اعمال تغییرات</string>
-    <string name="notification_configuration_installing">در حال نصب هاست فایل...</string>
+    <string name="notification_configuration_installing">در حال نصب هاست فایل…</string>
     <string name="notification_configuration_failed">نصب هاست فایل با شکست مواجه شد.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -105,8 +85,8 @@
     <string name="apply_apn_proxy_title">تنظیم پروکسی APN!</string>
     <string name="no_connection">اتصال اینترنت بر قرار نیست</string>
     <string name="no_connection_title">اتصال برقرار نیست</string>
-    <string name="download_dialog">در حال دریافت...</string>
-    <string name="apply_dialog">در حال اعمال...</string>
+    <string name="download_dialog">در حال دریافت…</string>
+    <string name="apply_dialog">در حال اعمال…</string>
     <string name="apply_dialog_lists">اعمال لیست سیاه و لیست سفید</string>
     <string name="apply_dialog_hostnames">تجزیه و ادغام فایل های hosts</string>
     <string name="apply_dialog_hosts">ساختن فایل hosts</string>
@@ -123,18 +103,16 @@
     <string name="no_private_file_title">ایجاد ناموفق فایل خصوصی</string>
     <string name="enable_systemless_successful_title">فعال کردن با موفقیت انجام شد</string>
     <string name="disable_systemless_successful_title">غیر فعال کردن با موفقیت انجام شد</string>
-    <string name="no_root_title">نیاز به آندروید روت شده میباشد</string>
     <string name="hosts_add_dialog">تارنما به فایل hosts وارد نمایید</string>
     <string name="no_hostname">این یک hostname مجاز نیست</string>
     <string name="no_hostname_title">hostname با فرمت نادرست</string>
     <string name="no_ip">این یک آی پی مجاز نیست!</string>
     <string name="no_ip_title">آی پی با فرمت نادرست</string>
-    <string name="loading">در حال بارگیری...</string>
+    <string name="loading">در حال بارگیری…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">تازه کردن</string>
     <string name="menu_add">اضافه کردن</string>
-    <string name="menu_hosts_sources">منابع Hosts</string>
     <string name="menu_help">راهنما</string>
     <string name="menu_import">بارگذاری فایل پشتیبان</string>
     <string name="menu_export">خروجی گرفتن فایل پشتیبانی</string>
@@ -147,10 +125,6 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <!--Hosts sources-->
-    <string name="hosts_last_modified_local">لوکال:</string>
-    <string name="hosts_last_modified_online">آنلاین:</string>
-    <string name="hosts_not_available">موجود نیست:</string>
-    <string name="hosts_dialog_url_hint">لینک منبع هاست ها</string>
 
     <!--Other-->
     <string name="app_subtitle">مسدودگر تبلیغات</string>
@@ -164,48 +138,6 @@
     <string name="tcpdump_menu_clear">پاک کردن رویدادها</string>
     <string name="tcpdump_sort_alphabetical">مرتب‌سازی بر اساس حروف الفبا</string>
     <!--Preferences-->
-    <string name="pref_download">تنظیمات عمومی</string>
-    <string name="pref_dismiss_welcome">پنهان کردن پیغام خوش‌آمدگویی</string>
-    <string name="pref_dismiss_welcome_summary">پیغام خوش‌آمد گویی رو نمایش نده</string>
-    <string name="pref_dark_theme">فعال سازی تم تاریک</string>
-    <string name="pref_hosts">فایل Hosts</string>
-    <string name="pref_update_check">به روز رسانی ها رو بررسی کن</string>
-    <string name="pref_apply_method">هدف فایل hosts</string>
-    <string name="pref_apply_method_summary">قبل از تغییر این تنظیمات فایل راهنما را در رابطه با این قابلیت مطالعه نمایید.</string>
-    <string name="pref_header_preferences">تنظیمات</string>
-    <string name="pref_header_preferences_summary">تنظیمات عمومی مربوط به AdAway</string>
-    <string name="pref_never_reboot">مخفی کردن پیغام شروع مجدد</string>
-    <string name="pref_never_reboot_summary">مخفی کردن پیغام شروع مجدد دستگاه، پس از اعمال موفقیت آمیز تغییرات.</string>
-    <string name="pref_webserver_on_boot">بعد از بوت دستگاه وب سرور را شروع کن</string>
-    <string name="pref_webserver_on_boot_summary">در هنگام بوت وب سرور با شنود از آی پی های داخلی شروع گردد</string>
-    <string name="pref_webserver_enabled">فعال کردن وب سرور</string>
-    <string name="pref_webserver_enabled_summary">فعال کردن وب سرور برای نظارت بر آی پی های داخلی به منظور پاسخگویی به hostnames های مسدود شده</string>
-    <string name="pref_webserver">وب سرور لوکال</string>
-    <string name="pref_custom_target">هدف سفارشی</string>
-    <string name="pref_custom_target_summary">فقط در صورتی استفاده بکن که فایل hosts به یک مسیر سفارشی تنظیم شده باشد</string>
-
-    <!-- !!! Attention, always translate all items from this array !!! - labels (not data) for host location -->
-    <string-array name="pref_apply_method_entries">
-        <item>/system/etc/hosts</item>
-        <item>/data/hosts</item>
-        <item>/data/data/hosts</item>
-        <item>هدف سفارشی</item>
-    </string-array>
-
-    <string name="pref_update_check_summary">در آغاز شروع AdAway به روز رسانی ها را چک کن</string>
-    <string name="pref_background">سرویس پس زمینه</string>
-    <string name="pref_update_check_daily">بررسی روزانه برای به روز رسانی</string>
-    <string name="pref_update_check_daily_summary">بررسی روزانه بروز رسانی ها در پس زمینه به همراه هشدار</string>
-    <string name="pref_automatic_update_daily">به روز رسانی خودکار</string>
-    <string name="pref_automatic_update_daily_summary">درصورت موجود بودن به روز رسانی به طور خودکار در پس زمینه انجام شود.</string>
-    <string name="pref_whitelist_rules">لیست سفید مجاز است</string>
-    <string name="pref_whitelist_rules_summary">ورودی های لیست سفید از منابع Hosts مجاز میباشند.</string>
-    <string name="pref_redirection_rules_summary">تهدید امنیتی! به منابع Hosts برای تغییر مسیر داده ها اجازه دهید.</string>
-    <string name="pref_debug">عیب یابی</string>
-    <string name="pref_enable_debug_summary">برای اثر کردن این تنظیم شما نیاز به شروع مجدد AdAway دارید.</string>
-    <string name="pref_enable_ipv6">فعال کردن IPv6</string>
-    <string name="pref_enable_systemless_summary">جلوگیری AdAway از تغییر پارتیشن سیستمی</string>
-    <string name="pref_enable_systemless">فعال کردن حالت systemless</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -219,4 +151,4 @@
     </string-array>
     <string name="shortcut_preferences">تنظیمات</string>
 
-    </resources>
+</resources>

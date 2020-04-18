@@ -1,30 +1,35 @@
 package org.adaway.db;
 
-import androidx.sqlite.db.SupportSQLiteDatabase;
+import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
-
-import android.content.Context;
-
-import androidx.annotation.NonNull;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.adaway.db.converter.DateConverter;
 import org.adaway.db.converter.ListTypeConverter;
+import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.provider.RoomMigrationHelper;
+import org.adaway.db.view.HostEntry;
 import org.adaway.util.AppExecutors;
+
+import static org.adaway.db.Migrations.MIGRATION_1_2;
+import static org.adaway.db.Migrations.MIGRATION_2_3;
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
 
 /**
  * This class is the application database based on Room.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-@Database(entities = {HostsSource.class, HostListItem.class}, version = 1)
+@Database(entities = {HostsSource.class, HostListItem.class}, views = {HostEntry.class}, version = 3)
 @TypeConverters({DateConverter.class, ListTypeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     /**
@@ -50,13 +55,13 @@ public abstract class AppDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             AppExecutors.getInstance().diskIO().execute(
-                                    () -> {
-                                        RoomMigrationHelper.migrateToRoom(context, instance);
-                                        AppDatabase.initialize(instance);
-                                    }
+                                    () -> AppDatabase.initialize(instance)
                             );
                         }
-                    }).build();
+                    }).addMigrations(
+                            MIGRATION_1_2,
+                            MIGRATION_2_3
+                    ).build();
                 }
             }
         }
@@ -72,19 +77,25 @@ public abstract class AppDatabase extends RoomDatabase {
         if (!hostsSourceDao.getAll().isEmpty()) {
             return;
         }
-        // https://hosts-file.net
+        // User source
+        HostsSource userSource = new HostsSource();
+        userSource.setId(USER_SOURCE_ID);
+        userSource.setUrl(USER_SOURCE_URL);
+        userSource.setEnabled(true);
+        hostsSourceDao.insert(userSource);
+        // AdAway's own mobile hosts
         HostsSource source1 = new HostsSource();
-        source1.setUrl("https://hosts-file.net/ad_servers.txt");
+        source1.setUrl("https://adaway.org/hosts.txt");
         source1.setEnabled(true);
         hostsSourceDao.insert(source1);
-        // https://pgl.yoyo.org/adservers/
+        // https://github.com/StevenBlack/hosts
         HostsSource source2 = new HostsSource();
-        source2.setUrl("https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
+        source2.setUrl("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
         source2.setEnabled(true);
         hostsSourceDao.insert(source2);
-        // AdAway's own mobile hosts
+        // https://pgl.yoyo.org/adservers/
         HostsSource source3 = new HostsSource();
-        source3.setUrl("https://adaway.org/hosts.txt");
+        source3.setUrl("https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
         source3.setEnabled(true);
         hostsSourceDao.insert(source3);
     }
@@ -102,4 +113,11 @@ public abstract class AppDatabase extends RoomDatabase {
      * @return The hosts list item DAO.
      */
     public abstract HostListItemDao hostsListItemDao();
+
+    /**
+     * Get the hosts entry DAO.
+     *
+     * @return The hosts entry DAO.
+     */
+    public abstract HostEntryDao hostEntryDao();
 }

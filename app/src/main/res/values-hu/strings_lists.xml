@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Hoszt hozzáadása a feketelistához</string>
+    <string name="list_add_dialog_white">Hoszt hozzáadása a fehérlistához</string>
+    <string name="list_add_dialog_redirect">Hoszt átirányítás hozzáadása</string>
+    <string name="list_edit_dialog_black">Feketelistás hostok szerkesztése</string>
+    <string name="list_edit_dialog_white">Fehérlista szerkesztése</string>
+    <string name="list_edit_dialog_redirect">Átirányítás szerkesztése</string>
+    <string name="list_dialog_hostname">Hosztnév:</string>
+    <string name="list_dialog_hostname_hint">Hosts fájl forrása (URL)</string>
+    <string name="list_dialog_wildcard">(Helyettesítő karakterek * és ? használata is engedélyezett!)</string>
+    <string name="list_dialog_ip">IP (IPv4 vagy IPv6):</string>
+</resources>

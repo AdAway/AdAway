@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- List -->
+    <string name="hosts_not_available">غير متوفر</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">إضافة مصدر</string>
+    <string name="hosts_edit_dialog_title">تحرير مصدر</string>
+    <string name="hosts_dialog_url">الرابط: (إمّا مصدر https:// أو file://)</string>
+    <string name="hosts_dialog_url_hint">مصدر رابط المضيف</string>
+</resources>

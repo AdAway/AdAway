@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- Tab -->
+    <!-- Menu -->
+    <!-- Filter dialog -->
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Lisa host musta loendisse</string>
+    <string name="list_add_dialog_white">Lisa host valgesse loendisse</string>
+    <string name="list_add_dialog_redirect">Lisa hosti suunamine</string>
+    <string name="list_edit_dialog_black">Muuda musta loendi hosti</string>
+    <string name="list_edit_dialog_white">Muuda valge loendi hosti</string>
+    <string name="list_edit_dialog_redirect">Muuda suunamist</string>
+    <string name="list_dialog_hostname">Hostinimi:</string>
+    <string name="list_dialog_hostname_hint">Hosts-allika URL</string>
+    <string name="list_dialog_wildcard">(Lubatud on jokkermärgid * ja ?)</string>
+    <string name="list_dialog_ip">IP (IPv4 või IPv6):</string>
+</resources>
