@@ -2,6 +2,7 @@ package org.adaway.ui.lists;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import org.adaway.ui.lists.type.AbstractListFragment;
@@ -9,9 +10,9 @@ import org.adaway.ui.lists.type.AllowedHostsFragment;
 import org.adaway.ui.lists.type.BlockedHostsFragment;
 import org.adaway.ui.lists.type.RedirectedHostsFragment;
 
-import static org.adaway.ui.lists.ListsFragment.BLOCKED_HOSTS_TAB;
-import static org.adaway.ui.lists.ListsFragment.REDIRECTED_HOSTS_TAB;
-import static org.adaway.ui.lists.ListsFragment.ALLOWED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
 
 /**
  * This class is a {@link FragmentStateAdapter} to store lists tab fragments.
@@ -40,8 +41,8 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
      * Constructor.
      *
      */
-    ListsFragmentPagerAdapter(Fragment fragment) {
-        super(fragment);
+    ListsFragmentPagerAdapter(FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
         this.blacklistFragment = new BlockedHostsFragment();
         this.whitelistFragment = new AllowedHostsFragment();
         this.redirectionListFragment = new RedirectedHostsFragment();

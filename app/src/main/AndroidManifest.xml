@@ -72,7 +72,15 @@
             android:name=".ui.lists.ListsActivity"
             android:exported="false"
             android:label="@string/lists_title"
-            android:parentActivityName=".ui.home.HomeActivity" />
+            android:launchMode="singleTop"
+            android:parentActivityName=".ui.home.HomeActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/list_searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.help.HelpActivity"
             android:exported="false"

@@ -1,9 +1,5 @@
 package org.adaway.ui.lists;
 
-import org.adaway.db.AppDatabase;
-
-import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
-
 /**
  * This class represents the filter to apply to host lists.
  *
@@ -16,51 +12,22 @@ public class ListsFilter {
      */
     public final boolean sourcesIncluded;
     /**
-     * The filter to apply to hosts name (wildcard based).
+     * The query filter to apply to hosts name (wildcard based).
      */
-    public final String hostFilter;
-
-    public ListsFilter(boolean sourcesIncluded, String hostFilter) {
-        this.sourcesIncluded = sourcesIncluded;
-        this.hostFilter = hostFilter;
-    }
-
-    private static String convertToLikeQuery(String filter) {
-        return "%" + filter.replaceAll("\\*", "%")
-                .replaceAll("\\?", "_") + "%";
-    }
-
-    public SqlFilter compute(AppDatabase database) {
-        return new SqlFilter(
-                this,
-                this.sourcesIncluded ? database.hostsSourceDao().getAllIds() : new int[]{USER_SOURCE_ID},
-                convertToLikeQuery(this.hostFilter)
-        );
-    }
-
+    public final String query;
     /**
-     * This class is the inner SQL filter used for room queries.
-     *
-     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     * The query filter to apply to hosts name (sql like format).
      */
-    public static class SqlFilter {
-        /**
-         * The original filter.
-         */
-        public final ListsFilter source;
-        /**
-         * The hosts sources identifiers.
-         */
-        public final int[] sourceIds;
-        /**
-         * The filter to apply to host name (SQL LIKE formatted).
-         */
-        public final String query;
+    public final String sqlQuery;
 
-        SqlFilter(ListsFilter source, int[] sourceIds, String query) {
-            this.source = source;
-            this.sourceIds = sourceIds;
-            this.query = query;
-        }
+    public ListsFilter(boolean sourcesIncluded, String query) {
+        this.sourcesIncluded = sourcesIncluded;
+        this.query = query;
+        this.sqlQuery = convertToLikeQuery(query);
+    }
+
+    private static String convertToLikeQuery(String query) {
+        return "%" + query.replaceAll("\\*", "%")
+                .replaceAll("\\?", "_") + "%";
     }
 }

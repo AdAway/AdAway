@@ -41,8 +41,8 @@ public interface HostListItemDao {
     @Query("SELECT * FROM hosts_lists WHERE type = 2 AND enabled = 1")
     List<HostListItem> getEnabledRedirectList();
 
-    @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND source_id IN(:sourceIds) ORDER BY host ASC")
-    DataSource.Factory<Integer, HostListItem> loadList(int type, int[] sourceIds, String query);
+    @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND ((:includeSources == 0 AND source_id == 1) || (:includeSources == 1)) ORDER BY host ASC")
+    DataSource.Factory<Integer, HostListItem> loadList(int type, boolean includeSources, String query);
 
     @Query("SELECT * FROM hosts_lists ORDER BY host ASC")
     List<HostListItem> getAll();

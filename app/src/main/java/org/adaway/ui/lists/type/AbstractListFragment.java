@@ -23,11 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
-import org.adaway.ui.lists.ListsFragment;
 import org.adaway.ui.lists.ListsViewCallback;
 
 /**
- * This class is a {@link Fragment} to display and manage lists of {@link ListsFragment}.
+ * This class is a {@link Fragment} to display and manage lists of {@link org.adaway.ui.lists.ListsActivity}.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */

@@ -2,8 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_filter"
+        android:id="@+id/menu_search"
         android:icon="@drawable/baseline_search_24"
         android:title="@string/lists_menu_filter"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/menu_toggle_source"
+        android:icon="@drawable/ic_collections_bookmark_24dp"
+        android:title="@string/lists_menu_toggle_sources"
         app:showAsAction="ifRoom" />
 </menu>

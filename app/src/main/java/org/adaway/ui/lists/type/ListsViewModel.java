@@ -16,7 +16,6 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
 import org.adaway.ui.lists.ListsFilter;
-import org.adaway.ui.lists.ListsFilter.SqlFilter;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
@@ -35,9 +34,8 @@ import static org.adaway.ui.lists.ListsFilter.ALL;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class ListsViewModel extends AndroidViewModel {
-    private final AppDatabase database;
     private final HostListItemDao hostListItemDao;
-    private final MutableLiveData<SqlFilter> filter;
+    private final MutableLiveData<ListsFilter> filter;
     private final LiveData<PagedList<HostListItem>> blackListItems;
     private final LiveData<PagedList<HostListItem>> whiteListItems;
     private final LiveData<PagedList<HostListItem>> redirectionListItems;
@@ -45,9 +43,8 @@ public class ListsViewModel extends AndroidViewModel {
 
     public ListsViewModel(@NonNull Application application) {
         super(application);
-        this.database = AppDatabase.getInstance(getApplication());
-        this.hostListItemDao = database.hostsListItemDao();
-        this.filter = new MutableLiveData<>();
+        this.hostListItemDao = AppDatabase.getInstance(getApplication()).hostsListItemDao();
+        this.filter = new MutableLiveData<>(ALL);
         PagedList.Config pagingConfig = new PagedList.Config.Builder()
                 .setPageSize(50)
                 .setPrefetchDistance(150)
@@ -55,18 +52,17 @@ public class ListsViewModel extends AndroidViewModel {
                 .build();
         this.blackListItems = Transformations.switchMap(
                 this.filter,
-                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(BLOCKED.getValue(), filter.sourceIds, filter.query), pagingConfig).build()
+                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(BLOCKED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
         );
         this.whiteListItems = Transformations.switchMap(
                 this.filter,
-                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(ALLOWED.getValue(), filter.sourceIds, filter.query), pagingConfig).build()
+                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(ALLOWED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
         );
         this.redirectionListItems = Transformations.switchMap(
                 this.filter,
-                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(REDIRECTED.getValue(), filter.sourceIds, filter.query), pagingConfig).build()
+                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(REDIRECTED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
         );
         this.userListItems = this.hostListItemDao.loadUserList();
-        applyFilter(ALL);
     }
 
     public LiveData<PagedList<HostListItem>> getBlackListItems() {
@@ -123,15 +119,34 @@ public class ListsViewModel extends AndroidViewModel {
         AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.delete(list));
     }
 
-    public ListsFilter getFilter() {
-        SqlFilter filter = this.filter.getValue();
-        return filter == null ? ALL : filter.source;
+    public void search(String query) {
+        ListsFilter currentFilter = getFilter();
+        ListsFilter newFilter = new ListsFilter(currentFilter.sourcesIncluded, query);
+        setFilter(newFilter);
     }
 
-    public void applyFilter(ListsFilter filter) {
-        AppExecutors.getInstance().diskIO().execute(() -> {
-            SqlFilter sqlFilter = filter.compute(this.database);
-            this.filter.postValue(sqlFilter);
-        });
+    public boolean isSearching() {
+        return !getFilter().query.isEmpty();
+    }
+
+    public void clearSearch() {
+        ListsFilter currentFilter = getFilter();
+        ListsFilter newFilter = new ListsFilter(currentFilter.sourcesIncluded, "");
+        setFilter(newFilter);
+    }
+
+    public void toggleSources() {
+        ListsFilter currentFilter = getFilter();
+        ListsFilter newFilter = new ListsFilter(!currentFilter.sourcesIncluded, currentFilter.query);
+        setFilter(newFilter);
+    }
+
+    private ListsFilter getFilter() {
+        ListsFilter filter = this.filter.getValue();
+        return filter == null ? ALL : filter;
+    }
+
+    private void setFilter(ListsFilter filter) {
+        this.filter.setValue(filter);
     }
 }

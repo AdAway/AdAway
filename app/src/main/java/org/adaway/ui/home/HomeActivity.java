@@ -53,10 +53,10 @@ import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN;
 import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
-import static org.adaway.ui.lists.ListsFragment.BLOCKED_HOSTS_TAB;
-import static org.adaway.ui.lists.ListsFragment.REDIRECTED_HOSTS_TAB;
-import static org.adaway.ui.lists.ListsFragment.TAB;
-import static org.adaway.ui.lists.ListsFragment.ALLOWED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
+import static org.adaway.ui.lists.ListsActivity.TAB;
 import static org.adaway.util.Constants.TAG;
 
 /**
