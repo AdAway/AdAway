@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Çıkış</string>
     <string name="button_close">Kapat</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">Web sunucusu</string>
     <string name="webserver_status_running">Çalışıyor</string>
     <string name="webserver_status_stopped">Durduruldu</string>
+    <string name="webserver_toggle_text">Engellenen ana bilgisayar adlarına yönelik istekleri yanıtlamak için localhost\'ta web sunucusunu başlat veya durdur.</string>
     <string name="button_enable_webserver">Web sunucusunu etkinleştir</string>
     <string name="button_disable_webserver">Web sunucusunu devre dışı bırak</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Çalışıyor</string>
+    <string name="vpn_status_stopped">Durduruldu</string>
+    <string name="vpn_toggle_text">İstekleri filtrelemek için VPN\'yi başlat veya durdur.</string>
+    <string name="button_enable_vpn">VPN\'yi etkinleştir</string>
+    <string name="button_disable_vpn">VPN\'yi devre dışı bırak</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Sil</string>
@@ -33,10 +39,10 @@
     <string name="checkbox_list_context_edit">Düzenle</string>
 
     <!--Your lists-->
-    <string name="import_dialog">İçe Aktarılıyor…</string>
+    <string name="import_dialog">İçe aktarılıyor…</string>
     <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
     <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
-    <string name="export_dialog">Dışa Aktarılıyor…</string>
+    <string name="export_dialog">Dışa aktarılıyor…</string>
     <string name="export_success">Yedekleme, harici depolama alanınıza \'adaway-backup.json\' dosya ismiyle başarılı olarak aktarıldı.</string>
     <string name="export_failed">Yedekleme dışa aktarılamadı.</string>
 
@@ -47,9 +53,18 @@
     <string name="hosts_open_button">Host dosyasını açın</string>
 
     <!--Status Notification-->
+    <string name="status_check">Güncellemeler kontrol ediliyor</string>
+    <string name="status_check_source">%s kaynağı güncelleme için kontrol ediliyor</string>
+    <string name="status_retrieve">Kaynakları geri döndür</string>
+    <string name="status_download_source">%s kaynağı indiriliyor</string>
+    <string name="status_copy_source">%s kaynağı kopyalanıyor</string>
+    <string name="status_parse_source">%s kaynağı ayrıştırılıyor</string>
+    <string name="status_revert">Varsayılan hosts dosyasına geri dönülüyor</string>
+    <string name="status_revert_done">Varsayılan hosts dosyası geri yüklendi</string>
     <string name="status_reverting_subtitle">Varsayılan bir hosts dosyası yapılıyor</string>
     <string name="status_update_available">Güncelleme mevcut</string>
     <string name="status_update_available_subtitle">Daha yeni host dosyaları mevcut</string>
+    <string name="status_no_update_found">Kaynak güncellemesi bulunamadı</string>
     <string name="status_no_connection">İnternet bağlantısı yok</string>
     <string name="status_no_connection_subtitle">İnternet bağlantısı yok</string>
     <string name="status_download_fail">Kullanılamayan kaynaklar</string>
@@ -62,12 +77,19 @@
     <string name="status_enabled_subtitle">Yeni host dosyaları etkin</string>
     <string name="status_disabled">Devre dışı</string>
     <string name="status_disabled_subtitle">Varsayılan sunucu dosyası yüklendi</string>
-    <string name="notification_configuration_changed">Yapılandırmanız değişti. Uygulamak için sunucu dosyasını yüklemeniz gerekir.</string>
+    <string name="status_apply_sources">En son kaynakları uygula</string>
+    <string name="status_create_new_hosts">Yeni bir hosts dosyası oluştur</string>
+    <string name="status_copy_new_hosts">Yeni bir hosts dosyası kopyala</string>
+    <string name="status_check_copy">Hosts dosya kopyası kontrol ediliyor</string>
+    <string name="status_hosts_updated">Hosts dosyası başarıyla güncellendi</string>
+    <string name="status_vpn_configuration_updated">VPN yapılandırması başarıyla güncellendi</string>
+    <string name="notification_configuration_changed">Yapılandırmanız değişti. Uygulamanız gerekiyor.</string>
     <string name="notification_configuration_changed_action">Uygula</string>
-    <string name="notification_configuration_installing">Sunucu dosyası yükleniyor…</string>
-    <string name="notification_configuration_failed">Hosts dosyası yüklenemedi.</string>
+    <string name="notification_configuration_installing">Yeni yapılandırma uygulanıyor…</string>
+    <string name="notification_configuration_failed">Yeni yapılandırma uygulanamadı.</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Hosts dosya hedefine yönelik sembolik bağlantı eksik</string>
     <string name="apply_symlink_missing">Hedefiniz ile /system/etc/hosts dosyası symlink ile bağlanmamış veya hatalı bağlanmış! Bu bağlanma olmadan AdAway çalışamaz.\n\nŞimdi bir symlink ayarlansın mı?</string>
     <string name="apply_symlink_missing_title">Symlink kayıp</string>
     <string name="apply_not_enough_space">Disk bölümünde yeterli boş alan yok!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
@@ -76,6 +98,7 @@
     <string name="apply_private_file_fail_title">Özel dosya başarısız</string>
     <string name="apply_remount_fail">Okuma/yazma bölümü tekrar bağlanması başarısız!</string>
     <string name="apply_remount_fail_title">Remount başarısız oldu</string>
+    <string name="apply_copy_fail_status">Hosts dosyası kopyalanamadı</string>
     <string name="apply_copy_fail">Host dosyası kopyalama başarısız!</string>
     <string name="apply_copy_fail_title">Kopyalama başarısız</string>
     <string name="apply_success_subtitle">Hosts kaynakları uygulandı</string>
@@ -86,7 +109,7 @@
     <string name="apply_symlink_fail">Symlink Android tarafından oluşturulamadı.\nBu HTC telefonlarında S-ON adlı bir \'özellik\' nedeniyle başarısız oluyor!\n\nBunun bir çözümü, telefonunuzu kurtarma moduna geçirmek ve orada \'ln -s /data/data/hosts /system/etc/hosts\'\' ile sembolik bağlantı oluşturmaktır.\n\nBu işe yaramazsa, internette cihazınız ve S-OFF ile ilgili araştırma yapınız.</string>
     <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
     <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
-    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz.Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -&gt; Mobil şebeke -&gt; Gelişmiş -&gt; Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
+    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz.Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -> Mobil şebeke -> Gelişmiş -> Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
     <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
     <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
     <string name="no_connection_title">Bağlantı Yok</string>
@@ -96,21 +119,26 @@
     <string name="apply_dialog_hostnames">Host dosyaları incelenip birleştiriliyor</string>
     <string name="apply_dialog_hosts">Host dosyası oluşturuluyor</string>
     <string name="apply_dialog_apply">Host dosyası uygulanıyor</string>
+    <string name="apply_fail_status">Yeni hosts dosyası uygulanamadı.</string>
     <string name="apply_fail">Host dosyasının sisteminize uygulanması başarısız oldu!\nTercihlerden hedef hosts dosyası seçeneğini /data/data/hosts yapmayı deneyin.</string>
     <string name="apply_fail_title">Uygulama başarısız</string>
     <string name="root_access_fail">Kök erişiminin verildiğinden emin olmak için lütfen kök yönetim uygulamanızı kontrol edin.</string>
     <string name="revert_successful">Varsayılan host dosyasına geri döndünüz.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz??\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
     <string name="revert_successful_title">Geri alma başarılı!</string>
+    <string name="revert_failed_status">Hosts dosyası geri alınamıyor</string>
     <string name="revert_problem">Geri alma işlemi bilinmeyen nedenlerden dolayı başarısız oldu.</string>
     <string name="revert_problem_title">Geri alma başarısız!</string>
     <string name="download_fail_dialog">Aktif ettiğiniz hiçbir host kaynağına ulaşılamıyor! İnternet\'e bağlı olduğunuza emin misiniz?</string>
     <string name="download_fail_title">İndirme işlemi başarısız.</string>
+    <string name="no_private_file_status">Yeni özel hosts dosyası yazılamadı</string>
     <string name="no_private_file">Özel dosya oluşturulamadı.</string>
     <string name="no_private_file_title">Özel dosya oluşturma başarısız oldu.</string>
     <string name="enable_systemless_successful">Sistemsiz modu etkinleştirdiniz.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
     <string name="enable_systemless_successful_title">Etkinleştirme başarılı</string>
     <string name="disable_systemless_successful">Sistemsiz modu devre dışı bıraktınız.\nDeğişikliklerin etkili olması için Android\'i yeniden başlatmanız gerekebilir.\n\nYeniden başlatmak ister misiniz?\n(Veri kaybını önlemek için hiçbir uygulamanın SD kartı kullanmadığından emin olun!)</string>
     <string name="disable_systemless_successful_title">Başarıyla devre dışı bırakıldı</string>
+    <string name="enable_vpn_fail">VPN reklam engelleyici etkinleştirilemedi.</string>
+    <string name="disable_vpn_fail">VPN reklam engelleyici devre dışı bırakılamadı.</string>
     <string name="enable_systemless_magisk_title">Hosts Magisk Modülü\'nü etkinleştiriliyor</string>
     <string name="enable_systemless_magisk">Magisk yöneticisinden sistemsiz hosts özelliğini etkinleştirin. Magisk ayarlarından, <cite>sistemsiz hosts</cite> seçeneğini etkinleştirin ve ardından cihazınızı yeniden başlatın.</string>
     <string name="disable_systemless_magisk_title">Hosts Magisk Modülü\'nü devre dışı bırakılıyor</string>
@@ -140,10 +168,8 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">AdAway tarafından engellenemeyen, adware yüklü kötü uygulamaları burada bulabilirsiniz. Bu uygulamalar, örneğin uygulama çalışmıyorken bile ortaya çıkan Airpush bildirimlerini kullanır ve hatta zil sesini değiştirir. Kullanılabilir tek önlem, listedeki öğeleri tıklatarak bu uygulamaları kaldırmaktır.</string>
-    <string name="adware_scanning">Taranıyor…</string>
+    <string name="adware_scanning">Taranıyor&#8230;</string>
     <string name="adware_empty">Adware bulunamadı!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Reklam engelleyici</string>
@@ -167,7 +193,6 @@
     <string name="tcpdump_entry_add_whitelist">Beyaz listeye giriş ekle</string>
     <string name="tcpdump_entry_add_redirection_list">Yönlendirme listesine giriş ekle</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Metin tercih değerini düzenle</string>
     <string name="drawer_open">Menüyü aç</string>
     <string name="drawer_close">Menüyü kapat</string>
@@ -185,14 +210,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS istekleri</string>
     <string name="shortcut_your_lists">Listeleriniz</string>
     <string name="shortcut_preferences">Tercihler</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Kuruldu %1$s önce</string>
     <string name="hosts_source_up_to_date">%1$s güncel</string>
     <string name="hosts_source_need_update">%1$s için gücelleme gerekiyor</string>
     <string name="hosts_source_last_update">Son güncelleme %1$s önce</string>
@@ -213,5 +237,21 @@
         <item quantity="one">%d ay</item>
         <item quantity="other">%d ay</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">başlanıyor</string>
+    <string name="vpn_notification_running">etkin</string>
+    <string name="vpn_notification_stopping">durduruluyor</string>
+    <string name="vpn_notification_waiting_for_net">ağ için bekle</string>
+    <string name="vpn_notification_reconnecting">yeniden bağlanıyor</string>
+    <string name="vpn_notification_reconnecting_error">yeniden bağlanma hatası</string>
+    <string name="vpn_notification_paused">duraklatıldı</string>
+    <string name="vpn_notification_stopped">durduruldu</string>
+    <string name="vpn_notification_title">Reklam engelleyici VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Duraklat</string>
+    <string name="vpn_notification_paused_text">Devam etmek için donunun</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Sistem reklam engellemesini etkinleştir ve devre dışı bırak</string>
 
 </resources>
