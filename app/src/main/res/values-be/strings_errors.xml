@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Няма злучэння з інтэрнэтам</string>
+    <string name="error_no_connection_details">Немагчыма ўсталяваць злучэнне з інтэрнэтам. Калі ласка, праверце падлучэнне вашай прылады.</string>
+    <string name="error_download_failed_message">Не атрымалася загрузіць крыніцу hosts</string>
+    <string name="error_download_failed_details">Ні водная з вашых уключаных крыніц hosts недаступна. Калі ласка, праверце падлучэнне да інтэрнэту.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Не атрымалася стварыць прыватны файл</string>
+    <string name="error_private_file_failed_details">Не атрымалася стварыць прыватны файл для генерацыі hosts. Пераканайцеся, што на вашай прыладзе ёсць месца.</string>
+    <string name="error_not_enough_space_message">Не хапае месца</string>
+    <string name="error_not_enough_space_details">Не ўдалося капіраваць файл hosts ў сістэмны падзел. Калі ласка, праверце, ці ўключаны сістэмны модуль Magisk, затым перазагрузіце смартфон.</string>
+    <string name="error_copy_failed_message">Не атрымалася ўсталяваць новы файл hosts.</string>
+    <string name="error_copy_failed_details">Не ўдалося скапіяваць файл hosts ў раздзел /system. Пераканайцеся, што ў сістэмным модулі Magisk ўключана перазагрузка.</string>
+    <string name="error_revert_failed_message">Не атрымалася аднавіць файл hosts</string>
+    <string name="error_revert_failed_details">Немагчыма аднавіць канфігурацыю файла host па змаўчанні.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Не атрымалася ўключыць VPN блакаванне рэкламы.</string>
+    <string name="error_enable_vpn_failed_details">Калі ласка, праверце налады VPN, каб аўтарызаваць праграму VPN для запуску.</string>
+    <string name="error_disable_vpn_failed_message">Не атрымалася адключыць VPN блакаванне рэкламы.</string>
+    <string name="error_disable_vpn_failed_details">Калі ласка, праверце налады VPN, каб адключыць яго ўручную.</string>
 </resources>
