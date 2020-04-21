@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Настройки</string>
     <!-- General category -->
+    <string name="pref_general_category">Главные</string>
+    <string name="pref_dark_theme">Тёмная тема</string>
+    <string name="pref_update_configuration">Автоматические обновления</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Блокировка рекламы</string>
+    <string name="pref_root_ad_blocker_configuration">Блокировщик рекламы на основе root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Блокировщик рекламы на основе VPN</string>
+    <string name="pref_whitelist_rules">Применить разрешённые хосты из источников</string>
+    <string name="pref_redirection_rules">Применить перенаправленные хосты из источников</string>
+    <string name="pref_redirection_rules_summary">СОЗДАЁТ УГРОЗУ БЕЗОПАСНОСТИ!</string>
+    <string name="pref_enable_ipv6">Включить поддержку IPv6</string>
+    <string name="pref_backup_restore">Резервная копия / восстановление правил блокировки</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Режим отладки</string>
+    <string name="pref_enable_telemetry">Отправлять отчёты об ошибках</string>
+    <string name="pref_enable_telemetry_summary">Отправлять в Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Не поддерживается в этой сборке</string>
+    <string name="pref_enable_debug">Журнал отладки</string>
+    <string name="pref_enable_debug_summary">Для применения требуется перезапуск приложения</string>
 </resources>
