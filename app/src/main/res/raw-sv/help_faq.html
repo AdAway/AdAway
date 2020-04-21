@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Annonsinkomster</h2>
 <p>Det finns en vanlig missuppfattning om att en användare som aldrig klickar på annonser inte skadar en webbsida eller applikation ekonomiskt genom att blockera annonser helt. Detta är fel, utvecklare får även betalt för att annonser visas. Det är upp till dig om du blockerar annonser eller ej. Personligen skulle jag inte använda applikationer som visar annonser eftersom jag tycker det är mycket irriterande, så utan en annonsblockerare skulle jag inte installera dessa applikationer.</p>
 
-
-
 <h2>Hur fungerar AdAway?</h2>
-<p>AdAway använder <a href="http://sv.wikipedia.org/wiki/Hosts_file">värdfilen</a> till att blockera värdnamn som skickar ut annonser. Värdfilen är en fil du hittar i <code>/system/etc/hosts</code> som översätter värdnamn till IP-adresser. Det är ett vanligt sätt att definiera värdnamnet till IP-adress utan att vara beroende av domännamnsystemet (DNS). Alla oönskade värdnamn skickas till <code>127.0.0.1</code> vilket innebär att de i stället pekar till din enhet.</p>
-
-<h2>Varför är den dagliga uppdateringskontrollen gråskuggad?</h2>
-<p>Automatiska uppdateringar är bara tillgängliga när AdAway är installerat på enhetens interna minne. Detta beror på en begränsning i Android-systemet.</p>
+<p>AdAway använder <a href="http://en.wikipedia.org/wiki/Hosts_file">värdfilen</a> till att blockera värdnamn som skickar ut annonser. Värdfilen är en fil du hittar i <code>/system/etc/hosts</code> som översätter värdnamn till IP-adresser. Det är ett vanligt sätt att definiera värdnamnet till IP-adress utan att vara beroende av domännamnsystemet (DNS). Alla oönskade värdnamn skickas till <code>127.0.0.1</code> vilket innebär att de i stället pekar till din enhet..<br>
+Om värdfilen är skrivskyddad används en inbyggd VPN-tjänst som en reservlösning. Det filtrerar anslutningar till oönskade värdnamn och låter andra gå igenom.</p>
 
 <h2>Varför måste jag starta om Android för att de nya ändringarna ska träda i kraft?</h2>
 <p>Java i Android tar hand om sin egna interna DNS-cache. Operativsystemet kommer att återspegla den nya värdfilen direkt (du kan kontrollera det med ping på kommandoraden) men du måste starta om Android för att återskapa DNS-cachen i Java.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>En del applikationer vägrar fungera när annonsservern inte går att nå. Med denna metod kommer de att bli nåbara igen, men en tom sida utan annonser kommer att visas.</p>
 
 <h2>Hur kan jag blockera/tillåta enskilda värdnamn?</h2>
-<p>Lägg till värdnamn som du vill blockera till <cite>Svartlistan</cite> (=Svart) under <cite>Dina listor</cite>. Dessutom kan värdnamn som du vill utesluta från att blockera läggas till i <cite>Vitlistan</cite> (=Vit) och värdnamn som du vill dirigera om till en specifik IP-adress hör till <cite>Omdirigeringslistan</cite> (=Omdirigering).</p>
+<p>Lägg till värdnamn som du vill blockera till <cite>Blockerad</cite> från <cite>hemskärmen</cite>. Dessutom kan värdnamn som du vill utesluta från blockering läggas till i <cite>Tillåtna</cite> och värdnamn som du vill omdirigera till ett specifik IP-adress tillhör <cite>Omdirigerad</cite>.</p>
 
 <h2>Var hittar jag fler värdkällor?</h2>
 <p>Gå till <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista över ytterligare värdkällor för AdAway</a>.</p>
