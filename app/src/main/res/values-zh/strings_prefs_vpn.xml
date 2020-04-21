@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">基于VPN的广告拦截器</string>
+    <string name="pref_vpn_service_on_boot">启动时启用</string>
     <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">排除的应用</string>
+    <string name="pref_vpn_excluded_apps_description">配置哪些应用程序不应使用VPN，以便不会阻止任何连接。</string>
+    <string name="pref_vpn_exclude_system_apps">排除系统应用程序</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
+    <string name="pref_vpn_exclude_user_apps">排除用户应用程序</string>
 
     <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">排除的应用</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">选择所有</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">全部取消选择</string>
+    <string name="pref_vpn_exclude_user_apps_icon">应用程序图标</string>
 </resources>
