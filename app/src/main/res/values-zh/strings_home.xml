@@ -1,28 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">阻止</string>
+    <string name="allowed_hosts_label">允许</string>
+    <string name="redirect_hosts_label">重定向</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
         <item quantity="other">%d up-to-date sources</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="other">%d过时的资源</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">显示帮助</string>
 
     <!-- Project card -->
+    <string name="project_label">打开GitHub页面</string>
 
     <!-- Support card -->
+    <string name="support_label">支持项目</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS日志</string>
+    <string name="preferences_drawer_item">首选项</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">打开导航抽屉</string>
+    <string name="adblock_pause_button_description">暂停/恢复广告屏蔽</string>
+    <string name="update_button">更新被阻止的域</string>
+    <string name="show_log_button">显示请求的域</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">请阅读帮助以获取更多信息。</string>
 
 </resources>
