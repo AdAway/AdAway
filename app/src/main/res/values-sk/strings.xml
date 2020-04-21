@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Ukončiť</string>
     <string name="button_close">Zavrieť</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">Web server</string>
     <string name="webserver_status_running">Spustený</string>
     <string name="webserver_status_stopped">Zastavený</string>
+    <string name="webserver_toggle_text">Spustiť alebo zastaviť webserver na zariadení pre odpovedanie na požiadavky blokovaných adries.</string>
     <string name="button_enable_webserver">Povoliť web server</string>
     <string name="button_disable_webserver">Zakázať web server</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Spustené</string>
+    <string name="vpn_status_stopped">Zastavené</string>
+    <string name="vpn_toggle_text">Spustiť alebo zastaviť VPN na filtrovanie požiadaviek.</string>
+    <string name="button_enable_vpn">Povoliť VPN</string>
+    <string name="button_disable_vpn">Zakázať VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Vymazať</string>
@@ -47,9 +53,18 @@
     <string name="hosts_open_button">Otvoriť hosts súbor</string>
 
     <!--Status Notification-->
+    <string name="status_check">Kontrola aktualizácií</string>
+    <string name="status_check_source">Hľadanie aktualizácií pre zdroj %s</string>
+    <string name="status_retrieve">Získavanie zdrojov</string>
+    <string name="status_download_source">Sťahovanie zdroja %s</string>
+    <string name="status_copy_source">Kopírovanie zdroja %s</string>
+    <string name="status_parse_source">Analýza zdroja %s</string>
+    <string name="status_revert">Obnovuje sa pôvodný súbor hosts</string>
+    <string name="status_revert_done">Pôvodný súbor hosts obnovený</string>
     <string name="status_reverting_subtitle">Vytváranie štandardného hosts súboru</string>
     <string name="status_update_available">Aktualizácia dostupná</string>
     <string name="status_update_available_subtitle">Sú dostupné novšie hosts súbory</string>
+    <string name="status_no_update_found">Neboli nájdené žiadne aktualizácie pre zdroj</string>
     <string name="status_no_connection">Bez internetového pripojenia</string>
     <string name="status_no_connection_subtitle">Internetové pripojenie nie je dostupné</string>
     <string name="status_download_fail">Nedostupné zdroje</string>
@@ -62,12 +77,19 @@
     <string name="status_enabled_subtitle">Máte najnovšie hosts súbory</string>
     <string name="status_disabled">Zakázané</string>
     <string name="status_disabled_subtitle">Predvolený súbor host nainštalovaný</string>
-    <string name="notification_configuration_changed">Vaša konfigurácia sa zmenila. Musíte nainštalovať súbor host, aby ste ho mohli aplikovať.</string>
+    <string name="status_apply_sources">Použiť najnovšie zdroje</string>
+    <string name="status_create_new_hosts">Vytváranie nového súboru hosts</string>
+    <string name="status_copy_new_hosts">Kopírovanie nového súboru hosts</string>
+    <string name="status_check_copy">Kontrola kópie súboru hosts</string>
+    <string name="status_hosts_updated">Súbor hosts úspešne aktualizovaný</string>
+    <string name="status_vpn_configuration_updated">Nastavenie VPN úspešne aktualizované</string>
+    <string name="notification_configuration_changed">Konfigurácia sa zmenila. Musíte ju aplikovať.</string>
     <string name="notification_configuration_changed_action">Aplikovať</string>
-    <string name="notification_configuration_installing">Inštalácia súboru hosts…</string>
-    <string name="notification_configuration_failed">Inštalácia súboru hosts zlyhala.</string>
+    <string name="notification_configuration_installing">Aplikuje sa nová konfigurácia…</string>
+    <string name="notification_configuration_failed">Nepodarilo sa aplikovať novú konfiguráciu</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Chýba symbolický odkaz na cieľový súbor hosts</string>
     <string name="apply_symlink_missing">Odkaz z vášho cieľa do /system/etc/hosts neexistuje alebo je nesprávny! AdAway nebude fungovať, pokiaľ odkaz nebude smerovať na správny súbor.\n\nChcete sa pokúsiť vytvoriť odkaz?</string>
     <string name="apply_symlink_missing_title">Odkaz chýba</string>
     <string name="apply_not_enough_space">Nedostatok miesta na partícii!\nSkúste zmeniť umiestnenie hosts súboru v nastaveniach na /data/data/hosts.</string>
@@ -76,6 +98,7 @@
     <string name="apply_private_file_fail_title">Chyba v súkromnom súbore</string>
     <string name="apply_remount_fail">Znovupripojenie partície na čítanie aj zápis zlyhalo!</string>
     <string name="apply_remount_fail_title">Znovupripojenie zlyhalo</string>
+    <string name="apply_copy_fail_status">Nepodarilo sa skopírovať súbor hosts</string>
     <string name="apply_copy_fail">Kopírovanie hosts súboru zlyhalo!</string>
     <string name="apply_copy_fail_title">Kopírovanie zlyhalo</string>
     <string name="apply_success_subtitle">Zdroje hosts aplikované</string>
@@ -96,21 +119,26 @@
     <string name="apply_dialog_hostnames">Analyzovanie a zlučovanie hosts súborov</string>
     <string name="apply_dialog_hosts">Vytváranie hosts súboru</string>
     <string name="apply_dialog_apply">Aplikovanie hosts súboru</string>
+    <string name="apply_fail_status">Nepodarilo sa aplikovať nový súbor hosts.</string>
     <string name="apply_fail">Aplikovanie hosts súboru do vašeho systému zlyhalo!\nSkúste zmeniť umiestnenie hosts súboru v nastaveniach na /data/data/hosts.</string>
     <string name="apply_fail_title">Aplikovanie zlyhalo</string>
     <string name="root_access_fail">Prosím, skontrolujte aplikáciu pre správu prístupu ROOT, aby ste sa uistili, že ste získali ROOT prístup</string>
     <string name="revert_successful">Obnovili ste súbor hosts na pôvodný.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD kartu!)</string>
     <string name="revert_successful_title">Obnovenie úspešné</string>
+    <string name="revert_failed_status">Súbor hosts sa nedá obnoviť</string>
     <string name="revert_problem">Obnovenie zlyhalo z neznámeho dôvodu.</string>
     <string name="revert_problem_title">Obnovenie zlyhalo!</string>
     <string name="download_fail_dialog">Žiadne z vašich povolených hosts zdrojov nie je dostupný! Ste správne pripojený k internetu?</string>
     <string name="download_fail_title">Sťahovanie zlyhalo</string>
+    <string name="no_private_file_status">Nepodarilo sa zapísať nový súkromný súbor hosts</string>
     <string name="no_private_file">Súkromný súbor nemožno vytvoriť.</string>
     <string name="no_private_file_title">Vytváranie súboru zlyhalo</string>
     <string name="enable_systemless_successful">Povolili ste bezsystémový režim.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD</string>
     <string name="enable_systemless_successful_title">Úspešne povolené</string>
     <string name="disable_systemless_successful">Zakázali ste bezsystémový režim.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD kartu!)</string>
     <string name="disable_systemless_successful_title">Zakázanie úspešné</string>
+    <string name="enable_vpn_fail">Nepodarilo sa povoliť blokovanie reklamy pomocou VPN.</string>
+    <string name="disable_vpn_fail">Nepodarilo sa zakázať blokovanie reklamy pomocou VPN.</string>
     <string name="enable_systemless_magisk_title">Povolenie Magisk modulu hosts</string>
     <string name="enable_systemless_magisk">Povoľte funkciu Systemless hosts v Magisk Manageri. V jeho nastavení povoľte voľbu <cite>Systemless hosts</cite>, a potom reštartujte zariadenie.</string>
     <string name="disable_systemless_magisk_title">Zakázanie Magisk modulu hosts</string>
@@ -118,8 +146,8 @@
 
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Zadajte URL k hosts súboru:</string>
-    <string name="no_hostname">Toto nie je platná adresa!</string>
-    <string name="no_hostname_title">Nesprávne formulovaná adresa</string>
+    <string name="no_hostname">Toto nie je platný názov hostiteľa!</string>
+    <string name="no_hostname_title">Nesprávne formulovaný názov hostiteľa</string>
     <string name="no_ip">Toto nie je platná IP!</string>
     <string name="no_ip_title">Nesprávne formulovaná IP</string>
     <string name="reboot_never_reboot">Nikdy nereštartovať a túto otázku už nezobrazovať!</string>
@@ -143,8 +171,6 @@
     <string name="adware_scanning">Vyhľadávanie…</string>
     <string name="adware_empty">Nebol nájdený žiadny adware.</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Blokovanie reklám</string>
     <string name="no_text_editor_title">Nie je nainštalovaný žiadny textový editor</string>
@@ -167,7 +193,6 @@
     <string name="tcpdump_entry_add_whitelist">Pridať položku do bielej listiny</string>
     <string name="tcpdump_entry_add_redirection_list">Pridať položku do zoznamu presmerovaných</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Upraviť hodnotu predvoľby textu</string>
     <string name="drawer_open">Otvoriť menu</string>
     <string name="drawer_close">Zatvoriť menu</string>
@@ -185,14 +210,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS žiadosti</string>
     <string name="shortcut_your_lists">Vaše zoznamy</string>
     <string name="shortcut_preferences">Nastavenia</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Nainštalované pred %1$s</string>
     <string name="hosts_source_up_to_date">Aktuálne %1$s</string>
     <string name="hosts_source_need_update">Dostupná aktualizácia %1$s</string>
     <string name="hosts_source_last_update">Posledná aktualizácia pred %1$s</string>
@@ -221,5 +245,21 @@
         <item quantity="many">%d mesiacov</item>
         <item quantity="other">%d mesiacov</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">spúšťa sa</string>
+    <string name="vpn_notification_running">aktívna</string>
+    <string name="vpn_notification_stopping">zastavuje sa</string>
+    <string name="vpn_notification_waiting_for_net">čaká sa na sieť</string>
+    <string name="vpn_notification_reconnecting">znovu sa pripája</string>
+    <string name="vpn_notification_reconnecting_error">chyba pripájania</string>
+    <string name="vpn_notification_paused">pozastavená</string>
+    <string name="vpn_notification_stopped">zastavená</string>
+    <string name="vpn_notification_title">Blokovanie reklamy pomocou VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Pozastaviť</string>
+    <string name="vpn_notification_paused_text">Klepnutím pokračovať</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Povoliť a zakázať systémové blokovanie reklamy</string>
 
 </resources>
