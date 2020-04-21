@@ -1,3 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">备份 &amp; 还原</string>
+    <string name="pref_backup">备份</string>
+    <string name="pref_backup_summary">将屏蔽规则备份到外部存储</string>
+    <string name="pref_restore">还原</string>
+    <string name="pref_restore_summary">从备份文件还原屏蔽规则</string>
 </resources>
