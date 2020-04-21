@@ -1,28 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Bloqueado</string>
+    <string name="allowed_hosts_label">Permitido</string>
+    <string name="redirect_hosts_label">Redirecionado</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="other">%d fontes atualizadas</item>
     </plurals>
     <plurals name="outdated_source_label">
         <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="other">%d fontes desatualizadas</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Mostrar ajuda</string>
 
     <!-- Project card -->
+    <string name="project_label">Abrir página do GitHub</string>
 
     <!-- Support card -->
+    <string name="support_label">Apoie o projeto</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS registros</string>
+    <string name="preferences_drawer_item">Preferências</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Abrir gaveta de navegação</string>
+    <string name="adblock_pause_button_description">Pausar/retomar ad bloqueador</string>
+    <string name="update_button">Atualizar domínios bloqueados</string>
+    <string name="show_log_button">Mostrar solicitações de domínios</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Consulte a Ajuda para mais informações.</string>
 
 </resources>
