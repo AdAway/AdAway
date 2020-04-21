@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">没有网络连接</string>
+    <string name="error_no_connection_details">无法建立与Internet的连接。 请检查您的设备连接。</string>
+    <string name="error_download_failed_message">无法下载hosts源</string>
+    <string name="error_download_failed_details">您所有启用的hosts源均无法访问。 请检查您是否已正确连接到Internet。</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">创建私人hosts文件失败</string>
+    <string name="error_private_file_failed_details">无法创建私有文件以构建新的hosts源。 请检查设备上的可用空间。</string>
+    <string name="error_not_enough_space_message">没有足够的空间</string>
+    <string name="error_not_enough_space_details">无法将hosts文件复制到系统分区。 请检查Magisk systemless module已启用，然后重新启动。</string>
+    <string name="error_copy_failed_message">无法安装新的hosts文件</string>
+    <string name="error_copy_failed_details">无法将hosts文件复制到 /system分区。请检查Magisk systemless module 已启用重新启动。</string>
+    <string name="error_revert_failed_message">无法还原hosts文件</string>
+    <string name="error_revert_failed_details">无法还原默认hosts文件配置。</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">无法启用VPN广告拦截。</string>
+    <string name="error_enable_vpn_failed_details">请检查您的VPN设置以授权启动应用程序VPN。</string>
+    <string name="error_disable_vpn_failed_message">无法禁用VPN广告拦截器。</string>
+    <string name="error_disable_vpn_failed_details">请检查您的VPN设置以手动将其禁用。</string>
 </resources>
