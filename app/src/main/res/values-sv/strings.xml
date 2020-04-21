@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Avsluta</string>
     <string name="button_close">Stäng</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">Webbserver</string>
     <string name="webserver_status_running">Körs</string>
     <string name="webserver_status_stopped">Stoppad</string>
+    <string name="webserver_toggle_text">Starta eller stoppa webbservern från att svara på förfrågningar till blockerade värdnamn.</string>
     <string name="button_enable_webserver">Aktivera webbserver</string>
     <string name="button_disable_webserver">Inaktivera webbserver</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Körs</string>
+    <string name="vpn_status_stopped">Stoppad</string>
+    <string name="vpn_toggle_text">Starta eller stoppa VPN från att filtrera förfrågningar.</string>
+    <string name="button_enable_vpn">Aktivera VPN</string>
+    <string name="button_disable_vpn">Inaktivera VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Ta bort</string>
@@ -47,9 +53,18 @@
     <string name="hosts_open_button">Öppna värdfilen</string>
 
     <!--Status Notification-->
+    <string name="status_check">Söker efter uppdateringar</string>
+    <string name="status_check_source">Kontrollerar om det finns några uppdateringar för källan %s</string>
+    <string name="status_retrieve">Tar emot källor</string>
+    <string name="status_download_source">Ladda ner källa %s</string>
+    <string name="status_copy_source">Kopierar källan %s</string>
+    <string name="status_parse_source">Tolkar källan %s</string>
+    <string name="status_revert">Återställer standardvärdfilen</string>
+    <string name="status_revert_done">Standard värdfil återställd</string>
     <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
     <string name="status_update_available">Uppdatering tillgänglig</string>
     <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
+    <string name="status_no_update_found">Hittade inga källuppdateringar</string>
     <string name="status_no_connection">Ingen internetanslutning</string>
     <string name="status_no_connection_subtitle">Ingen internetanslutning tillgänglig</string>
     <string name="status_download_fail">Otillgängliga källor</string>
@@ -62,12 +77,14 @@
     <string name="status_enabled_subtitle">Nyaste värdfilerna aktiverade</string>
     <string name="status_disabled">Avaktiverad</string>
     <string name="status_disabled_subtitle">Standard värdfil är installerad</string>
-    <string name="notification_configuration_changed">Din konfiguration har ändrats. Du måste installera värdfilen för att tillämpa det.</string>
+    <string name="status_apply_sources">Tillämpa de senaste källorna</string>
+    <string name="status_create_new_hosts">Skapar en ny värdfil</string>
+    <string name="status_copy_new_hosts">Kopierar en new värdfil</string>
+    <string name="status_check_copy">Kontrollerar värdfilskopia</string>
+    <string name="status_hosts_updated">Värdfilen uppdaterad</string>
     <string name="notification_configuration_changed_action">Tillämpa</string>
-    <string name="notification_configuration_installing">Installerar värdfilen…</string>
-    <string name="notification_configuration_failed">Det gick inte att installera värdfilen.</string>
-
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Symlinken till värdfilsmålet saknas</string>
     <string name="apply_symlink_missing">Symlink från ditt mål till /system/etc/hosts existerar ej eller är inkorrekt! AdAway kommer inte fungera om den inte pekar på rätt fil.\n\nVill du försöka skapa en symlink?</string>
     <string name="apply_symlink_missing_title">Symlink saknas</string>
     <string name="apply_not_enough_space">Inte tillräckligt med utrymme på partitionen!\nFörsök ändra målvärdfil i inställningarna till /data/data/hosts.</string>
@@ -76,6 +93,7 @@
     <string name="apply_private_file_fail_title">Fel med privat fil</string>
     <string name="apply_remount_fail">Ommontering av partitionen som läs/skriv misslyckades!</string>
     <string name="apply_remount_fail_title">Ommontering misslyckades</string>
+    <string name="apply_copy_fail_status">Det gick inte att kopiera värdfilen</string>
     <string name="apply_copy_fail">Kopiering av värdfil misslyckades!</string>
     <string name="apply_copy_fail_title">Kopiering misslyckades</string>
     <string name="apply_success_subtitle">Verkställda värdkällor</string>
@@ -96,21 +114,26 @@
     <string name="apply_dialog_hostnames">Tolkar och slår ihop värdfiler</string>
     <string name="apply_dialog_hosts">Bygger värdfil</string>
     <string name="apply_dialog_apply">TIllämpar värdfil</string>
+    <string name="apply_fail_status">Det gick inte att tillämpa den nya värdfilen.</string>
     <string name="apply_fail">Tillämpning av värdfil på systemet misslyckades!\nFörsök ändra målvärdfil i inställningarna till /data/data/hosts.</string>
     <string name="apply_fail_title">Tillämpning misslyckades</string>
     <string name="root_access_fail">Kontrollera din root-hanteringsapp för att säkerställa att root-åtkomst har beviljats.</string>
     <string name="revert_successful">Du har återgått till standard värdfil.\nDet kan vara nödvändigt att starta om Android för ändringarna ska träda i kraft.\n\nVill du starta om?\n(För att förhindra förlust av data, se till att SD-kortet inte används av en app!) </string>
     <string name="revert_successful_title">Återställning lyckades</string>
+    <string name="revert_failed_status">Det går inte att återställa värdfilen</string>
     <string name="revert_problem">Återställningen misslyckades av okända skäl.</string>
     <string name="revert_problem_title">Återställning misslyckades!</string>
     <string name="download_fail_dialog">Ingen av dina aktiva värdkällor kan nås! Är du ansluten till Internet?</string>
     <string name="download_fail_title">Hämtningen misslyckades</string>
+    <string name="no_private_file_status">Det gick inte att skriva en ny privat värdfil</string>
     <string name="no_private_file">Privat fil kan inte skapas</string>
     <string name="no_private_file_title">Skapande av privat fil misslyckades</string>
     <string name="enable_systemless_successful">Du har aktiverade systemlöst läge.\nDet kan bli nödvändigt att starta om enheten för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra dataförlust se till att ingen app använder SD-kortet för tillfället!)</string>
     <string name="enable_systemless_successful_title">Aktivering lyckades</string>
     <string name="disable_systemless_successful">Du inaktiverade systemlöst läge.\nDet kan bli nödvändigt att starta om enheten för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra dataförlust se till att ingen app använder SD-kortet för tillfället!)</string>
     <string name="disable_systemless_successful_title">Inaktivering lyckades</string>
+    <string name="enable_vpn_fail">Misslyckades med att aktivera VPN-annonsblockeringen.</string>
+    <string name="disable_vpn_fail">Misslyckades med att aktivera VPN-annonsblockeringen</string>
     <string name="enable_systemless_magisk_title">Aktiverar värdfil Magisk-modul</string>
     <string name="enable_systemless_magisk">Aktivera systemlöst läge i Magisk manager. I inställningarna, aktivera alternativet <cite>Systemless hosts</cite> och starta sedan om enheten.</string>
     <string name="disable_systemless_magisk_title">Inaktiverar värdfil Magisk-modul</string>
@@ -140,10 +163,8 @@
     <!--Adware-->
     <string name="adware_header">Annonsappar</string>
     <string name="adware_description">Här hittar du installerade annonsappar, stygga applikationer som inte kan blockeras med AdAway. Dessa appar använder till exempel Airpush-aviseringar som kan visa sig även om appen inte körs och den kan även ändra din ringsignal. Den enda tillgängliga lösningen är att avinstallera dessa appar genom att trycka i listan.</string>
-    <string name="adware_scanning">Söker…</string>
+    <string name="adware_scanning">Söker&#8230;</string>
     <string name="adware_empty">Hittade inga annonsappar!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Annonsblockerare</string>
@@ -167,7 +188,6 @@
     <string name="tcpdump_entry_add_whitelist">Lägg till post till vitlistan</string>
     <string name="tcpdump_entry_add_redirection_list">Lägg till post till omdirigeringslista</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Redigera textinställningsvärden</string>
     <string name="drawer_open">Öppna meny</string>
     <string name="drawer_close">Stäng meny</string>
@@ -185,14 +205,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS-förfrågningar</string>
     <string name="shortcut_your_lists">Dina listor</string>
     <string name="shortcut_preferences">Inställningar</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Installerad för %1$s sedan</string>
     <string name="hosts_source_up_to_date">%1$s behöver inte uppdateras</string>
     <string name="hosts_source_need_update">%1$s behöver uppdateras</string>
     <string name="hosts_source_last_update">Senaste uppdateringen %1$s sedan</string>
@@ -213,5 +232,21 @@
         <item quantity="one">%d månad</item>
         <item quantity="other">%d månader</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">startar</string>
+    <string name="vpn_notification_running">aktiv</string>
+    <string name="vpn_notification_stopping">stoppar</string>
+    <string name="vpn_notification_waiting_for_net">vänta på nätverket</string>
+    <string name="vpn_notification_reconnecting">återanslutning</string>
+    <string name="vpn_notification_reconnecting_error">återanslutningsfel</string>
+    <string name="vpn_notification_paused">pausad</string>
+    <string name="vpn_notification_stopped">stoppad</string>
+    <string name="vpn_notification_title">Annonsblockerare VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Pausa</string>
+    <string name="vpn_notification_paused_text">Tryck för att återuppta</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Aktivera och inaktivera systemets annonsblockering</string>
 
 </resources>
