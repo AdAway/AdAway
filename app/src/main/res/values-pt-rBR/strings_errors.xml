@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Sem conexão com a Internet</string>
+    <string name="error_no_connection_details">Não foi possível estabelecer uma conexão com a Internet. Por favor, verifique a conectividade do seu dispositivo.</string>
+    <string name="error_download_failed_message">Falha ao baixar a fonte dos hosts</string>
+    <string name="error_download_failed_details">Nenhuma das fontes de hosts ativadas está acessível. Por favor verifique se você está conectado corretamente à Internet.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Falha ao criar arquivo privado</string>
+    <string name="error_private_file_failed_details">Não foi possível criar um arquivo privado para criar uma nova fonte de hosts. Verifique o espaço livre disponível no seu dispositivo.</string>
+    <string name="error_not_enough_space_message">Espaço insuficiente</string>
+    <string name="error_not_enough_space_details">Não foi possível copiar o arquivo hosts para partição do sistema. Por favor, verifique se o módulo sem sistema Magisk está ativado e reinicie.</string>
+    <string name="error_copy_failed_message">Falha ao instalar o novo arquivo de hosts</string>
+    <string name="error_copy_failed_details">Não foi possível copiar o arquivo hosts para a partição /system. Por favor, verifique se o módulo sem sistema Magisk está ativado na reinicialização.</string>
+    <string name="error_revert_failed_message">Falha ao reverter o arquivo hosts</string>
+    <string name="error_revert_failed_details">Não foi possível restaurar a configuração do arquivo de hosts padrão.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Falha ao ativar o bloqueio de anúncios VPN.</string>
+    <string name="error_enable_vpn_failed_details">Verifique suas configurações de VPN para autorizar o aplicativo VPN a iniciar.</string>
+    <string name="error_disable_vpn_failed_message">Falha ao desativar o bloqueio de anúncios VPN.</string>
+    <string name="error_disable_vpn_failed_details">Por favor, verifique suas configurações de VPN para desativá-lo manualmente.</string>
 </resources>
