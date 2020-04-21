@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Добро пожаловать</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Логотип приветствия</string>
+    <string name="welcome_method_header">Добро пожаловать в AdAway!</string>
+    <string name="welcome_method_summary">AdAway предоставляет два метода блокировки рекламы. Выберите тот, который вам подходит:</string>
+
+    <string name="welcome_root_method_logo">Логотип root</string>
+    <string name="welcome_root_method_title">Root\n блокировка рекламы</string>
+    <string name="welcome_root_method_text1">Быстрее</string>
+    <string name="welcome_root_method_text2">Экономит батарею</string>
+    <string name="welcome_root_method_text3">Требуются рут права</string>
+
+    <string name="welcome_vpn_method_logo">Логотип VPN</string>
+    <string name="welcome_vpn_method_title">VPN\nблокировка рекламы</string>
+    <string name="welcome_vpn_method_text1">Медленнее</string>
+    <string name="welcome_vpn_method_text2">Работает в фоне</string>
+    <string name="welcome_vpn_method_text3">Совместимый</string>
+
+    <string name="welcome_root_missing_title">Для Android требуются права Root</string>
+    <string name="welcome_root_missile_description">Либо двоичный файл su не найден, либо вы не дали права root для AdAway.\n\nЭто может случиться, если ваше устройство не имеет root-прав. Вы можете найти информацию о том, как получить root права на ваше устройство, на wiki.lineageos.org или других сайтах Android.</string>
+
+    <string name="welcome_method_pro_logo">Плюсы</string>
+    <string name="welcome_method_con_logo">Минусы</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Синхронизация окончена</string>
+    <string name="welcome_sync_error_logo">Ошибка при синхронизации</string>
+
+    <string name="welcome_sync_header">Синхронизация</string>
+    <string name="welcome_synced_header">Синхронизировано!</string>
+    <string name="welcome_sync_summary">AdAway загружает списки блокировки из онлайн-источников. Вы можете изменить их позже в настройках.</string>
+    <string name="welcome_sync_retry_logo">Повторить синхронизацию</string>
+    <string name="welcome_sync_error">Синхронизация не удалась:\n%s.\nПовторить сейчас?</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Поддержать</string>
+    <string name="welcome_support_header">Поддержать меня!</string>
+    <string name="welcome_support_summary">Это бесплатное приложение с открытым исходным кодом. Я занимаюсь этим в свободное время. Так что, если вам это нравится, не стесняйтесь показать свою поддержку:</string>
+    <string name="welcome_support_button">Пожертвовать на PayPal</string>
+    <string name="welcome_support_telemetry_summary">Вам не нравятся ошибки? Мне тоже.</string>
+    <string name="welcome_support_telemetry_button">Включить телеметрию для отправки мне отчетов о сбоях</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Назад</string>
+    <string name="welcome_next_button">Далее</string>
+    <string name="welcome_finish_button">Закончить</string>
 </resources>
