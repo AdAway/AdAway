@@ -1,7 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lists_title">Ваши списки</string>
     <!-- Tab -->
+    <string name="lists_tab_blocked">Блокировано</string>
+    <string name="lists_tab_allowed">Разрешено</string>
+    <string name="lists_tab_redirected">Перенаправлено</string>
     <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_menu_filter">Фильтровать хосты</string>
+    <string name="lists_menu_filter_hint">Поиск имени хоста...</string>
+    <string name="lists_menu_toggle_sources">Переключить источники</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Добавить хост в Чёрный список</string>
+    <string name="list_add_dialog_white">Добавить хост в Белый список</string>
+    <string name="list_add_dialog_redirect">Добавить перенаправление хоста</string>
+    <string name="list_edit_dialog_black">Править хост Чёрного списка</string>
+    <string name="list_edit_dialog_white">Править хост Белого списка</string>
+    <string name="list_edit_dialog_redirect">Править перенаправление</string>
+    <string name="list_dialog_hostname">Имя источника:</string>
+    <string name="list_dialog_hostname_hint">URL источника хостов</string>
+    <string name="list_dialog_wildcard">(Допускаются подстановочные символы * и ?)</string>
+    <string name="list_dialog_ip">IP (IPv4 или IPv6):</string>
 </resources>
