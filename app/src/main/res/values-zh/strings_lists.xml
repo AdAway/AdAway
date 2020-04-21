@@ -1,8 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lists_title">列表</string>
     <!-- Tab -->
+    <string name="lists_tab_blocked">阻止</string>
+    <string name="lists_tab_allowed">允许</string>
+    <string name="lists_tab_redirected">重定向</string>
     <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_menu_filter">过滤hosts</string>
+    <string name="lists_menu_filter_hint">搜索主机名…</string>
+    <string name="lists_menu_toggle_sources">切换源</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">将 hosts 添加到黑名单</string>
     <string name="list_add_dialog_white">将 hosts 添加到白名单</string>
