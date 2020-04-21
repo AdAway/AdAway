@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">退出</string>
     <string name="button_close">关闭</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">网络服务器</string>
     <string name="webserver_status_running">正在运行</string>
     <string name="webserver_status_stopped">已停止</string>
+    <string name="webserver_toggle_text">在本地主机上启动或停止Web服务器，以回答对被阻止的主机名的请求。</string>
     <string name="button_enable_webserver">启用网络服务器</string>
     <string name="button_disable_webserver">禁用网络服务器</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">运行中</string>
+    <string name="vpn_status_stopped">已停止</string>
+    <string name="vpn_toggle_text">启动或停止VPN以过滤请求。</string>
+    <string name="button_enable_vpn">启用VPN</string>
+    <string name="button_disable_vpn">禁用VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">删除</string>
@@ -47,9 +53,18 @@
     <string name="hosts_open_button">打开 hosts 文件</string>
 
     <!--Status Notification-->
+    <string name="status_check">检查更新</string>
+    <string name="status_check_source">检查源%s的更新</string>
+    <string name="status_retrieve">检索来源</string>
+    <string name="status_download_source">下载资源%s</string>
+    <string name="status_copy_source">复制源%s</string>
+    <string name="status_parse_source">解析源%s</string>
+    <string name="status_revert">恢复为默认hosts文件</string>
+    <string name="status_revert_done">恢复默认hosts文件</string>
     <string name="status_reverting_subtitle">创建标准 hosts 文件</string>
     <string name="status_update_available">有更新可用</string>
     <string name="status_update_available_subtitle">有新的 hosts 文件可用</string>
+    <string name="status_no_update_found">找不到源更新</string>
     <string name="status_no_connection">没有网络连接</string>
     <string name="status_no_connection_subtitle">没有可用的网络连接</string>
     <string name="status_download_fail">不可用的源</string>
@@ -62,12 +77,19 @@
     <string name="status_enabled_subtitle">已启用最新的 hosts 文件</string>
     <string name="status_disabled">已禁用</string>
     <string name="status_disabled_subtitle">已安装默认 hosts 文件</string>
-    <string name="notification_configuration_changed">您的配置已更改。需要重新安装 hosts 文件才能应用至系统。</string>
+    <string name="status_apply_sources">应用最新资源</string>
+    <string name="status_create_new_hosts">创建一个新的hosts文件</string>
+    <string name="status_copy_new_hosts">复制新的hosts文件</string>
+    <string name="status_check_copy">检查hosts文件副本</string>
+    <string name="status_hosts_updated">hosts文件已成功更新</string>
+    <string name="status_vpn_configuration_updated">VPN配置已成功更新</string>
+    <string name="notification_configuration_changed">您的配置已更改。 您需要应用它。</string>
     <string name="notification_configuration_changed_action">应用</string>
-    <string name="notification_configuration_installing">正在安装 hosts 文件…</string>
-    <string name="notification_configuration_failed">hosts 文件安装失败。</string>
+    <string name="notification_configuration_installing">正在应用新配置…</string>
+    <string name="notification_configuration_failed">无法应用新配置。</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">到hosts文件目标的符号链接丢失</string>
     <string name="apply_symlink_missing">/system/etc/hosts 的符号链接（symlink）不存在或者不正确！AdAway 将无法运行。\n\n是否尝试创建符号链接？</string>
     <string name="apply_symlink_missing_title">符号链接丢失</string>
     <string name="apply_not_enough_space">分区上没有足够的空间！
@@ -77,6 +99,7 @@
     <string name="apply_private_file_fail_title">文件权限获取失败</string>
     <string name="apply_remount_fail">挂载分区为读/写失败！</string>
     <string name="apply_remount_fail_title">挂载失败</string>
+    <string name="apply_copy_fail_status">复制hosts文件失败</string>
     <string name="apply_copy_fail">hosts 文件复制失败！</string>
     <string name="apply_copy_fail_title">复制失败</string>
     <string name="apply_success_subtitle">已应用 hosts 来源</string>
@@ -97,21 +120,26 @@
     <string name="apply_dialog_hostnames">正在解析、合并 hosts 文件</string>
     <string name="apply_dialog_hosts">正在构建 hosts 文件</string>
     <string name="apply_dialog_apply">正在应用 hosts 文件</string>
+    <string name="apply_fail_status">无法应用新的hosts文件。</string>
     <string name="apply_fail">将 hosts 文件应用至系统时失败！\n请尝试将首选项中的目标 hosts 文件更改为 /data/data/hosts。</string>
     <string name="apply_fail_title">应用失败</string>
     <string name="root_access_fail">请检查您的 root 权限管理器，确保已授予 AdAway root 访问权限。</string>
     <string name="revert_successful">已还原默认 hosts 文件。\n可能需要重启 Android 系统才能使更改生效。\n\n是否重新启动？\n（为防止数据丢失，请确保目前没有任何应用程序正在使用SD卡！）</string>
     <string name="revert_successful_title">恢复成功</string>
+    <string name="revert_failed_status">无法还原hosts文件</string>
     <string name="revert_problem">由于未知原因，恢复失败。</string>
     <string name="revert_problem_title">恢复失败！</string>
     <string name="download_fail_dialog">您启用的 hosts 源均无法访问！是否已连接到互联网？</string>
     <string name="download_fail_title">下载失败</string>
+    <string name="no_private_file_status">无法写入新的私人hosts文件</string>
     <string name="no_private_file">无法创建私有文件。</string>
     <string name="no_private_file_title">私有文件创建失败</string>
     <string name="enable_systemless_successful">systemless 模式已启用。\n可能需要重启 Android 系统才能使更改生效。\n\n是否重新启动？\n（为防止数据丢失，请确保目前没有任何应用程序正在使用SD卡！）</string>
     <string name="enable_systemless_successful_title">启用成功</string>
     <string name="disable_systemless_successful">systemless 模式已禁用。\n可能需要重启 Android 系统才能使更改生效。\n\n是否重新启动？\n（为防止数据丢失，请确保目前没有任何应用程序正在使用SD卡！）</string>
     <string name="disable_systemless_successful_title">禁用成功</string>
+    <string name="enable_vpn_fail">无法启用VPN广告拦截。</string>
+    <string name="disable_vpn_fail">无法禁用VPN广告拦截器。</string>
     <string name="enable_systemless_magisk_title">启用 Magisk hosts 模块</string>
     <string name="enable_systemless_magisk">请从 Magisk Manager 中启用 systemless hosts 特性。从 Magisk Manager 设置中启用<cite>Systemless Hosts</cite>功能，并重启设备。</string>
     <string name="disable_systemless_magisk_title">禁用 Magisk hosts 模块</string>
@@ -144,8 +172,6 @@
     <string name="adware_scanning">正在扫描…</string>
     <string name="adware_empty">没有已知的广告软件！</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">广告拦截器</string>
     <string name="no_text_editor_title">没有安装文本编辑器</string>
@@ -168,7 +194,6 @@
     <string name="tcpdump_entry_add_whitelist">添加条目到白名单</string>
     <string name="tcpdump_entry_add_redirection_list">添加条目到重定向</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">编辑文本首选项值</string>
     <string name="drawer_open">打开菜单</string>
     <string name="drawer_close">关闭菜单</string>
@@ -186,14 +211,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 请求</string>
     <string name="shortcut_your_lists">列表</string>
     <string name="shortcut_preferences">首选项</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">最后更新于 %1$s前</string>
     <string name="hosts_source_up_to_date">无需更新，最后更新于 %1$s前</string>
     <string name="hosts_source_need_update">需要更新，最后更新于 %1$s前</string>
     <string name="hosts_source_last_update">最后更新于 %1$s前</string>
@@ -210,5 +234,21 @@
     <plurals name="hosts_source_months">
         <item quantity="other">%d 个月</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">开始</string>
+    <string name="vpn_notification_running">活跃</string>
+    <string name="vpn_notification_stopping">停止</string>
+    <string name="vpn_notification_waiting_for_net">等待网络</string>
+    <string name="vpn_notification_reconnecting">重新连接</string>
+    <string name="vpn_notification_reconnecting_error">重新连接错误</string>
+    <string name="vpn_notification_paused">已暂停</string>
+    <string name="vpn_notification_stopped">已停止</string>
+    <string name="vpn_notification_title">广告拦截器VPN%1$s</string>
+    <string name="vpn_notification_action_pause">暂停</string>
+    <string name="vpn_notification_paused_text">点按恢复</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">启用和禁用系统广告拦截</string>
 
 </resources>
