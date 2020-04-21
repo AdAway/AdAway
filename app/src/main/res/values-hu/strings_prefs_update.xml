@@ -1,5 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Frissítések</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Alkalmazás frissítések</string>
+    <string name="pref_update_check_app_daily">Frissítések keresése naponta</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Hosts frissítések</string>
     <string name="pref_update_check">Frissítések ellenőrzése</string>
     <string name="pref_update_check_hosts_daily">Frissítések keresése naponta</string>
+    <string name="pref_update_sync_on_update">Szinkronizálás frissítéskor</string>
+    <string name="pref_update_sync_unmetered_only">Szinkronizálás csak nem mért hálózaton</string>
 </resources>
