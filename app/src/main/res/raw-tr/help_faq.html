@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Reklamlardan gelen gelirler</h2>
 <p>Bir kullanıcı hiçbir reklamı zaten tıklamıyor ve reklamları engelliyorsa bunun siteyi ya da uygulamayı zarara sokmayacağı gibi bir yanlış anlaşılma var. Geliştiriciler sadece reklamları göstererek bile para kazanabiliyor. Kişisel olarak ben reklam gösteren uygulamaları kullanmam çünkü çok sinir bozucu olabiliyorlar. Bu yüzden bir reklam engelleyici olmadan bu programları yüklemem.</p>
 
-
-
 <h2>AdAway nasıl çalışır?</h2>
-<p>AdAway reklam içeren host kaynaklarını engellemek için<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts dosyalarını</a> kullanır. Host dosyaları şu konumdadır <code>/system/etc/hosts</code> ve host kaynaklarını gereken IP adresine yönlendirir. Bu yöntem IP adreslerini DNS kullanmaksızın yönlendiren bir yöntemdir. Tüm gereksiz host kaynakları <code>127.0.0.1</code> adresine yani kendi cihazınıza yönlendirilir.</p>
-
-<h2>Neden günlük güncelleme denetleme özelliği kullanılabilir değil?</h2>
-<p>Yeni güncellemeler için otomatik denetleme sadece AdAway telefonun dahili hafızasına kurulduğunda kullanılabilir. Bunun nedeni ise Android platformundaki kısıtlamalardır</p>
+<p>AdAway, reklam sunan ana makine adlarını engellemek için <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts dosyasını</a> kullanır. Hosts dosyası, <code>/system/etc/hosts</code> konumunda bulunan ve ana makine adlarını IP adresleriyle eşleyen bir dosyadır. Etki Alanı Adı Sistemi'ne (DNS) dayanmadan IP adresi çiftlerine anasistem adı tanımlamanın geleneksel bir yoludur. Tüm istenmeyen ana bilgisayar adları <code>127.0.0.1</code>'e yönlendirilir, bu da kendi cihazınızı gösterecekleri anlamına gelir.<br>
+Hosts dosyası yazılabilir değilse, yerleşik VPN hizmetini kullanmak için bir yedek çözümdür. İstenmeyen ana bilgisayar adlarına bağlantıları filtreleyecek ve başkalarının geçmesine izin verecektir.</p>
 
 <h2>Neden değişikliklerin uygulanması için Androidi yeniden başlatmalıyım?</h2>
 <p>Android üzerinde Java'nın korumalı kendi iç DNS ön belleği vardır. İşletim sistemi yeni sunucu dosyasını hemen oluşturacaktır (komut satırı üzerinde ping ile doğrulanır) fakat Java DNS önbelleğinin yeniden derlenmesi için Android yeniden başlatılmalıdır.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Bazı uygulamalar, web sunucuya ulaşılamadığında çalışmamaktadır. Bu yöntemle istek, boş ve reklamsız bir sayfa ile cevaplanır ve böylece web sunucular ulaşılabilir durumda olmaktadır.</p>
 
 <h2>Özel alanadlarını nasıl engelleyip/engelini kaldırabilirim?</h2>
-<p>Engellemek istediğiniz sunucu adlarını, <cite>Listelerinizin</cite> altındaki <cite>Kara Listeye</cite> (= Kara) ekleyin. Ek olarak, engellemeyi hariç tutmak istediğiniz sunucu adları, <cite>Yönlendirme listesine</cite> (= Yönlendirme) ait belirli bir IP adresine yönlendirmek için <cite>Beyaz Liste</cite> (= Beyaz) ve sunucu adlarına eklenebilir.</p>
+<p>Engellemek istediğiniz ana makine adlarını <cite>ana ekrandan</cite> <cite>Engellenenler</cite> listesine ekleyin. Ayrıca, engellemeden hariç tutmak istediğiniz ana makine adları <cite>İzin Verilenlere</cite> eklenebilir ve <cite>Yönlendirilen</cite>'e ait belirli bir IP adresine yönlendirmek istediğiniz ana makine adları eklenebilir.</p>
 
 <h2>Daha fazla sunucu kaynağını nereden bulabilirim?</h2>
 <p>Lütfen <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">AdAway için daha fazla kaynak adresi listesine bakınız </a>.</p>
