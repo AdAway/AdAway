@@ -5,26 +5,29 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>Obvyklé problémy</title></head>
 <body>
-<h2>Copy of hosts file failed on Android 9+</h2>
-<p>Latest versions of Android use read-only <code>/system</code> partition.<br>
-If you are using Magisk as root solution, ensure you enable the systemless hosts module then reboot.</p>
+<h2>Kopírování souboru hostitelů na Androidu 9+ selhalo</h2>
+<p>Poslední verze Androidu používají oddíl <code>/system</code> v módu jen pro čtení.<br>
+Pokud používáte pro ROOT přístup Magisk, ujistěte se, že je modul nesystémoví hostitelé povolen a poté restartujte zařízení.</p>
 
 <h2>Nedostatek místa na oddílu</h2>
 <p>Zkuste v nastavení změnit cílový soubor hostitelů na <code>/data/data/hosts</code> (nebo <code>/data/hosts</code>) a použít AdAway znovu.</p>
 
-<h2>Nefunguje na Androidu 4.4+</h2>
-<p>Zkuste v nastavení změnit cílový soubor hostitelů z <code>/data/data/hosts</code> na <code>/data/hosts</code> nebo <code>/system/etc/hosts</code> a použít AdAway znovu.</p>
+<h2>Chrome stále zobrazuje reklamy</h2>
+<p>Ujistěte se, že máte vypnutý <cite>zjednodušený režim</cite> (dříve nazývaný jako <cite>spořič dat</cite>) v nastavení Chromu. Tato funkce Chromu umožňuje používat soukromé řešení DNS a obejít tak AdAway.</p>
 
 <h2>Reklamy v aplikaci XYZ nejsou blokovány!</h2>
-<p>Některé názvy hostitelů mohou v poskytnutých souborech hostitelů ze <cite>Zdrojů hostitelů</cite> chybět nebo má aplikace reklamy zabudovány přímo v sobě a tudíž nepotřebuje k jejich zobrazování připojení k internetu.<br><br>
-Pomocí AdAway můžete zaznamenávat DNS požadavky (Menu-&gt;Záznam DNS požadavků) a zjistit tak, které další názvy hostitelů mají být blokovány.
-<br><br>Přidejte podezřelé názvy hostitelů na svou vlastní černou listinu dlouhým podržením vybraného názvu hostitele v záznamu a pokud jste ověřili jejich funkčnost, nahlašte je na fóru <a href="http://hosts-file.net">hosts-file.net</a> do <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a>.</p>
+<p>Některá jména hostitelů mohou v poskytnutých souborech hostitelů ze <cite>Zdrojů hostitelů</cite> chybět nebo má aplikace reklamy zabudovány přímo v sobě a tudíž nepotřebuje k jejich zobrazování připojení k internetu.<br><br>
+Pomocí AdAway můžete zaznamenávat DNS požadavky (Menu-&gt;Záznam DNS požadavků) a zjistit tak, která další jména hostitelů mají být zablokována.
+<br><br>Přidejte podezřelá jména hostitelů na svou vlastní černou listinu dlouhým podržením vybraného jména hostitele v záznamu a pokud jste ověřili jejich funkčnost, nahlašte je na našem <a href="https://github.com/AdAway/adaway.github.io/issues">GitHub Issue Trackeru</a>.</p>
 
 <h2>Reklamy v dočasné paměti</h2>
 <p>Občas si aplikace ukládají stažené reklamy do dočasné paměti. To vede k tomu, že v některých aplikacích reklamy můžou zůstat. Pro obejití tohoto problému můžete zkusit vymazat dočasnou paměť u těchto aplikací v Seznamu aplikací systému Android.</p>
 
 <h2>Aplikace XYZ již nefunguje!</h2>
-<p>Některé aplikace potřebují komunikovat s hostitelem, který je blokován pomocí AdAway, nebo dokonce odmítají pracovat, pokud pro ně takový hostitel není dostupný. Podívejte se na <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a>, kde naleznete seznam známých aplikací, které se potýkají s tímto problémem. Anebo si zjistěte, které názvy hostitelů je potřeba přestat blokovat a pak je přidejte na svou <cite>Bílou listinu</cite> ve <cite>Vašich seznamech</cite> a nahlaste je na <a href="https://github.com/AdAway/AdAway/issues">AdAway bug tracker</a>.</p>
+<p>Některé aplikace potřebují komunikovat s hostitelem, který je blokován pomocí AdAway, nebo dokonce odmítají pracovat, pokud pro ně takový hostitel není dostupný. Podívejte se na <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a>, kde naleznete seznam známých aplikací, které se potýkají s tímto problémem. Anebo si zjistěte, která jména hostitelů je potřeba přestat blokovat a pak je přidejte na svou <cite>Bílou listinu</cite> ve <cite>Vašich seznamech</cite> a nahlaste je na <a href="https://github.com/AdAway/AdAway/issues">AdAway bug tracker</a>.</p>
+
+<h2>Nefunguje na Androidu 4.4+</h2>
+<p>Zkuste v nastavení změnit cílový soubor hostitelů z <code>/data/data/hosts</code> na <code>/data/hosts</code> nebo <code>/system/etc/hosts</code> a použít AdAway znovu.</p>
 
 <h2>Tlačítko zpět ve webovém prohlížeči nefunguje</h2>
 <p>Pro obejití problému můžete v nastavení povolit lokální webový server AdAway.</p>
