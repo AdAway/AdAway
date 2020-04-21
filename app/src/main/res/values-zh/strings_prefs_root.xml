@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">基于Root的广告拦截器</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">hosts安装</string>
+    <string name="pref_root_open_hosts">打开 hosts 文件</string>
     <string name="pref_apply_method">目标 hosts 文件</string>
     <string name="pref_apply_method_summary">在更改此设置之前，请阅读有关此功能的帮助条目。</string>
     <string-array name="pref_apply_method_entries">
@@ -12,10 +15,13 @@
     <string name="pref_custom_target">自定义 hosts 文件路径</string>
     <string name="pref_never_reboot">隐藏重启对话框</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">重定向</string>
+    <string name="pref_hosts_redirection_summary">定义重定向被阻止hosts的位置</string>
     <string name="pref_redirection_ipv4">IPv4 重定向</string>
     <string name="pref_redirection_ipv6">IPv6 重定向</string>
     <!-- Web server category -->
     <string name="pref_webserver">本地网络服务器</string>
+    <string name="pref_webserver_summary">本地Web服务器侦听本地IP 地址，以回答被阻止的主机名请求。 它可能有助于阻止连接冻结的应用程序。</string>
     <string name="pref_webserver_enabled">启用网络服务器</string>
     <string name="pref_webserver_on_boot">启动时启用网络服务器</string>
 </resources>
