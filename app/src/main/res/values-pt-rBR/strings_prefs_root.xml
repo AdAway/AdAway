@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Bloqueador de anúncios baseado em Root</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instalar Hosts</string>
+    <string name="pref_root_open_hosts">Abrir arquivo hosts</string>
     <string name="pref_apply_method">Destino do arquivo hosts</string>
     <string name="pref_apply_method_summary">Antes de alterar esta definição, consulte a Ajuda sobre esta funcionalidade.</string>
     <string-array name="pref_apply_method_entries">
@@ -12,10 +15,13 @@
     <string name="pref_custom_target">Destino personalizado</string>
     <string name="pref_never_reboot">Ocultar diálogo de reinicialização</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Redirecionamento</string>
+    <string name="pref_hosts_redirection_summary">Definir para onde redirecionar hosts bloqueados</string>
     <string name="pref_redirection_ipv4">Redirecionamento de IPv4</string>
     <string name="pref_redirection_ipv6">Redirecionamento de IPv6</string>
     <!-- Web server category -->
     <string name="pref_webserver">Servidor Web Local</string>
+    <string name="pref_webserver_summary">O servidor da Web local escutam os endereços IP locais para responder a solicitações de nome de host bloqueadas. Pode ajudar com o congelamento de aplicativos na conexão bloqueada.</string>
     <string name="pref_webserver_enabled">Ativar servidor web</string>
     <string name="pref_webserver_on_boot">Iniciar servidor web na inicialização</string>
 </resources>
