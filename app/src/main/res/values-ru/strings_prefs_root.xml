@@ -1,12 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Блокировщик рекламы на основе root</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Установка хостов</string>
+    <string name="pref_root_open_hosts">Открыть файл hosts</string>
+    <string name="pref_apply_method">Путь к файлу hosts</string>
+    <string name="pref_apply_method_summary">Прочитайте справку перед использованием этой возможности</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Пользовательские настройки</item>
     </string-array>
+    <string name="pref_custom_target">Пользовательское целевое расположение</string>
+    <string name="pref_never_reboot">Скрыть диалог перезагрузки после применения</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Переадресация</string>
+    <string name="pref_hosts_redirection_summary">Определить куда переадресовывать заблокированные хосты</string>
+    <string name="pref_redirection_ipv4">Перенаправление IPv4</string>
+    <string name="pref_redirection_ipv6">Перенаправление IPv6</string>
     <!-- Web server category -->
+    <string name="pref_webserver">Локальный веб-сервер</string>
+    <string name="pref_webserver_summary">Локальный веб-сервер прослушивает локальные IP адреса и отвечает на запросы к заблокированным хостам.  Это поможет избегать зависаний при блокировке подключений.</string>
+    <string name="pref_webserver_enabled">Включить веб-сервер</string>
+    <string name="pref_webserver_on_boot">Старт веб-сервера при загрузке устройства</string>
 </resources>
