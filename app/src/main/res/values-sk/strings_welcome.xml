@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Vitajte</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Uvítacie logo</string>
+    <string name="welcome_method_header">Vitajve v AdAway!</string>
+    <string name="welcome_method_summary">AdAway poskytuje 2 metódy blokvania. Vyberte si jednu:</string>
+
+    <string name="welcome_root_method_logo">Logo rootu</string>
+    <string name="welcome_root_method_title">Blokovač reklám\npomocou rootu</string>
+    <string name="welcome_root_method_text1">Rýchlejšie</string>
+    <string name="welcome_root_method_text2">Šetrné k batérii</string>
+    <string name="welcome_root_method_text3">Vyžaduje root</string>
+
+    <string name="welcome_vpn_method_logo">Logo VPN</string>
+    <string name="welcome_vpn_method_title">Blokovač reklám\npomocou VPN</string>
+    <string name="welcome_vpn_method_text1">Pomalšie</string>
+    <string name="welcome_vpn_method_text2">Beží na pozadí</string>
+    <string name="welcome_vpn_method_text3">Kombatibilita</string>
+
+    <string name="welcome_root_missing_title">Je potrebné rootnuté zariadenie</string>
+    <string name="welcome_root_missile_description">Buď sa nepodarilo nájsť binárny súbor SU alebo ste nepovolili oprávnenie roota v AdAway.\n\nK tomuto dochádza, keď vaše zariadenie nie je rootnuté. Informácie o tom, ako rootnuť vaše zariadenia nájdete na wiki.lineageos.org alebo na inej stránke o zariadeniach s Androidom.</string>
+
+    <string name="welcome_method_pro_logo">Výhody</string>
+    <string name="welcome_method_con_logo">Nevýhody</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Synchronizácia skončila</string>
+    <string name="welcome_sync_error_logo">Nastala chyba počas synchronizácie</string>
+
+    <string name="welcome_sync_header">Synchronizácia</string>
+    <string name="welcome_synced_header">Synchronizované!</string>
+    <string name="welcome_sync_summary">AdAway sťahuje reklamné siete na blokovanie z onlline zdrojov. Neskôr ich môžete upraviť.</string>
+    <string name="welcome_sync_retry_logo">Zopakovať synchronizáciu</string>
+    <string name="welcome_sync_error">Synchronizácia zlyhala:\n%s.\nSkúsiť znova?,</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Podpora</string>
+    <string name="welcome_support_header">Podporte ma!</string>
+    <string name="welcome_support_summary">Je bezplatná aplikácia s otvoreným kódom. Robím ju v mojom voľnom čase. Ak sa Vám teda páči, neváhajte a prejavte svoju podporu:</string>
+    <string name="welcome_support_button">Podpora na PayPal</string>
+    <string name="welcome_support_telemetry_summary">Máte radi chyby? Ani ja nie.</string>
+    <string name="welcome_support_telemetry_button">Povoliť telemetriu a posielať hlásenia o chybe</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Späť</string>
+    <string name="welcome_next_button">Ďalej</string>
+    <string name="welcome_finish_button">Dokončiť</string>
 </resources>
