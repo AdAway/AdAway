@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Home screen -->
+    <string name="update_available">更新可用！</string>
 
     <!-- Changelog dialog -->
+    <string name="update_update_title">有新版本可用</string>
+    <string name="update_update_message">新版本带来以下更改：\n\n</string>
+    <string name="update_up_to_date_title">您是最新的</string>
+    <string name="update_up_to_date_message">最新版本带来以下变化：\n\n</string>
+    <string name="update_changelog">更新日志</string>
+    <string name="update_update_button">现在更新</string>
 </resources>
