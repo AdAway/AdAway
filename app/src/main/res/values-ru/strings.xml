@@ -82,10 +82,11 @@
     <string name="status_copy_new_hosts">Копирование нового файла hosts</string>
     <string name="status_check_copy">Проверка копии файла hosts</string>
     <string name="status_hosts_updated">Файл hosts успешно обновлён</string>
-    <string name="notification_configuration_changed">Настройки изменены. Вам нужно установить файл hosts для их применения.</string>
+    <string name="status_vpn_configuration_updated">Конфигурация VPN успешно обновлена</string>
+    <string name="notification_configuration_changed">Конфигурация изменена. Вам нужно применить её.</string>
     <string name="notification_configuration_changed_action">Применить</string>
-    <string name="notification_configuration_installing">Установка файла hosts…</string>
-    <string name="notification_configuration_failed">Не удалось установить файл hosts.</string>
+    <string name="notification_configuration_installing">Применение новой конфигурации...</string>
+    <string name="notification_configuration_failed">Не удалось применить новую конфигурацию.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Отсутствует символическая ссылка на целевой файл hosts</string>
