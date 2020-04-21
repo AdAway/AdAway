@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Nessuna connessione Internet</string>
+    <string name="error_no_connection_details">Impossibile stabilire una connessione Internet. Controlla la connessione del tuo dispositivo</string>
+    <string name="error_download_failed_message">Impossibile scaricare dalla fonte degli host</string>
+    <string name="error_download_failed_details">Nessuna delle fonti host abilitate è raggiungibile. Assicurati di essere correttamente connesso ad Internet</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Impossibile creare il file privato</string>
+    <string name="error_private_file_failed_details">Impossibile creare il file privato per assemblare la nuova fonte host. Assicurati che ci sia spazio disponibile sul tuo dispositivo</string>
+    <string name="error_not_enough_space_message">Spazio non sufficiente</string>
+    <string name="error_not_enough_space_details">Impossibile copiare il file host nella partizione /system. Controlla se il modulo systemless di Magisk è attivo e riavvia il dispositivo</string>
+    <string name="error_copy_failed_message">Impossibile installare il nuovo file host</string>
+    <string name="error_copy_failed_details">Impossibile copiare il file host nella partizione /system. Controlla se il modulo systemless di Magisk è attivo e riavvia il dispositivo</string>
+    <string name="error_revert_failed_message">Impossibile ripristinare file host</string>
+    <string name="error_revert_failed_details">Impossibile ripristinare la configurazione predefinita del file host</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Impossibile abilitare VPN per blocco pubblicità</string>
+    <string name="error_enable_vpn_failed_details">Controlla le impostazioni VPN per autorizzare l\'app ad avviare la VPN</string>
+    <string name="error_disable_vpn_failed_message">Impossibile disabilitare la VPN per il blocco pubblicità</string>
+    <string name="error_disable_vpn_failed_details">Controlla le impostazioni VPN per disabilitarla manualmente</string>
 </resources>
