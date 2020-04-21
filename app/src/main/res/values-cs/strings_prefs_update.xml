@@ -1,3 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Aktualizace</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Aktualizace aplikace</string>
+    <string name="pref_update_check_app_daily">Pravidelně kontrolovat aktualizace</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Aktualizace hostitelů</string>
+    <string name="pref_update_check">Zkontrolovat aktualizace při spuštění</string>
+    <string name="pref_update_check_hosts_daily">Pravidelně kontrolovat aktualizace</string>
+    <string name="pref_update_sync_on_update">Při aktualizaci synchronizovat</string>
+    <string name="pref_update_sync_unmetered_only">Synchronizovat pouze na neměřených sítích</string>
 </resources>
