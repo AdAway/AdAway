@@ -1,3 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Aktualizácie</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Aktualizácie aplikácie</string>
+    <string name="pref_update_check_app_daily">Pravidelne kontrolovať aktualizácie</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Aktualizácie hosts</string>
+    <string name="pref_update_check">Vyhľadať aktualizácie pri spustení</string>
+    <string name="pref_update_check_hosts_daily">Pravidelne kontrolovať aktualizácie</string>
+    <string name="pref_update_sync_on_update">Synchronizovať pri aktualizácii</string>
+    <string name="pref_update_sync_unmetered_only">Synchronizovať len na neplatenej sieti</string>
 </resources>
