@@ -1,7 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lists_title">Vaše zoznamy</string>
     <!-- Tab -->
+    <string name="lists_tab_blocked">Blokované</string>
+    <string name="lists_tab_allowed">Povolené</string>
+    <string name="lists_tab_redirected">Presmerované</string>
     <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_menu_filter">Filtrovať hostiteľov</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Pridať host do čiernej listiny</string>
+    <string name="list_add_dialog_white">Pridať host do bielej listiny</string>
+    <string name="list_add_dialog_redirect">Pridať host do presmerovania</string>
+    <string name="list_edit_dialog_black">Upraviť hostiteľa na čiernej listine</string>
+    <string name="list_edit_dialog_white">Upraviť hostiteľa na bielej listine</string>
+    <string name="list_edit_dialog_redirect">Upraviť presmerovania</string>
+    <string name="list_dialog_hostname">Názov hostiteľa:</string>
+    <string name="list_dialog_hostname_hint">URL zdroja hosts súboru</string>
+    <string name="list_dialog_wildcard">(Zástupné znaky * a ? sú povolené!)</string>
+    <string name="list_dialog_ip">IP (IPv4 alebo IPv6):</string>
 </resources>
