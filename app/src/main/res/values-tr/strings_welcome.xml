@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Hoşgeldiniz</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Hoş geldiniz logosu</string>
+    <string name="welcome_method_header">AdAway\'e hoş geldiniz!</string>
+    <string name="welcome_method_summary">AdAway iki reklam engelleme yöntemi sunar. Beğendiğiniz birini seçin:</string>
+
+    <string name="welcome_root_method_logo">Kök erişimi logosu</string>
+    <string name="welcome_root_method_title">Kök erişimi tabanlı\nreklam engelleyici</string>
+    <string name="welcome_root_method_text1">Hızlı</string>
+    <string name="welcome_root_method_text2">Pil dostu</string>
+    <string name="welcome_root_method_text3">Kök erişimi gerekli</string>
+
+    <string name="welcome_vpn_method_logo">VPN logosu</string>
+    <string name="welcome_vpn_method_title">VPN tabanlı\nreklam engelleyici</string>
+    <string name="welcome_vpn_method_text1">Yavaş</string>
+    <string name="welcome_vpn_method_text2">Arka planda çalıştır</string>
+    <string name="welcome_vpn_method_text3">Uyumluluk</string>
+
+    <string name="welcome_root_missing_title">Kök erişimli Android gerekli</string>
+    <string name="welcome_root_missile_description">Su binary dosyası bulunamadı veya AdAway için kök erişimi izni sağlanmadı.\n\nEğer cihazınızda kök erişimi sağlanmadıysa bu yaşanabilir. Ayrıntılı bilgi ve cihazınızda nasıl kök erişimi sağlanacağını öğrenmek için wiki.lineageos.org veya diğer Android web sitelerini ziyaret edebilirsiniz.</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Eşitleme tamamlandı</string>
+    <string name="welcome_sync_error_logo">Eşitleme sırasında hata</string>
+
+    <string name="welcome_sync_header">Eşitleniyor</string>
+    <string name="welcome_synced_header">Eşitlendi!</string>
+    <string name="welcome_sync_summary">AdAway, çevrimiçi kaynaklardan engellemek için reklam ağlarını indirir. Bunları daha sonra ayarlardan özelleştirebilirsiniz.</string>
+    <string name="welcome_sync_retry_logo">Eşitlemeyi tekrar dene</string>
+    <string name="welcome_sync_error">Eşitlenemedi:\n%s.\nŞimdi tekrar dene?</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Destek</string>
+    <string name="welcome_support_header">Beni destekle!</string>
+    <string name="welcome_support_summary">Ücretsiz ve açık kaynaklı bir uygulama. Boş zamanlarımda geliştiriyorum. Bu yüzden hoşlanıyorsanız, desteğinizi göstermekten çekinmeyin:</string>
+    <string name="welcome_support_button">PayPal\'da bağış yapın</string>
+    <string name="welcome_support_telemetry_summary">Hataları sever misin? Ben de sevmem.</string>
+    <string name="welcome_support_telemetry_button">Bana kilitlenme raporları göndermek için metriği etkinleştir</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Geri</string>
+    <string name="welcome_next_button">İleri</string>
+    <string name="welcome_finish_button">Tamamlandı</string>
 </resources>
