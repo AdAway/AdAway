@@ -1,30 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Blokované</string>
+    <string name="allowed_hosts_label">Povolené</string>
+    <string name="redirect_hosts_label">Presmerované</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="few">%d up-to-date sources</item>
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d aktualizovaný zdroj</item>
+        <item quantity="few">%d aktualizované zdroje</item>
+        <item quantity="many">%d aktualizovaných zdrojov</item>
+        <item quantity="other">%d aktualizovaných zdrojov</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="few">%d outdated sources</item>
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d neaktualizovaný zdroj</item>
+        <item quantity="few">%d neaktualizované zdroje</item>
+        <item quantity="many">%d neaktualizovaných zdrojov</item>
+        <item quantity="other">%d neaktualizovaných zdrojov</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Zobraziť pomocníka</string>
 
     <!-- Project card -->
+    <string name="project_label">Otvoriť stránku GitHub</string>
 
     <!-- Support card -->
+    <string name="support_label">Podporiť projekt</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Záznamy DNS</string>
+    <string name="preferences_drawer_item">Nastavenia</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Otvoriť bočný panel</string>
+    <string name="adblock_pause_button_description">Pozastaviť/obnoviť blokovanie reklamy</string>
+    <string name="update_button">Aktualizovať blokované domény</string>
+    <string name="show_log_button">Zobraziť požadované domény</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Prosím, pre viac informácií si prečítajte Pomoc.</string>
 
 </resources>
