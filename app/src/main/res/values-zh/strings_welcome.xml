@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">欢迎</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">欢迎徽标</string>
+    <string name="welcome_method_header">欢迎来到AdAway！</string>
+    <string name="welcome_method_summary">AdAway提供了两种广告屏蔽方法。选择一个您喜欢的：</string>
+
+    <string name="welcome_root_method_logo">Root logo</string>
+    <string name="welcome_root_method_title">基于Root\n广告屏蔽</string>
+    <string name="welcome_root_method_text1">更快</string>
+    <string name="welcome_root_method_text2">电池友好</string>
+    <string name="welcome_root_method_text3">需要Root权限</string>
+
+    <string name="welcome_vpn_method_logo">VPN徽标</string>
+    <string name="welcome_vpn_method_title">VPN based\nad blocking</string>
+    <string name="welcome_vpn_method_text1">更慢</string>
+    <string name="welcome_vpn_method_text2">后台运行</string>
+    <string name="welcome_vpn_method_text3">兼容性</string>
+
+    <string name="welcome_root_missing_title">需要已获得 root 权限的 Android 设备</string>
+    <string name="welcome_root_missile_description">找不到su二进制文件，或者您没有为AdAway授予root权限。\n\n如果您的设备未获得root权限，则可能会发生这种情况。 您可以在wiki.lineageos.org或其他Android网站上找到有关如何将设备root的信息。</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">同步完成</string>
+    <string name="welcome_sync_error_logo">同步出错</string>
+
+    <string name="welcome_sync_header">正在同步</string>
+    <string name="welcome_synced_header">已同步！</string>
+    <string name="welcome_sync_summary">AdAway下载广告网络以阻止在线资源。 您稍后可以在设置中自定义它们。</string>
+    <string name="welcome_sync_retry_logo">重新同步</string>
+    <string name="welcome_sync_error">无法同步:\n%s。\n立即重试吗？</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">支持</string>
+    <string name="welcome_support_header">支持我！</string>
+    <string name="welcome_support_summary">这是一个免费的开源应用程序。 我在业余时间开发它。 因此，如果您喜欢它，请随时表示支持：</string>
+    <string name="welcome_support_button">在PayPal上捐赠</string>
+    <string name="welcome_support_telemetry_summary">你喜欢bugs吗？ 我也不。</string>
+    <string name="welcome_support_telemetry_button">启用遥测向我发送崩溃报告</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">返回</string>
+    <string name="welcome_next_button">下一个</string>
+    <string name="welcome_finish_button">完成</string>
 </resources>
