@@ -173,6 +173,7 @@ public class HomeViewModel extends AndroidViewModel {
     }
 
     private static boolean isTrue(LiveData<Boolean> liveData) {
-        return Boolean.TRUE == liveData.getValue();
+        Boolean value = liveData.getValue();
+        return value != null && value;
     }
 }

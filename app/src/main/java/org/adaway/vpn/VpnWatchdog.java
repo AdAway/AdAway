@@ -103,6 +103,7 @@ class VpnWatchdog {
                 Thread.sleep(initPenalty);
             } catch (InterruptedException exception) {
                 Log.d(TAG, "Failed to wait the initial penalty");
+                Thread.currentThread().interrupt();
             }
         }
     }

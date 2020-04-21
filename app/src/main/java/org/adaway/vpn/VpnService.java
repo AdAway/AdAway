@@ -68,8 +68,6 @@ public class VpnService extends android.net.VpnService {
     public static final String VPN_UPDATE_STATUS_INTENT = "org.jak_linux.dns66.VPN_UPDATE_STATUS";
     public static final String VPN_UPDATE_STATUS_EXTRA = "VPN_STATUS";
     private static final String TAG = "VpnService";
-    // TODO: Temporary Hack til refactor is done
-    public static VpnStatus vpnStatus = STOPPED;
 
     private final Handler handler;
     private final BroadcastReceiver connectivityChangedReceiver;
@@ -214,8 +212,6 @@ public class VpnService extends android.net.VpnService {
     }
 
     private void updateVpnStatus(VpnStatus status) {
-        vpnStatus = status;
-
         Notification notification = getNotification(status);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         switch (status) {

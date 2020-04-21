@@ -24,11 +24,11 @@ public class HostsSource {
     /**
      * The user source ID.
      */
-    public static int USER_SOURCE_ID = 1;
+    public static final int USER_SOURCE_ID = 1;
     /**
      * The user source URL.
      */
-    public static String USER_SOURCE_URL = "file://app/user/hosts";
+    public static final String USER_SOURCE_URL = "file://app/user/hosts";
 
     @PrimaryKey(autoGenerate = true)
     private int id;

@@ -124,6 +124,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             this.thread.join(2000);
         } catch (InterruptedException e) {
             Log.w(TAG, "stop: Interrupted while joining thread", e);
+            Thread.currentThread().interrupt();
         }
         if (this.thread.isAlive()) {
             Log.w(TAG, "stop: Could not kill VPN thread, it is still alive");
@@ -177,6 +178,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
             try {
                 Thread.sleep((long) retryTimeout * 1000);
             } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
                 break;
             }
 

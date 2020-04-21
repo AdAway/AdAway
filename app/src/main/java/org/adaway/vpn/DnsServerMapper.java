@@ -129,7 +129,7 @@ class DnsServerMapper {
             builder.addAddress(addr, 120);
             return ipv6Template;
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.d(TAG, "Failed to add IPv6 address to the VPN interface.", e);
             return null;
         }
     }
