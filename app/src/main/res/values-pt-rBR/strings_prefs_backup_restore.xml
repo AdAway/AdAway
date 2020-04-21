@@ -1,3 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">Backup &amp; restaurar</string>
+    <string name="pref_backup">Backup</string>
+    <string name="pref_backup_summary">Backup para armazenamento externo suas regras de bloqueio</string>
+    <string name="pref_restore">Restaurar</string>
+    <string name="pref_restore_summary">Restaure suas regras de bloqueio do arquivo de backup</string>
 </resources>
