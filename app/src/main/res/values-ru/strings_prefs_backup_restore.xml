@@ -1,3 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">Резервная копия и восстановление</string>
+    <string name="pref_backup">Резервная копия</string>
+    <string name="pref_backup_summary">Сохранить резервную копию ваших правил блокировки на внешний носитель</string>
+    <string name="pref_restore">Восстановление</string>
+    <string name="pref_restore_summary">Восстановить ваши правила блокировки из файла резервной копии</string>
 </resources>
