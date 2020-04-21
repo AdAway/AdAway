@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">Абнаўленне</string>
+    <string name="notification_update_channel_description">Новыя апавяшчэнні аб абнаўленні</string>
+    <string name="notification_update_host_available_title">Даступна абнаўленне</string>
+    <string name="notification_update_host_available_text">Для спампоўкі даступны новыя файлы hosts.</string>
+    <string name="notification_update_app_available_title">Даступна абнаўленне праграмы</string>
+    <string name="notification_update_app_available_text">Новая версія AdAway даступна для спампоўкі</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
+    <string name="notification_vpn_channel_description">Апавяшчэнне VPN запушчана</string>
+</resources>
