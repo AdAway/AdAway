@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Nastavenia</string>
     <!-- General category -->
+    <string name="pref_general_category">Všeobecné</string>
+    <string name="pref_dark_theme">Tmavý motív</string>
+    <string name="pref_update_configuration">Automatické aktualizácie</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Blokovanie reklamy</string>
+    <string name="pref_root_ad_blocker_configuration">Blokovač reklám s rootom</string>
+    <string name="pref_vpn_ad_blocker_configuration">Blokovač reklám pomocou VPN</string>
+    <string name="pref_whitelist_rules">Aplikovať povolených hostiteľov zo zdrojov</string>
+    <string name="pref_redirection_rules">Aplikovať presmerovaných hostiteľov zo zdrojov</string>
+    <string name="pref_redirection_rules_summary">PREDSTAVUJE BEZPEČNOSTNÉ RIZIKO!</string>
+    <string name="pref_enable_ipv6">Povoliť podporu IPv6</string>
+    <string name="pref_backup_restore">Zálohovať / obnoviť pravidlá blokovania</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Odstraňovanie chýb</string>
+    <string name="pref_enable_telemetry">Odoslať hlásenie o zlyhaní</string>
+    <string name="pref_enable_telemetry_summary">Nahlásiť na Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Toto zostavenie nie je podporované</string>
+    <string name="pref_enable_debug">Podrobné zaznamenávanie</string>
+    <string name="pref_enable_debug_summary">Aplikáciu je potrebné reštartovať</string>
 </resources>
