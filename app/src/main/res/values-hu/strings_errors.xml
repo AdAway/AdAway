@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Nincs internetkapcsolat</string>
+    <string name="error_no_connection_details">Nem sikerült kapcsolatot létesíteni az internettel. Ellenőrizd az eszköz csatlakozását.</string>
+    <string name="error_download_failed_message">Nem sikerült letölteni a host forrást</string>
+    <string name="error_download_failed_details">Egyik engedélyezett hosts forrás sem érhető el. Ellenőrizd, megfelelően csatlakozol-e az internethez.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Nem sikerült létrehozni a privát fájlt</string>
+    <string name="error_private_file_failed_details">Nem lehet privát fájlt létrehozni új hosts forrás létrehozásához. Ellenőrizd a készüléken a szabad tárhelyet.</string>
+    <string name="error_not_enough_space_message">Nincs elég hely</string>
+    <string name="error_not_enough_space_details">Nem lehet a hosts fájlt a rendszerpartícióra másolni. Ellenőrizd, hogy a Magisk systemless modul engedélyezve van-e, majd indítsd újra.</string>
+    <string name="error_copy_failed_message">Nem sikerült az új hosts fájl telepítése</string>
+    <string name="error_copy_failed_details">Nem lehet a hosts fájlt másolni a /system partícióba. Ellenőrizze, hogy a Magisk systemless modul engedélyezett-e újraindításkor.</string>
+    <string name="error_revert_failed_message">A hosts fájl visszaállítása nem sikerült</string>
+    <string name="error_revert_failed_details">Nem sikerült visszaállítani az alapért. hosts fájl konfigurációt.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Nem sikerült engedélyezni a VPN reklámblokkolást.</string>
+    <string name="error_enable_vpn_failed_details">Jelöld be a VPN beállításoknál, hogy engedélyezze az app VPN indítását.</string>
+    <string name="error_disable_vpn_failed_message">Nem sikerült letiltani a VPN reklámblokkolást.</string>
+    <string name="error_disable_vpn_failed_details">Ellenőrizd a VPN beállításokat a manuális letiltáshoz.</string>
 </resources>
