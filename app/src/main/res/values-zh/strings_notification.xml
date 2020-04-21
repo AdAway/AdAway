@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">更新</string>
+    <string name="notification_update_channel_description">新的更新通知</string>
+    <string name="notification_update_host_available_title">有更新可用</string>
+    <string name="notification_update_host_available_text">新的hosts文件可下载。</string>
+    <string name="notification_update_app_available_title">应用更新可用</string>
+    <string name="notification_update_app_available_text">可以下载新版本的AdAway。</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
+    <string name="notification_vpn_channel_description">VPN运行通知</string>
+</resources>
