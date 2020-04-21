@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Príjmy z reklamy</h2>
 <p>Užívatelia sa mylne domnievajú, že pokiaľ nikdy neklikajú na reklamy, blokovanie nijak finančne nepoškodí aplikácie alebo webové stránky. To je nesprávne, vývojári taktiež zarábajú  jednoduchým zobrazením reklamy. Je iba na vás, či budete reklamy blokovať alebo nie. Osobne by som aplikácie, ktoré reklamy zobrazujú nepoužíval, reklamy mi prídu veľmi otravné, takže bez blokovača reklám by som si tieto aplikácie neinštaloval.</p>
 
-
-
 <h2>Ako funguje AdAway?</h2>
-<p>AdAway používa <a href="http://en.wikipedia.org/wiki/Hosts_file">súbor hosts</a> na blokovanie adries, ktoré poskytujú reklamy. Súbor hosts je súbor, ktorý sa nachádza v <code>/system/etc/hosts</code>, ktorý mapuje adresy na IP adresy. Je to typický spôsob ako definovať párovanie adries a IP bez spoliehania sa na Domain Name System (DNS). Všetky nechcené adresy sú presmerované na <code>127.0.0.1</code>, čo znamená, že smerujú na vaše zariadenie.</p>
-
-<h2>Prečo je nastavenie pre dennú kontrolu aktualizácií nedostupné?</h2>
-<p>Automatická kontrola aktualizácií je dostupná len ak je AdAway nainštalovaný na internom uložisku v zariadení. Je to kvôli obmedzeniam Android platformy.</p>
+<p>AdAway používa <a href="http://en.wikipedia.org/wiki/Hosts_file">súbor hosts</a> na blokovanie názvov hostiteľa, ktoré poskytujú reklamy. Súbor hosts je súbor, ktorý sa nachádza v <code>/system/etc/hosts</code>, ktorý prevádza názvy serverov na IP adresy. Je to typický spôsob ako definovať párovanie adries a IP bez spoliehania sa na Domain Name System (DNS). Všetky nechcené adresy sú presmerované na <code>127.0.0.1</code>, čo znamená, že budú ukazovať na vaše zariadenie.<br>
+Ak sa do súboru host nedá zapisovať, použije sa núdzové riešenie v podobe služby VPN. Služba bude filtrovať nechcené pripojenia a ostatné nechá prejsť.</p>
 
 <h2>Prečo musím reštartovať zariadenie aby sa zmeny prejavili?</h2>
 <p>Java na Androide udržiava svoju vlastnú internú DNS cache. Operačný systém bude pracovať s novým hosts súborom okamžite (overiť si to môžete cez ping v príkazovom riadku), ale zariadenie musíte reštartovať kvôli obnoveniu DNS cache Javy.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Niektoré aplikácie odmietajú fungovať, ak reklamné servery nie sú dostupné. S touto metódou sa stanú dostupnými a odpoveďou bude prázdna stránka bez reklamných banerov.</code></p>
 
 <h2>Ako môžem blokovať/povoliť špecifické adresy?</h2>
-<p>Pridajte adresy, ktoré chcete blokovať do <cite>Čierna listina</cite> (= Čierna) pod <cite>Vaše zoznamy</cite>. Adresy, ktoré chcete vylúčiť z blokovania môžete pridať do <cite>Biela listina</cite> (= Biela) a adresy, ktoré chcete presmerovať na špecifickú IP patria do <cite>Presmerovania</cite></p>
+<p>Pridajte adresy, ktoré chcete blokovať do zoznamu <cite>Blokované</cite> z <cite>domovskej obrazovky</cite>. Adresy, ktoré chcete vylúčiť z blokovania môžete pridať do zoznamu <cite>Povolené</cite> a adresy, ktoré chcete presmerovať na špecifickú IP patria do <cite>Presmerovania</cite>.</p>
 
 <h2>Kde môžem nájsť ďalšie hosts zdroje?</h2>
 <p>Pozrite <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Zoznam ďalších hosts zdrojov pre AdAway</a>.</p>
