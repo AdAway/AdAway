@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Quitter</string>
     <string name="button_close">Fermer</string>
@@ -17,15 +16,22 @@
     <string name="button_show_help">Afficher plus d’aide</string>
     <string name="icon_update_status">Mettre à jour l’état</string>
     <string name="text_update">Tous les fichiers hosts des sources définies sont téléchargés, fusionnés avec vos propres listes, puis installés en un seul fichier hosts sur votre système.</string>
-    <string name="button_check_update_hosts">Vérifier les mises à jour</string>
+    <string name="button_check_update_hosts">Vérifier la présence de mises à jour</string>
     <string name="button_update_hosts">Mettre à jour le fichier hosts</string>
-    <string name="button_enable_hosts">Activer le blocage publicitaire</string>
-    <string name="button_disable_hosts">Désactiver le blocage publicitaire</string>
+    <string name="button_enable_hosts">Activer le blocage des publicités</string>
+    <string name="button_disable_hosts">Désactiver le blocage des publicités</string>
     <string name="header_webserver">Serveur Web</string>
     <string name="webserver_status_running">En fonction</string>
     <string name="webserver_status_stopped">Arrêté</string>
+    <string name="webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes vers des noms d’hôtes bloqués.</string>
     <string name="button_enable_webserver">Activer le serveur Web</string>
     <string name="button_disable_webserver">Désactiver le serveur Web</string>
+    <string name="header_vpn">RPV</string>
+    <string name="vpn_status_running">En fonction</string>
+    <string name="vpn_status_stopped">Arrêté</string>
+    <string name="vpn_toggle_text">Démarrer ou arrêter le RPV pour filtrer les requêtes.</string>
+    <string name="button_enable_vpn">Activer le RPV</string>
+    <string name="button_disable_vpn">Désactiver le RPV</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Supprimer</string>
@@ -47,11 +53,20 @@
     <string name="hosts_open_button">Ouvrir le fichier hosts</string>
 
     <!--Status Notification-->
+    <string name="status_check">Vérification de la présence de mises à jour</string>
+    <string name="status_check_source">Vérification de la présence de mises à jour sur la source %s</string>
+    <string name="status_retrieve">Récupération des sources</string>
+    <string name="status_download_source">Téléchargement de la source %s</string>
+    <string name="status_copy_source">Copie de la source %s</string>
+    <string name="status_parse_source">Analyse de la source %s</string>
+    <string name="status_revert">Rétablissement du fichier hosts par défaut</string>
+    <string name="status_revert_done">Le fichier hosts par défaut a été restauré</string>
     <string name="status_reverting_subtitle">Création d’un fichier hosts standard </string>
-    <string name="status_update_available">Une mise à jour est proposée</string>
+    <string name="status_update_available">Une mise à jour des sources est proposée</string>
     <string name="status_update_available_subtitle">De nouveaux fichiers hosts sont proposés</string>
-    <string name="status_no_connection">Il n’y a pas de connexion Internet</string>
-    <string name="status_no_connection_subtitle">Aucune connexion Internet</string>
+    <string name="status_no_update_found">Aucune mise à jour des sources n’a été trouvée</string>
+    <string name="status_no_connection">Aucune connexion à Internet</string>
+    <string name="status_no_connection_subtitle">Aucune connexion à Internet n’est accessible </string>
     <string name="status_download_fail">Les sources ne sont pas accessibles</string>
     <string name="status_download_fail_subtitle_new">Aucune source de fichier hosts n’est accessible</string>
     <string name="status_root_access_denied">L’accès racine a été refusé</string>
@@ -62,30 +77,38 @@
     <string name="status_enabled_subtitle">Les fichiers hosts les plus récents sont activés</string>
     <string name="status_disabled">Désactivé</string>
     <string name="status_disabled_subtitle">Le fichier hosts par défaut a été installé</string>
-    <string name="notification_configuration_changed">Votre configuration a changé. Vous devez installer des fichiers hosts pour l’appliquer.</string>
+    <string name="status_apply_sources">Appliquer les sources les plus récentes</string>
+    <string name="status_create_new_hosts">Création d’un nouveau fichier hosts</string>
+    <string name="status_copy_new_hosts">Copie d’un nouveau fichier hosts</string>
+    <string name="status_check_copy">Vérification de la copie du fichier hosts</string>
+    <string name="status_hosts_updated">Le fichier hosts a été mis à jour avec succès</string>
+    <string name="status_vpn_configuration_updated">La configuration du RPV a été mise à jour avec succès</string>
+    <string name="notification_configuration_changed">Votre configuration a changé. Vous devez l’appliquer.</string>
     <string name="notification_configuration_changed_action">Appliquer</string>
-    <string name="notification_configuration_installing">Installation du fichier hosts…</string>
-    <string name="notification_configuration_failed">Échec d’installation du fichier hosts.</string>
+    <string name="notification_configuration_installing">Application de la nouvelle configuration…</string>
+    <string name="notification_configuration_failed">Échec d’application de la nouvelle configuration.</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Le lien symbolique vers la cible du fichier hosts manque</string>
     <string name="apply_symlink_missing">Le lien symbolique de votre cible vers /system/etc/hosts est absent ou incorrect. AdAway ne fonctionnera pas sans un lien vers le bon fichier.\n\nVoulez-vous essayer de créer un lien symbolique ?</string>
-    <string name="apply_symlink_missing_title">Lien symbolique manquant</string>
+    <string name="apply_symlink_missing_title">Le lien symbolique manque</string>
     <string name="apply_not_enough_space">Il manque d’espace sur la partition.\nEssayez de changer le fichier hosts cible dans les préférences par /data/data/hosts.</string>
-    <string name="apply_not_enough_space_title">Manque d’espace</string>
+    <string name="apply_not_enough_space_title">Il manque d’espace</string>
     <string name="apply_private_file_fail">Impossible de lire le fichier téléchargé.</string>
     <string name="apply_private_file_fail_title">Échec de fichier privé</string>
     <string name="apply_remount_fail">Échec de remontage de la partition en lecture/écriture</string>
     <string name="apply_remount_fail_title">Échec de remontage</string>
-    <string name="apply_copy_fail">Échec de copie du fichier hosts</string>
+    <string name="apply_copy_fail_status">Échec de copie du fichier hosts</string>
+    <string name="apply_copy_fail">La copie du fichier hosts a échoué</string>
     <string name="apply_copy_fail_title">Échec de copie</string>
     <string name="apply_success_subtitle">Les sources de fichiers hosts ont été mises en place</string>
-    <string name="apply_success_title">Mise à en place réussie</string>
+    <string name="apply_success_title">La mise à en place a réussi</string>
     <string name="apply_success_dialog">La mise en place est réussie.\nIl faudra peut-être redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
     <string name="apply_symlink_successful">Le lien symbolique a été créé avec succès.\nIl faudra peut-être redémarrer Android pour que les modifications prennent effet.\n\nVoulez-vous redémarrer ? (Pour éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
-    <string name="apply_symlink_successful_title">Création du lien symbolique réussi</string>
-    <string name="apply_symlink_fail">Le lien symbolique n’a pas pu être créé par Android.\nCela échoue la plupart du temps à cause d’une \'fonction\' appelée S-ON sur les téléphones HTC.\n\nUne solution possible est de démarrer votre téléphone en mode récupération et d’y créer un lien symbolique avec \'ln-s /data/data/hosts/system/etc/hosts\'.\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
-    <string name="apply_symlink_fail_title">Échec de la création du lien symbolique</string>
-    <string name="apply_help">Veuillez lire l’aide pour plus de précisions.</string>
+    <string name="apply_symlink_successful_title">Le lien symbolique a été créé avec succès</string>
+    <string name="apply_symlink_fail">Le lien symbolique n’a pas pu être créé par Android.\nL’échec provient probablement d’une « fonction » appelée S-ON sur les téléphones HTC.\n\nUne solution possible est de démarrer votre téléphone en mode récupération et d’y créer un lien symbolique avec « ln-s /data/data/hosts/system/etc/hosts ».\n\nSi cela ne fonctionne pas, rechercher S-OFF et votre téléphone sur Internet.</string>
+    <string name="apply_symlink_fail_title">Échec de création du lien symbolique</string>
+    <string name="apply_help">Pour plus de précisions, veuillez consulter l’aide.</string>
     <string name="apply_apn_proxy">Un mandataire APN est configuré sur votre Android !\nAdAway ne fonctionnera pas de manière fiable sur les réseaux mobiles tels que le 3G. Vous pouvez désactiver ce mandataire en allant à l’APN choisi (dans l’appli Paramètres : Réseau et Internet -&gt; Réseau cellulaire -&gt; Avancés -&gt; Nom des points d’accès) et en supprimant la valeur dans le champ « Serveur mandataire »</string>
     <string name="apply_apn_proxy_title">Le mandataire APN est configuré</string>
     <string name="no_connection">La connexion à Internet ne fonctionne pas.</string>
@@ -96,21 +119,26 @@
     <string name="apply_dialog_hostnames">Analyse et fusion des fichiers hosts</string>
     <string name="apply_dialog_hosts">Création du fichier hosts</string>
     <string name="apply_dialog_apply">Mise en place du fichier hosts</string>
+    <string name="apply_fail_status">Échec d’application du nouveau fichier hosts.</string>
     <string name="apply_fail">Le fichier hosts n’a pas pu être mis en place dans votre système.\nEssayez de changer le fichier hosts cible dans les préférences par /data/data/hosts.</string>
-    <string name="apply_fail_title">Échec lors de la mise en place</string>
+    <string name="apply_fail_title">Échec de mise en place</string>
     <string name="root_access_fail">Veuillez vérifier votre appli de débridage pour vous assurer que l’accès racine a été autorisé.</string>
-    <string name="revert_successful">Vous êtes revenu au fichier hosts par défaut.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d’éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
-    <string name="revert_successful_title">Retour arrière réussi</string>
-    <string name="revert_problem">Le retour arrière a échoué pour des raisons inconnues.</string>
-    <string name="revert_problem_title">Échec du retour en arrière</string>
+    <string name="revert_successful">Vous avez rétabli le fichier hosts par défaut.\nUn redémarrage Android sera peut-être nécessaire pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Afin d’éviter toute perte de données, assurez-vous qu’aucune appli n’utilise la carte SD actuellement.)</string>
+    <string name="revert_successful_title">A été rétabli avec succès</string>
+    <string name="revert_failed_status">Impossible de rétablir le fichier hosts</string>
+    <string name="revert_problem">Échec de rétablissement pour des raisons inconnues.</string>
+    <string name="revert_problem_title">Échec de rétablissement</string>
     <string name="download_fail_dialog">Aucune de vos sources de fichiers hosts activées n’est accessible. Êtes-vous correctement connecté à internet ?</string>
     <string name="download_fail_title">Échec de téléchargement</string>
+    <string name="no_private_file_status">Échec d’écriture du nouveau fichier hosts privé</string>
     <string name="no_private_file">Le fichier privé ne peut pas être créé.</string>
     <string name="no_private_file_title">Échec de création du fichier privé</string>
     <string name="enable_systemless_successful">Vous avez activé le mode sans système.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer ?\n(Pour prévenir toute perte de données, assurez-vous qu’aucune autre appli n’utilise la carte SD en ce moment.)</string>
-    <string name="enable_systemless_successful_title">Activation réussie</string>
+    <string name="enable_systemless_successful_title">L’activation a réussi</string>
     <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer l’appareil ?\n(Pour prévenir toute perte de données, assurez-vous qu’aucune autre appli n’utilise la carte SD en ce moment.)</string>
-    <string name="disable_systemless_successful_title">Désactivation réussie</string>
+    <string name="disable_systemless_successful_title">La désactivation a réussi</string>
+    <string name="enable_vpn_fail">Échec d’activation du blocage des publicités par RPV.</string>
+    <string name="disable_vpn_fail">Échec de désactivation du blocage des publicités par RPV.</string>
     <string name="enable_systemless_magisk_title">Activation du module hosts de Magisk</string>
     <string name="enable_systemless_magisk">Activer la fonction Fichier hosts sans système du gestionnaire Magisk. Dans ses paramètres, activez l’option <cite>Fichier hosts sans système</cite>, puis redémarrez votre appareil.</string>
     <string name="disable_systemless_magisk_title">Désactivation du module hosts de Magisk</string>
@@ -143,8 +171,6 @@
     <string name="adware_scanning">Analyse…</string>
     <string name="adware_empty">Aucun logiciel publicitaire n’a été trouvé</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Bloqueur de publicités</string>
     <string name="no_text_editor_title">Aucun éditeur de texte n’est installé</string>
@@ -167,7 +193,6 @@
     <string name="tcpdump_entry_add_whitelist">Ajouter une entrée à la liste blanche</string>
     <string name="tcpdump_entry_add_redirection_list">Ajouter une entrée à la liste des redirections</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Modifier la valeur de préférence du texte</string>
     <string name="drawer_open">Ouvrir le menu</string>
     <string name="drawer_close">Fermer le menu</string>
@@ -185,14 +210,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Requêtes DNS</string>
     <string name="shortcut_your_lists">Vos listes</string>
     <string name="shortcut_preferences">Préférences</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Installée il y a %1$s</string>
     <string name="hosts_source_up_to_date">À jour pour %1$s</string>
     <string name="hosts_source_need_update">Mise à jour nécessaire pour %1$s</string>
     <string name="hosts_source_last_update">Dernière mise à jour il y a %1$s</string>
@@ -213,5 +237,21 @@
         <item quantity="one">%d mois</item>
         <item quantity="other">%d mois</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">démarrage</string>
+    <string name="vpn_notification_running">activé</string>
+    <string name="vpn_notification_stopping">arrêt</string>
+    <string name="vpn_notification_waiting_for_net">en attente du réseau</string>
+    <string name="vpn_notification_reconnecting">reconnexion</string>
+    <string name="vpn_notification_reconnecting_error">erreur de reconnexion</string>
+    <string name="vpn_notification_paused">en pause</string>
+    <string name="vpn_notification_stopped">arrêté</string>
+    <string name="vpn_notification_title">RPV bloqueur de publicités %1$s</string>
+    <string name="vpn_notification_action_pause">Pause</string>
+    <string name="vpn_notification_paused_text">Toucher pour reprendre</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Activer et désactiver le blocage système des publicités</string>
 
 </resources>
