@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Renda por anúncios</h2>
 <p>Existe um equívoco declarado de que se um usuário nunca clicar em anúncios, logo bloqueá-los não prejudicará um site ou app financeiramente. Isto está errado, os desenvolvedores também ganham dinheiro apenas mostrando anúncios. Depende de você, se você bloqueia os anúncios ou não. Pessoalmente, eu não usaria apps que mostrassem anúncios porque os acho muito irritantes, logo sem um bloqueador de anúncios eu não instalaria estes apps.</p>
 
-
-
 <h2>Como AdAway funciona?</h2>
-<p>AdAway usa o <a href="http://en.wikipedia.org/wiki/Hosts_file">arquivo hosts</a> para bloquear nomes de host, que veiculam anúncios. O arquivo hosts é um arquivo encontrado em <code>/system/etc/hosts</code> que mapeia nomes de host para endereços IP. É uma maneira tradicional de definir nomes de host para pares de endereços IP sem depender do DNS (Domain Name System). Todos os nomes de host indesejados são redirecionados para <code>127.0.0.1</code>, o que significa que eles apontarão para seu próprio dispositivo.</p>
-
-<h2>Por que a preferência de verificação de atualização diária está acinzentada?</h2>
-<p>A verificação automática de novas atualizações está apenas disponível quando AdAway está instalado na memória interna do telefone. Isto é devido a restrições na plataforma Android.</p>
+<p>O AdAway usa o <a href="http://en.wikipedia.org/wiki/Hosts_file">arquivo de hosts</a> para bloquear nomes de hosts que veiculam anúncios. O arquivo hosts é um arquivo encontrado em <code>/system/etc/hosts</code> que mapeia nomes de host para endereços IP.  É uma maneira tradicional de definir pares de nome de host para endereço IP sem depender do DNS (Sistema de Nomes de Domínio). Todos os nomes de host indesejados são redirecionados para <code>127.0.0.1</code>, o que significa que eles apontarão para o seu próprio dispositivo. <br>
+ Se o arquivo hosts não for gravável, uma solução alternativa é usar o serviço VPN interno. Ele filtrará as conexões com nomes de host indesejados e permitirá que outras pessoas passem.</p>
 
 <h2>Por que tenho que reiniciar o Android para as alterações fazerem efeito?</h2>
 <p>Java no Android mantém seu próprio cache DNS interno. O sistema operacional refletirá o novo arquivo hosts imediatamente (verifique isto com uma solicitação na linha de comando), mas você precisará reiniciar o Android para reconstruir o cache DNS de Java.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br> Alguns aplicativos se recusam a funcionar, quando os servidores de anúncios não estão acessíveis. Com esse método, eles poderão ser acessados novamente, respondendo com uma página em branco e sem imagens de anúncios.</p>
 
 <h2>Como posso bloquear/desbloquear nomes de hosts específicos?</h2>
-<p>Adicione os nomes de host que você deseja bloquear à <cite>Lista Negra</cite> (=Black) em <cite>Suas listas</cite>. Além disso, os nomes de host que você deseja excluir do bloqueio podem ser adicionados à <cite>Lista Branca</cite> (=White) e os nomes de host que você deseja redirecionar para um endereço IP específico pertencem à <cite>lista Redirecionamento</cite> (=Redirection).</p>
+<p>Adicione os nomes de host que você deseja bloquear na lista <cite>Bloqueado</cite> na <cite>tela inicial</cite>.  Além disso, os nomes de host que você deseja excluir do bloqueio podem ser adicionados ao <cite>Permitido</cite> e os nomes de host que você deseja redirecionar para um endereço IP específico pertencem ao <cite>Redirecionado</cite>.</p>
 
 <h2>Onde posso encontrar mais fontes de hosts?</h2>
 <p>Consulte <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista de fontes de hosts adicionais para AdAway</a>.</p>
