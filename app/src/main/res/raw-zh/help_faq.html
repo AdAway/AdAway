@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>广告收入</h2>
 <p>通常有一种误解认为，如果用户从来不点击广告，那么屏蔽广告并不会给网站或开发人员带来财务上的损失。然而，事实是，仅展示广告也可以使开发人员获得收入。是否屏蔽广告取决于你。就我个人来说，我很讨厌那些展示广告的应用，所以，如果没有广告屏蔽器的话，我是不会安装那些应用的。</p>
 
-
-
 <h2>AdAway 是如何运作的？</h2>
-<p>AdAway 使用<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 文件</a>来拦截广告服务的主机名。hosts 文件位于<code>/system/etc/hosts</code>，它负责将主机名映射到 IP 地址。它是一种传统的、不依赖于域名系统（DNS）的映射方案。AdAway 和其他基于 hosts 的广告屏蔽器会借助它将所有需屏蔽的主机名重定向至<code>127.0.0.1</code>，即你的设备的本地地址。</p>
-
-<h2>为什么设置中的“每天检查更新”呈灰色，无法选择？</h2>
-<p>只有 AdAway 被安装在内部存储时，才能自动检查更新。这是 Android 平台方面的限制。</p>
+<p>AdAway使用<a href="http://en.wikipedia.org/wiki/Hosts_file">hosts文件</a>阻止提供广告的主机名。 hosts文件是在<code>/system/etc/hosts</code>中找到的文件，该文件将主机名映射到IP地址。 这是一种将主机名定义为IP 地址对的传统方法，而无需依赖域名系统（DNS）。 所有不需要的主机名都将重定向到<code>127.0.0.1</code>，这意味着它们将指向您自己的设备。<br>
+如果hosts文件不可写，则后备解决方案是使用内置的VPN服务。 它将过滤与不需要的主机名的连接，并允许其他主机名通过。</p>
 
 <h2>为什么我需要重启 Android 以使更改生效？</h2>
 <p>Android 上的 Java 运行时会维护一份内部 DNS 缓存。新增的 hosts 文件内容将会立即生效（可在命令行中使用 ping 验证），但（若要使对已有 hosts 条目的修改生效）需要重启 Android 系统以重建 Java 的 DNS 缓存。</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>当不能访问广告服务器的时候，一些应用会拒绝正常运行。借助这个功能，广告服务器就又可以被这些应用“访问”了——但它们没有访问到真正的广告服务器，依旧没法获取到广告图片之类的东西，而是只能收到一个空白页面。</p>
 
 <h2>如何封锁/解锁hostname?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>从<cite>主屏幕</cite>将要阻止的主机名添加到<cite>阻止</cite>列表。 此外，可以将要排除在阻止之外的主机名添加到<cite>允许</cite>中，而要重定向到特定IP地址的主机名则属于<cite>重定向</cite>。</p>
 
 <h2>在哪里可以找到更多hosts源？</h2>
 <p>查看 <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">AdAway 的额外 hosts 源</a></p>
