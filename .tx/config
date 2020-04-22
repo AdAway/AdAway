@@ -9,98 +9,98 @@ source_file = app/src/main/res/values/strings.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-app-xml--master]
+[adaway.app-src-main-res-values-strings-app-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_app.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_app.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-errors-xml--master]
+[adaway.app-src-main-res-values-strings-errors-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_errors.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_errors.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-home-xml--master]
+[adaway.app-src-main-res-values-strings-home-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_home.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_home.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-hosts-xml--master]
+[adaway.app-src-main-res-values-strings-hosts-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_hosts.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_hosts.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-lists-xml--master]
+[adaway.app-src-main-res-values-strings-lists-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_lists.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_lists.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-notification-xml--master]
+[adaway.app-src-main-res-values-strings-notification-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_notification.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_notification.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-prefs-backup-restore-xml--master]
+[adaway.app-src-main-res-values-strings-prefs-backup-restore-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_prefs_backup_restore.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_prefs_backup_restore.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-prefs-main-xml--master]
+[adaway.app-src-main-res-values-strings-prefs-main-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_prefs_main.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_prefs_main.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-prefs-root-xml--master]
+[adaway.app-src-main-res-values-strings-prefs-root-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_prefs_root.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_prefs_root.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-prefs-update-xml--master]
+[adaway.app-src-main-res-values-strings-prefs-update-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_prefs_update.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_prefs_update.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-prefs-vpn-xml--master]
+[adaway.app-src-main-res-values-strings-prefs-vpn-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_prefs_vpn.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_prefs_vpn.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-support-xml--master]
+[adaway.app-src-main-res-values-strings-support-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_support.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_support.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-update-xml--master]
-file_filter = app/src/main/res/values-<lang>/strings_updatexml
+[adaway.app-src-main-res-values-strings-update-xml--master]
+file_filter = app/src/main/res/values-<lang>/strings_update.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_update.xml
 source_lang = en
 type = ANDROID
 
-[adaway.strings-welcome-xml--master]
+[adaway.app-src-main-res-values-strings-welcome-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_welcome.xml
 minimum_perc = 0
 source_file = app/src/main/res/values/strings_welcome.xml
