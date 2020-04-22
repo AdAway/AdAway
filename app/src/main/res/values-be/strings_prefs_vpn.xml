@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">Блакавальнік рэкламы на аснове VPN</string>
+    <string name="pref_vpn_service_on_boot">Уключыць пры запуску</string>
     <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Выключаныя праграмы</string>
+    <string name="pref_vpn_excluded_apps_description">Наладзьце, якія праграмы не павінны выкарыстоўваць VPN, каб злучэнні не былі заблакаваныя.</string>
+    <string name="pref_vpn_exclude_system_apps">Выключыць сістэмныя праграмы</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Няма</item>
+        <item>Усе, акрамя браўзэраў</item>
+        <item>Усе</item>
     </string-array>
+    <string name="pref_vpn_exclude_user_apps">Выключыце карыстацкія праграмы</string>
 
     <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Выключаныя праграмы</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Выбраць усе</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Зняць выбар усіх</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Значок праграмы</string>
 </resources>
