@@ -1,7 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lists_title">Вашы спісы</string>
     <!-- Tab -->
+    <string name="lists_tab_blocked">Заблакавана</string>
+    <string name="lists_tab_allowed">Дазволена</string>
+    <string name="lists_tab_redirected">Перанакіравана</string>
     <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_menu_filter">Фільтраваць hosts</string>
+    <string name="lists_menu_filter_hint">Пошук назвы host...</string>
+    <string name="lists_menu_toggle_sources">Пераключыць крыніцы</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Дадаць host у чорны спіс</string>
+    <string name="list_add_dialog_white">Дадаць host у белы спіс</string>
+    <string name="list_add_dialog_redirect">Дадаць перанакіраванне host</string>
+    <string name="list_edit_dialog_black">Рэдагаваць чорны спіс host</string>
+    <string name="list_edit_dialog_white">Рэдагаваць белы спіс host</string>
+    <string name="list_edit_dialog_redirect">Змяніць перанакіраванне</string>
+    <string name="list_dialog_hostname">Назва крыніцы:</string>
+    <string name="list_dialog_hostname_hint">URL крыніцы hosts</string>
+    <string name="list_dialog_wildcard">(Дапускаюцца падстаноўныя сімвалы * і ?)</string>
+    <string name="list_dialog_ip">IP (IPv4 ці IPv6):</string>
 </resources>
