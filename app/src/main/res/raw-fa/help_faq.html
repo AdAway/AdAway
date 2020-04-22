@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>درآمد با تبلیغات</h2>
 <p>این یک باور غلطی میباشد که اگر کاربر هرگز بر روی تبلیغات کلیک ننماید درنتیجه مسدود نمودن آنها به یک سایت و یا برنامه ضرر مالی نخواهد رساند. این اشتباه است، توسعه دهندگان برنامه میتوانند تنها با نمایش تبلیغات کسب درآمد نمایند. این به شما بستگی دارد که جلوی تبلیغات را بگیرید یا نه. من شخصا از برنامه هایی که تبلیغات نشان میدهند استفاده نمیکنم زیرا که آنها بسیار آزاردهنده هستند، بنابراین بدون مسدود کننده تبلیغات من از اینگونه برنامه ها استفاده نمینمایم.</p>
 
-
-
 <h2>برنامه AdAway چگونه کار میکند؟</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
-
-<h2>چرا تنظیمات به روزرسانی روزانه از کار افتاده است؟</h2>
-<p>بررسی بروزرسانی ها فقط زمانی امکانپذیر است که برنامه AdAway در حافظه داخلی دستگاه نصب شده باشد. این امر به دلیل محدودیت های پلتفرم اندروید میباشد.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>چرا باید دستگاه اندرویدی را برای اعمال تغییرات شروع مجدد یا ریست نمود؟</h2>
 <p>جاوا در اندروید از کش دی ان اس درونی خود استفاده مینماید. سیستم عامل مستقیما تغییرات فایل hosts را منعکس مینماید (آن را با پینگ در خط فرمان بررسی نمایید) اما شما میبایستی دستگاه اندروید خود را برای از نو ساختن دی ان اس کش  جاوا شروع مجدد نمایید.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>چگونه میتوانم یک hostnames خاص را مسدود و یا آزاد نمایم؟</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>از کجا میتوانید منابع بیشتری از hosts بیابم؟</h2>
 <p>مراجعه نمایید به <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">لیست منابع اضافی hosts برای AdAway</a>.</p>

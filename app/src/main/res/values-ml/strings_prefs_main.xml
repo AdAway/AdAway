@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
-    <!-- Ad block category -->
+    <string name="pref_main_title">മുൻ‌ഗണനകൾ</string>
     <!-- Debug category -->
-</resources>
+    <string name="pref_debug_category">ഡീബഗ് ചെയ്യുക</string>
+    </resources>

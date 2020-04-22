@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
-    <string name="pref_dark_theme">Ενεργοποίηση σκοτεινού θέματος</string>
-    <!-- Ad block category -->
-    <string name="pref_whitelist_rules">Να επιτραπει η λευκή λίστα</string>
-    <string name="pref_redirection_rules">Να επιτρέπονται οι ανακατευθύνσεις</string>
-    <string name="pref_redirection_rules_summary">Κίνδυνος ασφαλείας! Να επιτραπούν ανακατευθύνσεις από τις πηγές hosts.</string>
-    <string name="pref_enable_ipv6">Ενεργοποίηση πρωτοκόλλου IPv6.</string>
+    <string name="pref_main_title">Επιλογές</string>
     <!-- Debug category -->
-    <string name="pref_enable_telemetry">Ενεργοποίηση αναφορών σφαλμάτων</string>
-    <string name="pref_enable_telemetry_summary">Επιτρέψτε στην εφαρμογή να στείλει τα σφάλματα και αναφορές σφαλμάτων στην Sentry (sentry.io).</string>
-    <string name="pref_enable_debug">Ενεργοποίηση λεπτομερής καταγραφής</string>
-    <string name="pref_enable_debug_summary">Για να τεθεί σε ισχύ η νέα ρύθμιση χρειάζεται να επανεκκινήσετε την εφαρμογή AdAway.</string>
-</resources>
+    <string name="pref_debug_category">Αποσφαλμάτωση</string>
+    </resources>

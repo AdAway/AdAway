@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Home screen -->
+    <string name="update_available">Güncelleme mevcut!</string>
 
     <!-- Changelog dialog -->
+    <string name="update_update_title">Yeni bir sürüm mevcut</string>
+    <string name="update_update_message">Yeni sürüm aşağıdaki değişiklikleri içeriyor:\n\n</string>
+    <string name="update_up_to_date_title">Güncel</string>
+    <string name="update_up_to_date_message">Bu son sürüm aşağıdaki değişiklikleri içeriyor:\n\n</string>
+    <string name="update_changelog">Değişiklikler</string>
+    <string name="update_update_button">Şimdi güncelle</string>
 </resources>

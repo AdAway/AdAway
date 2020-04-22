@@ -1,3 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Updates</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">App-updates</string>
+    <string name="pref_update_check_app_daily">Regelmatig controleren op updates</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Hosts-updates</string>
+    <string name="pref_update_check">Controleren op updates bij openen van AdAway</string>
+    <string name="pref_update_check_hosts_daily">Regelmatig controleren op updates</string>
+    <string name="pref_update_sync_on_update">Synchroniseren na updates</string>
+    <string name="pref_update_sync_unmetered_only">Alleen synchroniseren via Wi-Fi</string>
 </resources>

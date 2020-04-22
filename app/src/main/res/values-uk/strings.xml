@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Вийти</string>
     <string name="button_close">Закрити</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">Веб-сервер</string>
     <string name="webserver_status_running">Працює</string>
     <string name="webserver_status_stopped">Зупинено</string>
+    <string name="webserver_toggle_text">Запустити або зупинити веб-сервер на локальній машині, який буде відповідати на запити до заблокованих хостів.</string>
     <string name="button_enable_webserver">Увімкнути веб-сервер</string>
     <string name="button_disable_webserver">Вимкнути веб-сервер</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Запущено</string>
+    <string name="vpn_status_stopped">Зупинено</string>
+    <string name="vpn_toggle_text">Запустити чи зупинити VPN, який фільтруватиме запити.</string>
+    <string name="button_enable_vpn">Увімкнути VPN</string>
+    <string name="button_disable_vpn">Вимкнути VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Видалити</string>
@@ -47,9 +53,18 @@
     <string name="hosts_open_button">Відкрити файл hosts</string>
 
     <!--Status Notification-->
+    <string name="status_check">Перевірка оновлень</string>
+    <string name="status_check_source">Перевірка джерела %s на наявність оновлень</string>
+    <string name="status_retrieve">Отримання джерел</string>
+    <string name="status_download_source">Завантаження джерела %s</string>
+    <string name="status_copy_source">Копіювання джерела %s</string>
+    <string name="status_parse_source">Обробка джерела %s</string>
+    <string name="status_revert">Отримання усталеного файлу hosts</string>
+    <string name="status_revert_done">Усталений файл hosts відновлено</string>
     <string name="status_reverting_subtitle">Створення стандартного файлу hosts</string>
     <string name="status_update_available">Доступне оновлення</string>
     <string name="status_update_available_subtitle">Доступні свіжі списки хостів</string>
+    <string name="status_no_update_found">Не знайдено оновлень</string>
     <string name="status_no_connection">Немає з\'єднання з Інтернет</string>
     <string name="status_no_connection_subtitle">Немає доступного підключення до інтернету</string>
     <string name="status_download_fail">Недоступні джерела</string>
@@ -62,12 +77,19 @@
     <string name="status_enabled_subtitle">Використовуються найновіші списки</string>
     <string name="status_disabled">Вимкнено</string>
     <string name="status_disabled_subtitle">Встановлено стандартний файл hosts</string>
-    <string name="notification_configuration_changed">Налаштування змінено. Зміни потрібно застосувати до файлу hosts.</string>
+    <string name="status_apply_sources">Застосувати останні джерела</string>
+    <string name="status_create_new_hosts">Створення нового файлу hosts</string>
+    <string name="status_copy_new_hosts">Копіювання нового файлу hosts</string>
+    <string name="status_check_copy">Перевірка копії файлу hosts</string>
+    <string name="status_hosts_updated">Файл hosts успішно оновлено</string>
+    <string name="status_vpn_configuration_updated">Налаштування VPN успішно оновлено</string>
+    <string name="notification_configuration_changed">Налаштування змінено. Потрібно їх застосувати.</string>
     <string name="notification_configuration_changed_action">Застосувати</string>
-    <string name="notification_configuration_installing">Встановлення файлу hosts…</string>
-    <string name="notification_configuration_failed">Не вдалося встановити файл hosts.</string>
+    <string name="notification_configuration_installing">Застосування нових налаштувань…</string>
+    <string name="notification_configuration_failed">Не вдалося застосувати нові налаштування.</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Посилання на файл hosts відсутнє</string>
     <string name="apply_symlink_missing">Посилання на ваш /system/etc/hosts неправильне або не існує! AdAway не працюватиме, якщо не вказати правильний файл.\n\n Чи ви хочете спробувати створити посилання?</string>
     <string name="apply_symlink_missing_title">Посилання відсутнє</string>
     <string name="apply_not_enough_space">Не вистачає місця на розділі!\nСпробуйте змінити в налаштуваннях шлях до файлу hosts на /data/data/hosts.</string>
@@ -76,6 +98,7 @@
     <string name="apply_private_file_fail_title">Збій файлу</string>
     <string name="apply_remount_fail">Не вдалося перемонтувати розділ для читання/запису!</string>
     <string name="apply_remount_fail_title">Перемонтувати не вдалося</string>
+    <string name="apply_copy_fail_status">Не вдалося скопіювати файл hosts</string>
     <string name="apply_copy_fail">Копіювання файлу hosts не вдалося!</string>
     <string name="apply_copy_fail_title">Копіювання не вдалося</string>
     <string name="apply_success_subtitle">Застосовані джерела хостів</string>
@@ -96,21 +119,26 @@
     <string name="apply_dialog_hostnames">Аналіз і об\'єднання файлів зі списками хостів</string>
     <string name="apply_dialog_hosts">Побудова файлу hosts</string>
     <string name="apply_dialog_apply">Застосування файлу hosts</string>
+    <string name="apply_fail_status">Не вдалося застосувати новий файл hosts.</string>
     <string name="apply_fail">Не вдалося застосувати файл hosts на вашій системі!\n Спробуйте змінити в налаштуваннях шлях до файлу hosts на /data/data/hosts.</string>
     <string name="apply_fail_title">Не вдалося застосувати</string>
     <string name="root_access_fail">Будь ласка, перевірте ваш застосунок, який керує правами суперкористувача, щоб переконатися, що права суперкористувача було надано.</string>
     <string name="revert_successful">Ви повернулися до усталеного файлу hosts.\nМожливо, знадобиться перезавантажити Android, щоб зміни набули чинності.\n\nХочете перезавантажити?\n(Щоб уникнути втрати даних, переконайтеся, що жоден застосунок не використовуює карту пам\'яті цієї миті!)</string>
     <string name="revert_successful_title">Успішно повернуто</string>
+    <string name="revert_failed_status">Не вдалося відновити файл hosts</string>
     <string name="revert_problem">Відновлення не вдалося з невідомих причин.</string>
     <string name="revert_problem_title">Відновлення не вдалося!</string>
     <string name="download_fail_dialog">Жодне з ваших активних джерел хостів недоступне! Ви правильно підключені до інтернету?</string>
     <string name="download_fail_title">Завантаження не вдалося</string>
+    <string name="no_private_file_status">Не вдалося записати новий приватний файл hosts</string>
     <string name="no_private_file">Особистий файл не може бути створений.</string>
     <string name="no_private_file_title">Не вдалося створити особистий файл</string>
     <string name="enable_systemless_successful">Ви увімкнули безсистемний режим.\nЩоб зміни набули чинності, необхідно перезавантажити Android.\n\nПерезавантажити зараз?\n(Щоб уникнути втрати даних, переконайтеся, що жоден застосунок не використовуює карту пам\'яті цієї миті!)</string>
     <string name="enable_systemless_successful_title">Успішно увімкнено</string>
     <string name="disable_systemless_successful">Ви вимкнули безсистемний режим.\nЩоб зміни набули чинності, необхідно перезавантажити Android.\n\nПерезавантажити зараз?\n(Щоб уникнути втрати даних, переконайтеся, що жоден застосунок не використовуює карту пам\'яті цієї миті!)</string>
     <string name="disable_systemless_successful_title">Успішно вимкнено</string>
+    <string name="enable_vpn_fail">Не вдалося увімкнути блокування VPN.</string>
+    <string name="disable_vpn_fail">Не вдалося вимкнути блокування VPN.</string>
     <string name="enable_systemless_magisk_title">Вмикання модуля хостів Magisk</string>
     <string name="enable_systemless_magisk">Увімкнути позасистемні хости в Magisk Manager. Для цього потрібно вибрати опцію <cite>Позасистемні хости</cite> і перезавантажити пристрій.</string>
     <string name="disable_systemless_magisk_title">Вимикання модуля хостів Magisk</string>
@@ -143,8 +171,6 @@
     <string name="adware_scanning">Сканування…</string>
     <string name="adware_empty">Додатків з рекламою не знайдено!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Блокувальник реклами</string>
     <string name="no_text_editor_title">Не встановлено текстовий редактор</string>
@@ -167,7 +193,6 @@
     <string name="tcpdump_entry_add_whitelist">Додати запис в Білий список</string>
     <string name="tcpdump_entry_add_redirection_list">Додати запис в Список перенаправлень</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Змінити значення текстової переваги</string>
     <string name="drawer_open">Відкрити меню</string>
     <string name="drawer_close">Закрити меню</string>
@@ -185,14 +210,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS запити</string>
     <string name="shortcut_your_lists">Ваші списки</string>
     <string name="shortcut_preferences">Налаштування</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Встановлено %1$s тому</string>
     <string name="hosts_source_up_to_date">Актуально %1$s</string>
     <string name="hosts_source_need_update">Потрібне оновлення %1$s</string>
     <string name="hosts_source_last_update">Останнє оновлення %1$s тому</string>
@@ -222,4 +246,4 @@
         <item quantity="other">%d місяців</item>
     </plurals>
 
-</resources>
+    </resources>

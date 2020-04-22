@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Saír</string>
     <string name="button_close">Pechar</string>
@@ -23,7 +22,6 @@
     <string name="apply_dialog">Estase a aplicar…</string>
     <string name="menu_add">Engadir</string>
     <string name="menu_help">Axuda</string>
-
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -35,4 +33,4 @@
         <item>Preferences</item>
         <item>Axuda</item>
     </string-array>
-</resources>
+    </resources>

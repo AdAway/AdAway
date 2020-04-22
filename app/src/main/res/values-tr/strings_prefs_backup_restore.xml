@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_backup_restore_title">Yedekle &amp; geri yükle</string>
+    <string name="pref_backup_restore_title">Yedekle ve geri yükle</string>
     <string name="pref_backup">Yedekle</string>
     <string name="pref_backup_summary">Engelleme kurallarını harici depolamaya yedekle</string>
     <string name="pref_restore">Geri yükle</string>

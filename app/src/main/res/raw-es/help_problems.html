@@ -5,26 +5,29 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>Problemas comunes</title></head>
 <body>
-<h2>Copy of hosts file failed on Android 9+</h2>
-<p>Latest versions of Android use read-only <code>/system</code> partition.<br>
-If you are using Magisk as root solution, ensure you enable the systemless hosts module then reboot.</p>
+<h2>La copia del archivo hosts falló en Android 9+.</h2>
+<p>Las últimas versiones de Android utilizan la partición <code>/system</code> de solo lectura.<br>
+Si estás usando Magisk como solución root, asegúrate de habilitar el módulo hosts sin sistema y luego reinicia.</p>
 
 <h2>No hay suficiente espacio en la partición</h2>
 <p>Intente cambiar el archivo de hosts de destino en preferencias a <code>/data/data/hosts</code> (o <code>/data/hosts</code>) y aplicar AdAway nuevamente.</p>
 
-<h2>No funciona sobre Android 4.4+</h2>
-<p>Intente cambiar el archivo de hosts de destino en las preferencias de <code>/data/data/hosts</code> a <code>/data/hosts</code> o <code>/system/etc/hosts</code> y vuelva a aplicar AdAway.</p>
+<h2>Chrome todavía muestra anuncios</h2>
+<p>Ensure you disable <cite>lite mode</cite> (previously known as <cite>data saver</cite>) from Chrome settings. This features allows Chrome to use private DNS solution and bypass AdAway.</p>
 
 <h2>¡No bloquea anuncios en la aplicación XYZ!</h2>
-<p>Es posible que falten algunos nombres de host en los archivos de hosts proporcionados por las <cite>Fuentes de Hosts</cite> o la aplicación ha agrupado las imágenes para proporcionar anuncios sin acceder a Internet.<br><br>
-Puede registrar solicitudes de DNS (Menú-&gt;Registrar solicitudes de DNS) desde AdAway para averiguar qué nombres de host adicionales deben bloquearse.
-<br><br>Agregue los nombres de host sospechosos a su propia Lista negra presionando las entradas en el Registro e informe estos nombres de host cuando los haya verificado en la <a href="http://forum.hosts-file.net/viewforum.php?f=9">Bandeja de entrada de hosts</a> del foro de <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+<p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
+You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
+<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in our <a href="https://github.com/AdAway/adaway.github.io/issues">GitHub issue tracker</a>.</p>
 
 <h2>Anuncios en caché</h2>
 <p>A veces las aplicaciones almacenan anuncios en caché después de la descarga. Esto lleva a los anuncios restantes en algunas aplicaciones. Puede intentar eliminar la memoria caché para estas aplicaciones en la lista de aplicaciones de Android para evitar este problema.</p>
 
 <h2>¡La aplicación XYZ ya no funciona!</h2>
 <p>Algunas aplicaciones deben comunicarse con un nombre de host bloqueado por AdAway o negarse a trabajar cuando no se puede acceder a los nombres de host que deberían servir anuncios. Visite <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> para obtener una lista de aplicaciones conocidas que tienen problemas. De lo contrario, averigüe qué nombres de host se necesitan y agréguelos a su <cite>lista blanca</cite> en <cite>sus listas</cite> e informe de ellos al <a href="https://github.com/AdAway/AdAway/issues">rastreador de errores de AdAway</a>.</p>
+
+<h2>No funciona sobre Android 4.4+</h2>
+<p>Intente cambiar el archivo de hosts de destino en las preferencias de <code>/data/data/hosts</code> a <code>/data/hosts</code> o <code>/system/etc/hosts</code> y vuelva a aplicar AdAway.</p>
 
 <h2>El botón "Atrás" en los navegadores web no está funcionando</h2>
 <p>Puede habilitar el servidor local de AdAway en las preferencias como solución provisional.</p>

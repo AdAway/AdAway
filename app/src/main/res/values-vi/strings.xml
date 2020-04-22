@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Thoát</string>
     <string name="button_close">Đóng</string>
@@ -11,8 +10,28 @@
     <string name="button_save">Lưu</string>
     <string name="button_help">Trợ giúp</string>
 
+    <!--Home-->
+    <string name="header_help">Chào mừng</string>
+    <string name="text_help">Adaway là một phần mềm miễn phí và là phần mềm mở dùng để chặn quảng cáo trên các máy đã root./n Muốn biết thêm thông tin?? Hãy xem bên dưới, và được dịch bởi DuykhanhGaming</string>
+    <string name="button_show_help">Thêm hướng dẫn</string>
+    <string name="icon_update_status">Cập nhật tình trạng</string>
     <string name="text_update">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
     <string name="button_check_update_hosts">Kiểm tra cập nhật</string>
+    <string name="button_update_hosts">Cập nhật file hosts</string>
+    <string name="button_enable_hosts">Bật chặn quảng cáo</string>
+    <string name="button_disable_hosts">Tắt chặn quảng cáo</string>
+    <string name="webserver_status_running">Đang chạy</string>
+    <string name="webserver_status_stopped">Đã dừng</string>
+    <string name="webserver_toggle_text">Chạy hoặc tắt webserver trên máy để trả lời cho những trang quảng cáo bị chặn</string>
+    <string name="button_enable_webserver">Bật webserver</string>
+    <string name="button_disable_webserver">Tắt webserver </string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Đang chạy</string>
+    <string name="vpn_status_stopped">Đã dừng</string>
+    <string name="vpn_toggle_text">Chạy hoặc tắt VPN để chặn quảng cáo</string>
+    <string name="button_enable_vpn">Bật VPN</string>
+    <string name="button_disable_vpn">Tắt VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Xoá</string>
     <string name="checkbox_list_context_title">Chỉnh sửa mục</string>
@@ -20,8 +39,24 @@
 
     <!--Your lists-->
     <string name="import_dialog">Đang nhập…</string>
+    <string name="import_success">Đã nhập tệp sao lưu thành công từ bộ nhớ</string>
+    <string name="import_failed">Lỗi nhập tệp sao lưu, nó có đúng dạng không? Xem logcat để biết thêm chi tiết</string>
     <string name="export_dialog">Đang xuất…</string>
+    <string name="export_success">Tệp sao lưu đã xuất thành công đến \'adaway-backup.json\' trên máy</string>
+    <string name="export_failed">Lỗi khi xuất tệp sao lưu</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">Tệp hosts</string>
+    <string name="hosts_description">Tệp hosts là mootk tệp hệ thống nằm trong /system/etc dùng để chỉ dẫn tên miền đến địa chỉ IP. Nó là một tệp txt được cấu hình bởi AdAway. Đây là một vài dòng</string>
+    <string name="hosts_content">Đang tải tệp hosts trong máy</string>
+    <string name="hosts_open_button">Mở tệp hosts</string>
+
     <!--Status Notification-->
+    <string name="status_check">Đang kiểm tra cập nhật</string>
+    <string name="status_check_source">Đang kiểm tra cập nhật %s </string>
+    <string name="status_retrieve">Đang lấy nguồn</string>
+    <string name="status_download_source">Đang tải nguồn %s</string>
+    <string name="status_copy_source">Đang sao chép nguồn %s</string>
     <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
     <string name="status_update_available">Đã có bản cập nhật</string>
     <string name="status_update_available_subtitle">Đã có tập tin miền mới</string>
@@ -29,10 +64,11 @@
     <string name="status_no_connection_subtitle">Không có sẵn kết nối mạng</string>
     <string name="status_download_fail">Không có nguồn nào</string>
     <string name="status_download_fail_subtitle_new">Không kết nối được tới bất cứ nguồn nào!</string>
+    <string name="status_root_access_denied">Bị từ chối quyền truy cập root.Bạn đã root máy chưa ?</string>
+    <string name="status_failure">Có gì đó không ổn</string>
     <string name="status_enabled">Đã bật</string>
     <string name="status_enabled_subtitle">Đã dùng tập tin miền mới</string>
     <string name="status_disabled">Đã tắt</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Liên kết biểu trưng từ mục tiêu đến /system/etc/hosts không tồn tại hoặc không đúng! AdAway sẽ không hoạt động nếu nó không được dẫn đến đúng tập tin.\n\nBạn có muốn thử tạo liên kết mới?</string>
     <string name="apply_symlink_missing_title">Thiếu liên kết biểu trưng</string>
     <string name="apply_not_enough_space">Không đủ dung lượng trên ổ đĩa!\nHãy thử đổi tập tin miền mục tiêu trong tuỳ chỉnh thành /data/data/hosts.</string>
@@ -84,7 +120,6 @@
     <string name="help_tab_faq">Hỏi đáp</string>
     <string name="help_tab_problems">Vấn đề</string>
 
-    <!--Hosts sources-->
     <!--Other-->
     <string name="app_subtitle">Ứng dụng chặn quảng cáo</string>
     <string name="no_text_editor_title">Chưa cài trình sửa văn bản</string>
@@ -93,7 +128,6 @@
     <string name="no_file_manager">Không tìm thấy trình quản lý để mở tập tin. Bạn có thể cài OI File Manager hoặc các trình quản lý khác.\n\nBạn có muốn cài OI File Manager?</string>
 
     <string name="tcpdump_description">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -107,4 +141,4 @@
     </string-array>
     <string name="shortcut_preferences">Tuỳ chỉnh</string>
 
-</resources>
+    </resources>

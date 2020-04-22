@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN-baserad annonsblockering</string>
+    <string name="pref_vpn_service_on_boot">Aktivera vid uppstart</string>
     <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Exkluderade applikationer</string>
+    <string name="pref_vpn_excluded_apps_description">Konfigurera vilken applikation som inte ska använda VPN så ingen anslutning blockeras.</string>
+    <string name="pref_vpn_exclude_system_apps">Exkludera systemapplikationer</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
+        <item>Inga</item>
         <item>All except browsers</item>
-        <item>All</item>
+        <item>Alla</item>
     </string-array>
+    <string name="pref_vpn_exclude_user_apps">Exkludera användarapplikationer</string>
 
     <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Exkluderade applications</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Markera alla</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Avmarkera alla</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Applikationsikon</string>
 </resources>

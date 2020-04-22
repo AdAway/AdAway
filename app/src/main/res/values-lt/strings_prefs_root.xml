@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Atidaryti host faila</string>
     <string name="pref_apply_method">Nukreipti host failą</string>
     <string name="pref_apply_method_summary">Prieš keičiant šį nustatymą, perskaitykite Pagalbą apie funkcionalumą.</string>
     <string-array name="pref_apply_method_entries">
@@ -12,6 +12,7 @@
     <string name="pref_custom_target">Pasirinktinis nukreipimas</string>
     <string name="pref_never_reboot">Slepti perkrovimo užklausą</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Nukreipimas</string>
     <!-- Web server category -->
     <string name="pref_webserver">Vietinis serveris</string>
     <string name="pref_webserver_enabled">Įjungti serverį</string>

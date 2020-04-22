@@ -7,11 +7,6 @@
     <string name="lists_tab_redirected">Перенаправлено</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Фільтрувати хости</string>
-    <!-- Filter dialog -->
-    <string name="lists_filter_host_title">Фільтрувати за назвою хоста:</string>
-    <string name="lists_filter_include_sources">Включити хости з джерел</string>
-    <string name="lists_filter_apply">Застосувати</string>
-    <string name="lists_filter_reset">Скинути</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Додати хост в Чорний список</string>
     <string name="list_add_dialog_white">Додати хост в Білий список</string>

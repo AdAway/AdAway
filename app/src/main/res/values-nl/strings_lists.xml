@@ -7,11 +7,6 @@
     <string name="lists_tab_redirected">Doorverwezen</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Hosts filteren</string>
-    <!-- Filter dialog -->
-    <string name="lists_filter_host_title">Hostnaam filteren:</string>
-    <string name="lists_filter_include_sources">Hosts opnemen uit bronnen</string>
-    <string name="lists_filter_apply">Toepassen</string>
-    <string name="lists_filter_reset">Standaardwaarden</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Host toevoegen aan zwarte lijst</string>
     <string name="list_add_dialog_white">Host toevoegen aan witte lijst</string>

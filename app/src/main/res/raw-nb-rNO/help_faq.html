@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Inntekt gjennom reklamer</h2>
 <p>Det er en ofte sagt misoppfatning at dersom en bruker aldri klikker på reklamer, vil det å blokkere dem ikke skade et nettsted eller app finansielt. Dette er feil, utviklere tjener også penger bare ved å vise reklamer. Det er opp til deg om du vil blokkere reklamer eller ikke. Selv ville jeg ikke brukt reklamer som viser reklamer fordi jeg anser dem for å være veldig irriterende, så uten en reklameblokkerer ville jeg ikke installert de appene.</p>
 
-
-
 <h2>Hvordan virker AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
-
-<h2>Hvorfor er innstillingen for daglige oppdateringssjekker tonet ut?</h2>
-<p>Å automatisk se etter nye oppdateringer er bare tilgjengelig når AdAway er installert på mobilens interne minne. Dette er på grunn av begrensninger hos Android-plattformen.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Hvorfor må jeg starte Android på nytt for at endringene skal bli tatt i bruk?</h2>
 <p>Java på Android vedlikeholder sitt eget interne DNS-mellomlager. Operativsystemet vil gjenspeile den nye vertsfilen umiddelbart (Dobbeltsjekk det med ping i ledeteksten), men du vil måtte starte Android på nytt for å bygge opp DNS-mellomlageret til Java på nytt.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Hvordan kan jeg blokkere/ublokkere spesifikke vertsnavn?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Hvor kan jeg finne flere vertsfilkilder?</h2>
 <p>Se <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Liste over ytterligere vertskilder for AdAway</a>.</p>

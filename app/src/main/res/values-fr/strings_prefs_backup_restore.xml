@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_backup_restore_title">Sauvegarde &amp; restauration</string>
+    <string name="pref_backup_restore_title">Sauvegarde et restauration</string>
     <string name="pref_backup">Sauvegarde</string>
-    <string name="pref_backup_summary">Sauvegarder vos règles de blocage sur le stockage externe</string>
+    <string name="pref_backup_summary">Sauvegardez vos règles de blocage sur une mémoire externe</string>
     <string name="pref_restore">Restaurer</string>
-    <string name="pref_restore_summary">Restaurer vos règles de blocage depuis un fichier de sauvegarde</string>
+    <string name="pref_restore_summary">Restaurez vos règles de blocage d’un fichier de sauvegarde</string>
 </resources>

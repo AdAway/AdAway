@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Hosts zdroje</string>
     <!-- List -->
+    <string name="hosts_not_available">nie je dostupné</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Pridať zdroj</string>
+    <string name="hosts_edit_dialog_title">Upraviť zdroj</string>
+    <string name="hosts_dialog_url">URL: (https:// alebo file:// zdroja)</string>
+    <string name="hosts_dialog_url_hint">URL zdroja hosts súboru</string>
 </resources>

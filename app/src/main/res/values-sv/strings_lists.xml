@@ -7,11 +7,6 @@
     <string name="lists_tab_redirected">Omdirigerad</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrera värdar</string>
-    <!-- Filter dialog -->
-    <string name="lists_filter_host_title">Filtrera värdnamn:</string>
-    <string name="lists_filter_include_sources">Inkludera värdar från källor</string>
-    <string name="lists_filter_apply">Tillämpa</string>
-    <string name="lists_filter_reset">Återställ</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Lägg till värd till svartlistan</string>
     <string name="list_add_dialog_white">Lägg till värd till vitlistan</string>

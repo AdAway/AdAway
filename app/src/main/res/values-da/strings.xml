@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Afslut</string>
     <string name="button_close">Luk</string>
@@ -26,29 +25,26 @@
     <string name="webserver_status_stopped">Stoppet</string>
     <string name="button_enable_webserver">Aktiver webserver</string>
     <string name="button_disable_webserver">Deaktiver webserver</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Slet</string>
     <string name="checkbox_list_context_title">Rediger opslag</string>
     <string name="checkbox_list_context_edit">Rediger</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importerer…</string>
+    <string name="import_dialog">Importerer...</string>
     <string name="import_success">Sikkerhedskopi importeret med succes fra dit eksterne lager.</string>
     <string name="import_failed">Kunne ikke importere backup. Er dets format korrekt? Tjek logcat for flere detaljer.</string>
-    <string name="export_dialog">Eksporterer…</string>
+    <string name="export_dialog">Eksporterer...</string>
     <string name="export_success">Backup med succes eksporteres til \'adaway-backup.json\' -filen på dit eksterne lager.</string>
     <string name="export_failed">Kunne ikke eksportere en sikkerhedskopi</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Hosts filen</string>
     <string name="hosts_description">Hosts filen er en systemfil, der kortlægger værtsnavne til IP-adresser. Det er en almindelig tekstfil, hvilken konfiguration håndteres af AdAway. Her er de få første linjer:</string>
-    <string name="hosts_content">Indlæser indholdet af hosts filen…</string>
+    <string name="hosts_content">Indlæser indholdet af hosts filen...</string>
     <string name="hosts_open_button">Åbn hosts filen</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Opretter en standard hosts-fil</string>
-    <string name="status_update_available">Opdatering fundet</string>
     <string name="status_update_available_subtitle">En nyere hosts-fil findes</string>
     <string name="status_no_connection">Ingen Internetforbindelse</string>
     <string name="status_no_connection_subtitle">Ingen Internetforbindelse tilgængelig</string>
@@ -62,12 +58,7 @@
     <string name="status_enabled_subtitle">Nyeste hosts-fil aktiveret</string>
     <string name="status_disabled">Deaktiveret</string>
     <string name="status_disabled_subtitle">Standard hostsfil installeret</string>
-    <string name="notification_configuration_changed">Din konfiguration er ændret. Du skal installere hostsfil for at anvende den.</string>
     <string name="notification_configuration_changed_action">Anvend</string>
-    <string name="notification_configuration_installing">Installere hostsfil….</string>
-    <string name="notification_configuration_failed">Kunne ikke installere hostsfilen.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink fra dit mål til /system/etc/hosts findes ikke eller er sat forkert! AdAway virker ikke, hvis den ikke peger det rigtige sted hen.\n\nVil du prøve at lave et symlink?</string>
     <string name="apply_symlink_missing_title">Symlink mangler</string>
     <string name="apply_not_enough_space">Ikke nok plads på partitionen!\nPrøv at ændre hosts kildefilen i indstillingerne til /data/data/hosts.</string>
@@ -86,12 +77,12 @@
     <string name="apply_symlink_fail">Symlink kunne ikke oprettes af Android.\nDet mislykkes hovedsageligt på grund af en \"funktion\", der hedder S-ON på HTC-telefoner!\n\nDen løsning er at starte din telefon i gendannelsesmodus og oprette symlink der med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nHvis dette ikke virker, søg på internettet for S-OFF og din telefon.</string>
     <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
     <string name="apply_help">Venligst læs Hjælp for mere information.</string>
-    <string name="apply_apn_proxy">En APN-proxy er indstillet på din Android!\nAdAway fungerer ikke pålideligt, når du er på mobilnetværk som 3G. Du kan deaktivere den pågældende proxy ved at gå til din valgte APN (Fra indstillingsappen: Netværk og internet -&gt; Mobilnetværk -&gt; Avanceret -&gt; Adgangspunktnavn) og fjerne værdien i proxy-feltet.</string>
+    <string name="apply_apn_proxy">En APN-proxy er indstillet på din Android!\nAdAway fungerer ikke pålideligt, når du er på mobilnetværk som 3G. Du kan deaktivere den pågældende proxy ved at gå til din valgte APN (Fra indstillingsappen: Netværk og internet -> Mobilnetværk -> Avanceret -> Adgangspunktnavn) og fjerne værdien i proxy-feltet.</string>
     <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
     <string name="no_connection">Internetforbindelsen virker ikke.</string>
     <string name="no_connection_title">Ingen forbindelse</string>
-    <string name="download_dialog">Henter…</string>
-    <string name="apply_dialog">Anvender…</string>
+    <string name="download_dialog">Henter...</string>
+    <string name="apply_dialog">Anvender...</string>
     <string name="apply_dialog_lists">Anvender godkendte og ikke godkendte lister</string>
     <string name="apply_dialog_hostnames">Parser og fletter hosts-filer</string>
     <string name="apply_dialog_hosts">Opbygger hosts-filen</string>
@@ -118,7 +109,7 @@
     <string name="no_ip">Dette er ikke en gyldig IP!</string>
     <string name="no_ip_title">Forkert formateret IP</string>
     <string name="reboot_never_reboot">Genstart aldrig og vis ikke dette spørgsmål næste gang!</string>
-    <string name="loading">Indlæser…</string>
+    <string name="loading">Indlæser...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Opdater</string>
@@ -135,10 +126,8 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Her kan du finde installerede adware, dårlige applikationer, som ikke kan blokeres af AdAway. Disse apps bruger f.eks. Airpush-underretninger, der dukker op, selvom appen ikke kører eller endda ændrer din ringetone. Den eneste tilgængelige modforanstaltning er at afinstallere disse apps ved at klikke på listeposterne.</string>
-    <string name="adware_scanning">Scanning…</string>
+    <string name="adware_scanning">Scanning&#8230;</string>
     <string name="adware_empty">Ingen Adware blev fundet!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Reklameblokering</string>
@@ -162,7 +151,6 @@
     <string name="tcpdump_entry_add_whitelist">Tilføj adgang til hvide liste</string>
     <string name="tcpdump_entry_add_redirection_list">Tilføj adgang til omdirigeringsliste</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Rediger tekst præference værdi</string>
     <string name="drawer_open">Åben menu</string>
     <string name="drawer_close">Luk menu</string>
@@ -180,14 +168,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS forespørgsler</string>
     <string name="shortcut_your_lists">Dine lister</string>
     <string name="shortcut_preferences">Indstillinger</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">Aktuelt for %1$s</string>
     <string name="hosts_source_need_update">Brug for opdatering til %1$s</string>
     <string name="hosts_source_last_update">Sidste opdatering %1$s siden</string>
@@ -209,4 +194,4 @@
         <item quantity="other">%d måneder</item>
     </plurals>
 
-</resources>
+    </resources>

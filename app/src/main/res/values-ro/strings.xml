@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Ieșire</string>
     <string name="button_close">Închide </string>
@@ -25,7 +24,7 @@
     <string name="webserver_status_stopped">Oprit</string>
     <string name="button_enable_webserver">Activeaza server web</string>
     <string name="button_disable_webserver">Dezactiveaza server web</string>
-
+    <string name="header_vpn">VPN</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Sterge</string>
     <string name="checkbox_list_context_title">Editeaza pozitia curenta</string>
@@ -36,19 +35,18 @@
     <string name="export_dialog">Exporta…</string>
     <!--Hosts content-->
     <string name="hosts_header">Fisierul \'host\'</string>
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Sistemul creaza fisiere \"hosts\" standard.</string>
     <string name="status_update_available">O noua versiune este disponibila </string>
     <string name="status_update_available_subtitle">Noi fisiere \"host\" sunt disponibile</string>
-    <string name="status_no_connection">Nu exista conexiune internet</string>
-    <string name="status_no_connection_subtitle">Nu exista conexiune internet</string>
+    <string name="status_no_connection">Nu există conexiune internet</string>
+    <string name="status_no_connection_subtitle">Nu este disponibilă o conexiune internet</string>
     <string name="status_download_fail">Surse indisponibile</string>
     <string name="status_download_fail_subtitle_new">N-au fost gasite surse pentru fisierele \"hosts\"</string>
+    <string name="status_root_access_denied">Acces root refuzat</string>
     <string name="status_enabled">Activat</string>
     <string name="status_enabled_subtitle">Cele mai noi versiuni ale fisierelor \"host\" au fost activate</string>
     <string name="status_disabled">Dezactivat</string>
     <string name="notification_configuration_changed_action">Aplică</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink-ul de la ținta dumneavoastră spre /system/etc/hosts nu există sau este incorect! AdAway nu va funcționa dacă nu este îndreptat către fișierul corect.\n\nVreți să încercați să creați un symlink?</string>
     <string name="apply_symlink_missing_title">Legatura tip \"symlink\" lipseste</string>
     <string name="apply_not_enough_space">Spațiu insuficient pe partiție! \nÎncercați să schimbați fișierul hosts țintă din preferințe în /data/data/hosts. </string>
@@ -66,8 +64,8 @@
     <string name="apply_apn_proxy_title">APN proxy a fost setat!</string>
     <string name="no_connection">Conexiunea internet nu functioneaza</string>
     <string name="no_connection_title">Nu exista conexiune!</string>
-    <string name="download_dialog">Descarca…</string>
-    <string name="apply_dialog">Aplica modificarile…</string>
+    <string name="download_dialog">Descărcare…</string>
+    <string name="apply_dialog">Aplicare modificări…</string>
     <string name="apply_dialog_lists">Sistemul aplica atributele ambelor liste (acceptate + blocate) </string>
     <string name="apply_dialog_hostnames">Analizeaza nodurile si atributele (parsing) si combina fisierele (hosts)</string>
     <string name="apply_dialog_hosts">Sistemul genereaza fisiere \"hosts\"</string>
@@ -83,6 +81,7 @@
     <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
     <string name="enable_systemless_successful_title">Activarea a fost reușită</string>
     <string name="disable_systemless_successful_title">Dezactivarea a fost reușită</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
     <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
     <string name="no_hostname_title">Hostname formatat incorect</string>
@@ -99,8 +98,6 @@
     <string name="help_tab_faq">Lista cu intrebari frecvente</string>
     <string name="help_tab_problems">Probleme</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Program care blocheaza reclame</string>
     <string name="no_text_editor_title">Nu exista un editor de text instalat in system.</string>
@@ -109,7 +106,6 @@
     <string name="no_file_manager">Nici un manager de fișiere nu a putut fi găsit pentru a deschide fișiere. Puteți sa instalați OI File Manager sau alți manageri de fișiere pentru a face asta.\n\nVreți să instalați OI File Manager? </string>
 
     <string name="tcpdump_description">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
-    <!--Preferences-->
     <string name="drawer_open">Deschideți meniul</string>
     <string name="drawer_close">Închideți meniul</string>
 
@@ -121,10 +117,31 @@
         <item>Deschide fisierele \"hosts\"</item>
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
-        <item>Preferinte</item>
+        <item>Preferințe</item>
         <item>Ajutor</item>
     </string-array>
+    <string name="shortcut_your_lists">Listele dvs.</string>
+    <string name="shortcut_preferences">Preferințe</string>
 
-    <string name="shortcut_preferences">Preferinte</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d minut</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d minute</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d oră</item>
+        <item quantity="few">%d ore</item>
+        <item quantity="other">%d ore</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d zi</item>
+        <item quantity="few">%d zile</item>
+        <item quantity="other">%d zile</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d lună</item>
+        <item quantity="few">%d luni</item>
+        <item quantity="other">%d luni</item>
+    </plurals>
 
-</resources>
+    </resources>

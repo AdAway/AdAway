@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Keluar</string>
     <string name="button_close">Tutup</string>
@@ -26,29 +25,26 @@
     <string name="webserver_status_stopped">Berhenti</string>
     <string name="button_enable_webserver">Hidupkan layanan perambah</string>
     <string name="button_disable_webserver">Matikan layanan perambah</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Hapus</string>
     <string name="checkbox_list_context_title">Ubah Masukan</string>
     <string name="checkbox_list_context_edit">Sunting</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Mengimpor …</string>
+    <string name="import_dialog">Mengimpor ...</string>
     <string name="import_success">Cadangan sukses diimpor dari penyimpanan eksternal anda</string>
     <string name="import_failed">Cadangan gagal diimpor. Apakah formatnya benar? Lihat logcat untuk detail lebih.</string>
-    <string name="export_dialog">Mengekspor …</string>
+    <string name="export_dialog">Mengekspor ...</string>
     <string name="export_success">Cadangan sukses diekspor ke file \'adaway-backup.json\' pada penyimpanan eksternal anda.</string>
     <string name="export_failed">Gagal untuk mengekspor cadangan.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Daftar hosts</string>
     <string name="hosts_description">File host adalah File sistem yang memetakan antara nama host dengan alamat IP. Itu adalah file teks biasa yang konfigurasinya ditangani oleh Adaway. Berikut beberapa baris pertamanya:</string>
-    <string name="hosts_content">Membaca isi file host…</string>
+    <string name="hosts_content">Membaca isi file host...</string>
     <string name="hosts_open_button">Buka file host</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Membuat host file standar</string>
-    <string name="status_update_available">Pembaruan tersedia</string>
     <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
     <string name="status_no_connection">Tidak ada koneksi internet</string>
     <string name="status_no_connection_subtitle">Tidak ada koneksi internet yang tersedia</string>
@@ -62,12 +58,7 @@
     <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
     <string name="status_disabled">Dimatikan</string>
     <string name="status_disabled_subtitle">File host bawaan dipasang</string>
-    <string name="notification_configuration_changed">Konfigurasi anda berubah. Anda perlu memasang file hosts untuk menerapkannya.</string>
     <string name="notification_configuration_changed_action">Terapkan</string>
-    <string name="notification_configuration_installing">Memasang file host..</string>
-    <string name="notification_configuration_failed">Gagal memasang file host.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink dari target ke /system/etc/hosts tidak benar atau tidak ada! AdAway tidak akan bekerja jika hal itu tidak dibetulkan.\n\nApa anda ingin mencoba membuat symlink?</string>
     <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
     <string name="apply_not_enough_space">Tidak ada cukup ruang di partisi!\nCobalah mengganti target file host di prefrensi menjadi /data/data/hosts.</string>
@@ -86,12 +77,12 @@
     <string name="apply_symlink_fail">Symlink tidak dapat di buat oleh Android.\nKebanyakan ini gagal karena \'fitur\' yang disebut S-ON pada ponsel HTC!\n\nSolusi untuk masalah ini adalah dengan masuk ke mode recovery lalu buat symlink dengan perintah \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika masih tidak mempan carilah di Internet cara untuk S-OFF ponselmu.</string>
     <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
     <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
-    <string name="apply_apn_proxy">Sebuah proksi APN terkonfigurasi pada Android mu!\nAdAway mungkin tidak berdungsi semestinya pada jaringan seperti 3G. Kamu bisa mematikan proksi pada APN terkonfigurasi (Pengaturan aplikasi: Jaringan &amp; Internet -&gt; Jaringan Mobile -&gt; Lanjutan -&gt; Nama Akses Poin) dan hapus nilai pada kolom proksi.</string>
+    <string name="apply_apn_proxy">Sebuah proksi APN terkonfigurasi pada Android mu!\nAdAway mungkin tidak berdungsi semestinya pada jaringan seperti 3G. Kamu bisa mematikan proksi pada APN terkonfigurasi (Pengaturan aplikasi: Jaringan &amp; Internet -> Jaringan Mobile -> Lanjutan -> Nama Akses Poin) dan hapus nilai pada kolom proksi.</string>
     <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
     <string name="no_connection">Koneksi internet tidak berfungsi.</string>
     <string name="no_connection_title">Tidak ada koneksi</string>
-    <string name="download_dialog">Sedang mendownload…</string>
-    <string name="apply_dialog">Menerapkan perubahan…</string>
+    <string name="download_dialog">Sedang mendownload...</string>
+    <string name="apply_dialog">Menerapkan perubahan...</string>
     <string name="apply_dialog_lists">Menerapkan daftar hitam dan putih</string>
     <string name="apply_dialog_hostnames">Mengakses dan menggabungkan file host</string>
     <string name="apply_dialog_hosts">Menyusun file hosts</string>
@@ -123,7 +114,7 @@
     <string name="no_ip">Ini bukan IP yang benar!</string>
     <string name="no_ip_title">IP tidak diformat dengan benar</string>
     <string name="reboot_never_reboot">Jangan pernah nyalakan ulang dan jangan tampilkan pertanyaan ini lain kali</string>
-    <string name="loading">Memuat…</string>
+    <string name="loading">Memuat...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Segarkan</string>
@@ -140,10 +131,8 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Disini Anda dapat menemukan adware yang terpasang, aplikasi jelek yang tidak dapat diblok oleh AdAway. Aplikasi ini digunakan sebagai contoh, notifikasi Airpush yang muncul ketika aplikasi tidak berjalan ataupun mengganti ringtonemu. Satu-satunya penanggulangan yang tersedia adalah melepas aplikasi-aplikasi tersebut dengan mengklik pada daftar item.</string>
-    <string name="adware_scanning">Memindai…</string>
+    <string name="adware_scanning">Memindai&#8230;</string>
     <string name="adware_empty">Adware tidak ditemukan!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
@@ -167,7 +156,6 @@
     <string name="tcpdump_entry_add_whitelist">Tambahkan pada daftar putih</string>
     <string name="tcpdump_entry_add_redirection_list">Tambahkan pada daftar pengalihan</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Ubah nilai preferensi teks</string>
     <string name="drawer_open">Buka menu</string>
     <string name="drawer_close">Tutup menu</string>
@@ -185,14 +173,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Aktifitas DNS</string>
     <string name="shortcut_your_lists">Daftar pribadi</string>
     <string name="shortcut_preferences">Pengaturan</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">Pembaruan untuk %1$s</string>
     <string name="hosts_source_need_update">Pembaruan dibutuhkan untuk %1$s</string>
     <string name="hosts_source_last_update">Pembaruan terakhir %1$s yang lalu</string>
@@ -210,4 +195,4 @@
         <item quantity="other">%d bulan</item>
     </plurals>
 
-</resources>
+    </resources>

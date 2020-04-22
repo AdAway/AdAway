@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">離開</string>
     <string name="button_close">關閉</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">已停止</string>
     <string name="button_enable_webserver">啟用網頁伺服器</string>
     <string name="button_disable_webserver">停用網頁伺服器</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">刪除</string>
     <string name="checkbox_list_context_title">編輯項目</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">正在載入 hosts 檔案內容…</string>
     <string name="hosts_open_button">開啟 hosts 檔案</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
     <string name="status_update_available">有更新</string>
     <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
     <string name="status_disabled">停用</string>
     <string name="status_disabled_subtitle">預設 hosts 檔案已安裝</string>
-    <string name="notification_configuration_changed">您的配置已變更。您需要安裝 hosts 檔案來套用它。</string>
     <string name="notification_configuration_changed_action">套用</string>
-    <string name="notification_configuration_installing">正在安裝 hosts 檔案…</string>
-    <string name="notification_configuration_failed">無法安裝 hosts 檔案。</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">你設定的目標不存在或者不是正確的 /system/etc/hosts 符號連結！沒有正確的符號連結AdAway不能執行。 你需要建立符號連結嗎？</string>
     <string name="apply_symlink_missing_title">符號連結遺失</string>
     <string name="apply_not_enough_space">分割區上沒有足夠的空間！\n請試著在設定裡面將目標 hosts 檔案變更為 /data/data/hosts。</string>
@@ -143,8 +135,6 @@
     <string name="adware_scanning">掃描中…</string>
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">廣告阻擋器</string>
     <string name="no_text_editor_title">沒有安裝文字編輯器</string>
@@ -167,7 +157,6 @@
     <string name="tcpdump_entry_add_whitelist">加入項目至白名單</string>
     <string name="tcpdump_entry_add_redirection_list">加入項目至重新導向清單</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">編輯文字設定值</string>
     <string name="drawer_open">開啟選單</string>
     <string name="drawer_close">關閉選單</string>
@@ -185,14 +174,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 請求</string>
     <string name="shortcut_your_lists">你的清單</string>
     <string name="shortcut_preferences">設定</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">%1$s 是最新的</string>
     <string name="hosts_source_need_update">%1$s 需要更新</string>
     <string name="hosts_source_last_update">上次更新 %1$s 前</string>
@@ -210,4 +196,4 @@
         <item quantity="other">%d 個月</item>
     </plurals>
 
-</resources>
+    </resources>

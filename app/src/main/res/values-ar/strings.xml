@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">خروج</string>
     <string name="button_close">إغلاق</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">موقوف</string>
     <string name="button_enable_webserver">تشغيل خادم الويب</string>
     <string name="button_disable_webserver">إيقاف خادم الويب</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">حذف</string>
     <string name="checkbox_list_context_title">تحرير المدخلة</string>
@@ -47,7 +45,6 @@
     <string name="hosts_content">جارٍ تحميل محتوى ملف المضيف…</string>
     <string name="hosts_open_button">فتح ملف المضيف</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">إنشاء ملفات المضيف الأساسية</string>
     <string name="status_update_available">يوجد تحديث متوفر</string>
     <string name="status_update_available_subtitle">ملفات المضيف الجديدة متوفرة</string>
@@ -63,12 +60,7 @@
     <string name="status_enabled_subtitle">ملفات المضيف الحديثة مفعلة</string>
     <string name="status_disabled">معطل</string>
     <string name="status_disabled_subtitle">ملف المضيف الإفتراضي مُثبّت</string>
-    <string name="notification_configuration_changed">لقد تغيرت التّهيِئَة. يرجى تثبيت ملف المضيف لتطبيق التغييرات.</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
-    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف…</string>
-    <string name="notification_configuration_failed">فشل في تثبيت ملف المضيفات</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">symlink من مسارك الى /system/etc/hosts غير موجود او غير صحيح . البرنامج لن يعمل اذا لم يتم تحديد الملف الصحيح . هل تريد محاولة انشاء symlink ؟</string>
     <string name="apply_symlink_missing_title">الارتباط الرمزي مفقود</string>
     <string name="apply_not_enough_space">لا توجد مساحة كافية على القرص حاول تغيير المسار من الاعدادت الى /data/data/hosts</string>
@@ -139,8 +131,6 @@
     <string name="adware_scanning">جار الفحص…</string>
     <string name="adware_empty">لم يتم العثور على إعلانات مُتسلّلة!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">حاجب الإعلانات</string>
     <string name="no_text_editor_title">لا يوجد محرر نصوص مثبت</string>
@@ -163,7 +153,6 @@
     <string name="tcpdump_entry_add_whitelist">إضافة المُدخَل للقائمة البيضاء</string>
     <string name="tcpdump_entry_add_redirection_list">إضافة المُدخَل إلى قائمة إعادة التوجيه</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">تحرير قيمة إعدادات النص</string>
     <string name="drawer_open">فتح القائمة</string>
     <string name="drawer_close">إغلاق القائمة</string>
@@ -181,14 +170,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">طلبات DNS</string>
     <string name="shortcut_your_lists">قوائمك</string>
     <string name="shortcut_preferences">الخيارات</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">حالي لـ %1$s</string>
     <string name="hosts_source_need_update">مطلوب تحديث لـ %1$s</string>
     <string name="hosts_source_last_update">آخر تحديث قبل %1$s</string>
@@ -226,4 +212,4 @@
         <item quantity="other">أشهُر %d</item>
     </plurals>
 
-</resources>
+    </resources>

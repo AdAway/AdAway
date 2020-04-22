@@ -12,30 +12,30 @@
         <item quantity="other">%d sources à jour</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d source obsolète</item>
-        <item quantity="other">%d sources obsolètes</item>
+        <item quantity="one">%d source périmée</item>
+        <item quantity="other">%d sources périmées</item>
     </plurals>
 
     <!-- Help card -->
-    <string name="help_label">Afficher l\'aide</string>
+    <string name="help_label">Afficher l’aide</string>
 
     <!-- Project card -->
-    <string name="project_label">Visiter le projet GitHub</string>
+    <string name="project_label">Ouvrir la page GitHub</string>
 
     <!-- Support card -->
-    <string name="support_label">Supporter le projet</string>
+    <string name="support_label">Soutenir le projet</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">Journaux DNS</string>
+    <string name="dns_log_drawer_item">Journaux DNS</string>
     <string name="preferences_drawer_item">Préférences</string>
 
     <!-- App bar buttons -->
     <string name="open_drawer_button_description">Ouvrir le tiroir de navigation</string>
-    <string name="adblock_pause_button_description">Stopper/Reprendre le blocage</string>
+    <string name="adblock_pause_button_description">Mettre en pause/Reprendre le blocage des publicités</string>
     <string name="update_button">Mettre à jour les domaines bloqués</string>
     <string name="show_log_button">Afficher les domaines interrogés</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Veuillez lire l’aide pour plus de précisions.</string>
+    <string name="error_dialog_help">Veuillez consulter l’aide pour plus de précisions.</string>
 
 </resources>

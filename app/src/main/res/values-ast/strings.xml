@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Colar</string>
     <string name="button_close">Zarrar</string>
@@ -11,8 +10,16 @@
     <string name="button_save">Guardar</string>
     <string name="button_help">Ayuda</string>
 
+    <!--Home-->
+    <string name="header_help">¡Afáyate!</string>
+    <string name="text_help">Adaway ye un programa gratuitu y de códigu abiertu diseñáu pa bloquiar anuncios. Va en cata de les direiciones de les redes d\'anuncios pa bloquiales nel preséu.\n¿Quies saber más? ¡Mira l\'ayuda d\'embaxo!</string>
     <string name="text_update">Tolos ficheros «Hosts» de les fontes defeníes báxense, amiéstense coles tos propies llistes ya instálense como un ficheru «Hosts» nel sistema.</string>
     <string name="button_check_update_hosts">Comprobar anovamientos</string>
+    <string name="button_enable_hosts">Activar el bloquéu d\'anuncios</string>
+    <string name="header_webserver">Sirvidor web</string>
+    <string name="webserver_status_running">N\'execución</string>
+    <string name="webserver_status_stopped">En parada</string>
+    <string name="header_vpn">VPN</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Desaniciar</string>
     <string name="checkbox_list_context_title">Editar entrada</string>
@@ -21,7 +28,13 @@
     <!--Your lists-->
     <string name="import_dialog">Importando…</string>
     <string name="export_dialog">Esportando…</string>
-    <!--Status Notification-->
+    <string name="export_failed">Fallu al esportar la copia de seguranza.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">El ficheru hosts</string>
+    <string name="hosts_content">Cargando\'l conteníu del ficheru hosts...</string>
+    <string name="hosts_open_button">Abrir el ficheru hosts</string>
+
     <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>
     <string name="status_update_available">Anovamientu disponible</string>
     <string name="status_update_available_subtitle">Hai disponible un ficheru hosts más nuevu</string>
@@ -32,7 +45,6 @@
     <string name="status_enabled">Habilitáu</string>
     <string name="status_enabled_subtitle">Habilitáronse los ficheros «hosts» más nuevos</string>
     <string name="status_disabled">Deshabilitáu</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">¡Nun esiste o ye incorreutu l\'enllaz simbólicu dende\'l to oxetivu a /system/etc/hosts! Adaway nun furrulará si nun ta apuntando al ficheru correutu.\n\n¿Quies crear un enllaz simbólicu?</string>
     <string name="apply_symlink_missing_title">Falta l\'enllaz simbólicu</string>
     <string name="apply_not_enough_space">¡Nun hai espaciu abondo na partición!\nIntenta camudar nes preferencies el ficheru «hosts» oxetivu a /data/data/hosts .</string>
@@ -65,6 +77,7 @@
     <string name="download_fail_title">Descarga fallida</string>
     <string name="no_private_file">Nun pue crease\'l ficheru priváu.</string>
     <string name="no_private_file_title">Fallu na creación del ficheru priváu</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">Enllaz d\'entrada al ficheru hosts:</string>
     <string name="no_hostname">¡Esto nun ye un nome d\'agospiu válidu!</string>
     <string name="no_hostname_title">Nome d\'agospiu mal formáu</string>
@@ -76,12 +89,17 @@
     <string name="menu_refresh">Refrescar</string>
     <string name="menu_add">Amestar</string>
     <string name="menu_help">Ayuda</string>
+    <string name="menu_import">Importar una copia de seguranza</string>
+    <string name="menu_export">Esportar</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Problemes</string>
 
-    <!--Hosts sources-->
+    <!--Adware-->
+    <string name="adware_header">Adware</string>
+    <string name="adware_description">Equí pues alcontrar adware, aplicaciones malicioses qu\'AdAway nun pue bloquiar. Estes aplicaciones camuden el tonu d\'avisu del preséu o usen, por exemplu, avisos Airpush qu\'apaecen magar que l\'aplicación nun tea n\'execución. La única midida pa facer qu\'esto nun pase ye desinstalar eses aplicaciones calcando nos elementos de la llista.</string>
     <!--Other-->
     <string name="app_subtitle">Bloquiador d\'anuncios</string>
     <string name="no_text_editor_title">Nun hai dal editor de testos instaláu</string>
@@ -89,8 +107,13 @@
     <string name="no_file_manager_title">Nun hai instaláu dal xestor de ficheros</string>
     <string name="no_file_manager">Nun pudo alcontrase dal xestor de ficheros. Pues instalar OI File Manager u otros pa remanar esto.\n\n¿Quies instalar OI File Manager?</string>
 
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_description">Tcpdump ye una ferramienta pa monitorizar les solicitúes DNS y guardales nun ficheru de rexistru. Pues anicialu de fondu, executar les aplicaciones qu\'amuesen anuncios y sero analizar les solicitúes DNS usando\'l ficheru de rexistru. Ye posible amestar el sirvidor d\'anuncios a la to llista prieta.</string>
-    <!--Preferences-->
+    <string name="tcpdump_disable_monitoring">Desactivar la supervisión</string>
+    <string name="tcpdump_enable_monitoring">Activar la supervisión</string>
+    <string name="tcpdump_show_results">Amosar resultaos</string>
+    <string name="tcpdump_sort_alphabetical">Orde alfabéticu</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -102,6 +125,25 @@
         <item>Preferencies</item>
         <item>Ayuda</item>
     </string-array>
+    <string name="shortcut_your_lists">Llistes de to</string>
     <string name="shortcut_preferences">Preferencies</string>
 
-</resources>
+    <string name="hosts_source_unknown_status">Desconozse l\'estáu d\'anovamientu</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d minutu</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d hores</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d día</item>
+        <item quantity="other">%d díes</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d mes</item>
+        <item quantity="other">%d meses</item>
+    </plurals>
+
+    </resources>

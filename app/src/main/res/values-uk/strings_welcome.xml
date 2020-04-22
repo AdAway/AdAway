@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Вітаємо</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Логотип вітання</string>
+    <string name="welcome_method_header">Вітаємо в AdAway!</string>
+    <string name="welcome_method_summary">AdAway надає два способи блокування реклами. Виберіть один:</string>
+
+    <string name="welcome_root_method_logo">Логотип рут</string>
+    <string name="welcome_root_method_title">Блокування\nчерез рут</string>
+    <string name="welcome_root_method_text1">Швидший</string>
+    <string name="welcome_root_method_text2">Ощадливий до батареї</string>
+    <string name="welcome_root_method_text3">Потрібен рут</string>
+
+    <string name="welcome_vpn_method_logo">Логотип VPN</string>
+    <string name="welcome_vpn_method_title">Блокування\nчерез VPN</string>
+    <string name="welcome_vpn_method_text1">Повільніший</string>
+    <string name="welcome_vpn_method_text2">Працює в фоні</string>
+    <string name="welcome_vpn_method_text3">Сумісність</string>
+
+    <string name="welcome_root_missing_title">Необхідні права суперкористувача (root)</string>
+    <string name="welcome_root_missile_description">Неможливо знайти бінарний файл su, або ви не надали AdAway рут права.\n\nЦе може трапитися, якщо ваш пристрій не рутовано. Ви можете дізнатися, як поставити рут права на ваш пристрій на wiki.lineageos.org або інших сайтах про Android.</string>
+
+    <string name="welcome_method_pro_logo">Переваги</string>
+    <string name="welcome_method_con_logo">Недоліки</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Синхронізовано</string>
+    <string name="welcome_sync_error_logo">Помилка під час синхронізації</string>
+
+    <string name="welcome_sync_header">Синхронізація</string>
+    <string name="welcome_synced_header">Синхронізовано!</string>
+    <string name="welcome_sync_summary">AdAway завантажує мережі оголошень, які потрібно блокувати. Ви можете змінити їх в налаштуваннях.</string>
+    <string name="welcome_sync_retry_logo">Повторити синхронізацію</string>
+    <string name="welcome_sync_error">Не вдалося синхронізувати:\n%s.\nПовторити?</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Підтримка</string>
+    <string name="welcome_support_header">Підтримай мене!</string>
+    <string name="welcome_support_summary">Це безкоштовний застосунок з відкритим вихідним кодом. Я розробляв його у свій вільний час. Тому, якщо вам подобаєтсья цей застосунок, ви можете підтримати подальшу його розробку:</string>
+    <string name="welcome_support_button">Заплатити через PayPal</string>
+    <string name="welcome_support_telemetry_summary">Любите помилки? Я теж ні.</string>
+    <string name="welcome_support_telemetry_button">Увімкнути збір даних про помилки</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Назад</string>
+    <string name="welcome_next_button">Вперед</string>
+    <string name="welcome_finish_button">Завершити</string>
 </resources>

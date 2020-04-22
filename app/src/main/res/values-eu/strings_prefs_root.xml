@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Ireki hostalari agiria</string>
     <string name="pref_apply_method">Xede hostalari agiria</string>
     <string name="pref_apply_method_summary">Ezarpen hau aldatu aurretik, irakurri bere eginkizunari buruz Laguntza.</string>
     <string-array name="pref_apply_method_entries">
@@ -12,6 +12,7 @@
     <string name="pref_custom_target">Norbere xedea</string>
     <string name="pref_never_reboot">Ezkutatu berrabiarazte elkarrizketa</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Berzuzenketa</string>
     <string name="pref_redirection_ipv4">IPv4 birbideratzea</string>
     <string name="pref_redirection_ipv6">IPv6 birbideratzea</string>
     <!-- Web server category -->

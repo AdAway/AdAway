@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Salir</string>
     <string name="button_close">Cerrar</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">Detenido</string>
     <string name="button_enable_webserver">Habilitar servidor web</string>
     <string name="button_disable_webserver">Inhabilitar servidor web</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Borrar</string>
     <string name="checkbox_list_context_title">Editar entrada</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">Cargando el contenido del archivo hosts…</string>
     <string name="hosts_open_button">Abrir el archivo hosts</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
     <string name="status_update_available">Actualización disponible</string>
     <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">Los archivos hosts más recientes están habilitados</string>
     <string name="status_disabled">Inhabilitado</string>
     <string name="status_disabled_subtitle">El archivo hosts predeterminado está instalado</string>
-    <string name="notification_configuration_changed">La configuración cambió. Debes instalar el archivo hosts para aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Instalando el archivo hosts…</string>
-    <string name="notification_configuration_failed">No se pudo instalar el archivo hosts.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">El vínculo simbólico del objetivo a /system/etc/hosts no existe o es incorrecto. AdAway no funcionará si este vínculo no apunta al archivo correcto.\n\n¿Quieres intentar crear un vínculo simbólico?</string>
     <string name="apply_symlink_missing_title">Falta el vínculo simbólico</string>
     <string name="apply_not_enough_space">No queda espacio suficiente en la partición.\nIntenta cambiar el archivo hosts objetivo en la configuración a /data/data/hosts.</string>
@@ -143,8 +135,6 @@
     <string name="adware_scanning">Analizando…</string>
     <string name="adware_empty">No se encontró adware.</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Bloqueador de anuncios</string>
     <string name="no_text_editor_title">No tienes instalado ningún editor de texto</string>
@@ -167,7 +157,6 @@
     <string name="tcpdump_entry_add_whitelist">Añadir entrada a la Lista Blanca</string>
     <string name="tcpdump_entry_add_redirection_list">Añadir entrada a la Lista de Redirección</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Editar valor de texto de la preferencia</string>
     <string name="drawer_open">Abrir menú</string>
     <string name="drawer_close">Cerrar menú</string>
@@ -185,14 +174,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Pedidos DNS</string>
     <string name="shortcut_your_lists">Tus listas</string>
     <string name="shortcut_preferences">Preferencias</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">%1$s actualizado</string>
     <string name="hosts_source_need_update">%1$s necesita una actualización</string>
     <string name="hosts_source_last_update">Última actualización hace %1$s</string>
@@ -214,4 +200,4 @@
         <item quantity="other">%d meses</item>
     </plurals>
 
-</resources>
+    </resources>

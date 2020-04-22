@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Немає з\'єднання з Інтернет</string>
+    <string name="error_no_connection_details">Не вдалося з\'єднатися з Інтернетом. Перевірте підключення на вашому пристої.</string>
+    <string name="error_download_failed_message">Не вдалося завантажити джерело хостів</string>
+    <string name="error_download_failed_details">Жоден з увімкнених джерел хостів недоступний. Перевірте, чи є з\'єднання з Інтернетом.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Не вдалося створити приватний файл</string>
+    <string name="error_private_file_failed_details">Не вдалося створити приватний файл, щоб сформувати джерело хостів. Перевірте, чи є вільне місце на вашому пристрої.</string>
+    <string name="error_not_enough_space_message">Не достатньо місця</string>
+    <string name="error_not_enough_space_details">Не вдалося скопіювати файл hosts на системний розділ. Перевірте в застосунку Magisk Manager, чи увімкнено модуль позасистемних хостів, і потім перезавантажте пристрій.</string>
+    <string name="error_copy_failed_message">Не вдалося встановити файл hosts</string>
+    <string name="error_copy_failed_details">Не вдалося скопіювати файл hosts в розділ /system. Перевірте в застосунку Magisk Manager, чи увімкнено модуль позасистемних хостів, і потім перезавантажте пристрій.</string>
+    <string name="error_revert_failed_message">Не вдалося відновити файл hosts</string>
+    <string name="error_revert_failed_details">Не вдалося відновити усталену конфігурацію файла hosts.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Не вдалося увімкнути блокування VPN.</string>
+    <string name="error_enable_vpn_failed_details">Щоб розпочати, авторизуйте застосунок для VPN в системних налаштуваннях VPN.</string>
+    <string name="error_disable_vpn_failed_message">Не вдалося вимкнути блокування VPN.</string>
+    <string name="error_disable_vpn_failed_details">В налаштуваннях VPN його можна вимкнути вручну.</string>
 </resources>

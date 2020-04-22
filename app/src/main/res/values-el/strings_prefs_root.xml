@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Άνοιγμα του αρχείου hosts</string>
     <string name="pref_apply_method">Αρχείο hosts προορισμού</string>
     <string name="pref_apply_method_summary">Πριν μεταβάλετε αυτή την ρύθμιση, διαβάστε την Βοήθεια σχετικά με αυτή την λειτουργικότητα.</string>
     <string-array name="pref_apply_method_entries">
@@ -12,6 +12,7 @@
     <string name="pref_custom_target">Παραμετροποιημένος προορισμός</string>
     <string name="pref_never_reboot">Απόκρυψη διαλόγου επανεκκίνησης</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Ανακατεύθυνση </string>
     <string name="pref_redirection_ipv4">Ανακατεύθυνση IPv4</string>
     <string name="pref_redirection_ipv6">Ανακατεύθυνση IPv6</string>
     <!-- Web server category -->

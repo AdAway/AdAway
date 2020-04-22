@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">منابع Hosts</string>
     <!-- List -->
-    <!-- Edition dialog -->
+    <string name="hosts_not_available">موجود نیست:</string>
+    <string name="hosts_dialog_url_hint">لینک منبع هاست ها</string>
 </resources>

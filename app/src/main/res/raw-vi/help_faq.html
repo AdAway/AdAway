@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Thu nhập từ quảng cáo</h2>
 <p>Có một quan niệm cho rằng nếu người dùng không bao giờ nhấp chuột vào quảng cáo thì việc chặn chúng sẽ không làm trang web hoặc ứng dụng bị tổn thất về mặt tài chính. Điều này thật sai lầm vì các nhà phát triển cũng kiếm được tiền cho dù chỉ hiển thị quảng cáo. Việc chặn quảng cáo hay không tuỳ thuộc vào bạn. Cá nhân tôi sẽ không dùng các ứng dụng có hiển thị quảng cáo bởi vì tôi thấy chúng rất khó chịu, chính vì vậy mà khi không có phần mềm chặn quảng cáo tôi sẽ không cài đặt những ứng dụng này.</p>
 
-
-
 <h2>AdAway hoạt động như thế nào?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
-
-<h2>Tại sao tuỳ chọn kiểm tra cập nhật hàng ngày chuyển sang màu xám?</h2>
-<p>Tự động kiểm tra cập nhật mới chỉ có hiệu lực khi AdAway được cài đặt trên bộ nhớ trong của điện thoại. Đó là do những hạn chế trên nền tảng Android.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Tại sao tôi phải khởi động lại Android để thay đổi có hiệu lực?</h2>
 <p>Java trên Android duy trì bộ nhớ đệm DNS bên trong của chính nó. Hệ điều hành sẽ phản xạ tập tin tên miền mới ngay lập tức (xác minh nó với ping trên dòng lệnh) nhưng bạn cần khởi động lại Android để xây dựng lại bộ nhớ đệm DNS của Java.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Làm sao có thể chặn/bỏ chặn tên miền cụ thể?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Tôi có thể tìm thêm các nguồn tên miền ở đâu?</h2>
 <p>Xem <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Danh sách tên miền được bổ sung cho AdAway</a>.</p>

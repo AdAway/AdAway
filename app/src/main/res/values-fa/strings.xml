@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">خروج</string>
     <string name="button_close">بستن</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">متوقف شده</string>
     <string name="button_enable_webserver">فعالسازی وب سرور</string>
     <string name="button_disable_webserver">غیرفعالسازی وب سرور</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">حذف کردن</string>
     <string name="checkbox_list_context_title">ویرایش ورودی</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">بارگذاری محتوای فایل هاست…</string>
     <string name="hosts_open_button">بازکردن هاست فایل</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">ایجاد فایل hosts استاندارد</string>
     <string name="status_update_available">به روز رسانی موجود میباشد</string>
     <string name="status_update_available_subtitle">فایلهای hosts جدیدتری موجود میباشد</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">فایل های hosts جدید فعال شد</string>
     <string name="status_disabled">غیر فعال</string>
     <string name="status_disabled_subtitle">هاست فایل‌های پیشفرض نصب شدند</string>
-    <string name="notification_configuration_changed">تنظیمات شما تغییر کرد. برای اعمال تغییرات باید هاست فایل رو نصب کنید.</string>
     <string name="notification_configuration_changed_action">اعمال تغییرات</string>
-    <string name="notification_configuration_installing">در حال نصب هاست فایل…</string>
-    <string name="notification_configuration_failed">نصب هاست فایل با شکست مواجه شد.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">پیوند نمادین از هدف شما به /system/etc/hosts وجود ندارد و یا درست نمیباشد! اگر مسیر فایل به درستی تنظیم نشده باشد برنامه AdAway به درستی کار نخواهد کرد.\n\nآیا مایلید که یک پیوند نمادین ایجاد نمایید؟</string>
     <string name="apply_symlink_missing_title">پیوند نمادین موجود نیست</string>
     <string name="apply_not_enough_space">فضای کافی در پارتیشن موجود نیست!\nسعی نمایید مسیر فایل hosts را در تنظیمات به /data/data/hosts تغییر دهید.</string>
@@ -103,6 +95,7 @@
     <string name="no_private_file_title">ایجاد ناموفق فایل خصوصی</string>
     <string name="enable_systemless_successful_title">فعال کردن با موفقیت انجام شد</string>
     <string name="disable_systemless_successful_title">غیر فعال کردن با موفقیت انجام شد</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">تارنما به فایل hosts وارد نمایید</string>
     <string name="no_hostname">این یک hostname مجاز نیست</string>
     <string name="no_hostname_title">hostname با فرمت نادرست</string>
@@ -124,8 +117,6 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">مسدودگر تبلیغات</string>
     <string name="no_text_editor_title">هیچ ویرایشگر متنی نصب نیست</string>
@@ -137,7 +128,6 @@
     <string name="tcpdump_show_results">نمایش نتایج</string>
     <string name="tcpdump_menu_clear">پاک کردن رویدادها</string>
     <string name="tcpdump_sort_alphabetical">مرتب‌سازی بر اساس حروف الفبا</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -151,4 +141,4 @@
     </string-array>
     <string name="shortcut_preferences">تنظیمات</string>
 
-</resources>
+    </resources>

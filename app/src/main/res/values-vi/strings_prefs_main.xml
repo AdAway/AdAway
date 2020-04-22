@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
-    <!-- Ad block category -->
+    <string name="pref_main_title">Tuỳ chỉnh</string>
     <string name="pref_whitelist_rules">Cho phép tạo danh sách trắng</string>
     <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
     <string name="pref_enable_ipv6">Bật IPv6</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Dò lỗi</string>
     <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
 </resources>

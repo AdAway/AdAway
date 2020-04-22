@@ -3,19 +3,19 @@ This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
 <!DOCTYPE html>
 <html>
-<head><title>S-ON related help</title></head>
+<head><title>Ayuda rellacionada con S-ON</title></head>
 <body>
-<h2>Preseos HTC</h2>
-<p>Adaway nun furrula cuando tas usando un preséu col llamáu S-ON. Esta «carauterística» esiste en munchos preseos HTC y evita qu'AdAway escriba nel ficheru «hosts».</p>
+<h2>Preseos de HTC</h2>
+<p>AdAway nun funciona cuando tas usando un preséu col llamáu S-ON. Esta «carauterística» esiste en munchos preseos de HTC y evita qu'AdAway escriba nel ficheru hosts.</p>
 
-<h2>¿S-ON/S-OFF?</h2>
-<p>S-OFF significa que'l cachu de NAND del preséu ta desbloquiáu y pue escribise nelli. L'axuste predetermináu pa los preseos HTC ye S-ON que quier dicir que nin pues acceder a ciertes arees del sistema, nin pues garantizar un rootéu permanente. Amás, tamién s'asegura la comprobación de comprobación de la robla pa les imáxenes del firmware pola bandera S-ON.</p>
+<h2>¿S-ON / S-OFF?</h2>
+<p>S-OFF means that the NAND portion of the device is unlocked and can be written to. The default setting for HTC devices is S-ON, which means that neither can you access certain areas of the system nor can you guarantee a permanent root. Furthermore, signature check for firmware images is also ensured by the S-ON flag.</p>
 
-<h2>¿Teo S-ON o S-OFF?</h2>
+<h2>¿Tengo S-ON o S-OFF?</h2>
 <p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
 <br><br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
 
-<h2>Igua alternativa</h2>
+<h2>Workaround</h2>
 <p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
 <ol>
 <li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
@@ -25,7 +25,7 @@ And don't add newlines before or after p tags because of transifex -->
 <li>Plug in your USB cord and open a command line on your pc.</li>
 <li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
 <li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
-<li>Agora AdAway debería furrular.</li>
+<li>Agora AdAway debería funcionar.</li>
 </ol>
 </body>
 </html>

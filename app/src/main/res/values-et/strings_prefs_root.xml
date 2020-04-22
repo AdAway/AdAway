@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Ava hosts-fail</string>
     <string name="pref_apply_method">Hosts-faili asukoht</string>
     <string name="pref_apply_method_summary">Enne muutmist loe abist selle funktsiooni kohta.</string>
     <string-array name="pref_apply_method_entries">
@@ -12,6 +12,7 @@
     <string name="pref_custom_target">Muu asukoht</string>
     <string name="pref_never_reboot">Taaskäivitamise dialoog peidetud</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Suunamine</string>
     <string name="pref_redirection_ipv4">Suunamise IPv4</string>
     <string name="pref_redirection_ipv6">Suunamise IPv6</string>
     <!-- Web server category -->

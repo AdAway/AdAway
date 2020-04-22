@@ -1,21 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Åben hosts-filen</string>
     <string name="pref_apply_method">Destinations-hostsfil</string>
-    <string name="pref_apply_method_summary">Inden du ændrer denne indstilling, skal du læse Hjælp om denne funktionalitet.</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Brugerdefineret destination</item>
     </string-array>
-    <string name="pref_custom_target">Brugerdefineret destination</string>
-    <string name="pref_never_reboot">Gem genstarts-dialogboksen</string>
     <!-- Redirection category -->
-    <string name="pref_redirection_ipv4">IPv4 Omdirigering</string>
-    <string name="pref_redirection_ipv6">IPv6 Omdirigering</string>
-    <!-- Web server category -->
-    <string name="pref_webserver">Lokal webserver</string>
-    <string name="pref_webserver_enabled">Aktivér webserver</string>
-    <string name="pref_webserver_on_boot">Start webserver ved opstart</string>
-</resources>
+    <string name="pref_hosts_redirection">Omdirigering</string>
+    <string name="pref_webserver_enabled">Aktiver webserver</string>
+    </resources>

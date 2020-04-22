@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
+    <string name="pref_main_title">Eelistused</string>
     <string name="pref_dark_theme">Luba tume teema</string>
-    <!-- Ad block category -->
     <string name="pref_whitelist_rules">Luba valge loend</string>
     <string name="pref_redirection_rules">Luba suunamised</string>
     <string name="pref_enable_ipv6">Luba IPv6</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Silumine</string>
     <string name="pref_enable_telemetry">Luba krahhiaruanded</string>
     <string name="pref_enable_telemetry_summary">Luba rakendusel saata vigu ja krahhiaruandeid Sentryle (sentry.io)</string>
     <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>

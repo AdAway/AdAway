@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">İnternet bağlantısı yok</string>
+    <string name="error_no_connection_details">İnternet bağlantısı kurulamıyor. Lütfen cihaz bağlantınızı kontrol edin.</string>
+    <string name="error_download_failed_message">Hosts kaynağı indirilemedi</string>
+    <string name="error_download_failed_details">Etkin hosts kaynaklarınızın hiçbirine ulaşılamıyor. Lütfen İnternet\'e düzgün şekilde bağlandığınızı kontrol edin.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Özel dosya oluşturulamadı</string>
+    <string name="error_private_file_failed_details">Yeni bir hosts kaynağı inşa etmek için özel dosya oluşturulamıyor. Lütfen cihazınızda kullanılabilir boş alanı kontrol edin.</string>
+    <string name="error_not_enough_space_message">Yeterli alan yok</string>
+    <string name="error_not_enough_space_details">Hosts dosyası sistem bölümünüze kopyalanamıyor. Lütfen Magisk sistemsiz modülünün etkin olup olmadığını kontrol edin ve yeniden başlatın.</string>
+    <string name="error_copy_failed_message">Yeni hosts dosyası yüklenemedi</string>
+    <string name="error_copy_failed_details">Hosts dosyası / sistem bölümüne kopyalanamıyor. Lütfen Magisk sistemsiz modülünün yeniden başlatmanın etkinleştirildiğini kontrol edin.</string>
+    <string name="error_revert_failed_message">Hosts dosyası geri alınamadı</string>
+    <string name="error_revert_failed_details">Varsayılan hosts dosya yapılandırması geri yüklenemedi.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">VPN reklam engelleyici etkinleştirilemedi.</string>
+    <string name="error_enable_vpn_failed_details">Uygulamaya VPN başlatma yetkisi vermek için VPN ayarlarınızı kontrol edin.</string>
+    <string name="error_disable_vpn_failed_message">VPN reklam engelleyici devre dışı bırakılamadı.</string>
+    <string name="error_disable_vpn_failed_details">El ile devre dışı bırakmak için lütfen VPN ayarlarınızı kontrol edin.</string>
 </resources>

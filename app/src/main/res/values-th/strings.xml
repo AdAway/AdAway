@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">ปิด</string>
     <string name="button_close">ปิด</string>
@@ -25,7 +24,6 @@
     <string name="webserver_status_stopped">กำลังหยุด</string>
     <string name="button_enable_webserver">เปิดใช้งานเว็บเซิร์ฟเวอร์</string>
     <string name="button_disable_webserver">ปิดใช้งานเว็บเซิร์ฟเวอร์</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">ลบ</string>
     <string name="checkbox_list_context_title">แก้ไขรายการ</string>
@@ -39,7 +37,6 @@
     <string name="hosts_content">กำลังโหลดเนื้อหาไฟล์โฮสต์…</string>
     <string name="hosts_open_button">เปิดไฟล์ hosts</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">กำลังสร้างไฟล์โฮสต์มาตรฐาน</string>
     <string name="status_update_available">สามารถอัพเดตได้</string>
     <string name="status_update_available_subtitle">สามารถอัพเดตไฟล์โฮสต์ได้</string>
@@ -52,7 +49,6 @@
     <string name="status_enabled_subtitle">เปิดใช้งานไฟล์โฮสต์แล้ว</string>
     <string name="status_disabled">ปิดใช้งาน</string>
     <string name="status_disabled_subtitle">คืนค่าไฟล์โฮสต์เป็นค่าเริ่มต้นแล้ว</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink จากเป้าหมายของคุณไปยัง /system/etc/hosts ไม่พบหรือไม่ถูกต้อง AdAway จะไม่ทำงานหากไม่เลือกไปยังไฟล์ที่ถูกต้อง\n\nต้องการสร้างไฟล์ Symlink?</string>
     <string name="apply_symlink_missing_title">ไม่พบ Symlink</string>
     <string name="apply_not_enough_space">พื้นที่ไม่เพียงพอ\nลองเปลี่ยนไฟล์โฮสต์ในการตั้งค่าไปยัง /data/data/hosts</string>
@@ -107,8 +103,6 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">บล็อคโฆษณา</string>
     <string name="no_text_editor_title">ไม่ได้ติดตั้งตัวแก้ไขข้อความ</string>
@@ -131,7 +125,6 @@
     <string name="tcpdump_entry_add_whitelist">เพิ่มรายการไปยังบัญชีขาว</string>
     <string name="tcpdump_entry_add_redirection_list">เพิ่มรายการไปยังรายการเปลี่ยนเส้นทาง</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">แก้ไขค่ากำหนดของข้อความ</string>
     <string name="drawer_open">เปิดเมนู</string>
     <string name="drawer_close">ปิดเมนู</string>
@@ -154,9 +147,8 @@
     <string name="shortcut_your_lists">รายการของคุณ</string>
     <string name="shortcut_preferences">การตั้งค่า</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">อัพเดทล่าสุดสำหรับ %1$s</string>
     <string name="hosts_source_need_update">ต้องการอัพเดทสำหรับ %1$s</string>
     <string name="hosts_source_last_update">ปรับปรุงครั้งล่าสุด %1$s ที่ผ่านมา</string>
     <string name="hosts_source_unknown_status">สถานะอัพเดทที่ไม่รู้จัก</string>
-</resources>
+    </resources>

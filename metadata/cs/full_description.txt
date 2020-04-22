@@ -2,6 +2,6 @@ Blokovač reklam, který používá soubor hostitelů.
 Soubor hostitelů je soubor, který obsahuje seznam jmen hostitelů a IP adres.
 Když kterákoliv aplikace načítá reklamu ze seznamu hostitelů, požadavek je automaticky přesměrován na místní IP 127.0.0.1, která neexistuje.
 Můžete si stáhnout předdefinovaný seznam hostitelů přímo v této aplikaci a začlenit ho do souboru hostitelů. Můžete také využít vlastní seznam a přidat konkrétní stránky na bílou a černou listinu.
-Jsou zde možnosti spustit lokální webový server aby blokoval a směřoval požadavky přímo na konkrétní IP adresy dle vašeho výběru.
+Jsou zde možnosti spustit lokální webový server aby odpovídal na požadavky na zablokovaná jména hostitelů a aby směroval požadavky přímo na konkrétní IP adresu dle vašeho výběru.
 
 Vyžaduje ROOT: Ano. Soubor hostitelů je v systému, který je možné v základním nastavení bez ROOTu pouze číst, nikoliv však editovat.

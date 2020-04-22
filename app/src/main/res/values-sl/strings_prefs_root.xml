@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Odpri hosts datoteko</string>
+    <string name="pref_apply_method">Uporabljena hosts datoteka</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -8,5 +9,5 @@
         <item>Pot do uporabljene hosts datoteke po meri</item>
     </string-array>
     <!-- Redirection category -->
-    <!-- Web server category -->
-</resources>
+    <string name="pref_hosts_redirection">Preusmeritev</string>
+    </resources>

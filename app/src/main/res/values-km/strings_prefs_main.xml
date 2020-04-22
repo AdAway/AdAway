@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
-    <!-- Ad block category -->
+    <string name="pref_main_title">ការកំណត់</string>
     <!-- Debug category -->
-</resources>
+    <string name="pref_debug_category">បំបាត់កំហុស</string>
+    </resources>

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_vpn_title">VPN basierender Ad-Blocker</string>
+    <string name="pref_vpn_title">VPN basierender Werbeblocker</string>
     <string name="pref_vpn_service_on_boot">Beim Starten einschalten</string>
     <!-- Excluded applications -->
-    <string name="pref_vpn_excluded_apps">Ausgenommene Apps</string>
+    <string name="pref_vpn_excluded_apps">Ausgenommene Anwendungen</string>
     <string name="pref_vpn_excluded_apps_description">Konfiguriere welche Anwendungen das VPN nicht verwenden sollen, damit keine Verbindungen blockiert werden.</string>
-    <string name="pref_vpn_exclude_system_apps">System-Apps ausschließen</string>
+    <string name="pref_vpn_exclude_system_apps">System-Anwendungen ausschließen</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>Keine</item>
         <item>Alle außer Web-Browser</item>
         <item>Alle</item>
     </string-array>
-    <string name="pref_vpn_exclude_user_apps">Benutzer-Apps ausschließen</string>
+    <string name="pref_vpn_exclude_user_apps">Benutzer-Anwendungen ausschließen</string>
 
     <!-- Exclude user apps activity -->
-    <string name="pref_vpn_exclude_user_apps_activity">Ausgenommene Apps</string>
+    <string name="pref_vpn_exclude_user_apps_activity">Ausgenommene Anwendungen</string>
     <string name="pref_vpn_exclude_user_apps_select_all">Alle anwählen</string>
     <string name="pref_vpn_exclude_user_apps_deselect_all">Alle abwählen</string>
     <string name="pref_vpn_exclude_user_apps_icon">App-Icon</string>

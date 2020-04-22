@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
-    <!-- Hosts card -->
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
@@ -13,16 +11,9 @@
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
-    <!-- Help card -->
-
-    <!-- Project card -->
-
-    <!-- Support card -->
-
-    <!-- App bar drawer -->
-
-    <!-- App bar buttons -->
+    <string name="preferences_drawer_item">تنظیمات</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">لطفا برای اطلاعات بیشتر به راهنما مراجعه نمایید.</string>
 
 </resources>

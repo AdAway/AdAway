@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string name="help_tab_faq">सवाल </string>
-
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -13,4 +12,4 @@
         <item>Preferences</item>
         <item>Help</item>
     </string-array>
-</resources>
+    </resources>

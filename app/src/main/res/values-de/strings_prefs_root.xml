@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_root_title">Werbeblockker braucht Root-Rechte</string>
+    <string name="pref_root_title">Root basierender Werbeblocker</string>
     <!-- Hosts install category -->
-    <string name="pref_hosts_installation">Sperradressen installieren</string>
+    <string name="pref_hosts_installation">Hosts Installation</string>
     <string name="pref_root_open_hosts">Hosts-Datei öffnen</string>
     <string name="pref_apply_method">Zu benutzende Hosts-Datei</string>
     <string name="pref_apply_method_summary">Bevor Sie diese Einstellung ändern, bitte die Hilfe zu dem Thema lesen.</string>
@@ -16,12 +16,12 @@
     <string name="pref_never_reboot">Neustartdialog verstecken</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Umleitung</string>
-    <string name="pref_hosts_redirection_summary">Wohin werden blockierte hosts umgeleitet</string>
+    <string name="pref_hosts_redirection_summary">Festlegen wohin blockierte Hosts umgeleitet werden sollen</string>
     <string name="pref_redirection_ipv4">Umleitungs-IPv4</string>
     <string name="pref_redirection_ipv6">Umleitungs-IPv6</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokaler Webserver</string>
-    <string name="pref_webserver_summary">Der lokale Webserver antwortet auf Anfragen lokaler IP-Adressen bei blockierten Adressen. Das kann helfen wenn Apps einfrieren bei blockierten Verbindungen.</string>
+    <string name="pref_webserver_summary">Der lokale Webserver überwacht lokale IP-Adressen um auf blockierte Hostnamen zu antworten. Dies kann helfen wenn Apps einfrieren bei blockierter Verbindung.</string>
     <string name="pref_webserver_enabled">Webserver aktivieren</string>
     <string name="pref_webserver_on_boot">Webserver-Start bei Gerätestart</string>
 </resources>

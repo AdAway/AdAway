@@ -12,19 +12,22 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Няма достатъчно място на дяла.</h2>
 <p>Пробвайте да промените целевия хост файл в настройките към <code>/data/data/hosts</code> (или <code>/data/hosts</code>) и приложете AdAway отново.</p>
 
-<h2>Не работи на Android 4.4+</h2>
-<p>Пробвайте да промените целевия хост файл в настройките от <code>/data/data/hosts</code> към <code>/data/hosts</code> или <code>/system/etc/hosts</code> и приложете AdAway отново.</p>
+<h2>Chrome still displays ads</h2>
+<p>Ensure you disable <cite>lite mode</cite> (previously known as <cite>data saver</cite>) from Chrome settings. This features allows Chrome to use private DNS solution and bypass AdAway.</p>
 
 <h2>Не блокира реклами в приложениe XYZ!</h2>
-<p>Някои имена на хостове може да липсват в предоставените хост файлове от <cite>Хост източници</cite> или приложението има вградени изображения, за да предостави реклами без достъп до Интернет.<br><br>
-Може да записвате DNS заявките (Меню-&gt;Записване на DNS заявки), за да разберете кои допълнителни имена на хостове трябва да бъдат блокирани. 
-<br><br>Добавете подозрителните имена на хостове към Вашия Черен списък чрез продължително натискане на вписванията в дневника и докладвайте тези имена на хостове, когато сте ги проверили във форума <a href="http://forum.hosts-file.net/viewforum.php?f=9">Входящи хостове</a> на адрес <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+<p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
+You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
+<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in our <a href="https://github.com/AdAway/adaway.github.io/issues">GitHub issue tracker</a>.</p>
 
 <h2>Кеширани реклами</h2>
 <p>Понякога приложенията кешират реклами след изтегляне. Това води до остатъчни реклами в някои приложения. Може да се опитате да изтриете кеша на тези приложения в Списъка с приложения в Андроид, за да заобиколите този проблем.</p>
 
 <h2>Приложение XYZ вече не работи!</h2>
 <p>Някои приложения имат нужда да комуникират с име на хост, което е блокирано от AdAway или отказват да работят, когато имената на хостовете, които предоставят реклами не са достъпни. Вижте <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a>. Това е списък с познати приложения, които имат проблеми. В противен случай, намерете кои имена на хостове са нужни и ги добавете във Вашия <cite>Бял списък</cite>, намиращ се в <cite>Ваши списъци</cite> и ги докладвайте на <a href="https://github.com/AdAway/AdAway/issues">преследвача на проблеми на AdAway</a>.</p>
+
+<h2>Не работи на Android 4.4+</h2>
+<p>Пробвайте да промените целевия хост файл в настройките от <code>/data/data/hosts</code> към <code>/data/hosts</code> или <code>/system/etc/hosts</code> и приложете AdAway отново.</p>
 
 <h2>Бутонът "назад" в уеб браузърите вече не работи!</h2>
 <p>Можете да пуснете локалния уебсървър на AdAwaу в Предпочитания като заобиколен метод.</p>

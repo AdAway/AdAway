@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">יציאה</string>
     <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">מכובה</string>
     <string name="button_enable_webserver">הפעל שרת Web</string>
     <string name="button_disable_webserver">בטל שרת Web</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">מחק</string>
     <string name="checkbox_list_context_title">ערוך רשומה</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">טוען תוכן קובץ hosts…</string>
     <string name="hosts_open_button">פתח קובץ hosts</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
     <string name="status_update_available">קיים עידכון</string>
     <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
     <string name="status_disabled">לא פעיל</string>
     <string name="status_disabled_subtitle">קובץ hosts ברירת המחדל הותקן</string>
-    <string name="notification_configuration_changed">ההגדרות שלך שונו. עליך להתקין hosts מחדש כדי להחיל שינויים.</string>
     <string name="notification_configuration_changed_action">החל</string>
-    <string name="notification_configuration_installing">מתקין קובץ hosts…</string>
-    <string name="notification_configuration_failed">נכשל בהתקנת קובץ hosts.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
     <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
     <string name="apply_not_enough_space">אין מספיק שטח איחסון בדיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
@@ -110,6 +102,7 @@
     <string name="disable_systemless_successful_title">כובה בהצלחה</string>
     <string name="enable_systemless_magisk_title">הפעלת מודול hosts Magisk</string>
     <string name="disable_systemless_magisk_title">כיבוי מודול hosts Magisk</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
     <string name="no_hostname">שם השרת אינו חוקי!</string>
     <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
@@ -133,8 +126,6 @@
     <string name="adware_scanning">סורק…</string>
     <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">חסום פרסומות</string>
     <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
@@ -157,7 +148,6 @@
     <string name="tcpdump_entry_add_whitelist">הוסף לרשימה לבנה</string>
     <string name="tcpdump_entry_add_redirection_list">הוסף לרשימת הפניות</string>
 
-    <!--Preferences-->
     <string name="drawer_open">פתח תפריט</string>
     <string name="drawer_close">סגור תפריט</string>
 
@@ -179,7 +169,6 @@
     <string name="shortcut_your_lists">הרשימות שלך</string>
     <string name="shortcut_preferences">העדפות</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">עדכני עבור %1$s</string>
     <string name="hosts_source_need_update">נדרש עדכון עבור %1$s</string>
     <string name="hosts_source_last_update">נדרש עדכון מלפני %1$s</string>
@@ -209,4 +198,4 @@
         <item quantity="other">%dחודשים</item>
     </plurals>
 
-</resources>
+    </resources>

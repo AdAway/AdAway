@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Izlaz</string>
     <string name="button_close">Zatvori</string>
@@ -17,7 +16,6 @@
     <string name="button_disable_hosts">Onemogući Ad Blocking</string>
     <string name="button_enable_webserver">Omogući webserver</string>
     <string name="button_disable_webserver">Onemogući webserver</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Ukloni</string>
     <string name="checkbox_list_context_title">Uredi ulazak</string>
@@ -26,7 +24,6 @@
     <!--Your lists-->
     <string name="import_dialog">Uvoz…</string>
     <string name="export_dialog">Izvoz…</string>
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Kreiranje standardnog hosts fajla</string>
     <string name="status_update_available">Ažuriranje dostupno</string>
     <string name="status_update_available_subtitle">Noviji host-ovi fajlovi dostupni</string>
@@ -38,7 +35,6 @@
     <string name="status_enabled_subtitle">Noviji host-ovi fajlovi omogućeni</string>
     <string name="status_disabled">Onemogućeno</string>
     <string name="notification_configuration_changed_action">Primeni</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Simbolički link od tvojeg fajla do /system/etc/hosts ne postoji ili nije dobar. AdAway neće raditi ako ne pokazuje na dobar fajl.\n\nDa li želiš da pokušaš da kreiraš simbolički link?</string>
     <string name="apply_symlink_missing_title">Nedostaje symlink.</string>
     <string name="apply_not_enough_space">Na particiji nema dovoljno mesta!\nProbaj da promeniš lokaciju hosts fajla u podešavanjima na /data/data/hosts.</string>
@@ -90,7 +86,6 @@
     <string name="help_tab_faq">Često Postavljena Pitanja</string>
     <string name="help_tab_problems">Problemi</string>
 
-    <!--Hosts sources-->
     <!--Other-->
     <string name="app_subtitle">Ad Blocker</string>
     <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
@@ -99,7 +94,6 @@
     <string name="no_file_manager">Nije moguće pronaći menađžer datoteka za otvaranje datoteka. Možete instalirati OI File Manager-a ili drugi menađžer datoteka.\n\n Želite li da instalirate OI File Manager?</string>
 
     <string name="tcpdump_description">Tcpdump je alatka za praćenje i čuvanje DNS zahteva u log fajlu. Možete ga pokrenuti u pozadini, pokretanje aplikacija koje pokazuju reklame, i posle toga analiziraju DNS zahtev korišćenjem log fajla. Mogući ad serveri mogu biti dodati u Crnu listu.</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -113,4 +107,4 @@
     </string-array>
     <string name="shortcut_preferences">Podešavanja</string>
 
-</resources>
+    </resources>

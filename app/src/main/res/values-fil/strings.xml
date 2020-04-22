@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Lumabas</string>
     <string name="button_close">Isara</string>
@@ -14,9 +13,10 @@
     <string name="checkbox_list_context_delete">Ibura</string>
     <string name="checkbox_list_context_title">Palitan ang entry</string>
     <string name="checkbox_list_context_edit">Palitan</string>
+
+    <!--Your lists-->
     <string name="import_dialog">Nag-iimport…</string>
     <string name="export_dialog">Nag-eexport…</string>
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Gumagawa ng standard na hosts file</string>
     <string name="status_update_available">May bagong update</string>
     <string name="status_no_connection">Walang koneksyong Internet</string>
@@ -25,7 +25,6 @@
     <string name="apply_dialog_hosts">gumagawa ng hosts file</string>
     <string name="menu_add">Dagdagan</string>
     <string name="menu_help">Tulong</string>
-
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -37,4 +36,4 @@
         <item>Preferences</item>
         <item>Tulong</item>
     </string-array>
-</resources>
+    </resources>

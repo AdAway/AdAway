@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">ចាកចេញ</string>
     <string name="button_close">បិទ</string>
@@ -16,8 +15,6 @@
     <string name="checkbox_list_context_delete">លុបចេញ</string>
     <string name="checkbox_list_context_edit">កែប្រែ</string>
 
-    <!--Your lists-->
-    <!--Status Notification-->
     <string name="status_update_available">រកឃើញមានជំនាន់ថ្មី</string>
     <string name="status_no_connection">ពុំមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
     <string name="status_no_connection_subtitle">ពុំមានឃើញមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>
@@ -47,7 +44,6 @@
     <!--Other-->
     <string name="app_subtitle">អ្នកបំបិទការឃោសនា</string>
     <string name="no_file_manager_title">ពុំមានកម្មវិធីគ្រប់គ្រងឯកសារត្រូវបានបញ្ចូល</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -61,4 +57,4 @@
     </string-array>
     <string name="shortcut_preferences">ការកំណត់</string>
 
-</resources>
+    </resources>

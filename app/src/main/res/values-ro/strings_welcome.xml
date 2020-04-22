@@ -1,11 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- Method UI -->
-
-    <!-- Sync UI -->
-
-    <!-- Support -->
-
-    <!-- Navigation buttons -->
-</resources>
+    <string name="welcome_root_missing_title">Android are nevoie de \"root\"</string>
+    </resources>

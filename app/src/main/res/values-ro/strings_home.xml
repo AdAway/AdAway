@@ -1,30 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Blocate</string>
+    <string name="allowed_hosts_label">Permise</string>
+    <string name="redirect_hosts_label">Redirecționate</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="few">%d up-to-date sources</item>
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d sursă la zi</item>
+        <item quantity="few">%d surse la zi</item>
+        <item quantity="other">%d surse la zi</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="few">%d outdated sources</item>
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d sursă învechită</item>
+        <item quantity="few">%d surse învechite</item>
+        <item quantity="other">%d surse învechite</item>
     </plurals>
 
-    <!-- Help card -->
-
-    <!-- Project card -->
-
-    <!-- Support card -->
-
-    <!-- App bar drawer -->
-
-    <!-- App bar buttons -->
+    <string name="preferences_drawer_item">Preferințe</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
 
 </resources>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Välju</string>
     <string name="button_close">Sulge</string>
@@ -26,6 +25,11 @@
     <string name="webserver_status_stopped">Peatatud</string>
     <string name="button_enable_webserver">Luba veebiserver</string>
     <string name="button_disable_webserver">Keela veebiserver</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Käimas</string>
+    <string name="vpn_status_stopped">Peatatud</string>
+    <string name="button_enable_vpn">Luba VPN</string>
+    <string name="button_disable_vpn">Keela VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Kustuta</string>
@@ -39,7 +43,6 @@
     <string name="hosts_header">Hosts-fail</string>
     <string name="hosts_open_button">Ava hosts-fail</string>
 
-    <!--Status Notification-->
     <string name="status_update_available">Uuendus saadaval</string>
     <string name="status_update_available_subtitle">Uuemad hosts-failid saadaval</string>
     <string name="status_no_connection">Ühendus puudub</string>
@@ -54,9 +57,6 @@
     <string name="status_disabled">Keelatud</string>
     <string name="status_disabled_subtitle">Vaikimisi hosts-fail paigaldatud</string>
     <string name="notification_configuration_changed_action">Rakenda</string>
-    <string name="notification_configuration_installing">Hosts-faili paigaldamine…</string>
-    <string name="notification_configuration_failed">Hosts-faili paigaldamine ebaõnnestus.</string>
-
     <string name="apply_symlink_missing_title">Sümlink puudub</string>
     <string name="apply_not_enough_space_title">Pole piisavalt ruumi</string>
     <string name="apply_private_file_fail_title">Privaatse faili ebaõnnestumine</string>
@@ -83,6 +83,7 @@
     <string name="download_fail_title">Allalaadimine nurjus</string>
     <string name="enable_systemless_successful_title">Lubamine edukas</string>
     <string name="disable_systemless_successful_title">Keelamine edukas</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">Sisesta URL hosts-faili:</string>
     <string name="no_hostname">See ei ole kehtiv aadress!</string>
     <string name="no_ip">See ei ole kehtiv IP!</string>
@@ -106,8 +107,6 @@
     <string name="adware_scanning">Skanneerimine…</string>
     <string name="adware_empty">Reklaamvara ei leitud!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Reklaamide blokeerija</string>
     <string name="no_text_editor_title">Tekstitöötlejaid pole paigaldatud</string>
@@ -126,7 +125,6 @@
     <string name="tcpdump_entry_add_whitelist">Lisa üksus valgesse loendisse</string>
     <string name="tcpdump_entry_add_redirection_list">Lisa üksus suunamisloendisse</string>
 
-    <!--Preferences-->
     <string name="drawer_open">Ava menüü</string>
     <string name="drawer_close">Sulge menüü</string>
 
@@ -143,14 +141,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS-taotlused</string>
     <string name="shortcut_your_lists">Sinu loendid</string>
     <string name="shortcut_preferences">Eelistused</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">%1$s on kaasaegne</string>
     <string name="hosts_source_need_update">%1$s vajab uuendust</string>
     <string name="hosts_source_last_update">Viimane uuendus %1$s tagasi</string>
@@ -172,4 +167,4 @@
         <item quantity="other">%d kuud</item>
     </plurals>
 
-</resources>
+    </resources>

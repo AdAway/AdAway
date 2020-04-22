@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_title">사용자 리스트</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">블랙리스트에 호스트 추가</string>
+    <string name="list_add_dialog_white">화이트리스트에 호스트 추가</string>
+    <string name="list_add_dialog_redirect">리디렉션에 호스트 추가</string>
+    <string name="list_edit_dialog_black">블랙리스트 호스트 수정</string>
+    <string name="list_edit_dialog_white">화이트리스트 호스트 수정</string>
+    <string name="list_edit_dialog_redirect">리디렉션 수정</string>
+    <string name="list_dialog_hostname">호스트명:</string>
+    <string name="list_dialog_hostname_hint">호스트 소스 URL</string>
+    <string name="list_dialog_wildcard">(*과 ? 2가지의 와일드카드 문자들이 허용됩니다)</string>
+    <string name="list_dialog_ip">IP (IPv4 또는 IPv6):</string>
 </resources>

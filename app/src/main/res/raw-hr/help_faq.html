@@ -6,26 +6,22 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>Česta pitanja</title></head>
 <body>
 <h2>Zarada od oglasa</h2>
-<p>Postoji općenito nerazumijevanje da ukoliko korisnik nikada ne klika na oglase, tada se blokiranje istih neće negativno financijski odraziti na stranicu ili aplikaciju. To je pogrešno, razvijatelji isto tako zarađuju novac samim prikazom oglasa. Na vama je hoćete li, ili nećete blokirati oglase. Osobno ne bih koristio aplikacije koje prikazuju oglase jer ih smatram vrlo iritantnima, stoga bez blokatora oglasa ne bi instalirao aplikacije te vrste.</p>
-
-
+<p>Postoji općenito nerazumijevanje da ukoliko korisnik nikada ne klika na oglase, tada se blokiranje istih neće negativno financijski odraziti na stranicu ili aplikaciju. To je pogrešno, razvijatelji isto tako zarađuju novac samim prikazom oglasa. Na vama je hoćete li, ili nećete blokirati oglase. Osobno ne bih koristio aplikacije koje prikazuju oglase jer ih smatram vrlo iritantnima, stoga bez blokatora oglasa ne bih instalirao aplikacije te vrste. </p>
 
 <h2>Kako AdAway radi?</h2>
-<p>AdAway koristi <a href="http://en.wikipedia.org/wiki/Hosts_file">datoteku poslužitelja</a> za blokiranje naziva poslužitelja koji dostavljaju oglase. Datoteka poslužitelja može se pronaći u <code>/system/etc/hosts</code> , a mapira nazive poslužitelja na IP adrese. To je tradicionalan način za određivanja naziva poslužitelja uparivanjem s parovima IP adresa bez oslanjanja na DNS (Domain Name System). Svi neželjeni nazivi poslužitelja se preusmjeravaju na <code>127.0.0.1</code>, što znači da će biti usmjereni na vaš uređaj.</p>
-
-<h2>Zašto je mogućnost dnevne provjere ažuriranja zasivljena?</h2>
-<p>Automatska provjera ažuriranja dostupna je samo kada je AdAway instaliran na unutarnju memoriju uređaja. Uzrok tome je ograničenost u Android platformi.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Zašto moram ponovno pokrenuti Android kako bi se promjene primijenile?</h2>
 <p>Java na Androidu ima svoju unutrašnju DNS predmemoriju. Operativni sustav će primijeniti novu datoteku poslužitelja odmah (to možete provjeriti pomoću ping naredbe u naredbenom redku), ali je potrebno ponovno pokrenuti Android kako bi se DNS predmemorija Jave ponovno izgradila.</p>
 
 <h2>Kako koristiti web poslužitelj u AdAwayu?</h2>
 <p><strong>AdAway isto može raditi bez web poslužitelja!</strong>
-<br><br>Možete omogućiti lokalnog web poslužitelja u postavkama AdAwaya kako bi preusmjerio zahtjeve na lokalnu IP adresu <code>127.0.0.1</code>. Što znači da zahtjevi aplikacije prema poslužiteljima za oglase su preusmjereni na <code>127.0.0.1</code>  odgovaraju AdAway web poslužitelju.
+<br><br>Možete omogućiti lokalnog web poslužitelja u postavkama AdAwaya kako bi preusmjerio zahtjeve na lokalnu IP adresu <code>127.0.0.1</code>. o znači da zahtjevi aplikacije prema poslužiteljima za oglase su preusmjereni na <code>127.0.0.1</code>  odgovaraju AdAway web poslužitelju.
 <br>Neke aplikacije odbijaju raditi kada poslužitelji oglašavanja nisu dostupni. Ovim načinom postati će opet dostupni, prikazom prazne stranice bez slika oglasa.</p>
 
 <h2>Kako mogu blokirati/odblokirati određene nazive poslužitelja?</h2>
-<p>Dodajte nazive poslužitelja koje želite blokirati u <cite>Popis blokiranih</cite> (=Blokirani) u izborniku <cite>Vaši popisi</cite>. Dodatno, nazive poslužitelja koje želite isključiti iz blokiranja možete dodati u <cite>Popis neblokiranih</cite> (=Neblokirani) a nazive poslužitelja koje želite preusmjeriti na određenu IP adresu pripadaju u <cite>Popis preusmjerenih</cite> (=Preusmjereni).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Gdje mogu pronaći više izvora poslužitelja?</h2>
 <p>Pogledajte <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Popis dodatnih izvora poslužitelja za AdAway</a>.</p>

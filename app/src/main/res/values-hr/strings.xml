@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Zatvori</string>
     <string name="button_close">Zatvori</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">Web poslužitelj</string>
     <string name="webserver_status_running">Pokrenuto</string>
     <string name="webserver_status_stopped">Zaustavljeno</string>
+    <string name="webserver_toggle_text">Pokreni ili zaustavi web poslužitelj na lokalnom poslužitelju kako bi odgovarao na zahtjeve za blokiranje naziva poslužitelja.</string>
     <string name="button_enable_webserver">Omogući web poslužitelj</string>
     <string name="button_disable_webserver">Onemogući web poslužitelj</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Pokrenuto</string>
+    <string name="vpn_status_stopped">Zaustavljeno</string>
+    <string name="vpn_toggle_text">Pokreni ili zaustavi VPN filtriranje zahtjeva.</string>
+    <string name="button_enable_vpn">Omogući VPN</string>
+    <string name="button_disable_vpn">Onemogući VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Obriši</string>
@@ -33,23 +39,32 @@
     <string name="checkbox_list_context_edit">Uredi</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Uvažanje…</string>
+    <string name="import_dialog">Uvažanje...</string>
     <string name="import_success">Sigurnosna kopija je uspješno uvezena iz vašeg uređaja vanjske pohrane.</string>
     <string name="import_failed">Neuspjeli uvoz sigurnosne kopije. Je li format ispravan? Provjerite logcat za više pojedinosti.</string>
-    <string name="export_dialog">Izvažanje…</string>
+    <string name="export_dialog">Izvažanje...</string>
     <string name="export_success">Sigurnosna kopija je uspješno izvezena u \'adaway-backup.json\' datoteku na vašem uređaju vanjske pohrane.</string>
     <string name="export_failed">Neuspjeli izvoz sigurnosne kopije.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Datoteka poslužitelja</string>
     <string name="hosts_description">Datoteka poslužitelja je datoteka sustava koja mapira nazive poslužitelja prema IP adresama. To je obična tekstna datoteka čijim se podešavanjem rukuje putem AdAwaya. Ovdje je prvih nekoliko redaka:</string>
-    <string name="hosts_content">Učitavanje sadržaja datoteke poslužitelja…</string>
+    <string name="hosts_content">Učitavanje sadržaja datoteke poslužitelja...</string>
     <string name="hosts_open_button">Otvori datoteku poslužitelja</string>
 
     <!--Status Notification-->
+    <string name="status_check">Provjeravanje ažuriranja</string>
+    <string name="status_check_source">Provjeravanje ažuriranja na izvoru %s</string>
+    <string name="status_retrieve">Primanje izvora</string>
+    <string name="status_download_source">Preuzimanje izvora %s</string>
+    <string name="status_copy_source">Kopiranje izvora %s</string>
+    <string name="status_parse_source">Obrada izvora %s</string>
+    <string name="status_revert">Primanje u zadanu datoteku poslužitelja</string>
+    <string name="status_revert_done">Zadana datoteka poslužitelja je obnovljena</string>
     <string name="status_reverting_subtitle">Stvaranje standardne datoteke poslužitelja</string>
-    <string name="status_update_available">Ažuriranje je dostupno</string>
+    <string name="status_update_available">Dostupno je ažuriranje izvora</string>
     <string name="status_update_available_subtitle">Novija datoteka poslužitelja je dostupna</string>
+    <string name="status_no_update_found">Nema pronađenih ažuriranja izvora</string>
     <string name="status_no_connection">Internet nedostupan</string>
     <string name="status_no_connection_subtitle">Nema dostupnog pristupa internetu</string>
     <string name="status_download_fail">Nedostupni izvori</string>
@@ -62,12 +77,14 @@
     <string name="status_enabled_subtitle">Najnovija datoteka poslužitelja je omogućena</string>
     <string name="status_disabled">Onemogućeno</string>
     <string name="status_disabled_subtitle">Zadana datoteka poslužitelja je instalirana</string>
-    <string name="notification_configuration_changed">Vaše podešavanje je promijenjeno. Morate instalirati datoteku poslužitelja kako bi ju primijenili.</string>
+    <string name="status_apply_sources">Primijeni posljednje izvora</string>
+    <string name="status_create_new_hosts">Stvaranje nove datoteke poslužitelja</string>
+    <string name="status_copy_new_hosts">Kopiranje nove datoteke poslužitelja</string>
+    <string name="status_check_copy">Provjeravanje kopiranja datoteke poslužitelja </string>
+    <string name="status_hosts_updated">Datoteka poslužitelja je uspješno ažurirana</string>
     <string name="notification_configuration_changed_action">Primijeni</string>
-    <string name="notification_configuration_installing">Instalacija datoteke poslužitelja…</string>
-    <string name="notification_configuration_failed">Neuspjela instalacija datoteke poslužitelja.</string>
-
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Simbolička poveznica na odredište datoteke poslužitelja nedostaje</string>
     <string name="apply_symlink_missing">Simbolička poveznica s vašeg odredišta /system/etc/hosts ne postoji ili je neispravna! AdAway neće raditi ako nije usmjeren na ispravnu datoteku.\n\nŽelite li pokušati stvoriti simboličku poveznicu?</string>
     <string name="apply_symlink_missing_title">Simbolička poveznica nedostaje</string>
     <string name="apply_not_enough_space">Nema dovoljno prostora na particiji!\nPokušajte promijeniti odredišnu datoteku poslužitelja u postavkama u /data/data/hosts.</string>
@@ -76,6 +93,7 @@
     <string name="apply_private_file_fail_title">Neuspjela privatna datoteka</string>
     <string name="apply_remount_fail">Ponovno montiranje particije uslijed neuspjelog čitanja/pisanja!</string>
     <string name="apply_remount_fail_title">Ponovo montiranje nije uspjelo</string>
+    <string name="apply_copy_fail_status">Neuspjelo kopiranje datoteke poslužitelja</string>
     <string name="apply_copy_fail">Neuspjelo kopiranje datoteke poslužitelja!</string>
     <string name="apply_copy_fail_title">Neuspjelo kopiranje</string>
     <string name="apply_success_subtitle">Primijenjeni izvori poslužitelja</string>
@@ -86,31 +104,41 @@
     <string name="apply_symlink_fail">Simbolička poveznica se ne može stvoriti na Androidu.\nOvo uobičajeno ne uspijeva zbog \'značajke\' zvane S-ON na HTC telefonima!\n\nRješenje je u ponovnom pokretanju vašeg telefona u način oporavka i stvaranju simboličke poveznice sa naredbom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAko ovo ne radi potražite na internetu za S-OFF za vaš telefon.</string>
     <string name="apply_symlink_fail_title">Stvaranje simboličke poveznice je neuspješno</string>
     <string name="apply_help">Pročitajte pomoć za više informacija.</string>
-    <string name="apply_apn_proxy">APN proxy je postavljen na vašem Androidu!\nAdAway neće pouzdano raditi na mobilnim 3G mrežama. Taj proxy možete deaktivirati odlaskom na vaš odabrani APN (Iz aplikacije Postavke: Sim kartice -&gt; Sim postavke -&gt; Pristupne točke -&gt; Uredi pristupnu točku) i obrišite podatak u proxy polju.</string>
+    <string name="apply_apn_proxy">APN proxy je postavljen na vašem Androidu!\nAdAway neće pouzdano raditi na mobilnim 3G mrežama. Taj proxy možete deaktivirati odlaskom na vaš odabrani APN (Iz aplikacije Postavke: Sim kartice -> Sim postavke -> Pristupne točke -> Uredi pristupnu točku) i obrišite podatak u proxy polju.</string>
     <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
     <string name="no_connection">Povezivanje s internetom ne radi.</string>
     <string name="no_connection_title">Internet nedostupan</string>
-    <string name="download_dialog">Preuzimanje…</string>
-    <string name="apply_dialog">Primijenjivanje…</string>
+    <string name="download_dialog">Preuzimanje...</string>
+    <string name="apply_dialog">Primijenjivanje...</string>
     <string name="apply_dialog_lists">Primijenjivanje vaših blokiranih i neblokiranih popisa</string>
     <string name="apply_dialog_hostnames">Obrada i spajanje datoteka poslužitelja</string>
     <string name="apply_dialog_hosts">Izgradnja datoteke poslužitelja</string>
     <string name="apply_dialog_apply">Primijenjivanje datoteke poslužitelja</string>
+    <string name="apply_fail_status">Neuspjela primjena nove datoteke poslužitelja.</string>
     <string name="apply_fail">Primijenjivanje datoteke poslužitelja na vašem sustavu nije uspjelo!\n Pokušajte promijeniti odredišnu datoteku poslužitelja u postavkama u /data/data/hosts.</string>
     <string name="apply_fail_title">Primijenjivanje nije uspjelo</string>
     <string name="root_access_fail">Provjerite vašu aplikacija root upravljanja kako bi osigurali da je vaš root pristup dopušten.</string>
     <string name="revert_successful">Ponovno koristite izvornu datoteku poslužitelja.\nPonekada je potrebno ponovo pokrenuti Android za primijenjivanje promjena.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="revert_successful_title">Uspješno vraćanje na izvorno</string>
+    <string name="revert_failed_status">Neuspjelo vraćanje datoteke poslužitelja</string>
     <string name="revert_problem">Neuspješno vraćanje na izvorno uslijed nepoznatih razloga.</string>
     <string name="revert_problem_title">Neuspješno vraćanje na izvorno!</string>
     <string name="download_fail_dialog">Niti jedan od vaših omogućenih izvora poslužitelja nije dostupan! Jeste li ispravno povezani na internet?</string>
     <string name="download_fail_title">Preuzimanje nije uspjelo</string>
+    <string name="no_private_file_status">Neuspjelo zapisivanje nove privatne datoteke poslužitelja</string>
     <string name="no_private_file">Privatna datoteka se ne može stvoriti.</string>
     <string name="no_private_file_title">Neuspjelo stvaranje privatne datoteke</string>
     <string name="enable_systemless_successful">Omogućili ste bezsustavski način rada.\nPonekada je potrebno ponovno pokrenuti Android za primijenjivanje promjena.\n\nŽelite li ponovno pokrenuti Android?\n(Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="enable_systemless_successful_title">Uspješno omogućeno</string>
     <string name="disable_systemless_successful">Onemogućili ste bezsustavski način rada.\nPonekada je potrebno ponovno pokrenuti Android za primijenjivanje promjena.\n\nŽelite li ponovno pokrenuti Android?\n(Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="disable_systemless_successful_title">Uspješno onemogućeno</string>
+    <string name="enable_vpn_fail">Neuspjelo omogućavanje VPN blokiranja oglasa.</string>
+    <string name="disable_vpn_fail">Neuspjelo onemogućavanje VPN blokiranja oglasa.</string>
+    <string name="enable_systemless_magisk_title">Omogućavanje Magisk modula poslužitelja</string>
+    <string name="enable_systemless_magisk">Omogućite systemless hosts značajku iz Magisk upravitelja. Iz njegovih postavki, omogućite <cite>Systemless hosts</cite> mogućnost zatim ponovno pokrenite svoj uređaj.</string>
+    <string name="disable_systemless_magisk_title">Onemogućavanje Magisk modula poslužitelja</string>
+    <string name="disable_systemless_magisk">Onemogućite systemless hosts značajku iz Magisk upravitelja. Iz popisa modula, deinstalirajte <cite>Systemless hosts</cite> modul zatim ponovno pokrenite svoj uređaj.</string>
+
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Upiši URL do datoteke poslužitelja:</string>
     <string name="no_hostname">Ovo nije valjan naziv poslužitelja!</string>
@@ -118,7 +146,7 @@
     <string name="no_ip">Ovo nije valjani IP!</string>
     <string name="no_ip_title">Nepravilno oblikovan IP</string>
     <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne prikazuj više ovo pitanje!</string>
-    <string name="loading">Učitavanje…</string>
+    <string name="loading">Učitavanje...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Osvježi</string>
@@ -135,10 +163,8 @@
     <!--Adware-->
     <string name="adware_header">Zlonamjerne aplikacije</string>
     <string name="adware_description">Ovdje možete potražiti zlonamjerne aplikacije, loše aplikacije koje AdAway ne može blokirati. Te aplikacije koriste, na primjer, Airpush obavijesti koje se pojavljuju čak i ako aplikacija nije pokrenuta, a mogu čak promijeniti i melodiju vašeg zvona. Jedina moguća mjera koju možete poduzeti protiv takvih aplikacija je uklanjanje klikom na stavke popisa.</string>
-    <string name="adware_scanning">Pretraživanje…</string>
+    <string name="adware_scanning">Pretraživanje&#8230;</string>
     <string name="adware_empty">Nema pronađenih zlonamjernih aplikacija!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Blokator oglasa</string>
@@ -162,7 +188,6 @@
     <string name="tcpdump_entry_add_whitelist">Dodaj unos u popis dopuštenih</string>
     <string name="tcpdump_entry_add_redirection_list">Dodaj unos u popis preusmjernih</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Uredi tekstnu vrijednost postavke </string>
     <string name="drawer_open">Otvori izbornik</string>
     <string name="drawer_close">Zatvori izbornik</string>
@@ -180,14 +205,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS zahtjevi</string>
     <string name="shortcut_your_lists">Vaši popisi</string>
     <string name="shortcut_preferences">Postavke</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Instalirano prije %1$s</string>
     <string name="hosts_source_up_to_date">Najnovija ažuriranja za %1$s</string>
     <string name="hosts_source_need_update">Potrebno je ažuriranje za %1$s</string>
     <string name="hosts_source_last_update">Posljednje ažuriranje prije %1$s</string>
@@ -212,5 +236,21 @@
         <item quantity="few">%d mjeseca</item>
         <item quantity="other">%d mjeseca</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">pokretanje</string>
+    <string name="vpn_notification_running">aktivno</string>
+    <string name="vpn_notification_stopping">zaustavljanje</string>
+    <string name="vpn_notification_waiting_for_net">čekanje mreže</string>
+    <string name="vpn_notification_reconnecting">ponovno povezivanje</string>
+    <string name="vpn_notification_reconnecting_error">greška ponovnog povezivanja</string>
+    <string name="vpn_notification_paused">pauzirano</string>
+    <string name="vpn_notification_stopped">zaustavljeno</string>
+    <string name="vpn_notification_title">VPN blokator oglasa %1$s</string>
+    <string name="vpn_notification_action_pause">Pauziraj</string>
+    <string name="vpn_notification_paused_text">Dodirni za nastavak</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Omogući ili onemogući blokiranje oglasa sustava</string>
 
 </resources>

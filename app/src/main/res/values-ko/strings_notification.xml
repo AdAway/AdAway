@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">업데이트</string>
+    <string name="notification_update_host_available_title">업데이트 가능</string>
+    </resources>

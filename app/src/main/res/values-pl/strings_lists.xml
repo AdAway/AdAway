@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_title">Twoje listy</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Dodaj host do czarnej listy</string>
     <string name="list_add_dialog_white">Dodaj host do białej listy</string>

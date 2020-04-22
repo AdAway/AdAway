@@ -18,5 +18,5 @@
     <string name="error_enable_vpn_failed_message">Neuspjelo omogućavanje VPN blokiranja oglasa.</string>
     <string name="error_enable_vpn_failed_details">Provjerite svoje VPN postavke za dopuštenje aplikaciji VPN pokretanje. </string>
     <string name="error_disable_vpn_failed_message">Neuspjelo onemogućavanje VPN blokiranja oglasa.</string>
-    <string name="error_disable_vpn_failed_details">Provjerite svoje VPN postavke kako bi ih ručno onemogućili.. </string>
+    <string name="error_disable_vpn_failed_details">Provjerite svoje VPN postavke kako bi ih ručno onemogućili.</string>
 </resources>

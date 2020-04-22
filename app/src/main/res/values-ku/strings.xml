@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">دەرچوون</string>
@@ -18,4 +18,4 @@
         <item>Preferences</item>
         <item>Help</item>
     </string-array>
-</resources>
+    </resources>

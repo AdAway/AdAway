@@ -3,7 +3,7 @@ This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
 <!DOCTYPE html>
 <html>
-<head><title>Bantuan terkait S-ON</title></head>
+<head><title>S-ON related help</title></head>
 <body>
 <h2>Perangkat HTC</h2>
 <p>AdAway tidak bekerja ketika Anda menggunakan perangkat dengan apa yang disebut S-ON. 'Fitur' ini ada pada banyak perangkat HTC dan mencegah AdAway menulis file host.</p>
@@ -16,14 +16,14 @@ And don't add newlines before or after p tags because of transifex -->
 <br><br>Informasi lebih lanjut dapat ditemukan di <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Metode S-OFF tambahan pada Unrevokable (di link) mungkin menarik bagi Anda, yaitu : Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
 
 <h2>Solusi</h2>
-<p>Prasyarat: Anda harus menginstal Android SDK yang berfungsi dengan shell ADB pada PC Anda.</p>
+<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
 <ol>
-<li>Boot ke Boot Menu pada perangkat Anda dengan menahan <cite>tombol volume bawah</cite> sambil menekan tombol daya.</li>
+<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
 <li>Gunakan <cite>volume bawah</cite> untuk memilih <cite>recovery</cite> kemudian <cite>power</cite> untuk menghidupkan itu.</li>
 <li>Di clockwork recovery pergi ke "menu partisi".</li>
 <li>Pilih <cite>mount /system</cite>, <cite>mount /sdcard</cite> dan <cite>mount /data</cite>.</li>
 <li>Masukkan kabel USBmu dan buka sebuah command line pada pcmu.</li>
-<li>Masuk ke adb shell dan ketik <code>ln -s /data/hosts /system/etc/hosts</code> (Ini membuat tautan simbolis, yang memungkinkan AdAway untuk mengedit file host yang disimpan di <code>/data</code> sambil memungkinkan OS untuk menggunakan file seolah-olah disimpan dalam <code>/sistem</code>.)</li>
+<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
 <li>Mulai ulang perangkat dan tetapkan <cite>Target berkas hosts</cite> ke <cite>/data/hosts</cite> di preferensi AdAway.</li>
 <li>AdAway seharusnya bekerja sekarang.</li>
 </ol>

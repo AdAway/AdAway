@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Irten</string>
     <string name="button_close">Itxi</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">Geldituta</string>
     <string name="button_enable_webserver">Gaitu web zerbitzaria</string>
     <string name="button_disable_webserver">Desgaitu web zerbitzaria</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Ezabatu</string>
     <string name="checkbox_list_context_title">Editatu Sarrera</string>
@@ -37,12 +35,10 @@
     <string name="export_dialog">Esportatzen…</string>
     <!--Hosts content-->
     <string name="hosts_header">Hostalari fitxategia</string>
-    <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen…</string>
+    <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen...</string>
     <string name="hosts_open_button">Ireki hostalari fitxategia</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Hostalari agiri estandarra sortzen</string>
-    <string name="status_update_available">Eguneraketa eskuragarri</string>
     <string name="status_update_available_subtitle">Hostalari agiri berrienak eskuragarri</string>
     <string name="status_no_connection">Ez dago Internet elkarketarik</string>
     <string name="status_no_connection_subtitle">Ez dago Internet elkarketa eskuragarririk</string>
@@ -56,12 +52,7 @@
     <string name="status_enabled_subtitle">Hostalari agiri berrienak gaituta</string>
     <string name="status_disabled">Ezgaituta</string>
     <string name="status_disabled_subtitle">Hostalari fitxategi lehenetsia instalatuta</string>
-    <string name="notification_configuration_changed">Zure konfigurazioa aldatu da. Hostalari fitxategia instalatu behar duzu aldaketak aplikatzeko.</string>
     <string name="notification_configuration_changed_action">Aplikatu</string>
-    <string name="notification_configuration_installing">Hostalari fitxategia instalatzen…</string>
-    <string name="notification_configuration_failed">Hostalari fitxategiaren instalazioak huts egin du.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Zure xedetiko Symlotura /system/etc/hosts-ra ez dago edo okerra da! AdAway-k ez du lan egingo ez bada agiri zuzenera zuzentzen.\n\nNahi duzu symlotura bat sortzen saiatzea?</string>
     <string name="apply_symlink_missing_title">Symlotura ez dago</string>
     <string name="apply_not_enough_space">Ez dago nahikoa toki partizioan!\nSaiatu xede hostalari agiria aldatzen hobespenetan: /data/data/hosts.</string>
@@ -118,10 +109,8 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_scanning">Eskaneatzen…</string>
+    <string name="adware_scanning">Eskaneatzen&#8230;</string>
     <string name="adware_empty">Ez da Adwarerik topatu!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Iragarki blokeatzailea</string>
@@ -145,7 +134,6 @@
     <string name="tcpdump_entry_add_whitelist">Gehitu sarrera zerrenda-zurira</string>
     <string name="tcpdump_entry_add_redirection_list">Gehitu sarrera birbidalketa zerrendara</string>
 
-    <!--Preferences-->
     <string name="drawer_open">Ireki menua</string>
     <string name="drawer_close">Itxi menua</string>
 
@@ -161,8 +149,6 @@
         <item>Laguntza</item>
     </string-array>
     <!--Drawer menu labels-->
-
-    <!--Telemetry-->
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS eskaerak</string>
@@ -188,4 +174,4 @@
         <item quantity="other">%d hilabete</item>
     </plurals>
 
-</resources>
+    </resources>

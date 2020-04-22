@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Pendapatan dari iklan</h2>
 <p>Terdapat kesalahpahaman yang sering menyatakan bahwa jika pengguna tidak mengklik iklan, kemudian memblokirnya tidak akan merugikan keuangan situs atau aplikasi. Ini salah, pengembang juga memperoleh uang dengan hanya menampilkan iklan. Itu terserah kepada Anda apakah Anda memblokir iklan atau tidak. Secara pribadi saya tidak akan menggunakan aplikasi yang menampilkan iklan karena saya merasakan mereka sangatlah mengganggu, sehingga tanpa pemblokir iklan saya tidak akan memasang aplikasi tersebut.</p>
 
-
-
 <h2>Bagaimana cara kerja AdAway?</h2>
-<p>AdAway menggunakan <a href="http://en.wikipedia.org/wiki/Hosts_file">file host</a> untuk memblokir hostname, yang menyuguhkan iklan. File host ini sebuah file yang bisa ditemukan di <code>/system/etc/hosts</code>, berisi pemetaan nama host mengarah ke alamat IP. Ini adalah cara umum untuk mendefinisikan nama host yang mengarah ke alamat IP pasangannya tanpa mengandalkan Sistem Penamaan Domain (atau DNS). Semua nama host yang tidak diinginkan dialihkan ke <code>127.0.0.1</code> yang berarti diarahkan ke perangkat kamu sendiri.</p>
-
-<h2>Mengapa setiap pengecekan pembaruan berwarna abu-abu?</h2>
-<p>Pemeriksaan otomatis pembaruan yang baru hanya tersedia bila AdAway diinstal pada memori telepon internal. Hal ini disebabkan oleh pembatasan pada platform Android.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Mengapa saya harus memulai ulang Android untuk mendapatkan perubahan?</h2>
 <p>Java pada Android mengelola DNS cache internalnya sendiri. Sistem operasi akan merefleksikan berkas host yang baru segera (memverifikasi dengan ping pada command line), tetapi Anda harus memulai kembali Android untuk membangun kembali cache DNS dari Java.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Beberapa aplikasi menolak untuk bekerja, ketika server iklan tidak dapat dijangkau. Dengan metode ini mereka dapat dijangkau kembali, menjawab dengan sebuah laman kosong dan tidak ada gambar iklan.</p>
 
 <h2>Bagaimana saya memblokir/membuka blokir hostname tertentu?</h2>
-<p>Tambahkan nama host yang akan diblokir ke <cite>Daftar Hitam</cite> (= Hitam) di bawah <cite>Daftar Anda</cite>. Sebagai tambahan, nama host yang ingin Anda kecualikan dari pemblokiran dapat ditambahkan ke <cite>Daftar Putih</cite> (= Putih) dan nama host yang ingin Anda arahkan ulang ke alamat IP tertentu milik <cite>Daftar Pengalihan</cite> (= Pengalihan).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Di mana saya dapat menemukan lebih banyak sumber host?</h2>
 <p>Lihat <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Daftar sumber host tambahan untuk AdAway List of additional hosts sources for AdAway</a>.</p>

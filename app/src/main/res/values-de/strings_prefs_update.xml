@@ -9,5 +9,5 @@
     <string name="pref_update_check">Nach Aktualisierungen suchen</string>
     <string name="pref_update_check_hosts_daily">Täglich nach Aktualisierungen suchen</string>
     <string name="pref_update_sync_on_update">Synchronisiere beim Aktualisieren</string>
-    <string name="pref_update_sync_unmetered_only">Synchronisiere nur bei ungemessene Netzwerke</string>
+    <string name="pref_update_sync_unmetered_only">Synchronisiere nur im gebührenfreien Netzwerk</string>
 </resources>

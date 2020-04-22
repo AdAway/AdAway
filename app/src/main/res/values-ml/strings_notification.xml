@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">നവീകരങ്ങൾ </string>
+    <string name="notification_update_host_available_title">നവീകരണം ലഭ്യമാണ്</string>
+    </resources>

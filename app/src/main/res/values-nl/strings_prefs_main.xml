@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Instellingen</string>
     <!-- General category -->
+    <string name="pref_general_category">Algemeen</string>
+    <string name="pref_dark_theme">Donker thema</string>
+    <string name="pref_update_configuration">Automatisch bijwerken</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Advertentieblokkering</string>
+    <string name="pref_root_ad_blocker_configuration">Advertentieblokkeerder voor geroote apparaten</string>
+    <string name="pref_vpn_ad_blocker_configuration">Advertentieblokkering op basis van VPN</string>
+    <string name="pref_whitelist_rules">Toegestane hosts toepassen uit bronnen</string>
+    <string name="pref_redirection_rules">Doorverwezen hosts toepassen uit bronnen</string>
+    <string name="pref_redirection_rules_summary">BEVEILIGINGSRISICO!</string>
+    <string name="pref_enable_ipv6">IPv6-ondersteuning inschakelen</string>
+    <string name="pref_backup_restore">Blokkaderegels back-uppen/herstellen</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Foutopsporing</string>
+    <string name="pref_enable_telemetry">Crashverslagen versturen</string>
+    <string name="pref_enable_telemetry_summary">Melden aan Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Niet ondersteund in deze bouwversie</string>
+    <string name="pref_enable_debug">Uitgebreid logboek</string>
+    <string name="pref_enable_debug_summary">Herstart de app om toe te passen</string>
 </resources>

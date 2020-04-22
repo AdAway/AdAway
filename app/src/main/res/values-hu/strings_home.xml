@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Blokkolt</string>
+    <string name="allowed_hosts_label">Megengedve</string>
+    <string name="redirect_hosts_label">Átirányítva</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
@@ -14,15 +17,25 @@
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Súgó megjelenítése</string>
 
     <!-- Project card -->
+    <string name="project_label">GitHub lap megnyitás</string>
 
     <!-- Support card -->
+    <string name="support_label">Projekt támogatás</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS naplók</string>
+    <string name="preferences_drawer_item">Beállítások</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Navigációs fiók megnyitása</string>
+    <string name="adblock_pause_button_description">Reklámblokkolás szünet/folytat</string>
+    <string name="update_button">Blokkolt domainek frissítése</string>
+    <string name="show_log_button">A kért domainek megjelenítése</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Kérlek olvasd el a Súgót további információkért!</string>
 
 </resources>

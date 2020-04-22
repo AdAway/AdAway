@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
-    <string name="pref_dark_theme">تشغيل الخلفيّة الدّاكنة</string>
-    <!-- Ad block category -->
-    <string name="pref_whitelist_rules">السماح للقائمة البيضاء</string>
-    <string name="pref_redirection_rules">السّماح لعمليات إعادة التوجيه</string>
-    <string name="pref_redirection_rules_summary">للتقليل من المخاطر الامنية ! قم بالسماح للمداخلات المعاد تحويلها من مصادر المضيف</string>
-    <string name="pref_enable_ipv6">الرجاء تفعيل IPv6</string>
+    <string name="pref_main_title">الخيارات</string>
     <!-- Debug category -->
-    <string name="pref_enable_telemetry">تفعيل تقرير الأعطال</string>
-    <string name="pref_enable_telemetry_summary">منح السماح للتطبيق لإرسال تقريرات الأعطال والأخطاء إلى Sentry (sentry.io).</string>
-    <string name="pref_enable_debug">تفعيل السّجلّ المُطوّل</string>
-    <string name="pref_enable_debug_summary">يجب إعادة تشغيل التطبيق لتكون الإعدادات سارية المفعول.</string>
-</resources>
+    <string name="pref_debug_category">التصحيح</string>
+    </resources>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Kilépés</string>
     <string name="button_close">Bezárás</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">Megállítva</string>
     <string name="button_enable_webserver">Webszerver engedélyezése</string>
     <string name="button_disable_webserver">Webszerver letiltása</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Törlés</string>
     <string name="checkbox_list_context_title">Bejegyzés szerkesztése</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">Hosts fájl tartalmának betöltése…</string>
     <string name="hosts_open_button">Hosts fájl megnyitása</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
     <string name="status_update_available">Frissítés érhető el</string>
     <string name="status_update_available_subtitle">Újabb hosts fájlok érhetők el</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">A legújabb hosts fájlok vannak engedélyezve</string>
     <string name="status_disabled">Letiltva</string>
     <string name="status_disabled_subtitle">Az alapértelmezett hosts fájl van telepítve</string>
-    <string name="notification_configuration_changed">A konfiguráció módosult. Alkalmazásához telepíteni és alkalmazni kell a hosts fájlt.</string>
     <string name="notification_configuration_changed_action">Alkalmaz</string>
-    <string name="notification_configuration_installing">A hosts fájl telepítése…</string>
-    <string name="notification_configuration_failed">A hosts fájl nem sikerült telepíteni.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
 
 Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
@@ -113,6 +105,8 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="enable_systemless_successful_title">Engedélyezés sikeres</string>
     <string name="disable_systemless_successful">Kikapcsoltad a systemless módot.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
     <string name="disable_systemless_successful_title">Sikerült a letiltás</string>
+    <string name="enable_vpn_fail">Nem sikerült engedélyezni a VPN reklámblokkolást.</string>
+    <string name="disable_vpn_fail">Nem sikerült letiltani a VPN reklámblokkolást.</string>
     <string name="enable_systemless_magisk_title">A Magisk  hosts module bekapcsolása</string>
     <string name="enable_systemless_magisk">Systemless hosts funkció bekapcsolása a Magisk managerben. A beállításokban kapcsold be a <cite>Systemless hosts</cite> lehetőséget, majd indítsd újra a készüléket.</string>
     <string name="disable_systemless_magisk_title">A Magisk hosts module kikapcsolása</string>
@@ -145,8 +139,6 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="adware_scanning">Vizsgálat…</string>
     <string name="adware_empty">Nem található adware!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Hirdetésblokkoló</string>
     <string name="no_text_editor_title">Nincs telepítve szövegszerkesztő</string>
@@ -173,7 +165,6 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="tcpdump_entry_add_whitelist">Elem hozzáadása fehérlistához</string>
     <string name="tcpdump_entry_add_redirection_list">Elem hozzáadása az átirányítási listához</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Szöveges beállítási érték szerkesztése</string>
     <string name="drawer_open">Menü megnyitása</string>
     <string name="drawer_close">Menü bezárása</string>
@@ -191,14 +182,11 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS kérések</string>
     <string name="shortcut_your_lists">Saját listák</string>
     <string name="shortcut_preferences">Beállítások</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">Friss (frissítve %1$s ezelőtt)</string>
     <string name="hosts_source_need_update">A %1$s frissítése szükséges</string>
     <string name="hosts_source_last_update">Utolsó frissítés %1$s ezelőtt</string>
@@ -220,4 +208,4 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
         <item quantity="other">%d hónap</item>
     </plurals>
 
-</resources>
+    </resources>

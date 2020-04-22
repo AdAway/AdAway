@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_title">Your lists</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">اضافه کردن هاست به لیست سیاه</string>
+    <string name="list_add_dialog_white">اضافه کردن هاست به لیست سفید</string>
+    <string name="list_add_dialog_redirect">اضافه کردن هدایت مجدد هاست</string>
+    <string name="list_edit_dialog_black">ویرایش هاست‌های لیست سیاه</string>
+    <string name="list_edit_dialog_white">ویرایش هاست‌های لیست سفید</string>
+    <string name="list_edit_dialog_redirect">ویرایش هدایت مجدد</string>
+    <string name="list_dialog_hostname">Hostname:</string>
+    <string name="list_dialog_hostname_hint">لینک منبع هاست ها</string>
+    <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز میباشند)</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
 </resources>

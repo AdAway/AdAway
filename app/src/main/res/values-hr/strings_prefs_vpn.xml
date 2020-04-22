@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN temeljen blokator oglasa</string>
+    <string name="pref_vpn_service_on_boot">Omogući pri pokretanju</string>
     <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Izuzete aplikacije</string>
+    <string name="pref_vpn_excluded_apps_description">Postavite koja aplikacija neće koristiti VPN tako da se povezivanja ne blokiraju</string>
+    <string name="pref_vpn_exclude_system_apps">Izuzmi aplikacije sustava</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Nijedna</item>
+        <item>Sve osim web preglednika</item>
+        <item>Sve</item>
     </string-array>
+    <string name="pref_vpn_exclude_user_apps">Izuzmi korisnikove aplikacije</string>
 
     <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Izuzete aplikacije</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Odaberi sve</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Ukloni odabir svih</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Ikona aplikacije</string>
 </resources>

@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
-    <!-- Edition dialog -->
-</resources>
+    <string name="lists_title">Your lists</string>
+    </resources>

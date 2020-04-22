@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
-    <string name="app_name">AdAway</string>
-
     <!--Buttons-->
     <string name="button_exit">പുറത്തേക് ഉള്ള വഴി </string>
     <string name="button_close">അവസാനിപ്പിക്കുക</string>
@@ -28,7 +25,6 @@
     <string name="webserver_status_stopped">നിർത്തലാക്കപ്പെട്ടു </string>
     <string name="button_enable_webserver">വെബ് സെർവർ പ്രാപ്തമാക്കുക</string>
     <string name="button_disable_webserver">വെബ് സെർവർ അപ്രാപ്തമാക്കുക</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">നീക്കം ചെയ്യുക </string>
     <string name="checkbox_list_context_title">ചേർത്തത് തിരുത്തുക </string>
@@ -48,7 +44,6 @@
     <string name="hosts_content">ഹോസ്റ്റുകളുടെ ഫയൽ ഉള്ളടക്കം ലോഡുചെയ്യുന്നു…</string>
     <string name="hosts_open_button">ഹോസ്റ്റുകളുടെ ഫയൽ തുറക്കുക</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">സ്റ്റാൻഡേർഡ് ഹോസ്റ്റ്  ഫയൽ സൃഷ്ടിക്കുന്നു</string>
     <string name="status_update_available">നവീകരണം ലഭ്യമാണ്</string>
     <string name="status_update_available_subtitle">പുതിയ ഹോസ്റ്റുകളുടെ ഫയലുകൾ ലഭ്യമാണ്</string>
@@ -64,12 +59,7 @@
     <string name="status_enabled_subtitle">ഏറ്റവും പുതിയ ഹോസ്റ്റുകളുടെ ഫയലുകൾ പ്രവർത്തനക്ഷമമാക്കി</string>
     <string name="status_disabled">അപ്രാപ്‌തമാക്കി</string>
     <string name="status_disabled_subtitle">സ്ഥിരസ്ഥിതി ഹോസ്റ്റുകളുടെ ഫയൽ ഇൻസ്റ്റാൾ ചെയ്തു</string>
-    <string name="notification_configuration_changed">നിങ്ങളുടെ രൂപരേഖ മാറ്റി.ഇത് പ്രയോഗിക്കുന്നതിന് നിങ്ങൾ ഹോസ്റ്റ്സ് ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യേണ്ടതുണ്ട്.</string>
     <string name="notification_configuration_changed_action">പ്രയോഗിക്കുക</string>
-    <string name="notification_configuration_installing">ഹോസ്റ്റുകളുടെ ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യുന്നു…</string>
-    <string name="notification_configuration_failed">ഹോസ്റ്റ് ഫയൽ ഇൻസ്റ്റാൾ ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">നിങ്ങളുടെ ടാർഗെറ്റിൽ നിന്ന് / സിസ്റ്റം / etc / ഹോസ്റ്റുകളിലേക്കുള്ള സിംലിങ്ക് നിലവിലില്ല അല്ലെങ്കിൽ തെറ്റാണു ! ശരിയായ ഫയലിലേക്ക് പോയിന്റുചെയ്യുന്നില്ലെങ്കിൽ AdAway പ്രവർത്തിക്കില്ല.\n\nഒരു സിംലിങ്ക് സൃഷ്ടിക്കാൻ ശ്രമിക്കണോ?</string>
     <string name="apply_symlink_missing_title">സിംലിങ്ക് കാണുന്നില്ല</string>
     <string name="apply_not_enough_space">പാർട്ടീഷനിൽ മതിയായ ഇടമില്ല.\nടാർ‌ഗെറ്റ് ഹോസ്റ്റുകളുടെ ഫയൽ‌ / data / data / hosts നു മുൻഗണന മാറ്റാൻ ശ്രമിക്കുക.</string>
@@ -145,8 +135,6 @@
     <string name="adware_scanning">സ്കാൻ ചെയ്യുന്നു…</string>
     <string name="adware_empty">ആഡ് വെയർ ഒന്നും കണ്ടെത്തിയില്ല!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
     <string name="no_text_editor_title">ടെക്സ്റ്റ് എഡിറ്ററൊന്നും ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
@@ -169,7 +157,6 @@
     <string name="tcpdump_entry_add_whitelist">വൈറ്റ് ലിസ്റ്റിലേക്ക് എൻ‌ട്രി ചേർക്കുക</string>
     <string name="tcpdump_entry_add_redirection_list">റീഡയറക്‌ട് ലിസ്റ്റിലേക്ക് എൻട്രി ചേർക്കുക</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">വാചക മുൻഗണന മൂല്യം എഡിറ്റുചെയ്യുക</string>
     <string name="drawer_open">മെനു തുറക്കുക</string>
     <string name="drawer_close">മെനു അടയ്‌ക്കുക</string>
@@ -187,14 +174,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS അഭ്യർത്ഥനകൾ</string>
     <string name="shortcut_your_lists">നിങ്ങളുടെ ലിസ്റ്റുകൾ</string>
     <string name="shortcut_preferences">മുൻ‌ഗണനകൾ</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">%1$sഇതിനകം  കാലികമാണ്</string>
     <string name="hosts_source_need_update">%1$s ന് അപ്‌ഡേറ്റ് ആവശ്യമാണ്</string>
     <string name="hosts_source_last_update">അവസാന അപ്‌ഡേറ്റ് %1$s മുമ്പ്</string>
@@ -216,4 +200,4 @@
         <item quantity="other">%dമാസങ്ങൾ </item>
     </plurals>
 
-</resources>
+    </resources>

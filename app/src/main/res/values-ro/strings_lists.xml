@@ -7,18 +7,13 @@
     <string name="lists_tab_redirected">Redirecționate</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtru domenii</string>
-    <!-- Filter dialog -->
-    <string name="lists_filter_host_title">Filtru nume domeniu:</string>
-    <string name="lists_filter_include_sources">Include domenii din surse</string>
-    <string name="lists_filter_apply">Aplică</string>
-    <string name="lists_filter_reset">Resetare</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">Adauga domeniu in black list</string>
-    <string name="list_add_dialog_white">Adauga domeniu in white list</string>
-    <string name="list_add_dialog_redirect">Adauga redirectionare</string>
-    <string name="list_edit_dialog_black">Editeaza domeniu in black list</string>
-    <string name="list_edit_dialog_white">Editeaza domeniul in white list</string>
-    <string name="list_edit_dialog_redirect">Editeaza redirectionarea</string>
+    <string name="list_add_dialog_black">Adăugare domeniu în lista neagră</string>
+    <string name="list_add_dialog_white">Adăugare domeniu în lista albă</string>
+    <string name="list_add_dialog_redirect">Adăugare redirecționare</string>
+    <string name="list_edit_dialog_black">Editare domeniu blocat</string>
+    <string name="list_edit_dialog_white">Editare domeniu permis</string>
+    <string name="list_edit_dialog_redirect">Editare redirecționare</string>
     <string name="list_dialog_hostname">Nume domeniu:</string>
     <string name="list_dialog_hostname_hint">URL domeniu</string>
     <string name="list_dialog_wildcard">(Sunt permise caracterele generice * și ?)</string>

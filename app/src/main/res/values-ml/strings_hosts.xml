@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">ഹോസ്റ്റുകളുടെ ഉറവിടങ്ങൾ </string>
     <!-- List -->
+    <string name="hosts_not_available">ലഭ്യമല്ല</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">ഉറവിടം ചേർക്കുക</string>
+    <string name="hosts_edit_dialog_title">ഉറവിടം എഡിറ്റുചെയ്യുക</string>
+    <string name="hosts_dialog_url">URL: (a https:// or file:// resource)</string>
+    <string name="hosts_dialog_url_hint">ഹോസ്റ്റ്കളുടെ ഉറവിടമായ URL </string>
 </resources>

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Hosts viri</string>
     <!-- List -->
-    <!-- Edition dialog -->
-</resources>
+    <string name="hosts_not_available">ni na voljo</string>
+    </resources>

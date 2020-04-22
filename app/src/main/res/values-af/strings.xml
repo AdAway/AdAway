@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Gaan uit</string>
     <string name="button_close">Maak toe</string>
@@ -13,6 +12,7 @@
 
     <string name="text_update">Alle gas lêers van die omskrewe bronne word afgelaai, en geïntegreer met jou eie lys en dan as een lys geinstalleer in jou sisteem. </string>
     <string name="button_check_update_hosts">Kyk vir opdaterings</string>
+    <string name="button_enable_webserver">Aktiveer webbediener</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Vee uit</string>
     <string name="checkbox_list_context_title">Redigeer Inskrywing</string>
@@ -21,7 +21,6 @@
     <!--Your lists-->
     <string name="import_dialog">Besig met invoering…</string>
     <string name="export_dialog">Besig met Uitvoer…</string>
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Skep standaard gasheer lêer</string>
     <string name="status_update_available">Opdatering beskikbaar</string>
     <string name="status_update_available_subtitle">Nuwer Gasheer lêers is beskikbaar</string>
@@ -61,6 +60,7 @@
     <string name="download_fail_title">Aflaai het misluk</string>
     <string name="no_private_file">Private lêer kan nie geskep word nie.</string>
     <string name="no_private_file_title">Skep van Privaat Lêer het misluk</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">Voeg BA by gas lêer:</string>
     <string name="no_hostname">Hierdie is nie \'n geldige gasheer naam nie!</string>
     <string name="no_hostname_title">Foutief geformateerde gasheernaam</string>
@@ -77,13 +77,11 @@
     <string name="help_tab_faq">Vrae</string>
     <string name="help_tab_problems">Probleme</string>
 
-    <!--Hosts sources-->
     <!--Other-->
     <string name="app_subtitle">Ad Blokkeerder</string>
     <string name="no_text_editor_title">Geen teks redigeerder geïnstalleer nie </string>
     <string name="no_file_manager_title">Geen lêerbestuurder geinstalleer </string>
     <string name="tcpdump_description">Tcpdump is \'n hulpmiddel om DNS versoeke te moniteer en in \'n Log lêer te stoor. Jy kan dit in die agtergrond begin, gebruik dan programme wat advertensie vertoon en ontleed die DNS dan na die tyd, deur die log lêer te gebruik. Moontlike advertensie bedieners kan dan na die tyd by jou swartlys gevoeg word.</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -97,4 +95,4 @@
     </string-array>
     <string name="shortcut_preferences">Voorkeure</string>
 
-</resources>
+    </resources>

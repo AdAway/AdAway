@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Deschide fisierele \"hosts\"</string>
+    <string name="pref_apply_method">Locatie fisier \"hosts\" </string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -8,5 +9,10 @@
         <item>Locatie aleasa de utilizator</item>
     </string-array>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Redirecționare</string>
+    <string name="pref_redirection_ipv4">Redirecționare IPv4</string>
+    <string name="pref_redirection_ipv6">Redirecționare IPv6</string>
     <!-- Web server category -->
-</resources>
+    <string name="pref_webserver">Server web local</string>
+    <string name="pref_webserver_enabled">Activare server web</string>
+    </resources>

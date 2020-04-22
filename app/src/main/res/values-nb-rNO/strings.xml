@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Avslutt</string>
     <string name="button_close">Lukk</string>
@@ -27,9 +26,7 @@
     <!--Your lists-->
     <string name="import_dialog">Importerer …</string>
     <string name="export_dialog">Eksporterer …</string>
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Lager standard-vertsfilen</string>
-    <string name="status_update_available">Oppdatering tilgjengelig</string>
     <string name="status_update_available_subtitle">Nyere vertsfiler er tilgjengelig</string>
     <string name="status_no_connection">Ingen internettilkobling</string>
     <string name="status_no_connection_subtitle">Ingen internettilkobling er tilgjengelig</string>
@@ -38,7 +35,6 @@
     <string name="status_enabled">Skrudd på</string>
     <string name="status_enabled_subtitle">De nyeste vertsfilene er skrudd på</string>
     <string name="status_disabled">Skrudd av</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlinken fra målet ditt til /system/etc/hosts finnes ikke eller er feil! AdAway vil ikke virke dersom den ikke peker mot den riktige filen.\n\nVil du forsøke å lage en symlink?</string>
     <string name="apply_symlink_missing_title">Symlinken mangler</string>
     <string name="apply_not_enough_space">Ikke nok plass på partisjonen!\nPrøv å skifte målvertsfilen i innstillingene til /data/data/hosts.</string>
@@ -90,7 +86,6 @@
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Problemer</string>
 
-    <!--Hosts sources-->
     <!--Other-->
     <string name="app_subtitle">Reklameblokkerer</string>
     <string name="no_text_editor_title">Ingen tekstredigerere er installert</string>
@@ -99,7 +94,6 @@
     <string name="no_file_manager">Ingen filbehandler som kunne åpne filer kunne bli funnet. Du kan installere OI File Manager eller andre tekstredigerere for å håndtere dette.\n\nVil du installere OI File Manager?</string>
 
     <string name="tcpdump_description">Tcpdump er et verktøy for å overvåke DNS-forespørsler og lagre dem i en loggfil. Du kan starte den i bakgrunnen, kjøre apper som viser reklamer, og etterpå analysere DNS-forespørslene ved hjelp av loggfilen. Mulige reklametjenere kan deretter bli lagt til i svartelisten din.</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -113,4 +107,4 @@
     </string-array>
     <string name="shortcut_preferences">Preferanser</string>
 
-</resources>
+    </resources>

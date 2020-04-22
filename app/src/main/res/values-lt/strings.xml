@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Išeiti</string>
     <string name="button_close">Uždaryti</string>
@@ -21,6 +20,7 @@
     <string name="button_disable_hosts">Išjungti reklamų blokavimą</string>
     <string name="webserver_status_running">Veikia</string>
     <string name="webserver_status_stopped">Sustabdytas</string>
+    <string name="button_enable_webserver">Įjungti serverį</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Ištrinti</string>
     <string name="checkbox_list_context_title">Redeguoti Įrašą</string>
@@ -29,7 +29,6 @@
     <!--Your lists-->
     <string name="import_dialog">Importuoju…</string>
     <string name="export_dialog">Eksportuoju…</string>
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Kuriu standartinį hosts failą</string>
     <string name="status_update_available">Pasiekiamas atnaujinimas</string>
     <string name="status_update_available_subtitle">Pasiekiamas naujesnis host failas</string>
@@ -40,7 +39,6 @@
     <string name="status_enabled">Įjungta</string>
     <string name="status_enabled_subtitle">Naujausias host failas ijungtas</string>
     <string name="status_disabled">Išjungta</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink neteisingas /system/etc/hosts! AdAway neveiks jei neteisingai nurodytas kelias.\n\nPabandyti sukurti teisingą symlink?</string>
     <string name="apply_symlink_missing_title">Nėra symlink</string>
     <string name="apply_not_enough_space">Skirsnyje neužtenka vietos!\nPabandykite pakeisti paskirties vietą nustatymuose į /data/data/hosts.</string>
@@ -75,6 +73,7 @@
     <string name="no_private_file_title">Nepavyko sukurti asmeninio failo</string>
     <string name="enable_systemless_successful_title">Pavyko įjungti</string>
     <string name="disable_systemless_successful_title">Pavyko išjungti</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">Įterpti URL į hosts failą:</string>
     <string name="no_hostname">Neteisingas host vardas!</string>
     <string name="no_hostname_title">Neteisingas host vardo formatas</string>
@@ -91,7 +90,6 @@
     <string name="help_tab_faq">DUK</string>
     <string name="help_tab_problems">Problemos</string>
 
-    <!--Hosts sources-->
     <!--Other-->
     <string name="app_subtitle">Reklamos blokavimas</string>
     <string name="no_text_editor_title">Neradau teksto redagavimo programos</string>
@@ -100,7 +98,6 @@
     <string name="no_file_manager">Neturite failų tvarkymo programos, su kuria galėtume atidaryti failus. Galite įdiegti OI Failų Tvarkyklę\n\nĮdiegti Dabar?</string>
 
     <string name="tcpdump_description">Tcpdump tai įrankis DNS užklausų stebėjimui ir iįsaugoimui log faile. Galite paleisti fone, įjungti programą, kuri rodo reklamą ir po to analizuoti DNS užklausas log faile. Reklamos serverį galėsite pridėti į juodąjį sąrašą.</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -114,4 +111,4 @@
     </string-array>
     <string name="shortcut_preferences">Nustatymai</string>
 
-</resources>
+    </resources>

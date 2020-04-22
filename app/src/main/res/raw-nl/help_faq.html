@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Inkomsten via reclames</h2>
 <p>Er is een vaak voorkomende misvatting dat als een gebruiker nooit op reclames klikt, het blokkeren van deze reclames een site of app financieel niet schaad. Dit klopt niet, aangezien ontwikkelaars ook geld verdienen door het alleen tonen van reclames. Het is aan u of u deze wel of niet blokkeert. Persoonlijk zou ik applicaties die reclames tonen niet gebruiken, omdat ik deze hinderlijk vind, dus zonder adblocker zou ik deze applicaties niet eens installeren.</p>
 
-
-
 <h2>Hoe werkt AdAway?</h2>
-<p>AdAway gebruikt het hosts-bestand om hostnamen te blokkeren die reclames aanbieden. Het hosts-bestand is een bestand in  <code>/system/etc/hosts</code>. Het zet hostnamen om naar IP-adressen. Het is een veelgebruikte manier om hostnamen naar IP-adressen om te leiden zonder het Domain Name System (DNS) te gebruiken. Alle ongewenste hostnamen worden doorverwezen naar <code>127.0.0.1</code>. Dit betekent dat ze naar uw eigen apparaat verwijzen.</p>
-
-<h2>Waarom is de mogelijkheid om dagelijks op updates te controleren niet beschikbaar?</h2>
-<p>Automatisch controleren op updates is alleen beschikbaar als AdAway is geïnstalleerd op het interne telefoongeheugen. Dit komt door beperkingen van het Android-platform.</p>
+<p>AdAway gebruikt het <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts bestand</a>om hostnamen te blokkeren die reclames aanbieden. Het hosts-bestand is een bestand in <code>/system/etc/hosts</code> Het zet hostnamen om naar IP-adressen. Het is een veelgebruikte manier om hostnamen naar IP-adressen om te leiden zonder het Domain Name System (DNS) te gebruiken. Alle ongewenste hostnamen worden doorverwezen naar <code>127.0.0.1</code>.Dit betekent dat ze naar uw eigen apparaat verwijzen.<br>
+Als het host bestand niet kan worden weggeschreven, dan is de ingebouwde VPN service een alternatieve oplossing. Dit zal connecties naar ongewenste host namen filteren en zal anderen door laten gaan.</p>
 
 <h2>Waarom moet ik Android herstarten om veranderingen effect te laten hebben?</h2>
 <p>Java op Android houd zijn eigen interne DNS-cache bij. Het besturingssysteem zal het nieuwe hosts-bestand meteen gebruiken (controleer dit met ping via de command line), maar u zult Android opnieuw moeten opstarten om de DNS-cache van Java opnieuw op te bouwen.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Sommige applicaties weigeren te werken als reclameservers niet bereikbaar zijn. Met deze methode zullen de servers weer 'bereikbaar' zijn, alleen wordt er geen reclame maar een witte pagina weergegeven.</p>
 
 <h2>Hoe kan ik specifieke hostnamen (de)blokkeren?</h2>
-<p>Voeg de hostnamen die u wilt blokkeren toe aan de <cite>Blacklist</cite> (=Zwart) onder <cite>Uw lijsten</cite>. U kunt ook hostnamen die u niet wilt blokkeren toevoegen aan de  <cite>Whitelist</cite> (=Wit) en hostnamen die u wilt doorverwijzen naar een specifiek IP-adres toevoegen aan de<cite>Doorverwijzingslijst</cite> (=Doorverwijzing).</p>
+<p>Voeg de hostnamen die u wilt blokkeren toe aan de <cite>Blokkeer</cite> lijst van het <cite>homescreen</cite>. Daarnaast kunt u ook hostnamen die u wilt uitzonderenn van blokkeren toevoegen aan de  <cite>Toegestane</cite> lijst en hostnamen die u wilt doorverwijzen naar een specifiek IP-adres toevoegen aan <cite>Doorverwijzing</cite> lijst.</p>
 
 <h2>Waar kan ik meer hosts-bronnen vinden?</h2>
 <p>Zie <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">deze lijst van andere hosts-bronnen voor AdAway</a>.</p>

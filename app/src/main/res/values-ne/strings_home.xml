@@ -1,28 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-    <!-- Hosts card -->
+    <string name="preferences_drawer_item">Preferences</string>
 
-    <!-- Source card -->
-    <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
-    </plurals>
-    <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
-    </plurals>
-
-    <!-- Help card -->
-
-    <!-- Project card -->
-
-    <!-- Support card -->
-
-    <!-- App bar drawer -->
-
-    <!-- App bar buttons -->
-
-    <!-- Error dialog -->
-
-</resources>
+    </resources>

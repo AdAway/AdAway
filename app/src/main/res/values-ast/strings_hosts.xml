@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Oríxenes d\'agospios</string>
     <!-- List -->
-    <!-- Edition dialog -->
-</resources>
+    <string name="hosts_not_available">non disponible</string>
+    <string name="hosts_dialog_url">URL: (un recursu https:// o file:// )</string>
+    </resources>

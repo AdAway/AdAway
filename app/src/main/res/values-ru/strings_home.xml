@@ -1,32 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Блокировано</string>
+    <string name="allowed_hosts_label">Разрешено</string>
+    <string name="redirect_hosts_label">Перенаправлено</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="few">%d up-to-date sources</item>
-        <item quantity="many">%d up-to-date sources</item>
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d обновлённый источник</item>
+        <item quantity="few">%d обновлённых источника</item>
+        <item quantity="many">%d обновлённых источников</item>
+        <item quantity="other">%d обновлённых источников</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="few">%d outdated sources</item>
-        <item quantity="many">%d outdated sources</item>
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d устаревший источник</item>
+        <item quantity="few">%d устаревших источника</item>
+        <item quantity="many">%d устаревших источников</item>
+        <item quantity="other">%d устаревших источников</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Показать справку</string>
 
     <!-- Project card -->
+    <string name="project_label">Открыть страницу GitHub</string>
 
     <!-- Support card -->
+    <string name="support_label">Поддержать проект</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Журнал DNS</string>
+    <string name="preferences_drawer_item">Настройки</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Открыть навигационную шторку</string>
+    <string name="adblock_pause_button_description">Приостановить/продолжить блокировку рекламы</string>
+    <string name="update_button">Обновить заблокированные домены</string>
+    <string name="show_log_button">Показать запрошенные домены</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Пожалуйста, прочтите Справку, чтобы узнать больше.</string>
 
 </resources>

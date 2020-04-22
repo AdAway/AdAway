@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Ingen internetanslutning</string>
+    <string name="error_no_connection_details">Det går inte att upprätta en anslutning till internet. Kontrollera anslutningen på din enhet.</string>
+    <string name="error_download_failed_message">Det gick inte att ladda ner värdkälla</string>
+    <string name="error_download_failed_details">Ingen av dina aktiverade värdkällor är åtkomliga. Kontrollera att du är ansluten till internet.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Det gick inte att skapa privat fil</string>
+    <string name="error_private_file_failed_details">Det gick inte att skapa en privat fil att bygga ett nytt värdkälla. Kontrollera att du ha tillgängligt med ledigt utrymme på din enhet.</string>
+    <string name="error_not_enough_space_message">Inte tillräckligt med utrymme</string>
+    <string name="error_not_enough_space_details">Det gick inte att kopiera värdfilen till systempartitionen. Kontrollera att den systemlösa modulen i Magisk är aktiverad och starta sedan om.</string>
+    <string name="error_copy_failed_message">Det gick inte att installera den nya värdfilen</string>
+    <string name="error_copy_failed_details">Det gick inte att kopiera värdfilen till partitionen /system. Kontrollera att den systemlösa modulen i Magisk är aktiverad och starta sedan om.</string>
+    <string name="error_revert_failed_message">Det gick inte att återställa värdfilen</string>
+    <string name="error_revert_failed_details">Det gick inte att återställa standard värdfilskonfiguration.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Det gick inte att aktivera VPN-annonsblockeringen.</string>
+    <string name="error_enable_vpn_failed_details">Kontrollera dina VPN-inställningar och auktorisera applikationen VPN så att den startar.</string>
+    <string name="error_disable_vpn_failed_message">Det gick inte att inaktivera VPN-annonsblockeringen</string>
+    <string name="error_disable_vpn_failed_details">Kontrollera dina VPN-inställningar för att inaktivera det manuellt.</string>
 </resources>

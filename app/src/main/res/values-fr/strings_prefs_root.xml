@@ -1,12 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Bloqueur de publicités pour appareil débridé</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Installation de fichier hosts</string>
+    <string name="pref_root_open_hosts">Ouvrir le fichier hosts</string>
+    <string name="pref_apply_method">Fichier hosts cible</string>
+    <string name="pref_apply_method_summary">Consultez l’aide avant d’utiliser cette fonction</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Cible personnalisée</item>
     </string-array>
+    <string name="pref_custom_target">Emplacement de la cible personnalisée</string>
+    <string name="pref_never_reboot">Cacher le message de redémarrage après application</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Redirection</string>
+    <string name="pref_hosts_redirection_summary">Définir où rediriger les hôtes bloqués</string>
+    <string name="pref_redirection_ipv4">Redirection IPv4</string>
+    <string name="pref_redirection_ipv6">Redirection IPv6</string>
     <!-- Web server category -->
+    <string name="pref_webserver">Serveur Web local</string>
+    <string name="pref_webserver_summary">Le serveur Web local écoute les adresses IP locales pour répondre aux requêtes vers des noms d’hôtes bloqués. Cela pourrait empêcher le gel de certaines applications lors de connexions bloquées.</string>
+    <string name="pref_webserver_enabled">Activer le serveur Web</string>
+    <string name="pref_webserver_on_boot">Démarrer le serveur Web au démarrage</string>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AdAway</string>
-    <string name="app_description">Bloqueur de publicités Open Source</string>
+    <string name="app_description">Bloqueur de publicités à code source ouvert</string>
 </resources>

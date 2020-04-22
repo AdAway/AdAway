@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">এক্সিট</string>
     <string name="button_close">বন্ধ</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">মুছে ফেলুন</string>
-    <!--Status Notification-->
     <string name="status_update_available">আপডেট উপলব্ধ</string>
     <string name="status_no_connection">ইন্টারনেট সংযোগ নেই</string>
     <string name="status_no_connection_subtitle">কোন ইন্টারনেট সংযোগ উপলব্ধ নেই</string>
-
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -22,4 +19,4 @@
         <item>Preferences</item>
         <item>Help</item>
     </string-array>
-</resources>
+    </resources>

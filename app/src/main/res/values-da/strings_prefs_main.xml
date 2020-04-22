@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
+    <string name="pref_main_title">Indstillinger</string>
     <string name="pref_dark_theme">Aktiver mørkt tema</string>
-    <!-- Ad block category -->
     <string name="pref_whitelist_rules">Tillad hvidlister</string>
     <string name="pref_redirection_rules">Tillad viderestillinger</string>
     <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
     <string name="pref_enable_ipv6">Aktivér IPv6</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Debug</string>
     <string name="pref_enable_telemetry">Aktivér nedbrudrapporter</string>
     <string name="pref_enable_telemetry_summary">Tillad, at applikationen sender fejl og nedbrudrapporter til Sentry (sentry.io).</string>
     <string name="pref_enable_debug">Aktivér verbose logging</string>

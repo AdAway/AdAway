@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Приход от реклами</h2>
 <p>Има често срещана заблуда, че ако потребителят никога не натиска реклами, тогава блокирането им няма да навреди финансово на сайта или приложението. Това не е така, дивелъпърите печелят пари само като показват реклами. Зависи от Вас дали ще блокирате реклами или не. Лично аз не бих ползвал приложения, които показват реклами, защото ги намирам за много дразнещи и затова не бих ги инсталирал без блокиране на рекламите.</p>
 
-
-
 <h2>Как работи AdAway?</h2>
-<p>AdAway използва <a href="http://en.wikipedia.org/wiki/Hosts_file">хост файла</a>, за да блокира имена на хостове, които се използват за рекламиране. Хост файлът се намира в <code>/system/etc/hosts</code> и служи за съотнасяне на имена на хостове към IP адреси. Това е традиционният начин за дефиниране двойка име на хост към IP адрес без да се разчита на Система за имена на домейните (DNS). Всички нежелани имена на хостове се пренасочват към <code>127.0.0.1</code>, което означава, че те ще сочат към Вашето устройство.</p>
-
-<h2>Защо предпочитанието за ежедневна проверка за ъпдейти е в сиво?</h2>
-<p>Автоматичната проверка за нови ъпдейти и достъпна само когато AdAway е инсталиран на вътрешната памет на телефона. Това е поради ограничения в Android платформата.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Защо трябва да рестартирам Android, за да имат ефект промените?</h2>
 <p>Java на Android поддържа свой собствен вътрешен DNS кеш. Операционната система ще отрази новия hosts файл моментално (потвърдете това с ping или команден ред), но ще трябва да рестартирате Android, за да престроите DNS кеша на Java.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Някои приложения отказват да работят, когато рекламните сървъри не са достъпни. Чрез този метод те ще бъдат достъпни отново, отговаряйки с празна страница и без рекламни изображения.</p>
 
 <h2>Как мога да блокирам/разблокирам определени имена на хостове?</h2>
-<p>Добавете имена на хостове, които искате да блокирате в <cite>Черен списък</cite> (=Черен) в <cite>Ваши списъци</cite>. Допълнително, имената на хостове, които искате да изключите от блокиране, могат да бъдат добавени в <cite>Бял списък</cite> (=Бял) и имената на хостове, които искате да пренасочите към специфичен IP адрес принадлежат към <cite>Списък за пренасочване</cite> (=Пренасочване).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Където мога да намеря още източници на hosts?</h2>
 <p><a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Погледнете Списъкът с допълнителни хост източници за AdAway</a>.</p>

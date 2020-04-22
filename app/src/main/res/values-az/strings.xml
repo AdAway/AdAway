@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Çıxış</string>
     <string name="button_close">Bağla</string>
@@ -26,24 +25,21 @@
     <string name="webserver_status_stopped">Dayanmışdır</string>
     <string name="button_enable_webserver">Web serveri aç</string>
     <string name="button_disable_webserver">Web serveri bağla</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Sil</string>
     <string name="checkbox_list_context_title">Girişi Redaktə Et</string>
     <string name="checkbox_list_context_edit">Redaktə Et</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Daxil edilir…</string>
+    <string name="import_dialog">Daxil edilir...</string>
     <string name="export_dialog">Çıxarılır..</string>
     <!--Hosts content-->
     <string name="hosts_header">Hosts faylı</string>
     <string name="hosts_description">Hosts faylı host adlarını IP adreslərinə yönləndirən sistem faylıdır. Bu idarəsi AdAway tərəfindən aparılan sadə bir mətn faylıdır. Bu da ilk bir neçə sətir:</string>
-    <string name="hosts_content">Hosts fayl məlumatı yüklənir…</string>
+    <string name="hosts_content">Hosts fayl məlumatı yüklənir...</string>
     <string name="hosts_open_button">Hosts faylını aç</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Standart hosts faylı yaradılır</string>
-    <string name="status_update_available">Yeniləmə var</string>
     <string name="status_update_available_subtitle">Yeni hosts faylları var</string>
     <string name="status_no_connection">İnternetə çıxış yoxdur</string>
     <string name="status_no_connection_subtitle">İnternetə çıxış əlçatan deyil</string>
@@ -57,12 +53,7 @@
     <string name="status_enabled_subtitle">Ən yeni hosts faylları açıldı</string>
     <string name="status_disabled">Bağlıdır</string>
     <string name="status_disabled_subtitle">Standart hosts faylı quruldu</string>
-    <string name="notification_configuration_changed">Nizamlamanız dəyişdirildi. Tətbiq etmək üçün hosts faylını qurmalısınız. </string>
     <string name="notification_configuration_changed_action">Tətbiq et</string>
-    <string name="notification_configuration_installing">Hosts faylı yüklənir…</string>
-    <string name="notification_configuration_failed">Hosts faylını yükləmək alınmadı.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Hədəfinizdən /system/etc/hosts \'a olan symlink mövcud deyil yaxud səhvdir. Əgər o düzgün fayla hədəflənməyibsə AdAway işləməyəcək.\n\nSymlink yaratmağa cəhd etmək istəyirsiniz?</string>
     <string name="apply_symlink_missing_title">Symlink tapılmır</string>
     <string name="apply_not_enough_space">Bölmədə kifayət qədər yer yoxdur!\nSeçimlərdən hosts faylının hədəfini /data/data/hosts \'a dəyişməyə cəhd edin.</string>
@@ -80,8 +71,8 @@
     <string name="apply_symlink_successful_title">Symlink yaratmaq uğurla bitdi</string>
     <string name="no_connection">İnternet bağlantısı qurula bilmədi. </string>
     <string name="no_connection_title">Əlaqə qurulmadı</string>
-    <string name="download_dialog">Yüklənir… </string>
-    <string name="apply_dialog">Tətbiq edilir… </string>
+    <string name="download_dialog">Yüklənir... </string>
+    <string name="apply_dialog">Tətbiq edilir... </string>
     <string name="apply_dialog_apply">Hosts faylını tətbiq et</string>
     <string name="apply_fail_title">Tətbiqetmək alınmadı</string>
     <string name="download_fail_title">Yükləmə alınmadı</string>
@@ -89,12 +80,13 @@
     <string name="no_private_file_title">Fərdi fayl yaratmaq alınmadı</string>
     <string name="enable_systemless_successful_title">Uğurla açıldı</string>
     <string name="disable_systemless_successful_title">Uğurla qapadıldı</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">URL\'ni hosts faylına daxil et:</string>
     <string name="no_hostname">Bu host adı etibarsızdır!</string>
     <string name="no_hostname_title">Host adı düzgün formatda deyil</string>
     <string name="no_ip">Bu IP etibarsızdır!</string>
     <string name="reboot_never_reboot">Yenidən başlatma və bu sualı gələn dəfə göstərmə!</string>
-    <string name="loading">Yüklənir…</string>
+    <string name="loading">Yüklənir...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Yenilə</string>
@@ -104,8 +96,6 @@
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Problemlər</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Reklam bloker</string>
@@ -125,14 +115,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS istəkləri</string>
     <string name="shortcut_your_lists">Siyahılarınız</string>
     <string name="shortcut_preferences">Tənzimləmələr</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">%1$s üçün yenidir</string>
     <string name="hosts_source_need_update">%1$s üçün yeniləmə lazımdır</string>
     <string name="hosts_source_last_update">Son yeniləmə %1$s əvvəl</string>
@@ -154,4 +141,4 @@
         <item quantity="other">%d ay</item>
     </plurals>
 
-</resources>
+    </resources>

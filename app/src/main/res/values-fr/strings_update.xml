@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Home screen -->
+    <string name="update_available">Une mise à jour est proposée !</string>
 
     <!-- Changelog dialog -->
+    <string name="update_update_title">Une nouvelle version est proposée</string>
+    <string name="update_update_message">La nouvelle version apporte les changements suivants :\n\n</string>
+    <string name="update_up_to_date_title">Votre appli est à jour</string>
+    <string name="update_up_to_date_message">Cette dernière version apporte les changements suivants :\n\n</string>
+    <string name="update_changelog">Journal des changements</string>
+    <string name="update_update_button">Mettre à jour maintenant</string>
 </resources>

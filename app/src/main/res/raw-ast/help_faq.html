@@ -5,32 +5,28 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>FAQ</title></head>
 <body>
-<h2>Entrada d'anuncios</h2>
-<p>Hai un conceutu erráu davezu que diz que si un usuariu enxamás fai clic nos anuncios, entós bloquialos nun firirá económicamente un sitiu o aplicación. Esto ye un enquívocu porque los desendolcadores tamién ganen dineru amosando namái anuncios. Depende de tigo si bloquies anuncios o non. Personalmente, nun usaría nin instalaría aplicaciones qu'amuesen anuncios ensin un bloquiador d'ellos porque alcuéntroles percafiantes.</p>
+<h2>Income by advertisements</h2>
+<p>There is an oft-stated misconception that if a user never clicks on ads, then blocking them won't hurt a site or application financially. This is wrong, developers also earn money by just displaying ads. It is up to you whether you block ads or not. Personally I would not use applications that display ads because I find them very annoying, so without an ad blocker I would not install these applications.</p>
 
+<h2>¿Cómo funciona AdAway?</h2>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
+<h2>¿Por qué tengo de reaniciar Android pa que los cambeos faigan efeutu?</h2>
+<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
 
-<h2>¿Cómo furrula AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
-
-<h2>¿Por qué ta abuxáu'l caxellu d'anovamientu diariu?</h2>
-<p>La comprobación automática p'anovamientos nuevos ta namái disponible cuando Adaway ta instaláu na memoria interna del teléfonu. Esto ye pola mor de restricciones na plataforma Android.</p>
-
-<h2>¿Por qué teo de reaniciar Android pa que les camudancies faigan efeutu?</h2>
-<p>Java n'Andorid caltién la so caché DNS interna. El sistema operativu reflexará'l ficheru Hosts nuevu nel intre (verifícalo con «ping» na llinia comandos) pero necesitarás reaniciar Android pa reconstruyir la cahé DNS Java.</p>
-
-<h2>¿Cómo usar el sirvidor web n'AdAway?</h2>
+<h2>How to use the webserver in AdAway?</h2>
 <p><strong>AdAway will also work without using the webserver!</strong>
 <br><br>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
 <br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
-<h2>¿Cómo pueo bloquiar/desbloquiar nomes d'agospiu específicos?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<h2>How can I block/unblock specific hostnames?</h2>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
-<h2>¿Ú pueo alcontrar más fontes d'agospios?</h2>
-<p>Mira la <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">llista de fontes d'agospios p'AdAway</a>.</p>
+<h2>Where can I find more hosts sources?</h2>
+<p>See <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
 
-<h2>Ayuda traduciendo/informando de fallos</h2>
-<p>Por favor, vete a <a href="https://adaway.org">https://adaway.org</a>.</p>
+<h2>Help translating/report bugs</h2>
+<p>Please go to <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>

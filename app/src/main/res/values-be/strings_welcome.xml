@@ -46,5 +46,5 @@
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Назад</string>
     <string name="welcome_next_button">Далей</string>
-    <string name="welcome_finish_button">Завяршыць</string>
+    <string name="welcome_finish_button">Завершыць</string>
 </resources>

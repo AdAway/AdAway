@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Bienvenue</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Logo de bienvenue</string>
+    <string name="welcome_method_header">Bienvenue dans AdAway !</string>
+    <string name="welcome_method_summary">AdAway offre deux modes de blocage des publicités. Sélectionnez celui qui vous convient :</string>
+
+    <string name="welcome_root_method_logo">Logo de la racine</string>
+    <string name="welcome_root_method_title">Bloqueur de publicités\nfondé sur la racine</string>
+    <string name="welcome_root_method_text1">Plus rapide</string>
+    <string name="welcome_root_method_text2">Demande en énergie moins élevée</string>
+    <string name="welcome_root_method_text3">Exige un appareil débridé</string>
+
+    <string name="welcome_vpn_method_logo">Logo du RPV</string>
+    <string name="welcome_vpn_method_title">Bloqueur de publicités\nfondé sur un RPV</string>
+    <string name="welcome_vpn_method_text1">Plus lent</string>
+    <string name="welcome_vpn_method_text2">Exécution en arrière-plan</string>
+    <string name="welcome_vpn_method_text3">Compatibilité</string>
+
+    <string name="welcome_root_missing_title">Un Android débridé est exigé</string>
+    <string name="welcome_root_missile_description">Soit le fichier binaire su est introuvable, soit vous n’avez pas donné l’accès racine à AdAway.\n\nCela peut arriver quand votre appareil n’est pas débridé. Vous trouverez des renseignements sur comment débrider votre appareil sur wiki.lineageos.org ou sur d’autres sites Web dédiés à Android.</string>
+
+    <string name="welcome_method_pro_logo">Avantages</string>
+    <string name="welcome_method_con_logo">Inconvénients</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">La synchro est terminée</string>
+    <string name="welcome_sync_error_logo">Erreur de synchro</string>
+
+    <string name="welcome_sync_header">Synchronisation</string>
+    <string name="welcome_synced_header">La synchro est terminée</string>
+    <string name="welcome_sync_summary">AdAway télécharge de sources en ligne la liste de réseaux publicitaires à bloquer. Vous pouvez les personnaliser ultérieurement dans les paramètres.</string>
+    <string name="welcome_sync_retry_logo">Essayer de resynchroniser</string>
+    <string name="welcome_sync_error">Échec de synchro :\n%s.\nRessayer maintenant ?</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Dons</string>
+    <string name="welcome_support_header">Soutenez-moi !</string>
+    <string name="welcome_support_summary">L’appli est gratuite et à code source ouvert. Je la développe à temps perdu. Alors si vous l’aimez, n’hésitez pas à témoigner votre soutien :</string>
+    <string name="welcome_support_button">Faire un don par PayPal</string>
+    <string name="welcome_support_telemetry_summary">Aimez-vous les bogues ? Moi non plus.</string>
+    <string name="welcome_support_telemetry_button">Activer la télémétrie pour envoyer des relevés de plantage</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Retour</string>
+    <string name="welcome_next_button">Suivant</string>
+    <string name="welcome_finish_button">Terminer</string>
 </resources>

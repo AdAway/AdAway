@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
+    <string name="pref_main_title">Pengaturan</string>
     <string name="pref_dark_theme">Gunakan tema gelap</string>
-    <!-- Ad block category -->
     <string name="pref_whitelist_rules">Perbolehkan daftar putih</string>
     <string name="pref_redirection_rules">Perbolehkan pengalihan</string>
     <string name="pref_redirection_rules_summary">BAHAYA KEAMANAN! Perbolehkan pengalihan dari sumber host.</string>
     <string name="pref_enable_ipv6">Aktifkan IPv6</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Debug</string>
     <string name="pref_enable_telemetry">Nyalakan laporan crash</string>
     <string name="pref_enable_telemetry_summary">Ijinkan aplikasi untuk mengirim laporan error dan crash ke Sentry (sentry.io)</string>
     <string name="pref_enable_debug">Nyalakan verbose logging</string>

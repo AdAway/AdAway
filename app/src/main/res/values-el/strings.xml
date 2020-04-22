@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Έξοδος</string>
     <string name="button_close">Κλείσιμο</string>
@@ -26,29 +25,26 @@
     <string name="webserver_status_stopped">Διακόπηκε</string>
     <string name="button_enable_webserver">Ενεργοποίηση διακομιστή διαδικτύου</string>
     <string name="button_disable_webserver">Απενεργοποήση διακομιστή διαδικτύου</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Διαγραφή</string>
     <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
     <string name="checkbox_list_context_edit">Επεξεργασία</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Εισαγωγή…</string>
+    <string name="import_dialog">Εισαγωγή...</string>
     <string name="import_success">Η δημιουργία αντιγράφων ασφαλείας έγινε με επιτυχία από το εξωτερικό αποθηκευτικό χώρο.</string>
     <string name="import_failed">Αποτυχία εισαγωγής αντιγράφων ασφαλείας. Είναι σωστή η μορφή του; Ελέγξτε το αρχείο logcat για περισσότερες λεπτομέρειες.</string>
-    <string name="export_dialog">Εξαγωγή…</string>
+    <string name="export_dialog">Εξαγωγή...</string>
     <string name="export_success">Το αντίγραφο ασφαλείας εξήχθη με επιτυχία στο αρχείο \'adaway-backup.json\' στο εξωτερικό σας αποθηκευτικό χώρο.</string>
     <string name="export_failed">Αποτυχία εξαγωγής αντίγραφου ασφαλείας.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Το αρχείο hosts</string>
     <string name="hosts_description">Το αρχείο hosts είναι ένα αρχείο συστήματος το οποίο αντιστοιχίζει ονόματα διακομιστών σε διευθύνσεις IP. Είναι ένα αρχείο απλού κειμένου το οποίο ρυθμίζει το AdAway. Εδώ παρατίθενται οι πρώτες του γραμμές:</string>
-    <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts…</string>
+    <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts...</string>
     <string name="hosts_open_button">Άνοιγμα του αρχείου hosts</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Δημιουργία στάνταρ αρχείου hosts</string>
-    <string name="status_update_available">Υπάρχει διαθέσιμη ενημέρωση</string>
     <string name="status_update_available_subtitle">Υπάρχουν διαθέσιμα πιο πρόσφατα αρχεία hosts</string>
     <string name="status_no_connection">Δεν υπάρχει σύνδεση στο ίντερνετ</string>
     <string name="status_no_connection_subtitle">Δεν υπάρχει διαθέσιμη σύνδεση στο ίντερνετ</string>
@@ -62,12 +58,7 @@
     <string name="status_enabled_subtitle">Ενεργοποιήθηκαν τα πιο πρόσφατα αρχεία hosts</string>
     <string name="status_disabled">Απενεργοποιημένο</string>
     <string name="status_disabled_subtitle">Τα προεπιλεγμένα αρχεία hosts εγκαταστάθηκαν </string>
-    <string name="notification_configuration_changed">Η διαμόρφωσή σας άλλαξε. Πρέπει να εγκαταστήσετε το αρχείο hosts για να το εφαρμόσετε.</string>
     <string name="notification_configuration_changed_action">Εφαρμογή</string>
-    <string name="notification_configuration_installing">Εγκατάσταση αρχείου hosts</string>
-    <string name="notification_configuration_failed">Αποτυχία εγκατάστασης του αρχείου hosts.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Ο σύνδεσμος από τον προορισμό στο /system/etc/hosts δεν υπάρχει ή είναι λανθασμένος! Το AdAway δεν θα λειτουργήσει αν δεν δείχνει στο σωστό αρχείο.
 
 Θέλετε να προσπαθήσετε να δημιουργήσετε έναν σύνδεσμο;</string>
@@ -100,12 +91,12 @@
 Αν αυτό δεν επιτύχει, αναζητήστε στο Internet για S-OFF και το μοντέλο της συσκευής σας.</string>
     <string name="apply_symlink_fail_title">Η δημιουργία συντόμευσης απέτυχε</string>
     <string name="apply_help">Παρακαλούμε ανατρέξτε στην Βοήθεια για περισσότερες πληροφορίες</string>
-    <string name="apply_apn_proxy">Ένας διαμεσολαβητής APN είναι ορίσμενος στο Android σας!\nΤο AdAway δεν λειτουργεί αξιόπιστα  σε δίκυτα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Απο τα Settings app: Network &amp; Internet -&gt; Mobile network -&gt; Advanced -&gt; Access Point Names) και να αφαιρέσετε την τιμή στο πεδίο proxy.</string>
+    <string name="apply_apn_proxy">Ένας διαμεσολαβητής APN είναι ορίσμενος στο Android σας!\nΤο AdAway δεν λειτουργεί αξιόπιστα  σε δίκυτα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Απο τα Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) και να αφαιρέσετε την τιμή στο πεδίο proxy.</string>
     <string name="apply_apn_proxy_title">Υπάρχει ορισμένος διαμεσολαβητής APN!</string>
     <string name="no_connection">Η σύνδεση στο ίντερνετ δεν λειτουργεί</string>
     <string name="no_connection_title">Αδυναμία συνδεσης</string>
-    <string name="download_dialog">Λήψη…</string>
-    <string name="apply_dialog">Εφαρμογή…</string>
+    <string name="download_dialog">Λήψη...</string>
+    <string name="apply_dialog">Εφαρμογή...</string>
     <string name="apply_dialog_lists">Εφαρμογή Λευκής και Μαύρης λίστας</string>
     <string name="apply_dialog_hostnames">Ανάλυση και συγχώνευση αρχείων hosts</string>
     <string name="apply_dialog_hosts">Δημιουργία αρχείου hosts</string>
@@ -141,7 +132,7 @@
     <string name="no_ip">Αυτή η διεύθυνση IP δεν είναι έγκυρη! </string>
     <string name="no_ip_title">Κακή μορφή διεύθυνσης IP</string>
     <string name="reboot_never_reboot">Να μην γίνετε ποτέ επανεκκίνηση και να μην εμφανιστεί αυτή η ερώτηση την επόμενη φορά!</string>
-    <string name="loading">Φόρτωση…</string>
+    <string name="loading">Φόρτωση...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Ανανέωση</string>
@@ -158,10 +149,8 @@
     <!--Adware-->
     <string name="adware_header">Κακόβουλο λογισμικό διαφημίσεων</string>
     <string name="adware_description">Εδώ μπορείτε να βρείτε τα εγκατεστημένα κακόβουλα λογισμικά διαφημίσεων, εφαρμογές τις οποίες το AdAway δεν μπορεί να αποκλείσει. Αυτές οι εφαρμογές χρησιμοποιούν, για παράδειγμα, ειδοποιήσεις Airpush οι οποίες εμφανίζονται ακόμα και όταν οι κακόβουλες εφαρμογές δεν εκτελούνται, ενώ μπορούν ακόμα να αλλάξουν και τον ήχο κλήσης σας. Η μόνη διαθέσιμη μέθοδος αντιμετώπισής του είναι να τις απεγκαταστήσετε, κάνοντας κλικ στα περιεχόμενα της λίστας.</string>
-    <string name="adware_scanning">Σάρωση…</string>
+    <string name="adware_scanning">Σάρωση&#8230;</string>
     <string name="adware_empty">Δεν βρέθηκαν Adware!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Φραγή διαφημίσεων</string>
@@ -189,7 +178,6 @@
     <string name="tcpdump_entry_add_whitelist">Προσθήκη καταχώρησης στη λευκή λίστα</string>
     <string name="tcpdump_entry_add_redirection_list">Προσθήκη καταχώρησης στη λίστα ανακατεύθυνσης</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Επεξεργασία της τιμής προτιμήσεων κειμένου</string>
     <string name="drawer_open">Άνοιγμα μενού</string>
     <string name="drawer_close">Κλείσιμο μενού</string>
@@ -207,14 +195,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Αιτήματα DNS</string>
     <string name="shortcut_your_lists">Οι λίστες σας</string>
     <string name="shortcut_preferences">Επιλογές</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">Ενήμερο εδώ και %1$s </string>
     <string name="hosts_source_need_update">Απαιτείται ενημέρωηση εδώ και %1$s</string>
     <string name="hosts_source_last_update">Τελευταία ενημέρωση πρίν από %1$s</string>
@@ -236,4 +221,4 @@
         <item quantity="other">%d μήνες</item>
     </plurals>
 
-</resources>
+    </resources>

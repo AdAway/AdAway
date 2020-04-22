@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Hosts-lähteet</string>
     <!-- List -->
+    <string name="hosts_not_available">ei saatavilla</string>
     <!-- Edition dialog -->
-</resources>
+    <string name="hosts_add_dialog_title">Lisää lähde</string>
+    <string name="hosts_edit_dialog_title">Muokkaa lähdettä</string>
+    <string name="hosts_dialog_url">Osoite: (https:// tai file:// -resurssi)</string>
+    </resources>

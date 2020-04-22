@@ -5,7 +5,7 @@
     <!-- Method UI -->
     <string name="welcome_method_logo">Welcome logo</string>
     <string name="welcome_method_header">Willkommen bei AdAway!</string>
-    <string name="welcome_method_summary">AdAway bietet zwei Methoden zum Blockieren von Anzeigen. Wählen Sie die Methode, die Ihnen gefällt:</string>
+    <string name="welcome_method_summary">AdAway bietet zwei Methoden zum Blockieren von Werbung. Wählen Sie die Methode, die Ihnen gefällt:</string>
 
     <string name="welcome_root_method_logo">Root logo</string>
     <string name="welcome_root_method_title">Root-basierter\nAd-Blocker</string>
@@ -38,9 +38,9 @@
     <!-- Support -->
     <string name="welcome_support_logo">Support</string>
     <string name="welcome_support_header">Unterstützt mich!</string>
-    <string name="welcome_support_summary">Es is eine freie und quelloffene Anwendung. Ich entwickle sie in meiner Freizeit. Wenn sie Ihnen also gefällt, können Sie gerne Ihre Unterstützung zeigen:</string>
+    <string name="welcome_support_summary">Es ist eine freie und quelloffene Anwendung. Ich entwickle sie in meiner Freizeit. Wenn sie Ihnen gefällt, dürfen Sie mich also gerne unterstützen:</string>
     <string name="welcome_support_button">Spende über PayPal</string>
-    <string name="welcome_support_telemetry_summary">Mögen sie Fehler? Ich auch nicht</string>
+    <string name="welcome_support_telemetry_summary">Mögen Sie Fehler? Ich auch nicht</string>
     <string name="welcome_support_telemetry_button">Telemetrie aktivieren, um Absturzberichte zu senden.</string>
 
     <!-- Navigation buttons -->

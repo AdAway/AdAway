@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Inkomste deur advertensies</h2>
 <p>Daar bestaan 'n miskonsepsie dat indien die gebruiker nie op die advertensie klik nie, die blokkering, nie die webwerf of die program finansieel sal benadeel nie. Dit is egter nie waar nie, program ontwikkelaars verdien ook geld as die advertensie vertoon word. Dit is jou keuse of jy die advertensie wil blokkeer al dan nie. Persoonlik gebruik ek nie programme wat advertensie vertoon nie aangesien ek dit frustrerend vind, dus sal ek nie die programme sonder 'n advertensie blokkeerder installeer nie.</p>
 
-
-
 <h2>Hoe werk AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
-
-<h2>Hoekom is die daaglikse opdaterings blokkie grys?</h2>
-<p>Outomatiese nagaan vir opdaterings is slegs moontlik indien AdAway op die interne foon geheue geïnstalleer is. Dit is agv. beperkinge op die Android platvorm.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Hoekom moet Android weer begin om veranderinge te implementeer?</h2>
 <p>Java en Android onderhou hulle eie interne DNS geheue. Die bedryfstelsel sal dadelik nuwe gasheer lêers vertoon (verifieer dit met ping op die "command line") jy sal egter Android weer moet begin om die DNS geheue en Java te herbou.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Hoe kan ek spesifieke gasheername blokkeer/toelaat?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Waar kan ek meer gasheer bronne vind?</h2>
 <p>Sien <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lys van addisionele gasheer bronne vir AdAway</a>.</p>

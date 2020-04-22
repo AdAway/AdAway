@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Surt</string>
     <string name="button_close">Tanca</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">Aturat</string>
     <string name="button_enable_webserver">Activa el servidor web</string>
     <string name="button_disable_webserver">Desactiva el servidor web</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Elimina</string>
     <string name="checkbox_list_context_title">Edita l\'entrada</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">S\'està carregant el contingut del fitxer d\'amfitrions…</string>
     <string name="hosts_open_button">Obre el fitxer d\'amfitrions</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Creació del fitxer estàndard de servidors</string>
     <string name="status_update_available">Actualització disponible</string>
     <string name="status_update_available_subtitle">Amfitrions nous disponibles</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">S\'han activat els fitxers d\'amfitrions més recents</string>
     <string name="status_disabled">Desactivat</string>
     <string name="status_disabled_subtitle">S\'han instal·lat els fitxers d\'amfitrions per defecte</string>
-    <string name="notification_configuration_changed">Ha canviat la configuració. Instal·leu el fitxer d\'amfitrions per aplicar els canvis.</string>
     <string name="notification_configuration_changed_action">Aplica</string>
-    <string name="notification_configuration_installing">S\'està instal·lant el fitxer…</string>
-    <string name="notification_configuration_failed">Ha fallat en instal·lar el fitxer.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">L\'enllaç simbòlic cap a /system/etc/hosts no existeix o no és correcte! L\'AdAway no funcionarà si no apunta al fitxer correcte.\n\nVoleu intentar crear un enllaç simbòlic?</string>
     <string name="apply_symlink_missing_title">Falta l\'enllaç simbòlic</string>
     <string name="apply_not_enough_space">No hi ha prou espai a la partició!\nProveu canviant el fitxer a les preferències a /data/data/hosts.</string>
@@ -128,8 +120,6 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Bloquejador d\'anuncis</string>
     <string name="no_text_editor_title">No hi ha cap editor de text instal·lat</string>
@@ -152,7 +142,6 @@
     <string name="tcpdump_entry_add_whitelist">Afegeix una entrada a la llista blanca</string>
     <string name="tcpdump_entry_add_redirection_list">Afegeix una entrada a la llista de redireccions</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Edita el valor de preferència del text</string>
     <string name="drawer_open">Obre el menú</string>
     <string name="drawer_close">Tanca el menú</string>
@@ -169,14 +158,14 @@
         <item>Ajuda</item>
     </string-array>
     <!--Drawer menu labels-->
+
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Sol·licituds DNS</string>
     <string name="shortcut_your_lists">Les vostre llistes</string>
     <string name="shortcut_preferences">Preferències</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">Actualitzat per %1$s</string>
     <string name="hosts_source_need_update">Actualització necessària per %1$s</string>
     <string name="hosts_source_last_update">Darrera actualització fa %1$s</string>
     <string name="hosts_source_unknown_status">Estat d\'actualització desconegut</string>
-</resources>
+    </resources>

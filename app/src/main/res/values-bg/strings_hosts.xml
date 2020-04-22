@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Източници за Hosts файла</string>
     <!-- List -->
+    <string name="hosts_not_available">не е наличен</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Добавяне на източник</string>
+    <string name="hosts_edit_dialog_title">Редактиране на източник</string>
+    <string name="hosts_dialog_url">URL: (https:// или file:// ресурс)</string>
+    <string name="hosts_dialog_url_hint">URL адрес на източника на Hosts</string>
 </resources>

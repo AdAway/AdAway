@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Bevétel hirdetéseken keresztül</h2>
 <p>Van egy gyakran elhangzó félreértés mely szerint, ha amúgy se katintanánk a reklámokra, akkor azzal se ártunk egy oldalnak vagy alakalmazásnak, ha meg se jelenítjük a reklámot. Ez nem igaz, mert a fejlesztők már azért is kaphatnak pénzt, hogy megjelenítsék a hirdetést. Az csak a felhasználón múlik, hogy használ-e reklám blokkolót vagy nem.</p>
 
-
-
 <h2>Hogy működik az AdAway?</h2>
-<p>Az AdAway a <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts fájl</a> segítségével blokkolja azokat gépneveket, amelyek hirdetéseket szolgálnak ki. A hosts fájl a <code>/system/etc/hosts</code> helyen található és gépnevekhez IP címeket párosít. Ez a hagyományos módja annak, hogy gépnevekhez IP címeket párosítsunk a Domain Név Rendszer (DNS) használata nélkül. Minden nem kívánatos gépnév a <code>127.0.0.1</code> címre lesz átirányítva, ami azt jelenti, hogy a saját eszközre fog mutatni.</p>
-
-<h2>Miért van kiszürkítve a naponta történő frissítés keresés beállítása?</h2>
-<p>Az automata frissítés keresés csak akkor lehetséges, ha az AdAway az eszköz belső memóriájára lett telepítve. Ez az Android rendszer korlátai miatt van így.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Miért kell újraindítani az Androidot, hogy a változások életbe lépjenek?</h2>
 <p>Az Java az Android rendszeren saját belső DNS tárat tart fenn. Az operációs rendszer azonnal használja az új hosts fájlt (ezt ellenőrizni is lehet pingeléssel), de a Java DNS tárának újraépítéséhez újra kell indítani az Androidot.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Néhány alkalmazás nem hajlandó működni, ha a reklám kiszolgálóik nem érhető el. Ezzel a módszerrel újra elérhetőnek hiszi azt, és egy üres oldalt kapnak vissza.</p>
 
 <h2>Hogyan tudok adott kiszolgálókat (hosts) blokkolni/engedélyezni?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Hol találhatok további hosts forrásokat?</h2>
 <p>Tekintsd meg <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">az AdAwayhez való hosts fájlok további forrásainak listáját</a>!</p>

@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>広告からの収入</h2>
 <p>仕様です。ファイルをダウンロードして適用したときに成功していれば、日時不明と書かれていても反映されています</p>
 
-
-
 <h2>AdAwayはどうやって動作しているの？</h2>
-<p>AdAwayは<a href="http://en.wikipedia.org/wiki/Hosts_file">ホストファイル</a>を使用して広告を提供するホスト名をブロックします。 hostsファイルは、ホスト名をIPアドレスにマップする<code>/system/etc/hosts</code>にあるファイルです。 これは、ドメインネームシステム（DNS）に頼らずにホスト名とIPアドレスのペアを定義する伝統的な方法です。 すべての不要なホスト名は<code>127.0.0.1</code>にリダイレクトされます。つまり、自分のデバイスを指します</p>
-
-<h2>どうして設定の自動更新がチェックできないの？</h2>
-<p>自動更新の確認はAdAwayを内蔵ストレージにインストールしたときだけ使えます。Androidの仕様なので、SDカードなどからAdAwayを内蔵ストレージに移動してください。</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>なぜ再起動しないと変更が適用されないの？</h2>
 <p>Androidの内部DNSキャッシュのせいです。OSはhostsファイルをすぐに反映しますが(コマンドラインで確認できます)DNSキャッシュの再構成に再起動が必要です</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>一部のアプリでは、広告サーバーにアクセスできない場合は動作しません。 この方法では、再び空白のページと広告画像で表示します</p>
 
 <h2>特定のホスト名をブロック/アンブロックするにはどうしたらいい？</h2>
-<p>ブロックしたいホスト名は<cite>あなたのリスト</cite>の中の<cite>ブラックリスト</cite>(=ブラック)に追加します。さらに、遮断から除外したいホスト名は<cite>ホワイトリスト</cite>(=ホワイト)に追加できます。特定の IPアドレスに転送したいホスト名は<cite>リダイレクトリスト</cite>(=リダイレクト)に入れます。</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>hostsファイルはどこで見つけられる？</h2>
 <p><a href="https://github.com/AdAway/AdAway/wiki/HostsSources">AdAwayのホストソースのリスト追加</a>を参照してください</p>

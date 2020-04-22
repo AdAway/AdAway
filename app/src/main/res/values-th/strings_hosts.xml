@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">แหล่งที่มาโฮสต์</string>
     <!-- List -->
+    <string name="hosts_not_available">ไม่สามารถใช้งานได้</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">เพิ่มแหล่งที่มา</string>
+    <string name="hosts_edit_dialog_title">แก้ไขแหล่งข้อมูล</string>
+    <string name="hosts_dialog_url">URL: (https:// หรือ file://)</string>
+    <string name="hosts_dialog_url_hint">URL แหล่งที่มาของโฮสต์</string>
 </resources>

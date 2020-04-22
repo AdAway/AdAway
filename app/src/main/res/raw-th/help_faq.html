@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>รายได้จากการโฆษณา</h2>
 <p>มีความเข้าใจผิดที่ระบุบ่อยๆว่าหากผู้ใช้ไม่เคยคลิกโฆษณาการปิดกั้นเนื้อหาดังกล่าวจะไม่ส่งผลเสียหายต่อไซต์หรือแอพพลิเคชันทางการเงิน ซึ่งเป็นสิ่งที่ผิดนักพัฒนายังมีรายได้ด้วยการแสดงโฆษณา ทั้งนี้ขึ้นอยู่กับคุณว่าคุณบล็อกโฆษณาหรือไม่ ส่วนตัวฉันจะไม่ใช้แอปพลิเคชันที่แสดงโฆษณาเนื่องจากพบว่าน่ารำคาญมากดังนั้นหากไม่มีตัวบล็อกโฆษณาฉันจะไม่ติดตั้งแอปพลิเคชันเหล่านี้</p>
 
-
-
 <h2>AdAway นี้ทำงานอย่างไร?</h2>
-<p>AdAway ใช้ <a href="http://en.wikipedia.org/wiki/Hosts_file">ไฟล์โฮสต์</a> เพื่อป้องกันโฮสต์ที่ให้บริการโฆษณา ไฟล์โฮสต์คือไฟล์ที่อยู่ใน <code>/system/etc/hosts</code> ที่เชื่อมชื่อโฮสต์กับที่อยู่ IP โดยชื่อโฮสต์ที่ไม่ต้องการทั้งหมดถูกเปลี่ยนเส้นทางไปที่ <code>127.0.0.1</code> ซึ่งหมายความว่าลิงก์จะชี้ไปที่อุปกรณ์ของคุณเอง</p>
-
-<h2>เหตุใดการตั้งค่าการตรวจสอบการอัปเดตรายวันจึงเป็นสีเทา</h2>
-<p>การตรวจสอบอัตโนมัติสำหรับการอัปเดตใหม่จะใช้ได้เฉพาะเมื่อมีการติดตั้ง AdAway ไว้ในหน่วยความจำภายในเท่านั้น นี่เป็นเพราะข้อ จำกัด ของแพลตฟอร์มแอนดรอยด์</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>ทำไมถึงต้องรีสตาร์ทเพื่อให้มีผลเปลี่ยนแปลง?</h2>
 <p>Java บน Android มีแคช DNS ภายในของตัวเอง ระบบปฏิบัติการจะแสดงแฟ้ม hosts ใหม่ทันที (ตรวจสอบว่ามี ping ในบรรทัดคำสั่ง) แต่คุณจะต้องเริ่มต้นใหม่ Android เพื่อสร้างแคช DNS ของ Java</p>
@@ -24,7 +20,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br><br>คุณสามารถเปิดใช้งานเว็บเซิร์ฟเวอร์ในลักษณะที่ AdAway ต้องการเพื่อตอบรับคำขอไปยังที่อยู่ IP ในเครื่อง <code>127.0.0.1</code>ซึ่งหมายถึงคำขอจากแอพฯที่ปกติจะส่งไปเว็บโฆษณาจะถูกเปลี่ยนเส้นทางไปยัง <code>127.0.0.1</code><br>ดังนั้นจะทำให้พวกโฆษณาจะไม่สามารถใช้งานได้</p>
 
 <h2>บล็อคหรือปลดบล็อคชื่อโฮสต์?</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>ฉันสามารถหาแหล่งที่มาของโฮสต์ได้จากที่ไหน?</h2>
 <p>ดู <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">รายชื่อแหล่งโฮสต์เพิ่มเติมจาก AdAway</a>.</p>

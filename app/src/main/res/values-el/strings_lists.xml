@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_title">Οι λίστες σας</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Πρόσθεση host στη μαύρη λίστα</string>
     <string name="list_add_dialog_white">Πρόσθεση host σε λευκή λίστα</string>

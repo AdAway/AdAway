@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Prihodi od reklama</h2>
 <p>Postoji zabluda, da ukoliko korisnik nikada ne klikće na reklame, da se blokiranje istih neće negativno finansijski odraziti na stranicu ili aplikaciju. To je pogrešno jer programeri isto tako zarađuju novac samim prikazom reklama. Vaša je stvar hoćete li ili nećete blokirati reklame. Lično ne bih koristio aplikacije koje prikazuju oglase jer smatram da su vrlo iritantne, tako da bez aplikacije za sprečavanje prikaza reklama aplikacije te vrste ne bih ni instalirao.</p>
 
-
-
 <h2>Kako AdAway radi?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.</p>
-
-<h2>Zašto je dnevna provera ažuriranja nedostupna?</h2>
-<p>Automatska provera ažuriranja dostupna je samo kada je AdAway instaliran na internu memoriju uređaja. Radi se o ograničenosti Android platforme.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Zašto moram ponovo pokrenuti Android da bi promene imale efekta?</h2>
 <p>Java na Androidu održava svoju sopstvenu DNS keš. Operativni Sistem će reflektovati nove hosts fajlove odmah (verifikovati sa pingom na komandnoj liniji) ali ćete morati da restartujete Android da bi obnovili DNS keš Jave.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Kako mogu da blokiram/odblokiram posebna imena domena</h2>
-<p>Add the hostnames you want to block to the <cite>Blacklist</cite> (=Black) under <cite>Your lists</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Whitelist</cite> (=White) and hostnames you want to redirect to a specific IP address belong to the <cite>Redirect list</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Gde mogu pronaći još host izvora?</h2>
 <p>Pogledajte <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Listu dodatnih izvora hostova za AdAway</a>.</p>

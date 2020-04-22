@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
+    <string name="pref_main_title">Preferencias</string>
     <string name="pref_dark_theme">Habilitar tema oscuro</string>
-    <!-- Ad block category -->
     <string name="pref_whitelist_rules">Permitir lista blanca</string>
     <string name="pref_redirection_rules">Permitir redirección</string>
     <string name="pref_redirection_rules_summary">¡IMPLICA UN RIESGO DE SEGURIDAD! Permite las entradas de redireccionamiento desde las fuentes de ficheros hosts.</string>
     <string name="pref_enable_ipv6">Habilitar IPv6</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Depurar</string>
     <string name="pref_enable_telemetry">Habilitar informe de fallos</string>
     <string name="pref_enable_telemetry_summary">Permitir que la aplicación envíe informes de fallos y cuelgues a Sentry (sentry.io).</string>
     <string name="pref_enable_debug">Habilitar registro detallado</string>

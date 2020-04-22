@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_title">Llistes de to</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Amiestu d\'un agospiu a la llista prieta</string>
+    <string name="list_add_dialog_white">Amiestu d\'un agospiu a la llista blanca</string>
+    <string name="list_edit_dialog_black">Edición d\'un agospiu na llista prieta</string>
+    <string name="list_edit_dialog_white">Edición d\'un agospiu na llista blanca</string>
+    <string name="list_dialog_hostname">Nome d\'agospiu:</string>
+    <string name="list_dialog_ip">IP (IPv4 o IPv6):</string>
 </resources>

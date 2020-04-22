@@ -7,11 +7,6 @@
     <string name="lists_tab_redirected">Přesměrované</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrovat hostitele</string>
-    <!-- Filter dialog -->
-    <string name="lists_filter_host_title">Filtrovat jméno hostitele:</string>
-    <string name="lists_filter_include_sources">Zahrnout hostitele ze zdrojů</string>
-    <string name="lists_filter_apply">Aplikovat</string>
-    <string name="lists_filter_reset">Resetovat</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Přidat hostitele na černou listinu</string>
     <string name="list_add_dialog_white">Přidat hostitele na bílou listinu</string>
@@ -19,7 +14,7 @@
     <string name="list_edit_dialog_black">Upravit hostitele na černé listině</string>
     <string name="list_edit_dialog_white">Upravit hostitele na bílé listině</string>
     <string name="list_edit_dialog_redirect">Upravit hostitele na listině přesměrování</string>
-    <string name="list_dialog_hostname">Název hostitele:</string>
+    <string name="list_dialog_hostname">Jméno hostitele:</string>
     <string name="list_dialog_hostname_hint">URL adresa hostitele</string>
     <string name="list_dialog_wildcard">(Jsou povoleny zástupné znaky * a ?)</string>
     <string name="list_dialog_ip">IP (IPv4 nebo IPv6):</string>

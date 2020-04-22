@@ -1,32 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Заблоковано</string>
+    <string name="allowed_hosts_label">Дозволено</string>
+    <string name="redirect_hosts_label">Перенаправлено</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="few">%d up-to-date sources</item>
-        <item quantity="many">%d up-to-date sources</item>
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="one">%d оновлене джерело</item>
+        <item quantity="few">%d оновлених джерела</item>
+        <item quantity="many">%d оновлених джерел</item>
+        <item quantity="other">%d оновлених джерел</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="few">%d outdated sources</item>
-        <item quantity="many">%d outdated sources</item>
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="one">%d застаріле джерело</item>
+        <item quantity="few">%d застарілих джерела</item>
+        <item quantity="many">%d застарілих джерел</item>
+        <item quantity="other">%d застарілих джерел</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Допомога</string>
 
     <!-- Project card -->
+    <string name="project_label">Відкрити сторінку GitHub</string>
 
     <!-- Support card -->
+    <string name="support_label">Підтримати проєкт</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Журнал DNS</string>
+    <string name="preferences_drawer_item">Налаштування</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Відкрити навігаційне меню</string>
+    <string name="adblock_pause_button_description">Зупинити/продовжити блокування реклами</string>
+    <string name="update_button">Оновити заблоковані домени</string>
+    <string name="show_log_button">Показати запитувані домени</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Будь ласка, читайте Довідку для отримання додаткової інформації.</string>
 
 </resources>

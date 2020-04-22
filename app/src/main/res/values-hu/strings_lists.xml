@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="lists_title">Saját listák</string>
     <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_tab_blocked">Blokkolt</string>
+    <string name="lists_tab_allowed">Megengedett</string>
+    <string name="lists_tab_redirected">Átirányítva</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Hoszt hozzáadása a feketelistához</string>
     <string name="list_add_dialog_white">Hoszt hozzáadása a fehérlistához</string>

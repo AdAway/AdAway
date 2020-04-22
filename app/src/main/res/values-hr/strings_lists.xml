@@ -7,11 +7,6 @@
     <string name="lists_tab_redirected">Preusmjereni</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtriranje poslužitelja</string>
-    <!-- Filter dialog -->
-    <string name="lists_filter_host_title">Filtriraj naziv poslužitelja:</string>
-    <string name="lists_filter_include_sources">Uključi poslužitelje iz izvora</string>
-    <string name="lists_filter_apply">Primijeni</string>
-    <string name="lists_filter_reset">Poništi</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Dodaj poslužitelj na popis blokiranih</string>
     <string name="list_add_dialog_white">Dodaj poslužitelj u popis neblokiranih</string>

@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">เปิดไฟล์โฮสต์</string>
+    <string name="pref_apply_method">ไฟล์โฮสต์</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -8,5 +9,6 @@
         <item>กำหนดเอง</item>
     </string-array>
     <!-- Redirection category -->
-    <!-- Web server category -->
-</resources>
+    <string name="pref_hosts_redirection">Redirection</string>
+    <string name="pref_webserver_enabled">เปิดใช้งานเว็บเซิร์ฟเวอร์</string>
+    </resources>

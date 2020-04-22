@@ -23,7 +23,7 @@
     <string name="header_webserver">Webový server</string>
     <string name="webserver_status_running">Spuštěn</string>
     <string name="webserver_status_stopped">Vypnut</string>
-    <string name="webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na blokované hostitele.</string>
+    <string name="webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na jména zablokovaných hostitelů.</string>
     <string name="button_enable_webserver">Povolit webový server</string>
     <string name="button_disable_webserver">Zakázat webový server</string>
     <string name="header_vpn">VPN</string>
@@ -82,11 +82,7 @@
     <string name="status_copy_new_hosts">Kopírování nového souboru hostitelů</string>
     <string name="status_check_copy">Kontrola kopie souboru hostitelů</string>
     <string name="status_hosts_updated">Soubor hostitelů úspěšně aktualizován</string>
-    <string name="notification_configuration_changed">Kofigurace byla změněna. Aby se změny projevily, je nutné soubor hostitelů znovu aplikovat.</string>
     <string name="notification_configuration_changed_action">Aplikovat</string>
-    <string name="notification_configuration_installing">Aplikování souboru hostitelů…</string>
-    <string name="notification_configuration_failed">Aplikování souboru hostitelů se nezdařilo.</string>
-
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Chybí symbolický odkaz na cílový soubor hostitelů</string>
     <string name="apply_symlink_missing">Symbolický odkaz z vašeho cíle na /system/etc/hosts neexistuje nebo je chybný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
@@ -145,8 +141,8 @@
 
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Zadejte URL k souboru hostitelů:</string>
-    <string name="no_hostname">Toto není platný název hostitele!</string>
-    <string name="no_hostname_title">Chybný formát názvu hostitele</string>
+    <string name="no_hostname">Toto není platné jméno hostitele!</string>
+    <string name="no_hostname_title">Chybný formát jména hostitele</string>
     <string name="no_ip">Toto není platná IP!</string>
     <string name="no_ip_title">Chybný formát IP</string>
     <string name="reboot_never_reboot">Nikdy nerestartovat a příště již nezobrazovat tuto otázku!</string>
@@ -166,7 +162,7 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_description">Zde můžete vyhledat nainstalovaný Adware, špatné aplikace, které nemohou být aplikací AdAway blokovány. Tyto aplikace používají například oznámení Airpush, které se objevují i v případě, že aplikace není spuštěna, nebo dokonce změní vaše vyzvánění. Jediné protiopatření je odinstalování těchto aplikací klepnutím na položky seznamu!</string>
+    <string name="adware_description">Zde můžete vyhledat nainstalovaný Adware, špatné aplikace, které nemohou být aplikací AdAway zablokovány. Tyto aplikace používají například oznámení Airpush, které se objevují i v případě, že aplikace není spuštěna, nebo dokonce změní vaše vyzvánění. Jediné protiopatření je odinstalování těchto aplikací klepnutím na položky seznamu!</string>
     <string name="adware_scanning">Skenování&#8230;</string>
     <string name="adware_empty">Žádný Adware nebyly nalezen!</string>
 

@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_title">Sinu loendid</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Lisa host musta loendisse</string>
     <string name="list_add_dialog_white">Lisa host valgesse loendisse</string>

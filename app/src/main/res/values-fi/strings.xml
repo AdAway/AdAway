@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Sulje</string>
     <string name="button_close">Sulje</string>
@@ -22,7 +21,6 @@
     <string name="webserver_status_stopped">Pysäytetty</string>
     <string name="button_enable_webserver">Ota web-palvelin käyttöön</string>
     <string name="button_disable_webserver">Ota web-palvelin pois käytöstä</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Poista</string>
     <string name="checkbox_list_context_title">Muokka merkintää</string>
@@ -35,7 +33,6 @@
     <string name="hosts_header">Hosts-tiedosto</string>
     <string name="hosts_open_button">Avaa hosts-tiedosto</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
     <string name="status_update_available">Päivitys saatavilla</string>
     <string name="status_update_available_subtitle">Uudempia hosts-tiedostoja on saatavilla</string>
@@ -49,7 +46,6 @@
     <string name="status_enabled_subtitle">Uusimmat hosts-tiedostot ovat käytössä</string>
     <string name="status_disabled">Pois käytöstä</string>
     <string name="notification_configuration_changed_action">Hyväksy</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symbolista linkkiä kohteeseen /system/etc/hosts ei ole olemassa tai se on virheellinen! AdAway ei toimi, jos se ei osoita oikeaan tiedostoon.\n\nHaluatko yrittää luoda symbolisen linkin?</string>
     <string name="apply_symlink_missing_title">Symbolinen linkki puuttuu</string>
     <string name="apply_not_enough_space">Ei tarpeeksi tilaa osiossa!\nYritä muuttaa asetuksissa hosts-tiedoston kohde /data/data/hosts -vaihtoehdoksi.</string>
@@ -83,6 +79,7 @@
     <string name="no_private_file">Yksityistä tiedostoa ei voi luoda.</string>
     <string name="no_private_file_title">Yksityisen tiedoston luominen epäonnistui</string>
     <string name="disable_systemless_successful_title">Kytketty pois päältä</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">Kirjoita hosts-tiedoston URL-osoite:</string>
     <string name="no_hostname">Tämä ei ole kelvollinen host-nimi!</string>
     <string name="no_hostname_title">Väärin muotoiltu host-nimi</string>
@@ -102,7 +99,6 @@
     <!--Adware-->
     <string name="adware_header">Mainosohjelma</string>
     <string name="adware_scanning">Tarkistetaan…</string>
-    <!--Hosts sources-->
     <!--Other-->
     <string name="app_subtitle">Mainosten esto</string>
     <string name="no_text_editor_title">Ei tekstieditoria asennettuna</string>
@@ -116,7 +112,6 @@
     <string name="tcpdump_enable_monitoring">Salli tarkkailu</string>
     <string name="tcpdump_show_results">Näytä tulokset</string>
     <string name="tcpdump_menu_clear">Tyhjennä loki</string>
-    <!--Preferences-->
     <string name="drawer_open">Avaa valikko</string>
     <string name="drawer_close">Sulje valikko</string>
 
@@ -155,4 +150,4 @@
         <item quantity="other">%d kuukautta</item>
     </plurals>
 
-</resources>
+    </resources>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">פתח קובץ hosts</string>
     <string name="pref_apply_method">יעד קובץ Hosts</string>
     <string name="pref_apply_method_summary">לפני שתשנה הגדרה זו, קרא אודות פונקציה זו בעזרה</string>
     <string-array name="pref_apply_method_entries">
@@ -12,6 +12,7 @@
     <string name="pref_custom_target">יעד מותאם אישית</string>
     <string name="pref_never_reboot">הסתר תיבת דו שיח על אתחול המערכת</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">הפניה</string>
     <string name="pref_redirection_ipv4">הפניית IPv4</string>
     <string name="pref_redirection_ipv6">הפניית IPv6</string>
     <!-- Web server category -->

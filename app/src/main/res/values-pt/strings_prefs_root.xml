@@ -1,21 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">Abrir ficheiro de hosts</string>
     <string name="pref_apply_method">Ficheiro de hosts de destino</string>
-    <string name="pref_apply_method_summary">Antes de alterar esta definição, leia a ajuda acerca desta funcionalidade.</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Destino personalizado</item>
     </string-array>
-    <string name="pref_custom_target">Destino personalizado</string>
-    <string name="pref_never_reboot">Ocultar diálogo de reinício</string>
     <!-- Redirection category -->
-    <string name="pref_redirection_ipv4">Redirecionamento IPv4</string>
-    <string name="pref_redirection_ipv6">Redirecionamento IPv6</string>
-    <!-- Web server category -->
-    <string name="pref_webserver">Servidor web local</string>
+    <string name="pref_hosts_redirection">Redirec.</string>
     <string name="pref_webserver_enabled">Ativar servidor web</string>
-    <string name="pref_webserver_on_boot">Iniciar servidor web no arranque</string>
-</resources>
+    </resources>

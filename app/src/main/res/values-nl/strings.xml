@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Afsluiten</string>
     <string name="button_close">Sluiten</string>
@@ -13,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Welkom!</string>
-    <string name="text_help">AdAway is vrije software, ontworpen om advertenties te blokkeren. Het haalt de adressen van reclamenetwerken op om deze op uw apparaat te blokkeren.\nWilt u meer weten? Bekijk de hulpsectie hieronder.</string>
+    <string name="text_help">AdAway is vrije software, ontworpen om advertenties te blokkeren. Het haalt de adressen van reclamenetwerken en blokkeert deze op uw apparaat.\nWilt u meer weten? Bekijk de hulpsectie hieronder.</string>
     <string name="button_show_help">Meer hulp tonen</string>
     <string name="icon_update_status">Status bijwerken</string>
     <string name="text_update">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
@@ -22,10 +21,17 @@
     <string name="button_enable_hosts">Advertentieblokkering inschakelen</string>
     <string name="button_disable_hosts">Advertentieblokkering uitschakelen</string>
     <string name="header_webserver">Webserver</string>
-    <string name="webserver_status_running">Aan het werk</string>
+    <string name="webserver_status_running">Actief</string>
     <string name="webserver_status_stopped">Gestopt</string>
+    <string name="webserver_toggle_text">Start of stop de webserver op localhost om verzoeken aan geblokkeerde hostnamen te beantwoorden.</string>
     <string name="button_enable_webserver">Webserver inschakelen</string>
     <string name="button_disable_webserver">Webserver uitschakelen</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Actief</string>
+    <string name="vpn_status_stopped">Gestopt</string>
+    <string name="vpn_toggle_text">Start of stop de VPN die verzoeken filtert.</string>
+    <string name="button_enable_vpn">VPN gebruiken</string>
+    <string name="button_disable_vpn">Geen VPN gebruiken</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Verwijderen</string>
@@ -34,22 +40,31 @@
 
     <!--Your lists-->
     <string name="import_dialog">Bezig met importeren…</string>
-    <string name="import_success">Backup succesvol geïmporteerd vanuit je externe opslag.</string>
-    <string name="import_failed">Import van backup is mislukt. Is het format juist ? Check de logcat voor meer details.</string>
+    <string name="import_success">De back-up is geïmporteerd van uw externe opslag.</string>
+    <string name="import_failed">Het importeren is mislukt. Is het formaat juist? Bekijk de logcat voor meer informatie.</string>
     <string name="export_dialog">Bezig met exporteren…</string>
-    <string name="export_success">Backup succesvol geexporteerd naar \'adaway-backup.json\' bestand op je externe opslag.</string>
-    <string name="export_failed">Export van backup is mislukt.</string>
+    <string name="export_success">De back-up is geëxporteerd naar \'adaway-backup.json\' op uw externe opslag.</string>
+    <string name="export_failed">Het exporteren is mislukt.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Het hosts-bestand</string>
-    <string name="hosts_description">Het hosts-bestand is een systeembestand dat IP-adressen toewijst aan hostnamen. Het is een tekstbestand waarvan de configuratie door AdAway wordt afgehandeld. Hier zijn enkele van de eerste regels:</string>
-    <string name="hosts_content">Inhoud van hosts-bestand wordt geladen…</string>
+    <string name="hosts_description">Het hosts-bestand is een systeembestand dat ip-adressen toewijst aan hostnamen. Het is een tekstbestand waarvan de configuratie door AdAway wordt afgehandeld. Hier zijn de eerste regels:</string>
+    <string name="hosts_content">Bezig met laden van inhoud van hosts-bestand…</string>
     <string name="hosts_open_button">Hosts-bestand openen</string>
 
     <!--Status Notification-->
+    <string name="status_check">Bezig met controleren op updates</string>
+    <string name="status_check_source">Bezig met controleren vas %s op updates</string>
+    <string name="status_retrieve">Bezig met ophalen van bronnen</string>
+    <string name="status_download_source">Bezig met ophalen van bron \'%s\'</string>
+    <string name="status_copy_source">Bezig met kopiëren van bron \'%s\'</string>
+    <string name="status_parse_source">Bezig met verwerken van bron \'%s\'</string>
+    <string name="status_revert">Bezig met terugzetten van standaard hosts-bestand</string>
+    <string name="status_revert_done">Het standaard hosts-bestand is teruggezet</string>
     <string name="status_reverting_subtitle">Standaard hosts-bestand aanmaken</string>
     <string name="status_update_available">Er is een update beschikbaar</string>
     <string name="status_update_available_subtitle">Nieuwere hosts-bestanden beschikbaar</string>
+    <string name="status_no_update_found">Geen bronupdates gevonden</string>
     <string name="status_no_connection">Geen internetverbinding</string>
     <string name="status_no_connection_subtitle">Geen internetverbinding beschikbaar</string>
     <string name="status_download_fail">Bronnen zijn niet beschikbaar</string>
@@ -62,12 +77,14 @@
     <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
     <string name="status_disabled">Uitgeschakeld</string>
     <string name="status_disabled_subtitle">Standaard hosts-bestand geïnstalleerd</string>
-    <string name="notification_configuration_changed">Je configuratie is gewijzigd. Installeer het hosts-bestand opnieuw om het toe te passen.</string>
+    <string name="status_apply_sources">Nieuwste bronnen toepassen</string>
+    <string name="status_create_new_hosts">Bezig met aanmaken van nieuw hosts-bestand</string>
+    <string name="status_copy_new_hosts">Bezig met kopiëren van nieuw hosts-bestand</string>
+    <string name="status_check_copy">Bezig met controleren van hosts-kopie</string>
+    <string name="status_hosts_updated">Het hosts-bestand is bijgewerkt</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
-    <string name="notification_configuration_installing">Hosts-bestand wordt geïnstalleerd…</string>
-    <string name="notification_configuration_failed">Installeren van hosts-bestand mislukt.</string>
-
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">De symlink naar het hosts-bestand ontbreekt</string>
     <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink te maken?</string>
     <string name="apply_symlink_missing_title">Symlink ontbreekt</string>
     <string name="apply_not_enough_space">Onvoldoende ruimte op de systeempartitie!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
@@ -76,6 +93,7 @@
     <string name="apply_private_file_fail_title">Privébestandsfout</string>
     <string name="apply_remount_fail">Het opnieuw koppelen van de partitie als lezen/schrijven is mislukt!</string>
     <string name="apply_remount_fail_title">Opnieuw koppelen mislukt</string>
+    <string name="apply_copy_fail_status">Het hosts-bestand kan niet worden gekopieerd</string>
     <string name="apply_copy_fail">Kopiëren van hosts-bestand is mislukt!</string>
     <string name="apply_copy_fail_title">Kopiëren mislukt</string>
     <string name="apply_success_subtitle">Hosts-bronnen toegepast</string>
@@ -104,15 +122,18 @@ Wilt u herstarten?
     <string name="apply_dialog_hostnames">Lezen en samenvoegen van hosts-bestanden</string>
     <string name="apply_dialog_hosts">Hosts-bestand opbouwen</string>
     <string name="apply_dialog_apply">Hosts-bestand plaatsen</string>
+    <string name="apply_fail_status">Het nieuwe hosts-bestand kan niet worden toegepast.</string>
     <string name="apply_fail">Het plaatsen van het hosts-bestand is mislukt!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
     <string name="apply_fail_title">Hosts-bestand plaatsen mislukt</string>
     <string name="root_access_fail">Controleer uw Root app om zeker te zijn dat Root toegang is toegestaan.</string>
     <string name="revert_successful">U hebt het standaard hosts bestand teruggezet. Het kan nodig zijn om Android te herstarten om de wijzigingen effect te laten hebben. Wilt u herstarten? (Om data verlies te voorkomen moet u zorgen dat geen enkele applicatie op dit moment de sdkaart gebruikt)</string>
     <string name="revert_successful_title">Terugzetten voltooid</string>
+    <string name="revert_failed_status">Het hosts-bestand kan niet worden teruggezet</string>
     <string name="revert_problem">Terugzetten is door onbekende redenen mislukt.</string>
     <string name="revert_problem_title">Terugzetten mislukt!</string>
     <string name="download_fail_dialog">Geen van uw geselecteerde hosts-bronnen zijn bereikbaar! Bent u verbonden met het internet?</string>
     <string name="download_fail_title">Downloaden mislukt</string>
+    <string name="no_private_file_status">Het nieuwe privéhosts-bestand kan niet worden toegepast</string>
     <string name="no_private_file">Privébestanden kunnen niet worden aangemaakt.</string>
     <string name="no_private_file_title">Aanmaken privébestand mislukt</string>
     <string name="enable_systemless_successful">U heeft de systeemloze modus ingeschakeld. Het kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben. Wilt u nu opnieuw opstarten? (Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)
@@ -120,6 +141,8 @@ Wilt u herstarten?
     <string name="enable_systemless_successful_title">Inschakelen gelukt</string>
     <string name="disable_systemless_successful">U heeft systemless mode uitgeschakeld. Het kan nodig zijn om Android opnieuw op te starten om de wijzigingen effect te laten hebben. Wilt u nu herstarten? (Om dataverlies te voorkomen, moet u zorgen dat geen enkele app op dit moment de SD-kaart gebruikt.)</string>
     <string name="disable_systemless_successful_title">Uitschakelen gelukt</string>
+    <string name="enable_vpn_fail">De VPN kan niet worden ingeschakeld.</string>
+    <string name="disable_vpn_fail">De VPN kan niet worden uitgeschakeld.</string>
     <string name="enable_systemless_magisk_title">Activeer Magisk module</string>
     <string name="enable_systemless_magisk">Activeer systemless hosts van Magisk manager. Activeer in de instellingen <cite>Systemless hosts</cite> optie en start de telefoon opnieuw op.</string>
     <string name="disable_systemless_magisk_title">De-activeer Magisk module</string>
@@ -131,15 +154,15 @@ Wilt u herstarten?
     <string name="no_hostname_title">Hostnaam is verkeerd opgemaakt</string>
     <string name="no_ip">Dit is geen correct IP-adres!</string>
     <string name="no_ip_title">IP-adres is verkeerd opgemaakt</string>
-    <string name="reboot_never_reboot">Herstart nooit en laat deze vraag in het vervolg niet meer zien!</string>
-    <string name="loading">Laden…</string>
+    <string name="reboot_never_reboot">Herstart nooit en laat deze vraag nooit meer zien!</string>
+    <string name="loading">Bezig met laden…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Verversen</string>
     <string name="menu_add">Toevoegen</string>
     <string name="menu_help">Hulp</string>
-    <string name="menu_import">Importeer backup</string>
-    <string name="menu_export">Exporteer backup</string>
+    <string name="menu_import">Back-up importeren</string>
+    <string name="menu_export">Back-up exporteren</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -151,8 +174,6 @@ Wilt u herstarten?
     <string name="adware_description">Hier kunt u scannen naar slechte Adware applicaties, welke niet door AdAway geblokkeerd kunnen worden. Deze applicaties gebruiken bijvoorbeeld Airpush notificaties, welke zelfs opkomen als de applicatie niet draait, of veranderen zelfs uw ringtone. De enige beschikbare oplossing is deze applicaties te deïnstalleren door op de lijst elementen te klikken!</string>
     <string name="adware_scanning">Scannen…</string>
     <string name="adware_empty">Geen slechte Adware apps gevonden!</string>
-
-    <!--Hosts sources-->
 
     <!--Other-->
     <string name="app_subtitle">Adblocker</string>
@@ -176,16 +197,15 @@ Wilt u herstarten?
     <string name="tcpdump_entry_add_whitelist">Host toevoegen aan whitelist</string>
     <string name="tcpdump_entry_add_redirection_list">Hostdoorschakeling toevoegen</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Wijzig tekst voorkeurswaarde</string>
     <string name="drawer_open">Menu openen</string>
     <string name="drawer_close">Menu sluiten</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
-        <item>Home</item>
+        <item>Startpagina</item>
         <item>Hosts-bronnen</item>
-        <item>Uw lijsten</item>
+        <item>Mijn lijsten</item>
         <item>Hosts-bestand openen</item>
         <item>Log DNS verzoeken</item>
         <item>Scan op Adware</item>
@@ -194,14 +214,13 @@ Wilt u herstarten?
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS verzoeken</string>
     <string name="shortcut_your_lists">Uw lijsten</string>
     <string name="shortcut_preferences">Voorkeuren</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">%1$s geleden toegepast</string>
     <string name="hosts_source_up_to_date">Up-to-date van %1$s</string>
     <string name="hosts_source_need_update">Update nodig van%1$s</string>
     <string name="hosts_source_last_update">Laatste update %1$s geleden</string>
@@ -222,5 +241,21 @@ Wilt u herstarten?
         <item quantity="one">%dmaand</item>
         <item quantity="other">%dmaanden</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">bezig met starten</string>
+    <string name="vpn_notification_running">actief</string>
+    <string name="vpn_notification_stopping">bezig met stoppen</string>
+    <string name="vpn_notification_waiting_for_net">bezig met wachten op netwerk</string>
+    <string name="vpn_notification_reconnecting">bezig met herverbinden</string>
+    <string name="vpn_notification_reconnecting_error">fout tijdens herverbinden</string>
+    <string name="vpn_notification_paused">onderbroken</string>
+    <string name="vpn_notification_stopped">gestopt</string>
+    <string name="vpn_notification_title">Advertentieblokkering-VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Onderbreken</string>
+    <string name="vpn_notification_paused_text">Druk om te hervatten</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Schakel systeembrede advertentieblokkering in of uit</string>
 
 </resources>

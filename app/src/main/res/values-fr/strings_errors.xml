@@ -10,7 +10,7 @@
     <string name="error_private_file_failed_details">Impossible de créer un fichier privé pour construire une nouvelle source d’hosts. Veuillez vérifier l’espace libre sur votre appareil.</string>
     <string name="error_not_enough_space_message">Il manque d’espace</string>
     <string name="error_not_enough_space_details">Impossible de copier le fichier hosts vers votre partition système. Veuillez vous assurer que le module « Systemless Hosts » de Magisk est activé, puis redémarrez.</string>
-    <string name="error_copy_failed_message">Échec d’installation des nouveaux fichiers hosts.</string>
+    <string name="error_copy_failed_message">Échec d’installation du nouveau fichier hosts.</string>
     <string name="error_copy_failed_details">Impossible de copier le fichier hosts vers la partition /system. Veuillez vous assurer que le module « Systemless Hosts » de Magisk est activé, puis redémarrez.</string>
     <string name="error_revert_failed_message">Échec de rétablissement du fichier hosts</string>
     <string name="error_revert_failed_details">Impossible de restaurer la configuration du fichier hosts par défaut.</string>

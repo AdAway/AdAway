@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">終了</string>
     <string name="button_close">閉じる</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">停止</string>
     <string name="button_enable_webserver">Webサーバーを有効にする</string>
     <string name="button_disable_webserver">Webサーバーを無効にする</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">削除</string>
     <string name="checkbox_list_context_title">項目を編集する</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
     <string name="hosts_open_button">hostsファイルを開く</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">標準hostsファイルを作成中</string>
     <string name="status_update_available">更新があります</string>
     <string name="status_update_available_subtitle">新しいhostsファイルがあります</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">最新の hosts ファイルが有効になりました</string>
     <string name="status_disabled">無効になっています</string>
     <string name="status_disabled_subtitle">デフォルトの hosts ファイルがインストールされました</string>
-    <string name="notification_configuration_changed">設定が変更されました。適用するには hosts ファイルをインストールする必要があります。</string>
     <string name="notification_configuration_changed_action">適用する</string>
-    <string name="notification_configuration_installing">hostsファイルを適用中…</string>
-    <string name="notification_configuration_failed">hosts ファイルのインストールに失敗しました。</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">/system/etc/hostsへのシンボリックリンクは存在しないか不正です! AdAwayは正しいファイルが指定されていないと動作しません。\n\nシンボリックリンクを作成しますか？</string>
     <string name="apply_symlink_missing_title">シンボリックリンクが見つかりません</string>
     <string name="apply_not_enough_space">このパーティションに十分な容量がありません!\n設定で対象とする hosts ファイルを /data/data/hosts に変更してみてください。</string>
@@ -143,8 +135,6 @@
     <string name="adware_scanning">スキャン中…</string>
     <string name="adware_empty">アドウェアは検出されませんでした！</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">広告排除！</string>
     <string name="no_text_editor_title">テキストエディタがありません</string>
@@ -167,7 +157,6 @@
     <string name="tcpdump_entry_add_whitelist">ホワイトリストにエントリーを追加する</string>
     <string name="tcpdump_entry_add_redirection_list">リダイレクトリストにエントリを追加する</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">テキスト設定値を編集する</string>
     <string name="drawer_open">メニューを開く</string>
     <string name="drawer_close">メニューを閉じる</string>
@@ -185,14 +174,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNSリクエスト</string>
     <string name="shortcut_your_lists">あなたのリスト</string>
     <string name="shortcut_preferences">設定</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">最新の %1$s</string>
     <string name="hosts_source_need_update">%1$sの更新が必要</string>
     <string name="hosts_source_last_update">前回の更新 %1$s</string>
@@ -210,4 +196,4 @@
         <item quantity="other">%d 月</item>
     </plurals>
 
-</resources>
+    </resources>

@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Изход</string>
     <string name="button_close">Затваряне</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">Изключен</string>
     <string name="button_enable_webserver">Включване на уеб сървър</string>
     <string name="button_disable_webserver">Изключване на уеб сървър</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Изтриване</string>
     <string name="checkbox_list_context_title">Редактиране</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">Зареждане съдържанието на файла Hosts…</string>
     <string name="hosts_open_button">Отваряне на файла Hosts</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Създаване на стандартен файл Hosts</string>
     <string name="status_update_available">Налице е актуализация</string>
     <string name="status_update_available_subtitle">Налични са нови Hosts файлове</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">Най-новите Hosts файлове са активирани</string>
     <string name="status_disabled">Деактивиран</string>
     <string name="status_disabled_subtitle">Hosts файлът по подразбиране е инсталиран</string>
-    <string name="notification_configuration_changed">Конфигурацията ви е променена. Трябва да инсталирате Hosts файла, за да го приложите.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
-    <string name="notification_configuration_installing">Инсталиране на Hosts файла…</string>
-    <string name="notification_configuration_failed">Неуспешно инсталиране на Hosts файла.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Символичната връзка от вашата цел до /system/etc/hosts не съществува или е неправилна! AdAway няма да работи, ако не е насочен към правилния файл.\n\nИскате ли да опитате да създадете символична връзка?</string>
     <string name="apply_symlink_missing_title">Липсва символична връзка</string>
     <string name="apply_not_enough_space">Няма достатъчно място на дяла!\nОпитайте да промените целевия Hosts файл в настройките на /data/data/hosts.</string>
@@ -143,8 +135,6 @@
     <string name="adware_scanning">Сканиране…</string>
     <string name="adware_empty">Не бяха открити рекламни приложения!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Спира рекламите</string>
     <string name="no_text_editor_title">Не е инсталиран текстов редактор</string>
@@ -167,7 +157,6 @@
     <string name="tcpdump_entry_add_whitelist">Добавяне на запис в белия списък</string>
     <string name="tcpdump_entry_add_redirection_list">Добавяне на запис в списъка за пренасочване</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Редактиране стойност на предпочитания за текст</string>
     <string name="drawer_open">Отваряне на менюто</string>
     <string name="drawer_close">Затваряне на менюто</string>
@@ -185,14 +174,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS заявки</string>
     <string name="shortcut_your_lists">Вашите списъци</string>
     <string name="shortcut_preferences">Настройки</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">Актуални за %1$s</string>
     <string name="hosts_source_need_update">Нужна актуализация за %1$s</string>
     <string name="hosts_source_last_update">Последна актуализация преди %1$s</string>
@@ -214,4 +200,4 @@
         <item quantity="other">%d месеца</item>
     </plurals>
 
-</resources>
+    </resources>

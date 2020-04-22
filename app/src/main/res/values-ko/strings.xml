@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">종료</string>
     <string name="button_close">닫기</string>
@@ -24,8 +23,13 @@
     <string name="header_webserver">웹 서버</string>
     <string name="webserver_status_running">실행중</string>
     <string name="webserver_status_stopped">중지됨</string>
+    <string name="webserver_toggle_text">로컬호스트의 웹서버를 시작 또는 중지하여 차단된 호스트명의 요청에 응답합니다.</string>
     <string name="button_enable_webserver">웹 서버 활성화</string>
     <string name="button_disable_webserver">웹 서버 비활성화</string>
+    <string name="vpn_status_running">실행중</string>
+    <string name="vpn_status_stopped">중지됨</string>
+    <string name="button_enable_vpn">VPN 활성화</string>
+    <string name="button_disable_vpn">VPN 비활성화</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">삭제</string>
@@ -47,6 +51,9 @@
     <string name="hosts_open_button">호스트 파일 열기</string>
 
     <!--Status Notification-->
+    <string name="status_check">업데이트 확인 중</string>
+    <string name="status_revert">기본 호스트 파일로 되돌리는 중</string>
+    <string name="status_revert_done">기본 호스트 파일로 복구되었습니다.</string>
     <string name="status_reverting_subtitle">표준 호스트 파일 생성 중</string>
     <string name="status_update_available">업데이트 가능</string>
     <string name="status_update_available_subtitle">최신 호스트 파일 사용 가능</string>
@@ -62,12 +69,7 @@
     <string name="status_enabled_subtitle">최신 호스트 파일이 활성화됨</string>
     <string name="status_disabled">비활성화됨</string>
     <string name="status_disabled_subtitle">기본 호스트 파일들이 설치되어있습니다.</string>
-    <string name="notification_configuration_changed">당신의 옵션이 변경되었습니다. 적용하시려면 호스트 파일을 설치하십시오.</string>
     <string name="notification_configuration_changed_action">적용</string>
-    <string name="notification_configuration_installing">호스트 파일 설치 중…</string>
-    <string name="notification_configuration_failed">호스트 파일 설치에 실패했습니다.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">대상에서 /system/etc/host으로 연결되는 심링크가 존재하지 않거나 올바르지 않습니다! 올바른 파일을 가르키지 않을 경우 AdAway가 작동하지 않습니다.\n\n심링크 생성을 시도하시겠습니까?</string>
     <string name="apply_symlink_missing_title">심링크가 누락됨</string>
     <string name="apply_not_enough_space">파티션에 공간이 부족합니다!\n환경 설정에서 대상 호스트 파일을 /data/data/hosts로 변경해보십시오.</string>
@@ -138,8 +140,6 @@
     <string name="adware_scanning">스캔중…</string>
     <string name="adware_empty">애드웨어가 없습니다!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">광고 차단 도구</string>
     <string name="no_text_editor_title">No text editor installed</string>
@@ -162,7 +162,6 @@
     <string name="tcpdump_entry_add_whitelist">화이트리스트에 추가</string>
     <string name="tcpdump_entry_add_redirection_list">리디렉션에 추가</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">텍스트 값 수정</string>
     <string name="drawer_open">메뉴 열기</string>
     <string name="drawer_close">메뉴 닫기</string>
@@ -180,14 +179,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 리퀘스트</string>
     <string name="shortcut_your_lists">사용자 리스트</string>
     <string name="shortcut_preferences">환경 설정</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">%1$s가 최신입니다.</string>
     <string name="hosts_source_need_update">%1$s는 업데이트가 필요합니다.</string>
     <string name="hosts_source_last_update">%1$s일 전에 업데이트 함.</string>
@@ -205,4 +201,4 @@
         <item quantity="other">%d 달</item>
     </plurals>
 
-</resources>
+    </resources>

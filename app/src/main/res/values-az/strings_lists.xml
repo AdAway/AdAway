@@ -1,7 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Tab -->
-    <!-- Menu -->
-    <!-- Filter dialog -->
+    <string name="lists_title">Siyahılarınız</string>
     <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Host\'u qara siyahıya at</string>
+    <string name="list_add_dialog_white">Host\'u ağ siyahıya at</string>
+    <string name="list_add_dialog_redirect">Host yönləndirici əlavə et</string>
+    <string name="list_edit_dialog_black">Qara siyahıdakı host\'u dəyiş</string>
+    <string name="list_edit_dialog_white">Ağ siyahıdakı host\'u dəyiş</string>
+    <string name="list_edit_dialog_redirect">Yönləndirməni dəyiş</string>
+    <string name="list_dialog_hostname">Host adı:</string>
+    <string name="list_dialog_hostname_hint">Hostların kök URL\'ı</string>
+    <string name="list_dialog_wildcard">(Wildkart * və ? işarələrinə icazə verilir)</string>
+    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
 </resources>

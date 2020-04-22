@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">hosts 取得先</string>
     <!-- List -->
+    <string name="hosts_not_available">日時不明</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">ソースを追加</string>
+    <string name="hosts_edit_dialog_title">ソースを編集</string>
+    <string name="hosts_dialog_url">URL: (https:// または file:// の情報源)</string>
+    <string name="hosts_dialog_url_hint">hosts が置いてある URL</string>
 </resources>

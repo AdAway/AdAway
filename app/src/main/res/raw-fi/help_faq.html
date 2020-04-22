@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Tuotot mainoksilla</h2>
 <p>Yleinen harhaluulo on, että jos käyttäjä ei koskaan klikkaa mainoksia, niin niiden estäminen ei haittaa sivua tai sovellusta taloudellisesti. Tämä ei kuitenkaan pidä paikkaansa, sillä kehittäjät tienaavat rahaa myös vain näyttämällä mainoksia. Riippuu itsestäsi haluatko estää mainokset vai et. Henkilökohtaisesti en käyttäisi sovelluksia, jotka näyttävät mainoksia, sillä mainokset ovat mielestäni ärsyttäviä, joten ilman mainostenesto-ohjelmaa en asentaisi kyseisiä sovelluksia.</p>
 
-
-
 <h2>Kuinka AdAway toimii?</h2>
-<p>AdAway käyttää  <a href="http://en.wikipedia.org/wiki/Hosts_file">Hosts file</a> estääkseen palvelimet jotka tarjoavat mainoksia. Hosts tiedostot löytyvät osiosta joka sijaitsee <code>system/etc/hosts</code> se kartoittaa palvelimet IP osoitteisiin. Se on perinteinen tapa määrittää palvelin IP osoitteseen ilman tukeutumista Domain nimi järjestelmään (DNS). Kaikki ei toivotut palvelimet ohjataan <code>127.0.0.1</code> joka tarkoittaa niiden osoittavan sinun omaan laitteseen</p>
-
-<h2>Miksi päivittäinen päivitysten tarkistus vaihtoehto on harmaa?</h2>
-<p>Päivitysten automaattinen tarkistus on mahdollista vain, mikäli AdAway on asennettu puhelimen sisäiselle muistille. Tämä johtuu Android-käyttöjärjestelmän rajoituksista.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Miksi minun täytyy käynnistää Android uudelleen ottaakseni muutokset voimaan?</h2>
 <p>Androidin Java ylläpitää omaa sisäistä DNS-välimuistia. Käyttöjärjestelmä kuvastaa uuttaa hosts-tiedostoa heti (varmista se pingillä komentorivillä), mutta sinun täytyy käynnistää Android uudelleen jälleenrakentaaksesi Javan DNS-välimuisti.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
 
 <h2>Kuinka voin estää/sallia tiettyjen palvelinten nimet?</h2>
-<p>Lisää hosts-nimet jotka haluat estää kohtaan <cite>Blacklist</cite> (=musta) alla <cite>Your Lists</cite> lisäksi hosts-nimet joita et halua lisätä estoon voidaan lisätä <cite>Whitelist</cite> (=valkoinen) ja hosts-nimet jotka haluat uudelleen ohjata tiettyyn IP osoitteeseen kuuluvat <cite>Redirection list</cite> (=uudelleen ohjaus).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Mistä löydän lisää hosts-lähteitä?</h2>
 <p>Katso <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Luettelo hosts-lähteistä</a>.</p>

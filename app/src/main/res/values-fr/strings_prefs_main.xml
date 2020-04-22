@@ -7,18 +7,18 @@
     <string name="pref_update_configuration">Mises à jour automatiques</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Blocage des publicités</string>
-    <string name="pref_root_ad_blocker_configuration">Bloqueur de publicités utilisant le root</string>
-    <string name="pref_vpn_ad_blocker_configuration">Bloqueur de publicités utilisant un VPN</string>
-    <string name="pref_whitelist_rules">Appliquer les hôtes autorisés depuis les sources</string>
-    <string name="pref_redirection_rules">Appliquer les hôtes redirigés depuis les sources</string>
-    <string name="pref_redirection_rules_summary">CAUSE UN RISQUE DE SÉCURITÉ !</string>
-    <string name="pref_enable_ipv6">Activer le support de l\'IPv6</string>
-    <string name="pref_backup_restore">Sauvegarder / restaurer les règles de blocage</string>
+    <string name="pref_root_ad_blocker_configuration">Bloqueur de publicités pour appareil débridé</string>
+    <string name="pref_vpn_ad_blocker_configuration">Bloqueur de publicités fondé sur un RPV</string>
+    <string name="pref_whitelist_rules">Appliquer les hôtes autorisés à partir des sources</string>
+    <string name="pref_redirection_rules">Appliquer les hôtes redirigés à partir des sources</string>
+    <string name="pref_redirection_rules_summary">PRÉSENTE UN RISQUE POUR LA SÉCURITÉ !</string>
+    <string name="pref_enable_ipv6">Activer la prise en charge d’IPv6</string>
+    <string name="pref_backup_restore">Sauvegarder/restaurer les règles de blocage</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Débogage</string>
-    <string name="pref_enable_telemetry">Envoyer les rapports de plantage</string>
-    <string name="pref_enable_telemetry_summary">Rapporter à Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Non supporté dans cette version</string>
-    <string name="pref_enable_debug">Journal verbeux</string>
-    <string name="pref_enable_debug_summary">Un redémarrage de l\'application est nécessaire</string>
+    <string name="pref_enable_telemetry">Envoyer des relevés de plantage</string>
+    <string name="pref_enable_telemetry_summary">Signaler à Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">N’est pas pris en charge dans cette version</string>
+    <string name="pref_enable_debug">Journalisation détaillée</string>
+    <string name="pref_enable_debug_summary">Les changements prendront effet après redémarrage de l’appli</string>
 </resources>

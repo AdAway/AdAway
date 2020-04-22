@@ -1,1 +1,1 @@
-AdAway ye un bloquiador d'anuncios llibre qu'usa'l ficheru hosts.
+AdAway is an open source ad blocker for Android using the hosts file.

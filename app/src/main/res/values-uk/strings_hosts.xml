@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Джерела списків хостів</string>
     <!-- List -->
+    <string name="hosts_not_available">недоступно</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Додати джерело</string>
+    <string name="hosts_edit_dialog_title">Редагувати джерело</string>
+    <string name="hosts_dialog_url">URL: (ресурс https:// або file://)</string>
+    <string name="hosts_dialog_url_hint">URL джерела хостів</string>
 </resources>

@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
+    <string name="error_no_connection_message">Нет интернет-соединения</string>
+    <string name="error_no_connection_details">Невозможно установить соединение с интернетом. Пожалуйста, проверьте подключение вашего устройства.</string>
+    <string name="error_download_failed_message">Не удалось загрузить источники хоста</string>
+    <string name="error_download_failed_details">Ни один из ваших включенных источников хостов недоступен. Пожалуйста, проверьте подключение к интернету.</string>
     <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Не удалось создать личный файл</string>
+    <string name="error_private_file_failed_details">Невозможно создать личный файл для создания нового источника. Пожалуйста, проверьте свободное место на вашем устройстве.</string>
+    <string name="error_not_enough_space_message">Не хватает места</string>
+    <string name="error_not_enough_space_details">Невозможно скопировать файл hosts в системный раздел. Пожалуйста, проверьте, включен ли системный модуль Magisk, затем перезагрузите смартфон.</string>
+    <string name="error_copy_failed_message">Не удалось установить новый файл hosts.</string>
+    <string name="error_copy_failed_details">Невозможно скопировать файл hosts в раздел /system. Убедитесь, что в системном модуле Magisk включена перезагрузка.</string>
+    <string name="error_revert_failed_message">Не удалось восстановить файл hosts</string>
+    <string name="error_revert_failed_details">Невозможно восстановить конфигурацию файла host по умолчанию.</string>
     <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Не удалось включить VPN блокировки рекламы.</string>
+    <string name="error_enable_vpn_failed_details">Пожалуйста, проверьте настройки VPN, чтобы авторизовать приложение VPN для запуска.</string>
+    <string name="error_disable_vpn_failed_message">Не удалось отключить VPN блокировки рекламы.</string>
+    <string name="error_disable_vpn_failed_details">Пожалуйста, проверьте настройки VPN, чтобы отключить его вручную.</string>
 </resources>

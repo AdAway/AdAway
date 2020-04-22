@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>الدخل من خلال الإعلانات</h2>
 <p>يوجد سوء فهم في كثير من الأحيان وهو أنه إذا لم ينقر المستخدم على الاعلانات، فبالتالي لن يضرّ الحجب بصاحب الموقع أو صاحب التطبيق من الناحية المادية. هذا مفهومٌ خاطئ، إذ يكسب المطورّون المال أيضاً عن طريق عرض الإعلانات. الأمر يعود إليك إذا كنت ترغب بحجب الإعلانات أم لا. أنا شخصياً لا أستخدم التطبيقات التي تعرض الإعلانات لأنني أجدها مزعجة جداً ، ممّا يعني أنّي لا أقوم بتثبيتها بدون توفّر حاجب للإعلانات.</p>
 
-
-
 <h2>كيف يعمل AdAway ?</h2>
-<p>يستخدم AdAway <a href="http://en.wikipedia.org/wiki/Hosts_file">ملف المضيف</a> لحظر أسماء المضيفات التي تطلب الإعلانات. ملف المضيف هو ملف موجود في <code>/system/etc/hosts</code> ويقوم بتعيين أسماء المضيفات إلى عناوين الـ IP. إنها طريقة تقليدية لتحديد اسم المضيف بعنوان IP دون الإعتماد على نظام أسماء النطاقات (DNS). تتم إعادة توجيه جميع أسماء المضيفات الغير مرغوب فيها إلى <code>127.0.0.1</code> مما يعني أنها ستشير إلى جهازك.</p>
-
-<h2>لماذا خيار التحديث اليومي غير محدد؟</h2>
-<p>البحث التلقائي عن التحديثات الجديدة متوفر فقط عند تثبيت AdAway على ذاكرة الهاتف الداخلية.ويرجع ذلك إلى القيود على نظام أتدرويد.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>لماذا يجب على المستخدم إعادة تشغيل الجهاز لكي تأخذ التحديثات مجراها؟</h2>
 <p>الجافا على الأندرويد يحتفظ بالمخزون المؤقت للـ DNS الداخلي الخاص به. نظام التشغيل سيعكس ملفات المضيف الجديدة مباشرةً (التحقق من ذلك مع بينج في سطر الأوامر) لكنك ستحتاج إلى إعادة تشغيل الجهاز لإعادة بناء المخزون المؤقت للـ DNS من الجافا.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>ترفض بعض التطبيقات العمل عندما لا تكون خوادم الإعلانات قابلة للوصول. بهذه الطريقة ستصبح قابلة للوصول مرة أخرى ، وسيكون الردّ بهيئة صفحة فارغة بدون أيّ صور إعلانية.</p>
 
 <h2>كيف يمكنني منع / السماح لأسماء المواقع محددة؟</h2>
-<p>ضف أسماء المضيفين تريد حظرها إلى<cite>قائمة الحظر</cite> أسفل <cite>القوائم الخاصة</cite> بك. أيضًا ، أسماء المضيفين التي لا يمكن أن يوافق على حظر يمكن الاتفاق على قائمة الراغبين. بالإضافة إلى ذلك ، يمكن إضافة أسماء المضيفات التي تريد استبعادها من الحظر إلی <cite>القائمة البيضاء</cite> وتنتمي أسماء المضيفات التي تريد إعادة توجيهها إلى عنوان IP محدد إلى قائمة<cite>إعادة توجيه</cite></p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>أين يمكنني العثور على المزيد من مصادر ملفات المضيف؟</h2>
 <p>اطلع على <a href="https://github.com/AdAway/AdAway/wiki/HostsSources"> لإيجاد قائمة المصادر الإضافية لملفات المضيف لـAdAway </a>.</p>

@@ -1,11 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN tabanlı reklam engelleyici</string>
+    <string name="pref_vpn_service_on_boot">Başlangıçta etkinleştir</string>
     <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Hariç tutulan uygulamalar</string>
+    <string name="pref_vpn_excluded_apps_description">Hangi uygulamaların VPN\'yi kullanmaması gerektiğini yapılandırın, böylece bağlantı engellenmez.</string>
+    <string name="pref_vpn_exclude_system_apps">Sistem uygulamalarını hariç tut</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Yok</item>
+        <item>Tarayıcılar hariç tümü</item>
+        <item>Tümü</item>
     </string-array>
+    <string name="pref_vpn_exclude_user_apps">Kullanıcı uygulamalarını hariç tut</string>
 
     <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Hariç tutulan uygulamalar</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Tümünü seç</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Tüm seçimleri kaldır</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Uygulama simgesi</string>
 </resources>

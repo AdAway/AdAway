@@ -5,20 +5,20 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>Problèmes courants</title></head>
 <body>
-<h2>Échec de copie du fichier hosts sur Android 9+</h2>
+<h2>La copie du fichier hosts a échoué sur Android 9+</h2>
 <p>Les dernières versions d’Android utilisent une partition <code>/system</code> en lecture seule.<br>
-Si vous utilisez Magisk comme solution de débridage, assurez-vous d’activer le module hosts sans système, puis redémarrez.</p>
+Si vous utilisez Magisk comme solution de débridage, assurez-vous d’activer le module « Systemless Hosts », puis redémarrez.</p>
 
-<h2>Il n’y a pas assez d’espace sur la partition</h2>
+<h2>Il manque d’espace sur la partition</h2>
 <p>Essayez de changer le fichier hosts cible dans les préférences pour <code>/data/data/hosts</code> (ou <code>/data/hosts</code>) et appliquez AdAway de nouveau.</p>
 
-<h2>Ne fonctionne pas avec Android 4.4+</h2>
-<p>Essayez de changer le fichier hosts cible dans les préférences de <code>/data/data/hosts</code> à <code>/data/hosts</code> ou <code>/system/etc/hosts</code>, et appliquez AdAway de nouveau.</p>
+<h2>Chrome affiche encore des publicités</h2>
+<p>Assurez-vous de désactiver le <cite>mode simplifié</cite> (anciennement <cite>économiseur de données</cite>) dans les paramètres de Chrome. Cette fonction permet à Chrome d’utiliser une solution de DNS privée et de contourner AdAway.</p>
 
 <h2>Les publicités ne sont pas bloquées dans l’application XYZ.</h2>
-<p>Il pourrait manquer certains noms d’hôtes dans les fichiers hosts des<cite>sources de fichiers hosts</cite> ou l’application a intégré les images afin de servir des publicités sans accéder à Internet.<br><br>
+<p>Il pourrait manquer des noms d’hôtes dans les fichiers hosts des<cite>sources d’hosts</cite> ou l’application a intégré les images afin de servir des publicités sans accéder à Internet.<br><br>
 Vous pouvez utiliser AdAway pour journaliser les requêtes DNS (Menu-&gt;Journaliser les requêtes DNS) et découvrir quels noms d’hôtes supplémentaires doivent être bloqués.
-<br><br>Ajoutez les noms d’hôte suspects à votre propre liste noire en appuyant longuement sur les entrées du journal et signalez ces noms d’hôte après les avoir vérifiés sur le forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> de <a href="http://hosts-file.net">hosts-file.net</a> (site en anglais).</p>
+<br><br>Ajoutez les noms d’hôte suspects à votre propre liste noire en appuyant longuement sur les entrées du journal et après les avoir vérifiés, signalez ces noms d’hôte dans notre <a href="https://github.com/AdAway/adaway.github.io/issues">gestionnaire de problèmes sur GitHub</a> (site en anglais).</p>
 
 <h2>Publicités mises en cache</h2>
 <p>Parfois, les applications mettent dans le cache les publicités après téléchargement. C’est pourquoi, il reste des publicités dans certaines applications. Vous pouvez essayer de supprimer le cache de ces applications dans le gestionnaire d’applications d’Android pour contourner ce problème.</p>
@@ -26,8 +26,8 @@ Vous pouvez utiliser AdAway pour journaliser les requêtes DNS (Menu-&gt;Journal
 <h2>L’application XYZ ne fonctionne plus.</h2>
 <p>Certaines applications doivent communiquer avec un nom d’hôte qui est bloqué par AdAway ou refusent de fonctionner quand les noms d’hôte qui devraient servir des publicités ne sont pas accessibles. Consultez <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> pour obtenir une liste d’applications connues qui posent des problèmes. Autrement, déterminez quels noms d’hôtes sont nécessaires, ajoutez-les à votre <cite>liste blanche</cite> dans <cite>Vos listes</cite> et signalez-les au <a href="https://github.com/AdAway/AdAway/issues">gestionnaire de bogues d’AdAway</a>.</p>
 
-<h2>Le bouton retour des navigateurs Web ne fonctionne pas</h2>
-<p>Vous pouvez activer le serveur Web local d’AdAway dans les préférences comme palliatif.</p>
+<h2>Ne fonctionne pas sur Android 4.4+</h2>
+<p>Dans les préférences, essayez de changer le fichier hosts cible de <code>/data/data/hosts</code> à <code>/data/hosts</code> ou <code>/system/etc/hosts</code>, et appliquez AdAway de nouveau.</p>
 
 <h2>Le bouton retour des navigateurs Web ne fonctionne pas</h2>
 <p>Vous pouvez activer le serveur Web local d’AdAway dans les préférences comme palliatif.</p>

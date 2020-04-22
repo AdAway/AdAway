@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Πηγές Hosts </string>
     <!-- List -->
     <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
     <!-- Edition dialog -->

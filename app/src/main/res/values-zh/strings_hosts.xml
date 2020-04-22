@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">hosts 源</string>
     <!-- List -->
     <string name="hosts_not_available">无法使用</string>
     <!-- Edition dialog -->

@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Host-ovi resursi</string>
     <!-- List -->
-    <!-- Edition dialog -->
-</resources>
+    <string name="hosts_not_available">nije dostupno</string>
+    </resources>

@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Ingressos per publicitat</h2>
 <p>Sovint es diu que, si un usuari no clica els anuncis, els desenvolupadors no reben ingressos. Això és fals, ja que també es reben ingressos mostrant els anuncis. No obstant això, mostrar o amagar els anuncis es decisió vostra.</p>
 
-
-
 <h2>Com funciona AdAway?</h2>
-<p>L'AdAway utilitza el <a href="http://en.wikipedia.org/wiki/Hosts_file">fitxer hosts</a> per blocar dominis que facilitin publicitat. Aquest fitxer el trobareu a <code>/system/etc/hosts</code> i tradueix els noms de domini en adreces IP. És una manera tradicional de definir el nom de l'amfitrió als parells d'adreces IP sense dependre del sistema de noms de domini (DNS en anglès). Totes les adreces no desitjades són redirigides a  <code>127.0.0.1</code>, una adreça local del mateix dispositiu.</p>
-
-<h2>Perquè està desactivat l'ajustament de trobar actualitzacions diàriament?</h2>
-<p>Només es poden trobar actualitzacions quan AdAway està instal·lat a la memòria interna del dispositiu. Això és una restricció de la plataforma Android.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Per què haig de reiniciar Android perquè els canvis facin efecte?</h2>
 <p>El Java d'Android manté la seva llista d'entrades DNS internament. El sistema utilitzarà el nou arxiu hosts immediatament (ho podeu comprovar amb "ping") però, no obstant, haureu de reiniciar Android per reinicialitzar la llista d'entrades de DNS internes.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Algunes aplicacions poden no funcionar correctament si no troben el servidor de publicitat. Amb aquest mètode s'evita el problema atès que s'envia una pàgina en blanc sense imatges publicitàries.</p>
 
 <h2>Com puc bloquejar noms de màquina específics?</h2>
-<p>Afegiu els noms de domini que voleu blocar a la <cite>Llista negra</cite> (=Black) mitjançant les <cite>Vostres llistes</cite>. Addicionalment, els noms de domini que vulgueu excloure del bloqueig, es poden afegir a la <cite>Llista blanca</cite> (=White) i els noms d'amfitrió que vulgueu redirigir cap a una adreça específica aniran a la <cite>Llista de redirecció</cite> (=Redirection).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>On puc trobar més fonts d'amfitrions?</h2>
 <p>Vegeu la <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">llista de fonts addicionals d'amfitrions per a l'AdAway</a>.</p>

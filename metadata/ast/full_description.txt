@@ -1,5 +1,5 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
+Un bloquiador d'anuncios qu'usa'l ficheru hosts.
+El ficheru hosts contién una llista de nomes d'agospiu asociaos a una direición IP.
 When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
 You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
 There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.

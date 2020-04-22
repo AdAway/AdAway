@@ -8,13 +8,9 @@ And don't add newlines before or after p tags because of transifex -->
 <h2>Прибутки від реклами</h2>
 <p>Існує одне поширене переконання, що якщо користувач ніколи не натискає на рекламу, то, заблокувавши її, він не завдасть фінансової шкоди сайту чи застосункові. Така думка хибна: розробники також заробляють гроші на самому показі реклами. Блокувати рекламу, чи ні — вирішувати вам. Особисто я не став би використовувати застосунки з рекламою, бо вона дуже дратує, тому без блокувальника реклами я б взагалі не встановлював такі застосунки.</p>
 
-
-
 <h2>Як працює AdAway?</h2>
-<p>AdAway використовує <a href="http://en.wikipedia.org/wiki/Hosts_file">файл hosts</a> для блокування хостів, які надають рекламу. Цей файл знаходиться за шляхом <code>/system/etc/hosts</code> та співставляє імена заданих хостів з заданими IP-адресами. Це традиційний спосіб визначення пари "ім'я хоста - IP-адрес" без використання Доменної системи імен (DNS). Всі небажані імена хостів будуть перенаправлені на адрес <code>127.0.0.1</code>, тобто на ваш власний пристрій.</p>
-
-<h2>Чому налаштування щоденної перевірки оновлень сірого кольору?</h2>
-<p>Автоматична перевірка оновлень доступна тільки тоді, коли AdAway встановлений на внутрішню пам'ять телефону. Це пов'язано з обмеженнями на платформі Android.</p>
+<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
+If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
 
 <h2>Чому треба перезавантажувати пристрій, щоб зміни вступили в силу?</h2>
 <p>Java в Android має свій внутрішній кеш DNS. Операційна система буде використовувати оновлений файл hosts відразу ж (можете в цьому переконатися за допомогою команди PING в командному рядку), але ви повинні перезавантажити пристрій, щоб наново створити кеш DNS в Java.</p>
@@ -25,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br>Деякі застосунки відмовляються працювати, якщо хости з рекламою не доступні. Цей метод дозволить запускати такі застосунки, але замість реклами буде пусте місце без зображень з рекламою.</p>
 
 <h2>Як я можу блокувати/розблоковувати конкретне ім'я хоста?</h2>
-<p>Імена хостів, які ви хочете заблокувати потрібно додати до <cite>Чорного списку</cite> (=Чорний), який знаходиться в меню <cite>Ваші списки</cite>. До того ж, імена хостів, які не потрібно блокувати, потрібно додавати в <cite>Білий список</cite> (=Білий), а імена хостів, які потрібно перенаправити на конкретний IP-адрес, потрібно внести в <cite>Список перенаправлень</cite> (=Перенаправлення).</p>
+<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
 
 <h2>Де я можу знайти більше списків заблокованих хостів?</h2>
 <p>Перегляньте <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">додаткові списки заблокованих хостів для AdAway</a>.</p>

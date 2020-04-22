@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Servidors de fitxers hosts</string>
     <!-- List -->
+    <string name="hosts_not_available">no disponible</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Afegeix una font</string>
+    <string name="hosts_edit_dialog_title">Edita la font</string>
+    <string name="hosts_dialog_url">URL: (un recurs https:// o fitxer://)</string>
+    <string name="hosts_dialog_url_hint">URL de la font de l\'amfitrió</string>
 </resources>

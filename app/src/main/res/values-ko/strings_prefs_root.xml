@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Hosts install category -->
+    <string name="pref_root_open_hosts">호스트 파일 열기</string>
+    <string name="pref_apply_method">대상 호스트 파일</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -8,5 +9,6 @@
         <item>사용자 지정 대상</item>
     </string-array>
     <!-- Redirection category -->
-    <!-- Web server category -->
-</resources>
+    <string name="pref_hosts_redirection">리디렉션</string>
+    <string name="pref_webserver_enabled">웹 서버 활성화</string>
+    </resources>

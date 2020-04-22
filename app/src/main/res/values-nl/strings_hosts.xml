@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Hosts-bronnen</string>
     <!-- List -->
+    <string name="hosts_not_available">niet beschikbaar</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Bron toevoegen</string>
+    <string name="hosts_edit_dialog_title">Bron aanpassen</string>
+    <string name="hosts_dialog_url">URL: (een bron beginnend met https:// of file://)</string>
+    <string name="hosts_dialog_url_hint">De url van de hosts-bron</string>
 </resources>

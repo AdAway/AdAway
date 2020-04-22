@@ -1,12 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Root-baserad annonsblockering</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Värd installerad</string>
+    <string name="pref_root_open_hosts">Öppna värdfil</string>
+    <string name="pref_apply_method">Målvärdfil</string>
+    <string name="pref_apply_method_summary">Läs hjälpen innan du använder denna funktionen</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Anpassat mål</item>
     </string-array>
+    <string name="pref_custom_target">Anpassad målplats</string>
+    <string name="pref_never_reboot">Dölj omstartsdialog efter tillämpa</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Omdirigering</string>
+    <string name="pref_hosts_redirection_summary">Definiera var du ska omdirigera blockerade värdar</string>
+    <string name="pref_redirection_ipv4">IPv4-omdirigering</string>
+    <string name="pref_redirection_ipv6">IPv6-omdirigering</string>
     <!-- Web server category -->
+    <string name="pref_webserver">Lokal webbserver</string>
+    <string name="pref_webserver_summary">Den lokala webbservern lyssnar på lokala IP-adresser till att svara på blockerade värdnamsförfrågningar. Det kan förhindra appfrysningar på blockerade anslutningar.</string>
+    <string name="pref_webserver_enabled">Aktivera webbserver</string>
+    <string name="pref_webserver_on_boot">Starta webbservern vid uppstart</string>
 </resources>

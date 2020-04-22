@@ -1,3 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">Säkerhetskopiera &amp; återställa</string>
+    <string name="pref_backup">Säkerhetskopiera</string>
+    <string name="pref_backup_summary">Säkerhetskopiera dina blockeringsregler till extern lagring</string>
+    <string name="pref_restore">Återställ</string>
+    <string name="pref_restore_summary">Återställ dina blockeringsregler från säkerhetskopia</string>
 </resources>

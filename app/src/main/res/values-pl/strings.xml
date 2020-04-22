@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Wyjście</string>
     <string name="button_close">Zamknij</string>
@@ -26,7 +25,6 @@
     <string name="webserver_status_stopped">Zatrzymany</string>
     <string name="button_enable_webserver">Włącz serwer www</string>
     <string name="button_disable_webserver">Wyłącz serwer www</string>
-
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Usuń</string>
     <string name="checkbox_list_context_title">Edytuj wpis</string>
@@ -46,7 +44,6 @@
     <string name="hosts_content">Ładowanie zawartości pliku hosts…</string>
     <string name="hosts_open_button">Otwórz plik hosts</string>
 
-    <!--Status Notification-->
     <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
     <string name="status_update_available">Aktualizacja jest dostępna</string>
     <string name="status_update_available_subtitle">Nowe pliki hostów są dostępne</string>
@@ -62,12 +59,7 @@
     <string name="status_enabled_subtitle">Najnowsze pliki hostów zostały włączone</string>
     <string name="status_disabled">Wyłączone</string>
     <string name="status_disabled_subtitle">Domyślny plik hosts został zainstalowany</string>
-    <string name="notification_configuration_changed">Twoja konfiguracja się zmieniła. Musisz zainstalować plik hosts, aby go zastosować.</string>
     <string name="notification_configuration_changed_action">Zastosuj</string>
-    <string name="notification_configuration_installing">Instaluję plik hosts…</string>
-    <string name="notification_configuration_failed">Nie udało się zainstalować pliku hosts.</string>
-
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink z Twojego celu do /system/etc/hosts nie istnieje lub nie jest poprawny! AdAway nie będzie działać jeśli nie jest wskazany poprawny plik.\n\n Czy chcesz spróbować stworzyć symlink?</string>
     <string name="apply_symlink_missing_title">Brak symlinka</string>
     <string name="apply_not_enough_space">Za mało miejsca na partycji!\nSpróbuj zmienić docelowy plik hosts w ustawieniach do /data/data/hosts.</string>
@@ -143,8 +135,6 @@
     <string name="adware_scanning">Skanowanie…</string>
     <string name="adware_empty">Nie znaleziono adware!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Bloker reklam</string>
     <string name="no_text_editor_title">Brak zainstalowanego edytora tekstu</string>
@@ -167,7 +157,6 @@
     <string name="tcpdump_entry_add_whitelist">Dodaj wpis do białej listy</string>
     <string name="tcpdump_entry_add_redirection_list">Dodaj wpis do listy przekierowań</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Edytuj wartość preferencji tekstu</string>
     <string name="drawer_open">Otwórz menu</string>
     <string name="drawer_close">Zamknij menu</string>
@@ -185,14 +174,11 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Żądania DNS</string>
     <string name="shortcut_your_lists">Twoje listy</string>
     <string name="shortcut_preferences">Ustawienia</string>
 
-    <!--Hosts source status-->
     <string name="hosts_source_up_to_date">Aktualne dla %1$s</string>
     <string name="hosts_source_need_update">Potrzebujesz aktualizacji dla %1$s</string>
     <string name="hosts_source_last_update">Ostatnia aktualizacja %1$s temu</string>
@@ -222,4 +208,4 @@
         <item quantity="other">%d miesięcy</item>
     </plurals>
 
-</resources>
+    </resources>

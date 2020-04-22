@@ -12,19 +12,22 @@ If you are using Magisk as root solution, ensure you enable the systemless hosts
 <h2>เนื้อที่ไม่พอ</h2>
 <p><code>ลองเปลี่ยนไฟล์เป้าหมายโฮสต์ในตั้งค่าไปที่ <code>/data/data/hosts</code> (หรือ /data/hosts)</code> และใช้ AdAway อีกครั้ง</p>
 
-<h2>ไม่รองรับระบบปฏิบัติการ แอนดรอยด์ 4.4 ขึ้นไป</h2>
-<p>ลองเปลี่ยนเป้าหมายไฟล์โฮสต์ในการตั้งค่าจาก<code>/data/data/hosts</code> เป็น <code>/data/hosts</code> หรือ <code>/system/etc/hosts</code> และใช้ AdAway อีกครั้ง</p>
+<h2>Chrome still displays ads</h2>
+<p>Ensure you disable <cite>lite mode</cite> (previously known as <cite>data saver</cite>) from Chrome settings. This features allows Chrome to use private DNS solution and bypass AdAway.</p>
 
 <h2>AdAway ไม่รองรับการป้องกันโฆษณาในแอพพลิเคชั่น XYZ</h2>
 <p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
 You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
-<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in the Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
+<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in our <a href="https://github.com/AdAway/adaway.github.io/issues">GitHub issue tracker</a>.</p>
 
 <h2>มีการเก็บโฆษณาไว้ในแคช</h2>
 <p>บางครั้งแอพพลิเคชันแคชโฆษณาหลังจากดาวน์โหลด ซึ่งนำไปสู่การโฆษณาที่เหลืออยู่ในบางแอพพลิเคชัน คุณสามารถลองลบแคชสำหรับแอพพลิเคชันเหล่านี้ในรายการแอพพลิเคชันของแอนดรอยด์เพื่อหลีกเลี่ยงปัญหานี้</p>
 
 <h2>แอพพลิเคชั่น XYZ ไม่ทำงาน</h2>
 <p>Some applications need to communicate with a hostname that is blocked by AdAway or refuse to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <cite>Whitelist</cite> under <cite>Your Lists</cite> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
+
+<h2>ไม่รองรับระบบปฏิบัติการ แอนดรอยด์ 4.4 ขึ้นไป</h2>
+<p>ลองเปลี่ยนเป้าหมายไฟล์โฮสต์ในการตั้งค่าจาก<code>/data/data/hosts</code> เป็น <code>/data/hosts</code> หรือ <code>/system/etc/hosts</code> และใช้ AdAway อีกครั้ง</p>
 
 <h2>กดปุ่มย้อนกลับหากเบราเซอร์ไม่ทำงาน</h2>
 <p>คุณสามารถเปิดการใช้งาน AdAway ได้จาก เว็บเซิร์ฟเวอร์ท้องถิ่นในการกำหนดลักษณะเป็นการแก้ปัญหา</p>

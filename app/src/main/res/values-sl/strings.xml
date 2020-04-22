@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Izhod</string>
     <string name="button_close">Zapri</string>
@@ -19,11 +18,9 @@
     <string name="checkbox_list_context_edit">Uredi</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Uvažanje…</string>
-    <string name="export_dialog">Izvažanje…</string>
-    <!--Status Notification-->
+    <string name="import_dialog">Uvažanje...</string>
+    <string name="export_dialog">Izvažanje...</string>
     <string name="status_reverting_subtitle">Ustvarjanje privzete hosts datoteke</string>
-    <string name="status_update_available">Na voljo je nova posodobitev</string>
     <string name="status_update_available_subtitle">Na voljo so posodobljene hosts datoteke</string>
     <string name="status_no_connection">Ni omrežne povezave</string>
     <string name="status_no_connection_subtitle">Omrežna povezava ni na voljo</string>
@@ -32,7 +29,6 @@
     <string name="status_enabled">Omogočeno</string>
     <string name="status_enabled_subtitle">Uporabljene so najnovejše hosts datoteke</string>
     <string name="status_disabled">Onemogočeno</string>
-    <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing">Symlink vaše tarče /system/etc/hosts ne obstaja ali ni pravilen! AdAway ne bo deloval, če ne bo kazal na pravo datoteko.\n\nAli želite poizkusiti ustvariti symlink?</string>
     <string name="apply_symlink_missing_title">Symlink ne obstaja</string>
     <string name="apply_not_enough_space">Na particiji ni dovolj prostora!\nPoizkusite spremeniti pot hosts datoteke na /data/data/hosts v nastavitvah.</string>
@@ -50,8 +46,8 @@
     <string name="apply_apn_proxy_title">APN proxy nastavljen!</string>
     <string name="no_connection">Omrežna povezava ni vzpostavljena.</string>
     <string name="no_connection_title">Ni povezave</string>
-    <string name="download_dialog">Prenašanje…</string>
-    <string name="apply_dialog">Uporabljanje…</string>
+    <string name="download_dialog">Prenašanje...</string>
+    <string name="apply_dialog">Uporabljanje...</string>
     <string name="apply_dialog_lists">Uporabljanje seznama blokiranih in dovoljenih virov</string>
     <string name="apply_dialog_hostnames">Združevanje hosts datotek</string>
     <string name="apply_dialog_hosts">Izgradnja hosts datotek</string>
@@ -67,12 +63,13 @@
     <string name="no_private_file_title">Privatne datoteke ni bilo mogoče ustvariti.</string>
     <string name="enable_systemless_successful_title">Uspešno omogočeno</string>
     <string name="disable_systemless_successful_title">Uspešno onemogočeno</string>
+    <!--Other Dialogs-->
     <string name="hosts_add_dialog">Vnesi URL do hosts datoteke:</string>
     <string name="no_hostname">Neveljavno domensko ime!</string>
     <string name="no_hostname_title">Nepravilno oblikovano domensko ime</string>
     <string name="no_ip">Neveljaven IP!</string>
     <string name="no_ip_title">Nepravilno oblikovan IP</string>
-    <string name="loading">Nalaganje…</string>
+    <string name="loading">Nalaganje...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Osveži</string>
@@ -83,7 +80,6 @@
     <string name="help_tab_faq">Pogosto postavljena vprašanja</string>
     <string name="help_tab_problems">Težave</string>
 
-    <!--Hosts sources-->
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
     <string name="no_text_editor_title">Nameščen ni noben urejevalec teksta</string>
@@ -92,7 +88,6 @@
     <string name="no_file_manager">Noben raziskovalec ni nameščen. Namestite lahko aplikacijo OI File Manager ali katerikoli drug raziskovalec.\n\nAli želite namestiti OI File Manager?</string>
 
     <string name="tcpdump_description">Tcpdump je orodje za nadziranje DNS zahtev in njihovo shranjevanje v log datoteko. Zaženete jo lahko v ozadju, zaženete aplikacijo, ki prikazuje oglase, ter analizirate DNS zahteve preko log datoteke. Morebitne oglaševalne strežnike lahko potem dodate na vašo blacklist-o.</string>
-    <!--Preferences-->
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -106,4 +101,4 @@
     </string-array>
     <string name="shortcut_preferences">Nastavitve</string>
 
-</resources>
+    </resources>

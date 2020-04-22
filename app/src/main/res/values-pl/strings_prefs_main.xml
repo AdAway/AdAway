@@ -1,15 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
-    <string name="pref_dark_theme">Włącz ciemny motyw</string>
-    <!-- Ad block category -->
-    <string name="pref_whitelist_rules">Zezwól na białe listy</string>
-    <string name="pref_redirection_rules">Zezwalaj na przekierowania</string>
-    <string name="pref_redirection_rules_summary">STANOWI ZAGROŻENIE DLA BEZPIECZEŃSTWA! Zezwól na przekierowania ze Źródeł Hostów.</string>
-    <string name="pref_enable_ipv6">Włącz IPv6</string>
+    <string name="pref_main_title">Ustawienia</string>
     <!-- Debug category -->
-    <string name="pref_enable_telemetry">Włącz raporty o awariach</string>
-    <string name="pref_enable_telemetry_summary">Pozwól aplikacji wysyłać błędy i raporty o awariach do Sentry (sentry.io).</string>
-    <string name="pref_enable_debug">Włącz pełne rejestrowanie</string>
-    <string name="pref_enable_debug_summary">Musisz zrestartować AdAway, aby uaktywnić te ustawienia.</string>
-</resources>
+    <string name="pref_debug_category">Debugowanie</string>
+    </resources>

@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="hosts_title">Hosts resursları</string>
     <!-- List -->
+    <string name="hosts_not_available">əlçatan deyil</string>
     <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Qaynaq əlavə et</string>
+    <string name="hosts_edit_dialog_title">Qaynağı dəyiş</string>
+    <string name="hosts_dialog_url_hint">Hostların kök URL\'ı</string>
 </resources>

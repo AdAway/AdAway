@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_check_app_daily">Kasdien ieškoti atnaujinimų</string>
     <string name="pref_update_check">Ieškoti atnaujinimų</string>
     <string name="pref_update_check_hosts_daily">Kasdien ieškoti atnaujinimų</string>
-</resources>
+    </resources>

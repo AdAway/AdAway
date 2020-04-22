@@ -1,11 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Excluded applications -->
-    <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
-    </string-array>
-
-    <!-- Exclude user apps activity -->
-</resources>
+    </resources>

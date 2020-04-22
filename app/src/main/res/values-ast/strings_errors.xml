@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
-    <!-- Hosts install model error -->
-    <!-- VPN model error -->
-</resources>
+    <string name="error_no_connection_message">Ensin conexón d\'internet</string>
+    <string name="error_not_enough_space_message">Nun hai espaciu abondo</string>
+    </resources>

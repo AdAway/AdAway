@@ -1,12 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- General category -->
-    <string name="pref_dark_theme">Gaitu gai iluna</string>
-    <!-- Ad block category -->
-    <string name="pref_whitelist_rules">Ahalbidetu zerrenda-zuriak</string>
-    <string name="pref_redirection_rules">Gaitu Birbideratzeak</string>
-    <string name="pref_redirection_rules_summary">SEGURTASUN ARRISKU JARRERAK! Ahalbidetu Hostalari Iturburuetatiko sarrerak berzuzentzea.</string>
-    <string name="pref_enable_ipv6">Gaitu IPv6</string>
+    <string name="pref_main_title">Hobespenak</string>
     <!-- Debug category -->
-    <string name="pref_enable_debug_summary">AdAway berrabiarazi behar duzu ezarpen honek eragina izateko.</string>
-</resources>
+    <string name="pref_debug_category">Garbiketa</string>
+    </resources>
