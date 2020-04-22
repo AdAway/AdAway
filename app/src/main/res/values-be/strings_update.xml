@@ -1,6 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Home screen -->
+    <string name="update_available">Даступна абнаўленне!</string>
 
     <!-- Changelog dialog -->
+    <string name="update_update_title">Даступна новая версія</string>
+    <string name="update_update_message">Змены ў новай версіі:\n\n</string>
+    <string name="update_up_to_date_title">У вас актуальная версія</string>
+    <string name="update_up_to_date_message">Змены ў апошняй версіі:\n\n</string>
+    <string name="update_changelog">Спіс змен</string>
+    <string name="update_update_button">Абнавіць зараз</string>
 </resources>
