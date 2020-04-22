@@ -1,11 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Сардэчна запрашаем</string>
 
     <!-- Method UI -->
+    <string name="welcome_method_logo">Лагатып прывітання</string>
+    <string name="welcome_method_header">Сардэчна запрашаем у AdAway!</string>
+    <string name="welcome_method_summary">AdAway падае два метаду блакавання рэкламы.  Выберыце той, які вам пасуе:</string>
+
+    <string name="welcome_root_method_logo">Лагатып root</string>
+    <string name="welcome_root_method_title">Root\n блакіроўка рэкламы</string>
+    <string name="welcome_root_method_text1">Хутчэй</string>
+    <string name="welcome_root_method_text2">Эканоміць батарэю</string>
+    <string name="welcome_root_method_text3">Патрабуюцца рут правы</string>
+
+    <string name="welcome_vpn_method_logo">Лагатып VPN</string>
+    <string name="welcome_vpn_method_title">VPN\nблакіроўка рэкламы</string>
+    <string name="welcome_vpn_method_text1">Павольней</string>
+    <string name="welcome_vpn_method_text2">Працуе ў фоне</string>
+    <string name="welcome_vpn_method_text3">Сумяшчальны</string>
+
+    <string name="welcome_root_missing_title">Для Android патрабуюцца правы Root</string>
+    <string name="welcome_root_missile_description">Альбо двайковы файл su не знойдзены, альбо вы не далі права root для AdAway.\n\nГэта можа здарыцца, калі ваша прылада не мае root-правоў.  Вы можаце знайсці інфармацыю аб тым, як атрымаць root правы на вашай прыладзе, на wiki.lineageos.org або іншых сайтах Android.</string>
+
+    <string name="welcome_method_pro_logo">Плюсы</string>
+    <string name="welcome_method_con_logo">Мінусы</string>
 
     <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Сінхранізацыя завершана</string>
+    <string name="welcome_sync_error_logo">Памылка пры сінхранізацыі</string>
+
+    <string name="welcome_sync_header">Сінхранізацыя</string>
+    <string name="welcome_synced_header">Сінхранізавана!</string>
+    <string name="welcome_sync_summary">AdAway загружае спісы блакавання з анлайн-крыніц. Вы можаце змяніць іх пазней у наладах.</string>
+    <string name="welcome_sync_retry_logo">Паўтарыць сінхранізацыю</string>
+    <string name="welcome_sync_error">Сінхранізацыя не ўдалася:\n%s.\nПаўтарыць зараз?</string>
 
     <!-- Support -->
+    <string name="welcome_support_logo">Падтрымаць</string>
+    <string name="welcome_support_header">Падтрымай мяне!</string>
+    <string name="welcome_support_summary">Гэта бясплатная праграма з адкрытым зыходным кодам.  Я займаюся гэтым у вольны час.  Так што, калі вам гэта падабаецца, не саромейцеся паказаць сваю падтрымку:</string>
+    <string name="welcome_support_button">Ахвяраваць на PayPal</string>
+    <string name="welcome_support_telemetry_summary">Вам не падабаюцца памылкі? Мне таксама.</string>
+    <string name="welcome_support_telemetry_button">Уключыць тэлеметрыю для адпраўкі мне справаздач аб збоях</string>
 
     <!-- Navigation buttons -->
+    <string name="welcome_back_button">Назад</string>
+    <string name="welcome_next_button">Далей</string>
+    <string name="welcome_finish_button">Завяршыць</string>
 </resources>
