@@ -1,3 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Абнаўленне</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Абнаўленне праграмы</string>
+    <string name="pref_update_check_app_daily">Перыядычная праверка абнаўленняў</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Абнаўленне hosts</string>
+    <string name="pref_update_check">Правяраць абнаўленні пры запуску</string>
+    <string name="pref_update_check_hosts_daily">Перыядычная праверка абнаўленняў</string>
+    <string name="pref_update_sync_on_update">Сінхранізацыя пры абнаўленні</string>
+    <string name="pref_update_sync_unmetered_only">Сінхранізацыя толькі ў неабароненай сеткі</string>
 </resources>
