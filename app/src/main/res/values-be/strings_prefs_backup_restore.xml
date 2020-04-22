@@ -1,3 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">Рэзервовая копія і аднаўленне</string>
+    <string name="pref_backup">Рэзервовая копія</string>
+    <string name="pref_backup_summary">Захаваць рэзервовую копію вашых правілаў блакавання на знешні носьбіт</string>
+    <string name="pref_restore">Аднаўленне</string>
+    <string name="pref_restore_summary">Аднавіць вашыя правілы блакавання з файла рэзервовай копіі</string>
 </resources>
