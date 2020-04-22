@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Выйсці</string>
     <string name="button_close">Закрыць</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">Вэб-сервер</string>
     <string name="webserver_status_running">Працуе</string>
     <string name="webserver_status_stopped">Прыпынена</string>
+    <string name="webserver_toggle_text">Запусціце або спыніце вэб-сервер у лакальнай сеткі, каб адказваць на запыты на заблакаваныя імёны host.</string>
     <string name="button_enable_webserver">Уключыць вэб-сервер</string>
     <string name="button_disable_webserver">Адключыць вэб-сервер</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Запушчана</string>
+    <string name="vpn_status_stopped">Спынена</string>
+    <string name="vpn_toggle_text">Запусціць або спыніць VPN для фільтрацыі запытаў.</string>
+    <string name="button_enable_vpn">Уключыць VPN</string>
+    <string name="button_disable_vpn">Адключыць VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Выдаліць</string>
@@ -47,9 +53,18 @@
     <string name="hosts_open_button">Адкрыць файл hosts</string>
 
     <!--Status Notification-->
+    <string name="status_check">Праверка абнаўленняў</string>
+    <string name="status_check_source">Праверка абнаўленняў у крыніцы %s</string>
+    <string name="status_retrieve">Атрыманне крыніц</string>
+    <string name="status_download_source">Спампоўка крыніцы %s</string>
+    <string name="status_copy_source">Капіяванне крыніцы %s</string>
+    <string name="status_parse_source">Разбор крыніцы %s</string>
+    <string name="status_revert">Аднаўленне стандартнага файла hosts</string>
+    <string name="status_revert_done">Стандартны файл hosts адноўлены</string>
     <string name="status_reverting_subtitle">Стварэнне стандартнага файла hosts</string>
     <string name="status_update_available">Даступна абнаўленне</string>
     <string name="status_update_available_subtitle">Даступны новыя файлы host</string>
+    <string name="status_no_update_found">Абнаўленняў крыніц не знойдзены</string>
     <string name="status_no_connection">Няма злучэння з інтэрнэтам</string>
     <string name="status_no_connection_subtitle">Няма падлучэння да Інтэрнэту</string>
     <string name="status_download_fail">Недаступныя крыніцы</string>
@@ -62,12 +77,19 @@
     <string name="status_enabled_subtitle">Выкарыстоўваюцца новыя спісы host</string>
     <string name="status_disabled">Выключана</string>
     <string name="status_disabled_subtitle">Усталяваны стандартны файл hosts</string>
-    <string name="notification_configuration_changed">Налады зменены. Вам трэба ўсталяваць файл hosts для іх прымянення.</string>
+    <string name="status_apply_sources">Прымяніць свежыя крыніцы</string>
+    <string name="status_create_new_hosts">Стварэнне новага файла hosts</string>
+    <string name="status_copy_new_hosts">Капіяванне новага файла hosts</string>
+    <string name="status_check_copy">Праверка копіі файла hosts</string>
+    <string name="status_hosts_updated">Файл hosts паспяхова абноўлены</string>
+    <string name="status_vpn_configuration_updated">Канфігурацыя VPN паспяхова абноўлена</string>
+    <string name="notification_configuration_changed">Канфігурацыя зменена. Вам трэба ўжыць яе.</string>
     <string name="notification_configuration_changed_action">Прымяніць</string>
-    <string name="notification_configuration_installing">Усталёўка файла hosts…</string>
-    <string name="notification_configuration_failed">Не атрымалася ўсталяваць файл hosts.</string>
+    <string name="notification_configuration_installing">Прымяненне новай канфігурацыі</string>
+    <string name="notification_configuration_failed">Не атрымалася прымяніць новую канфігурацыю.</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Адсутнічае сімвалічная спасылка на мэтавай файл hosts</string>
     <string name="apply_symlink_missing">Спасылка на ваш /system/etc/hosts няправільная або не існуе! AdAway не будзе працаваць, калі не паказаць правільны файл. Вы хочаце паспрабаваць стварыць спасылку?</string>
     <string name="apply_symlink_missing_title">Спасылка адсутнічае</string>
     <string name="apply_not_enough_space">Не хапае месца на раздзеле! Паспрабуйце змяніць шлях да файла ў наладах на /data/data/hosts.</string>
@@ -76,6 +98,7 @@
     <string name="apply_private_file_fail_title">Збой файла</string>
     <string name="apply_remount_fail">Не атрымалася перамантаваць раздзел для чытання/запісу!</string>
     <string name="apply_remount_fail_title">Перамантаваць не ўдалося</string>
+    <string name="apply_copy_fail_status">Не атрымалася скапіяваць файл hosts</string>
     <string name="apply_copy_fail">Капіяванне файла hosts не ўдалося!</string>
     <string name="apply_copy_fail_title">Капіяванне не ўдалося</string>
     <string name="apply_success_subtitle">Выкарыстоўваюцца крыніцы hosts</string>
@@ -96,22 +119,27 @@
     <string name="apply_dialog_hostnames">Разбор і аб\'яднанне файлаў са спісамі hosts</string>
     <string name="apply_dialog_hosts">Пабудова файла hosts</string>
     <string name="apply_dialog_apply">Прымяненне файла hosts</string>
+    <string name="apply_fail_status">Не атрымалася прымяніць новы файл hosts.</string>
     <string name="apply_fail">Не атрымалася прымяніць файл Hosts на вашай сістэме! 
 Паспрабуйце змяніць шлях да файла Hosts ў наладах на /data/data/hosts</string>
     <string name="apply_fail_title">Прымяненне не ўдалося</string>
     <string name="root_access_fail">Калі ласка, праверце, вашу праграму, якая прадастаўляе root-доступ.</string>
     <string name="revert_successful">Вы вярнуліся да файла Hosts па змаўчанні.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
     <string name="revert_successful_title">Вяртанне адбылося паспяхова</string>
+    <string name="revert_failed_status">Не атрымалася аднавіць файл hosts</string>
     <string name="revert_problem">Аднаўленне не атрымалася па невядомых прычынах.</string>
     <string name="revert_problem_title">Аднаўленне не атрымалася!</string>
     <string name="download_fail_dialog">Ніводная з вашых актыўных крыніц host недаступная! Вы правільна падлучаныя да інтэрнэту?</string>
     <string name="download_fail_title">Памылка спампоўкі</string>
+    <string name="no_private_file_status">Не атрымалася запісаць новы файл hosts</string>
     <string name="no_private_file">Файл не можа быць створаны.</string>
     <string name="no_private_file_title">Не атрымалася стварыць файл</string>
     <string name="enable_systemless_successful">Вы актывавалі бессістэмны рэжым.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
     <string name="enable_systemless_successful_title">Актывацыя прайшла паспяхова</string>
     <string name="disable_systemless_successful">Вы адключылі бессістэмны рэжым.\nМагчыма, спатрэбіцца перазагрузіць Android, каб змены ўступілі ў сілу.\n\nВы хочаце перагрузіць Android?\n(Для прадухілення страты дадзеных пераканайцеся, што ніякія праграмы ў дадзены момант не выкарыстоўваюць карту памяці!)</string>
     <string name="disable_systemless_successful_title">Паспяхова адключана</string>
+    <string name="enable_vpn_fail">Не атрымалася ўключыць VPN блакаванне рэкламы.</string>
+    <string name="disable_vpn_fail">Не атрымалася адключыць VPN блакаванне рэкламы.</string>
     <string name="enable_systemless_magisk_title">Уключыць модуль hosts Magisk</string>
     <string name="enable_systemless_magisk">Уключыць бессістэмную функцыю hosts з мэнэджара Magisk. Сярод яго налад уключыце параметр <cite>Бессістемны hosts</cite>, затым перазагрузіце вашу прыладу.</string>
     <string name="disable_systemless_magisk_title">Адключыць модуль Magisk hosts</string>
@@ -144,8 +172,6 @@
     <string name="adware_scanning">Сканаванне…</string>
     <string name="adware_empty">Праграм з рэкламай не знойдзена!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Блакавальнік рэкламы</string>
     <string name="no_text_editor_title">Не ўсталяваны тэкставы рэдактар</string>
@@ -168,7 +194,6 @@
     <string name="tcpdump_entry_add_whitelist">Дадаць запіс у Белы спіс</string>
     <string name="tcpdump_entry_add_redirection_list">Дадаць запіс у спіс перанакіраванняў</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Рэдагаваць значэнне тэкставай перавагі</string>
     <string name="drawer_open">Адкрыць меню</string>
     <string name="drawer_close">Закрыць меню</string>
@@ -186,14 +211,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Запыты DNS</string>
     <string name="shortcut_your_lists">Вашы спісы</string>
     <string name="shortcut_preferences">Налады</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Усталявана %1$s назад</string>
     <string name="hosts_source_up_to_date">Актуальна %1$s</string>
     <string name="hosts_source_need_update">Патрабуецца абнаўленне %1$s</string>
     <string name="hosts_source_last_update">Апошняе абнаўленне %1$s таму</string>
@@ -222,5 +246,21 @@
         <item quantity="many">%d месяцаў</item>
         <item quantity="other">%d месяцаў</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">пачынаецца</string>
+    <string name="vpn_notification_running">актыўна</string>
+    <string name="vpn_notification_stopping">спынена</string>
+    <string name="vpn_notification_waiting_for_net">чаканне сеткі</string>
+    <string name="vpn_notification_reconnecting">перападключэнне</string>
+    <string name="vpn_notification_reconnecting_error">памылка перападключэнне</string>
+    <string name="vpn_notification_paused">прыпынена</string>
+    <string name="vpn_notification_stopped">спынена</string>
+    <string name="vpn_notification_title">VPN блакіроўшчыка %1$s</string>
+    <string name="vpn_notification_action_pause">Паўза</string>
+    <string name="vpn_notification_paused_text">Націсніце для працягу</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Уключыць і адключыць сістэмнае блакаванне рэкламы</string>
 
 </resources>
