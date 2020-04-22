@@ -1,32 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
+    <string name="blocked_hosts_label">Заблакавана</string>
+    <string name="allowed_hosts_label">Дазволена</string>
+    <string name="redirect_hosts_label">Перанакіравана</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
+        <item quantity="one">%d up-to-date source</item>
         <item quantity="few">%d up-to-date sources</item>
         <item quantity="many">%d up-to-date sources</item>
-        <item quantity="one">%d up-to-date source</item>
         <item quantity="other">%d up-to-date sources</item>
     </plurals>
     <plurals name="outdated_source_label">
+        <item quantity="one">%d outdated source</item>
         <item quantity="few">%d outdated sources</item>
         <item quantity="many">%d outdated sources</item>
-        <item quantity="one">%d outdated source</item>
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
     <!-- Help card -->
+    <string name="help_label">Паказаць даведку</string>
 
     <!-- Project card -->
+    <string name="project_label">Адкрыць старонку GitHub</string>
 
     <!-- Support card -->
+    <string name="support_label">Падтрымаць праект</string>
 
     <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Журнал DNS</string>
+    <string name="preferences_drawer_item">Налады</string>
 
     <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Адкрыць навігацыйную шторку</string>
+    <string name="adblock_pause_button_description">Прыпыніць/працягнуць блакаванне рэкламы</string>
+    <string name="update_button">Абнавіць заблакаваныя дамены</string>
+    <string name="show_log_button">Паказаць запытаныя дамены</string>
 
     <!-- Error dialog -->
+    <string name="error_dialog_help">Калі ласка, чытайце Даведку для атрымання большай інфармацыі.</string>
 
 </resources>
