@@ -1,12 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Блакавальнік рэкламы на аснове root</string>
     <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Усталёўка hosts</string>
+    <string name="pref_root_open_hosts">Адкрыць файл hosts</string>
+    <string name="pref_apply_method">Шлях да файла hosts</string>
+    <string name="pref_apply_method_summary">Прачытайце даведку перад выкарыстаннем гэтай магчымасці</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Карыстацкія налады</item>
     </string-array>
+    <string name="pref_custom_target">Карыстацкае мэтавае размяшчэнне</string>
+    <string name="pref_never_reboot">Схаваць дыялог перазагрузкі пасля прымянення</string>
     <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Перанакіраванне</string>
+    <string name="pref_hosts_redirection_summary">Вызначыць куды пераадрасоўваць заблакаваныя hosts</string>
+    <string name="pref_redirection_ipv4">Перанакіраванне IPv4</string>
+    <string name="pref_redirection_ipv6">Перанакіраванне IPv6</string>
     <!-- Web server category -->
+    <string name="pref_webserver">Лакальны вэб-сервер</string>
+    <string name="pref_webserver_summary">Лакальны вэб-сервер праслухоўвае лакальныя IP адрасы і адказвае на запыты да заблакаваных hosts. Гэта дапаможа пазбягаць завісанняў пры блакаванні падключэнняў.</string>
+    <string name="pref_webserver_enabled">Уключыць вэб-сервер</string>
+    <string name="pref_webserver_on_boot">Старт вэб-сервера пры загрузцы прылады</string>
 </resources>
