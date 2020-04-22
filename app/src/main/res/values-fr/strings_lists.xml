@@ -7,19 +7,16 @@
     <string name="lists_tab_redirected">Redirigés</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrer les hôtes</string>
-    <!-- Filter dialog -->
-    <string name="lists_filter_host_title">Filtrer par nom d\'hôte</string>
-    <string name="lists_filter_include_sources">Inclure les hôtes des sources</string>
-    <string name="lists_filter_apply">Appliquer</string>
-    <string name="lists_filter_reset">Réinitialiser</string>
+    <string name="lists_menu_filter_hint">Chercher un nom d’hôte…</string>
+    <string name="lists_menu_toggle_sources">Activer/désactiver les sources</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">Ajouter l’hôte à la liste noire</string>
-    <string name="list_add_dialog_white">Ajouter l’hôte à la liste blanche</string>
+    <string name="list_add_dialog_black">Ajouter un hôte à la liste noire</string>
+    <string name="list_add_dialog_white">Ajouter un hôte à la liste blanche</string>
     <string name="list_add_dialog_redirect">Ajouter une redirection d’hôte</string>
     <string name="list_edit_dialog_black">Modifier l’hôte mis en liste noire</string>
     <string name="list_edit_dialog_white">Modifier l’hôte mis en liste blanche</string>
-    <string name="list_edit_dialog_redirect">Modifier une redirection</string>
-    <string name="list_dialog_hostname">Nom d’hôte :</string>
+    <string name="list_edit_dialog_redirect">Modifier la redirection</string>
+    <string name="list_dialog_hostname">Nom de l’hôte :</string>
     <string name="list_dialog_hostname_hint">L’URL de la source du fichier hosts</string>
     <string name="list_dialog_wildcard">(Les métacaractères * et ? sont permis)</string>
     <string name="list_dialog_ip">IP (IPv4 ou IPv6) :</string>
