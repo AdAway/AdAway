@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
-
     <!--Buttons-->
     <string name="button_exit">Salir</string>
     <string name="button_close">Cerrar</string>
@@ -24,8 +23,15 @@
     <string name="header_webserver">Servidor web</string>
     <string name="webserver_status_running">Ejecutando</string>
     <string name="webserver_status_stopped">Parado</string>
+    <string name="webserver_toggle_text">Iniciar o detener el servidor web en localhost para responder los pedidos a los sitios bloqueados.</string>
     <string name="button_enable_webserver">Habilitar servidor web</string>
     <string name="button_disable_webserver">Deshabilitar servidor web</string>
+    <string name="header_vpn">RPV</string>
+    <string name="vpn_status_running">Ejecutando</string>
+    <string name="vpn_status_stopped">Detenido</string>
+    <string name="vpn_toggle_text">Iniciar o detener VPN para filtrar peticiones.</string>
+    <string name="button_enable_vpn">Activar RPV</string>
+    <string name="button_disable_vpn">Desactivar RPV</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Borrar</string>
@@ -47,9 +53,18 @@
     <string name="hosts_open_button">Abrir el archivo hosts</string>
 
     <!--Status Notification-->
+    <string name="status_check">Comprobando actualización</string>
+    <string name="status_check_source">Comprobando la fuente %s para la actualización</string>
+    <string name="status_retrieve">Recuperando fuentes</string>
+    <string name="status_download_source">Descargando fuente %s</string>
+    <string name="status_copy_source">Copiando fuente %s</string>
+    <string name="status_parse_source">Analizando fuente %s</string>
+    <string name="status_revert">Volviendo al archivo hosts predeterminado</string>
+    <string name="status_revert_done">Archivo hosts predeterminado restaurado</string>
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
     <string name="status_update_available">Actualización disponible</string>
     <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
+    <string name="status_no_update_found">No se encontró actualización de la fuente</string>
     <string name="status_no_connection">No hay conexión a Internet</string>
     <string name="status_no_connection_subtitle">No hay ninguna conexión a Internet disponible</string>
     <string name="status_download_fail">Fuentes no disponibles</string>
@@ -62,12 +77,19 @@
     <string name="status_enabled_subtitle">Nuevos archivos de hosts habilitados</string>
     <string name="status_disabled">Deshabilitado</string>
     <string name="status_disabled_subtitle">Archivo hosts predeterminado instalado</string>
-    <string name="notification_configuration_changed">Su configuración ha cambiado. Necesita instalar el archivo hosts para aplicarlo.</string>
+    <string name="status_apply_sources">Aplicar las últimas fuentes</string>
+    <string name="status_create_new_hosts">Crear un nuevo archivo hosts</string>
+    <string name="status_copy_new_hosts">Copiando un nuevo archivo hosts</string>
+    <string name="status_check_copy">Comprobando la copia del archivo hosts</string>
+    <string name="status_hosts_updated">Archivo host actualizado correctamente</string>
+    <string name="status_vpn_configuration_updated">Configuración VPN actualizada correctamente</string>
+    <string name="notification_configuration_changed">Tu configuración ha cambiado. Debes aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Instalando archivo hosts…</string>
-    <string name="notification_configuration_failed">No se pudo instalar el archivo de hosts.</string>
+    <string name="notification_configuration_installing">Aplicando nueva configuración...</string>
+    <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">El enlace simbólico del archivo hosts ha desaparecido</string>
     <string name="apply_symlink_missing">¡No existe enlace simbólico (symlink), o es incorrecto, desde su ruta a /system/etc/hosts! AdAway no funcionará si no está enlazado al archivo correcto.\n\n¿Quiere intentar crear un enlace simbólico?</string>
     <string name="apply_symlink_missing_title">Falta enlace simbólico</string>
     <string name="apply_not_enough_space">¡No hay suficiente espacio en la partición!\nIntente cambiar la ruta del archivo hosts a /data/data/hosts en las preferencias.</string>
@@ -76,6 +98,7 @@
     <string name="apply_private_file_fail_title">El archivo privado falló</string>
     <string name="apply_remount_fail">¡No se pudo volver a montar la partición en modo lectura/escritura!</string>
     <string name="apply_remount_fail_title">Fallo al volver a montar</string>
+    <string name="apply_copy_fail_status">Error al copiar el achivo hosts.</string>
     <string name="apply_copy_fail">¡La copia del archivo host ha fallado!</string>
     <string name="apply_copy_fail_title">Ha fallado la copia</string>
     <string name="apply_success_subtitle">Fuentes de hosts aplicados</string>
@@ -96,21 +119,26 @@
     <string name="apply_dialog_hostnames">Analizando y fusionando los archivos hosts</string>
     <string name="apply_dialog_hosts">Construyendo el archivo hosts</string>
     <string name="apply_dialog_apply">Aplicando el archivo hosts</string>
+    <string name="apply_fail_status">Error al aplicar el nuevo archivo hosts.</string>
     <string name="apply_fail">¡No se pudo aplicar el archivo hosts en su sistema!\nIntente cambiar la ruta del archivo hosts a /data/data/hosts en las preferencias.</string>
     <string name="apply_fail_title">Fallo al aplicar</string>
     <string name="root_access_fail">Verifique su aplicación de root para asegurarse de que se haya otorgado acceso root</string>
     <string name="revert_successful">Ha vuelto al archivo de hosts predeterminado.\nPuede ser necesario reiniciar Android para que los cambios tengan efecto.\n\n¿Quiere reiniciar?\n(¡Para evitar una posible pérdida de datos, asegúrese que ninguna aplicación esté usando la memoria SD en este momento!)</string>
     <string name="revert_successful_title">Los cambios se revirtieron con éxito.</string>
+    <string name="revert_failed_status">No se pudo revertir el archivo hosts</string>
     <string name="revert_problem">No pudieron revertirse los cambios por razones desconocidas.</string>
     <string name="revert_problem_title">¡Fallo al revertir!</string>
     <string name="download_fail_dialog">¡Ninguna de sus fuentes de ficheros hosts habilitadas son alcanzables! ¿Está conectado adecuadamente a Internet?</string>
     <string name="download_fail_title">Descarga fallada</string>
+    <string name="no_private_file_status">Error al escribir el nuevo archivo hosts privado</string>
     <string name="no_private_file">No se pudo crear el archivo privado.</string>
     <string name="no_private_file_title">La creación del fichero privado falló</string>
     <string name="enable_systemless_successful">Has habilitado el modo sin sistema.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(Para evitar una posible pérdida de datos, asegúrese que ninguna aplicación esté usando la memoria SD en este momento)</string>
     <string name="enable_systemless_successful_title">Se ha habilitado con éxito</string>
     <string name="disable_systemless_successful">Has deshabilitado el modo sin sistema.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(Para evitar una posible pérdida de datos, asegúrese que ninguna aplicación esté usando la memoria SD en este momento)</string>
     <string name="disable_systemless_successful_title">Desactivado con exito</string>
+    <string name="enable_vpn_fail">Error al habilitar el bloqueo de anuncios VPN.</string>
+    <string name="disable_vpn_fail">Error al deshabilitar el bloqueo de anuncios VPN.</string>
     <string name="enable_systemless_magisk_title">Habilitar el módulo Magisk de hosts</string>
     <string name="enable_systemless_magisk">Habilita la función de hosts sin sistema del administrador Magisk. Desde su configuración, habilite la opción <cite>Hosts sin sistema</cite> y luego reinicie su dispositivo.</string>
     <string name="disable_systemless_magisk_title">Deshabilitar el módulo Magisk de hosts</string>
@@ -143,8 +171,6 @@
     <string name="adware_scanning">Escaneando…</string>
     <string name="adware_empty">¡No se ha encontrado Adware!</string>
 
-    <!--Hosts sources-->
-
     <!--Other-->
     <string name="app_subtitle">Bloqueador de publicidad</string>
     <string name="no_text_editor_title">No hay ningún editor de texto instalado</string>
@@ -167,7 +193,6 @@
     <string name="tcpdump_entry_add_whitelist">Añadir una entrada a la lista blanca</string>
     <string name="tcpdump_entry_add_redirection_list">Añadir una entrada a la lista de redirección</string>
 
-    <!--Preferences-->
     <string name="pref_edit_text_value">Editar valor de preferencia de texto</string>
     <string name="drawer_open">Abrir menú</string>
     <string name="drawer_close">Cerrar menú</string>
@@ -185,14 +210,13 @@
     </string-array>
     <!--Drawer menu labels-->
 
-    <!--Telemetry-->
-
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Peticiones DNS</string>
     <string name="shortcut_your_lists">Sus listas</string>
     <string name="shortcut_preferences">Preferencias</string>
 
     <!--Hosts source status-->
+    <string name="hosts_source_installed">Instalado hace %1$s</string>
     <string name="hosts_source_up_to_date">Actualizado para %1$s</string>
     <string name="hosts_source_need_update">Necesita actualización para %1$s</string>
     <string name="hosts_source_last_update">Última actualización hace %1$s</string>
@@ -213,5 +237,21 @@
         <item quantity="one">%d mes </item>
         <item quantity="other">%d meses </item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">Iniciando</string>
+    <string name="vpn_notification_running">activo</string>
+    <string name="vpn_notification_stopping">deteniendo</string>
+    <string name="vpn_notification_waiting_for_net">esperar a la red</string>
+    <string name="vpn_notification_reconnecting">reconectando</string>
+    <string name="vpn_notification_reconnecting_error">error al reconectar</string>
+    <string name="vpn_notification_paused">pausado</string>
+    <string name="vpn_notification_stopped">detenido</string>
+    <string name="vpn_notification_title">Bloqueador de anuncios VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Pausar</string>
+    <string name="vpn_notification_paused_text">Toca para continuar</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Activar o desactivar el bloqueo de publicidad del sistema</string>
 
 </resources>
