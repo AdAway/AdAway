@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_main_title">Налады</string>
     <!-- General category -->
+    <string name="pref_general_category">Галоўные</string>
+    <string name="pref_dark_theme">Цёмная тэма</string>
+    <string name="pref_update_configuration">Аўтаматычнае абнаўленне</string>
     <!-- Ad block category -->
+    <string name="pref_ad_block_category">Блакіроўка рэкламы</string>
+    <string name="pref_root_ad_blocker_configuration">Блакавальнік рэкламы на аснове root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Блакавальнік рэкламы на аснове VPN</string>
+    <string name="pref_whitelist_rules">Прымяніць дазволеныя hosts з крыніц</string>
+    <string name="pref_redirection_rules">Прымяніць перанакіраванныя hosts з крыніц</string>
+    <string name="pref_redirection_rules_summary">СТВАРАЕ ПАГРОЗУ БЯСПЕЦЫ!</string>
+    <string name="pref_enable_ipv6">Уключыць падтрымку IPv6</string>
+    <string name="pref_backup_restore">Рэзервовая копія / аднаўленне правілаў блакавання</string>
     <!-- Debug category -->
+    <string name="pref_debug_category">Рэжым адладкі</string>
+    <string name="pref_enable_telemetry">Адпраўляць справаздачы аб памылках</string>
+    <string name="pref_enable_telemetry_summary">Адпраўляць у Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Не падтрымліваецца ў гэтай зборцы</string>
+    <string name="pref_enable_debug">Журнал адладкі</string>
+    <string name="pref_enable_debug_summary">Для прымянення патрабуецца перазапуск праграмы</string>
 </resources>
