@@ -17,7 +17,7 @@ jobs:
 
     - uses: malinskiy/action-android/install-sdk@release/0.0.5
     
-    - run: $ANDROID_HOME/tools/bin/sdkmanager 'ndk;21.0.6113669'
+    - run: $ANDROID_HOME/tools/bin/sdkmanager 'ndk;21.1.6352462'
 
     - name: Run unit tests
       run: ./gradlew test --stacktrace
