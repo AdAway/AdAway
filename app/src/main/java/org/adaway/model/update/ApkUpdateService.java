@@ -59,7 +59,7 @@ public final class ApkUpdateService {
         WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME);
     }
 
-    public static void syncPreferences(Context context) {
+    static void syncPreferences(Context context) {
         if (PreferenceHelper.getUpdateCheckAppDaily(context)) {
             enqueueWork(context, KEEP);
         } else {
