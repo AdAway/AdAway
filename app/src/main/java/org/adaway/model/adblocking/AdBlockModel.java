@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.root.RootModel;
 import org.adaway.model.vpn.VpnModel;
+import org.adaway.util.Log;
 
 import java.util.List;
 
@@ -18,6 +19,10 @@ import java.util.List;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public abstract class AdBlockModel {
+    /**
+     * The log tag.
+     */
+    private static final String TAG = "AdBlockModel";
     /**
      * The application context.
      */
@@ -34,7 +39,7 @@ public abstract class AdBlockModel {
     /**
      * The model state.
      */
-    protected MutableLiveData<String> state;
+    private MutableLiveData<String> state;
 
     /**
      * Constructor.
@@ -84,14 +89,14 @@ public abstract class AdBlockModel {
     /**
      * Apply hosts list.
      *
-     * @throws HostErrorException If the hosts file could not be applied. // TODO
+     * @throws HostErrorException If the model configuration could not be applied.
      */
     public abstract void apply() throws HostErrorException;
 
     /**
      * Revert the hosts list to the default one.
      *
-     * @throws HostErrorException If the hosts file could not be applied. // TODO
+     * @throws HostErrorException If the model configuration could not be revert.
      */
     public abstract void revert() throws HostErrorException;
 
@@ -105,7 +110,9 @@ public abstract class AdBlockModel {
     }
 
     protected void setState(@StringRes int stateResId, Object... details) {
-        this.state.postValue(this.context.getString(stateResId, details));
+        String state = this.context.getString(stateResId, details);
+        Log.d(TAG, state);
+        this.state.postValue(state);
     }
 
     /**
