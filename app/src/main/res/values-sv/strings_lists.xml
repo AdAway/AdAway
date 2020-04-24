@@ -7,6 +7,8 @@
     <string name="lists_tab_redirected">Omdirigerad</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrera värdar</string>
+    <string name="lists_menu_filter_hint">Sök värdnamn...</string>
+    <string name="lists_menu_toggle_sources">Växla källor</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Lägg till värd till svartlistan</string>
     <string name="list_add_dialog_white">Lägg till värd till vitlistan</string>
