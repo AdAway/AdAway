@@ -74,13 +74,14 @@ android {
 }
 
 ext {
-    appcompat = '1.1.0-alpha2'
+    appcompat = '1.1.0'
     constraint_layout = '1.1.3'
-    lifecycle = '2.0.0'
+    lifecycle = '2.2.0'
     material = '1.1.0-alpha04'
-    room = '2.0.0'
+    preference = '1.1.1'
+    room = '2.2.5'
     support = '1.0.0'
-    work = '1.0.0'
+    work = '1.0.1'
 }
 
 dependencies {
@@ -96,18 +97,18 @@ dependencies {
     implementation "android.arch.work:work-runtime:${work}"
 
     // Support libraries
-    implementation "androidx.appcompat:appcompat:1.1.0-alpha03"
+    implementation "androidx.appcompat:appcompat:${appcompat}"
     implementation "androidx.cardview:cardview:${support}"
     implementation "androidx.constraintlayout:constraintlayout:${constraint_layout}"
-    implementation "androidx.preference:preference:${support}"
-    implementation "androidx.recyclerview:recyclerview:1.1.0-alpha03"
-    implementation "androidx.fragment:fragment:1.1.0-alpha4"
+    implementation "androidx.preference:preference:${preference}"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation "androidx.fragment:fragment:1.2.4"
     implementation "com.google.android.material:material:${material}"
 
     // Miscellaneous
     api 'com.google.guava:guava:27.0.1-android'
     implementation 'com.annimon:stream:1.2.1'
-    implementation 'com.google.android:flexbox:1.1.0'
+    implementation 'com.google.android:flexbox:1.1.1'
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.3'
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'net.sf.trove4j:trove4j:3.0.3'
@@ -118,6 +119,6 @@ dependencies {
         implementation 'io.sentry:sentry-android:1.7.14'
     }
     implementation 'org.slf4j:slf4j-nop:1.7.25'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     testImplementation 'org.json:json:20180130'
 }
