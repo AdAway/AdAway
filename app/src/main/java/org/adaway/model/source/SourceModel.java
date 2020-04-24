@@ -411,6 +411,8 @@ public class SourceModel {
     }
 
     private void setState(@StringRes int stateResId, Object... details) {
-        this.state.postValue(this.context.getString(stateResId, details));
+        String state = this.context.getString(stateResId, details);
+        Log.d(TAG, state);
+        this.state.postValue(state);
     }
 }
