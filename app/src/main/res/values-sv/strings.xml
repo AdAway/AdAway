@@ -82,7 +82,12 @@
     <string name="status_copy_new_hosts">Kopierar en new värdfil</string>
     <string name="status_check_copy">Kontrollerar värdfilskopia</string>
     <string name="status_hosts_updated">Värdfilen uppdaterad</string>
+    <string name="status_vpn_configuration_updated">VPN-konfigurationen uppdaterad</string>
+    <string name="notification_configuration_changed">Din konfiguration har ändrats. Den behöver nu tillämpas.</string>
     <string name="notification_configuration_changed_action">Tillämpa</string>
+    <string name="notification_configuration_installing">Tillämpar den nya konfigurationen...</string>
+    <string name="notification_configuration_failed">Det gick inte att tillämpa den nya konfigurationen.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Symlinken till värdfilsmålet saknas</string>
     <string name="apply_symlink_missing">Symlink från ditt mål till /system/etc/hosts existerar ej eller är inkorrekt! AdAway kommer inte fungera om den inte pekar på rätt fil.\n\nVill du försöka skapa en symlink?</string>
