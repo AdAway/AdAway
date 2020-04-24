@@ -17,11 +17,12 @@ import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.util.Log;
 
+import static androidx.work.ExistingPeriodicWorkPolicy.KEEP;
 import static androidx.work.ExistingPeriodicWorkPolicy.REPLACE;
 import static androidx.work.ListenableWorker.Result.failure;
 import static androidx.work.ListenableWorker.Result.retry;
 import static androidx.work.ListenableWorker.Result.success;
-import static java.util.concurrent.TimeUnit.DAYS;
+import static java.util.concurrent.TimeUnit.HOURS;
 
 /**
  * This class is a service to check for hosts sources update.<br/>
@@ -51,19 +52,29 @@ public final class SourceUpdateService {
      * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
      */
     public static void enable(Context context, boolean unmeteredNetworkOnly) {
+        PeriodicWorkRequest workRequest = getWorkRequest(unmeteredNetworkOnly);
+        // Enqueue work request
+        WorkManager workManager = WorkManager.getInstance(context);
+        workManager.enqueueUniquePeriodicWork(WORK_NAME, REPLACE, workRequest);
+    }
+
+    /**
+     * Create source update work request.
+     *
+     * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
+     * @return The source update work request to queue.
+     */
+    private static PeriodicWorkRequest getWorkRequest(boolean unmeteredNetworkOnly) {
         // Create worker constraints
         Constraints constraints = new Constraints.Builder()
                 .setRequiredNetworkType(unmeteredNetworkOnly ? NetworkType.UNMETERED : NetworkType.CONNECTED)
                 .setRequiresStorageNotLow(true)
                 .build();
         // Create work request
-        PeriodicWorkRequest workRequest = new PeriodicWorkRequest.Builder(HostsSourcesUpdateWorker.class, 1, DAYS)
+        return new PeriodicWorkRequest.Builder(HostsSourcesUpdateWorker.class, 6, HOURS)
                 .setConstraints(constraints)
-                .setInitialDelay(1, DAYS)
+                .setInitialDelay(3, HOURS)
                 .build();
-        // Enqueue work request
-        WorkManager workManager = WorkManager.getInstance(context);
-        workManager.enqueueUniquePeriodicWork(WORK_NAME, REPLACE, workRequest);
     }
 
     /**
@@ -74,6 +85,18 @@ public final class SourceUpdateService {
     public static void disable(Context context) {
         // Cancel previous work
         WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME);
+    }
+
+    /**
+     * Sync service on user preferences.
+     *
+     * @param context The application context.
+     */
+    static void syncPreferences(Context context) {
+        PeriodicWorkRequest workRequest = getWorkRequest(PreferenceHelper.getUpdateOnlyOnWifi(context));
+        // Ensure work request is queued
+        WorkManager workManager = WorkManager.getInstance(context);
+        workManager.enqueueUniquePeriodicWork(WORK_NAME, KEEP, workRequest);
     }
 
     /**
