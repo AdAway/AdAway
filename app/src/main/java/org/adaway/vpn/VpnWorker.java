@@ -58,7 +58,7 @@ import static org.adaway.vpn.VpnStatus.STARTING;
 import static org.adaway.vpn.VpnStatus.STOPPED;
 import static org.adaway.vpn.VpnStatus.STOPPING;
 
-class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
+class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final String TAG = "VpnWorker";
     /**
      * Maximum packet size is constrained by the MTU, which is given as a signed short.
@@ -107,7 +107,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
 
     public void start() {
         Log.i(TAG, "Starting Vpn Thread");
-        this.thread = new Thread(this, "VpnWorker");
+        this.thread = new Thread(this::work, "VpnWorker");
         this.thread.start();
         Log.i(TAG, "Vpn Thread started");
     }
@@ -134,8 +134,7 @@ class VpnWorker implements Runnable, DnsPacketProxy.EventLoop {
         }
     }
 
-    @Override
-    public synchronized void run() {
+    private void work() {
         Log.i(TAG, "Starting");
         // Initialize context
         this.dnsPacketProxy.initialize(this.vpnService);
