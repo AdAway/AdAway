@@ -1,3 +1,11 @@
+## [4.3.4] - 2020-04-25
+
+- Fix crash in tcpdump log view on Lollipop
+- Fix timezone issues with source modification date
+- Fix NDK version
+
+Special thanks to Ps24u and Indranil012 for their bug reports.
+
 ## [5.0.1] - 2020-04-15
 
 *This version is a pre-release*
