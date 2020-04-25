@@ -53,17 +53,19 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
     private void bindHostsUpdatePrefAction() {
         Context context = requireContext();
         Preference checkHostsDailyPref = findPreference(getString(R.string.pref_update_check_hosts_daily_key));
-        Preference updateOnlyOnWifiPref = findPreference(this.getString(R.string.pref_update_only_on_wifi_key));
-        Preference.OnPreferenceChangeListener onPreferenceChangeListener = (preference, newValue) -> {
-            if (PreferenceHelper.getUpdateCheckHostsDaily(context)) {
+        checkHostsDailyPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            if (Boolean.TRUE.equals(newValue)) {
                 boolean unmeteredNetworkOnly = PreferenceHelper.getUpdateOnlyOnWifi(context);
                 SourceUpdateService.enable(context, unmeteredNetworkOnly);
             } else {
                 SourceUpdateService.disable(context);
             }
             return true;
-        };
-        checkHostsDailyPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
-        updateOnlyOnWifiPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
+        });
+        Preference updateOnlyOnWifiPref = findPreference(this.getString(R.string.pref_update_only_on_wifi_key));
+        updateOnlyOnWifiPref.setOnPreferenceChangeListener((preference, newValue) -> {
+            SourceUpdateService.enable(context, Boolean.TRUE.equals(newValue));
+            return true;
+        });
     }
 }
