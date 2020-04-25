@@ -60,6 +60,11 @@ public class HomeViewModel extends AndroidViewModel {
         this.error = new MutableLiveData<>();
     }
 
+    private static boolean isTrue(LiveData<Boolean> liveData) {
+        Boolean value = liveData.getValue();
+        return value != null && value;
+    }
+
     public LiveData<Boolean> isAdBlocked() {
         return this.adBlockModel.isApplied();
     }
@@ -170,10 +175,5 @@ public class HomeViewModel extends AndroidViewModel {
                 sync();
             }
         });
-    }
-
-    private static boolean isTrue(LiveData<Boolean> liveData) {
-        Boolean value = liveData.getValue();
-        return value != null && value;
     }
 }

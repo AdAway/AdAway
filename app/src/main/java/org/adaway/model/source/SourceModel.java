@@ -98,20 +98,6 @@ public class SourceModel {
         this.updateAvailable = new MutableLiveData<>();
         this.updateAvailable.setValue(false);
         SourceUpdateService.syncPreferences(context);
-        checkUpdateAtStartUp();
-    }
-
-    private void checkUpdateAtStartUp() {
-        boolean checkUpdateAtStartup = PreferenceHelper.getUpdateCheck(this.context);
-        if (checkUpdateAtStartup) {
-            AppExecutors.getInstance().networkIO().execute(() -> {
-                try {
-                    checkForUpdate();
-                } catch (HostErrorException exception) {
-                    Log.w(TAG, "Fail to check update at startup.", exception);
-                }
-            });
-        }
     }
 
     /**

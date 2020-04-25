@@ -101,11 +101,13 @@ public class HomeActivity extends AppCompatActivity {
 
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(item -> {
-            if (this.showFragment(item.getItemId())) {
+            if (showFragment(item.getItemId())) {
                 this.drawerBehavior.setState(STATE_HIDDEN);
             }
             return false; // TODO Handle selection
         });
+
+        checkUpdateAtStartup();
     }
 
     @Override
@@ -133,6 +135,13 @@ public class HomeActivity extends AppCompatActivity {
         } else if (adBlockMethod == VPN && (prepareIntent = VpnService.prepare(this)) != null) {
             // Prepare VNP
             startActivity(prepareIntent);
+        }
+    }
+
+    private void checkUpdateAtStartup() {
+        boolean checkUpdateAtStartup = PreferenceHelper.getUpdateCheck(this);
+        if (checkUpdateAtStartup) {
+            updateHostsList(null);
         }
     }
 
