@@ -1,3 +1,20 @@
+## [5.0.2] - 2020-04-25
+
+*This version is a pre-release*
+
+- Fix timezone issues with source modification date
+- Fix domain not removed when sources are disabled
+- Fix inverted host and ip while generating hosts file
+- Fix periodical hosts update check initialization 
+- Improve overall search feature in list UI
+- Improve last online modification date after retrieval
+- Fix install snackbar not hiding
+- Fix potential deadlock in VPN
+- Add missing text on successful VPN update
+- Update translations
+
+Special thanks to damoasda for its contribution, Vankog for all translations he merged and Ps24u and dhacke for theirs bug reports.
+
 ## [4.3.4] - 2020-04-25
 
 - Fix crash in tcpdump log view on Lollipop
