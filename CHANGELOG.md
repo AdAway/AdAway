@@ -1,4 +1,12 @@
-## [4.3.3] - 2020-10-04
+## [4.3.4] - 2020-04-25
+
+- Fix crash in tcpdump log view on Lollipop
+- Fix timezone issues with source modification date
+- Fix NDK version
+
+Special thanks to Ps24u and Indranil012 for their bug reports.
+
+## [4.3.3] - 2020-04-10
 
 hpHosts service is down.
 If you are looking for a replacement, give a try at [StevenBlack's one](https://github.com/StevenBlack/hosts).
