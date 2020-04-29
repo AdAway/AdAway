@@ -82,7 +82,12 @@
     <string name="status_copy_new_hosts">Bezig met kopiëren van nieuw hosts-bestand</string>
     <string name="status_check_copy">Bezig met controleren van hosts-kopie</string>
     <string name="status_hosts_updated">Het hosts-bestand is bijgewerkt</string>
+    <string name="status_vpn_configuration_updated">VPN configuratie succesvol bijgewerkt</string>
+    <string name="notification_configuration_changed">Je configuratie is gewijzigd. Je moet het toepassen.</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
+    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie...</string>
+    <string name="notification_configuration_failed">Toepassen van nieuwe configuratie is mislukt.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">De symlink naar het hosts-bestand ontbreekt</string>
     <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink te maken?</string>
