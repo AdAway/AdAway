@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN базиран блокер на реклами</string>
+    <string name="pref_vpn_service_on_boot">Разрешаване при стартиране</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Изключени приложения</string>
+    <string name="pref_vpn_excluded_apps_description">Конфигурирайте кои приложения не трябва да използват VPN, така че няма да бъдат блокирани връзки.</string>
+    <string name="pref_vpn_exclude_system_apps">Изключване на системни приложения</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
+        <item>Нищо</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Изключване на потребителски приложения</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Изключени приложения</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Избиране на всички</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Премахване на всички</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Икона на приложението</string>
+</resources>
