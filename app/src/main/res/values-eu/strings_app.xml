@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AdAway</string>
-    </resources>
+    <string name="app_description">Kode libreko iragarki-blokeatzailea</string>
+</resources>
