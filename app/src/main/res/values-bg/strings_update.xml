@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Home screen -->
+    <string name="update_available">Налична е актуализация!</string>
+
+    <!-- Changelog dialog -->
+    <string name="update_update_title">Налична е нова версия</string>
+    <string name="update_update_message">Новата версия носи следните промени:\n\n</string>
+    <string name="update_up_to_date_title">Вие сте актуални</string>
+    <string name="update_up_to_date_message">Последната версия носи следните промени:\n\n</string>
     <string name="update_changelog">Промени</string>
-    </resources>
+    <string name="update_update_button">Актуализиране сега</string>
+</resources>
