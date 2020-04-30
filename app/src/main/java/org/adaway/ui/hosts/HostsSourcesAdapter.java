@@ -1,21 +1,23 @@
 package org.adaway.ui.hosts;
 
 import android.content.Context;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.adaway.R;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.util.DateUtils;
+
+import java.time.Duration;
+import java.time.ZonedDateTime;
 
 /**
  * This class is a the {@link RecyclerView.Adapter} for the hosts sources view.
@@ -57,6 +59,44 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         this.viewCallback = viewCallback;
     }
 
+    /**
+     * Get the approximate delay from a date to now.
+     *
+     * @param context The application context.
+     * @param from    The date from which computes the delay.
+     * @return The approximate delay.
+     */
+    private static String getApproximateDelay(Context context, ZonedDateTime from) {
+        // Get resource for plurals
+        Resources resources = context.getResources();
+        // Get current date in UTC timezone
+        ZonedDateTime now = ZonedDateTime.now();
+        // Get delay between from and now in minutes
+        long delay = Duration.between(from, now).toMinutes();
+        // Check if delay is lower than an hour
+        if (delay < 60) {
+            int minutes = (int) delay;
+            return resources.getQuantityString(R.plurals.hosts_source_minutes, minutes, minutes);
+        }
+        // Get delay in hours
+        delay /= 60;
+        // Check if delay is lower than a day
+        if (delay < 24) {
+            int hours = (int) delay;
+            return resources.getQuantityString(R.plurals.hosts_source_hours, hours, hours);
+        }
+        // Get delay in days
+        delay /= 24;
+        // Check if delay is lower than a month
+        if (delay < 30) {
+            int days = (int) delay;
+            return resources.getQuantityString(R.plurals.hosts_source_days, days, days);
+        }
+        // Get delay in months
+        int months = (int) delay / 30;
+        return resources.getQuantityString(R.plurals.hosts_source_months, months, months);
+    }
+
     @NonNull
     @Override
     public HostsSourcesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -80,15 +120,15 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         Context context = this.viewCallback.getContext();
         // Check modification dates
         boolean lastOnlineModificationDefined = source.getLastOnlineModification() != null &&
-                source.getLastOnlineModification().getTime() != 0;
+                source.getLastOnlineModification().toEpochSecond() != 0;
         boolean lastLocalModificationDefined = source.getLastLocalModification() != null &&
-                source.getLastLocalModification().getTime() != 0;
+                source.getLastLocalModification().toEpochSecond() != 0;
         // Declare update text
         String updateText;
         // Check if online modification date is unknown
         if (!lastOnlineModificationDefined) {
             if (lastLocalModificationDefined) {
-                String approximateDelay = DateUtils.getApproximateDelay(context, source.getLastLocalModification());
+                String approximateDelay = getApproximateDelay(context, source.getLastLocalModification());
                 updateText = context.getString(R.string.hosts_source_installed, approximateDelay);
             } else {
                 updateText = context.getString(R.string.hosts_source_unknown_status);
@@ -96,10 +136,10 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
             return updateText;
         }
         // Get last online modification delay
-        String approximateDelay = DateUtils.getApproximateDelay(context, source.getLastOnlineModification());
+        String approximateDelay = getApproximateDelay(context, source.getLastOnlineModification());
         if (!source.isEnabled() || !lastLocalModificationDefined) {
             updateText = context.getString(R.string.hosts_source_last_update, approximateDelay);
-        } else if (source.getLastOnlineModification().after(source.getLastLocalModification())) {
+        } else if (source.getLastOnlineModification().isAfter(source.getLastLocalModification())) {
             updateText = context.getString(R.string.hosts_source_need_update, approximateDelay);
         } else {
             updateText = context.getString(R.string.hosts_source_up_to_date, approximateDelay);

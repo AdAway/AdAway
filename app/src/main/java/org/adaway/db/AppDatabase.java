@@ -9,8 +9,8 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import org.adaway.db.converter.DateConverter;
 import org.adaway.db.converter.ListTypeConverter;
+import org.adaway.db.converter.ZonedDateTimeConverter;
 import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
@@ -30,7 +30,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 @Database(entities = {HostsSource.class, HostListItem.class}, views = {HostEntry.class}, version = 3)
-@TypeConverters({DateConverter.class, ListTypeConverter.class})
+@TypeConverters({ListTypeConverter.class, ZonedDateTimeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     /**
      * The database singleton instance.

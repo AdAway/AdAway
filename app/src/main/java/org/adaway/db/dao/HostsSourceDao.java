@@ -10,7 +10,7 @@ import androidx.room.Update;
 
 import org.adaway.db.entity.HostsSource;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -42,10 +42,10 @@ public interface HostsSourceDao {
     LiveData<List<HostsSource>> loadAll();
 
     @Query("UPDATE hosts_sources SET last_modified_local = :localModificationDate, last_modified_online = :onlineModificationDate WHERE id = :id")
-    void updateModificationDates(int id, Date localModificationDate, Date onlineModificationDate);
+    void updateModificationDates(int id, ZonedDateTime localModificationDate, ZonedDateTime onlineModificationDate);
 
-    @Query("UPDATE hosts_sources SET last_modified_online = :date WHERE id = :id")
-    void updateOnlineModificationDate(int id, Date date);
+    @Query("UPDATE hosts_sources SET last_modified_online = :dateTime WHERE id = :id")
+    void updateOnlineModificationDate(int id, ZonedDateTime dateTime);
 
     @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online > last_modified_local")
     LiveData<Integer> countOutdated();

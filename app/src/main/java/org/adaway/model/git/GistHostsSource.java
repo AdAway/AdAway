@@ -10,8 +10,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
-import java.util.Date;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeParseException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -49,7 +49,7 @@ class GistHostsSource extends GitHostsSource {
 
     @Override
     @Nullable
-    public Date getLastUpdate() {
+    public ZonedDateTime getLastUpdate() {
         // Create commit API request URL
         String commitApiUrl = "https://api.github.com/gists/" + this.gistIdentifier;
         // Create client and request
@@ -66,13 +66,14 @@ class GistHostsSource extends GitHostsSource {
     }
 
     @Nullable
-    private Date parseJsonBody(String body) throws JSONException {
+    private ZonedDateTime parseJsonBody(String body) throws JSONException {
         JSONObject gistObject = new JSONObject(body);
         String dateString = gistObject.getString("updated_at");
-        Date date = null;
+        ZonedDateTime date = null;
         try {
-            date = this.dateFormat.parse(dateString);
-        } catch (ParseException exception) {
+            date = ZonedDateTime.parse(dateString);
+//            date = this.dateFormat.parse(dateString);
+        } catch (DateTimeParseException exception) {
             Log.w(Constants.TAG, "Failed to parse commit date: " + dateString + ".", exception);
         }
         return date;

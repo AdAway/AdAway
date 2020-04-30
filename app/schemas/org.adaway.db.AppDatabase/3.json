@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 3,
-    "identityHash": "2f5e10a4455267a22e6cf7d91c4d4139",
+    "identityHash": "440cafc2f6175fe10de0c283b4af9ca6",
     "entities": [
       {
         "tableName": "hosts_sources",
@@ -140,12 +140,12 @@
     "views": [
       {
         "viewName": "host_entries",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT host, type, redirection FROM hosts_lists WHERE enabled = 1 AND ((type = 0 AND host NOT LIKE (SELECT host FROM hosts_lists WHERE enabled = 1 and type = 1)) OR type = 2)ORDER BY host ASC, type DESC, redirection"
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) ORDER BY `host` ASC, `type` DESC, `redirection` ASC"
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2f5e10a4455267a22e6cf7d91c4d4139')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '440cafc2f6175fe10de0c283b4af9ca6')"
     ]
   }
 }

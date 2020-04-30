@@ -19,8 +19,6 @@ import org.adaway.db.entity.HostsSource;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.git.GitHostsSource;
-import org.adaway.util.AppExecutors;
-import org.adaway.util.DateUtils;
 import org.adaway.util.Log;
 
 import java.io.File;
@@ -32,8 +30,9 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import okhttp3.Cache;
@@ -42,6 +41,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
+import static java.time.ZoneOffset.UTC;
+import static java.time.format.FormatStyle.MEDIUM;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
 import static org.adaway.model.error.HostError.NO_CONNECTION;
 
@@ -144,27 +145,21 @@ public class SourceModel {
         for (HostsSource source : sources) {
             // Get URL and lastModified from db
             String sourceUrl = source.getUrl();
-            Date lastModifiedLocal = source.getLastLocalModification();
+            ZonedDateTime lastModifiedLocal = source.getLastLocalModification();
             // Update state
             setState(R.string.status_check_source, sourceUrl);
             // Get hosts source last update
-            Date lastModifiedOnline = getHostsSourceLastUpdate(sourceUrl);
+            ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(sourceUrl);
             // Some help with debug here
-            Log.d(TAG, "lastModifiedLocal: "
-                    + (lastModifiedLocal == null ? "not defined" : lastModifiedLocal)
-                    + " (" + DateUtils.dateToString(this.context, lastModifiedLocal) + ")"
-            );
-            Log.d(TAG, "lastModifiedOnline: "
-                    + (lastModifiedOnline == null ? "not defined" : lastModifiedOnline)
-                    + " (" + DateUtils.dateToString(this.context, lastModifiedOnline) + ")"
-            );
+            Log.d(TAG, "lastModifiedLocal: " + dateToString(lastModifiedLocal));
+            Log.d(TAG, "lastModifiedOnline: " + dateToString(lastModifiedOnline));
             // Save last modified online
             this.hostsSourceDao.updateOnlineModificationDate(source.getId(), lastModifiedOnline);
             // Check if last modified online retrieved
             if (lastModifiedOnline != null) {
                 anyHostsSourceVerified = true;
                 // Check if update is available for this source and source enabled
-                if (source.isEnabled() && (lastModifiedLocal == null || lastModifiedOnline.after(lastModifiedLocal))) {
+                if (source.isEnabled() && (lastModifiedLocal == null || lastModifiedOnline.isAfter(lastModifiedLocal))) {
                     updateAvailable = true;
                 }
             }
@@ -182,6 +177,21 @@ public class SourceModel {
         Log.d(TAG, "Update check result: " + updateAvailable);
         this.updateAvailable.postValue(updateAvailable);
         return updateAvailable;
+    }
+
+    /**
+     * Format {@link ZonedDateTime} for printing.
+     *
+     * @param zonedDateTime The date to format.
+     * @return The formatted date string.
+     */
+    private String dateToString(ZonedDateTime zonedDateTime) {
+        if (zonedDateTime == null) {
+            return "not defined";
+        } else {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(MEDIUM);
+            return zonedDateTime.toString() + " (" + zonedDateTime.format(dateTimeFormatter) + ")";
+        }
     }
 
     /**
@@ -205,7 +215,7 @@ public class SourceModel {
      * @return The last online date, {@code null} if the date could not be retrieved.
      */
     @Nullable
-    private Date getHostsSourceLastUpdate(String url) {
+    private ZonedDateTime getHostsSourceLastUpdate(String url) {
         Log.v(TAG, "Checking hosts file: " + url);
         // Check Git hosting
         if (GitHostsSource.isHostedOnGit(url)) {
@@ -224,8 +234,8 @@ public class SourceModel {
             connection = mURL.openConnection();
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(30000);
-            long lastModified = connection.getLastModified();
-            return new Date(lastModified);
+            long lastModified = connection.getLastModified() / 1000;
+            return ZonedDateTime.of(LocalDateTime.ofEpochSecond(lastModified, 0, UTC), UTC);
         } catch (Exception exception) {
             Log.e(TAG, "Exception while downloading from " + url, exception);
             return null;
@@ -252,7 +262,7 @@ public class SourceModel {
         int numberOfCopies = 0;
         int numberOfFailedCopies = 0;
         // Compute current date in UTC timezone
-        Date now = Date.from(Instant.now());
+        ZonedDateTime now = ZonedDateTime.now();
         // Get each hosts source
         for (HostsSource hostsSource : this.hostsSourceDao.getAll()) {
             if (!hostsSource.isEnabled()) {
@@ -276,7 +286,7 @@ public class SourceModel {
                         Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
                 }
                 // Get hosts source last update
-                Date lastModifiedOnline = getHostsSourceLastUpdate(hostsSource.getUrl());
+                ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(hostsSource.getUrl());
                 if (lastModifiedOnline == null) {
                     lastModifiedOnline = now;
                 }

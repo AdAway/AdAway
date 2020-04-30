@@ -14,8 +14,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.ParseException;
-import java.util.Date;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeParseException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -65,7 +65,7 @@ class GitHubHostsSource extends GitHostsSource {
 
     @Override
     @Nullable
-    public Date getLastUpdate() {
+    public ZonedDateTime getLastUpdate() {
         // Create commit API request URL
         String commitApiUrl = "https://api.github.com/repos/" + this.owner + "/" + this.repo + "/commits?path=" + this.blobPath;
         // Create client and request
@@ -82,18 +82,18 @@ class GitHubHostsSource extends GitHostsSource {
     }
 
     @Nullable
-    private Date parseJsonBody(String body) throws JSONException {
+    private ZonedDateTime parseJsonBody(String body) throws JSONException {
         JSONArray commitArray = new JSONArray(body);
         int nbrOfCommits = commitArray.length();
-        Date date = null;
+        ZonedDateTime date = null;
         for (int i = 0; i < nbrOfCommits && date == null; i++) {
             JSONObject commitItemObject = commitArray.getJSONObject(i);
             JSONObject commitObject = commitItemObject.getJSONObject("commit");
             JSONObject committerObject = commitObject.getJSONObject("committer");
             String dateString = committerObject.getString("date");
             try {
-                date = this.dateFormat.parse(dateString);
-            } catch (ParseException exception) {
+                date = ZonedDateTime.parse(dateString);
+            } catch (DateTimeParseException exception) {
                 Log.w(Constants.TAG, "Failed to parse commit date: " + dateString + ".", exception);
             }
         }

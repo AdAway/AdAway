@@ -1,14 +1,14 @@
 package org.adaway.db.entity;
 
+import android.webkit.URLUtil;
+
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-import androidx.annotation.NonNull;
 
-import android.webkit.URLUtil;
-
-import java.util.Date;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 /**
@@ -36,9 +36,9 @@ public class HostsSource {
     private String url;
     private boolean enabled;
     @ColumnInfo(name = "last_modified_local")
-    private Date lastLocalModification;
+    private ZonedDateTime lastLocalModification;
     @ColumnInfo(name = "last_modified_online")
-    private Date lastOnlineModification;
+    private ZonedDateTime lastOnlineModification;
 
     /**
      * Check whether an URL is valid for as host source.<br>
@@ -76,19 +76,19 @@ public class HostsSource {
         this.enabled = enabled;
     }
 
-    public Date getLastLocalModification() {
+    public ZonedDateTime getLastLocalModification() {
         return lastLocalModification;
     }
 
-    public void setLastLocalModification(Date lastLocalModification) {
+    public void setLastLocalModification(ZonedDateTime lastLocalModification) {
         this.lastLocalModification = lastLocalModification;
     }
 
-    public Date getLastOnlineModification() {
+    public ZonedDateTime getLastOnlineModification() {
         return lastOnlineModification;
     }
 
-    public void setLastOnlineModification(Date lastOnlineModification) {
+    public void setLastOnlineModification(ZonedDateTime lastOnlineModification) {
         this.lastOnlineModification = lastOnlineModification;
     }
 
