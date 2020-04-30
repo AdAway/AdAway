@@ -1,7 +1,7 @@
-Anuncblokisto hostsdosieruzanto.
-Hostsdosiero estas sistemdosieron ke enhavas bildigarojn inter hostnomoj kaj IP-adresoj.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Reklam‑blokilo, kiu uzas dosieron “hosts”.
+La dosiero “hosts” estas sistema dosiero, kiu enhavas mapigojn: servil‑nomo→IP‑adreso.
+Kiam aplikaĵo petas pri reklamo, kiu estas gastigata ĉe servilo listigita en la dosiero “hosts”, tiu peto estas aldirektata al la loka IP‑adreso 127.0.0.1, kiu faras nenion.
+Vi povas elŝuti dosierojn “hosts” antaŭdifinitajn en la aplikaĵo kaj apliki ilin al via sistema dosiero “hosts”. Ankaŭ eblas uzi viajn proprajn dosierojn kaj aldoni kelkajn nomregnojn al nigra kaj blanka listoj.
+Estas funkcio ruli lokan retservilon por respondi al blokataj nomregnoj kaj aldirekti petojn al iu alia elektita IP-adreso.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+Postulas ĉefuzantan permeson «root»: jes. La dosiero “hosts” troviĝas en /system, kiu implicite estas nurlega.
