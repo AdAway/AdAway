@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Актуализации</string>
-    </resources>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Актуализации на приложението</string>
+    <string name="pref_update_check_app_daily">Периодична проверка за актуализации</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Хост актуализации</string>
+    <string name="pref_update_check">Проверка за актуализации при стартиране</string>
+    <string name="pref_update_check_hosts_daily">Периодична проверка за актуализации</string>
+    <string name="pref_update_sync_on_update">Синхронизиране при актуализация</string>
+    <string name="pref_update_sync_unmetered_only">Синхронизиране само в немерирана мрежа</string>
+</resources>
