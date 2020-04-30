@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Блокирани</string>
+    <string name="allowed_hosts_label">Позволени</string>
+    <string name="redirect_hosts_label">Пренасочени</string>
+
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
@@ -11,7 +16,24 @@
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
+    <!-- Help card -->
+    <string name="help_label">Показване на помощ</string>
+
+    <!-- Project card -->
+    <string name="project_label">Отваряне на страница в GitHub</string>
+
+    <!-- Support card -->
+    <string name="support_label">Подкрепи проекта </string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS записи</string>
     <string name="preferences_drawer_item">Настройки</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Отваряне на чекмеджето за навигация</string>
+    <string name="adblock_pause_button_description">Пауза/възобновяване на блокирането на реклами</string>
+    <string name="update_button">Актуализиране на блокирани домейни</string>
+    <string name="show_log_button">Показване на заявените домейни</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Моля, прочетете Помощ за повече информация.</string>
