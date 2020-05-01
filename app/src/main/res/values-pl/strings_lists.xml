@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Twoje listy</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Zablokowany</string>
+    <string name="lists_tab_allowed">Dozwolone</string>
+    <string name="lists_tab_redirected">Przekierowany</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Filtruj hosty</string>
+    <string name="lists_menu_filter_hint">Wyszukaj nazwę hosta…</string>
+    <string name="lists_menu_toggle_sources">Przełącz źródła</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Dodaj host do czarnej listy</string>
     <string name="list_add_dialog_white">Dodaj host do białej listy</string>
