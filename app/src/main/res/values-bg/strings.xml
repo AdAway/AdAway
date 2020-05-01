@@ -23,8 +23,16 @@
     <string name="header_webserver">Уеб сървър</string>
     <string name="webserver_status_running">Включен</string>
     <string name="webserver_status_stopped">Изключен</string>
+    <string name="webserver_toggle_text">Стартиране или спиране на уеб сървър, намиращ се на локален хост за отговаряне на заявки до блокирани имена на хостове.</string>
     <string name="button_enable_webserver">Включване на уеб сървър</string>
     <string name="button_disable_webserver">Изключване на уеб сървър</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Работи</string>
+    <string name="vpn_status_stopped">Спрян</string>
+    <string name="vpn_toggle_text">Стартиране или спиране на VPN за филтриране на заявки.</string>
+    <string name="button_enable_vpn">Включване на VPN</string>
+    <string name="button_disable_vpn">Спиране на VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Изтриване</string>
     <string name="checkbox_list_context_title">Редактиране</string>
@@ -44,9 +52,19 @@
     <string name="hosts_content">Зареждане съдържанието на файла Hosts…</string>
     <string name="hosts_open_button">Отваряне на файла Hosts</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Проверка за актуализация</string>
+    <string name="status_check_source">Проверка на източник %s за актуализация</string>
+    <string name="status_retrieve">Извличане на източници</string>
+    <string name="status_download_source">Изтегляне на източник%s</string>
+    <string name="status_copy_source">Копиране на източник %s</string>
+    <string name="status_parse_source">Разбор на източник %s</string>
+    <string name="status_revert">Връщане към файл с хостове по подразбиране</string>
+    <string name="status_revert_done">Файлът с хостове по подразбиране е възстановен</string>
     <string name="status_reverting_subtitle">Създаване на стандартен файл Hosts</string>
     <string name="status_update_available">Налице е актуализация</string>
     <string name="status_update_available_subtitle">Налични са нови Hosts файлове</string>
+    <string name="status_no_update_found">Не е намерена актуализация на източник</string>
     <string name="status_no_connection">Няма връзка с интернет</string>
     <string name="status_no_connection_subtitle">Няма налична връзка с интернет</string>
     <string name="status_download_fail">Не са налични източници</string>
@@ -59,7 +77,19 @@
     <string name="status_enabled_subtitle">Най-новите Hosts файлове са активирани</string>
     <string name="status_disabled">Деактивиран</string>
     <string name="status_disabled_subtitle">Hosts файлът по подразбиране е инсталиран</string>
+    <string name="status_apply_sources">Прилагане на последните източници</string>
+    <string name="status_create_new_hosts">Създаване на нов хост файл</string>
+    <string name="status_copy_new_hosts">Копиране на нов хост файл</string>
+    <string name="status_check_copy">Проверяване на копието на хост файла</string>
+    <string name="status_hosts_updated">Хост файлът се актуализира успешно</string>
+    <string name="status_vpn_configuration_updated">VPN конфигурацията се актуализира успешно</string>
+    <string name="notification_configuration_changed">Вашата конфигурация се промени. Трябва да я приложите.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
+    <string name="notification_configuration_installing">Прилагане на нова конфигурация...</string>
+    <string name="notification_configuration_failed">Прилагането на нова конфигурация се провали.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Символната връзка целта на хост файла липсва</string>
     <string name="apply_symlink_missing">Символичната връзка от вашата цел до /system/etc/hosts не съществува или е неправилна! AdAway няма да работи, ако не е насочен към правилния файл.\n\nИскате ли да опитате да създадете символична връзка?</string>
     <string name="apply_symlink_missing_title">Липсва символична връзка</string>
     <string name="apply_not_enough_space">Няма достатъчно място на дяла!\nОпитайте да промените целевия Hosts файл в настройките на /data/data/hosts.</string>
@@ -68,6 +98,7 @@
     <string name="apply_private_file_fail_title">Неуспех с личния файл</string>
     <string name="apply_remount_fail">Неуспешно монтиране на дяла за четене / запис!</string>
     <string name="apply_remount_fail_title">Повторното монтиране се провали</string>
+    <string name="apply_copy_fail_status">Копирането на хост файла се провали</string>
     <string name="apply_copy_fail">Неуспешно копиране на Hosts файла!</string>
     <string name="apply_copy_fail_title">Копирането е неуспешно</string>
     <string name="apply_success_subtitle">Приложени източници на Hosts</string>
@@ -88,21 +119,26 @@
     <string name="apply_dialog_hostnames">Анализ и обединяване на Hosts файловете</string>
     <string name="apply_dialog_hosts">Изграждане на Hosts файла</string>
     <string name="apply_dialog_apply">Прилагане на Hosts файла</string>
+    <string name="apply_fail_status">Прилагането на новия хост файл се провали.</string>
     <string name="apply_fail">Прилагането на Hosts файла във вашата система е неуспешно!\nОпитайте да промените целевия Hosts файл в настройките на /data/data/hosts.</string>
     <string name="apply_fail_title">Неуспешно прилагане</string>
     <string name="root_access_fail">Моля проверете Вашето root приложение за управление, за да сте сигурни, че root правата са дадени.</string>
     <string name="revert_successful">Върнахте Hosts файла по подразбиране.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="revert_successful_title">Връщането е успешно</string>
+    <string name="revert_failed_status">Хост файлът не може да се върне</string>
     <string name="revert_problem">Връщането се провали по неизвестни причини.</string>
     <string name="revert_problem_title">Връщането е неуспешно!</string>
     <string name="download_fail_dialog">Нито един от вашите разрешени източници на Hosts файлове не е достъпен! Правилно ли сте свързани към Интернет?</string>
     <string name="download_fail_title">Изтеглянето е неуспешно</string>
+    <string name="no_private_file_status">Записването на нов частен хост файл се провали</string>
     <string name="no_private_file">Личен файл не може да бъде създаден.</string>
     <string name="no_private_file_title">Неуспешно създаване на личен файл</string>
     <string name="enable_systemless_successful">Активирахте безсистемен режим.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="enable_systemless_successful_title">Успешно активиране</string>
     <string name="disable_systemless_successful">Деактивирахте безсистемния режим.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="disable_systemless_successful_title">Деактивирането е успешно</string>
+    <string name="enable_vpn_fail">Включването на VPN блокирането на реклами се провали.</string>
+    <string name="disable_vpn_fail">Спирането на VPN блокирането на реклами се провали.</string>
     <string name="enable_systemless_magisk_title">Включване на хостове от модула Magisk</string>
     <string name="enable_systemless_magisk">Включване на функцията безсистемни хостове от управлението на Magisk. От неговите настройките включете опцията <cite>Безсистемни хостове</cite>, след което рестартирайте устройството Ви.</string>
     <string name="disable_systemless_magisk_title">Изключване на хостове от модула Magisk</string>
@@ -179,6 +215,8 @@
     <string name="shortcut_your_lists">Вашите списъци</string>
     <string name="shortcut_preferences">Настройки</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Инсталиран преди %1$s</string>
     <string name="hosts_source_up_to_date">Актуални за %1$s</string>
     <string name="hosts_source_need_update">Нужна актуализация за %1$s</string>
     <string name="hosts_source_last_update">Последна актуализация преди %1$s</string>
@@ -200,4 +238,20 @@
         <item quantity="other">%d месеца</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">стартиране</string>
+    <string name="vpn_notification_running">активно</string>
+    <string name="vpn_notification_stopping">спиране</string>
+    <string name="vpn_notification_waiting_for_net">изчакване за мрежа</string>
+    <string name="vpn_notification_reconnecting">повторно свързване</string>
+    <string name="vpn_notification_reconnecting_error">грешка при повторно свързване</string>
+    <string name="vpn_notification_paused">пауза</string>
+    <string name="vpn_notification_stopped">спрян</string>
+    <string name="vpn_notification_title">VPN блокер на реклами %1$s</string>
+    <string name="vpn_notification_action_pause">Пауза</string>
+    <string name="vpn_notification_paused_text">Докоснете, за да продължите</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Включване и изключване на системния блокер на реклами</string>
+
+</resources>
