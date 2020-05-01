@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Zablokowane</string>
+    <string name="allowed_hosts_label">Dozwolone</string>
+    <string name="redirect_hosts_label">Przekierowany</string>
+
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
@@ -15,7 +20,24 @@
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
+    <!-- Help card -->
+    <string name="help_label">Pokaż pomoc</string>
+
+    <!-- Project card -->
+    <string name="project_label">Otwórz stronę GitHub</string>
+
+    <!-- Support card -->
+    <string name="support_label">Wsparcie projektu</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Dzienniki DNS</string>
     <string name="preferences_drawer_item">Ustawienia</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Otwórz szufladę nawigacji</string>
+    <string name="adblock_pause_button_description">Wstrzymaj/wznów blokowanie reklam</string>
+    <string name="update_button">Zaktualizuj zablokowane domeny</string>
+    <string name="show_log_button">Pokaż żądane domeny</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Proszę przeczytać Pomoc, aby uzyskać więcej informacji.</string>
