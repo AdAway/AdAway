@@ -23,8 +23,16 @@
     <string name="header_webserver">Serwer internetowy</string>
     <string name="webserver_status_running">Uruchomiony</string>
     <string name="webserver_status_stopped">Zatrzymany</string>
+    <string name="webserver_toggle_text">Uruchom lub zatrzymaj webserver na localhost, aby odpowiedzieć na prośby o zablokowanie nazwy hostów.</string>
     <string name="button_enable_webserver">Włącz serwer www</string>
     <string name="button_disable_webserver">Wyłącz serwer www</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Uruchomiony</string>
+    <string name="vpn_status_stopped">Zatrzymany</string>
+    <string name="vpn_toggle_text">Uruchom lub zatrzymaj VPN, aby filtrować żądania.</string>
+    <string name="button_enable_vpn">Włącz VPN</string>
+    <string name="button_disable_vpn">Wyłącz VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Usuń</string>
     <string name="checkbox_list_context_title">Edytuj wpis</string>
@@ -44,9 +52,19 @@
     <string name="hosts_content">Ładowanie zawartości pliku hosts…</string>
     <string name="hosts_open_button">Otwórz plik hosts</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Sprawdzanie aktualizacji</string>
+    <string name="status_check_source">Sprawdzanie %s źródła aktualizacji</string>
+    <string name="status_retrieve">Pobieranie źródeł</string>
+    <string name="status_download_source">Pobieranie źródła %s</string>
+    <string name="status_copy_source">Kopiowanie źródła %s</string>
+    <string name="status_parse_source">Analizowanie źródła %s</string>
+    <string name="status_revert">Przywracanie domyślnego pliku hosts</string>
+    <string name="status_revert_done">Przywrócono domyślny plik hosts</string>
     <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
     <string name="status_update_available">Aktualizacja jest dostępna</string>
     <string name="status_update_available_subtitle">Nowe pliki hostów są dostępne</string>
+    <string name="status_no_update_found">Nie znaleziono aktualizacji źródła</string>
     <string name="status_no_connection">Brak połączenia z Internetem</string>
     <string name="status_no_connection_subtitle">Połączenie z Internetem niedostępne</string>
     <string name="status_download_fail">Źródła niedostępne</string>
@@ -59,7 +77,19 @@
     <string name="status_enabled_subtitle">Najnowsze pliki hostów zostały włączone</string>
     <string name="status_disabled">Wyłączone</string>
     <string name="status_disabled_subtitle">Domyślny plik hosts został zainstalowany</string>
+    <string name="status_apply_sources">Stosowanie najnowszych źródeł</string>
+    <string name="status_create_new_hosts">Tworzenie nowego pliku hostów</string>
+    <string name="status_copy_new_hosts">Kopiowanie nowego pliku hostów</string>
+    <string name="status_check_copy">Sprawdzanie kopii pliku hostów</string>
+    <string name="status_hosts_updated">Plik hosts został pomyślnie zaktualizowany</string>
+    <string name="status_vpn_configuration_updated">Konfiguracja VPN została zaktualizowana</string>
+    <string name="notification_configuration_changed">Twoja konfiguracja została zmieniona. Musisz ją zastosować.</string>
     <string name="notification_configuration_changed_action">Zastosuj</string>
+    <string name="notification_configuration_installing">Zastosowanie nowej konfiguracji...</string>
+    <string name="notification_configuration_failed">Nie można zastosować nowej konfiguracji.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Brak dowiązania symbolicznego do docelowego pliku hosts</string>
     <string name="apply_symlink_missing">Symlink z Twojego celu do /system/etc/hosts nie istnieje lub nie jest poprawny! AdAway nie będzie działać jeśli nie jest wskazany poprawny plik.\n\n Czy chcesz spróbować stworzyć symlink?</string>
     <string name="apply_symlink_missing_title">Brak symlinka</string>
     <string name="apply_not_enough_space">Za mało miejsca na partycji!\nSpróbuj zmienić docelowy plik hosts w ustawieniach do /data/data/hosts.</string>
@@ -68,6 +98,7 @@
     <string name="apply_private_file_fail_title">Błąd pliku osobistego</string>
     <string name="apply_remount_fail">Zamontowanie partycji do odczytu/zapisu nieudane!</string>
     <string name="apply_remount_fail_title">Montowanie nieudane</string>
+    <string name="apply_copy_fail_status">Nie można skopiować pliku hostów</string>
     <string name="apply_copy_fail">Kopiowanie pliku hosts nieudane!</string>
     <string name="apply_copy_fail_title">Nieudane kopiowanie</string>
     <string name="apply_success_subtitle">Zastosowane źródła hostów</string>
@@ -88,21 +119,26 @@
     <string name="apply_dialog_hostnames">Analizowanie i łączenie plików hosts</string>
     <string name="apply_dialog_hosts">Budowanie pliku hosts</string>
     <string name="apply_dialog_apply">Stosowanie pliku hosts</string>
+    <string name="apply_fail_status">Nie można zastosować nowego pliku hostów.</string>
     <string name="apply_fail">Stosowanie pliku hosts zakończone niepowodzeniem!\nSpróbuj zmienić w ustawieniach plik docelowy hosts na /data/data/hosts.</string>
     <string name="apply_fail_title">Zastosowanie nieudane</string>
     <string name="root_access_fail">Sprawdź aplikację zarządzania rootem, aby upewnić się, że przyznano dostęp root.</string>
     <string name="revert_successful">Powróciłeś do domyślnego pliku hosts.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
     <string name="revert_successful_title">Przywracanie wykonane prawidłowo</string>
+    <string name="revert_failed_status">Nie można przywrócić pliku hostów</string>
     <string name="revert_problem">Przywracanie zakończone niepowodzeniem z nieznanych przyczyn.</string>
     <string name="revert_problem_title">Przywracanie nieudane!</string>
     <string name="download_fail_dialog">Wszystkie włączone źródła są nieosiągalne! Czy na pewno masz połączenie z Internetem?</string>
     <string name="download_fail_title">Pobieranie nieudane</string>
+    <string name="no_private_file_status">Nie można zapisać nowego pliku hostów prywatnych</string>
     <string name="no_private_file">Plik osobisty nie został utworzony.</string>
     <string name="no_private_file_title">Tworzenie pliku osobistego nieudane</string>
     <string name="enable_systemless_successful">Włączyłeś tryb bez systemu.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
     <string name="enable_systemless_successful_title">Pomyślnie włączono</string>
     <string name="disable_systemless_successful">Wyłączyłeś tryb bez systemu.\nMoże być konieczne ponowne uruchomienie Androida, aby zmiany zaczęły obowiązywać.\n\nCzy chcesz zrestartować system?\n(Aby zapobiec utracie danych, upewnij się, że żadna aplikacja nie używa karty SD!)</string>
     <string name="disable_systemless_successful_title">Wyłączono poprawnie</string>
+    <string name="enable_vpn_fail">Nie można włączyć blokowania reklam VPN.</string>
+    <string name="disable_vpn_fail">Nie można wyłączyć blokowania reklam VPN.</string>
     <string name="enable_systemless_magisk_title">Włączanie modułu Magisk dla hostów</string>
     <string name="enable_systemless_magisk">Włącz funkcję hostów bezsystemowych w menedżerze Magisk. W ustawieniach włącz opcję <cite>Hosty bez systemu</cite>, a następnie uruchom ponownie urządzenie.</string>
     <string name="disable_systemless_magisk_title">Wyłączanie modułu Magisk hostów</string>
@@ -179,6 +215,8 @@
     <string name="shortcut_your_lists">Twoje listy</string>
     <string name="shortcut_preferences">Ustawienia</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Zainstalowano %1$s temu</string>
     <string name="hosts_source_up_to_date">Aktualne dla %1$s</string>
     <string name="hosts_source_need_update">Potrzebujesz aktualizacji dla %1$s</string>
     <string name="hosts_source_last_update">Ostatnia aktualizacja %1$s temu</string>
@@ -208,4 +246,20 @@
         <item quantity="other">%d miesięcy</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">uruchamianie</string>
+    <string name="vpn_notification_running">aktywny</string>
+    <string name="vpn_notification_stopping">zatrzymanie</string>
+    <string name="vpn_notification_waiting_for_net">czekam na sieć</string>
+    <string name="vpn_notification_reconnecting">ponowne łączenie</string>
+    <string name="vpn_notification_reconnecting_error">błąd ponownego łączenia</string>
+    <string name="vpn_notification_paused">wstrzymanie</string>
+    <string name="vpn_notification_stopped">Zatrzymanie</string>
+    <string name="vpn_notification_title">Blokowanie reklam VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Wstrzymaj</string>
+    <string name="vpn_notification_paused_text">Stuknij, aby wznowić</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Włącz i wyłącz blokowanie reklam w systemie</string>
+
+</resources>
