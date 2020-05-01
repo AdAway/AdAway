@@ -45,4 +45,19 @@ class Migrations {
             database.execSQL("CREATE VIEW `host_entries` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) ORDER BY `host` ASC, `type` DESC, `redirection` ASC");
         }
     };
+
+    /**
+     * Migration script from v3 to v4.
+     */
+    static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            // Remove unique constraint to hosts_lists.host column
+            database.execSQL("DROP INDEX `index_hosts_lists_host`");
+            database.execSQL("CREATE INDEX `index_hosts_lists_host` ON `hosts_lists` (`host`)");
+            // Update host_entries view
+            database.execSQL("DROP VIEW `host_entries`");
+            database.execSQL("CREATE VIEW `host_entries` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) GROUP BY `host` ORDER BY `host` ASC, `type` DESC, `redirection` ASC");
+        }
+    };
 }

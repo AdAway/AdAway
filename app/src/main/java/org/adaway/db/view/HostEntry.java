@@ -14,6 +14,7 @@ import org.adaway.db.entity.ListType;
         value = "SELECT `host`, `type`, `redirection` " +
                 "FROM `hosts_lists` " +
                 "WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) " +
+                "GROUP BY `host` " +
                 "ORDER BY `host` ASC, `type` DESC, `redirection` ASC",
         viewName = "host_entries")
 public class HostEntry {

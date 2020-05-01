@@ -1,7 +1,6 @@
 package org.adaway.ui.lists.type;
 
 import android.app.Application;
-import android.database.sqlite.SQLiteConstraintException;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -17,8 +16,6 @@ import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
 import org.adaway.ui.lists.ListsFilter;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 
 import java.util.List;
 
@@ -94,25 +91,20 @@ public class ListsViewModel extends AndroidViewModel {
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);
         AppExecutors.getInstance().diskIO().execute(() -> {
-            try {
+            Integer id = this.hostListItemDao.getHostId(host);
+            if (id != null) {
+                item.setId(id);
+                this.hostListItemDao.update(item);
+            } else {
                 this.hostListItemDao.insert(item);
-            } catch (SQLiteConstraintException exception) {
-                Log.w(Constants.TAG, "Unable to add duplicate list item: " + item + ".", exception);
             }
         });
     }
 
     public void updateListItem(@NonNull HostListItem item, @NonNull String host, String redirection) {
-        HostListItem newItem = new HostListItem();
-        newItem.setType(item.getType());
-        newItem.setDisplayedHost(host);
-        newItem.setRedirection(redirection);
-        newItem.setEnabled(item.isEnabled());
-        newItem.setSourceId(USER_SOURCE_ID);
-        AppExecutors.getInstance().diskIO().execute(() -> {
-            this.hostListItemDao.delete(item);
-            this.hostListItemDao.insert(newItem);
-        });
+        item.setHost(host);
+        item.setRedirection(redirection);
+        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.update(item));
     }
 
     public void removeListItem(HostListItem list) {

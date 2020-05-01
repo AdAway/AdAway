@@ -13,6 +13,8 @@ import org.adaway.db.entity.HostListItem;
 
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 /**
  * This interface is the DAO for {@link HostListItem} entities.
  *
@@ -41,7 +43,7 @@ public interface HostListItemDao {
     @Query("SELECT * FROM hosts_lists WHERE type = 2 AND enabled = 1")
     List<HostListItem> getEnabledRedirectList();
 
-    @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND ((:includeSources == 0 AND source_id == 1) || (:includeSources == 1)) ORDER BY host ASC")
+    @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND ((:includeSources == 0 AND source_id == 1) || (:includeSources == 1)) GROUP BY host ORDER BY host ASC")
     DataSource.Factory<Integer, HostListItem> loadList(int type, boolean includeSources, String query);
 
     @Query("SELECT * FROM hosts_lists ORDER BY host ASC")
@@ -52,6 +54,9 @@ public interface HostListItemDao {
 
     @Query("SELECT * FROM hosts_lists WHERE source_id = 1")
     LiveData<List<HostListItem>> loadUserList();
+
+    @Query("SELECT id FROM hosts_lists WHERE host = :host AND source_id = 1 LIMIT 1")
+    @Nullable Integer getHostId(String host);
 
     @Query("SELECT COUNT(id) FROM hosts_lists WHERE type = 0 AND enabled = 1")
     LiveData<Integer> getBlockedHostCount();

@@ -21,7 +21,7 @@ import static org.adaway.db.entity.ListType.REDIRECTED;
 @Entity(
         tableName = "hosts_lists",
         indices = {
-                @Index(value = "host", unique = true),
+                @Index(value = "host"),
                 @Index(value = "source_id")
         },
         foreignKeys = @ForeignKey(

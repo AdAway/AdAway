@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 3,
-    "identityHash": "ace31b365ff79d4497319c74157538d7",
+    "version": 4,
+    "identityHash": "8a69d6056648f0dd059217ce143609a4",
     "entities": [
       {
         "tableName": "hosts_sources",
@@ -140,12 +140,12 @@
     "views": [
       {
         "viewName": "host_entries",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) ORDER BY `host` ASC, `type` DESC, `redirection` ASC"
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) GROUP BY `host` ORDER BY `host` ASC, `type` DESC, `redirection` ASC"
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ace31b365ff79d4497319c74157538d7')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8a69d6056648f0dd059217ce143609a4')"
     ]
   }
 }
