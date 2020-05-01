@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Добре дошли</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Добре дошли лого</string>
+    <string name="welcome_method_header">Добре дошли в AdAway!</string>
+    <string name="welcome_method_summary">AdAway предоставя два метода за блокиране на реклами. Изберете този, който харесвате:</string>
+
+    <string name="welcome_root_method_logo">Руут лого</string>
+    <string name="welcome_root_method_title">Руут базирано\nблокиране на реклами</string>
+    <string name="welcome_root_method_text1">По-бърз</string>
+    <string name="welcome_root_method_text2">Пести енергия</string>
+    <string name="welcome_root_method_text3">Има нужда от руут достъп</string>
+
+    <string name="welcome_vpn_method_logo">VPN лого</string>
+    <string name="welcome_vpn_method_title">VPN базирано\nблокиране на реклами</string>
+    <string name="welcome_vpn_method_text1">По-бавен</string>
+    <string name="welcome_vpn_method_text2">Работи във фонов режим</string>
+    <string name="welcome_vpn_method_text3">Съвместимост</string>
+
     <string name="welcome_root_missing_title">Изисква се Android с root достъп</string>
-    </resources>
+    <string name="welcome_root_missile_description">Или su binary не може да бъде намерена или не сте разрешили руут права на AdAway.\n\nТова може да се случи, когато устройството Ви не е руутнато. Можете да намерите информация за това как да руутнете устройството си на wiki.lineageos.org или други  Android уебсайтове.</string>
+
+    <string name="welcome_method_pro_logo">Предимства</string>
+    <string name="welcome_method_con_logo">Недостатъци</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Синхронизирането е извършено</string>
+    <string name="welcome_sync_error_logo">Грешка при синхронизиране</string>
+
+    <string name="welcome_sync_header">Синхронизиране</string>
+    <string name="welcome_synced_header">Синхронизирано!</string>
+    <string name="welcome_sync_summary">AdAway изтегля рекламни мрежи, за да блокира от онлайн източници. Можете да ги персонализирате по-късно в настройките.</string>
+    <string name="welcome_sync_retry_logo">Синхронизиране отново</string>
+    <string name="welcome_sync_error">Синхронизирането се провали:\n%s.\nОпитване отново?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Поддръжка</string>
+    <string name="welcome_support_header">Подкрепи ме!</string>
+    <string name="welcome_support_summary">Това приложение е безплатно и с отворен код. Разработвам го в свободното ми време. Така че, ако ви хареса, не се колебайте да покажете вашата подкрепа:</string>
+    <string name="welcome_support_button">Даряване в PayPal</string>
+    <string name="welcome_support_telemetry_summary">Харесвате ли бъгове? Нито пък аз.</string>
+    <string name="welcome_support_telemetry_button">Активиране на телеметрия, за да ми изпращате сигнали за сривове</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Назад</string>
+    <string name="welcome_next_button">Напред</string>
+    <string name="welcome_finish_button">Край</string>
+</resources>
