@@ -27,13 +27,13 @@
             "notNull": true
           },
           {
-            "fieldPath": "lastLocalModification",
+            "fieldPath": "localModificationDate",
             "columnName": "last_modified_local",
             "affinity": "INTEGER",
             "notNull": false
           },
           {
-            "fieldPath": "lastOnlineModification",
+            "fieldPath": "onlineModificationDate",
             "columnName": "last_modified_online",
             "affinity": "INTEGER",
             "notNull": false

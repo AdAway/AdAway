@@ -36,9 +36,9 @@ public class HostsSource {
     private String url;
     private boolean enabled;
     @ColumnInfo(name = "last_modified_local")
-    private ZonedDateTime lastLocalModification;
+    private ZonedDateTime localModificationDate;
     @ColumnInfo(name = "last_modified_online")
-    private ZonedDateTime lastOnlineModification;
+    private ZonedDateTime onlineModificationDate;
 
     /**
      * Check whether an URL is valid for as host source.<br>
@@ -76,20 +76,20 @@ public class HostsSource {
         this.enabled = enabled;
     }
 
-    public ZonedDateTime getLastLocalModification() {
-        return lastLocalModification;
+    public ZonedDateTime getLocalModificationDate() {
+        return localModificationDate;
     }
 
-    public void setLastLocalModification(ZonedDateTime lastLocalModification) {
-        this.lastLocalModification = lastLocalModification;
+    public void setLocalModificationDate(ZonedDateTime localModificationDate) {
+        this.localModificationDate = localModificationDate;
     }
 
-    public ZonedDateTime getLastOnlineModification() {
-        return lastOnlineModification;
+    public ZonedDateTime getOnlineModificationDate() {
+        return onlineModificationDate;
     }
 
-    public void setLastOnlineModification(ZonedDateTime lastOnlineModification) {
-        this.lastOnlineModification = lastOnlineModification;
+    public void setOnlineModificationDate(ZonedDateTime lastOnlineModification) {
+        this.onlineModificationDate = lastOnlineModification;
     }
 
     @Override
@@ -102,9 +102,9 @@ public class HostsSource {
         if (id != that.id) return false;
         if (enabled != that.enabled) return false;
         if (!url.equals(that.url)) return false;
-        if (!Objects.equals(lastLocalModification, that.lastLocalModification))
+        if (!Objects.equals(localModificationDate, that.localModificationDate))
             return false;
-        return Objects.equals(lastOnlineModification, that.lastOnlineModification);
+        return Objects.equals(onlineModificationDate, that.onlineModificationDate);
 
     }
 
@@ -113,8 +113,8 @@ public class HostsSource {
         int result = id;
         result = 31 * result + url.hashCode();
         result = 31 * result + (enabled ? 1 : 0);
-        result = 31 * result + (lastLocalModification != null ? lastLocalModification.hashCode() : 0);
-        result = 31 * result + (lastOnlineModification != null ? lastOnlineModification.hashCode() : 0);
+        result = 31 * result + (localModificationDate != null ? localModificationDate.hashCode() : 0);
+        result = 31 * result + (onlineModificationDate != null ? onlineModificationDate.hashCode() : 0);
         return result;
     }
 }

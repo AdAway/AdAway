@@ -145,7 +145,7 @@ public class SourceModel {
         for (HostsSource source : sources) {
             // Get URL and lastModified from db
             String sourceUrl = source.getUrl();
-            ZonedDateTime lastModifiedLocal = source.getLastLocalModification();
+            ZonedDateTime lastModifiedLocal = source.getLocalModificationDate();
             // Update state
             setState(R.string.status_check_source, sourceUrl);
             // Get hosts source last update
