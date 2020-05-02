@@ -166,7 +166,7 @@ public class ApplyConfigurationSnackbar {
         if (!successfulInstall) {
             Snackbar failureSnackbar = Snackbar.make(this.view, R.string.notification_configuration_failed, LENGTH_LONG);
             ImageView view = new ImageView(this.view.getContext());
-            view.setImageResource(R.drawable.status_fail);
+            view.setImageResource(R.drawable.ic_error_outline_24dp);
             appendViewToSnackbar(failureSnackbar, view);
             failureSnackbar.show();
         }

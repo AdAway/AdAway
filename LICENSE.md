@@ -63,15 +63,6 @@ If not, see <https://www.gnu.org/licenses/>.
 
 ## Images
 
-* status_enabled.svg, status_disabled.svg, status_update.svg  
-  Dropbox Emblems Tango by Charles A.  
-  https://forums.dropbox.com/topic.php?id=7818&replies=19  
-  Creative Commons Attribution 3.0 Unported License
-
-* status_fail.svg  
-  Faenza Icons  
-  GPLv3
-
 * icon.svg, banner.svg  
   AdAway by Dominik Schürmann  
   New version by Alin Ţoţea-Radu  
