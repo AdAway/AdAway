@@ -45,6 +45,10 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/cesanta/mongoose  
   GPLv2 License
 
+* Openssl    
+  https://www.openssl.org/    
+  [OpenSSL license](https://www.openssl.org/source/license-openssl-ssleay.txt)
+
 * OkHttp  
   https://github.com/square/okhttp  
   Apache License v2

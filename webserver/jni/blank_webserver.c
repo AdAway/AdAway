@@ -4,7 +4,7 @@
 #include <signal.h>
 #include <android/log.h>
 #include <errno.h>
-#include "mongoose.h"
+#include "mongoose/mongoose.h"
 
 #define THIS_FILE "AdAway"
 
@@ -50,16 +50,31 @@ int main(void) {
   struct mg_mgr mgr;
   struct mg_connection *nc1;
   struct mg_connection *nc2;
-  const char *port1 = "127.0.0.1:80", *port2 = "[::1]:80";
+  struct mg_connection *nc3;
+  struct mg_connection *nc4;
+  struct mg_bind_opts bind_opts;
+
+  const char *ipv4HttpAddress = "127.0.0.1:80";
+  const char *ipv6HttpAddress = "[::1]:80";
+  const char *ipv4HttpsAddress = "127.0.0.1:443";
+  const char *ipv6HttpsAddress = "[::1]:443";
+
+  memset(&bind_opts, 0, sizeof(bind_opts));
+  bind_opts.ssl_cert = "server.pem";
+  bind_opts.ssl_key = "server.key";
 
   oom_adjust_setup();
 
   mg_mgr_init(&mgr, NULL);
-  nc1 = mg_bind(&mgr, port1, ev_handler);
-  nc2 = mg_bind(&mgr, port2, ev_handler);
+  nc1 = mg_bind(&mgr, ipv4HttpAddress, ev_handler);
+  nc2 = mg_bind(&mgr, ipv6HttpAddress, ev_handler);
+  nc3 = mg_bind_opt(&mgr, ipv4HttpsAddress, ev_handler, bind_opts);
+  nc4 = mg_bind_opt(&mgr, ipv6HttpsAddress, ev_handler, bind_opts);
 
   mg_set_protocol_http_websocket(nc1);
   mg_set_protocol_http_websocket(nc2);
+  mg_set_protocol_http_websocket(nc3);
+  mg_set_protocol_http_websocket(nc4);
 
   signal(SIGINT, signal_handler);
   signal(SIGTERM, signal_handler);
