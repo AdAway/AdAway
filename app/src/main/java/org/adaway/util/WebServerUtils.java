@@ -21,6 +21,11 @@
 package org.adaway.util;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
 import static org.adaway.util.ShellUtils.killBundledExecutable;
@@ -43,7 +48,10 @@ public class WebServerUtils {
     public static void startWebServer(Context context) {
         Log.d(TAG, "Starting web server...");
 
-        String parameters = " > /dev/null 2>&1";
+        Path resourcePath = context.getFilesDir().toPath().resolve("webserver");
+        inflateResources(context, resourcePath);
+
+        String parameters = resourcePath.toAbsolutePath()+" > /dev/null 2>&1";
         runBundledExecutable(context, WEBSERVER_EXECUTABLE, parameters);
     }
 
@@ -61,5 +69,26 @@ public class WebServerUtils {
      */
     public static boolean isWebServerRunning() {
         return isBundledExecutableRunning(WEBSERVER_EXECUTABLE);
+    }
+
+
+    private static void inflateResources(Context context, Path target) {
+        AssetManager assetManager = context.getAssets();
+        try {
+            inflateResource(assetManager, "localhost.crt", target);
+            inflateResource(assetManager, "localhost.key", target);
+        } catch (IOException e) {
+            Log.w(TAG, "Failed to inflate web server resources.", e);
+        }
+    }
+
+    private static void inflateResource(AssetManager assetManager, String resource, Path target) throws IOException {
+        if (!Files.isDirectory(target)) {
+            Files.createDirectories(target);
+        }
+        Path targetFile = target.resolve(resource);
+        if (!Files.isRegularFile(targetFile)) {
+            Files.copy(assetManager.open(resource), targetFile);
+        }
     }
 }

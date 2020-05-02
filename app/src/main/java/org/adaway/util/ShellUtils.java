@@ -40,7 +40,9 @@ public final class ShellUtils {
 
     public static boolean runBundledExecutable(Context context, String executable, String parameters) {
         String nativeLibraryDir = context.getApplicationInfo().nativeLibraryDir;
-        String command = nativeLibraryDir + File.separator + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX + " " + parameters + " &";
+        String command = "LD_LIBRARY_PATH=" + nativeLibraryDir + " " +
+                nativeLibraryDir + File.separator + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX + " " +
+                parameters + " &";
         return Shell.su(command).exec().isSuccess();
     }
 
