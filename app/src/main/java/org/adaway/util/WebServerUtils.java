@@ -23,6 +23,8 @@ package org.adaway.util;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+import org.adaway.helper.PreferenceHelper;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -51,7 +53,9 @@ public class WebServerUtils {
         Path resourcePath = context.getFilesDir().toPath().resolve("webserver");
         inflateResources(context, resourcePath);
 
-        String parameters = resourcePath.toAbsolutePath()+" > /dev/null 2>&1";
+        String parameters = "--resources " + resourcePath.toAbsolutePath() +
+                (PreferenceHelper.getWebServerIcon(context) ? " --icon" : "") +
+                " > /dev/null 2>&1";
         runBundledExecutable(context, WEBSERVER_EXECUTABLE, parameters);
     }
 
@@ -77,6 +81,7 @@ public class WebServerUtils {
         try {
             inflateResource(assetManager, "localhost.crt", target);
             inflateResource(assetManager, "localhost.key", target);
+            inflateResource(assetManager, "icon.svg", target);
         } catch (IOException e) {
             Log.w(TAG, "Failed to inflate web server resources.", e);
         }

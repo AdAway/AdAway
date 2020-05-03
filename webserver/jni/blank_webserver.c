@@ -11,12 +11,17 @@
 static int s_sig_num = 0;
 static char ssl_cert[100];
 static char ssl_key[100];
+static char icon_path[100];
+static bool icon = 0;
 
-static void ev_handler(struct mg_connection *nc, int ev, void *p) {
-    (void) p;
+static void ev_handler(struct mg_connection *c, int ev, void *p) {
     if (ev == MG_EV_HTTP_REQUEST) {
-        mg_printf(nc, "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n"
-                      "Content-Type: text/plain\r\n\r\n");
+        struct http_message *hm = (struct http_message *) p;
+        if (icon) {
+            mg_http_serve_file(c, hm, icon_path, mg_mk_str("image/svg+xml"), mg_mk_str(""));
+        } else {
+            mg_send_head(c, 200, 0, "Content-Type: text/plain");
+        }
     }
 }
 
@@ -49,13 +54,23 @@ void oom_adjust_setup(void) {
     }
 }
 
-void parse_cli_parameters(int argc, char *argv[]) {
-    char *resourcePath = argv[1];
-
-    strcpy(ssl_cert, resourcePath);
-    strcat(ssl_cert, "/localhost.crt");
-    strcpy(ssl_key, resourcePath);
-    strcat(ssl_key, "/localhost.key");
+bool parse_cli_parameters(int argc, char *argv[]) {
+    bool init = 0;
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "--resources") == 0 && i < argc - 1) {
+            char *resourcePath = argv[++i];
+            strcpy(ssl_cert, resourcePath);
+            strcat(ssl_cert, "/localhost.crt");
+            strcpy(ssl_key, resourcePath);
+            strcat(ssl_key, "/localhost.key");
+            strcpy(icon_path, resourcePath);
+            strcat(icon_path, "/icon.svg");
+            init = 1;
+        } else if (strcmp(argv[i], "--icon") == 0) {
+            icon = 1;
+        }
+    }
+    return init;
 }
 
 int main(int argc, char *argv[]) {
@@ -71,9 +86,7 @@ int main(int argc, char *argv[]) {
     const char *ipv4HttpsAddress = "127.0.0.1:443";
     const char *ipv6HttpsAddress = "[::1]:443";
 
-    if (argc > 1) {
-        parse_cli_parameters(argc, argv);
-    } else {
+    if (!parse_cli_parameters(argc, argv)) {
         return EXIT_FAILURE;
     }
 
