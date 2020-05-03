@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:title="@string/pref_root_title">
 
     <PreferenceCategory app:title="@string/pref_hosts_installation">
@@ -39,9 +40,10 @@
             app:key="@string/pref_webserver_enabled_key"
             app:title="@string/pref_webserver_enabled" />
         <CheckBoxPreference
-            app:defaultValue="@bool/pref_webserver_on_boot_def"
-            app:key="@string/pref_webserver_on_boot_key"
-            app:title="@string/pref_webserver_on_boot" />
+            android:dependency="@string/pref_webserver_enabled_key"
+            app:defaultValue="@bool/pref_webserver_icon_def"
+            app:key="@string/pref_webserver_icon_key"
+            app:title="@string/pref_webserver_icon" />
     </PreferenceCategory>
 
 </PreferenceScreen>

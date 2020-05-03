@@ -47,7 +47,7 @@ public class BootReceiver extends BroadcastReceiver {
             Log.d(TAG, "BootReceiver invoked");
             AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(context);
             // Start web server on boot if enabled in preferences
-            if (adBlockMethod == ROOT && PreferenceHelper.getWebServerOnBoot(context)) {
+            if (adBlockMethod == ROOT && PreferenceHelper.getWebServerEnabled(context)) {
                 WebServerUtils.startWebServer(context);
             }
             if (adBlockMethod == VPN && PreferenceHelper.getVpnServiceOnBoot(context)) {

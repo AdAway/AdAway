@@ -36,9 +36,9 @@
     <string name="pref_custom_target_key" translatable="false">customTarget</string>
     <string name="pref_custom_target_def" translatable="false">/data/etc/hosts</string>
     <string name="pref_webserver_enabled_key" translatable="false">webserverEnabled</string>
-    <bool name="pref_webserver_enabled_def">false</bool>
-    <string name="pref_webserver_on_boot_key" translatable="false">webserverOnBoot</string>
-    <bool name="pref_webserver_on_boot_def">false</bool>
+    <bool name="pref_webserver_enabled_def">true</bool>
+    <string name="pref_webserver_icon_key" translatable="false">webserverIcon</string>
+    <bool name="pref_webserver_icon_def">true</bool>
     <string name="pref_ad_block_method_key" translatable="false">adBlockMethod</string>
     <integer name="pref_ad_block_method_key_def">0</integer>
     <string name="pref_root_ad_block_method_key" translatable="false">rootAdBlockMethod</string>
