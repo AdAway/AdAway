@@ -23,8 +23,16 @@
     <string name="header_webserver">Διακομιστής διαδικτύου</string>
     <string name="webserver_status_running">Εκτελείται</string>
     <string name="webserver_status_stopped">Διακόπηκε</string>
+    <string name="webserver_toggle_text">Ξεκινήστε ή διακόψτε webserver στο localhost για να απαντήσετε σε αιτήματα σε αποκλεισμένα hostnames.</string>
     <string name="button_enable_webserver">Ενεργοποίηση διακομιστή διαδικτύου</string>
     <string name="button_disable_webserver">Απενεργοποήση διακομιστή διαδικτύου</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Εκτελείται</string>
+    <string name="vpn_status_stopped">Διακόπηκε</string>
+    <string name="vpn_toggle_text">Ξεκινήστε ή διακόψτε το VPN για να φιλτράρετε αιτήματα.</string>
+    <string name="button_enable_vpn">Ενεργοποίηση VPN</string>
+    <string name="button_disable_vpn">Απενεργοποίηση VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Διαγραφή</string>
     <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
@@ -44,8 +52,19 @@
     <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts...</string>
     <string name="hosts_open_button">Άνοιγμα του αρχείου hosts</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Έλεγχος για ενημέρωση</string>
+    <string name="status_check_source">Έλεγχος πηγής %s για ενημέρωση</string>
+    <string name="status_retrieve">Ανάκτηση πηγών</string>
+    <string name="status_download_source">Λήψη πηγής %s</string>
+    <string name="status_copy_source">Αντιγραφή πηγής %s</string>
+    <string name="status_parse_source">Ανάλυση πηγής %s</string>
+    <string name="status_revert">Επαναφορά στο προεπιλεγμένο hosts file</string>
+    <string name="status_revert_done">Τα προεπιλεγμένα hosts file αποκαταστάθηκαν</string>
     <string name="status_reverting_subtitle">Δημιουργία στάνταρ αρχείου hosts</string>
+    <string name="status_update_available">Διαθέσιμη ενημέρωση πηγής</string>
     <string name="status_update_available_subtitle">Υπάρχουν διαθέσιμα πιο πρόσφατα αρχεία hosts</string>
+    <string name="status_no_update_found">Δεν βρέθηκε ενημέρωση πηγής</string>
     <string name="status_no_connection">Δεν υπάρχει σύνδεση στο ίντερνετ</string>
     <string name="status_no_connection_subtitle">Δεν υπάρχει διαθέσιμη σύνδεση στο ίντερνετ</string>
     <string name="status_download_fail">Μη διαθέσιμες πηγές</string>
@@ -58,7 +77,19 @@
     <string name="status_enabled_subtitle">Ενεργοποιήθηκαν τα πιο πρόσφατα αρχεία hosts</string>
     <string name="status_disabled">Απενεργοποιημένο</string>
     <string name="status_disabled_subtitle">Τα προεπιλεγμένα αρχεία hosts εγκαταστάθηκαν </string>
+    <string name="status_apply_sources">Εφαρμογή των πιο πρόσφατων πηγών</string>
+    <string name="status_create_new_hosts">Δημιουργία νέου hosts file</string>
+    <string name="status_copy_new_hosts">Αντιγραφή νέου hosts file</string>
+    <string name="status_check_copy">Έλεγχος αντιγράφου hosts file</string>
+    <string name="status_hosts_updated">To host file ενημερώθηκε με επιτυχία</string>
+    <string name="status_vpn_configuration_updated">Η διαμόρφωση VPN ενημερώθηκε με επιτυχία</string>
+    <string name="notification_configuration_changed">Η διαμόρφωσή σας άλλαξε. Πρέπει να την εφαρμόσετε.</string>
     <string name="notification_configuration_changed_action">Εφαρμογή</string>
+    <string name="notification_configuration_installing">Εφαρμογή νέας διαμόρφωσης…</string>
+    <string name="notification_configuration_failed">Αποτυχία εφαρμογής νέας διαμόρφωσης.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Το symlink με στόχο το hosts file λείπει</string>
     <string name="apply_symlink_missing">Ο σύνδεσμος από τον προορισμό στο /system/etc/hosts δεν υπάρχει ή είναι λανθασμένος! Το AdAway δεν θα λειτουργήσει αν δεν δείχνει στο σωστό αρχείο.
 
 Θέλετε να προσπαθήσετε να δημιουργήσετε έναν σύνδεσμο;</string>
@@ -70,6 +101,7 @@
     <string name="apply_private_file_fail_title">Απέτυχε το προσωπικό αρχείο</string>
     <string name="apply_remount_fail">Η επανατοποθέτηση του διαμερίσματος με δικαιώματα εγγραφής/ανάγνωσης απέτυχε! </string>
     <string name="apply_remount_fail_title">Η επανατοποθέτηση απέτυχε</string>
+    <string name="apply_copy_fail_status">Αποτυχία αντιγραφής hosts file</string>
     <string name="apply_copy_fail">Η αντιγραφή του αρχείου hosts απέτυχε!</string>
     <string name="apply_copy_fail_title">Η αντιγραφή απέτυχε</string>
     <string name="apply_success_subtitle">Εφαρμοσμένα hosts sources</string>
@@ -101,6 +133,7 @@
     <string name="apply_dialog_hostnames">Ανάλυση και συγχώνευση αρχείων hosts</string>
     <string name="apply_dialog_hosts">Δημιουργία αρχείου hosts</string>
     <string name="apply_dialog_apply">Εφαρμογή αρχείου hosts</string>
+    <string name="apply_fail_status">Αποτυχία εφαρμογής νέου hosts file.</string>
     <string name="apply_fail">Η εφαρμογή του αρχείου hosts στο σύστημά σας απέτυχε!
 Προσπαθήστε να αλλάξετε το αρχείο προορισμού hosts στις ρυθμίσεις σε /data/data/hosts.</string>
     <string name="apply_fail_title">Εφαρμογή απέτυχε</string>
@@ -110,16 +143,20 @@
 Θέλετε να κάνετε επανεκκίνηση;
 (Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!)</string>
     <string name="revert_successful_title">Επιτυχής επαναφορά</string>
+    <string name="revert_failed_status">Δεν είναι δυνατή η επαναφορά του hosts file</string>
     <string name="revert_problem">Η επαναφορά απέτυχε λόγω μη γνωστής αιτίας</string>
     <string name="revert_problem_title">Η επαναφορά απέτυχε!</string>
     <string name="download_fail_dialog">Καμία από τις ενεργοποιημένες πηγές hosts σας δεν είναι διαθέσιμη! Είστε συνδεδεμένοι στο Internet;</string>
     <string name="download_fail_title">Το κατέβασμα απέτυχε</string>
+    <string name="no_private_file_status">Αποτυχία εγγραφής νέου ιδιωτικού hosts file</string>
     <string name="no_private_file">Το προσωπικό αρχείο δεν μπορεί να δημιουργηθεί.</string>
     <string name="no_private_file_title">Απέτυχε η δημιουργία προσωπικού αρχείου</string>
     <string name="enable_systemless_successful">Έχετε ενεργοποιήσει την λειτουργία systemless. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!) </string>
     <string name="enable_systemless_successful_title">Ενεργοποίηση επιτυχής</string>
     <string name="disable_systemless_successful">Έχετε απενεργοποιήσει την λειτουργία systemless. \nΜπορεί να χρειαστεί επανεκκίνηση της συσκευής  για να δουλέψει. \n\n(Για να αποφύγετε απώλεια δεδομένων, επαληθεύστε ότι καμία εφαρμογή δεν χρησιμοποιεί την κάρτα SD αυτή την στιγμή!) </string>
     <string name="disable_systemless_successful_title">Απενεργοποίηση επιτυχής</string>
+    <string name="enable_vpn_fail">Αποτυχία ενεργοποίησης αποκλεισμού διαφημίσεων VPN.</string>
+    <string name="disable_vpn_fail">Αποτυχία απενεργοποίησης αποκλεισμού διαφημίσεων VPN.</string>
     <string name="enable_systemless_magisk_title">Ενεργοποίηση hosts Magisk module </string>
     <string name="enable_systemless_magisk">Ενεργοποίηση δυνατότητας systemless hosts από το Magisk manager. Από τις ρυθμίσεις του, ενεργοποιήστε την επιλογή <cite>Systemless hosts</cite> και στη συνέχεια επανεκκινήστε τη συσκευή σας.</string>
     <string name="disable_systemless_magisk_title">Απενεργοποίηση hosts Magisk module</string>
@@ -200,6 +237,8 @@
     <string name="shortcut_your_lists">Οι λίστες σας</string>
     <string name="shortcut_preferences">Επιλογές</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Εγκαταστάθηκε %1$s πριν</string>
     <string name="hosts_source_up_to_date">Ενήμερο εδώ και %1$s </string>
     <string name="hosts_source_need_update">Απαιτείται ενημέρωηση εδώ και %1$s</string>
     <string name="hosts_source_last_update">Τελευταία ενημέρωση πρίν από %1$s</string>
@@ -221,4 +260,20 @@
         <item quantity="other">%d μήνες</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">ξεκινάει</string>
+    <string name="vpn_notification_running">ενεργό</string>
+    <string name="vpn_notification_stopping">σταματάει</string>
+    <string name="vpn_notification_waiting_for_net">περιμένετε για δίκτυο</string>
+    <string name="vpn_notification_reconnecting">επανασύνδεση</string>
+    <string name="vpn_notification_reconnecting_error">σφάλμα επανασύνδεσης</string>
+    <string name="vpn_notification_paused">σε παύση</string>
+    <string name="vpn_notification_stopped">σταμάτησε</string>
+    <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Παύση</string>
+    <string name="vpn_notification_paused_text">Πατήστε για συνέχιση</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Ενεργοποίηση και απενεργοποίηση αποκλεισμού διαφημίσεων συστήματος</string>
+
+</resources>
