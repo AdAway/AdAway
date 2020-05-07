@@ -7,6 +7,8 @@
     <string name="lists_tab_redirected">Přesměrované</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrovat hostitele</string>
+    <string name="lists_menu_filter_hint">Najít hostitele…</string>
+    <string name="lists_menu_toggle_sources">Přepnout zdroje</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Přidat hostitele na černou listinu</string>
     <string name="list_add_dialog_white">Přidat hostitele na bílou listinu</string>
