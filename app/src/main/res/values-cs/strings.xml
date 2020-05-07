@@ -82,7 +82,12 @@
     <string name="status_copy_new_hosts">Kopírování nového souboru hostitelů</string>
     <string name="status_check_copy">Kontrola kopie souboru hostitelů</string>
     <string name="status_hosts_updated">Soubor hostitelů úspěšně aktualizován</string>
+    <string name="status_vpn_configuration_updated">Nastavení VPN úspěšně aktualizováno</string>
+    <string name="notification_configuration_changed">Vaše nastavení bylo změněno. Musíte ho aplikovat.</string>
     <string name="notification_configuration_changed_action">Aplikovat</string>
+    <string name="notification_configuration_installing">Aplikování nového nastavení…</string>
+    <string name="notification_configuration_failed">Aplikování nového nastavení se nezdařilo.</string>
+
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Chybí symbolický odkaz na cílový soubor hostitelů</string>
     <string name="apply_symlink_missing">Symbolický odkaz z vašeho cíle na /system/etc/hosts neexistuje nebo je chybný! AdAway nebude fungovat, pokud neodkazuje na správný soubor.\n\nChcete se pokusit vytvořit symbolický odkaz?</string>
