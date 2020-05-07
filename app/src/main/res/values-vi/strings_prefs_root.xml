@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Chặn quảng cáo sử dụng quyền root </string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Cài đặt tập tin miền</string>
     <string name="pref_root_open_hosts">Mở tập tin miền</string>
     <string name="pref_apply_method">Tập tin miền mục tiêu</string>
     <string name="pref_apply_method_summary">Trước khi thay đổi cài đặt, hãy đọc Trợ giúp về tính năng này.</string>
@@ -13,8 +16,12 @@
     <string name="pref_never_reboot">Ẩn hộp thoại khởi động lại</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Chuyển hướng</string>
+    <string name="pref_hosts_redirection_summary">Tùy chọn điều hướng tập tin miền</string>
+    <string name="pref_redirection_ipv4">Điều hướng IPv4</string>
+    <string name="pref_redirection_ipv6">Điều hướng IPv6</string>
     <!-- Web server category -->
     <string name="pref_webserver">Webserver cục bộ</string>
+    <string name="pref_webserver_summary">Máy chủ web cục bộ sử dụng các địa chỉ IP để phản hồi các yêu cầu truy cập các tên miền đã bị chặn, giúp giải quyết việc treo ứng dụng do kết nối bị chặn.</string>
     <string name="pref_webserver_enabled">Bật webserver</string>
     <string name="pref_webserver_on_boot">Bật webserver khi khởi động máy</string>
 </resources>
