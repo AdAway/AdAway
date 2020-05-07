@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Cập nhật</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Cập nhật ứng dụng</string>
     <string name="pref_update_check_app_daily">Kiểm tra cập nhật mỗi ngày</string>
-    <string name="pref_update_check">Kiểm tra cập nhật</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Cập nhật tập tin miền</string>
+    <string name="pref_update_check">Kiểm tra cập nhật khi mở ứng dụng</string>
     <string name="pref_update_check_hosts_daily">Kiểm tra cập nhật mỗi ngày</string>
-    </resources>
+    <string name="pref_update_sync_on_update">Đồng bộ khi cập nhật</string>
+    <string name="pref_update_sync_unmetered_only">Chỉ đồng bộ bằng wi-fi </string>
+</resources>
