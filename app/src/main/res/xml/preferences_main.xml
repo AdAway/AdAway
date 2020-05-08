@@ -6,28 +6,28 @@
     <PreferenceCategory app:title="@string/pref_general_category">
         <ListPreference
             app:defaultValue="@string/pref_dark_theme_mode_def"
-            app:icon="@drawable/ic_brightness_medium_24dp"
-            app:entryValues="@array/pref_dark_theme_mode_entry_values"
             app:entries="@array/pref_dark_theme_modes"
+            app:entryValues="@array/pref_dark_theme_mode_entry_values"
+            app:icon="@drawable/ic_brightness_medium_24dp"
             app:key="@string/pref_dark_theme_mode_key"
             app:title="@string/pref_dark_theme" />
         <Preference
+            app:fragment="org.adaway.ui.prefs.PrefsUpdateFragment"
             app:icon="@drawable/ic_sync_24dp"
-            app:title="@string/pref_update_configuration"
-            app:fragment="org.adaway.ui.prefs.PrefsUpdateFragment" />
+            app:title="@string/pref_update_configuration" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/pref_ad_block_category">
         <Preference
+            app:fragment="org.adaway.ui.prefs.PrefsRootFragment"
             app:icon="@drawable/ic_superuser_24dp"
             app:key="@string/pref_root_ad_block_method_key"
-            app:title="@string/pref_root_ad_blocker_configuration"
-            app:fragment="org.adaway.ui.prefs.PrefsRootFragment" />
+            app:title="@string/pref_root_ad_blocker_configuration" />
         <Preference
+            app:fragment="org.adaway.ui.prefs.PrefsVpnFragment"
             app:icon="@drawable/ic_vpn_key_24dp"
             app:key="@string/pref_vpn_ad_block_method_key"
-            app:title="@string/pref_vpn_ad_blocker_configuration"
-            app:fragment="org.adaway.ui.prefs.PrefsVpnFragment" />
+            app:title="@string/pref_vpn_ad_blocker_configuration" />
         <CheckBoxPreference
             app:defaultValue="@bool/pref_whitelist_rules_def"
             app:icon="@drawable/baseline_check_24"
@@ -45,9 +45,9 @@
             app:key="@string/pref_enable_ipv6_key"
             app:title="@string/pref_enable_ipv6" />
         <Preference
+            app:fragment="org.adaway.ui.prefs.PrefsBackupRestoreFragment"
             app:icon="@drawable/ic_sd_storage_24dp"
-            app:title="@string/pref_backup_restore"
-            app:fragment="org.adaway.ui.prefs.PrefsBackupRestoreFragment" />
+            app:title="@string/pref_backup_restore" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/pref_debug_category">

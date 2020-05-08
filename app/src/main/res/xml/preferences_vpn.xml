@@ -24,9 +24,9 @@
 
         <Preference
             app:defaultValue="@string/pref_vpn_excluded_user_apps_default"
+            app:fragment="org.adaway.ui.prefs.PrefsVpnExcludedAppsFragment"
             app:key="@string/pref_vpn_excluded_user_apps_key"
-            app:title="@string/pref_vpn_exclude_user_apps"
-            app:fragment="org.adaway.ui.prefs.PrefsVpnExcludedAppsFragment" />
+            app:title="@string/pref_vpn_exclude_user_apps" />
     </PreferenceCategory>
 
     <!-- Custom DNS-->
