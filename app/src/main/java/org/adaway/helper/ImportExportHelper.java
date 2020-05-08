@@ -305,7 +305,7 @@ public class ImportExportHelper {
             // Display user toast notification
             Toast toast = Toast.makeText(
                     context,
-                    context.getString(imported ? R.string.import_success : R.string.import_dialog),
+                    context.getString(imported ? R.string.import_success : R.string.import_failed),
                     Toast.LENGTH_LONG
             );
             toast.show();
