@@ -21,13 +21,29 @@
 package org.adaway.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
+import android.security.KeyChain;
 
+import androidx.annotation.StringRes;
+
+import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.ConnectException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
+import javax.net.ssl.SSLHandshakeException;
+import javax.security.cert.CertificateException;
+import javax.security.cert.X509Certificate;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
 import static org.adaway.util.ShellUtils.killBundledExecutable;
@@ -39,6 +55,7 @@ import static org.adaway.util.ShellUtils.runBundledExecutable;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class WebServerUtils {
+    public static final String TEST_URL = "https://localhost/internal-test";
     private static final String TAG = "WebServer";
     private static final String WEBSERVER_EXECUTABLE = "blank_webserver";
 
@@ -75,6 +92,57 @@ public class WebServerUtils {
         return isBundledExecutableRunning(WEBSERVER_EXECUTABLE);
     }
 
+    /**
+     * Get the web server state description.
+     *
+     * @return The web server state description.
+     */
+    @StringRes
+    public static int getWebServerState() {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(TEST_URL)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            return response.isSuccessful() ?
+                    R.string.pref_webserver_state_running_and_installed :
+                    R.string.pref_webserver_state_not_running;
+        } catch (SSLHandshakeException e) {
+            return R.string.pref_webserver_state_running_not_installed;
+        } catch (ConnectException e) {
+            return R.string.pref_webserver_state_not_running;
+        } catch (IOException e) {
+            Log.w(TAG, "Failed to test web server.", e);
+            return R.string.pref_webserver_state_not_running;
+        }
+    }
+
+    /**
+     * Prompt user to install web server certificate.
+     *
+     * @param context The application context.
+     */
+    public static void installCertificate(Context context) {
+        AssetManager assetManager = context.getAssets();
+        try (InputStream inputStream = assetManager.open("localhost.crt");
+             ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+            byte[] buffer = new byte[1024];
+            int read;
+            while ((read = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, read);
+            }
+            byte[] bytes = outputStream.toByteArray();
+            X509Certificate x509 = X509Certificate.getInstance(bytes);
+            Intent intent = KeyChain.createInstallIntent();
+            intent.putExtra(KeyChain.EXTRA_CERTIFICATE, x509.getEncoded());
+            intent.putExtra(KeyChain.EXTRA_NAME, "AdAway");
+            context.startActivity(intent);
+        } catch (IOException e) {
+            Log.w(TAG, "Failed to read certificate.", e);
+        } catch (CertificateException e) {
+            Log.w(TAG, "Failed to parse certificate.", e);
+        }
+    }
 
     private static void inflateResources(Context context, Path target) {
         AssetManager assetManager = context.getAssets();
