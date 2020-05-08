@@ -75,8 +75,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         long delay = Duration.between(from, now).toMinutes();
         // Check if delay is lower than an hour
         if (delay < 60) {
-            int minutes = (int) delay;
-            return resources.getQuantityString(R.plurals.hosts_source_minutes, minutes, minutes);
+            return resources.getString(R.string.hosts_source_few_minutes);
         }
         // Get delay in hours
         delay /= 60;
