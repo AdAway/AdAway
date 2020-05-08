@@ -99,8 +99,9 @@ public class ListsActivity extends AppCompatActivity {
                 case R.id.lists_navigation_redirected:
                     viewPager.setCurrentItem(2);
                     return true;
+                default:
+                    return false;
             }
-            return false;
         });
         // Display requested tab
         Intent intent = getIntent();

@@ -72,7 +72,6 @@ class GistHostsSource extends GitHostsSource {
         ZonedDateTime date = null;
         try {
             date = ZonedDateTime.parse(dateString);
-//            date = this.dateFormat.parse(dateString);
         } catch (DateTimeParseException exception) {
             Log.w(Constants.TAG, "Failed to parse commit date: " + dateString + ".", exception);
         }

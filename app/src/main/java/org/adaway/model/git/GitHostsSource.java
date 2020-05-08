@@ -3,10 +3,7 @@ package org.adaway.model.git;
 import androidx.annotation.Nullable;
 
 import java.net.MalformedURLException;
-import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
-
-import static java.util.Locale.US;
 
 /**
  * This class is an utility class to get information from Git hosted hosts sources.
