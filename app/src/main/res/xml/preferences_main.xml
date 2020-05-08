@@ -4,10 +4,12 @@
     android:title="@string/pref_main_title">
 
     <PreferenceCategory app:title="@string/pref_general_category">
-        <CheckBoxPreference
-            app:defaultValue="@bool/pref_dark_theme_def"
+        <ListPreference
+            app:defaultValue="@string/pref_dark_theme_mode_def"
             app:icon="@drawable/ic_brightness_medium_24dp"
-            app:key="@string/pref_dark_theme_key"
+            app:entryValues="@array/pref_dark_theme_mode_entry_values"
+            app:entries="@array/pref_dark_theme_modes"
+            app:key="@string/pref_dark_theme_mode_key"
             app:title="@string/pref_dark_theme" />
         <Preference
             app:icon="@drawable/ic_sync_24dp"

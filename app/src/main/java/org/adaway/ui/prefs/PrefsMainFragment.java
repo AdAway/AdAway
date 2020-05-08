@@ -46,7 +46,7 @@ public class PrefsMainFragment extends PreferenceFragmentCompat {
     }
 
     private void bindThemePrefAction() {
-        Preference darkThemePref = findPreference(getString(R.string.pref_dark_theme_key));
+        Preference darkThemePref = findPreference(getString(R.string.pref_dark_theme_mode_key));
         darkThemePref.setOnPreferenceChangeListener((preference, newValue) -> {
             requireActivity().recreate();
             // Allow preference change

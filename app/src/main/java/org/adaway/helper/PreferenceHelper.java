@@ -23,6 +23,8 @@ package org.adaway.helper;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 import org.adaway.R;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.util.Constants;
@@ -32,15 +34,23 @@ import java.util.Collections;
 import java.util.Set;
 
 public class PreferenceHelper {
-    public static boolean getDarkTheme(Context context) {
+    public static int getDarkThemeMode(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
                 Context.MODE_PRIVATE
         );
-        return prefs.getBoolean(
-                context.getString(R.string.pref_dark_theme_key),
-                context.getResources().getBoolean(R.bool.pref_dark_theme_def)
+        String pref = prefs.getString(
+                context.getString(R.string.pref_dark_theme_mode_key),
+                context.getResources().getString(R.string.pref_dark_theme_mode_def)
         );
+        switch (pref) {
+            case "MODE_NIGHT_NO":
+                return AppCompatDelegate.MODE_NIGHT_NO;
+            case "MODE_NIGHT_YES":
+                return AppCompatDelegate.MODE_NIGHT_YES;
+            default:
+                return AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+        }
     }
 
     public static boolean getUpdateCheck(Context context) {

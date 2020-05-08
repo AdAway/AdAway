@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_dark_theme_key" translatable="false">darkTheme</string>
-    <bool name="pref_dark_theme_def">true</bool>
+    <string name="pref_dark_theme_mode_key" translatable="false">darkThemeMode</string>
+    <string name="pref_dark_theme_mode_def">MODE_NIGHT_FOLLOW_SYSTEM</string>
+    <string-array name="pref_dark_theme_mode_entry_values" translatable="false">
+        <item>MODE_NIGHT_NO</item>
+        <item>MODE_NIGHT_YES</item>
+        <item>MODE_NIGHT_FOLLOW_SYSTEM</item>
+    </string-array>
     <string name="pref_update_check_key" translatable="false">updateCheck</string>
     <bool name="pref_update_check_def">true</bool>
     <string name="pref_never_reboot_key" translatable="false">neverReboot</string>
@@ -65,5 +70,5 @@
         <item>all</item>
     </string-array>
     <string name="pref_vpn_excluded_user_apps_key" translatable="false">excludeUserAppFromVpn</string>
-    <string name="pref_vpn_excluded_user_apps_default" translatable="false"/>
+    <string name="pref_vpn_excluded_user_apps_default" translatable="false" />
 </resources>

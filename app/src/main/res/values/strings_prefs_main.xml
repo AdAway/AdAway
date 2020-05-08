@@ -4,6 +4,11 @@
     <!-- General category -->
     <string name="pref_general_category">General</string>
     <string name="pref_dark_theme">Dark theme</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>System default</item>
+    </string-array>
     <string name="pref_update_configuration">Automatic updates</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Ad blocking</string>
