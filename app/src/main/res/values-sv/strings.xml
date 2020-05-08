@@ -221,6 +221,7 @@
     <string name="hosts_source_need_update">%1$s behöver uppdateras</string>
     <string name="hosts_source_last_update">Senaste uppdateringen %1$s sedan</string>
     <string name="hosts_source_unknown_status">Okänd uppdaterigsstatus</string>
+    <string name="hosts_source_few_minutes">några minuter</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minut</item>
         <item quantity="other">%d minuter</item>
