@@ -4,6 +4,11 @@
     <!-- General category -->
     <string name="pref_general_category">Allmänt</string>
     <string name="pref_dark_theme">Mörk tema</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Ljust</item>
+        <item>Mörkt</item>
+        <item>Systemstandard</item>
+    </string-array>
     <string name="pref_update_configuration">Automatisk uppdatering</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Annonsblockering</string>
