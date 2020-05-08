@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Home screen -->
+    <string name="update_available">Διαθέσιμη ενημέρωση!</string>
+
+    <!-- Changelog dialog -->
+    <string name="update_update_title">Μια νέα έκδοση είναι διαθέσιμη</string>
+    <string name="update_update_message">Η νέα έκδοση φέρνει τις ακόλουθες αλλαγές:\n\n</string>
+    <string name="update_up_to_date_title">Είστε ενημερωμένοι</string>
+    <string name="update_up_to_date_message">Αυτή η τελευταία έκδοση φέρνει τις ακόλουθες αλλαγές:\n\n</string>
     <string name="update_changelog">Καταγραφή αλλαγών</string>
-    </resources>
+    <string name="update_update_button">Ενημέρωση τώρα</string>
+</resources>
