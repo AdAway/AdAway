@@ -13,12 +13,16 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import org.adaway.R;
 
 import static android.content.Intent.ACTION_VIEW;
 
+/**
+ * This class is an activity for users to show their supports to the project.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class SupportActivity extends AppCompatActivity {
     /**
      * The support link.
@@ -66,6 +70,7 @@ public class SupportActivity extends AppCompatActivity {
     }
 
     private void bindPaypal(View view) {
+        bindLink(view, R.id.headerImageView, SUPPORT_LINK);
         bindLink(view, R.id.paypalCardView, SUPPORT_LINK);
     }
 
@@ -74,8 +79,8 @@ public class SupportActivity extends AppCompatActivity {
     }
 
     private void bindLink(View rootView, int viewId, String url) {
-        CardView supportCardView = rootView.findViewById(viewId);
-        supportCardView.setOnClickListener(v -> {
+        View view = rootView.findViewById(viewId);
+        view.setOnClickListener(v -> {
             Intent browserIntent = new Intent(ACTION_VIEW, Uri.parse(url));
             startActivity(browserIntent);
         });

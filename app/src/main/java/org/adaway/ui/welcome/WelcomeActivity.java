@@ -21,7 +21,7 @@ import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 /**
- * This class is a welcome activity to run first time setup on the user device..
+ * This class is a welcome activity to run first time setup on the user device.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
