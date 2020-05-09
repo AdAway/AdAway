@@ -11,13 +11,16 @@
 static int s_sig_num = 0;
 static char ssl_cert[100];
 static char ssl_key[100];
+static char test_path[100];
 static char icon_path[100];
 static bool icon = 0;
 
 static void ev_handler(struct mg_connection *c, int ev, void *p) {
     if (ev == MG_EV_HTTP_REQUEST) {
         struct http_message *hm = (struct http_message *) p;
-        if (icon) {
+        if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
+            mg_http_serve_file(c, hm, test_path, mg_mk_str("text/html"), mg_mk_str(""));
+        } else if (icon) {
             mg_http_serve_file(c, hm, icon_path, mg_mk_str("image/svg+xml"), mg_mk_str(""));
         } else {
             mg_send_head(c, 200, 0, "Content-Type: text/plain");
@@ -65,6 +68,8 @@ bool parse_cli_parameters(int argc, char *argv[]) {
             strcat(ssl_key, "/localhost.key");
             strcpy(icon_path, resource_path);
             strcat(icon_path, "/icon.svg");
+            strcpy(test_path, resource_path);
+            strcat(test_path, "/test.html");
             init = 1;
         } else if (strcmp(argv[i], "--icon") == 0) {
             icon = 1;

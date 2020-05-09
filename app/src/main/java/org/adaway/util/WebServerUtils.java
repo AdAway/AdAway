@@ -150,6 +150,7 @@ public class WebServerUtils {
             inflateResource(assetManager, "localhost.crt", target);
             inflateResource(assetManager, "localhost.key", target);
             inflateResource(assetManager, "icon.svg", target);
+            inflateResource(assetManager, "test.html", target);
         } catch (IOException e) {
             Log.w(TAG, "Failed to inflate web server resources.", e);
         }
