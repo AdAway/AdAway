@@ -57,7 +57,7 @@ import static org.adaway.util.ShellUtils.runBundledExecutable;
 public class WebServerUtils {
     public static final String TEST_URL = "https://localhost/internal-test";
     private static final String TAG = "WebServer";
-    private static final String WEBSERVER_EXECUTABLE = "blank_webserver";
+    private static final String WEB_SERVER_EXECUTABLE = "webserver";
 
     /**
      * Start the web server in new thread with RootTools
@@ -73,14 +73,14 @@ public class WebServerUtils {
         String parameters = "--resources " + resourcePath.toAbsolutePath() +
                 (PreferenceHelper.getWebServerIcon(context) ? " --icon" : "") +
                 " > /dev/null 2>&1";
-        runBundledExecutable(context, WEBSERVER_EXECUTABLE, parameters);
+        runBundledExecutable(context, WEB_SERVER_EXECUTABLE, parameters);
     }
 
     /**
      * Stop the web server.
      */
     public static void stopWebServer() {
-        killBundledExecutable(WEBSERVER_EXECUTABLE);
+        killBundledExecutable(WEB_SERVER_EXECUTABLE);
     }
 
     /**
@@ -89,7 +89,7 @@ public class WebServerUtils {
      * @return <code>true</code> if webs server is running, <code>false</code> otherwise.
      */
     public static boolean isWebServerRunning() {
-        return isBundledExecutableRunning(WEBSERVER_EXECUTABLE);
+        return isBundledExecutableRunning(WEB_SERVER_EXECUTABLE);
     }
 
     /**

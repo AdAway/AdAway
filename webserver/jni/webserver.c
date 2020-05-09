@@ -58,12 +58,12 @@ bool parse_cli_parameters(int argc, char *argv[]) {
     bool init = 0;
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--resources") == 0 && i < argc - 1) {
-            char *resourcePath = argv[++i];
-            strcpy(ssl_cert, resourcePath);
+            char *resource_path = argv[++i];
+            strcpy(ssl_cert, resource_path);
             strcat(ssl_cert, "/localhost.crt");
-            strcpy(ssl_key, resourcePath);
+            strcpy(ssl_key, resource_path);
             strcat(ssl_key, "/localhost.key");
-            strcpy(icon_path, resourcePath);
+            strcpy(icon_path, resource_path);
             strcat(icon_path, "/icon.svg");
             init = 1;
         } else if (strcmp(argv[i], "--icon") == 0) {
