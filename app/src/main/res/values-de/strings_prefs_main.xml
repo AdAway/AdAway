@@ -4,6 +4,11 @@
     <!-- General category -->
     <string name="pref_general_category">Allgemein</string>
     <string name="pref_dark_theme">Dunkles Design aktivieren</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Hell</item>
+        <item>Dunkel</item>
+        <item>Systemvorgabe</item>
+    </string-array>
     <string name="pref_update_configuration">Automatische Updates</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Werbung blockieren</string>
