@@ -23,5 +23,4 @@
     <string name="pref_webserver">Lokální webový server</string>
     <string name="pref_webserver_summary">Lokální webový server naslouchá na lokálních IP adresách a odpovídá na požadavky na zablokovaná jména hostitelů. To může pomoci se zamrzáváním aplikací po zablokování spojení.</string>
     <string name="pref_webserver_enabled">Povolit webový server</string>
-    <string name="pref_webserver_on_boot">Spustit webový server při startu systému</string>
 </resources>

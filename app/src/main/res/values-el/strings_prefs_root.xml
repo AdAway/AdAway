@@ -18,5 +18,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">Τοπικός διακομιστής ιστοσελίδων</string>
     <string name="pref_webserver_enabled">Ενεργοποίηση του διακομιστή ιστοσελίδων</string>
-    <string name="pref_webserver_on_boot">Εκτέλεση του διακομιστή ιστοσελίδων κατά την εκκίνηση</string>
 </resources>
