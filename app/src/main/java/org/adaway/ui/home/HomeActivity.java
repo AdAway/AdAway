@@ -57,7 +57,6 @@ import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.TAB;
-import static org.adaway.util.Constants.TAG;
 
 /**
  * This class is the application main activity.
@@ -65,6 +64,7 @@ import static org.adaway.util.Constants.TAG;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HomeActivity extends AppCompatActivity {
+    private static final String TAG = "Home";
     /**
      * The project link.
      */

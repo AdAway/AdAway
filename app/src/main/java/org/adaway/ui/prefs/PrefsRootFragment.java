@@ -134,7 +134,6 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
         Context context = requireContext();
         // Start web server when preference is enabled
         CheckBoxPreference webServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
-        webServerEnabledPref.setChecked(isWebServerRunning());
         webServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if (newValue.equals(true)) {
                 // Start web server

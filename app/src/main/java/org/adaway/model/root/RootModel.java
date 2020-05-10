@@ -19,6 +19,7 @@ import org.adaway.util.AppExecutors;
 import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
 import org.adaway.util.ShellUtils;
+import org.adaway.util.WebServerUtils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -33,6 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.Executor;
 import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -81,7 +83,9 @@ public class RootModel extends AdBlockModel {
         this.hostsSourceDao = database.hostsSourceDao();
         this.hostListItemDao = database.hostsListItemDao();
         // Check if host list is applied
-        AppExecutors.getInstance().diskIO().execute(this::checkApplied);
+        Executor executor = AppExecutors.getInstance().diskIO();
+        executor.execute(this::checkApplied);
+        executor.execute(() -> syncPreferences(context));
     }
 
     @Override
@@ -164,6 +168,12 @@ public class RootModel extends AdBlockModel {
         }
 
         this.applied.postValue(applied);
+    }
+
+    private void syncPreferences(Context context) {
+        if (PreferenceHelper.getWebServerEnabled(context) && !WebServerUtils.isWebServerRunning()) {
+            WebServerUtils.startWebServer(context);
+        }
     }
 
     private void deleteNewHostsFile() {
