@@ -52,6 +52,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
 import java.util.List;
+import java.util.Optional;
 
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.ListType.ALLOWED;
@@ -173,7 +174,13 @@ public class ImportExportHelper {
             JSONObject hostObject = hosts.getJSONObject(index);
             HostListItem host = hostFromJson(hostObject);
             host.setType(type);
-            hostListItemDao.insert(host);
+            Optional<Integer> id = hostListItemDao.getHostId(host.getHost());
+            if (id.isPresent()) {
+                host.setId(id.get());
+                hostListItemDao.update(host);
+            } else {
+                hostListItemDao.insert(host);
+            }
         }
     }
 
@@ -358,11 +365,11 @@ public class ImportExportHelper {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(exportFile))) {
                 JSONObject backup = makeBackup(context);
                 writer.write(backup.toString(4));
-            } catch (JSONException exception) {
-                Log.e(TAG, "Failed to generate backup.", exception);
+            } catch (JSONException e) {
+                Log.e(TAG, "Failed to generate backup.", e);
                 return false;
-            } catch (IOException exception) {
-                Log.e(TAG, "Could not write file.", exception);
+            } catch (IOException e) {
+                Log.e(TAG, "Could not write file.", e);
                 return false;
             }
             // Return successfully exported

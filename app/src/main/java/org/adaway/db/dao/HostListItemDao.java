@@ -12,8 +12,7 @@ import androidx.room.Update;
 import org.adaway.db.entity.HostListItem;
 
 import java.util.List;
-
-import javax.annotation.Nullable;
+import java.util.Optional;
 
 /**
  * This interface is the DAO for {@link HostListItem} entities.
@@ -56,7 +55,7 @@ public interface HostListItemDao {
     LiveData<List<HostListItem>> loadUserList();
 
     @Query("SELECT id FROM hosts_lists WHERE host = :host AND source_id = 1 LIMIT 1")
-    @Nullable Integer getHostId(String host);
+    Optional<Integer> getHostId(String host);
 
     @Query("SELECT COUNT(DISTINCT host) FROM hosts_lists WHERE type = 0 AND enabled = 1")
     LiveData<Integer> getBlockedHostCount();

@@ -18,6 +18,7 @@ import org.adaway.ui.lists.ListsFilter;
 import org.adaway.util.AppExecutors;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.ListType.ALLOWED;
@@ -91,9 +92,9 @@ public class ListsViewModel extends AndroidViewModel {
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);
         AppExecutors.getInstance().diskIO().execute(() -> {
-            Integer id = this.hostListItemDao.getHostId(host);
-            if (id != null) {
-                item.setId(id);
+            Optional<Integer> id = this.hostListItemDao.getHostId(host);
+            if (id.isPresent()) {
+                item.setId(id.get());
                 this.hostListItemDao.update(item);
             } else {
                 this.hostListItemDao.insert(item);
