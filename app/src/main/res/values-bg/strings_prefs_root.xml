@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Руут базиран блокер на реклами</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Инсталиране на хостове</string>
     <string name="pref_root_open_hosts">Отваряне на Hosts файла</string>
     <string name="pref_apply_method">Целеви Hosts файл</string>
+    <string name="pref_apply_method_summary">Прочетете Помощ преди да използвате тази функция</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Персонализирана цел</item>
     </string-array>
+    <string name="pref_custom_target">Персонализирано целево местоположение</string>
+    <string name="pref_never_reboot">Скриване на диалоговия прозорец за рестартиране след прилагане</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Пренасочване</string>
+    <string name="pref_hosts_redirection_summary">Дефиниране къде да се пренасочват блокирани хостове</string>
+    <string name="pref_redirection_ipv4">IPv4 пренасочване</string>
+    <string name="pref_redirection_ipv6">IPv6 пренасочване</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Локален уеб сървър</string>
+    <string name="pref_webserver_summary">Локалният уеб сървър слуша на локални IP адреси, за да отговори на заявки на блокирано име на хост. Може да помогне с замръзване на приложение при блокирана връзка.</string>
     <string name="pref_webserver_enabled">Включване на уеб сървър</string>
-    </resources>
+    <string name="pref_webserver_test">Тестване на уеб сървър</string>
+    <string name="pref_webserver_certificate">Инсталиране на самоподписан сертификат</string>
+    <string name="pref_webserver_state_checking">Проверка...</string>
+    <string name="pref_webserver_state_not_running">Не работи</string>
+    <string name="pref_webserver_state_running_not_installed">Работи, но не е инсталиран сертификат</string>
+    <string name="pref_webserver_state_running_and_installed">Работи и е инсталиран сертификат</string>
+    <string name="pref_webserver_icon">Замяна на празно рекламно пространство с иконата на приложението</string>
+</resources>
