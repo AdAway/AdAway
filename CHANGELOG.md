@@ -1,3 +1,23 @@
+## [5.0.3] - 2020-05-10
+
+*This version is a pre-release*
+
+- Add TLS support for web server
+- Add web server status in preferences
+- Add option to install self signed certificate
+- Add option to display app icon instead of blank page
+- Add full timezone support for source date
+- Add workaround for negative source update time when server time is not accurate
+- Add follow system dark theme mode
+- Fix user host list lost on source update
+- Fix import failed toast
+- Fix web server not start on install
+- Fix duplicate host entry on backup import
+- Update mongoose server
+- Update translations
+
+Special thanks to saltylemondrops, zgfg, ipdev99 and mickrussom for their bug reports.
+
 ## [5.0.2] - 2020-04-25
 
 *This version is a pre-release*
