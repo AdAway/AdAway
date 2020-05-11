@@ -4,6 +4,11 @@
     <!-- General category -->
     <string name="pref_general_category">Všeobecné</string>
     <string name="pref_dark_theme">Tmavý motív</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Svetlý</item>
+        <item>Tmavý</item>
+        <item>Podľa systému</item>
+    </string-array>
     <string name="pref_update_configuration">Automatické aktualizácie</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Blokovanie reklamy</string>
