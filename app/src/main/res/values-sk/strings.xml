@@ -221,6 +221,7 @@
     <string name="hosts_source_need_update">Dostupná aktualizácia %1$s</string>
     <string name="hosts_source_last_update">Posledná aktualizácia pred %1$s</string>
     <string name="hosts_source_unknown_status">Neznámy stav aktualizácie</string>
+    <string name="hosts_source_few_minutes">pár minútami</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%dminútu</item>
         <item quantity="few">%d minúty</item>
@@ -248,13 +249,13 @@
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">spúšťa sa</string>
-    <string name="vpn_notification_running">aktívna</string>
+    <string name="vpn_notification_running">aktívne</string>
     <string name="vpn_notification_stopping">zastavuje sa</string>
     <string name="vpn_notification_waiting_for_net">čaká sa na sieť</string>
     <string name="vpn_notification_reconnecting">znovu sa pripája</string>
     <string name="vpn_notification_reconnecting_error">chyba pripájania</string>
     <string name="vpn_notification_paused">pozastavená</string>
-    <string name="vpn_notification_stopped">zastavená</string>
+    <string name="vpn_notification_stopped">zastavené</string>
     <string name="vpn_notification_title">Blokovanie reklamy pomocou VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pozastaviť</string>
     <string name="vpn_notification_paused_text">Klepnutím pokračovať</string>
