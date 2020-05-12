@@ -5,14 +5,14 @@
     <string name="button_close">Cerrar</string>
     <string name="button_yes">Sí</string>
     <string name="button_no">No</string>
-    <string name="button_add">Añadir</string>
+    <string name="button_add">Agregar</string>
     <string name="button_cancel">Cancelar</string>
     <string name="button_save">Guardar</string>
     <string name="button_help">Ayuda</string>
 
     <!--Home-->
     <string name="header_help">Te damos la bienvenida</string>
-    <string name="text_help">AdAway es un software gratuito y de código abierto diseñado para bloquear los anuncios. Para ello, recuepera las direcciones de red de los anuncios y los bloquea en tu dispositivo.\nPara obtener más información, consulta la ayuda a continuación.</string>
+    <string name="text_help">AdAway es un software gratuito y de código abierto diseñado para bloquear los anuncios. Para ello, recupera las direcciones de red de los anuncios y los bloquea en el dispositivo.\nPara obtener más información, consulta la ayuda más abajo.</string>
     <string name="button_show_help">Mostrar más ayuda</string>
     <string name="icon_update_status">Actualizar estado</string>
     <string name="text_update">Se descargarán todos los archivos hosts de las fuentes definidas, se combinarán con las listas propias y se instalarán como un solo archivo hosts en el sistema.</string>
@@ -23,8 +23,16 @@
     <string name="header_webserver">Servidor web</string>
     <string name="webserver_status_running">En funcionamiento</string>
     <string name="webserver_status_stopped">Detenido</string>
+    <string name="webserver_toggle_text">Iniciar o detener un servidor web en el host local para responder las solicitudes a los nombres de host bloqueados.</string>
     <string name="button_enable_webserver">Habilitar servidor web</string>
     <string name="button_disable_webserver">Inhabilitar servidor web</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">En ejecución</string>
+    <string name="vpn_status_stopped">Detenido</string>
+    <string name="vpn_toggle_text">Iniciar o detener la VPN para filtrar las solicitudes.</string>
+    <string name="button_enable_vpn">Habilitar la VPN</string>
+    <string name="button_disable_vpn">Inhabilitar la VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Borrar</string>
     <string name="checkbox_list_context_title">Editar entrada</string>
@@ -44,22 +52,44 @@
     <string name="hosts_content">Cargando el contenido del archivo hosts…</string>
     <string name="hosts_open_button">Abrir el archivo hosts</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Buscando actualizaciones</string>
+    <string name="status_check_source">Buscando actualizaciones en la fuente %s</string>
+    <string name="status_retrieve">Recuperando fuentes</string>
+    <string name="status_download_source">Descargando datos de la fuente %s</string>
+    <string name="status_copy_source">Copiando datos de la fuente %s</string>
+    <string name="status_parse_source">Analizando datos de la fuente %s</string>
+    <string name="status_revert">Revirtiendo el archivo hosts a la versión predeterminada</string>
+    <string name="status_revert_done">Se restableció el archivo hosts predeterminado</string>
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
-    <string name="status_update_available">Actualización disponible</string>
+    <string name="status_update_available">Hay una actualización de la fuente</string>
     <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
+    <string name="status_no_update_found">No se encontraron actualizaciones de la fuente</string>
     <string name="status_no_connection">No hay conexión a Internet</string>
     <string name="status_no_connection_subtitle">La conexión a Internet no está disponible</string>
     <string name="status_download_fail">Fuentes no disponibles</string>
     <string name="status_download_fail_subtitle_new">No se puede acceder a las fuentes de hosts</string>
-    <string name="status_root_access_denied">Acceso root denegado</string>
-    <string name="status_root_access_denied_subtitle">Permite el acceso de administrador desde tu aplicación de root</string>
+    <string name="status_root_access_denied">Se denegó el acceso de administrador</string>
+    <string name="status_root_access_denied_subtitle">Permite el acceso de administrador desde la app de root</string>
     <string name="status_failure">Hubo un problema</string>
     <string name="status_failure_subtitle">Revisa el registro logcat para obtener información detallada</string>
     <string name="status_enabled">Habilitado</string>
     <string name="status_enabled_subtitle">Los archivos hosts más recientes están habilitados</string>
     <string name="status_disabled">Inhabilitado</string>
     <string name="status_disabled_subtitle">El archivo hosts predeterminado está instalado</string>
+    <string name="status_apply_sources">Aplicar fuentes más recientes</string>
+    <string name="status_create_new_hosts">Creando un nuevo archivo hosts</string>
+    <string name="status_copy_new_hosts">Copiando un nuevo archivo hosts</string>
+    <string name="status_check_copy">Verificando la copia del archivo hosts</string>
+    <string name="status_hosts_updated">Se actualizó correctamente el archivo hosts</string>
+    <string name="status_vpn_configuration_updated">Se actualizó correctamente la configuración de la VPN</string>
+    <string name="notification_configuration_changed">La configuración cambió, por lo que debes aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
+    <string name="notification_configuration_installing">Aplicando la configuración nueva…</string>
+    <string name="notification_configuration_failed">No se pudo aplicar la configuración nueva.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Falta el vínculo simbólico al archivo hosts del objetivo</string>
     <string name="apply_symlink_missing">El vínculo simbólico del objetivo a /system/etc/hosts no existe o es incorrecto. AdAway no funcionará si este vínculo no apunta al archivo correcto.\n\n¿Quieres intentar crear un vínculo simbólico?</string>
     <string name="apply_symlink_missing_title">Falta el vínculo simbólico</string>
     <string name="apply_not_enough_space">No queda espacio suficiente en la partición.\nIntenta cambiar el archivo hosts objetivo en la configuración a /data/data/hosts.</string>
@@ -68,6 +98,7 @@
     <string name="apply_private_file_fail_title">Error de archivo privado</string>
     <string name="apply_remount_fail">No se pudo reactivar la partición con permisos de lectura y escritura.</string>
     <string name="apply_remount_fail_title">Error de reactivación</string>
+    <string name="apply_copy_fail_status">No se pudo copiar el archivo hosts</string>
     <string name="apply_copy_fail">No se pudo copiar el archivo hosts.</string>
     <string name="apply_copy_fail_title">Error de copia</string>
     <string name="apply_success_subtitle">Se aplicaron las fuentes de hosts</string>
@@ -78,7 +109,7 @@
     <string name="apply_symlink_fail">Android no pudo crear el vínculo simbólico.\nEs probable que se deba a una función llamada S-ON de los teléfonos HTC.\n\nPara solucionar este problema, puedes iniciar el teléfono en modo de recuperación y crear el vínculo simbólico desde allí con el comando “ln -s /data/data/hosts /system/etc/hosts”.\n\nSi esta solución no funciona, busca en Internet cómo inhabilitar S-ON en el teléfono.</string>
     <string name="apply_symlink_fail_title">No se pudo crear el vínculo simbólico</string>
     <string name="apply_help">Para obtener más información, consulta la ayuda.</string>
-    <string name="apply_apn_proxy">El dispositivo Android tiene configurado un proxy de APN.\nAdAway no funcionará de manera confiable en redes móviles, como 3G. Puedes desactivar el proxy desde el APN seleccionado. Para ello, ve a la app de Configuración &gt; Internet y red &gt; Red móvil &gt; Avanzada &gt; Nombres de puntos de acceso y quita el valor del campo Proxy.</string>
+    <string name="apply_apn_proxy">El dispositivo Android tiene configurado un proxy de APN.\nAdAway no funcionará de manera confiable en redes móviles como 3G. Puedes desactivar el proxy desde el APN seleccionado. Para ello, ve a la app de Configuración > Internet y red > Red móvil > Avanzada > Nombres de puntos de acceso y quita el valor del campo Proxy.</string>
     <string name="apply_apn_proxy_title">Se detectó un proxy de APN</string>
     <string name="no_connection">La conexión a Internet no funciona.</string>
     <string name="no_connection_title">No hay conexión</string>
@@ -88,23 +119,28 @@
     <string name="apply_dialog_hostnames">Analizando y uniendo archivos hosts</string>
     <string name="apply_dialog_hosts">Compilando archivo hosts</string>
     <string name="apply_dialog_apply">Aplicando archivo hosts</string>
+    <string name="apply_fail_status">No se pudo aplicar el nuevo archivo hosts.</string>
     <string name="apply_fail">No se pudo aplicar el archivo hosts en el sistema.\nIntenta cambiar el archivo hosts de destino en la configuración a /data/data/hosts.</string>
     <string name="apply_fail_title">Error de aplicación</string>
     <string name="root_access_fail">Compruebe su aplicación de administración de root para asegurarse de que se haya concedido el acceso root.</string>
     <string name="revert_successful">Restableciste el archivo hosts predeterminado.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
     <string name="revert_successful_title">Reversión correcta</string>
+    <string name="revert_failed_status">No se pudo revertir el archivo hosts</string>
     <string name="revert_problem">No se pudo revertir el archivo hosts por razones desconocidas.</string>
     <string name="revert_problem_title">Error de reversión</string>
     <string name="download_fail_dialog">No se puede acceder a ninguna de las fuentes de hosts habilitadas. Comprueba la conexión a Internet.</string>
     <string name="download_fail_title">Error de descarga</string>
+    <string name="no_private_file_status">No se pudo escribir el nuevo archivo hosts privado</string>
     <string name="no_private_file">No se pudo crear el archivo privado.</string>
     <string name="no_private_file_title">Error de creación de archivo privado</string>
     <string name="enable_systemless_successful">Habilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
     <string name="enable_systemless_successful_title">Habilitación correcta</string>
     <string name="disable_systemless_successful">Inhabilitaste el modo sin modificaciones a la partición del sistema.\nEs posible que debas reiniciar Android para que los cambios se apliquen.\n\n¿Quieres reiniciar el dispositivo?\nNota: Para evitar la pérdida de datos, asegúrate de que ninguna app esté usando la tarjeta SD en este momento.</string>
     <string name="disable_systemless_successful_title">Inhabilitación correcta</string>
+    <string name="enable_vpn_fail">No se pudo habilitar el bloqueo de anuncios mediante VPN.</string>
+    <string name="disable_vpn_fail">No se pudo inhabilitar el bloqueo de anuncios mediante VPN.</string>
     <string name="enable_systemless_magisk_title">Habilitar el módulo Magisk de hosts</string>
-    <string name="enable_systemless_magisk">Habilita la función de hosts sin sistema del administrador Magisk. Desde su configuración, habilite la opción <cite>Hosts sin sistema</cite> y luego reinicie su dispositivo.</string>
+    <string name="enable_systemless_magisk">Habilita la función de hosts sin modificar el sistema del administrador de Magisk. Para ello, ve a su configuración, habilita la opción <cite>Systemless hosts</cite> (Hosts sin modificar el sistema) y, luego, reinicia el dispositivo.</string>
     <string name="disable_systemless_magisk_title">Deshabilitar el módulo Magisk de hosts</string>
     <string name="disable_systemless_magisk">Deshabilita la función de hosts sin sistema del administrador Magisk. En la lista de módulos, desinstale el módulo <cite>Hosts sin sistema</cite> y reinicie su dispositivo.</string>
 
@@ -140,22 +176,22 @@
     <string name="no_text_editor_title">No tienes instalado ningún editor de texto</string>
     <string name="no_text_editor">No se encontró ningún editor de texto para abrir el archivo hosts. Puedes instalar Jota u otro editor de texto para encargarte de esto.\n\n¿Quieres instalar Jota?</string>
     <string name="no_file_manager_title">No tienes instalado ningún administrador de archivos</string>
-    <string name="no_file_manager">No se encontró ningún gestor para abrir los archivos. Puedes instalar OI File Manager u otros gestores de archivos para encargarte de esto.\n\n¿Quieres instalar OI File Manager?</string>
+    <string name="no_file_manager">No se encontró ningún administrador que pueda abrir los archivos. Puedes instalar OI File Manager u otro administrador de archivos para hacerlo.\n\n¿Quieres instalar OI File Manager?</string>
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump es una herramienta para monitorear las solicitudes DNS y guardarlas en un archivo de registro. Puedes iniciarlo en segundo plano, ejecutar aplicaciones que muestran anuncios, y después analizar las peticiones DNS utilizando el archivo de registro. El posible servidor de anuncios puede ser añadido a su lista negra.</string>
-    <string name="tcpdump_disable_monitoring">Desactivar monitoreo</string>
-    <string name="tcpdump_enable_monitoring">Activar monitoreo</string>
+    <string name="tcpdump_description">Tcpdump es una herramienta que permite supervisar las solicitudes DNS y guardarlas en un archivo de registro. Puedes iniciarlo en segundo plano, ejecutar aplicaciones que muestren anuncios y, luego, analizar las solicitudes DNS con el archivo de registro. Posteriormente, puedes agregar a la lista negra el posible servidor de anuncios.</string>
+    <string name="tcpdump_disable_monitoring">Inhabilitar supervisión</string>
+    <string name="tcpdump_enable_monitoring">Habilitar supervisión</string>
     <string name="tcpdump_show_results">Mostrar resultados</string>
     <string name="tcpdump_redirect_dialog_title">Redirigir dominio</string>
     <string name="tcpdump_menu_sort">Ordenar dominios</string>
     <string name="tcpdump_menu_clear">Limpiar registro</string>
     <string name="tcpdump_sort_alphabetical">Orden alfabético</string>
-    <string name="tcpdump_sort_top_level_domain">Orden de top-level domain</string>
-    <string name="tcpdump_entry_add_blacklist">Añadir entrada a la Lista Negra</string>
-    <string name="tcpdump_entry_add_whitelist">Añadir entrada a la Lista Blanca</string>
-    <string name="tcpdump_entry_add_redirection_list">Añadir entrada a la Lista de Redirección</string>
+    <string name="tcpdump_sort_top_level_domain">Orden por dominio de nivel superior</string>
+    <string name="tcpdump_entry_add_blacklist">Agregar entrada a la lista negra</string>
+    <string name="tcpdump_entry_add_whitelist">Agregar entrada a la lista blanca</string>
+    <string name="tcpdump_entry_add_redirection_list">Agregar entrada a la lista de redirección</string>
 
     <string name="pref_edit_text_value">Editar valor de texto de la preferencia</string>
     <string name="drawer_open">Abrir menú</string>
@@ -175,14 +211,17 @@
     <!--Drawer menu labels-->
 
     <!--Shortcuts-->
-    <string name="shortcut_dns_requests">Pedidos DNS</string>
+    <string name="shortcut_dns_requests">Solicitudes DNS</string>
     <string name="shortcut_your_lists">Tus listas</string>
     <string name="shortcut_preferences">Preferencias</string>
 
-    <string name="hosts_source_up_to_date">%1$s actualizado</string>
-    <string name="hosts_source_need_update">%1$s necesita una actualización</string>
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Se instaló hace %1$s</string>
+    <string name="hosts_source_up_to_date">Actualizado desde %1$s</string>
+    <string name="hosts_source_need_update">Necesita actualización desde %1$s</string>
     <string name="hosts_source_last_update">Última actualización hace %1$s</string>
     <string name="hosts_source_unknown_status">Estado de actualización desconocido</string>
+    <string name="hosts_source_few_minutes">pocos minutos</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minuto</item>
         <item quantity="other">%d minutos</item>
@@ -200,4 +239,20 @@
         <item quantity="other">%d meses</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">iniciando</string>
+    <string name="vpn_notification_running">activo</string>
+    <string name="vpn_notification_stopping">deteniendo</string>
+    <string name="vpn_notification_waiting_for_net">en espera de la red</string>
+    <string name="vpn_notification_reconnecting">reconectando</string>
+    <string name="vpn_notification_reconnecting_error">error de reconexión</string>
+    <string name="vpn_notification_paused">en pausa</string>
+    <string name="vpn_notification_stopped">detenido</string>
+    <string name="vpn_notification_title">Bloqueador de anuncios por VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Pausar</string>
+    <string name="vpn_notification_paused_text">Presiona para continuar</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Habilitar e inhabilitar el bloqueo de anuncios del sistema</string>
+
+</resources>
