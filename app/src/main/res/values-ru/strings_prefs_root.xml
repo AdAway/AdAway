@@ -23,4 +23,11 @@
     <string name="pref_webserver">Локальный веб-сервер</string>
     <string name="pref_webserver_summary">Локальный веб-сервер прослушивает локальные IP адреса и отвечает на запросы к заблокированным хостам.  Это поможет избегать зависаний при блокировке подключений.</string>
     <string name="pref_webserver_enabled">Включить веб-сервер</string>
+    <string name="pref_webserver_test">Проверить веб-сервер</string>
+    <string name="pref_webserver_certificate">Установить самоподписанный сертификат</string>
+    <string name="pref_webserver_state_checking">Проверка...</string>
+    <string name="pref_webserver_state_not_running">Не запущен</string>
+    <string name="pref_webserver_state_running_not_installed">Запущен, но сертификат не установлен</string>
+    <string name="pref_webserver_state_running_and_installed">Запущен, сертификат установлен</string>
+    <string name="pref_webserver_icon">Заменить пустоту от рекламы логотипом приложения</string>
 </resources>
