@@ -241,6 +241,7 @@
     <string name="hosts_source_need_update">Требуется обновление %1$s</string>
     <string name="hosts_source_last_update">Последнее обновление %1$s назад</string>
     <string name="hosts_source_unknown_status">Неизвестный статус обновления</string>
+    <string name="hosts_source_few_minutes">несколько минут</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d минута</item>
         <item quantity="few">%d минут</item>
