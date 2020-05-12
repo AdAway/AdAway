@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferencias</string>
+    <!-- General category -->
+    <string name="pref_general_category">Generales</string>
+    <string name="pref_dark_theme">Tema oscuro</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Claro</item>
+        <item>Oscur</item>
+        <item>Predeterminado del sistema</item>
+    </string-array>
+    <string name="pref_update_configuration">Actualizaciones automaticas</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Bloqueo de anuncios</string>
+    <string name="pref_root_ad_blocker_configuration">Bloqueador de anuncios basado en acceso raíz</string>
+    <string name="pref_vpn_ad_blocker_configuration">Bloqueador de anuncios basado en VPN</string>
+    <string name="pref_whitelist_rules">Aplicar los hosts permitidos de las fuentes</string>
+    <string name="pref_redirection_rules">Aplicar los hosts redireccionados de las fuentes</string>
+    <string name="pref_redirection_rules_summary">ESTE ES UN RIESGO DE SEGURIDAD</string>
+    <string name="pref_enable_ipv6">Habilitar compatibilidad con IPv6</string>
+    <string name="pref_backup_restore">Crear copias de seguridad y restablecer reglas de bloqueo</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Depurar</string>
-    </resources>
+    <string name="pref_debug_category">Depuración</string>
+    <string name="pref_enable_telemetry">Enviar informes de fallas</string>
+    <string name="pref_enable_telemetry_summary">Enviar informes a Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">No se admite en esta versión</string>
+    <string name="pref_enable_debug">Registro detallado</string>
+    <string name="pref_enable_debug_summary">Debes reiniciar la app para aplicar esta opción</string>
+</resources>
