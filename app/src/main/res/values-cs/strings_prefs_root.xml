@@ -23,4 +23,11 @@
     <string name="pref_webserver">Lokální webový server</string>
     <string name="pref_webserver_summary">Lokální webový server naslouchá na lokálních IP adresách a odpovídá na požadavky na zablokovaná jména hostitelů. To může pomoci se zamrzáváním aplikací po zablokování spojení.</string>
     <string name="pref_webserver_enabled">Povolit webový server</string>
+    <string name="pref_webserver_test">Otestovat webový server</string>
+    <string name="pref_webserver_certificate">Nainstalovat certifikát podepsaný sám sebou</string>
+    <string name="pref_webserver_state_checking">Kontrolování…</string>
+    <string name="pref_webserver_state_not_running">Neběží</string>
+    <string name="pref_webserver_state_running_not_installed">Běží, ale není nainstalován certifikát</string>
+    <string name="pref_webserver_state_running_and_installed">Běží a certifikát je nainsalován</string>
+    <string name="pref_webserver_icon">Vyplnit prázdné místo reklamy ikonou aplikace</string>
 </resources>
