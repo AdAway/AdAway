@@ -2,15 +2,20 @@
 <resources>
     <string name="pref_main_title">首选项</string>
     <!-- General category -->
-    <string name="pref_general_category">一般</string>
+    <string name="pref_general_category">常规</string>
     <string name="pref_dark_theme">启用深色主题</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>光亮</item>
+        <item>黑暗</item>
+        <item>系统默认</item>
+    </string-array>
     <string name="pref_update_configuration">自动更新</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">广告屏蔽</string>
     <string name="pref_root_ad_blocker_configuration">基于Root的广告拦截器</string>
     <string name="pref_vpn_ad_blocker_configuration">基于VPN的广告拦截器</string>
-    <string name="pref_whitelist_rules">允许白名单</string>
-    <string name="pref_redirection_rules">允许重定向</string>
+    <string name="pref_whitelist_rules">允许白名单的hosts</string>
+    <string name="pref_redirection_rules">允许重定向的hosts</string>
     <string name="pref_redirection_rules_summary">可能会带来安全隐患！允许在线 hosts 源中的重定向条目。</string>
     <string name="pref_enable_ipv6">启用 IPv6</string>
     <string name="pref_backup_restore">备份/还原屏蔽规则</string>
