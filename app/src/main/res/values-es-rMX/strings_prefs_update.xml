@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Actualizaciones</string>
-    </resources>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Actualizaciones de la aplicación</string>
+    <string name="pref_update_check_app_daily">Buscar actualizaciones periódicamente</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Actualizaciones del archivo de hosts</string>
+    <string name="pref_update_check">Buscar actualizaciones al abrir la app</string>
+    <string name="pref_update_check_hosts_daily">Buscar actualizaciones periódicamente</string>
+    <string name="pref_update_sync_on_update">Sincronizar durante la actualización</string>
+    <string name="pref_update_sync_unmetered_only">Sincronizar solo en redes de uso no medido</string>
+</resources>
