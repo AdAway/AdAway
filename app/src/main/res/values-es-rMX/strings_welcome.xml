@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Te damos la bienvenida</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Logotipo de bienvenida</string>
+    <string name="welcome_method_header">Te damos la bienvenida a AdAway</string>
+    <string name="welcome_method_summary">AdAway tiene dos métodos de bloqueo de anuncios. Elige el que prefieras:</string>
+
+    <string name="welcome_root_method_logo">Logotipo de acceso raíz</string>
+    <string name="welcome_root_method_title">Bloqueo de anuncios\nbasado en acceso raíz</string>
+    <string name="welcome_root_method_text1">Es más rápido</string>
+    <string name="welcome_root_method_text2">Usa menos batería</string>
+    <string name="welcome_root_method_text3">Se necesita un dispositivo con acceso raíz</string>
+
+    <string name="welcome_vpn_method_logo">Logotipo de VPN</string>
+    <string name="welcome_vpn_method_title">Bloqueo de anuncios\nbasado en VPN</string>
+    <string name="welcome_vpn_method_text1">Es más lento</string>
+    <string name="welcome_vpn_method_text2">Se ejecuta en segundo plano</string>
+    <string name="welcome_vpn_method_text3">Compatibilidad</string>
+
     <string name="welcome_root_missing_title">Se necesita un dispositivo con acceso raíz</string>
-    </resources>
+    <string name="welcome_root_missile_description">No se pudo encontrar el objeto binario su o no otorgaste permisos de superusuario a AdAway.\n\nEsto puede deberse a que no tienes acceso raíz al dispositivo. Para obtener más información sobre cómo obtener acceso raíz, consulta wiki.lineageos.org (en inglés) u otros sitios web sobre Android.</string>
+
+    <string name="welcome_method_pro_logo">Ventaja</string>
+    <string name="welcome_method_con_logo">Desventaja</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Se realizó la sincronización</string>
+    <string name="welcome_sync_error_logo">Error de sincronización</string>
+
+    <string name="welcome_sync_header">Sincronizando</string>
+    <string name="welcome_synced_header">Sincronizado</string>
+    <string name="welcome_sync_summary">AdAway usa fuentes en línea para descargar las redes de anuncios y bloquearlas. Puedes personalizar estas fuentes más adelante en la configuración.</string>
+    <string name="welcome_sync_retry_logo">Reintentar sincronización</string>
+    <string name="welcome_sync_error">No se pudo sincronizar %s.\n¿Quieres volver a intentarlo?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Apoyo</string>
+    <string name="welcome_support_header">¡Apóyame!</string>
+    <string name="welcome_support_summary">Esta es una app gratuita y de código libre. La desarrollo en mi tiempo libre. Si la disfrutas, puedes demostrar tu apoyo:</string>
+    <string name="welcome_support_button">Dona en PayPal</string>
+    <string name="welcome_support_telemetry_summary">A nadie le gustan los errores.</string>
+    <string name="welcome_support_telemetry_button">Habilita la telemetría para enviarme informes de fallas</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Atrás</string>
+    <string name="welcome_next_button">Siguiente</string>
+    <string name="welcome_finish_button">Terminar</string>
+</resources>
