@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Bloqueador de anuncios basado en acceso raíz</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instalación de hosts</string>
     <string name="pref_root_open_hosts">Abrir archivo hosts</string>
     <string name="pref_apply_method">Archivo hosts de destino</string>
+    <string name="pref_apply_method_summary">Lee la ayuda antes de usar esta función</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Destino personalizado</item>
     </string-array>
+    <string name="pref_custom_target">Ubicación del destino personalizado</string>
+    <string name="pref_never_reboot">Ocultar el cuadro de diálogo de reinicio después de aplicar</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Redirección</string>
+    <string name="pref_hosts_redirection_summary">Define adónde se redireccionarán los hosts bloqueados</string>
+    <string name="pref_redirection_ipv4">Redireccionamiento IPv4</string>
+    <string name="pref_redirection_ipv6">Redireccionamiento IPv6</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Servidor web local</string>
+    <string name="pref_webserver_summary">El servidor web local escucha en las direcciones IP locales para responder las solicitudes a los hosts bloqueados. Esto puede evitar que las apps dejen de funcionar cuando se bloquean las conexiones.</string>
     <string name="pref_webserver_enabled">Habilitar servidor web</string>
-    </resources>
+    <string name="pref_webserver_test">Probar servidor web</string>
+    <string name="pref_webserver_certificate">Instalar certificado autofirmado</string>
+    <string name="pref_webserver_state_checking">Comprobando…</string>
+    <string name="pref_webserver_state_not_running">Inactivo</string>
+    <string name="pref_webserver_state_running_not_installed">Activo (certificado no instalado)</string>
+    <string name="pref_webserver_state_running_and_installed">Activo (certificado instalado)</string>
+    <string name="pref_webserver_icon">Reemplazar espacio en blanco de los anuncios por ícono de la app</string>
+</resources>
