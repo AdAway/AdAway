@@ -222,6 +222,7 @@
     <string name="hosts_source_need_update">需要更新，最后更新于 %1$s前</string>
     <string name="hosts_source_last_update">最后更新于 %1$s前</string>
     <string name="hosts_source_unknown_status">更新状态未知</string>
+    <string name="hosts_source_few_minutes">几分钟</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d 分钟</item>
     </plurals>
