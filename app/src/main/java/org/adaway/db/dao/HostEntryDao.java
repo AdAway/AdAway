@@ -18,6 +18,6 @@ public interface HostEntryDao {
     @Query("SELECT * FROM `host_entries`")
     List<HostEntry> getAll();
 
-    @Query("SELECT `type` FROM `host_entries` WHERE `host` == :host")
+    @Query("SELECT IFNULL((SELECT `type` FROM `host_entries` WHERE `host` == :host), 1)")
     ListType getTypeOfHost(String host);
 }

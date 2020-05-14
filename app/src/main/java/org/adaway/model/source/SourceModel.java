@@ -399,9 +399,8 @@ public class SourceModel {
         boolean updated = false;
         for (HostsSource source : this.hostsSourceDao.getAll()) {
             if (!source.isEnabled()) {
+                this.hostsSourceDao.toggleEnabled(source);
                 updated = true;
-                source.setEnabled(true);
-                this.hostsSourceDao.update(source);
             }
         }
         return updated;

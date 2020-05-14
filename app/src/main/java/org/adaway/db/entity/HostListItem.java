@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey;
 import java.util.Objects;
 
 import static androidx.room.ForeignKey.CASCADE;
-import static org.adaway.db.entity.ListType.REDIRECTED;
+import static org.adaway.db.entity.ListType.ALLOWED;
 
 /**
  * This entity represents a black, white or redirect list item.
@@ -65,9 +65,9 @@ public class HostListItem {
     }
 
     public String getDisplayedHost() {
-        if (this.type == REDIRECTED) {
+        if (this.type == ALLOWED) {
             if (this.displayedHost == null) {
-                this.displayedHost = formatHost(this.host);
+                this.displayedHost = toDisplayHost(this.host);
             }
             return this.displayedHost;
         } else {
@@ -76,7 +76,7 @@ public class HostListItem {
     }
 
     public void setDisplayedHost(String displayedHost) {
-        if (this.type == REDIRECTED) {
+        if (this.type == ALLOWED) {
             this.host = fromDisplayedHost(displayedHost);
             this.displayedHost = displayedHost;
         } else {
@@ -144,11 +144,11 @@ public class HostListItem {
         return result;
     }
 
-    private static String formatHost(String host) {
-        return host.replaceAll("\\*", "%").replaceAll("\\?", "_");
+    private static String toDisplayHost(String host) {
+        return host.replaceAll("%", "*").replaceAll("_", "?");
     }
 
     private static String fromDisplayedHost(String displayedHost) {
-        return displayedHost.replaceAll("%", "*").replaceAll("_", "?");
+        return displayedHost.replaceAll("\\*", "%").replaceAll("\\?", "_");
     }
 }

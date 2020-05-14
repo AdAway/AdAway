@@ -11,11 +11,16 @@ import org.adaway.db.entity.ListType;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 @DatabaseView(
-        value = "SELECT `host`, `type`, `redirection` " +
-                "FROM `hosts_lists` " +
-                "WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) " +
-                "GROUP BY `host` " +
-                "ORDER BY `host` ASC, `type` DESC, `redirection` ASC",
+        value = "WITH redir AS (" +
+                "    SELECT host, redirection FROM hosts_lists WHERE enabled = 1 AND type = 2 ORDER BY source_id ASC" +
+                "), allowed AS (" +
+                "    SELECT host FROM `hosts_lists` WHERE `enabled` = 1 AND `type` = 1" +
+                ") " +
+                "SELECT list.`host`, max(`type`) AS type, redir.redirection " +
+                "FROM `hosts_lists` AS `list` " +
+                "LEFT JOIN redir ON list.host = redir.host " +
+                "WHERE `enabled` = 1 AND ( (`type` = 0 AND NOT EXISTS (SELECT 1 FROM allowed WHERE `list`.`host` LIKE allowed.host ) ) OR `type` = 2) " +
+                "GROUP BY list.`host`",
         viewName = "host_entries")
 public class HostEntry {
     @NonNull
