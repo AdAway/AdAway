@@ -230,6 +230,7 @@ Wilt u herstarten?
     <string name="hosts_source_need_update">Update nodig van%1$s</string>
     <string name="hosts_source_last_update">Laatste update %1$s geleden</string>
     <string name="hosts_source_unknown_status">Onbekende update status</string>
+    <string name="hosts_source_few_minutes">enkele minuten</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%dminuut</item>
         <item quantity="other">%d minuten</item>
