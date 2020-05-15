@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Home screen -->
+    <string name="update_available">Dostępna aktualizacja!</string>
+
+    <!-- Changelog dialog -->
+    <string name="update_update_title">Dostępna jest nowa wersja</string>
+    <string name="update_update_message">Nowa wersja wprowadza następujące zmiany:\n\n</string>
+    <string name="update_up_to_date_title">Jesteś na bieżąco</string>
+    <string name="update_up_to_date_message">Ta najnowsza wersja wprowadza następujące zmiany:\n\n</string>
     <string name="update_changelog">Lista zmian</string>
-    </resources>
+    <string name="update_update_button">Aktualizuj teraz</string>
+</resources>
