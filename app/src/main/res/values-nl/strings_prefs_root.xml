@@ -23,4 +23,11 @@
     <string name="pref_webserver">Lokale webserver</string>
     <string name="pref_webserver_summary">De lokale webserver luistert naar lokale ip-adressen om aanvragen van geblokkeerde hostnamen te beantwoorden. indien de connectie blokkeert kan app freezing helpen.</string>
     <string name="pref_webserver_enabled">Webserver inschakelen</string>
+    <string name="pref_webserver_test">Test webserver</string>
+    <string name="pref_webserver_certificate">Installeer zelf ondertekend certificaat</string>
+    <string name="pref_webserver_state_checking">Controleer…</string>
+    <string name="pref_webserver_state_not_running">Niet actief</string>
+    <string name="pref_webserver_state_running_not_installed">Actief maar certificaat is niet geinstalleerd</string>
+    <string name="pref_webserver_state_running_and_installed">Actief en certificaat is geinstalleerd</string>
+    <string name="pref_webserver_icon">Vervang lege advertentieruimte met app incon</string>
 </resources>
