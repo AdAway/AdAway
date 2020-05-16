@@ -10,7 +10,7 @@ import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.db.view.HostEntry;
+import org.adaway.db.entity.HostEntry;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
@@ -217,7 +217,7 @@ public class RootModel extends AdBlockModel {
         writer.write(HEADER_SOURCES);
         writer.newLine();
         for (HostsSource hostsSource : this.hostsSourceDao.getEnabled()) {
-            writer.write("# - " + hostsSource.getUrl() + LINE_SEPARATOR);
+            writer.write("# - " + hostsSource.getUrl());
             writer.newLine();
         }
         // Write empty line separator
