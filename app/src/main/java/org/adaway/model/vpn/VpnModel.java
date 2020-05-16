@@ -5,7 +5,7 @@ import android.util.LruCache;
 
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
-import org.adaway.db.dao.HostListItemDao;
+import org.adaway.db.dao.HostEntryDao;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 
+import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
 
@@ -26,7 +27,7 @@ import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
  */
 public class VpnModel extends AdBlockModel {
     private static final String TAG = "VpnModel";
-    private final HostListItemDao hostListItemDao;
+    private final HostEntryDao hostEntryDao;
     private final LruCache<String, Boolean> blockCache;
     private final LinkedHashSet<String> logs;
     private boolean recordingLogs;
@@ -40,11 +41,11 @@ public class VpnModel extends AdBlockModel {
     public VpnModel(Context context) {
         super(context);
         AppDatabase database = AppDatabase.getInstance(context);
-        this.hostListItemDao = database.hostsListItemDao();
+        this.hostEntryDao = database.hostEntryDao();
         this.blockCache = new LruCache<String, Boolean>(4 * 1024) {
             @Override
             protected Boolean create(String key) {
-                return VpnModel.this.hostListItemDao.isHostBlocked(key);
+                return VpnModel.this.hostEntryDao.getTypeOfHost(key) == BLOCKED;
             }
         };
         this.logs = new LinkedHashSet<>();
