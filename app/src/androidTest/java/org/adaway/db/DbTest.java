@@ -15,7 +15,7 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.db.view.HostEntry;
+import org.adaway.db.entity.HostEntry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -101,6 +101,7 @@ public class DbTest {
         insertBlockedHost("ads.google.com", USER_SOURCE_ID);
         insertBlockedHost("bingads.microsoft.com", USER_SOURCE_ID);
         insertBlockedHost("ads.yahoo.com", USER_SOURCE_ID);
+        this.hostEntryDao.sync();
         // Test inserted blocked hosts
         LiveData<Integer> blockedHostCount = this.hostListItemDao.getBlockedHostCount();
         assertEquals(5, getOrAwaitValue(blockedHostCount).intValue());
@@ -119,6 +120,7 @@ public class DbTest {
         insertAllowedHost("*.google.com", USER_SOURCE_ID);
         insertAllowedHost("ads.yahoo.com", USER_SOURCE_ID);
         insertAllowedHost("adaway.org", USER_SOURCE_ID);
+        this.hostEntryDao.sync();
         // Test inserted allowed hosts
         LiveData<Integer> allowedHostCount = this.hostListItemDao.getAllowedHostCount();
         assertEquals(3, getOrAwaitValue(allowedHostCount).intValue());
@@ -139,6 +141,7 @@ public class DbTest {
         // Insert redirected hosts
         insertRedirectedHost("ads.yahoo.com", "1.2.3.4", USER_SOURCE_ID);
         insertRedirectedHost("github.com", "1.2.3.4", USER_SOURCE_ID);
+        this.hostEntryDao.sync();
         // Test inserted redirected hosts
         LiveData<Integer> redirectedHostCount = this.hostListItemDao.getRedirectHostCount();
         assertEquals(2, getOrAwaitValue(redirectedHostCount).intValue());
@@ -164,16 +167,13 @@ public class DbTest {
         // Insert user source and external source
         insertSource(USER_SOURCE_ID, "userSource");
         insertSource(EXTERNAL_SOURCE_ID, "sourceUrl");
-        // Test only external source is found
-        List<HostsSource> sources = this.hostsSourceDao.getAll();
-        assertEquals(1, sources.size());
-        assertEquals("sourceUrl", sources.get(0).getUrl());
 
         /*
          * Test duplicate blocked hosts.
          */
         insertBlockedHost("advertising.apple.com", USER_SOURCE_ID);
         insertBlockedHost("advertising.apple.com", EXTERNAL_SOURCE_ID);
+        this.hostEntryDao.sync();
         LiveData<Integer> blockedHostCount = this.hostListItemDao.getBlockedHostCount();
         assertEquals(1, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(1, this.hostEntryDao.getAll().size());
@@ -183,6 +183,7 @@ public class DbTest {
          */
         insertAllowedHost("adaway.org", USER_SOURCE_ID);
         insertAllowedHost("adaway.org", EXTERNAL_SOURCE_ID);
+        this.hostEntryDao.sync();
         LiveData<Integer> allowedHostCount = this.hostListItemDao.getAllowedHostCount();
         assertEquals(1, getOrAwaitValue(allowedHostCount).intValue());
         assertEquals(1, this.hostEntryDao.getAll().size());
@@ -192,6 +193,7 @@ public class DbTest {
          */
         insertRedirectedHost("github.com", "1.1.1.1", USER_SOURCE_ID);
         insertRedirectedHost("github.com", "2.2.2.2", EXTERNAL_SOURCE_ID);
+        this.hostEntryDao.sync();
         LiveData<Integer> redirectHostCount = this.hostListItemDao.getRedirectHostCount();
         assertEquals(1, getOrAwaitValue(redirectHostCount).intValue());
         assertEquals(2, this.hostEntryDao.getAll().size());
@@ -205,7 +207,7 @@ public class DbTest {
         // Insert user source and external source
         insertSource(USER_SOURCE_ID, "userSource");
         insertSource(EXTERNAL_SOURCE_ID, "sourceUrl");
-        HostsSource extenalHostSource = getSourceFromId(EXTERNAL_SOURCE_ID);
+        HostsSource externalHostSource = getSourceFromId(EXTERNAL_SOURCE_ID);
         // Test only external source is found
         List<HostsSource> sources = this.hostsSourceDao.getAll();
         assertEquals(1, sources.size());
@@ -220,16 +222,19 @@ public class DbTest {
         insertBlockedHost("ads.google.com", USER_SOURCE_ID);
         insertBlockedHost("bingads.microsoft.com", EXTERNAL_SOURCE_ID);
         insertBlockedHost("ads.yahoo.com", EXTERNAL_SOURCE_ID);
+        this.hostEntryDao.sync();
         // Test inserted blocked hosts
         LiveData<Integer> blockedHostCount = this.hostListItemDao.getBlockedHostCount();
         assertEquals(5, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(5, this.hostEntryDao.getAll().size());
         // Disabled a source
-        this.hostsSourceDao.toggleEnabled(extenalHostSource);
+        this.hostsSourceDao.toggleEnabled(externalHostSource);
+        this.hostEntryDao.sync();
         assertEquals(3, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(3, this.hostEntryDao.getAll().size());
         // Re-enable a source
-        this.hostsSourceDao.toggleEnabled(extenalHostSource);
+        this.hostsSourceDao.toggleEnabled(externalHostSource);
+        this.hostEntryDao.sync();
         assertEquals(5, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(5, this.hostEntryDao.getAll().size());
 
@@ -239,18 +244,21 @@ public class DbTest {
         // Insert blocked hosts
         insertBlockedHost("adaway.org", USER_SOURCE_ID);
         insertAllowedHost("adaway.org", EXTERNAL_SOURCE_ID);
+        this.hostEntryDao.sync();
         // Test inserted blocked hosts
         LiveData<Integer> allowedHostCount = this.hostListItemDao.getAllowedHostCount();
         assertEquals(6, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(1, getOrAwaitValue(allowedHostCount).intValue());
         assertEquals(5, this.hostEntryDao.getAll().size());
         // Disabled a source
-        this.hostsSourceDao.toggleEnabled(extenalHostSource);
+        this.hostsSourceDao.toggleEnabled(externalHostSource);
+        this.hostEntryDao.sync();
         assertEquals(4, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(0, getOrAwaitValue(allowedHostCount).intValue());
         assertEquals(4, this.hostEntryDao.getAll().size());
         // Re-enable a source
-        this.hostsSourceDao.toggleEnabled(extenalHostSource);
+        this.hostsSourceDao.toggleEnabled(externalHostSource);
+        this.hostEntryDao.sync();
         assertEquals(6, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(1, getOrAwaitValue(allowedHostCount).intValue());
         assertEquals(5, this.hostEntryDao.getAll().size());
@@ -261,6 +269,7 @@ public class DbTest {
         // Insert blocked hosts
         insertRedirectedHost("github.com", "1.1.1.1", USER_SOURCE_ID);
         insertRedirectedHost("github.com", "2.2.2.2", EXTERNAL_SOURCE_ID);
+        this.hostEntryDao.sync();
         // Test inserted blocked hosts
         LiveData<Integer> redirectHostCount = this.hostListItemDao.getRedirectHostCount();
         assertEquals(6, getOrAwaitValue(blockedHostCount).intValue());
@@ -268,12 +277,14 @@ public class DbTest {
         assertEquals(1, getOrAwaitValue(redirectHostCount).intValue());
         assertEquals(6, this.hostEntryDao.getAll().size());
         // Disabled a source
-        this.hostsSourceDao.toggleEnabled(extenalHostSource);
+        this.hostsSourceDao.toggleEnabled(externalHostSource);
+        this.hostEntryDao.sync();
         assertEquals(4, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(0, getOrAwaitValue(allowedHostCount).intValue());
         assertEquals(5, this.hostEntryDao.getAll().size());
         // Re-enable a source
-        this.hostsSourceDao.toggleEnabled(extenalHostSource);
+        this.hostsSourceDao.toggleEnabled(externalHostSource);
+        this.hostEntryDao.sync();
         assertEquals(6, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(1, getOrAwaitValue(allowedHostCount).intValue());
         assertEquals(1, getOrAwaitValue(redirectHostCount).intValue());
@@ -295,6 +306,7 @@ public class DbTest {
         // Insert two redirects for the same host
         insertRedirectedHost("adaway.org", "1.1.1.1", USER_SOURCE_ID);
         insertRedirectedHost("adaway.org", "2.2.2.2", EXTERNAL_SOURCE_ID);
+        this.hostEntryDao.sync();
         // Test inserted redirected hosts
         LiveData<Integer> redirectedHostCount = this.hostListItemDao.getRedirectHostCount();
         assertEquals(1, getOrAwaitValue(redirectedHostCount).intValue());
@@ -324,7 +336,7 @@ public class DbTest {
     private void insertAllowedHost(String host, int sourceId) {
         HostListItem item = new HostListItem();
         item.setType(ALLOWED);
-        item.setDisplayedHost(host);
+        item.setHost(host);
         item.setEnabled(true);
         item.setSourceId(sourceId);
         this.hostListItemDao.insert(item);
@@ -333,7 +345,7 @@ public class DbTest {
     private void insertRedirectedHost(String host, String redirection, int sourceId) {
         HostListItem item = new HostListItem();
         item.setType(REDIRECTED);
-        item.setDisplayedHost(host);
+        item.setHost(host);
         item.setEnabled(true);
         item.setRedirection(redirection);
         item.setSourceId(sourceId);

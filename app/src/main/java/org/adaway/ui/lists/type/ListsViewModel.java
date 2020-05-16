@@ -34,9 +34,9 @@ import static org.adaway.ui.lists.ListsFilter.ALL;
 public class ListsViewModel extends AndroidViewModel {
     private final HostListItemDao hostListItemDao;
     private final MutableLiveData<ListsFilter> filter;
-    private final LiveData<PagedList<HostListItem>> blackListItems;
-    private final LiveData<PagedList<HostListItem>> whiteListItems;
-    private final LiveData<PagedList<HostListItem>> redirectionListItems;
+    private final LiveData<PagedList<HostListItem>> blockedListItems;
+    private final LiveData<PagedList<HostListItem>> allowedListItems;
+    private final LiveData<PagedList<HostListItem>> redirectedListItems;
     private final LiveData<List<HostListItem>> userListItems;
 
     public ListsViewModel(@NonNull Application application) {
@@ -48,31 +48,31 @@ public class ListsViewModel extends AndroidViewModel {
                 .setPrefetchDistance(150)
                 .setEnablePlaceholders(false)
                 .build();
-        this.blackListItems = Transformations.switchMap(
+        this.blockedListItems = Transformations.switchMap(
                 this.filter,
                 filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(BLOCKED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
         );
-        this.whiteListItems = Transformations.switchMap(
+        this.allowedListItems = Transformations.switchMap(
                 this.filter,
                 filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(ALLOWED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
         );
-        this.redirectionListItems = Transformations.switchMap(
+        this.redirectedListItems = Transformations.switchMap(
                 this.filter,
                 filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(REDIRECTED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
         );
         this.userListItems = this.hostListItemDao.loadUserList();
     }
 
-    public LiveData<PagedList<HostListItem>> getBlackListItems() {
-        return this.blackListItems;
+    public LiveData<PagedList<HostListItem>> getBlockedListItems() {
+        return this.blockedListItems;
     }
 
-    public LiveData<PagedList<HostListItem>> getWhiteListItems() {
-        return this.whiteListItems;
+    public LiveData<PagedList<HostListItem>> getAllowedListItems() {
+        return this.allowedListItems;
     }
 
-    public LiveData<PagedList<HostListItem>> getRedirectionListItems() {
-        return this.redirectionListItems;
+    public LiveData<PagedList<HostListItem>> getRedirectedListItems() {
+        return this.redirectedListItems;
     }
 
     public LiveData<List<HostListItem>> getUserListItems() {
@@ -87,7 +87,7 @@ public class ListsViewModel extends AndroidViewModel {
     public void addListItem(@NonNull ListType type, @NonNull String host, String redirection) {
         HostListItem item = new HostListItem();
         item.setType(type);
-        item.setDisplayedHost(host);
+        item.setHost(host);
         item.setRedirection(redirection);
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);

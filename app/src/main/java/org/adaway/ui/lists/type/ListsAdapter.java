@@ -85,7 +85,7 @@ class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
         holder.enabledCheckBox.setEnabled(editable);
         holder.enabledCheckBox.setChecked(item.isEnabled());
         holder.enabledCheckBox.setOnClickListener(editable ? view -> viewCallback.toggleItemEnabled(item) : null);
-        holder.hostTextView.setText(item.getDisplayedHost());
+        holder.hostTextView.setText(item.getHost());
         if (this.twoRows) {
             holder.redirectionTextView.setText(item.getRedirection());
         }

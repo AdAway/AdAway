@@ -33,15 +33,6 @@ public interface HostListItemDao {
     @Query("DELETE FROM hosts_lists WHERE source_id = 1 AND host = :host")
     void deleteUserFromHost(String host);
 
-    @Query("SELECT host FROM hosts_lists WHERE type = 0 AND enabled = 1")
-    List<String> getEnabledBlackListHosts();
-
-    @Query("SELECT host FROM hosts_lists WHERE type = 1 AND enabled = 1")
-    List<String> getEnabledWhiteListHosts();
-
-    @Query("SELECT * FROM hosts_lists WHERE type = 2 AND enabled = 1")
-    List<HostListItem> getEnabledRedirectList();
-
     @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND ((:includeSources == 0 AND source_id == 1) || (:includeSources == 1)) GROUP BY host ORDER BY host ASC")
     DataSource.Factory<Integer, HostListItem> loadList(int type, boolean includeSources, String query);
 

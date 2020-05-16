@@ -12,8 +12,10 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
+import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.helper.PreferenceHelper;
@@ -73,6 +75,10 @@ public class SourceModel {
      */
     private final HostListItemDao hostListItemDao;
     /**
+     * The {@link HostEntry} DAO.
+     */
+    private final HostEntryDao hostEntryDao;
+    /**
      * The update available status.
      */
     private MutableLiveData<Boolean> updateAvailable;
@@ -95,6 +101,7 @@ public class SourceModel {
         AppDatabase database = AppDatabase.getInstance(this.context);
         this.hostsSourceDao = database.hostsSourceDao();
         this.hostListItemDao = database.hostsListItemDao();
+        this.hostEntryDao = database.hostEntryDao();
         this.state = new MutableLiveData<>("");
         this.updateAvailable = new MutableLiveData<>();
         this.updateAvailable.setValue(false);
@@ -302,6 +309,8 @@ public class SourceModel {
         if (numberOfCopies == numberOfFailedCopies && numberOfCopies != 0) {
             throw new HostErrorException(DOWNLOAD_FAILED);
         }
+        // Synchronize hosts entries
+        this.hostEntryDao.sync();
         // Mark no update available
         this.updateAvailable.postValue(false);
     }

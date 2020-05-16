@@ -16,7 +16,7 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.db.view.HostEntry;
+import org.adaway.db.entity.HostEntry;
 import org.adaway.util.AppExecutors;
 
 import static org.adaway.db.Migrations.MIGRATION_1_2;
@@ -30,7 +30,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-@Database(entities = {HostsSource.class, HostListItem.class}, views = {HostEntry.class}, version = 4)
+@Database(entities = {HostsSource.class, HostListItem.class, HostEntry.class}, version = 4)
 @TypeConverters({ListTypeConverter.class, ZonedDateTimeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     /**
