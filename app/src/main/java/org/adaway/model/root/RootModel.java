@@ -7,17 +7,16 @@ import com.topjohnwu.superuser.io.SuFile;
 
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
-import org.adaway.db.dao.HostListItemDao;
+import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostsSourceDao;
-import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.db.view.HostEntry;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Log;
-import org.adaway.util.RegexUtils;
 import org.adaway.util.ShellUtils;
 import org.adaway.util.WebServerUtils;
 
@@ -35,11 +34,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Executor;
-import java.util.function.Predicate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import static android.content.Context.MODE_PRIVATE;
+import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
 import static org.adaway.model.error.HostError.COPY_FAIL;
 import static org.adaway.model.error.HostError.NOT_ENOUGH_SPACE;
@@ -69,7 +66,7 @@ public class RootModel extends AdBlockModel {
     private static final String HEADER2 = "# Please do not modify it directly, it will be overwritten when AdAway is applied again.";
     private static final String HEADER_SOURCES = "# This file is generated from the following sources:";
     private final HostsSourceDao hostsSourceDao;
-    private final HostListItemDao hostListItemDao;
+    private final HostEntryDao hostEntryDao;
 
     /**
      * Constructor.
@@ -81,7 +78,7 @@ public class RootModel extends AdBlockModel {
         // Get DOA
         AppDatabase database = AppDatabase.getInstance(this.context);
         this.hostsSourceDao = database.hostsSourceDao();
-        this.hostListItemDao = database.hostsListItemDao();
+        this.hostEntryDao = database.hostEntryDao();
         // Check if host list is applied
         Executor executor = AppExecutors.getInstance().diskIO();
         executor.execute(this::checkApplied);
@@ -239,46 +236,21 @@ public class RootModel extends AdBlockModel {
         String redirectionIpv4 = PreferenceHelper.getRedirectionIpv4(this.context);
         String redirectionIpv6 = PreferenceHelper.getRedirectionIpv6(this.context);
         boolean enableIpv6 = PreferenceHelper.getEnableIpv6(this.context);
-        // Write blocked hosts
-        List<String> blockedHosts = computeBlockedHosts();
-        for (String hostname : blockedHosts) {
-            writer.write(redirectionIpv4 + " " + hostname);
-            writer.newLine();
-            if (enableIpv6) {
-                writer.write(redirectionIpv6 + " " + hostname);
+        // Write each hostname
+        for (HostEntry entry: this.hostEntryDao.getAll()) {
+            String hostname = entry.getHost();
+            if (entry.getType() == REDIRECTED) {
+                writer.write(entry.getRedirection() + " " + hostname);
                 writer.newLine();
+            } else {
+                writer.write(redirectionIpv4 + " " + hostname);
+                writer.newLine();
+                if (enableIpv6) {
+                    writer.write(redirectionIpv6 + " " + hostname);
+                    writer.newLine();
+                }
             }
         }
-        // Write redirected hosts
-        List<HostListItem> redirectedHosts = this.hostListItemDao.getEnabledRedirectList();
-        for (HostListItem redirectedHost : redirectedHosts) {
-            writer.write(redirectedHost.getRedirection() + " " + redirectedHost.getHost());
-            writer.newLine();
-        }
-    }
-
-    private List<String> computeBlockedHosts() {
-        Predicate<String> allowed = getAllowedHostsFilter();
-        List<String> blockedHosts = this.hostListItemDao.getEnabledBlackListHosts();
-        return blockedHosts.stream()
-                .parallel()
-                .filter(allowed)
-                .collect(java.util.stream.Collectors.toList());
-    }
-
-    private Predicate<String> getAllowedHostsFilter() {
-        // Get allowed hosts
-        List<String> allowedHosts = this.hostListItemDao.getEnabledWhiteListHosts();
-        // Compute allowed patterns
-        List<Pattern> allowedPatterns = allowedHosts.stream()
-                .map(RegexUtils::wildcardToRegex)
-                .map(Pattern::compile)
-                .collect(java.util.stream.Collectors.toList());
-        // Build allowed filters
-        return host -> allowedPatterns.stream()
-                .parallel()
-                .map(pattern -> pattern.matcher(host))
-                .noneMatch(Matcher::find);
     }
 
     /**
