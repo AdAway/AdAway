@@ -25,7 +25,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.widget.Toast;
 
 import com.annimon.stream.Stream;
@@ -44,12 +43,12 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Optional;
@@ -61,23 +60,19 @@ import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.util.Constants.TAG;
 
 /**
- * This class is a helper class to import/export user lists and hosts sources to a backup file on sdcard.
+ * This class is a helper class to import/export user lists and hosts sources to a backup file.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class ImportExportHelper {
     /**
-     * The request code to identify the write external storage permission in {@link androidx.fragment.app.Fragment#onRequestPermissionsResult(int, java.lang.String[], int[])}.
-     */
-    public static final int WRITE_STORAGE_PERMISSION_REQUEST_CODE = 10;
-    /**
      * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
      */
     public static final int IMPORT_REQUEST_CODE = 42;
     /**
-     * The default backup file name.
+     * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
      */
-    private static final String BACKUP_FILE_NAME = "adaway-backup.json";
+    public static final int EXPORT_REQUEST_CODE = 43;
     /*
      * Backup format.
      */
@@ -105,9 +100,9 @@ public class ImportExportHelper {
      *
      * @param context The application context.
      */
-    public static void exportToBackup(Context context) {
+    public static void exportToBackup(Context context, Uri backupUri) {
         // Export user lists
-        new ExportTask(context).execute();
+        new ExportTask(context).execute(backupUri);
     }
 
     private static JSONObject makeBackup(Context context) throws JSONException {
@@ -246,13 +241,13 @@ public class ImportExportHelper {
         }
 
         @Override
-        protected Boolean doInBackground(Uri... results) {
+        protected Boolean doInBackground(Uri... params) {
             // Check parameters
-            if (results.length < 1) {
+            if (params.length < 1) {
                 return false;
             }
             // Get URI to export lists
-            Uri result = results[0];
+            Uri result = params[0];
             // Get context from weak reference
             Context context = this.mWeakContext.get();
             if (context == null) {
@@ -324,7 +319,7 @@ public class ImportExportHelper {
      *
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
-    private static class ExportTask extends AsyncTask<Void, Void, Boolean> {
+    private static class ExportTask extends AsyncTask<Uri, Void, Boolean> {
         /**
          * A weak reference to application context.
          */
@@ -345,24 +340,22 @@ public class ImportExportHelper {
         }
 
         @Override
-        protected Boolean doInBackground(Void... unused) {
+        protected Boolean doInBackground(Uri... params) {
+            // Check parameters
+            if (params.length < 1) {
+                return false;
+            }
+            // Get URI to export lists
+            Uri backupUri = params[0];
             // Get context from weak reference
             Context context = this.mWeakContext.get();
             if (context == null) {
                 // Fail to export
                 return false;
             }
-            // Check if sdcard can be written
-            File sdcard = Environment.getExternalStorageDirectory();
-            if (!sdcard.canWrite()) {
-                Log.e(TAG, "External storage can not be written.");
-                // Fail to export
-                return false;
-            }
-            // Create export file
-            File exportFile = new File(sdcard, BACKUP_FILE_NAME);
             // Open writer on the export file
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(exportFile))) {
+            try (OutputStream outputStream = context.getContentResolver().openOutputStream(backupUri);
+                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream))) {
                 JSONObject backup = makeBackup(context);
                 writer.write(backup.toString(4));
             } catch (JSONException e) {
