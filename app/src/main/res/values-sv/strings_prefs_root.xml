@@ -23,5 +23,11 @@
     <string name="pref_webserver">Lokal webbserver</string>
     <string name="pref_webserver_summary">Den lokala webbservern lyssnar på lokala IP-adresser till att svara på blockerade värdnamsförfrågningar. Det kan förhindra appfrysningar på blockerade anslutningar.</string>
     <string name="pref_webserver_enabled">Aktivera webbserver</string>
-    <string name="pref_webserver_icon">Ersätt annonsutrymmet med en appikon</string>
+    <string name="pref_webserver_test">Testa webbservern</string>
+    <string name="pref_webserver_certificate">Installera självsignerat certifikat</string>
+    <string name="pref_webserver_state_checking">Kontrollerar…</string>
+    <string name="pref_webserver_state_not_running">Körs inte</string>
+    <string name="pref_webserver_state_running_not_installed">Körs men utan installerat certifikat</string>
+    <string name="pref_webserver_state_running_and_installed">Körs med installerat certifikat</string>
+    <string name="pref_webserver_icon">Ersätt tomt annonsutrymme med en appikon</string>
 </resources>
