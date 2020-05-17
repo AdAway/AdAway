@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">Przywracania kopii zapasowej &amp;</string>
+    <string name="pref_backup">Kopia zapasowa</string>
+    <string name="pref_backup_summary">Utwórz kopię zapasową w pamięci zewnętrznej reguł blokowania</string>
+    <string name="pref_restore">Przywróć</string>
+    <string name="pref_restore_summary">Przywracanie reguł bloku z pliku kopii zapasowej</string>
+</resources>
