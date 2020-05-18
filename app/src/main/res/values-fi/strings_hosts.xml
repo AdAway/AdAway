@@ -7,4 +7,5 @@
     <string name="hosts_add_dialog_title">Lisää lähde</string>
     <string name="hosts_edit_dialog_title">Muokkaa lähdettä</string>
     <string name="hosts_dialog_url">Osoite: (https:// tai file:// -resurssi)</string>
-    </resources>
+    <string name="hosts_dialog_url_hint">Isännän lähde URL</string>
+</resources>
