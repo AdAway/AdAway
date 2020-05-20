@@ -32,6 +32,8 @@ import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 /**
  * This class tests the hosts database feature.
@@ -108,10 +110,30 @@ public class DbTest {
         assertEquals(5, this.hostEntryDao.getAll().size());
         // Test each host type
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("advertising.apple.com"));
+        HostEntry entry = this.hostEntryDao.getEntry("advertising.apple.com");
+        assertNotNull(entry);
+        assertEquals("advertising.apple.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("an.facebook.com"));
+        entry = this.hostEntryDao.getEntry("an.facebook.com");
+        assertNotNull(entry);
+        assertEquals("an.facebook.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("ads.google.com"));
+        entry = this.hostEntryDao.getEntry("ads.google.com");
+        assertNotNull(entry);
+        assertEquals("ads.google.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("bingads.microsoft.com"));
+        entry = this.hostEntryDao.getEntry("bingads.microsoft.com");
+        assertNotNull(entry);
+        assertEquals("bingads.microsoft.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("ads.yahoo.com"));
+        entry = this.hostEntryDao.getEntry("ads.yahoo.com");
+        assertNotNull(entry);
+        assertEquals("ads.yahoo.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
 
         /*
          * Test allowed hosts.
@@ -129,11 +151,29 @@ public class DbTest {
         assertEquals(3, this.hostEntryDao.getAll().size());
         // Test each host type
         assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("adaway.org"));
+        entry = this.hostEntryDao.getEntry("adaway.org");
+        assertNull(entry);
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("advertising.apple.com"));
+        entry = this.hostEntryDao.getEntry("advertising.apple.com");
+        assertNotNull(entry);
+        assertEquals("advertising.apple.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("an.facebook.com"));
+        entry = this.hostEntryDao.getEntry("an.facebook.com");
+        assertNotNull(entry);
+        assertEquals("an.facebook.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
         assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("ads.google.com"));
+        entry = this.hostEntryDao.getEntry("ads.google.com");
+        assertNull(entry);
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("bingads.microsoft.com"));
+        entry = this.hostEntryDao.getEntry("bingads.microsoft.com");
+        assertNotNull(entry);
+        assertEquals("bingads.microsoft.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
         assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("ads.yahoo.com"));
+        entry = this.hostEntryDao.getEntry("ads.yahoo.com");
+        assertNull(entry);
 
         /*
          * Test redirected hosts.
@@ -151,12 +191,44 @@ public class DbTest {
         assertEquals(5, this.hostEntryDao.getAll().size()); // 3 blocked, 2 redirected
         // Test each host type
         assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("adaway.org"));
+        entry = this.hostEntryDao.getEntry("adaway.org");
+        assertNull(entry);
+
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("advertising.apple.com"));
+        entry = this.hostEntryDao.getEntry("advertising.apple.com");
+        assertNotNull(entry);
+        assertEquals("advertising.apple.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
+
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("an.facebook.com"));
+        entry = this.hostEntryDao.getEntry("an.facebook.com");
+        assertNotNull(entry);
+        assertEquals("an.facebook.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
+
         assertEquals(REDIRECTED, this.hostEntryDao.getTypeOfHost("github.com"));
+        entry = this.hostEntryDao.getEntry("github.com");
+        assertNotNull(entry);
+        assertEquals("github.com", entry.getHost());
+        assertEquals(REDIRECTED, entry.getType());
+        assertEquals("1.2.3.4", entry.getRedirection());
+
         assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("ads.google.com"));
+        entry = this.hostEntryDao.getEntry("ads.google.com");
+        assertNull(entry);
+
         assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("bingads.microsoft.com"));
+        entry = this.hostEntryDao.getEntry("bingads.microsoft.com");
+        assertNotNull(entry);
+        assertEquals("bingads.microsoft.com", entry.getHost());
+        assertEquals(BLOCKED, entry.getType());
+
         assertEquals(REDIRECTED, this.hostEntryDao.getTypeOfHost("ads.yahoo.com"));
+        entry = this.hostEntryDao.getEntry("ads.yahoo.com");
+        assertNotNull(entry);
+        assertEquals("ads.yahoo.com", entry.getHost());
+        assertEquals(REDIRECTED, entry.getType());
+        assertEquals("1.2.3.4", entry.getRedirection());
     }
 
     @Test
@@ -313,7 +385,7 @@ public class DbTest {
         // Test inserted redirect
         List<HostEntry> entries = this.hostEntryDao.getAll();
         assertEquals(1, entries.size());
-        assertEquals("1.1.1.1", entries.get(0).getRedirection()); // User redirection must be apply
+        assertEquals("1.1.1.1", this.hostEntryDao.getEntry("adaway.org").getRedirection()); // User redirection must be apply
     }
 
     private void insertSource(int id, String url) {

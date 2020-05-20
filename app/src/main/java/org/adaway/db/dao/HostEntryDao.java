@@ -11,6 +11,8 @@ import org.adaway.db.entity.HostEntry;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.annotation.Nullable;
+
 import static androidx.room.OnConflictStrategy.REPLACE;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 
@@ -65,6 +67,10 @@ public interface HostEntryDao {
     @Query("SELECT * FROM `host_entries` ORDER BY `host`")
     List<HostEntry> getAll();
 
-    @Query("SELECT IFNULL((SELECT `type` FROM `host_entries` WHERE `host` == :host), 1)")
+    @Query("SELECT IFNULL((SELECT `type` FROM `host_entries` WHERE `host` == :host LIMIT 1), 1)")
     ListType getTypeOfHost(String host);
+
+    @Nullable
+    @Query("SELECT * FROM `host_entries` WHERE `host` == :host LIMIT 1")
+    HostEntry getEntry(String host);
 }
