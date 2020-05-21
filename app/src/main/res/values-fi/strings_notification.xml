@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Update notification -->
-    <string name="notification_update_channel_name">Päivityksiä</string>
+    <string name="notification_update_channel_name">Päivitykset</string>
+    <string name="notification_update_channel_description">Uusi päivitys ilmoitukset</string>
     <string name="notification_update_host_available_title">Päivitys saatavilla</string>
-    </resources>
+    <string name="notification_update_host_available_text">Uudet hosts-tiedostot ovat ladattavissa</string>
+    <string name="notification_update_app_available_title">Sovelluspäivitys saatavilla</string>
+    <string name="notification_update_app_available_text">Uusi AdAway versio ladattavissa</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
+    <string name="notification_vpn_channel_description">VPN käynnissä ilmoitukset</string>
+</resources>
