@@ -60,4 +60,18 @@ class Migrations {
             database.execSQL("CREATE VIEW `host_entries` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) GROUP BY `host` ORDER BY `host` ASC, `type` DESC, `redirection` ASC");
         }
     };
+
+    /**
+     * Migration script from v4 to v5.
+     */
+    static final Migration MIGRATION_4_5 = new Migration(4, 5) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            // Remove host_entries view
+            database.execSQL("DROP VIEW `host_entries`");
+            // Create new host_entries table
+            database.execSQL("CREATE TABLE IF NOT EXISTS `host_entries` (`host` TEXT NOT NULL, `type` INTEGER NOT NULL, `redirection` TEXT, PRIMARY KEY(`host`))");
+            database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_host_entries_host` ON `host_entries` (`host`)");
+        }
+    };
 }
