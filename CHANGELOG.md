@@ -1,3 +1,17 @@
+## [5.0.4] - 2020-05-24
+
+*This version is a pre-release*
+
+- Improve overall host list computation
+- Add host redirected feature in VPN ad blocking
+- Remove WRITE_EXTERNAL_STORAGE permission (use Storage Access Framework instead)
+- Fix duplicate entries in generated hosts file
+- Fix allowed hosts settings in VPN ad blocking
+- Fix backup not exported as sdcard not writable
+- Fix source update period task preference
+
+Special thanks to holysnipz, ipdev99 and QingKongBaiYu for their bug reports.
+
 ## [5.0.3] - 2020-05-10
 
 *This version is a pre-release*
