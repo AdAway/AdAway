@@ -202,12 +202,14 @@ public class DnsPacketProxy {
                 dnsMsg.getHeader().setRcode(Rcode.NOERROR);
                 dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
                 handleDnsResponse(ipPacket, dnsMsg.toWire());
+                break;
             case ALLOWED:
                 Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + dnsAddress);
                 DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
                 eventLoop.forwardPacket(outPacket, ipPacket);
+                break;
             case REDIRECTED:
-                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " redirected to "+entry.getRedirection()+".");
+                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " redirected to " + entry.getRedirection() + ".");
                 dnsMsg.getHeader().setFlag(Flags.QR);
                 dnsMsg.getHeader().setFlag(Flags.AA);
                 dnsMsg.getHeader().unsetFlag(Flags.RD);
@@ -225,6 +227,7 @@ public class DnsPacketProxy {
                     org.adaway.util.Log.w(TAG, "Failed to get inet address for host " + dnsQueryName + ".", e);
                 }
                 handleDnsResponse(ipPacket, dnsMsg.toWire());
+                break;
         }
     }
 
