@@ -120,7 +120,9 @@ class ListsAdapter extends PagedListAdapter<HostListItem, ListsAdapter.ViewHolde
             this.enabledCheckBox.setEnabled(false);
             this.enabledCheckBox.setOnClickListener(null);
             this.hostTextView.setText("");
-            this.redirectionTextView.setText("");
+            if (this.redirectionTextView != null) {
+                this.redirectionTextView.setText("");
+            }
             this.itemView.setOnLongClickListener(null);
         }
     }
