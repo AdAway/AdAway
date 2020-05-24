@@ -3,5 +3,9 @@
     <string name="hosts_title">Sursele (hosts)</string>
     <!-- List -->
     <string name="hosts_not_available">Indisponibil</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Adăugare sursă</string>
+    <string name="hosts_edit_dialog_title">Editare sursă</string>
+    <string name="hosts_dialog_url">URL: (resursă https:// sau file://)</string>
     <string name="hosts_dialog_url_hint">Sursa pt fisier \'host\'</string>
 </resources>
