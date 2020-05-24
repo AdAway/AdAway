@@ -17,8 +17,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.paging.PagedList;
+import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
@@ -72,7 +72,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mActivity);
         recyclerView.setLayoutManager(linearLayoutManager);
         // Create recycler adapter
-        ListAdapter adapter = new ListsAdapter(this, isTwoRowsItem());
+        PagedListAdapter adapter = new ListsAdapter(this, isTwoRowsItem());
         recyclerView.setAdapter(adapter);
         /*
          * Create action mode.

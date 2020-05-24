@@ -41,12 +41,12 @@ public class ListsViewModel extends AndroidViewModel {
 
     public ListsViewModel(@NonNull Application application) {
         super(application);
-        this.hostListItemDao = AppDatabase.getInstance(getApplication()).hostsListItemDao();
+        this.hostListItemDao = AppDatabase.getInstance(application).hostsListItemDao();
         this.filter = new MutableLiveData<>(ALL);
         PagedList.Config pagingConfig = new PagedList.Config.Builder()
                 .setPageSize(50)
                 .setPrefetchDistance(150)
-                .setEnablePlaceholders(false)
+                .setEnablePlaceholders(true)
                 .build();
         this.blockedListItems = Transformations.switchMap(
                 this.filter,
