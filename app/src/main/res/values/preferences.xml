@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_dark_theme_mode_key" translatable="false">darkThemeMode</string>
-    <string name="pref_dark_theme_mode_def">MODE_NIGHT_FOLLOW_SYSTEM</string>
+    <string name="pref_dark_theme_mode_def">MODE_NIGHT_YES</string>
     <string-array name="pref_dark_theme_mode_entry_values" translatable="false">
         <item>MODE_NIGHT_NO</item>
         <item>MODE_NIGHT_YES</item>
