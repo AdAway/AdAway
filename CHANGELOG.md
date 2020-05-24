@@ -9,8 +9,9 @@
 - Fix allowed hosts settings in VPN ad blocking
 - Fix backup not exported as sdcard not writable
 - Fix source update period task preference
+- Fix host list paging
 
-Special thanks to holysnipz, ipdev99 and QingKongBaiYu for their bug reports.
+Special thanks to holysnipz, ipdev99, QingKongBaiYu, and zgfg for their bug reports.
 
 ## [5.0.3] - 2020-05-10
 
