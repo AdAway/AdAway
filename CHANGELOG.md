@@ -1,3 +1,12 @@
+## [5.0.5] - unreleased
+
+*This version is a pre-release*
+
+- Fix hosts source disable action
+- Remove navigation bar color customization
+
+Special thanks to CobalTitan and ipdev and their bug reports.
+
 ## [5.0.4] - 2020-05-24
 
 *This version is a pre-release*
