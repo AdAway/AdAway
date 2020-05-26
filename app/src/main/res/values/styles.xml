@@ -24,7 +24,6 @@
         <item name="colorOnSecondary">@color/onPrimary</item>
 
         <item name="android:statusBarColor">?colorPrimary</item>
-        <item name="android:navigationBarColor">?android:colorBackground</item>
     </style>
 
     <style name="Theme.AdAway.NoActionBar.Red" parent="Theme.MaterialComponents.NoActionBar">
