@@ -34,7 +34,6 @@ public class HostsSourcesViewModel extends AndroidViewModel {
     }
 
     public void toggleSourceEnabled(HostsSource source) {
-        source.setEnabled(!source.isEnabled());
         EXECUTOR.execute(() -> this.hostsSourceDao.toggleEnabled(source));
     }
 
