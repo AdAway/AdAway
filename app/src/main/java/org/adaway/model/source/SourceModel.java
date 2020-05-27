@@ -293,12 +293,13 @@ public class SourceModel {
                         Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
                 }
                 // Get hosts source last update
-                ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(hostsSource.getUrl());
-                if (lastModifiedOnline == null) {
-                    lastModifiedOnline = now;
+                ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(hostsSource.getUrl());
+                if (onlineModificationDate == null) {
+                    onlineModificationDate = now;
                 }
                 // Update local and online modification dates to now
-                this.hostsSourceDao.updateModificationDates(hostsSource.getId(), now, lastModifiedOnline);
+                ZonedDateTime localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
+                this.hostsSourceDao.updateModificationDates(hostsSource.getId(), localModificationDate, onlineModificationDate);
             } catch (IOException exception) {
                 Log.w(TAG, "Failed to retrieve host source " + hostsSource.getUrl() + ".", exception);
                 // Increment number of failed copy
