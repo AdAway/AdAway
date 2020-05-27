@@ -2,7 +2,9 @@
 
 *This version is a pre-release*
 
+- Improve hosts source server handling with future time
 - Fix hosts source disable action
+- Fix hosts list apply notification from non-user changes 
 - Remove navigation bar color customization
 
 Special thanks to CobalTitan and ipdev and their bug reports.
