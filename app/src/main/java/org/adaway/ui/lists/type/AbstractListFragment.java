@@ -17,13 +17,13 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.paging.PagedList;
-import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.ui.lists.ListsViewCallback;
+import org.adaway.ui.lists.ListsViewModel;
 
 /**
  * This class is a {@link Fragment} to display and manage lists of {@link org.adaway.ui.lists.ListsActivity}.
@@ -72,7 +72,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mActivity);
         recyclerView.setLayoutManager(linearLayoutManager);
         // Create recycler adapter
-        PagedListAdapter adapter = new ListsAdapter(this, isTwoRowsItem());
+        ListsAdapter adapter = new ListsAdapter(this, isTwoRowsItem());
         recyclerView.setAdapter(adapter);
         /*
          * Create action mode.

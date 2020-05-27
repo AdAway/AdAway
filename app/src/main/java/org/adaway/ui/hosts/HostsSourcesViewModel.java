@@ -26,7 +26,7 @@ public class HostsSourcesViewModel extends AndroidViewModel {
 
     public HostsSourcesViewModel(@NonNull Application application) {
         super(application);
-        this.hostsSourceDao = AppDatabase.getInstance(this.getApplication()).hostsSourceDao();
+        this.hostsSourceDao = AppDatabase.getInstance(application).hostsSourceDao();
     }
 
     public LiveData<List<HostsSource>> getHostsSources() {

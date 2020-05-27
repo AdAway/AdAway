@@ -1,4 +1,4 @@
-package org.adaway.ui.lists.type;
+package org.adaway.ui.lists;
 
 import android.app.Application;
 
@@ -14,11 +14,11 @@ import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
-import org.adaway.ui.lists.ListsFilter;
+import org.adaway.ui.lists.type.AbstractListFragment;
 import org.adaway.util.AppExecutors;
 
-import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.Executor;
 
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.ListType.ALLOWED;
@@ -32,12 +32,13 @@ import static org.adaway.ui.lists.ListsFilter.ALL;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class ListsViewModel extends AndroidViewModel {
+    private static final Executor EXECUTOR = AppExecutors.getInstance().diskIO();
     private final HostListItemDao hostListItemDao;
     private final MutableLiveData<ListsFilter> filter;
     private final LiveData<PagedList<HostListItem>> blockedListItems;
     private final LiveData<PagedList<HostListItem>> allowedListItems;
     private final LiveData<PagedList<HostListItem>> redirectedListItems;
-    private final LiveData<List<HostListItem>> userListItems;
+    private final MutableLiveData<Boolean> modelChanged;
 
     public ListsViewModel(@NonNull Application application) {
         super(application);
@@ -60,7 +61,7 @@ public class ListsViewModel extends AndroidViewModel {
                 this.filter,
                 filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(REDIRECTED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
         );
-        this.userListItems = this.hostListItemDao.loadUserList();
+        this.modelChanged = new MutableLiveData<>(false);
     }
 
     public LiveData<PagedList<HostListItem>> getBlockedListItems() {
@@ -75,13 +76,16 @@ public class ListsViewModel extends AndroidViewModel {
         return this.redirectedListItems;
     }
 
-    public LiveData<List<HostListItem>> getUserListItems() {
-        return this.userListItems;
+    public LiveData<Boolean> getModelChanged() {
+        return this.modelChanged;
     }
 
     public void toggleItemEnabled(HostListItem item) {
         item.setEnabled(!item.isEnabled());
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.update(item));
+        EXECUTOR.execute(() -> {
+            this.hostListItemDao.update(item);
+            this.modelChanged.setValue(true);
+        });
     }
 
     public void addListItem(@NonNull ListType type, @NonNull String host, String redirection) {
@@ -91,7 +95,7 @@ public class ListsViewModel extends AndroidViewModel {
         item.setRedirection(redirection);
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);
-        AppExecutors.getInstance().diskIO().execute(() -> {
+        EXECUTOR.execute(() -> {
             Optional<Integer> id = this.hostListItemDao.getHostId(host);
             if (id.isPresent()) {
                 item.setId(id.get());
@@ -99,17 +103,24 @@ public class ListsViewModel extends AndroidViewModel {
             } else {
                 this.hostListItemDao.insert(item);
             }
+            this.modelChanged.postValue(true);
         });
     }
 
     public void updateListItem(@NonNull HostListItem item, @NonNull String host, String redirection) {
         item.setHost(host);
         item.setRedirection(redirection);
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.update(item));
+        EXECUTOR.execute(() -> {
+            this.hostListItemDao.update(item);
+            this.modelChanged.postValue(true);
+        });
     }
 
     public void removeListItem(HostListItem list) {
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.delete(list));
+        EXECUTOR.execute(() -> {
+            this.hostListItemDao.delete(list);
+            this.modelChanged.postValue(true);
+        });
     }
 
     public void search(String query) {
