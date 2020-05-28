@@ -23,4 +23,11 @@
     <string name="pref_webserver">Servidor Web Local</string>
     <string name="pref_webserver_summary">O servidor da Web local escutam os endereços IP locais para responder a solicitações de nome de host bloqueadas. Pode ajudar com o congelamento de aplicativos na conexão bloqueada.</string>
     <string name="pref_webserver_enabled">Ativar servidor web</string>
+    <string name="pref_webserver_test">Testar servidor web</string>
+    <string name="pref_webserver_certificate">Instalar certificado autoassinado</string>
+    <string name="pref_webserver_state_checking">Checando...</string>
+    <string name="pref_webserver_state_not_running">Não executando</string>
+    <string name="pref_webserver_state_running_not_installed">Em execução, mas o certificado não foi instalado</string>
+    <string name="pref_webserver_state_running_and_installed">Em execução e certificado instalado</string>
+    <string name="pref_webserver_icon">Substituir espaço em branco do anúncio pelo ícone do aplicativo</string>
 </resources>
