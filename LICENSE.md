@@ -21,10 +21,6 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/julian-klode/dns66  
   GPLv3
 
-* FlexboxLayout
-  https://github.com/google/flexbox-layout
-  Apache License v2
-
 * Guava  
   https://github.com/google/guava  
   Apache License v2
