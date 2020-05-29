@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
-	ndkVersion '21.1.6352462'
+    ndkVersion '21.1.6352462'
 
     defaultConfig {
         minSdkVersion 26
@@ -15,6 +15,10 @@ android {
             path 'jni/Android.mk'
         }
     }
+}
+
+dependencies {
+    implementation 'com.android.ndk.thirdparty:openssl:1.1.1g-alpha-1'
 }
 
 /**
