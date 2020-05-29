@@ -63,9 +63,8 @@ android {
         targetCompatibility 1.8
     }
 
-    // Do not abort build if lint finds errors
-    lintOptions {
-        disable 'MissingTranslation'
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -79,6 +78,11 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    // Do not abort build if lint finds errors
+    lintOptions {
+        disable 'MissingTranslation'
     }
 }
 
