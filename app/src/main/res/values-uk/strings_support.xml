@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="support_title">Підтримка</string>
-    </resources>
+    <string name="support_sponsorship_button">Станьте спонсором</string>
+</resources>
