@@ -16,6 +16,10 @@ android {
         targetSdkVersion 29
     }
 
+    buildFeatures {
+        buildConfig = false
+    }
+
     externalNativeBuild {
         ndkBuild {
             path 'jni/Android.mk'
