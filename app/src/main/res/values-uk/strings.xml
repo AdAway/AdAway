@@ -221,6 +221,7 @@
     <string name="hosts_source_need_update">Потрібне оновлення %1$s</string>
     <string name="hosts_source_last_update">Останнє оновлення %1$s тому</string>
     <string name="hosts_source_unknown_status">Невідомий статус оновлення</string>
+    <string name="hosts_source_few_minutes">пару хвилин</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d хвилина</item>
         <item quantity="few">%d хвилини</item>
@@ -246,4 +247,20 @@
         <item quantity="other">%d місяців</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">запуск</string>
+    <string name="vpn_notification_running">активний</string>
+    <string name="vpn_notification_stopping">припинення роботи</string>
+    <string name="vpn_notification_waiting_for_net">очікування мережі</string>
+    <string name="vpn_notification_reconnecting">перез\'єднання</string>
+    <string name="vpn_notification_reconnecting_error">помилка перез\'єднання</string>
+    <string name="vpn_notification_paused">пауза</string>
+    <string name="vpn_notification_stopped">зупинено</string>
+    <string name="vpn_notification_title">Ad-blocker VPN%1$s</string>
+    <string name="vpn_notification_action_pause">Пауза</string>
+    <string name="vpn_notification_paused_text">Натисніть, щоб продовжити</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Увімкніть та відключіть систему блокування реклами</string>
+
+</resources>
