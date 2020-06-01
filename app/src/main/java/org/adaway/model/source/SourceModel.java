@@ -59,7 +59,7 @@ public class SourceModel {
      */
     private static final String TAG = "SourceModel";
     /**
-     * The HTTP client cache size.
+     * The HTTP client cache size (100Mo).
      */
     private static final long CACHE_SIZE = 100L * 1024L * 1024L;
     /**
@@ -278,9 +278,9 @@ public class SourceModel {
             }
             // Increment number of copy
             numberOfCopies++;
+            String url = hostsSource.getUrl();
             try {
                 // Check hosts source protocol
-                String url = hostsSource.getUrl();
                 String protocol = new URL(url).getProtocol();
                 switch (protocol) {
                     case "https":
@@ -293,7 +293,7 @@ public class SourceModel {
                         Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
                 }
                 // Get hosts source last update
-                ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(hostsSource.getUrl());
+                ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(url);
                 if (onlineModificationDate == null) {
                     onlineModificationDate = now;
                 }
@@ -301,7 +301,7 @@ public class SourceModel {
                 ZonedDateTime localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
                 this.hostsSourceDao.updateModificationDates(hostsSource.getId(), localModificationDate, onlineModificationDate);
             } catch (IOException exception) {
-                Log.w(TAG, "Failed to retrieve host source " + hostsSource.getUrl() + ".", exception);
+                Log.w(TAG, "Failed to retrieve host source " + url + ".", exception);
                 // Increment number of failed copy
                 numberOfFailedCopies++;
             }
@@ -350,9 +350,18 @@ public class SourceModel {
                 .url(hostsFileUrl)
                 .build();
         // Request hosts file and open byte stream
-        try (Response response = httpClient.newCall(request).execute();
-             InputStream inputStream = response.body().byteStream()) {
-            parseSourceInputStream(hostsSource, inputStream);
+        try (Response response = httpClient.newCall(request).execute()) {
+            // Download source if request is successful and new content was serve
+            if (response.isSuccessful() && response.cacheResponse() == null) {
+                try (InputStream inputStream = response.body().byteStream()) {
+                    parseSourceInputStream(hostsSource, inputStream);
+                }
+            } else {
+                Log.d(TAG, "Skip source download: " +
+                        "request success = " + response.isSuccessful() +
+                        " / cache = " + (response.cacheResponse() == null ? "empty" : "served")
+                );
+            }
         } catch (IOException exception) {
             throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
         }
