@@ -11,5 +11,12 @@
     <string name="error_not_enough_space_message">Zbyt mało miejsca</string>
     <string name="error_not_enough_space_details">Nie można skopiować pliku hosts na partycję systemową. Sprawdź, czy moduł systemowy Magisk jest włączony, a następnie uruchom ponownie.</string>
     <string name="error_copy_failed_message">Nie udało się zainstalować nowego pliku hosts</string>
+    <string name="error_copy_failed_details">Nie można skopiować pliku hosts na /partycję systemową. Sprawdź, czy moduł systemowy Magisk ma możliwość ponownego uruchomienia.</string>
     <string name="error_revert_failed_message">Nie udało się przywrócić pliku hostów</string>
-    </resources>
+    <string name="error_revert_failed_details">Nie można przywrócić domyślnej konfiguracji pliku hosts.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Nie można włączyć blokowania reklam VPN.</string>
+    <string name="error_enable_vpn_failed_details">Sprawdź ustawienia VPN, aby autoryzować aplikację VPN do uruchomienia.</string>
+    <string name="error_disable_vpn_failed_message">Nie można wyłączyć blokowania reklam VPN.</string>
+    <string name="error_disable_vpn_failed_details">Sprawdź ustawienia VPN, aby wyłączyć je ręcznie.</string>
+</resources>
