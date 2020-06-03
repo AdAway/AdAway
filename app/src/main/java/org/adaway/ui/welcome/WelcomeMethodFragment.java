@@ -11,12 +11,12 @@ import android.view.ViewGroup;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.topjohnwu.superuser.Shell;
 
 import org.adaway.R;
+import org.adaway.databinding.WelcomeMethodLayoutBinding;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.SentryLog;
 
@@ -31,8 +31,7 @@ import static org.adaway.model.adblocking.AdBlockMethod.VPN;
  */
 public class WelcomeMethodFragment extends WelcomeFragment {
     private static final int VPN_START_REQUEST_CODE = 10;
-    private CardView rootCardView;
-    private CardView vpnCardView;
+    private WelcomeMethodLayoutBinding binding;
     @ColorInt
     private int cardColor;
     @ColorInt
@@ -41,16 +40,14 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.welcome_method_layout, container, false);
+        this.binding = WelcomeMethodLayoutBinding.inflate(inflater, container, false);
 
-        this.rootCardView = view.findViewById(R.id.rootCardView);
-        this.rootCardView.setOnClickListener(this::checkRoot);
-        this.vpnCardView = view.findViewById(R.id.vpnCardView);
-        this.vpnCardView.setOnClickListener(this::enableVpnService);
+        this.binding.rootCardView.setOnClickListener(this::checkRoot);
+        this.binding.vpnCardView.setOnClickListener(this::enableVpnService);
 
         this.cardColor = getResources().getColor(R.color.cardBackground, null);
         this.cardEnabledColor = getResources().getColor(R.color.cardEnabledBackground, null);
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -93,14 +90,14 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     private void notifyRootEnabled() {
         SentryLog.recordBreadcrumb("Enable root ad-blocking method");
         PreferenceHelper.setAbBlockMethod(requireContext(), ROOT);
-        this.rootCardView.setCardBackgroundColor(this.cardEnabledColor);
-        this.vpnCardView.setCardBackgroundColor(this.cardColor);
+        this.binding.rootCardView.setCardBackgroundColor(this.cardEnabledColor);
+        this.binding.vpnCardView.setCardBackgroundColor(this.cardColor);
         allowNext();
     }
 
     private void notifyRootDisabled(boolean showDialog) {
-        this.rootCardView.setCardBackgroundColor(this.cardColor);
-        this.vpnCardView.setCardBackgroundColor(this.cardColor);
+        this.binding.rootCardView.setCardBackgroundColor(this.cardColor);
+        this.binding.vpnCardView.setCardBackgroundColor(this.cardColor);
         Context context = getContext();
         if (context != null && showDialog) {
             blockNext();
@@ -116,14 +113,14 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     private void notifyVpnEnabled() {
         SentryLog.recordBreadcrumb("Enable vpn ad-blocking method");
         PreferenceHelper.setAbBlockMethod(requireContext(), VPN);
-        this.rootCardView.setCardBackgroundColor(this.cardColor);
-        this.vpnCardView.setCardBackgroundColor(this.cardEnabledColor);
+        this.binding.rootCardView.setCardBackgroundColor(this.cardColor);
+        this.binding.vpnCardView.setCardBackgroundColor(this.cardEnabledColor);
         allowNext();
     }
 
     private void notifyVpnDisabled() {
-        this.rootCardView.setCardBackgroundColor(this.cardColor);
-        this.vpnCardView.setCardBackgroundColor(this.cardColor);
+        this.binding.rootCardView.setCardBackgroundColor(this.cardColor);
+        this.binding.vpnCardView.setCardBackgroundColor(this.cardColor);
         blockNext();
     }
 }

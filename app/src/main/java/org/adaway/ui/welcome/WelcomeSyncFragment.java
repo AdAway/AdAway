@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +11,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 
 import org.adaway.R;
+import org.adaway.databinding.WelcomeSyncLayoutBinding;
 import org.adaway.model.error.HostError;
 import org.adaway.ui.home.HomeViewModel;
 
@@ -26,25 +24,14 @@ import static org.adaway.ui.welcome.WelcomeActivity.showView;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class WelcomeSyncFragment extends WelcomeFragment {
-    private TextView headerTextView;
-    private ProgressBar progressBar;
-    private ImageView syncedImageView;
-    private ImageView errorImageView;
-    private ImageView retryImageView;
-    private TextView errorTextView;
+    private WelcomeSyncLayoutBinding binding;
     private HomeViewModel homeViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.welcome_sync_layout, container, false);
-
-        this.headerTextView = view.findViewById(R.id.headerTextView);
-        this.progressBar = view.findViewById(R.id.progressBar);
-        this.syncedImageView = view.findViewById(R.id.syncedImageView);
-        this.errorImageView = view.findViewById(R.id.errorImageView);
-
-        this.bindRetry(view);
+        this.binding = WelcomeSyncLayoutBinding.inflate(inflater, container, false);
+        bindRetry();
 
         this.homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
@@ -56,21 +43,19 @@ public class WelcomeSyncFragment extends WelcomeFragment {
         this.homeViewModel.getError().observe(lifecycleOwner, this::notifyError);
         this.homeViewModel.sync();
 
-        return view;
+        return this.binding.getRoot();
     }
 
-    private void bindRetry(View view) {
-        this.retryImageView = view.findViewById(R.id.retryImageView);
-        this.errorTextView = view.findViewById(R.id.errorTextView);
-        this.retryImageView.setOnClickListener(this::retry);
-        this.errorTextView.setOnClickListener(this::retry);
+    private void bindRetry() {
+        this.binding.retryImageView.setOnClickListener(this::retry);
+        this.binding.errorTextView.setOnClickListener(this::retry);
     }
 
     private void notifySynced() {
         this.homeViewModel.enableAllSources();
-        this.headerTextView.setText(R.string.welcome_synced_header);
-        hideView(this.progressBar);
-        showView(this.syncedImageView);
+        this.binding.headerTextView.setText(R.string.welcome_synced_header);
+        hideView(this.binding.progressBar);
+        showView(this.binding.syncedImageView);
         allowNext();
     }
 
@@ -78,18 +63,18 @@ public class WelcomeSyncFragment extends WelcomeFragment {
         String errorMessage = getResources().getText(error.getMessageKey()).toString();
         String syncError = getResources().getText(R.string.welcome_sync_error).toString();
         String retryMessage = String.format(syncError, errorMessage);
-        this.errorTextView.setText(retryMessage);
-        hideView(this.progressBar);
-        showView(this.errorImageView);
-        showView(this.retryImageView);
-        showView(this.errorTextView);
+        this.binding.errorTextView.setText(retryMessage);
+        hideView(this.binding.progressBar);
+        showView(this.binding.errorImageView);
+        showView(this.binding.retryImageView);
+        showView(this.binding.errorTextView);
     }
 
     private void retry(@SuppressWarnings("unused") View view) {
-        hideView(this.errorImageView);
-        hideView(this.retryImageView);
-        hideView(this.errorTextView);
-        showView(this.progressBar);
+        hideView(this.binding.errorImageView);
+        hideView(this.binding.retryImageView);
+        hideView(this.binding.errorTextView);
+        showView(this.binding.progressBar);
         this.homeViewModel.sync();
     }
 }
