@@ -47,6 +47,7 @@ class UserAppRecycleViewAdapter extends RecyclerView.Adapter<UserAppRecycleViewA
         holder.iconImageView.setImageDrawable(application.icon);
         holder.nameTextView.setText(application.name);
         holder.descriptionTextView.setText(application.packageName);
+        holder.excludedSwitch.setOnCheckedChangeListener(null);
         holder.excludedSwitch.setChecked(application.excluded);
         holder.excludedSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {

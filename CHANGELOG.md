@@ -5,9 +5,10 @@
 - Improve hosts source server handling with future time
 - Fix hosts source disable action
 - Fix hosts list apply notification from non-user changes 
+- Fix user excluded application settings
 - Remove navigation bar color customization
 
-Special thanks to CobalTitan and ipdev and their bug reports.
+Special thanks to CobalTitan, ipdev, zgfg and sunmybun their bug reports.
 
 ## [5.0.4] - 2020-05-24
 
