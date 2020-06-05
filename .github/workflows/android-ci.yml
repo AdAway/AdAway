@@ -18,8 +18,11 @@ jobs:
       with:
         java-version: 1.8
 
+    - name: Install NDK
+      run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.2.6472646" --sdk_root=${ANDROID_SDK_ROOT}
+
 #    - uses: malinskiy/action-android/install-sdk@release/0.0.5
-#
+
 #    - run: $ANDROID_HOME/tools/bin/sdkmanager 'ndk;21.2.6472646'
 
     - name: Run unit tests
