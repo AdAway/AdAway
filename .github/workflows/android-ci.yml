@@ -1,10 +1,13 @@
 name: Android CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
-    name: Debug build
+    name: Development build
     runs-on: ubuntu-latest
     
     steps:
@@ -15,9 +18,9 @@ jobs:
       with:
         java-version: 1.8
 
-    - uses: malinskiy/action-android/install-sdk@release/0.0.5
-    
-    - run: $ANDROID_HOME/tools/bin/sdkmanager 'ndk;21.2.6472646'
+#    - uses: malinskiy/action-android/install-sdk@release/0.0.5
+#
+#    - run: $ANDROID_HOME/tools/bin/sdkmanager 'ndk;21.2.6472646'
 
     - name: Run unit tests
       run: ./gradlew test --stacktrace
@@ -25,7 +28,10 @@ jobs:
     - name: Build with Gradle
 #      env:
 #        key: value
-      run: ./gradlew assembleDebug --stacktrace
+      run: ./gradlew assembleRelease --stacktrace
+
+    - name: Analyze project
+      run: ./gradlew sonarqube
       
     - name: Upload APK
       uses: actions/upload-artifact@v1
