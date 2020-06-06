@@ -271,35 +271,42 @@ public class SourceModel {
         // Compute current date in UTC timezone
         ZonedDateTime now = ZonedDateTime.now();
         // Get each hosts source
-        for (HostsSource hostsSource : this.hostsSourceDao.getAll()) {
-            if (!hostsSource.isEnabled()) {
-                this.hostListItemDao.clearSourceHosts(hostsSource.getId());
+        for (HostsSource source : this.hostsSourceDao.getAll()) {
+            // Clear disabled source
+            if (!source.isEnabled()) {
+                this.hostListItemDao.clearSourceHosts(source.getId());
+                continue;
+            }
+            // Get hosts source last update
+            String url = source.getUrl();
+            ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(url);
+            if (onlineModificationDate == null) {
+                onlineModificationDate = now;
+            }
+            // Check if update available
+            ZonedDateTime localModificationDate = source.getLocalModificationDate();
+            if (localModificationDate != null && localModificationDate.isAfter(onlineModificationDate)) {
+                Log.i(TAG, "Skip source " + url + ": no update.");
                 continue;
             }
             // Increment number of copy
             numberOfCopies++;
-            String url = hostsSource.getUrl();
             try {
                 // Check hosts source protocol
                 String protocol = new URL(url).getProtocol();
                 switch (protocol) {
                     case "https":
-                        downloadHostSource(hostsSource);
+                        downloadHostSource(source);
                         break;
                     case "file":
-                        copyHostSourceFile(hostsSource);
+                        copyHostSourceFile(source);
                         break;
                     default:
                         Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
                 }
-                // Get hosts source last update
-                ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(url);
-                if (onlineModificationDate == null) {
-                    onlineModificationDate = now;
-                }
                 // Update local and online modification dates to now
-                ZonedDateTime localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
-                this.hostsSourceDao.updateModificationDates(hostsSource.getId(), localModificationDate, onlineModificationDate);
+                localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
+                this.hostsSourceDao.updateModificationDates(source.getId(), localModificationDate, onlineModificationDate);
             } catch (IOException exception) {
                 Log.w(TAG, "Failed to retrieve host source " + url + ".", exception);
                 // Increment number of failed copy
@@ -334,12 +341,12 @@ public class SourceModel {
     /**
      * Download an hosts source file and append it to a private file.
      *
-     * @param hostsSource The hosts source to download.
+     * @param source The hosts source to download.
      * @throws IOException If the hosts source could not be downloaded.
      */
-    private void downloadHostSource(HostsSource hostsSource) throws IOException {
+    private void downloadHostSource(HostsSource source) throws IOException {
         // Get hosts file URL
-        String hostsFileUrl = hostsSource.getUrl();
+        String hostsFileUrl = source.getUrl();
         Log.v(TAG, "Downloading hosts file: " + hostsFileUrl);
         // Set state to downloading hosts source
         setState(R.string.status_download_source, hostsFileUrl);
@@ -350,18 +357,9 @@ public class SourceModel {
                 .url(hostsFileUrl)
                 .build();
         // Request hosts file and open byte stream
-        try (Response response = httpClient.newCall(request).execute()) {
-            // Download source if request is successful and new content was serve
-            if (response.isSuccessful() && response.cacheResponse() == null) {
-                try (InputStream inputStream = response.body().byteStream()) {
-                    parseSourceInputStream(hostsSource, inputStream);
-                }
-            } else {
-                Log.d(TAG, "Skip source download: " +
-                        "request success = " + response.isSuccessful() +
-                        " / cache = " + (response.cacheResponse() == null ? "empty" : "served")
-                );
-            }
+        try (Response response = httpClient.newCall(request).execute();
+             InputStream inputStream = response.body().byteStream()) {
+            parseSourceInputStream(source, inputStream);
         } catch (IOException exception) {
             throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
         }
