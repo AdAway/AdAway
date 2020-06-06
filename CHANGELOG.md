@@ -3,6 +3,7 @@
 *This version is a pre-release*
 
 - Improve hosts source server handling with future time
+- Improve hosts update by skipping already up-to-date sources
 - Fix hosts source disable action
 - Fix hosts list apply notification from non-user changes 
 - Fix user excluded application settings
