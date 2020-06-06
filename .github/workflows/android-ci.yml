@@ -21,10 +21,6 @@ jobs:
     - name: Install NDK
       run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.2.6472646" --sdk_root=${ANDROID_SDK_ROOT}
 
-#    - uses: malinskiy/action-android/install-sdk@release/0.0.5
-
-#    - run: $ANDROID_HOME/tools/bin/sdkmanager 'ndk;21.2.6472646'
-
     - name: Run unit tests
       run: ./gradlew test --stacktrace
 
@@ -34,6 +30,8 @@ jobs:
       run: ./gradlew assembleRelease --stacktrace
 
     - name: Analyze project
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: ./gradlew sonarqube
       
     - name: Upload APK
