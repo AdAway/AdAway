@@ -2,9 +2,9 @@ package org.adaway.ui.hosts;
 
 import android.app.Application;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.annotation.NonNull;
 
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostsSourceDao;
@@ -12,6 +12,7 @@ import org.adaway.db.entity.HostsSource;
 import org.adaway.util.AppExecutors;
 
 import java.util.List;
+import java.util.concurrent.Executor;
 
 /**
  * This class is an {@link AndroidViewModel} for the {@link HostsSourcesFragment}.
@@ -20,11 +21,12 @@ import java.util.List;
  */
 public class HostsSourcesViewModel extends AndroidViewModel {
 
+    private static final Executor EXECUTOR = AppExecutors.getInstance().diskIO();
     private final HostsSourceDao hostsSourceDao;
 
     public HostsSourcesViewModel(@NonNull Application application) {
         super(application);
-        this.hostsSourceDao = AppDatabase.getInstance(this.getApplication()).hostsSourceDao();
+        this.hostsSourceDao = AppDatabase.getInstance(application).hostsSourceDao();
     }
 
     public LiveData<List<HostsSource>> getHostsSources() {
@@ -32,22 +34,21 @@ public class HostsSourcesViewModel extends AndroidViewModel {
     }
 
     public void toggleSourceEnabled(HostsSource source) {
-        source.setEnabled(!source.isEnabled());
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostsSourceDao.update(source));
+        EXECUTOR.execute(() -> this.hostsSourceDao.toggleEnabled(source));
     }
 
     public void addSourceFromUrl(String url) {
         HostsSource source = new HostsSource();
         source.setUrl(url);
         source.setEnabled(true);
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostsSourceDao.insert(source));
+        EXECUTOR.execute(() -> this.hostsSourceDao.insert(source));
     }
 
     public void updateSourceUrl(HostsSource source, String url) {
         HostsSource newSource = new HostsSource();
         newSource.setUrl(url);
         newSource.setEnabled(source.isEnabled());
-        AppExecutors.getInstance().diskIO().execute(() -> {
+        EXECUTOR.execute(() -> {
             this.hostsSourceDao.delete(source);
             this.hostsSourceDao.insert(newSource);
         });

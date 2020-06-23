@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">Αποκλεισμός διαφημίσεων βάσει VPN</string>
+    <string name="pref_vpn_service_on_boot">Ενεργοποίηση κατά την εκκίνηση</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Εξαιρούμενες εφαρμογές</string>
+    <string name="pref_vpn_excluded_apps_description">Διαμορφώστε ποιες εφαρμογές δεν πρέπει να χρησιμοποιούν το VPN, ώστε να μην αποκλείονται συνδέσεις.</string>
+    <string name="pref_vpn_exclude_system_apps">Εξαίρεση εφαρμογών συστήματος</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Εξαίρεση εφαρμογών χρήστη</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Εξαιρούμενες εφαρμογές</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Επιλογή όλων</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Αποεπιλογή όλων</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Εικονίδιο εφαρμογής</string>
+</resources>

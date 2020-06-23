@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lists_title">Your lists</string>
+    <string name="lists_title">Danh sách của bạn</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Đã bị chặn</string>
+    <string name="lists_tab_allowed">Đã cho phép</string>
+    <string name="lists_tab_redirected">Đã chuyển hướng</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Lọc nguồn</string>
+    <string name="lists_menu_filter_hint">Tìm tên nguồn</string>
+    <string name="lists_menu_toggle_sources">Bật/tắt nguồn</string>
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Thêm nguồn vào danh sách chặn</string>
+    <string name="list_add_dialog_white">Thêm nguồn vào danh sách cho phép</string>
+    <string name="list_add_dialog_redirect">Thêm nguồn vào danh sách chuyển hướng</string>
+    <string name="list_edit_dialog_black">Chỉnh sửa danh sách chặn</string>
+    <string name="list_edit_dialog_white">Chỉnh sửa danh sách cho phép</string>
+    <string name="list_edit_dialog_redirect">Chỉnh sửa danh sách chuyển hướng</string>
     <string name="list_dialog_hostname">Tên miền:</string>
+    <string name="list_dialog_hostname_hint">URL của tập tin nguồn</string>
+    <string name="list_dialog_wildcard">(Cho phép sử dụng các kí tự * và ?)</string>
     <string name="list_dialog_ip">IP (IPv4 hoặc IPv6):</string>
 </resources>

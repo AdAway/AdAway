@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Οι λίστες σας</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Αποκλείστηκε</string>
+    <string name="lists_tab_allowed">Επιτράπηκε</string>
+    <string name="lists_tab_redirected">Ανακατευθύνθηκε</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Φίλτρο hosts</string>
+    <string name="lists_menu_filter_hint">Αναζήτηση hostname...</string>
+    <string name="lists_menu_toggle_sources">Τoogle πηγών</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Πρόσθεση host στη μαύρη λίστα</string>
     <string name="list_add_dialog_white">Πρόσθεση host σε λευκή λίστα</string>

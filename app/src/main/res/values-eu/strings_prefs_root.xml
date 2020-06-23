@@ -18,5 +18,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">Tokiko Web-zerbitzaria</string>
     <string name="pref_webserver_enabled">Gaitu web-zerbitzaria</string>
-    <string name="pref_webserver_on_boot">Hasi web-zerbitzaria abiatzerakoan</string>
 </resources>

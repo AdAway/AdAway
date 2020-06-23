@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Επιλογές</string>
+    <!-- General category -->
+    <string name="pref_general_category">Γενικά</string>
+    <string name="pref_dark_theme">Σκοτεινό θέμα</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Φωτεινό</item>
+        <item>Σκοτεινό</item>
+        <item>Προεπιλογή συστήματος</item>
+    </string-array>
+    <string name="pref_update_configuration">Αυτόματες ενημερώσεις</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Αποκλεισμός διαφημίσεων</string>
+    <string name="pref_root_ad_blocker_configuration">Αποκλεισμός διαφημίσεων βάσει Root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Αποκλεισμός διαφημίσεων βάσει VPN</string>
+    <string name="pref_whitelist_rules">Εφαρμογή επιτρεπόμενων hosts από πηγές</string>
+    <string name="pref_redirection_rules">Εφαρμογή ανακατευθυνόμενων hosts από πηγές</string>
+    <string name="pref_redirection_rules_summary">ΘΕΤΕΙ ΣΕ ΚΙΝΔΥΝΟ ΑΣΦΑΛΕΙΑΣ!</string>
+    <string name="pref_enable_ipv6">Ενεργοποίηση υποστήριξης IPv6</string>
+    <string name="pref_backup_restore">Κανόνες αποκλεισμού Αντιγράφων ασφαλείας / επαναφοράς</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Αποσφαλμάτωση</string>
-    </resources>
+    <string name="pref_enable_telemetry">Αποστολή αναφορών σφαλμάτων</string>
+    <string name="pref_enable_telemetry_summary">Αναφορά στο Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Δεν υποστηρίζεται σε αυτήν την έκδοση</string>
+    <string name="pref_enable_debug">Αναλυτική καταγραφή</string>
+    <string name="pref_enable_debug_summary">Απαιτείται επανεκκίνηση εφαρμογής για εφαρμογή</string>
+</resources>

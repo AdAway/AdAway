@@ -1,16 +1,12 @@
 package org.adaway.ui.prefs.exclusion;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.adaway.R;
+import org.adaway.databinding.VpnExcludedAppEntryBinding;
 
 /**
  * This class is the {@link RecyclerView.Adapter} for the {@link PrefsVpnExcludedAppsActivity}.
@@ -33,8 +29,8 @@ class UserAppRecycleViewAdapter extends RecyclerView.Adapter<UserAppRecycleViewA
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.vpn_excluded_app_entry, parent, false);
-        return new ViewHolder(view);
+        VpnExcludedAppEntryBinding binding = VpnExcludedAppEntryBinding.inflate(layoutInflater, parent, false);
+        return new ViewHolder(binding);
     }
 
     @Override
@@ -44,11 +40,12 @@ class UserAppRecycleViewAdapter extends RecyclerView.Adapter<UserAppRecycleViewA
             return;
         }
         UserApp application = applications[position];
-        holder.iconImageView.setImageDrawable(application.icon);
-        holder.nameTextView.setText(application.name);
-        holder.descriptionTextView.setText(application.packageName);
-        holder.excludedSwitch.setChecked(application.excluded);
-        holder.excludedSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        holder.binding.iconImageView.setImageDrawable(application.icon);
+        holder.binding.nameTextView.setText(application.name);
+        holder.binding.packageTextView.setText(application.packageName);
+        holder.binding.excludedSwitch.setOnCheckedChangeListener(null);
+        holder.binding.excludedSwitch.setChecked(application.excluded);
+        holder.binding.excludedSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 this.controller.excludeApplications(application);
             } else {
@@ -68,22 +65,16 @@ class UserAppRecycleViewAdapter extends RecyclerView.Adapter<UserAppRecycleViewA
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView iconImageView;
-        final TextView nameTextView;
-        final TextView descriptionTextView;
-        final SwitchCompat excludedSwitch;
+        final VpnExcludedAppEntryBinding binding;
 
         /**
          * Constructor.
          *
-         * @param itemView The hosts sources view.
+         * @param binding The hosts sources view binding.
          */
-        ViewHolder(View itemView) {
-            super(itemView);
-            this.iconImageView = itemView.findViewById(R.id.iconImageView);
-            this.nameTextView = itemView.findViewById(R.id.nameTextView);
-            this.descriptionTextView = itemView.findViewById(R.id.packageTextView);
-            this.excludedSwitch = itemView.findViewById(R.id.excludedSwitch);
+        ViewHolder(VpnExcludedAppEntryBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }

@@ -47,7 +47,7 @@ import static org.adaway.db.entity.ListType.BLOCKED;
 public class BlockedHostsFragment extends AbstractListFragment {
     @Override
     protected LiveData<PagedList<HostListItem>> getData() {
-        return this.mViewModel.getBlackListItems();
+        return this.mViewModel.getBlockedListItems();
     }
 
     @Override
@@ -94,7 +94,7 @@ public class BlockedHostsFragment extends AbstractListFragment {
         View view = factory.inflate(R.layout.lists_black_dialog, null);
         // Set hostname
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
-        inputEditText.setText(item.getDisplayedHost());
+        inputEditText.setText(item.getHost());
         // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());

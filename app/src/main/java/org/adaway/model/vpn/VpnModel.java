@@ -5,7 +5,8 @@ import android.util.LruCache;
 
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
-import org.adaway.db.dao.HostListItemDao;
+import org.adaway.db.dao.HostEntryDao;
+import org.adaway.db.entity.HostEntry;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
@@ -26,8 +27,8 @@ import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
  */
 public class VpnModel extends AdBlockModel {
     private static final String TAG = "VpnModel";
-    private final HostListItemDao hostListItemDao;
-    private final LruCache<String, Boolean> blockCache;
+    private final HostEntryDao hostEntryDao;
+    private final LruCache<String, HostEntry> blockCache;
     private final LinkedHashSet<String> logs;
     private boolean recordingLogs;
     private int requestCount;
@@ -40,11 +41,11 @@ public class VpnModel extends AdBlockModel {
     public VpnModel(Context context) {
         super(context);
         AppDatabase database = AppDatabase.getInstance(context);
-        this.hostListItemDao = database.hostsListItemDao();
-        this.blockCache = new LruCache<String, Boolean>(4 * 1024) {
+        this.hostEntryDao = database.hostEntryDao();
+        this.blockCache = new LruCache<String, HostEntry>(4 * 1024) {
             @Override
-            protected Boolean create(String key) {
-                return VpnModel.this.hostListItemDao.isHostBlocked(key);
+            protected HostEntry create(String key) {
+                return VpnModel.this.hostEntryDao.getEntry(key);
             }
         };
         this.logs = new LinkedHashSet<>();
@@ -98,12 +99,12 @@ public class VpnModel extends AdBlockModel {
     }
 
     /**
-     * Checks if a host is blocked.
+     * Checks host entry related to an host name.
      *
      * @param host A hostname to check.
-     * @return {@code true} if the host is blocked, {@code false} otherwise.
+     * @return The related host entry.
      */
-    public boolean isBlocked(String host) {
+    public HostEntry getEntry(String host) {
         // Compute miss rate periodically
         this.requestCount++;
         if (this.requestCount >= 1000) {

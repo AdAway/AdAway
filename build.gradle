@@ -5,7 +5,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.android.tools.build:gradle:4.0.0'
     }
 }
 
@@ -24,7 +24,9 @@ sonarqube {
     properties {
         // Root project information
         property 'sonar.projectKey', 'org.adaway'
+        property 'sonar.organization', 'adaway'
         property 'sonar.projectName', 'AdAway'
-        property 'sonar.projectVersion', '5.0.2'
+        property 'sonar.projectVersion', '5.0.4'
+        property 'sonar.host.url', 'https://sonarcloud.io'
     }
 }
