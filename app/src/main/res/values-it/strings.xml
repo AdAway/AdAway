@@ -222,6 +222,7 @@ Vuoi installare OI File Manager?</string>
     <string name="hosts_source_need_update">Richiede aggiornamento da %1$s</string>
     <string name="hosts_source_last_update">Ultimo aggiornamento %1$s fa</string>
     <string name="hosts_source_unknown_status">Stato aggiornamento sconosciuto</string>
+    <string name="hosts_source_few_minutes">pochi minuti</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minuto</item>
         <item quantity="other">%d minuti</item>
