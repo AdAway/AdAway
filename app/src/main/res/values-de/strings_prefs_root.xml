@@ -23,4 +23,11 @@
     <string name="pref_webserver">Lokaler Webserver</string>
     <string name="pref_webserver_summary">Der lokale Webserver überwacht lokale IP-Adressen um auf blockierte Hostnamen zu antworten. Dies kann helfen wenn Apps einfrieren bei blockierter Verbindung.</string>
     <string name="pref_webserver_enabled">Webserver aktivieren</string>
+    <string name="pref_webserver_test">Webserver testen</string>
+    <string name="pref_webserver_certificate">Selbstsigniertes Zertifikat installieren</string>
+    <string name="pref_webserver_state_checking">Überprüfe...</string>
+    <string name="pref_webserver_state_not_running">Läuft nicht</string>
+    <string name="pref_webserver_state_running_not_installed">Läuft aber Zertifikat nicht installiert</string>
+    <string name="pref_webserver_state_running_and_installed">Läuft und Zertifikat installiert</string>
+    <string name="pref_webserver_icon">Ersetzt die leere Werbefläche durch das Anwendungssymbol </string>
 </resources>
