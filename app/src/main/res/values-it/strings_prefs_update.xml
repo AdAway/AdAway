@@ -2,12 +2,12 @@
 <resources>
     <string name="pref_update_title">Aggiornamenti</string>
     <!-- Application category -->
-    <string name="pref_update_app_category">Aggiornamenti app</string>
-    <string name="pref_update_check_app_daily">Controlla aggiornamenti periodicamente</string>
+    <string name="pref_update_app_category">Aggiornamento app</string>
+    <string name="pref_update_check_app_daily">Controlla periodicamente</string>
     <!-- Application hosts -->
-    <string name="pref_update_hosts_category">Aggiornamenti fonti host</string>
+    <string name="pref_update_hosts_category">Aggiornamento hosts</string>
     <string name="pref_update_check">Controlla aggiornamenti</string>
-    <string name="pref_update_check_hosts_daily">Controlla aggiornamenti periodicamente</string>
+    <string name="pref_update_check_hosts_daily">Controlla periodicamente</string>
     <string name="pref_update_sync_on_update">Sincronizza su aggiornamento</string>
     <string name="pref_update_sync_unmetered_only">Sincronizza solo su connessioni non a consumo</string>
 </resources>

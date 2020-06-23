@@ -7,6 +7,7 @@
     <string name="lists_tab_redirected">Redirecționate</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtru domenii</string>
+    <string name="lists_menu_filter_hint">Căutare nume...</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Adăugare domeniu în lista neagră</string>
     <string name="list_add_dialog_white">Adăugare domeniu în lista albă</string>

@@ -23,8 +23,16 @@
     <string name="header_webserver">خادم الويب</string>
     <string name="webserver_status_running">يعمل</string>
     <string name="webserver_status_stopped">موقوف</string>
+    <string name="webserver_toggle_text">بدء أو إيقاف خادم الويب على المضيف المحلي للرد على طلبات أسماء المضيفين المحظورة.</string>
     <string name="button_enable_webserver">تشغيل خادم الويب</string>
     <string name="button_disable_webserver">إيقاف خادم الويب</string>
+    <string name="header_vpn">في بي إن</string>
+    <string name="vpn_status_running">تشغيل</string>
+    <string name="vpn_status_stopped">توقفت</string>
+    <string name="vpn_toggle_text">تشغيل أو إيقاف VPN لتصفية الطلبات</string>
+    <string name="button_enable_vpn">تفعيل VPN</string>
+    <string name="button_disable_vpn">إيقاف VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">حذف</string>
     <string name="checkbox_list_context_title">تحرير المدخلة</string>
@@ -45,9 +53,19 @@
     <string name="hosts_content">جارٍ تحميل محتوى ملف المضيف…</string>
     <string name="hosts_open_button">فتح ملف المضيف</string>
 
+    <!--Status Notification-->
+    <string name="status_check">التأكد من التحديثات</string>
+    <string name="status_check_source">التأكد من المصدر%sمن التحديث</string>
+    <string name="status_retrieve">جلب المصادر</string>
+    <string name="status_download_source">تحميل المصدر %s</string>
+    <string name="status_copy_source">نسخ المصدر %s</string>
+    <string name="status_parse_source">تمحيص المصدر %s</string>
+    <string name="status_revert">إستعادة إعدادات ملف hosts الإفتراضية</string>
+    <string name="status_revert_done">إستعادة ملف hosts الإفتراضي اكتمل</string>
     <string name="status_reverting_subtitle">إنشاء ملفات المضيف الأساسية</string>
     <string name="status_update_available">يوجد تحديث متوفر</string>
     <string name="status_update_available_subtitle">ملفات المضيف الجديدة متوفرة</string>
+    <string name="status_no_update_found">لم يعثر على تحديث للمصدر</string>
     <string name="status_no_connection">غير متصل بالشبكة</string>
     <string name="status_no_connection_subtitle">لا يوجد اتصال بالشبكة متوفر</string>
     <string name="status_download_fail">الملقمات غير متوفرة</string>
@@ -60,6 +78,11 @@
     <string name="status_enabled_subtitle">ملفات المضيف الحديثة مفعلة</string>
     <string name="status_disabled">معطل</string>
     <string name="status_disabled_subtitle">ملف المضيف الإفتراضي مُثبّت</string>
+    <string name="status_apply_sources">تطبيق آحدث المصادر</string>
+    <string name="status_create_new_hosts">تكوين ملف hosts جديد</string>
+    <string name="status_copy_new_hosts">نسخ ملف hosts جديد</string>
+    <string name="status_check_copy">التأكد من نسخ ملف hosts</string>
+    <string name="status_hosts_updated">تم تحديث ملف hosts بنجاح</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
     <string name="apply_symlink_missing">symlink من مسارك الى /system/etc/hosts غير موجود او غير صحيح . البرنامج لن يعمل اذا لم يتم تحديد الملف الصحيح . هل تريد محاولة انشاء symlink ؟</string>
     <string name="apply_symlink_missing_title">الارتباط الرمزي مفقود</string>
@@ -104,6 +127,8 @@
     <string name="enable_systemless_successful_title">تم التنفيذ بنجاح</string>
     <string name="disable_systemless_successful">تم تعطيل الوضع اللّانظامي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
     <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
+    <string name="enable_vpn_fail">تعذر عن تفعيل إعلانات VPN</string>
+    <string name="disable_vpn_fail">تعذر عن إيقاف إعلانات VPN</string>
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">أدخل عنوان URL لملفات المضيف:</string>
     <string name="no_hostname">اسم الموقع غير صالح!</string>
@@ -175,10 +200,13 @@
     <string name="shortcut_your_lists">قوائمك</string>
     <string name="shortcut_preferences">الخيارات</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">تم تنصيبه قبل %1$s</string>
     <string name="hosts_source_up_to_date">حالي لـ %1$s</string>
     <string name="hosts_source_need_update">مطلوب تحديث لـ %1$s</string>
     <string name="hosts_source_last_update">آخر تحديث قبل %1$s</string>
     <string name="hosts_source_unknown_status">حالة تحديث غير معروفة</string>
+    <string name="hosts_source_few_minutes">بضع دقائق</string>
     <plurals name="hosts_source_minutes">
         <item quantity="zero">إنتهى  تقريبا%d</item>
         <item quantity="one">دقيقة %d</item>
@@ -211,5 +239,18 @@
         <item quantity="many">أشهُر %d</item>
         <item quantity="other">أشهُر %d</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">تشغيل</string>
+    <string name="vpn_notification_running">فعال</string>
+    <string name="vpn_notification_stopping">جاري الإيقاف</string>
+    <string name="vpn_notification_waiting_for_net">بإنتظار شبكة</string>
+    <string name="vpn_notification_reconnecting">إعادة الإتصال</string>
+    <string name="vpn_notification_reconnecting_error">خطأ بإعادة الإتصال</string>
+    <string name="vpn_notification_paused">متوقف مؤقتا</string>
+    <string name="vpn_notification_stopped">متوقف</string>
+    <string name="vpn_notification_title">إيقاف إعلانات VPN %1$s</string>
+    <string name="vpn_notification_action_pause">إيقاف مؤقت</string>
+    <string name="vpn_notification_paused_text">اضغط للاستمرار</string>
 
     </resources>

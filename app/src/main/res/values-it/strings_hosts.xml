@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hosts_title">Fonti host</string>
+    <string name="hosts_title">Sorgenti hosts</string>
     <!-- List -->
     <string name="hosts_not_available">non disponibile</string>
     <!-- Edition dialog -->

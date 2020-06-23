@@ -6,27 +6,27 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>FAQ</title></head>
 <body>
 <h2>Guadagni dalle pubblicità</h2>
-<p>Esiste un malinteso diffuso sul fatto che se un utente non clicca mai sulle pubblicità, allora bloccarle non danneggia finanziariamente il sito o l'applicazione. Questo è errato: gli sviluppatori guadagnano denaro anche semplicemente mostrando le pubblicità. Spetta a te decidere se bloccare gli annunci o meno. Personalmente non utilizzerei applicazioni che mostrano annunci perché li trovo molto fastidiosi, quindi senza un programma per bloccare le pubblicità non installerei queste applicazioni.</p>
+<p>Esiste un malinteso diffuso sul fatto che se un utente non clicca mai sulle pubblicità, allora bloccarle non danneggia finanziariamente il sito o l'applicazione. Questo è errato: gli sviluppatori guadagnano denaro anche semplicemente mostrando le pubblicità. Spetta a te decidere se bloccare gli annunci o meno. Personalmente non utilizzerei applicazioni che mostrano annunci perché li trovo molto fastidiosi, quindi senza un programma per bloccare le pubblicità non installerei queste applicazioni</p>
 
 <h2>Come funziona AdAway?</h2>
-<p>AdAway usa il <a href="http://en.wikipedia.org/wiki/Hosts_file">file host</a> per bloccare nomi host che forniscono annunci. Il file host si trova in <code>/system/etc/hosts</code> che mappa i nomi host in indirizzi IP. E' un modo per associare un indirizzo IP al suo hostname senza utilizzare il Domain Name System (DNS). Tutti gli nomi host non desiderati sono reindirizzati a <code>127.0.0.1</code>, il che significa che punteranno al tuo dispositivo.<br>
-Se il file host non è scrivibile, una soluzione alternativa è utilizzare il servizio VPN. Potrà filtrare le connessioni non desiderate, facendo passare le altre.</p>
+<p>AdAway usa il <a href="http://en.wikipedia.org/wiki/Hosts_file">file hosts</a> per bloccare hostnames che forniscono annunci. Il file hosts si trova in <code>/system/etc/hosts</code> e mappa gli hostnames in indirizzi IP. E' un modo per associare un indirizzo IP al suo hostname senza utilizzare il Domain Name System (DNS). Tutti gli hostnames non desiderati sono reindirizzati a <code>127.0.0.1</code>, il che significa che punteranno al tuo dispositivo.<br>
+Se il file hosts non è scrivibile, una soluzione alternativa è utilizzare il servizio VPN. Potrà filtrare le connessioni non desiderate, facendo passare le altre</p>
 
-<h2>Perchè devo riavviare Android per rendere effettivi i cambiamenti?</h2>
-<p>Java su Android ha la sua propria cache DNS interna. Il sistema operativo rispecchierà il nuovo file hosts immediatamente (verificalo con un ping tramite linea di comando) ma dovrai riavviare Android per ricostruire la cache DNS di Java.</p>
+<h2>Perché devo riavviare Android per rendere effettivi i cambiamenti?</h2>
+<p>Java su Android ha la sua propria cache DNS interna. Il sistema operativo rispecchierà il nuovo file hosts immediatamente (verificalo con un ping tramite linea di comando) ma dovrai riavviare Android per ricostruire la cache DNS di Java</p>
 
-<h2>Come uso il webserver in AdAway?</h2>
-<p><strong>AdAway funziona anche senza usare il webserver!</strong>
-<br><br>Puoi abilitare nelle preferenze di AdAway un webserver locale per rispondere alle richieste tramite l'IP locale <code>127.0.0.1</code>. Questo significa che le richieste dalle applicazioni ai server pubblicitari che vengono inoltrate verso <code>127.0.0.1</code> ricevono risposta dal webserver di Adaway.
-<br>Alcune applicazioni infatti si rifiutano di funzionare quando i server pubblicitari non sono raggiungibili. Con questo metodo ritornano di nuovo raggiungibili, fornendo come risposta una pagina bianca e nessuna immagine pubblicitaria.</p>
+<h2>Come usare il web server in AdAway?</h2>
+<p><strong>AdAway funziona anche senza usare il web server!</strong>
+<br><br>Puoi abilitare nelle preferenze di AdAway un web server locale per rispondere alle richieste tramite l'IP locale <code>127.0.0.1</code>. Questo significa che le richieste dalle applicazioni ai server pubblicitari che vengono inoltrate verso <code>127.0.0.1</code> ricevono risposta dal web server di Adaway.
+<br>Alcune applicazioni infatti si rifiutano di funzionare quando i server pubblicitari non sono raggiungibili. Con questo metodo ritornano di nuovo raggiungibili, fornendo come risposta una pagina bianca e nessuna immagine pubblicitaria</p>
 
 <h2>Come posso bloccare/sbloccare specifici hostname?</h2>
-<p>Aggiungi i nomi degli host che vuoi bloccare alla <cite>Blacklist</cite> dalla <cite>homescreen</cite>. Inoltre, puoi aggiungere i nomi degli host che vuoi escludere dal blocco alla <cite>Whitelist</cite> e i nomi degli host che vuoi reindirizzare ad un indirizzo IP personalizzato alla <cite>Redirection List</cite>.</p>
+<p>Aggiungi gli hostname che vuoi bloccare alla <cite>Blacklist</cite> dalla <cite>homescreen</cite>. Inoltre, puoi aggiungere gli hostname che vuoi escludere dal blocco alla <cite>Whitelist</cite> e gli hostname  che vuoi reindirizzare ad un indirizzo IP personalizzato alla <cite>Redirection List</cite></p>
 
 <h2>Dove posso trovare più sorgenti host?</h2>
-<p>Consulta la <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista delle sorgenti host aggiuntive per AdAway</a>.</p>
+<p>Consulta la <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista delle sorgenti hosts aggiuntive per AdAway</a></p>
 
 <h2>Aiuta a tradurre/segnala bug</h2>
-<p>Per favore visita <a href="https://adaway.org">https://adaway.org</a>.</p>
+<p>Visita <a href="https://adaway.org">https://adaway.org</a></p>
 </body>
 </html>

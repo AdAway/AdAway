@@ -5,9 +5,9 @@
 
     <!-- Changelog dialog -->
     <string name="update_update_title">È disponibile una nuova versione</string>
-    <string name="update_update_message">Questa nuova versione ha queste novità:\n\n</string>
+    <string name="update_update_message">Questa versione ha queste novità:\n\n</string>
     <string name="update_up_to_date_title">Sei aggiornato</string>
     <string name="update_up_to_date_message">Questa ultima versione ha queste novità:\n\n</string>
-    <string name="update_changelog">Changelog</string>
+    <string name="update_changelog">Registro modifiche</string>
     <string name="update_update_button">Aggiorna ora</string>
 </resources>

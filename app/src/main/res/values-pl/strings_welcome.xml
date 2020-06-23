@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Zapraszamy</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Logo powitalne</string>
+    <string name="welcome_method_header">Witamy w AdAway!</string>
+    <string name="welcome_method_summary"> AdAway zapewnia dwie metody blokowania reklam. Wybierz tę, którą lubisz:</string>
+
+    <string name="welcome_root_method_logo">Logo Root</string>
+    <string name="welcome_root_method_text1">Szybciej</string>
+    <string name="welcome_root_method_text2">Przyjazny dla baterii</string>
+    <string name="welcome_root_method_text3">Wymagany root</string>
+
+    <string name="welcome_vpn_method_logo">Logo VPN</string>
+    <string name="welcome_vpn_method_title">Blokowanie przez VPN</string>
+    <string name="welcome_vpn_method_text1">Wolniej</string>
+    <string name="welcome_vpn_method_text2">Uruchom w tle</string>
+    <string name="welcome_vpn_method_text3">Zgodność</string>
+
     <string name="welcome_root_missing_title">Wymagany jest zrootowany Android</string>
-    </resources>
+    <string name="welcome_root_missile_description">Nie można znaleźć pliku binarnego su lub nie zezwolono na uprawnienia roota dla AdAway. \n\nMoże to się zdarzyć, gdy urządzenie nie jest zrootowane. Informacje na temat rootowania urządzenia można znaleźć na wiki.lineageos.org lub innych stronach o systemie Android.</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Synchronizacja zakończona</string>
+    <string name="welcome_sync_error_logo">Błąd podczas synchronizacji</string>
+
+    <string name="welcome_sync_header">Synchronizacja</string>
+    <string name="welcome_synced_header">Zsynchronizowany!</string>
+    <string name="welcome_sync_summary">AdAway pobiera sieci reklamowe w celu blokowania ze źródeł internetowych. Możesz je później dostosować w ustawieniach.</string>
+    <string name="welcome_sync_retry_logo">Ponów synchronizację</string>
+    <string name="welcome_sync_error">Nie udało się zsynchronizować\n %s. \nPonowić próbę?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Wsparcie</string>
+    <string name="welcome_support_header">Wesprzyj mnie!</string>
+    <string name="welcome_support_summary"> To darmowa aplikacja typu open source. Rozwijam to w wolnym czasie. Więc jeśli ci się spodoba, nie wahaj się okazać wsparcie:</string>
+    <string name="welcome_support_button">Darowizna na PayPal</string>
+    <string name="welcome_support_telemetry_summary">Lubisz błędy? Ja też nie.</string>
+    <string name="welcome_support_telemetry_button">Włącz telemetrię, aby wysyłać mi raporty o awariach</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Wstecz</string>
+    <string name="welcome_next_button">Dalej</string>
+    <string name="welcome_finish_button">Zakończ</string>
+</resources>

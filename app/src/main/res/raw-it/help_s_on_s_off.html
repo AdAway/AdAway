@@ -6,26 +6,27 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>Aiuto riguardo S-ON</title></head>
 <body>
 <h2>Dispositivi HTC</h2>
-<p>AdAway non funziona se usi un disposivo con il cosiddetto S-ON. Questa "caratteristica" è presente in molti dispositivi HTC e impedisce a AdAway di scrivere il file hosts.</p>
+<p>AdAway non funziona se usi un dispositivo con il cosiddetto S-ON. Questa "caratteristica" è presente in molti dispositivi HTC e impedisce a AdAway di scrivere il file hosts</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF significa che la porzione NAND del dispositivo è sbloccata e può essere scritta. L'impostazione predefinita nel dispositivi HTC è S-ON, il che significa che non si può né accedere a determinate aree del sistema, né puoi garantirti il root permanente. Inoltre, anche il controllo della firma per i firmware è assicurato dal flag S-ON.</p>
+<p>S-OFF significa che la porzione NAND del dispositivo è sbloccata e può essere scritta. L'impostazione predefinita nel dispositivi HTC è S-ON, il che significa che non si può né accedere a determinate aree del sistema, né puoi garantirti il root permanente. Inoltre, anche il controllo della firma per i firmware è assicurato dal flag S-ON</p>
 
 <h2>Ho S-ON o S-OFF?</h2>
 <p>Accedi al menu di avvio del tuo dispositivo tenendo premuto il pulsante <cite>volume giù</cite> mentre premi il pulsante di accensione e sul display in alto apparirà l'indicazione dello status come S-OFF o S-ON. Un root completo generalmente comporta S-OFF.
 <br><br>Puoi trovare altre informazioni su <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Ti potrebbero interessare altri metodi per lo S-OFF oltre Unrevokable (nel link): Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
 
 <h2>Soluzione</h2>
-<p>Prerequisito: devi installare una versione funzionante dell'SDK Android con shell ADB sul tuo pc.</p>
+<p>Prerequisito: installare una versione funzionante dell'SDK Android con shell ADB sul pc</p>
 <ol>
-<li>Accedi al menu di avvio del tuo dispositivo tenendo premuto il pulsante <cite>volume giù</cite> mentre premi il pulsante di accensione.</li>
-<li>Utilizza <cite>volume -</cite> per selezionare <cite>recovery</cite> quindi <cite>power</cite> per avviarlo.</li>
-<li>Nella ClockWork Recovery andare al menu "partitions".</li>
-<li>Seleziona <cite>mount /system</cite>, <cite>mount /sdcard</cite> e <cite>mount /data</cite>.</li>
-<li>Collega il cavo USB e apri una riga di comando sul PC.</li>
-<li>Entra nella shell adb e digita <code>ln -s /data/hosts /system/etc/hosts</code> (In questo modo si crea un link simbolico che consente ad AdAway di modificare il file hosts situato in <code>/data</code>, consentendo allo stesso tempo al sistema operativo di usare il medesimo file come se fosse situato in <code>/system</code>.)</li>
-<li>Riavvia il tuo dispositivo e imposta il <cite>Percorso file hosts</cite> in <cite>/data/hosts</cite> nelle preferenze di AdAway.</li>
-<li>Ora AdAway dovrebbe funzionare.</li>
+<li>Accedi al menù di avvio del tuo dispositivo tenendo premuto il pulsante <cite>volume giù</cite> mentre premi il pulsante di accensione</li>
+<li>Utilizza <cite>volume -</cite> per selezionare <cite>recovery</cite> quindi <cite>power</cite> per avviarlo</li>
+<li>Nella ClockWork Recovery andare al menu "partitions"</li>
+<li>Seleziona <cite>mount /system</cite>, <cite>mount /sdcard</cite> e <cite>mount /data</cite>
+</li>
+<li>Collega il cavo USB e apri una riga di comando sul PC</li>
+<li>Entra nella shell adb e digita <code>ln -s /data/hosts /system/etc/hosts</code> (In questo modo si crea un link simbolico che consente ad AdAway di modificare il file hosts situato in <code>/data</code>, consentendo allo stesso tempo al sistema operativo di usare il medesimo file come se fosse situato in <code>/system</code>)</li>
+<li>Riavvia il tuo dispositivo e imposta il <cite>Percorso file hosts</cite> in <cite>/data/hosts</cite> nelle preferenze di AdAway</li>
+<li>Ora AdAway dovrebbe funzionare</li>
 </ol>
 </body>
 </html>

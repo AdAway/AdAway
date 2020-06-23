@@ -2,5 +2,6 @@
 <resources>
     <string name="lists_title">Luettelosi</string>
     <string name="list_dialog_hostname">host-nimi:</string>
+    <string name="list_dialog_hostname_hint">Isännän lähde URL</string>
     <string name="list_dialog_ip">IP (IPv4 tai IPv6):</string>
 </resources>

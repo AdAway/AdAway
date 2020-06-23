@@ -3,4 +3,6 @@
     <!-- Update notification -->
     <string name="notification_update_channel_name">Frissítések</string>
     <string name="notification_update_host_available_title">Frissítés érhető el</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
     </resources>

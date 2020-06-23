@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">blokeatuta</string>
+    <string name="allowed_hosts_label">baimendua</string>
+    <string name="redirect_hosts_label">birhelbideratzea</string>
+
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
@@ -11,6 +16,17 @@
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
+    <!-- Help card -->
+    <string name="help_label">Laguntza erakutsi</string>
+
+    <!-- Project card -->
+    <string name="project_label">Ireki GitHub-en orria</string>
+
+    <!-- Support card -->
+    <string name="support_label">Lagundu proiektua</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS erregistroak</string>
     <string name="preferences_drawer_item">Hobespenak</string>
 
     <!-- Error dialog -->

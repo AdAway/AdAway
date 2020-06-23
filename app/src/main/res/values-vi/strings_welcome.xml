@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">Yêu cầu Android đã root</string>
-    </resources>
+    <string name="welcome_title">Chào mừng</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Logo chào mừng</string>
+    <string name="welcome_method_header">Chào mừng dến với AdAway!</string>
+    <string name="welcome_method_summary">AdAway cung cấp hai phương pháp chặn quảng cáo. Hãy chọn phương pháp phù hợp với bạn:</string>
+
+    <string name="welcome_root_method_logo">Logo root</string>
+    <string name="welcome_root_method_title">Chặn quảng cáo sử dụng root  </string>
+    <string name="welcome_root_method_text1">Nhanh hơn</string>
+    <string name="welcome_root_method_text2">Tiết kiệm pin</string>
+    <string name="welcome_root_method_text3">Thiết bị cần được root</string>
+
+    <string name="welcome_vpn_method_logo">Logo VPN</string>
+    <string name="welcome_vpn_method_title">Chặn quảng cáo sử dụng VPN</string>
+    <string name="welcome_vpn_method_text1">Chậm hơn</string>
+    <string name="welcome_vpn_method_text2">Chạy nền</string>
+    <string name="welcome_vpn_method_text3">Tương thích</string>
+
+    <string name="welcome_root_missing_title">Yêu cầu thiết bị đã được root</string>
+    <string name="welcome_root_missile_description">Chuỗi nhị phân SU không được tìm thấy hoặc AdAway chưa được cấp quyền root. Lỗi này có thể xảy ra do thiết bị của bạn chưa được root. Thông tin về cách root thiết bị có thể xem trên wiki.lineageos.org hoặc các website tương tự.</string>
+
+    <string name="welcome_method_pro_logo">Điểm cộng</string>
+    <string name="welcome_method_con_logo">Điểm trừ</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Đã đồng bộ xong</string>
+    <string name="welcome_sync_error_logo">Có lỗi xảy ra khi đồng bộ</string>
+
+    <string name="welcome_sync_header">Đang đồng bộ</string>
+    <string name="welcome_synced_header">Đã đồng bộ</string>
+    <string name="welcome_sync_summary">AdAway tải xuống thông tin về các host quảng cáo để chặn chúng. Bạn có thể tùy chỉnh các host trong Cài đặt.</string>
+    <string name="welcome_sync_retry_logo">Thử đồng bộ lại</string>
+    <string name="welcome_sync_error">Đồng bộ xảy ra lỗi tại :\n%s.\n. Thử lại ngay?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Hỗ trợ</string>
+    <string name="welcome_support_header">Ủng hộ AdAway!</string>
+    <string name="welcome_support_summary">AdAway là ứng dụng mã nguồn mở hoàn toàn miễn phí. Nếu bạn muốn, hãy ủng hộ chúng tôi tại đây:</string>
+    <string name="welcome_support_button">Ủng hộ qua PayPal</string>
+    <string name="welcome_support_telemetry_summary">Có lỗi xảy ra?</string>
+    <string name="welcome_support_telemetry_button">Báo lỗi cho chúng tôi qua</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Quay lại</string>
+    <string name="welcome_next_button">Tiếp theo</string>
+    <string name="welcome_finish_button">Hoàn thành</string>
+</resources>

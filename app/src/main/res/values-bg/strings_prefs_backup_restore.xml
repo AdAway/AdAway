@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">Архивиране &amp; възстановяване</string>
+    <string name="pref_backup">Архивиране</string>
+    <string name="pref_backup_summary">Архивиране във външно хранилище на Вашите правила за блокиране</string>
+    <string name="pref_restore">Възстановяване</string>
+    <string name="pref_restore_summary">Възстановяване на вашите правила за блокиране от архивен файл</string>
+</resources>

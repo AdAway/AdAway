@@ -2,5 +2,8 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Ei verkkoyhteyttä</string>
+    <string name="error_download_failed_message">Isäntätiedoston lähteen lataaminen epäonnistui</string>
     <string name="error_not_enough_space_message">Ei tarpeeksi tilaa</string>
+    <string name="error_copy_failed_message">Uuden hosts-tiedoston asentaminen epäonnistui</string>
+    <string name="error_revert_failed_message">Host-tiedoston palauttaminen epäonnistui</string>
     </resources>

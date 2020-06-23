@@ -3,11 +3,11 @@
     <!-- Update notification -->
     <string name="notification_update_channel_name">Aggiornamenti</string>
     <string name="notification_update_channel_description">Notifica nuovo aggiornamento</string>
-    <string name="notification_update_host_available_title">Aggiornamento disponibile</string>
-    <string name="notification_update_host_available_text">Nuovi file host disponibili</string>
-    <string name="notification_update_app_available_title">Aggiornamento app disponibilie</string>
-    <string name="notification_update_app_available_text">Nuova versione di AdAway disponibile al download</string>
+    <string name="notification_update_host_available_title">Disponibile aggiornamento sorgenti</string>
+    <string name="notification_update_host_available_text">File hosts più recente disponibile</string>
+    <string name="notification_update_app_available_title">Aggiornamento app disponibile</string>
+    <string name="notification_update_app_available_text">Nuova versione di AdAway disponibile</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
-    <string name="notification_vpn_channel_description">Notifiche VPN attiva</string>
+    <string name="notification_vpn_channel_description">Notifica VPN in esecuzione</string>
 </resources>

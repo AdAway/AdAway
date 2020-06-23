@@ -21,6 +21,10 @@
     <string name="webserver_status_stopped">Pysäytetty</string>
     <string name="button_enable_webserver">Ota web-palvelin käyttöön</string>
     <string name="button_disable_webserver">Ota web-palvelin pois käytöstä</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Käynnissä</string>
+    <string name="vpn_status_stopped">Pysäytetty</string>
+    <string name="button_enable_vpn">Aktivoi VPN</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Poista</string>
     <string name="checkbox_list_context_title">Muokka merkintää</string>
@@ -28,11 +32,17 @@
 
     <!--Your lists-->
     <string name="import_dialog">Tuodaan…</string>
+    <string name="import_failed">Varmuuskopion tuominen epäonnistui. Onko formaatti oikea? Tarkista logcat saadaksesi lisätietoja.</string>
     <string name="export_dialog">Viedään…</string>
+    <string name="export_success">Varmuuskopio onnistuneesti viety \'adaway-backup.json\' tiedostolle ulkoiseen muistiin.</string>
+    <string name="export_failed">Varmuuskopioinnin vieminen epäonnistui</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Hosts-tiedosto</string>
     <string name="hosts_open_button">Avaa hosts-tiedosto</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Tarkistetaan päivityksiä</string>
     <string name="status_reverting_subtitle">Luodaan vakio-hosts-tiedostoa</string>
     <string name="status_update_available">Päivitys saatavilla</string>
     <string name="status_update_available_subtitle">Uudempia hosts-tiedostoja on saatavilla</string>
@@ -91,6 +101,9 @@
     <string name="menu_refresh">Päivitä</string>
     <string name="menu_add">Lisää</string>
     <string name="menu_help">Ohjeet</string>
+    <string name="menu_import">Tuo varmuuskopio</string>
+    <string name="menu_export">Vie varmuuskopio</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">FAQ</string>

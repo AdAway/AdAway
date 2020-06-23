@@ -1,7 +1,7 @@
 Un Ad-Blocker che usa il file Hosts.
-Il file hosts è un file di sistema che contiene una lista di relazioni tra nomi host e indirizzi IP.
-Quando un'app richiama un annuncio pubblicitario da un host presente in quel file, la richiesta viene rediretta all'indirizzo IP locale 127.0.0.1, non traducendosi in alcuna azione.
-Puoi scaricare dei file hosts precompilati direttamente dall'app, per incorporarli nel file hosts di sistema. È anche possibile usare i propri file hosts e aggiungere alcuni hosts a whitelist e blacklist.
-Ci sono opzioni che consentono di avviare un web server locale per rispondere ai nomi di host bloccati e per inoltrare le relative richieste all'indirizzo IP di tua preferenza.
+Il file hosts è un file di sistema che contiene una lista di relazioni tra nomi host e indirizzi IP
+Quando un'app richiama un annuncio pubblicitario da un host presente in quel file, la richiesta viene reindirizzata all'indirizzo IP locale 127.0.0.1, non traducendosi in alcuna azione
+Puoi scaricare dei file hosts precompilati direttamente dall'app, per incorporarli nel file hosts di sistema. È anche possibile usare i propri file hosts e aggiungere alcuni hosts a whitelist e blacklist
+Ci sono opzioni che consentono di avviare un web server locale per rispondere ai nomi di host bloccati e per inoltrare le relative richieste all'indirizzo IP di tua preferenza
 
 Richiede root: Sì. Il file hosts è situato in /system che di default è di sola lettura.

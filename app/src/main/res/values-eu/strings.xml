@@ -23,8 +23,16 @@
     <string name="header_webserver">Web zerbitzaria</string>
     <string name="webserver_status_running">Exekutatzen</string>
     <string name="webserver_status_stopped">Geldituta</string>
+    <string name="webserver_toggle_text">Hasi edo gelditu web zerbitzua localhost-en, blokeatutako ostalari-izenen eskaerei erantzuteko.</string>
     <string name="button_enable_webserver">Gaitu web zerbitzaria</string>
     <string name="button_disable_webserver">Desgaitu web zerbitzaria</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Abian</string>
+    <string name="vpn_status_stopped">Geldirik</string>
+    <string name="vpn_toggle_text">Hasi edo gelditu VPN-a eskaerak filtratzen.</string>
+    <string name="button_enable_vpn">VPN-a gaitu</string>
+    <string name="button_disable_vpn">VPN-a desgaitu</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Ezabatu</string>
     <string name="checkbox_list_context_title">Editatu Sarrera</string>
@@ -32,14 +40,31 @@
 
     <!--Your lists-->
     <string name="import_dialog">Inportatzen…</string>
+    <string name="import_success"> Kanpoko biltegitik segurtasun-kopia ondo inportatuta.</string>
+    <string name="import_failed">Ezin izan da segurtasun-kopia inportatu. Zuzena al da formatua? Egiaztatu logcat-a xehetasunak ikusteko.</string>
     <string name="export_dialog">Esportatzen…</string>
+    <string name="export_success">Kanpoko biltegian \'adaway-backup.json\' fitxategira behar bezala esportatu da segurtasun-kopia.</string>
+    <string name="export_failed">Ezin izan da segurtasun-kopia esportatu.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Hostalari fitxategia</string>
+    <string name="hosts_description">Hosts fitxategia IP helbideei host izenak ematen dizkien sistemaren fitxategi bat da. Formaturik gabeko testu-fitxategia da, AdAwayk konfiguratzen du. Hauek dira bere lehenengo lerroak:</string>
     <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen...</string>
     <string name="hosts_open_button">Ireki hostalari fitxategia</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Eguneraketak egiaztatzen</string>
+    <string name="status_check_source">%s iturriaren eguneraketak egiaztatzen</string>
+    <string name="status_retrieve">Iturriak berreskuratzen</string>
+    <string name="status_download_source">%s iturria deskargatzen</string>
+    <string name="status_copy_source">%s iturria kopiatzen</string>
+    <string name="status_parse_source">%s iturria parseatzen</string>
+    <string name="status_revert">Lehenetsitako host fitxategira itzultzen</string>
+    <string name="status_revert_done">Lehenetsitako host fitxategia zaharberritua</string>
     <string name="status_reverting_subtitle">Hostalari agiri estandarra sortzen</string>
+    <string name="status_update_available">eguneratze-jakinarazpen berriak</string>
     <string name="status_update_available_subtitle">Hostalari agiri berrienak eskuragarri</string>
+    <string name="status_no_update_found">Ez da iturriaren eguneraketarik aurkitu</string>
     <string name="status_no_connection">Ez dago Internet elkarketarik</string>
     <string name="status_no_connection_subtitle">Ez dago Internet elkarketa eskuragarririk</string>
     <string name="status_download_fail">Ez dago iturburu eskuragarririk</string>
@@ -52,7 +77,19 @@
     <string name="status_enabled_subtitle">Hostalari agiri berrienak gaituta</string>
     <string name="status_disabled">Ezgaituta</string>
     <string name="status_disabled_subtitle">Hostalari fitxategi lehenetsia instalatuta</string>
+    <string name="status_apply_sources">Azken iturriak aplikatu</string>
+    <string name="status_create_new_hosts">Hosts fitxategi berri bat sortzen</string>
+    <string name="status_copy_new_hosts">Hosts fitxategi berri bat kopiatzen</string>
+    <string name="status_check_copy">Hosts fitxategiaren kopia egiaztatzen</string>
+    <string name="status_hosts_updated">Hosts fitxategia eguneratuta</string>
+    <string name="status_vpn_configuration_updated">VPN konfigurazioa eguneratuta</string>
+    <string name="notification_configuration_changed">Zure konfigurazioa aldatuta. Aplikatzea behar da.</string>
     <string name="notification_configuration_changed_action">Aplikatu</string>
+    <string name="notification_configuration_installing">Konfigurazio berria aplikatzen...</string>
+    <string name="notification_configuration_failed">Errorea konfigurazio berria aplikatzen.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status"> Hosts fitxategiaren helmugarako symlink-a falta da</string>
     <string name="apply_symlink_missing">Zure xedetiko Symlotura /system/etc/hosts-ra ez dago edo okerra da! AdAway-k ez du lan egingo ez bada agiri zuzenera zuzentzen.\n\nNahi duzu symlotura bat sortzen saiatzea?</string>
     <string name="apply_symlink_missing_title">Symlotura ez dago</string>
     <string name="apply_not_enough_space">Ez dago nahikoa toki partizioan!\nSaiatu xede hostalari agiria aldatzen hobespenetan: /data/data/hosts.</string>
@@ -61,6 +98,7 @@
     <string name="apply_private_file_fail_title">Agiri pribatu hutsegitea</string>
     <string name="apply_remount_fail">Hutsegitea partizioa idaz/irakurtzekoa bezala ber-muntatzerakoan.</string>
     <string name="apply_remount_fail_title">Ber-muntatze hutsegitea</string>
+    <string name="apply_copy_fail_status">Errorea hosts fitxategia kopiatzen</string>
     <string name="apply_copy_fail">Hostalari agiri kopiatze hutsegitea!</string>
     <string name="apply_copy_fail_title">Kopiatze hutsegitea</string>
     <string name="apply_success_subtitle">Hostalari iturriak aplikatu dira</string>
@@ -77,18 +115,25 @@
     <string name="apply_dialog_hostnames">Hostalari agiriak aztertzen eta batzen</string>
     <string name="apply_dialog_hosts">Hostalari agiria eraikitzen</string>
     <string name="apply_dialog_apply">Hostalari agiria ezartzen</string>
+    <string name="apply_fail_status">Errorea hosts fitxategi berria aplikatzen.</string>
     <string name="apply_fail">Hutsegitea hostalari agiria zure sisteman ezartzerakoan!\nSaiatu xede hostalari agiria aldatzen hobespenetan: /data/data/hosts.</string>
     <string name="apply_fail_title">Ezartze hutsegitea</string>
     <string name="root_access_fail">Egiaztatu zure root kudeaketa aplikazioa root sarbidea eman dela ziurtatzeko.</string>
     <string name="revert_successful_title">Ongi leheneratu da</string>
+    <string name="revert_failed_status">Ezin da hosts fitxategia irauli</string>
     <string name="revert_problem">Leheneratze hutsegitea zergaiti ezezagunengaitik.</string>
     <string name="revert_problem_title">Leheneratze hutsegitea!</string>
     <string name="download_fail_dialog">Zure gaitutako hostalari iturburu bat ere ez da erdiesgarria! Zihur zaude Intenetera egoki elkartuta zaudela?</string>
     <string name="download_fail_title">Jeisketa hutsegitea</string>
+    <string name="no_private_file_status">Errorea hosts fitxategi pribatu berria idazten</string>
     <string name="no_private_file">Agiri pribatua ezin da sortu.</string>
     <string name="no_private_file_title">Agiri pribatu sortze hutsegitea</string>
     <string name="enable_systemless_successful_title">Ongi gaitu da</string>
     <string name="disable_systemless_successful_title">Ongi ezgaitu da</string>
+    <string name="enable_vpn_fail">Errorea VPN ad blocking gaitzen.</string>
+    <string name="disable_vpn_fail">Errorea VPN ad blocking desgaitzen.</string>
+    <string name="enable_systemless_magisk_title">Hosts Magisk modulua gaitzen.</string>
+    <string name="disable_systemless_magisk_title">Hosts Magisk modulua desgaitzen.</string>
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Sartu hostalari agirirako URL-a:</string>
     <string name="no_hostname">Hau ez da baliozko hostalari-izen bat!</string>
@@ -102,6 +147,9 @@
     <string name="menu_refresh">Berritu</string>
     <string name="menu_add">Gehitu</string>
     <string name="menu_help">Laguntza</string>
+    <string name="menu_import">Segurtasun-kopia inportatu</string>
+    <string name="menu_export">Segurtasun-kopia esportatu</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">SEG</string>
@@ -134,6 +182,7 @@
     <string name="tcpdump_entry_add_whitelist">Gehitu sarrera zerrenda-zurira</string>
     <string name="tcpdump_entry_add_redirection_list">Gehitu sarrera birbidalketa zerrendara</string>
 
+    <string name="pref_edit_text_value">Testuaren lehentasun-balioa editatu</string>
     <string name="drawer_open">Ireki menua</string>
     <string name="drawer_close">Itxi menua</string>
 
@@ -155,6 +204,10 @@
     <string name="shortcut_your_lists">Zure zerrendak</string>
     <string name="shortcut_preferences">Hobespenak</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Orain dela %1$sinstalatuta</string>
+    <string name="hosts_source_up_to_date">%1$sarte eguneratuta</string>
+    <string name="hosts_source_need_update">%1$srako eguneraketa behar du</string>
     <string name="hosts_source_last_update">Azken eguneraketa duela %1$s</string>
     <string name="hosts_source_unknown_status">Eguneratze egoera ezezaguna</string>
     <plurals name="hosts_source_minutes">
@@ -174,4 +227,20 @@
         <item quantity="other">%d hilabete</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">abiarazten</string>
+    <string name="vpn_notification_running">aktibo</string>
+    <string name="vpn_notification_stopping">gelditzen</string>
+    <string name="vpn_notification_waiting_for_net">sareari itxaron</string>
+    <string name="vpn_notification_reconnecting">birkonektatzen</string>
+    <string name="vpn_notification_reconnecting_error">birkonekzio errorea</string>
+    <string name="vpn_notification_paused">etenda</string>
+    <string name="vpn_notification_stopped">geldituta</string>
+    <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Eten</string>
+    <string name="vpn_notification_paused_text">Ukitu berrekiteko </string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Gaitu eta desgaitu sitemako ad-blocking-a</string>
+
+</resources>

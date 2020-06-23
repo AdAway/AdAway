@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome_title">ښه راغلاست</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">ښه راغلاست نښان</string>
+    <string name="welcome_method_header">اډاوې ته ښه راغلاست!</string>
+    <string name="welcome_root_method_logo">ولۍ نښان</string>
+    <string name="welcome_root_method_text1">لاګړندى</string>
+    <!-- Support -->
+    <string name="welcome_support_logo">ملاتړ</string>
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">شا</string>
+    <string name="welcome_next_button">بل </string>
+    <string name="welcome_finish_button">پاينه </string>
+</resources>

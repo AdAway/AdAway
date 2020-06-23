@@ -23,4 +23,4 @@
     <string name="pref_webserver">Lokalni web poslužitelj</string>
     <string name="pref_webserver_summary">Lokalni web poslužitelj osluškuje lokalne IP adrese u svrhu odgovora na blokirane nazive poslužitelja. Može pomoći pri smrzavanju aplikacija kod blokiranih povezivanja.</string>
     <string name="pref_webserver_enabled">Omogući web poslužitelj</string>
-</resources>
+    </resources>

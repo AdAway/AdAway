@@ -4,8 +4,8 @@
 
     <!-- Method UI -->
     <string name="welcome_method_logo">Uvítacie logo</string>
-    <string name="welcome_method_header">Vitajve v AdAway!</string>
-    <string name="welcome_method_summary">AdAway poskytuje 2 metódy blokvania. Vyberte si jednu:</string>
+    <string name="welcome_method_header">Vitajte v AdAway!</string>
+    <string name="welcome_method_summary">AdAway poskytuje 2 metódy blokovania. Vyberte si jednu:</string>
 
     <string name="welcome_root_method_logo">Logo rootu</string>
     <string name="welcome_root_method_title">Blokovač reklám\npomocou rootu</string>
@@ -31,7 +31,7 @@
 
     <string name="welcome_sync_header">Synchronizácia</string>
     <string name="welcome_synced_header">Synchronizované!</string>
-    <string name="welcome_sync_summary">AdAway sťahuje reklamné siete na blokovanie z onlline zdrojov. Neskôr ich môžete upraviť.</string>
+    <string name="welcome_sync_summary">AdAway sťahuje reklamné siete na blokovanie z online zdrojov. Neskôr ich môžete upraviť.</string>
     <string name="welcome_sync_retry_logo">Zopakovať synchronizáciu</string>
     <string name="welcome_sync_error">Synchronizácia zlyhala:\n%s.\nSkúsiť znova?,</string>
 

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">تړلی </string>
+    <string name="allowed_hosts_label">پرېښلی</string>
+    <!-- Help card -->
+    <string name="help_label">مرسته ښودل</string>
+
+    <string name="preferences_drawer_item">غورتياوې</string>
+
+    <!-- Error dialog -->
+    <string name="error_dialog_help">مهرباني وکړئ، د لا نورو معلوماتو لپاره مرسته ولولئ.</string>
+
+</resources>

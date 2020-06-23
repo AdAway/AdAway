@@ -13,23 +13,23 @@
     <!--Home-->
     <string name="header_help">Benvenuto!</string>
     <string name="text_help">AdAway è un software gratuito e open-source progettato per bloccare pubblicità. Raccoglie gli indirizzi pubblicitari per bloccarli sul tuo dispositivo..\nVuoi saperne di più? Controlla la sezione di aiuto qui sotto!</string>
-    <string name="button_show_help">Mostra più aiuti</string>
+    <string name="button_show_help">Mostra più suggerimenti</string>
     <string name="icon_update_status">Aggiorna stato</string>
-    <string name="text_update">Tutti i file hosts vengono scaricati dalle fonti definite, uniti alle tue liste personali e installati come un unico file hosts nel sistema.</string>
+    <string name="text_update">Tutti i file hosts vengono scaricati dalle sorgenti definite, uniti alle tue liste personali e installati come un unico file hosts nel sistema</string>
     <string name="button_check_update_hosts">Controlla aggiornamenti</string>
     <string name="button_update_hosts">Aggiorna gli hosts</string>
     <string name="button_enable_hosts">Abilita blocco pubblicità</string>
     <string name="button_disable_hosts">Disabilita blocco pubblicità</string>
     <string name="header_webserver">Web server</string>
-    <string name="webserver_status_running">In funzione</string>
-    <string name="webserver_status_stopped">Fermo</string>
-    <string name="webserver_toggle_text">Avvia o ferma il webserver su localhost per rispondere alle richieste degli hostname bloccati.</string>
+    <string name="webserver_status_running">In esecuzione</string>
+    <string name="webserver_status_stopped">Interrotto</string>
+    <string name="webserver_toggle_text">Avvia o interrompe il web server su localhost per rispondere alle richieste degli hostname bloccati</string>
     <string name="button_enable_webserver">Abilita il web server</string>
-    <string name="button_disable_webserver">Disabilita il web server</string>
+    <string name="button_disable_webserver">Disabilita web server</string>
     <string name="header_vpn">VPN</string>
-    <string name="vpn_status_running">Attiva</string>
-    <string name="vpn_status_stopped">Fermata</string>
-    <string name="vpn_toggle_text">Avvia o ferma la VPN per filtrare le richieste.</string>
+    <string name="vpn_status_running">In esecuzione</string>
+    <string name="vpn_status_stopped">Interrotto</string>
+    <string name="vpn_toggle_text">Avvia o interrompe la VPN per filtrare le richieste</string>
     <string name="button_enable_vpn">Abilita VPN</string>
     <string name="button_disable_vpn">Disabilita VPN</string>
 
@@ -40,113 +40,113 @@
 
     <!--Your lists-->
     <string name="import_dialog">Importazione…</string>
-    <string name="import_success">Backup correttamente importato dalla memoria esterna</string>
-    <string name="import_failed">Importazione del backup non riuscita. Il suo formato è corretto? Controlla il log per maggiori dettagli</string>
-    <string name="export_dialog">Esportazione…</string>
-    <string name="export_success">Backup correttamente esportato nel file \'adaway-backup.json\' nella memoria esterna.</string>
-    <string name="export_failed">Esportazione del backup non riuscita</string>
+    <string name="import_success">Backup correttamente importato dalla SDcard</string>
+    <string name="import_failed">Importazione del backup non riuscita. Il formato è corretto? Controlla il log per maggiori dettagli</string>
+    <string name="export_dialog">Esporto…</string>
+    <string name="export_success">Backup esportato correttamente nel file \'adaway-backup.json\' nella SDcard</string>
+    <string name="export_failed">Esportazione backup non riuscito</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Il file hosts</string>
-    <string name="hosts_description">Il file hosts è un file di sistema che mappa gli hostnames in indirizzi IP. È un file di testo semplice la cui configurazione è gestita da AdAway. Ecco alcune righe:</string>
+    <string name="hosts_description">Il file hosts è un file di sistema che mappa gli hostnames in indirizzi IP. È un semplice file di testo la cui configurazione è gestita da AdAway. Ecco alcune righe:</string>
     <string name="hosts_content">Caricamento contenuto del file hosts…</string>
     <string name="hosts_open_button">Apri il file hosts</string>
 
     <!--Status Notification-->
     <string name="status_check">Controllo aggiornamenti in corso</string>
-    <string name="status_check_source">Controllo aggiornamenti per la fonte %s</string>
-    <string name="status_retrieve">Recupero in corso delle fonti</string>
-    <string name="status_download_source">Download in corso della fonte %s</string>
-    <string name="status_copy_source">Copia in corso della fonte %s</string>
-    <string name="status_parse_source">Analisi in corso della fonte %s</string>
-    <string name="status_revert">Ripristino in corso del file host predefinito</string>
-    <string name="status_revert_done">Il file host predefinito è stato ripristinato</string>
-    <string name="status_reverting_subtitle">Creazione in corso del file host standard</string>
-    <string name="status_update_available">Aggiornamento disponibile</string>
-    <string name="status_update_available_subtitle">File host più recenti disponibili</string>
-    <string name="status_no_update_found">Non è stata trovata alcuna fonte da aggiornare</string>
+    <string name="status_check_source">Controllo aggiornamenti sorgente %s</string>
+    <string name="status_retrieve">Recupero delle sorgenti</string>
+    <string name="status_download_source">Scarico sorgente %s</string>
+    <string name="status_copy_source">Copio sorgente %s</string>
+    <string name="status_parse_source">Analisi sorgente %s</string>
+    <string name="status_revert">Ripristino in corso del file hosts predefinito</string>
+    <string name="status_revert_done">File hosts predefinito ripristinato</string>
+    <string name="status_reverting_subtitle">Creo file hosts standard</string>
+    <string name="status_update_available">Aggiornamento sorgenti disponibile</string>
+    <string name="status_update_available_subtitle">File hosts più recenti disponibili</string>
+    <string name="status_no_update_found">Nessuna sorgente da aggiornare</string>
     <string name="status_no_connection">Nessuna connessione internet</string>
     <string name="status_no_connection_subtitle">Nessuna connessione internet disponibile</string>
-    <string name="status_download_fail">Fonti non disponibili</string>
-    <string name="status_download_fail_subtitle_new">Nessuna fonte hosts raggiungibile!</string>
+    <string name="status_download_fail">Sorgenti non disponibili</string>
+    <string name="status_download_fail_subtitle_new">Nessuna sorgente hosts raggiungibile!</string>
     <string name="status_root_access_denied">Permessi di root negati</string>
-    <string name="status_root_access_denied_subtitle">Concedi i permessi di root nel root manager che utilizzi</string>
+    <string name="status_root_access_denied_subtitle">Concedi i permessi di root dal root manager che utilizzi</string>
     <string name="status_failure">Qualcosa è andato storto</string>
-    <string name="status_failure_subtitle">Controlla logcat per maggiori dettagli</string>
+    <string name="status_failure_subtitle">Controlla il registro per i dettagli</string>
     <string name="status_enabled">Abilitato</string>
-    <string name="status_enabled_subtitle">File host più recenti abilitati</string>
+    <string name="status_enabled_subtitle">File hosts più recente abilitato</string>
     <string name="status_disabled">Disabilitato</string>
     <string name="status_disabled_subtitle">File host predefiniti installati</string>
-    <string name="status_apply_sources">Applica fonti aggiornate</string>
-    <string name="status_create_new_hosts">Creazione in corso del nuovo file host</string>
-    <string name="status_copy_new_hosts">Copia in corso del nuovo file host</string>
-    <string name="status_check_copy">Controllo in corso della copia del file host</string>
-    <string name="status_hosts_updated">Host file aggiornato con successo</string>
+    <string name="status_apply_sources">Applica sorgenti aggiornate</string>
+    <string name="status_create_new_hosts">Creazione in corso del nuovo file hosts</string>
+    <string name="status_copy_new_hosts">Copio il nuovo file hosts</string>
+    <string name="status_check_copy">Controllo in corso della copia del file hosts</string>
+    <string name="status_hosts_updated">File hosts aggiornato con successo</string>
     <string name="status_vpn_configuration_updated">Configurazione VPN aggiornata</string>
     <string name="notification_configuration_changed">Configurazione modificata. Ora devi applicarla</string>
     <string name="notification_configuration_changed_action">Applica</string>
-    <string name="notification_configuration_installing">Applico la nuova configurazione…</string>
+    <string name="notification_configuration_installing">Applico nuova configurazione…</string>
     <string name="notification_configuration_failed">Applicazione nuova configurazione fallita</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">Il symlink del file host di destinazione è mancante</string>
+    <string name="apply_symlink_missing_status">Symlink del file hosts di destinazione mancante</string>
     <string name="apply_symlink_missing">Il collegamento simbolico a /system/etc/hosts non esiste o non è corretto! AdAway  non funzionerà se il collegamento non punta al file giusto.\n\nVuoi provare a creare un collegamento simbolico?</string>
     <string name="apply_symlink_missing_title">Collegamento simbolico mancante</string>
-    <string name="apply_not_enough_space">Non c\'è abbastanza spazio nella partizione!\nProva cambiando il percorso del file hosts nelle preferenze in /data/data/hosts.</string>
+    <string name="apply_not_enough_space">Non c\'è abbastanza spazio nella partizione!\nProva cambiando il percorso del file hosts in /data/data/hosts nelle preferenze</string>
     <string name="apply_not_enough_space_title">Spazio non sufficiente</string>
     <string name="apply_private_file_fail">Il file scaricato non può essere letto</string>
-    <string name="apply_private_file_fail_title">Creazione del file privato fallita</string>
-    <string name="apply_remount_fail">Rimontaggio della partizione in lettura/scrittura fallito!</string>
-    <string name="apply_remount_fail_title">Rimontaggio fallito!</string>
-    <string name="apply_copy_fail_status">Impossibile copiare il file host</string>
+    <string name="apply_private_file_fail_title">Creazione file privato fallita</string>
+    <string name="apply_remount_fail">Remount della partizione in lettura/scrittura fallito!</string>
+    <string name="apply_remount_fail_title">Remount fallito!</string>
+    <string name="apply_copy_fail_status">Impossibile copiare il file hosts</string>
     <string name="apply_copy_fail">Copia del file host fallita!</string>
     <string name="apply_copy_fail_title">Copia fallita</string>
-    <string name="apply_success_subtitle">Fonti host applicate</string>
-    <string name="apply_success_title">Modifiche effettuate con successo!</string>
-    <string name="apply_success_dialog">Modifiche effettuate con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
-    <string name="apply_symlink_successful">Symlink è stato creato con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
+    <string name="apply_success_subtitle">Sorgenti host applicate</string>
+    <string name="apply_success_title">Modifiche applicate!</string>
+    <string name="apply_success_dialog">Modifiche effettuate con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la SDcard al momento!)</string>
+    <string name="apply_symlink_successful">Symlink è stato creato con successo.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la SDcard al momento!)</string>
     <string name="apply_symlink_successful_title">Collegamento simbolico creato con successo</string>
-    <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android.\nQuesto problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di avviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono.</string>
+    <string name="apply_symlink_fail">Il collegamento simbolico non può essere creato da Android.\nQuesto problema è dovuto quasi sicuramente a una \"caratteristica\" chiamata S-ON nei telefoni HTC!\n\nUna possibile soluzione è quella di avviare il telefono in modalità recovery e creare il collegamento simbolico con \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe questo non dovesse funzionare fai una ricerca su Internet su S-OFF e il tuo telefono</string>
     <string name="apply_symlink_fail_title">Creazione del collegamento simbolico fallita</string>
-    <string name="apply_help">Per favore leggi l\'Aiuto per ulteriori informazioni.</string>
+    <string name="apply_help">Leggere l\'Aiuto per ulteriori informazioni</string>
     <string name="apply_apn_proxy">Un proxy APN è impostato sul tuo Android!\nAdAway non funzionerà in modo affidabile quando connesso a reti mobili come il 3G. Puoi disattivare il proxy andando nelle impostazioni del tuo APN (Nell\'app Impostazioni: Rete e Internet -&gt; Rete mobile -&gt; Avanzate -&gt; Nomi punti di accesso) e rimuovendo il contenuto del campo proxy</string>
     <string name="apply_apn_proxy_title">Proxy APN impostato!</string>
     <string name="no_connection">La connesione a internet non funziona</string>
     <string name="no_connection_title">Nessuna connessione</string>
-    <string name="download_dialog">Download in corso…</string>
+    <string name="download_dialog">Scarico…</string>
     <string name="apply_dialog">Applico…</string>
-    <string name="apply_dialog_lists">Applicando la Blacklist e Whitelist</string>
-    <string name="apply_dialog_hostnames">Analizzo e unisco i file host</string>
-    <string name="apply_dialog_hosts">Costruisco file host</string>
-    <string name="apply_dialog_apply">Applicazione in corso del file host</string>
+    <string name="apply_dialog_lists">Applico Blacklist e Whitelist</string>
+    <string name="apply_dialog_hostnames">Analizzo e unisco file hosts</string>
+    <string name="apply_dialog_hosts">Costruisco file hosts</string>
+    <string name="apply_dialog_apply">Applico file hosts</string>
     <string name="apply_fail_status">Impossibile applicare il nuovo file host</string>
-    <string name="apply_fail">L\'applicazione del file hosts al tuo sistema è fallita!\nProva cambiando il percorso del file hosts nelle prefenze in /data/data/hosts</string>
-    <string name="apply_fail_title">Modifiche fallite!</string>
-    <string name="root_access_fail">Controlla il tuo root manager per assicurarti che i permessi di root siano stati concessi</string>
+    <string name="apply_fail">L\'applicazione del file hosts è fallita!\nProva cambiando il percorso del file hostsin /data/data/hosts nelle preferenze</string>
+    <string name="apply_fail_title">Modifiche non applicate!</string>
+    <string name="root_access_fail">Controlla il root manager per assicurarti che i permessi di root siano stati concessi</string>
     <string name="revert_successful">Sei tornato al file hosts predefinito.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
-    <string name="revert_successful_title">Ripristino effettuato con successo!</string>
-    <string name="revert_failed_status">Impossibile ripristinare il file host</string>
-    <string name="revert_problem">Ripristino fallito per ragioni sconosciute.</string>
+    <string name="revert_successful_title">Ripristino effettuato!</string>
+    <string name="revert_failed_status">Impossibile ripristinare il file hosts</string>
+    <string name="revert_problem">Ripristino fallito per ragioni sconosciute</string>
     <string name="revert_problem_title">Ripristino fallito!</string>
-    <string name="download_fail_dialog">Nessuna delle fonti hosts che hai abilitato è raggiungibile! Sei connesso a internet?</string>
+    <string name="download_fail_dialog">Nessuna delle sorgenti hosts che hai abilitato è raggiungibile! Sei connesso a internet?</string>
     <string name="download_fail_title">Download fallito</string>
-    <string name="no_private_file_status">Impossibile scrivere il nuovo file host privato</string>
+    <string name="no_private_file_status">Impossibile scrivere il nuovo file hosts privato</string>
     <string name="no_private_file">Il file privato non può essere creato</string>
-    <string name="no_private_file_title">Creazione del file privato fallita</string>
+    <string name="no_private_file_title">Creazione file privato fallita</string>
     <string name="enable_systemless_successful">Hai attivato la modalità systemless.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare perdite di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
-    <string name="enable_systemless_successful_title">Attivazione avvenuta con successo</string>
+    <string name="enable_systemless_successful_title">Attivazione completata</string>
     <string name="disable_systemless_successful">Hai disabilitato la modalità systemless.\nPotrebbe essere necessario riavviare Android per applicare i cambiamenti. .\n\nVuoi riavviare?\n(Per impedire perdita di dati assicurati che nessuna app  al momento sta utilizzando la scheda SD!)</string>
-    <string name="disable_systemless_successful_title">Disattivazione avvenuta con successo</string>
+    <string name="disable_systemless_successful_title">Disattivazione completata</string>
     <string name="enable_vpn_fail">Impossibile abilitare la VPN per il blocco pubblicità</string>
     <string name="disable_vpn_fail">Impossibile disabilitare la VPN per il blocco pubblicità</string>
-    <string name="enable_systemless_magisk_title">Abilita il modulo hosts di Magisk</string>
-    <string name="enable_systemless_magisk">Abilita la funzionalità host systemless da Magisk Manager. Dalle sue impostazioni, abilita l\'opzione <cite>Host systemless</cite> e poi riavvia il dispositivo</string>
-    <string name="disable_systemless_magisk_title">Disabilita il modulo hosts di Magisk</string>
-    <string name="disable_systemless_magisk">Disabilita la funzionalità host systemless da Magisk Manager. Dall\'elenco dei moduli, disinstalla il modulo <cite>Host systemless</cite> e poi riavvia il dispositivo</string>
+    <string name="enable_systemless_magisk_title">Abilito il modulo hosts di Magisk</string>
+    <string name="enable_systemless_magisk">Abilita la funzione hosts systemless da Magisk Manager. Dalle impostazioni, abilita l\'opzione <cite>Host systemless</cite> e poi riavvia il dispositivo</string>
+    <string name="disable_systemless_magisk_title">Disabilito il modulo hosts di Magisk</string>
+    <string name="disable_systemless_magisk">Disabilita la funzione host systemless da Magisk Manager. Dalla lista dei moduli, disinstalla il modulo <cite>Host systemless</cite> e poi riavvia il dispositivo</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Inserisci l\'URL al file host:</string>
-    <string name="no_hostname">Questo non è un nome host valido!</string>
+    <string name="hosts_add_dialog">Inserisci URL al file hosts:</string>
+    <string name="no_hostname">Questo non è un hostname valido!</string>
     <string name="no_hostname_title">Nome host non formattato correttamente</string>
     <string name="no_ip">Questo non è un IP valido!</string>
     <string name="no_ip_title">IP non formattato correttamente</string>
@@ -174,36 +174,36 @@
     <!--Other-->
     <string name="app_subtitle">Blocca pubblicità</string>
     <string name="no_text_editor_title">Nessun editor di testo installato</string>
-    <string name="no_text_editor">Nessun editor di testo è stato trovato per aprire il file hosts. Puoi installare Jota o un altro editor di testo per rimediare.\n\nVuoi installare Jota?</string>
+    <string name="no_text_editor">Nessun editor di testo trovato per aprire il file hosts. Puoi installare Jota o un altro editor di testo per rimediare.\n\nVuoi installare Jota?</string>
     <string name="no_file_manager_title">Nessun file manager installato</string>
-    <string name="no_file_manager">Nessun file manager è stato trovato per aprire i file. Puoi installare OI File Manager o altri file manager per rimediare.\n\n
+    <string name="no_file_manager">Nessun file manager trovato per aprire i file. Puoi installare OI File Manager o altri file manager per rimediare.\n\n
 Vuoi installare OI File Manager?</string>
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla tua lista nera</string>
+    <string name="tcpdump_description">Tcpdump è uno strumento per monitorare le richieste DNS e salvarle in un file di log. E\' possibile eseguirlo in background, aprire l\'applicazione che visualizza la pubblicità, e poi analizzare le richieste fatte grazie al file di log. Eventuali server pubblicitari possono essere poi aggiunti alla blacklist</string>
     <string name="tcpdump_disable_monitoring">Disabilita monitoraggio</string>
     <string name="tcpdump_enable_monitoring">Abilita monitoraggio</string>
-    <string name="tcpdump_show_results">Mostra i risultati</string>
+    <string name="tcpdump_show_results">Mostra risultati</string>
     <string name="tcpdump_redirect_dialog_title">Reindirizza dominio</string>
-    <string name="tcpdump_menu_sort">Ordina i domini</string>
+    <string name="tcpdump_menu_sort">Ordinamento per dominio</string>
     <string name="tcpdump_menu_clear">Pulisci i log</string>
     <string name="tcpdump_sort_alphabetical">Ordinamento alfabetico</string>
-    <string name="tcpdump_sort_top_level_domain">Ordinamento per livello di dominio</string>
-    <string name="tcpdump_entry_add_blacklist">Aggiungi una voce alla blacklist</string>
-    <string name="tcpdump_entry_add_whitelist">Aggiungi una voce alla whitelist</string>
-    <string name="tcpdump_entry_add_redirection_list">Aggiungi voce alla lista inoltri</string>
+    <string name="tcpdump_sort_top_level_domain">Ordinamento per dominio di primo livello</string>
+    <string name="tcpdump_entry_add_blacklist">Aggiungi voce a blacklist</string>
+    <string name="tcpdump_entry_add_whitelist">Aggiungi voce alla whitelist</string>
+    <string name="tcpdump_entry_add_redirection_list">Aggiungi voce alla lista reindirizzamenti</string>
 
     <string name="pref_edit_text_value">Modifica il valore di testo</string>
-    <string name="drawer_open">Apri il menù</string>
-    <string name="drawer_close">Chiudi il menù</string>
+    <string name="drawer_open">Apri menù</string>
+    <string name="drawer_close">Chiudi menù</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
-        <item>Fonti host</item>
+        <item>Sorgenti host</item>
         <item>Le tue liste</item>
-        <item>Apri file host</item>
+        <item>Apri file hosts</item>
         <item>Log richieste DNS</item>
         <item>Scansione Adware</item>
         <item>Preferenze</item>
@@ -212,7 +212,7 @@ Vuoi installare OI File Manager?</string>
     <!--Drawer menu labels-->
 
     <!--Shortcuts-->
-    <string name="shortcut_dns_requests">Chiamata DNS</string>
+    <string name="shortcut_dns_requests">Richieste DNS</string>
     <string name="shortcut_your_lists">Le tue liste</string>
     <string name="shortcut_preferences">Preferenze</string>
 
@@ -248,7 +248,7 @@ Vuoi installare OI File Manager?</string>
     <string name="vpn_notification_reconnecting">In riconnessione</string>
     <string name="vpn_notification_reconnecting_error">Errore di riconnessione</string>
     <string name="vpn_notification_paused">In pausa</string>
-    <string name="vpn_notification_stopped">Fermata</string>
+    <string name="vpn_notification_stopped">Interrotto</string>
     <string name="vpn_notification_title">VPN Ad-blocker %1$s</string>
     <string name="vpn_notification_action_pause">Pausa</string>
     <string name="vpn_notification_paused_text">Tocca per riprendere</string>

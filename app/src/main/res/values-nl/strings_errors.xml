@@ -4,7 +4,7 @@
     <string name="error_no_connection_message">Geen internetverbinding</string>
     <string name="error_no_connection_details">Er kan geen verbinding worden gemaakt met het internet. Controleer uw internetverbinding.</string>
     <string name="error_download_failed_message">De hosts-bron kan niet worden opgehaald</string>
-    <string name="error_download_failed_details">Geen van uw geselecteerde hosts-bronnen zijn bereikbaar. Controleer uw internetverbinding.</string>
+    <string name="error_download_failed_details">Geen van de geselecteerde hosts-bronnen zijn bereikbaar. Controleer uw internetverbinding.</string>
     <!-- Hosts install model error -->
     <string name="error_private_file_failed_message">Het privébestand kan niet worden aangemaakt</string>
     <string name="error_private_file_failed_details">Het privébestand, dat nodig is voor de nieuwe hosts-bron, kan niet worden aangemaakt. Controleer of u beschikt over voldoende schijfruimte.</string>
@@ -16,7 +16,7 @@
     <string name="error_revert_failed_details">Het standaard hosts-bestand kan niet worden teruggezet.</string>
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">De VPN kan niet worden ingeschakeld.</string>
-    <string name="error_enable_vpn_failed_details">Controleer uw VPN-instellingen en geef toestemming om deze te mogen starten.</string>
+    <string name="error_enable_vpn_failed_details">Controleer uw VPN-instellingen en geef toestemming om de VPN applicatie te mogen starten.</string>
     <string name="error_disable_vpn_failed_message">De VPN kan niet worden uitgeschakeld.</string>
     <string name="error_disable_vpn_failed_details">Controleer uw VPN-instellingen en schakel deze handmatig uit.</string>
 </resources>

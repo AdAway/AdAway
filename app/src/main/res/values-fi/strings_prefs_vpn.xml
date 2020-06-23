@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN pohjainen mainos esto</string>
+    <string name="pref_vpn_service_on_boot">Aktivoi käynnistyksessä</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Pois jätetyt sovellukset</string>
+    <string name="pref_vpn_excluded_apps_description">Valitse mitkä sovellukset eivät saa käyttää VPNää jotta mitään yhteyksiä ei estetä.</string>
+    <string name="pref_vpn_exclude_system_apps">Jätä pois järjestelmäsovelluksia</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
+        <item>Ei mikään</item>
         <item>All except browsers</item>
-        <item>All</item>
+        <item>Kaikki</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Jätä pois käyttäjän sovelluksiä</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Pois jätetyt sovellukset</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Valitse kaikki</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Sovelluksen kuvake</string>
+</resources>

@@ -16,4 +16,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">Vietinis serveris</string>
     <string name="pref_webserver_enabled">Įjungti serverį</string>
-</resources>
+    </resources>

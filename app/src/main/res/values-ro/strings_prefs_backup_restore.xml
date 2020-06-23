@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">Salvare &amp; restabilire</string>
+    <string name="pref_backup">Salvare</string>
+    <string name="pref_restore">Restabilire</string>
     </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">hosts لګول</string>
+    <string name="pref_root_open_hosts">د hosts دوتنه پرانیځئ</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">ځايي ګورت پالنګر</string>
+    <string name="pref_webserver_enabled">ګورت پالنګر سالول</string>
+    <string name="pref_webserver_state_not_running">نه ځغلي</string>
+    </resources>

@@ -218,7 +218,7 @@
     <!--Hosts source status-->
     <string name="hosts_source_installed">Aplikováno před %1$s</string>
     <string name="hosts_source_up_to_date">Aktualizováno před %1$s</string>
-    <string name="hosts_source_need_update">Aktualizace potřebná před %1$s</string>
+    <string name="hosts_source_need_update">Dostupná aktualizace před %1$s</string>
     <string name="hosts_source_last_update">Poslední aktualizace před %1$s</string>
     <string name="hosts_source_unknown_status">Neznámý stav aktualizace</string>
     <string name="hosts_source_few_minutes">pár minutami</string>

@@ -16,4 +16,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">Plaaslike Webbediener</string>
     <string name="pref_webserver_enabled">Aktiveer webbediener</string>
-</resources>
+    </resources>

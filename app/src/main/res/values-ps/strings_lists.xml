@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lists_title">ستاسې لړونه</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">تړلی </string>
+    <string name="lists_tab_allowed">پرېښلی</string>
+    <string name="list_dialog_hostname_hint">د کوربانه سرچيني URL</string>
+    </resources>

@@ -5,6 +5,7 @@
     <string name="pref_update_app_category">Actualizări aplicație</string>
     <string name="pref_update_check_app_daily">Verificare periodică</string>
     <!-- Application hosts -->
-    <string name="pref_update_hosts_category">Actualizări fișier hosts</string>
+    <string name="pref_update_hosts_category">Actualizări fișiere hosts</string>
+    <string name="pref_update_check">Verificare actualizări la pornire</string>
     <string name="pref_update_check_hosts_daily">Verificare periodică</string>
     </resources>

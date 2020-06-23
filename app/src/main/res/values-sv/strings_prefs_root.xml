@@ -13,7 +13,7 @@
         <item>Anpassat mål</item>
     </string-array>
     <string name="pref_custom_target">Anpassad målplats</string>
-    <string name="pref_never_reboot">Dölj omstartsdialog efter tillämpa</string>
+    <string name="pref_never_reboot">Dölj omstartsdialog efter verkställ</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Omdirigering</string>
     <string name="pref_hosts_redirection_summary">Definiera var du ska omdirigera blockerade värdar</string>

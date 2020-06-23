@@ -25,6 +25,10 @@
     <string name="webserver_status_stopped">Berhenti</string>
     <string name="button_enable_webserver">Hidupkan layanan perambah</string>
     <string name="button_disable_webserver">Matikan layanan perambah</string>
+    <string name="header_vpn">VPN</string>
+    <string name="button_enable_vpn">Hidupkan VPN</string>
+    <string name="button_disable_vpn">Matikan VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Hapus</string>
     <string name="checkbox_list_context_title">Ubah Masukan</string>
@@ -44,8 +48,12 @@
     <string name="hosts_content">Membaca isi file host...</string>
     <string name="hosts_open_button">Buka file host</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Memeriksa pembaruan</string>
     <string name="status_reverting_subtitle">Membuat host file standar</string>
+    <string name="status_update_available">Sumber pembaruan tersedia</string>
     <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
+    <string name="status_no_update_found">Tidak ada pembaruan</string>
     <string name="status_no_connection">Tidak ada koneksi internet</string>
     <string name="status_no_connection_subtitle">Tidak ada koneksi internet yang tersedia</string>
     <string name="status_download_fail">Sumber tidak tersedia</string>
@@ -194,5 +202,11 @@
     <plurals name="hosts_source_months">
         <item quantity="other">%d bulan</item>
     </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">memulai</string>
+    <string name="vpn_notification_stopping">menghentikan</string>
+    <string name="vpn_notification_waiting_for_net">menunggu jaringan</string>
+    <string name="vpn_notification_paused_text">Tekan untuk melanjutkan</string>
 
     </resources>

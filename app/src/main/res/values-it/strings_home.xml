@@ -2,31 +2,31 @@
 <resources>
 
     <!-- Hosts card -->
-    <string name="blocked_hosts_label">Bloccato</string>
-    <string name="allowed_hosts_label">Permesso</string>
-    <string name="redirect_hosts_label">Reindirizzato</string>
+    <string name="blocked_hosts_label">Bloccati</string>
+    <string name="allowed_hosts_label">Autorizzati</string>
+    <string name="redirect_hosts_label">Reindirizzati</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d fonti aggiornate</item>
+        <item quantity="one">%d sorgente aggiornata</item>
+        <item quantity="other">%d sorgenti aggiornate</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d fonti non aggiornate </item>
+        <item quantity="one">%d sorgente obsoleta</item>
+        <item quantity="other">%d sorgenti obsolete</item>
     </plurals>
 
     <!-- Help card -->
-    <string name="help_label">Mostra l\'aiuto</string>
+    <string name="help_label">Aiuto</string>
 
     <!-- Project card -->
-    <string name="project_label">Apri pagina GitHub</string>
+    <string name="project_label">GitHub</string>
 
     <!-- Support card -->
-    <string name="support_label">Supporta il progetto</string>
+    <string name="support_label">Supporto</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">Log DNS</string>
+    <string name="dns_log_drawer_item">Registro DNS</string>
     <string name="preferences_drawer_item">Preferenze</string>
 
     <!-- App bar buttons -->

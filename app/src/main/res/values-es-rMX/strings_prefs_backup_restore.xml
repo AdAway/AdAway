@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_backup_restore_title">Copia de seguridad y restablecimiento</string>
+    <string name="pref_backup_restore_title">Copias de seguridad y restablecimiento</string>
     <string name="pref_backup">Crear copias de seguridad</string>
     <string name="pref_backup_summary">Crear una copia de seguridad de las reglas de bloqueo en el almacenamiento externo</string>
     <string name="pref_restore">Restablecer</string>
