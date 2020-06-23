@@ -6,16 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/home_content" />
+    <include
+        android:id="@+id/content"
+        layout="@layout/home_content" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        app:menu="@menu/next_actions"
         app:navigationContentDescription="@string/open_drawer_button_description"
-        app:navigationIcon="@drawable/ic_menu_24dp"
-        app:menu="@menu/next_actions"/>
+        app:navigationIcon="@drawable/ic_menu_24dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -30,8 +32,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="16dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        app:behavior_hideable="true">
+        app:behavior_hideable="true"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <!--app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"-->
         <!--app:layout_behavior="@string/bottom_sheet_behavior"-->
@@ -40,7 +42,7 @@
             android:id="@+id/navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/next_drawer" />
+            app:menu="@menu/home_drawer" />
     </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -7,8 +7,8 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
@@ -22,7 +22,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
+class ListsAdapter extends PagedListAdapter<HostListItem, ListsAdapter.ViewHolder> {
     /**
      * This callback is use to compare hosts sources.
      */
@@ -79,13 +79,14 @@ class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         HostListItem item = getItem(position);
         if (item == null) { // Data might be null if not loaded yet
+            holder.clear();
             return;
         }
         boolean editable = item.getSourceId() == USER_SOURCE_ID;
         holder.enabledCheckBox.setEnabled(editable);
         holder.enabledCheckBox.setChecked(item.isEnabled());
         holder.enabledCheckBox.setOnClickListener(editable ? view -> viewCallback.toggleItemEnabled(item) : null);
-        holder.hostTextView.setText(item.getDisplayedHost());
+        holder.hostTextView.setText(item.getHost());
         if (this.twoRows) {
             holder.redirectionTextView.setText(item.getRedirection());
         }
@@ -112,6 +113,17 @@ class ListsAdapter extends ListAdapter<HostListItem, ListsAdapter.ViewHolder> {
             this.enabledCheckBox = itemView.findViewById(R.id.checkbox_list_checkbox);
             this.hostTextView = itemView.findViewById(R.id.checkbox_list_text);
             this.redirectionTextView = itemView.findViewById(R.id.checkbox_list_subtext);
+        }
+
+        void clear() {
+            this.enabledCheckBox.setChecked(true);
+            this.enabledCheckBox.setEnabled(false);
+            this.enabledCheckBox.setOnClickListener(null);
+            this.hostTextView.setText("");
+            if (this.redirectionTextView != null) {
+                this.redirectionTextView.setText("");
+            }
+            this.itemView.setOnLongClickListener(null);
         }
     }
 }

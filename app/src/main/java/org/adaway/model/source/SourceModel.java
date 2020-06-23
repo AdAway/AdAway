@@ -12,8 +12,10 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
+import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.helper.PreferenceHelper;
@@ -57,7 +59,7 @@ public class SourceModel {
      */
     private static final String TAG = "SourceModel";
     /**
-     * The HTTP client cache size.
+     * The HTTP client cache size (100Mo).
      */
     private static final long CACHE_SIZE = 100L * 1024L * 1024L;
     /**
@@ -72,6 +74,10 @@ public class SourceModel {
      * The {@link HostListItem} DAO.
      */
     private final HostListItemDao hostListItemDao;
+    /**
+     * The {@link HostEntry} DAO.
+     */
+    private final HostEntryDao hostEntryDao;
     /**
      * The update available status.
      */
@@ -95,6 +101,7 @@ public class SourceModel {
         AppDatabase database = AppDatabase.getInstance(this.context);
         this.hostsSourceDao = database.hostsSourceDao();
         this.hostListItemDao = database.hostsListItemDao();
+        this.hostEntryDao = database.hostEntryDao();
         this.state = new MutableLiveData<>("");
         this.updateAvailable = new MutableLiveData<>();
         this.updateAvailable.setValue(false);
@@ -264,36 +271,44 @@ public class SourceModel {
         // Compute current date in UTC timezone
         ZonedDateTime now = ZonedDateTime.now();
         // Get each hosts source
-        for (HostsSource hostsSource : this.hostsSourceDao.getAll()) {
-            if (!hostsSource.isEnabled()) {
-                this.hostListItemDao.clearSourceHosts(hostsSource.getId());
+        for (HostsSource source : this.hostsSourceDao.getAll()) {
+            // Clear disabled source
+            if (!source.isEnabled()) {
+                this.hostListItemDao.clearSourceHosts(source.getId());
+                continue;
+            }
+            // Get hosts source last update
+            String url = source.getUrl();
+            ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(url);
+            if (onlineModificationDate == null) {
+                onlineModificationDate = now;
+            }
+            // Check if update available
+            ZonedDateTime localModificationDate = source.getLocalModificationDate();
+            if (localModificationDate != null && localModificationDate.isAfter(onlineModificationDate)) {
+                Log.i(TAG, "Skip source " + url + ": no update.");
                 continue;
             }
             // Increment number of copy
             numberOfCopies++;
             try {
                 // Check hosts source protocol
-                String url = hostsSource.getUrl();
                 String protocol = new URL(url).getProtocol();
                 switch (protocol) {
                     case "https":
-                        downloadHostSource(hostsSource);
+                        downloadHostSource(source);
                         break;
                     case "file":
-                        copyHostSourceFile(hostsSource);
+                        copyHostSourceFile(source);
                         break;
                     default:
                         Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
                 }
-                // Get hosts source last update
-                ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(hostsSource.getUrl());
-                if (lastModifiedOnline == null) {
-                    lastModifiedOnline = now;
-                }
                 // Update local and online modification dates to now
-                this.hostsSourceDao.updateModificationDates(hostsSource.getId(), now, lastModifiedOnline);
+                localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
+                this.hostsSourceDao.updateModificationDates(source.getId(), localModificationDate, onlineModificationDate);
             } catch (IOException exception) {
-                Log.w(TAG, "Failed to retrieve host source " + hostsSource.getUrl() + ".", exception);
+                Log.w(TAG, "Failed to retrieve host source " + url + ".", exception);
                 // Increment number of failed copy
                 numberOfFailedCopies++;
             }
@@ -302,6 +317,8 @@ public class SourceModel {
         if (numberOfCopies == numberOfFailedCopies && numberOfCopies != 0) {
             throw new HostErrorException(DOWNLOAD_FAILED);
         }
+        // Synchronize hosts entries
+        this.hostEntryDao.sync();
         // Mark no update available
         this.updateAvailable.postValue(false);
     }
@@ -324,12 +341,12 @@ public class SourceModel {
     /**
      * Download an hosts source file and append it to a private file.
      *
-     * @param hostsSource The hosts source to download.
+     * @param source The hosts source to download.
      * @throws IOException If the hosts source could not be downloaded.
      */
-    private void downloadHostSource(HostsSource hostsSource) throws IOException {
+    private void downloadHostSource(HostsSource source) throws IOException {
         // Get hosts file URL
-        String hostsFileUrl = hostsSource.getUrl();
+        String hostsFileUrl = source.getUrl();
         Log.v(TAG, "Downloading hosts file: " + hostsFileUrl);
         // Set state to downloading hosts source
         setState(R.string.status_download_source, hostsFileUrl);
@@ -342,7 +359,7 @@ public class SourceModel {
         // Request hosts file and open byte stream
         try (Response response = httpClient.newCall(request).execute();
              InputStream inputStream = response.body().byteStream()) {
-            parseSourceInputStream(hostsSource, inputStream);
+            parseSourceInputStream(source, inputStream);
         } catch (IOException exception) {
             throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
         }
@@ -399,9 +416,8 @@ public class SourceModel {
         boolean updated = false;
         for (HostsSource source : this.hostsSourceDao.getAll()) {
             if (!source.isEnabled()) {
+                this.hostsSourceDao.toggleEnabled(source);
                 updated = true;
-                source.setEnabled(true);
-                this.hostsSourceDao.update(source);
             }
         }
         return updated;

@@ -16,5 +16,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">Vietinis serveris</string>
     <string name="pref_webserver_enabled">Įjungti serverį</string>
-    <string name="pref_webserver_on_boot">Įjungti serverį startuojant</string>
 </resources>

@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Vítejte</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Uvítací logo</string>
+    <string name="welcome_method_header">Vítejte v AdAway!</string>
+    <string name="welcome_method_summary">AdAway poskytuje dvě metody blokování reklam. Vyberte si tu, která Vám vyhovuje:</string>
+
+    <string name="welcome_root_method_logo">Logo ROOT přístupu</string>
+    <string name="welcome_root_method_title">Blokování reklam\npomocí ROOT přístupu</string>
+    <string name="welcome_root_method_text1">Rychlejší</string>
+    <string name="welcome_root_method_text2">Šetrné k baterii</string>
+    <string name="welcome_root_method_text3">Vyžadován ROOT přístup</string>
+
+    <string name="welcome_vpn_method_logo">Logo VPN</string>
+    <string name="welcome_vpn_method_title">Blokování reklam\npomocí VPN</string>
+    <string name="welcome_vpn_method_text1">Pomalejší</string>
+    <string name="welcome_vpn_method_text2">Běží na pozadí</string>
+    <string name="welcome_vpn_method_text3">Kompatibilita</string>
+
     <string name="welcome_root_missing_title">Vyžaduje Android s ROOT přístupem</string>
+    <string name="welcome_root_missile_description">Spustitelný soubor su nebyl nalezen nebo jste AdAway neudělili oprávnění ROOT přístupu.\n\nToto se může stát, pokud Vaše zařízení nemá ROOT přístup. Informace jak získat ROOT přístup naleznete na wiki.lineageos.org nebo jiných stránkách o Androidu.</string>
+
+    <string name="welcome_method_pro_logo">Výhody</string>
+    <string name="welcome_method_con_logo">Nevýhody</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Synchronizace dokončena</string>
+    <string name="welcome_sync_error_logo">Chyba během synchronizace</string>
+
+    <string name="welcome_sync_header">Synchronizování</string>
+    <string name="welcome_synced_header">Synchronizováno!</string>
+    <string name="welcome_sync_summary">AdAway stahuje reklamní sítě k zablokování z online zdrojů. Později si je můžete v nastavení přizpůsobit.</string>
+    <string name="welcome_sync_retry_logo">Opakovat synchonizaci</string>
+    <string name="welcome_sync_error">Synchronizace se nezdařila:\n%s.\nOpakovat nyní?</string>
+
     <!-- Support -->
     <string name="welcome_support_logo">Podpořit</string>
-    </resources>
+    <string name="welcome_support_header">Podpořte mě!</string>
+    <string name="welcome_support_summary">Je to bezplatná open-source aplikace. Vyvíjím ji ve svém volném čase. Takže pokud se Vám líbí, neváhejte ukázat svou podporu:</string>
+    <string name="welcome_support_button">Darovat přes PayPal</string>
+    <string name="welcome_support_telemetry_summary">Máte rádi chyby? Ani já ne.</string>
+    <string name="welcome_support_telemetry_button">Povolit temeterii, aby mi posílala zprávy o selhání</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Zpět</string>
+    <string name="welcome_next_button">Další</string>
+    <string name="welcome_finish_button">Dokončit</string>
+</resources>

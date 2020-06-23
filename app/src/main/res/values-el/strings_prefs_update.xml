@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Ενημερώσεις</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Ενημερώσεις εφαρμογής</string>
     <string name="pref_update_check_app_daily">Ημερήσιος έλεγχος για ενημερώσεις</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Ενημερώσεις Hosts</string>
     <string name="pref_update_check">Έλεγχος για ενημερώσεις</string>
     <string name="pref_update_check_hosts_daily">Ημερήσιος έλεγχος για ενημερώσεις</string>
-    </resources>
+    <string name="pref_update_sync_on_update">Συγχρονισμός κατά την ενημέρωση</string>
+    <string name="pref_update_sync_unmetered_only">Συγχρονισμός μόνο σε δίκτυο χωρίς μέτρηση</string>
+</resources>
