@@ -8,7 +8,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-
 import org.adaway.AdAwayApplication;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostEntryDao;
@@ -96,7 +95,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         // Create new host list item
         HostListItem item = new HostListItem();
         item.setType(type);
-        item.setDisplayedHost(host);
+        item.setHost(host);
         item.setRedirection(redirection);
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);

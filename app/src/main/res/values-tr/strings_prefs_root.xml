@@ -23,5 +23,11 @@
     <string name="pref_webserver">Yerel web sunucu</string>
     <string name="pref_webserver_summary">Yerel web sunucusu, engellenen ana bilgisayar adı isteklerine yanıt vermek için yerel IP adreslerini dinler. Engellenen bağlantıda uygulamanın donmasına yardımcı olabilir.</string>
     <string name="pref_webserver_enabled">Web sunucusunu etkinleştir</string>
-    <string name="pref_webserver_on_boot">Web sunucusunu ön yüklemede başlat</string>
+    <string name="pref_webserver_test">Web sunucusunu test et</string>
+    <string name="pref_webserver_certificate">Kendinden imzalı sertifika kur</string>
+    <string name="pref_webserver_state_checking">Kontrol ediliyor...</string>
+    <string name="pref_webserver_state_not_running">Çalışmıyor</string>
+    <string name="pref_webserver_state_running_not_installed">Çalışıyor ancak sertifika kurulu değil</string>
+    <string name="pref_webserver_state_running_and_installed">Çalışıyor ve sertifika kurulu</string>
+    <string name="pref_webserver_icon">Boş reklam alanını uygulama simgesiyle değiştir</string>
 </resources>

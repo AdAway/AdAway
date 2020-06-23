@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">Cập nhật</string>
+    <string name="notification_update_channel_description">Thông báo cập nhật mới</string>
     <string name="notification_update_host_available_title">Đã có bản cập nhật</string>
+    <string name="notification_update_host_available_text">Có thể tải về tập tin nguồn mới </string>
+    <string name="notification_update_app_available_title">Ứng dụng có bản cập nhật mới</string>
+    <string name="notification_update_app_available_text">Phiên bản mới của AdAway đã sẵn sàng để tải xuống</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
-    </resources>
+    <string name="notification_vpn_channel_description">Thông báo khi mở VPN</string>
+</resources>

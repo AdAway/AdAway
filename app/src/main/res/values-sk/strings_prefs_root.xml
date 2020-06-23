@@ -23,5 +23,4 @@
     <string name="pref_webserver">Miestny webserver</string>
     <string name="pref_webserver_summary">Miestny webserver počúva na miestnej IP adrese, aby odpovedal za požiadavky blokovaných domén.</string>
     <string name="pref_webserver_enabled">Povoliť web server</string>
-    <string name="pref_webserver_on_boot">Spustiť webserver pri štarte</string>
 </resources>

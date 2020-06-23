@@ -4,7 +4,7 @@
     android:id="@+id/supportRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/welcomeBackground"
     android:padding="16dp">
 
     <ImageView

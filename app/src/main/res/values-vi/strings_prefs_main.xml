@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Tuỳ chỉnh</string>
+    <!-- General category -->
+    <string name="pref_general_category">Chung</string>
+    <string name="pref_dark_theme">Chế độ Đêm</string>
+    <string name="pref_update_configuration">Tự động cập nhật</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Chặn quảng cáo</string>
+    <string name="pref_root_ad_blocker_configuration">Chặn quảng cáo sử dụng quyền root </string>
+    <string name="pref_vpn_ad_blocker_configuration">Chặn quảng cáo sử dụng VPN</string>
     <string name="pref_whitelist_rules">Cho phép tạo danh sách trắng</string>
-    <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! Cho phép các mục điều hướng từ Các nguồn tên miền.</string>
+    <string name="pref_redirection_rules">Áp dụng chuyển hướng tập tin từ nguồn </string>
+    <string name="pref_redirection_rules_summary">NGUY CƠ BẢO MẬT TIỀM TÀNG! </string>
     <string name="pref_enable_ipv6">Bật IPv6</string>
+    <string name="pref_backup_restore">Sao lưu / khôi phục cài đặt</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Dò lỗi</string>
+    <string name="pref_enable_telemetry">Gửi báo cáo lỗi</string>
+    <string name="pref_enable_telemetry_summary">Gửi báo cáo Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Không được hỗ trợ trên phiên bản này  </string>
+    <string name="pref_enable_debug">Ghi nhật kí chi tiết</string>
     <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
 </resources>

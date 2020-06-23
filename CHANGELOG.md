@@ -1,3 +1,51 @@
+## [5.0.5] - unreleased
+
+*This version is a pre-release*
+
+- Improve hosts source server handling with future time
+- Improve hosts update by skipping already up-to-date sources
+- Fix hosts source disable action
+- Fix hosts list apply notification from non-user changes 
+- Fix user excluded application settings
+- Remove navigation bar color customization
+
+Special thanks to CobalTitan, ipdev, zgfg and sunmybun their bug reports.
+
+## [5.0.4] - 2020-05-24
+
+*This version is a pre-release*
+
+- Improve overall host list computation
+- Add host redirected feature in VPN ad blocking
+- Remove WRITE_EXTERNAL_STORAGE permission (use Storage Access Framework instead)
+- Fix duplicate entries in generated hosts file
+- Fix allowed hosts settings in VPN ad blocking
+- Fix backup not exported as sdcard not writable
+- Fix source update period task preference
+- Fix host list paging
+
+Special thanks to holysnipz, ipdev99, QingKongBaiYu, and zgfg for their bug reports.
+
+## [5.0.3] - 2020-05-10
+
+*This version is a pre-release*
+
+- Add TLS support for web server
+- Add web server status in preferences
+- Add option to install self signed certificate
+- Add option to display app icon instead of blank page
+- Add full timezone support for source date
+- Add workaround for negative source update time when server time is not accurate
+- Add follow system dark theme mode
+- Fix user host list lost on source update
+- Fix import failed toast
+- Fix web server not start on install
+- Fix duplicate host entry on backup import
+- Update mongoose server
+- Update translations
+
+Special thanks to saltylemondrops, zgfg, ipdev99 and mickrussom for their bug reports.
+
 ## [5.0.2] - 2020-04-25
 
 *This version is a pre-release*

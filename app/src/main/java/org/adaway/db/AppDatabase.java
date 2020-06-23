@@ -16,12 +16,13 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.db.view.HostEntry;
+import org.adaway.db.entity.HostEntry;
 import org.adaway.util.AppExecutors;
 
 import static org.adaway.db.Migrations.MIGRATION_1_2;
 import static org.adaway.db.Migrations.MIGRATION_2_3;
 import static org.adaway.db.Migrations.MIGRATION_3_4;
+import static org.adaway.db.Migrations.MIGRATION_4_5;
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
 
@@ -30,7 +31,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-@Database(entities = {HostsSource.class, HostListItem.class}, views = {HostEntry.class}, version = 4)
+@Database(entities = {HostsSource.class, HostListItem.class, HostEntry.class}, version = 5)
 @TypeConverters({ListTypeConverter.class, ZonedDateTimeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     /**
@@ -62,7 +63,8 @@ public abstract class AppDatabase extends RoomDatabase {
                     }).addMigrations(
                             MIGRATION_1_2,
                             MIGRATION_2_3,
-                            MIGRATION_3_4
+                            MIGRATION_3_4,
+                            MIGRATION_4_5
                     ).build();
                 }
             }

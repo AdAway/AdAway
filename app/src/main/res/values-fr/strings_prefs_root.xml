@@ -23,5 +23,11 @@
     <string name="pref_webserver">Serveur Web local</string>
     <string name="pref_webserver_summary">Le serveur Web local écoute les adresses IP locales pour répondre aux requêtes vers des noms d’hôtes bloqués. Cela pourrait empêcher le gel de certaines applications lors de connexions bloquées.</string>
     <string name="pref_webserver_enabled">Activer le serveur Web</string>
-    <string name="pref_webserver_on_boot">Démarrer le serveur Web au démarrage</string>
+    <string name="pref_webserver_test">Tester le serveur Web</string>
+    <string name="pref_webserver_certificate">Installer un certificat autosigné</string>
+    <string name="pref_webserver_state_checking">Vérification…</string>
+    <string name="pref_webserver_state_not_running">N’est pas en fonction</string>
+    <string name="pref_webserver_state_running_not_installed">En fonction, mais le certificat n’est pas installé</string>
+    <string name="pref_webserver_state_running_and_installed">En fonction et le certificat est installé</string>
+    <string name="pref_webserver_icon">Remplacer l’espace vide des publicités par l’icône de l’appli</string>
 </resources>

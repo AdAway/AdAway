@@ -23,5 +23,11 @@
     <string name="pref_webserver">Local web server</string>
     <string name="pref_webserver_summary">The local web server listens on local IP addresses to answer to blocked hostname requests. It may help with app freezing on blocked connection.</string>
     <string name="pref_webserver_enabled">Enable web server</string>
-    <string name="pref_webserver_icon">Replace ads space by app icon</string>
+    <string name="pref_webserver_test">Test web server</string>
+    <string name="pref_webserver_certificate">Install self-signed certificate</string>
+    <string name="pref_webserver_state_checking">Checking…</string>
+    <string name="pref_webserver_state_not_running">Not running</string>
+    <string name="pref_webserver_state_running_not_installed">Running but certificate not installed</string>
+    <string name="pref_webserver_state_running_and_installed">Running and certificate installed</string>
+    <string name="pref_webserver_icon">Replace blank ad space by app icon</string>
 </resources>

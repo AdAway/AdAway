@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">Αντίγραφο ασφαλείας &amp; επαναφορά</string>
+    <string name="pref_backup">Αντίγραφο ασφαλείας</string>
+    <string name="pref_backup_summary">Αντίγραφο ασφαλείας σε εξωτερικό χώρο αποθήκευσης τους κανόνες αποκλεισμού σας</string>
+    <string name="pref_restore">Επαναφορά</string>
+    <string name="pref_restore_summary">Επαναφέρετε τους κανόνες αποκλεισμού από το εφεδρικό αρχείο</string>
+</resources>

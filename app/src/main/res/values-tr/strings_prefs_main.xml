@@ -4,6 +4,11 @@
     <!-- General category -->
     <string name="pref_general_category">Genel</string>
     <string name="pref_dark_theme">Karanlık temayı etkinleştir</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Açık</item>
+        <item>Koyu</item>
+        <item>Sistem varsayılanı</item>
+    </string-array>
     <string name="pref_update_configuration">Otomatik güncellemeler</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Reklam engelle</string>

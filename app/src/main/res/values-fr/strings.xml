@@ -221,6 +221,7 @@
     <string name="hosts_source_need_update">Mise à jour nécessaire pour %1$s</string>
     <string name="hosts_source_last_update">Dernière mise à jour il y a %1$s</string>
     <string name="hosts_source_unknown_status">L’état de mise à jour est inconnu</string>
+    <string name="hosts_source_few_minutes">quelques minutes</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>

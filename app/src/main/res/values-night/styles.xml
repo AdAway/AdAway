@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="Theme.AdAway" parent="Base.AdAway">
         <item name="colorPrimaryDark">?colorSurface</item>
     </style>
