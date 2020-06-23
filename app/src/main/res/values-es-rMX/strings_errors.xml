@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">No hay conexión a Internet</string>
+    <string name="error_no_connection_details">No se pudo conectar a Internet. Comprueba la conectividad del dispositivo.</string>
+    <string name="error_download_failed_message">No se pudo descargar la fuente del archivo hosts</string>
+    <string name="error_download_failed_details">No se pudo conectar a ninguna de las fuentes de hosts habilitadas. Comprueba que tienes conexión a Internet.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">No se pudo crear el archivo privado</string>
+    <string name="error_private_file_failed_details">No se pudo crear un archivo privado para generar una nueva fuente de hosts. Revisa que el dispositivo tenga espacio libre disponible.</string>
     <string name="error_not_enough_space_message">No queda espacio suficiente</string>
-    </resources>
+    <string name="error_not_enough_space_details">No se pudo copiar el archivo hosts a la partición del sistema. Verifica que esté habilitado el módulo de Magisk sin modificar el sistema y reinicia el dispositivo.</string>
+    <string name="error_copy_failed_message">No se pudo instalar el nuevo archivo hosts</string>
+    <string name="error_copy_failed_details">No se pudo copiar el archivo hosts a la partición /system. Verifica que esté habilitado el módulo de Magisk sin modificar el sistema y reinicia el dispositivo.</string>
+    <string name="error_revert_failed_message">No se pudo revertir el archivo hosts</string>
+    <string name="error_revert_failed_details">No se pudo restablecer la configuración predeterminada del archivo hosts</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">No se pudo habilitar el bloqueo de anuncios mediante VPN.</string>
+    <string name="error_enable_vpn_failed_details">Verifica la configuración de la VPN y autoriza que se inicie la aplicación correspondiente.</string>
+    <string name="error_disable_vpn_failed_message">No se pudo inhabilitar el bloqueo de anuncios mediante VPN.</string>
+    <string name="error_disable_vpn_failed_details">Verifica la configuración de la VPN e inhabilítala de forma manual.</string>
+</resources>
