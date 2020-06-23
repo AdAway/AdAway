@@ -2,4 +2,8 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">Eguneraketak</string>
+    <string name="notification_update_channel_description">eguneratze-jakinarazpen berriak</string>
+    <string name="notification_update_host_available_title">eguneratze-jakinarazpen berriak</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
     </resources>

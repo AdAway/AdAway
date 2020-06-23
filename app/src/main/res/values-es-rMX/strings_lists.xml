@@ -10,9 +10,9 @@
     <string name="lists_menu_filter_hint">Buscar nombre de host…</string>
     <string name="lists_menu_toggle_sources">Activar fuentes</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">Añadir host a la lista negra</string>
-    <string name="list_add_dialog_white">Añadir host a la lista blanca</string>
-    <string name="list_add_dialog_redirect">Añadir redireccionamiento de host</string>
+    <string name="list_add_dialog_black">Agregar host a la lista negra</string>
+    <string name="list_add_dialog_white">Agregar host a la lista blanca</string>
+    <string name="list_add_dialog_redirect">Agregar redireccionamiento de host</string>
     <string name="list_edit_dialog_black">Editar host de la lista negra</string>
     <string name="list_edit_dialog_white">Editar host de la lista blanca</string>
     <string name="list_edit_dialog_redirect">Editar redireccionamiento</string>

@@ -2,4 +2,7 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">Pembaruan</string>
+    <string name="notification_update_host_available_title">Sumber pembaruan tersedia</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
     </resources>

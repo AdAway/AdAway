@@ -2,7 +2,7 @@
 <resources>
     <string name="pref_backup_restore_title">Sao lưu và khôi phục</string>
     <string name="pref_backup">Sao lưu</string>
-    <string name="pref_backup_summary">Sao lưu các cài đặt ra bộ nhớ ngoài </string>
+    <string name="pref_backup_summary">Sao lưu cài đặt ra bộ nhớ ngoài </string>
     <string name="pref_restore">Khôi phục</string>
     <string name="pref_restore_summary">Khôi phục cài đặt từ tập tin sao lưu </string>
 </resources>

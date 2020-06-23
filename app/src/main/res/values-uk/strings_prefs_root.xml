@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Блокувальник реклами з root-правами</string>
     <string name="pref_root_open_hosts">Відкрити файл хостів</string>
     <string name="pref_apply_method">Шлях до файлу hosts</string>
+    <string name="pref_apply_method_summary">Прочитайте Поміч перед початком користування цією особливістю</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -11,4 +13,5 @@
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Перенаправлення</string>
     <string name="pref_webserver_enabled">Увімкнути веб-сервер</string>
+    <string name="pref_webserver_state_checking">Перевірка...</string>
     </resources>

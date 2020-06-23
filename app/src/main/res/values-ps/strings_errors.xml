@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Source model errors -->
+    <string name="error_no_connection_message">انټرنېټ پیوستون نشته</string>
+    <string name="error_not_enough_space_message">تشه بس نه ده</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">د اوڅاريز ځاني جال انګروزي تړنه سالول نابريالي شو.</string>
+    <string name="error_disable_vpn_failed_message">د اوڅاريز ځاني جال انګروزي تړنه بندول نابريالي شو.</string>
+    </resources>

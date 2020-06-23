@@ -3,4 +3,6 @@
     <!-- Update notification -->
     <string name="notification_update_channel_name">تحديثات</string>
     <string name="notification_update_host_available_title">يوجد تحديث متوفر</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">في بي إن</string>
     </resources>

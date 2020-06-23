@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Налаштування</string>
+    <string name="pref_dark_theme">Темна тема</string>
+    <string name="pref_update_configuration">Автоматичні оновлення</string>
+    <string name="pref_root_ad_blocker_configuration">Блокувальник реклами з root-правами</string>
+    <string name="pref_enable_ipv6">Увімкнути підтримку IPv6</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Режим налагодженя</string>
-    </resources>
+    <string name="pref_enable_telemetry">Відправити звіт про збій</string>
+    <string name="pref_enable_debug_summary">Додаток потрібно оновити, щоб прийняти зміни</string>
+</resources>

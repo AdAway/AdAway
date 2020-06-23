@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_root_title">Blocco pubblicità basato sul root</string>
+    <string name="pref_root_title">Blocco pubblicità basato su root</string>
     <!-- Hosts install category -->
     <string name="pref_hosts_installation">Installa hosts</string>
     <string name="pref_root_open_hosts">Apri file hosts</string>
@@ -16,18 +16,18 @@
     <string name="pref_never_reboot">Nascondi la richiesta di riavvio</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Reindirizzamento</string>
-    <string name="pref_hosts_redirection_summary">Imposta reindirizzamento degli host bloccati</string>
+    <string name="pref_hosts_redirection_summary">Imposta reindirizzamento hosts bloccati</string>
     <string name="pref_redirection_ipv4">Reindirizzamento IPv4</string>
     <string name="pref_redirection_ipv6">Reindirizzamento IPv6</string>
     <!-- Web server category -->
-    <string name="pref_webserver">Webserver locale</string>
+    <string name="pref_webserver">Web server locale</string>
     <string name="pref_webserver_summary">Web server locale in ascolto degli indirizzi IP locali per rispondere alle richieste degli hostname bloccati. Può aiutare con le app che danno problemi sulle connessioni bloccate</string>
-    <string name="pref_webserver_enabled">Abilita webserver</string>
+    <string name="pref_webserver_enabled">Abilita web server</string>
     <string name="pref_webserver_test">Test web server</string>
     <string name="pref_webserver_certificate">Installa certificato autofirmato</string>
-    <string name="pref_webserver_state_checking">Testando…</string>
+    <string name="pref_webserver_state_checking">Testo…</string>
     <string name="pref_webserver_state_not_running">Non in esecuzione</string>
-    <string name="pref_webserver_state_running_not_installed">In esecuzione ma certificato non installato</string>
+    <string name="pref_webserver_state_running_not_installed">In esecuzione. ma certificato non installato</string>
     <string name="pref_webserver_state_running_and_installed">In esecuzione con certificato installato</string>
     <string name="pref_webserver_icon">Riempi lo spazio pubblicitario con l\'icona dell\'app</string>
 </resources>

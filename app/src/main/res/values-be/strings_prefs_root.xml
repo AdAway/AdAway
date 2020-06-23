@@ -23,4 +23,4 @@
     <string name="pref_webserver">Лакальны вэб-сервер</string>
     <string name="pref_webserver_summary">Лакальны вэб-сервер праслухоўвае лакальныя IP адрасы і адказвае на запыты да заблакаваных hosts. Гэта дапаможа пазбягаць завісанняў пры блакаванні падключэнняў.</string>
     <string name="pref_webserver_enabled">Уключыць вэб-сервер</string>
-</resources>
+    </resources>

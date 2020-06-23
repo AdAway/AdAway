@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Home screen -->
+    <string name="update_available">Actualizare disponibilă!</string>
+
+    <!-- Changelog dialog -->
+    <string name="update_update_title">O nouă versiune este disponibilă</string>
     <string name="update_changelog">Registrii cu modificari</string>
     </resources>

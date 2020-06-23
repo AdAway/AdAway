@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_service_on_boot">Activare la pornire</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Aplicații excluse</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
+        <item>Niciuna</item>
         <item>All except browsers</item>
-        <item>All</item>
+        <item>Toate</item>
     </string-array>
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Aplicații excluse</string>
     </resources>

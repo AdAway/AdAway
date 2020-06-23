@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hosts_title">کوربه سرچينې</string>
+    <string name="hosts_title">Hosts سرچينې</string>
     <!-- List -->
     <string name="hosts_not_available">شتون نه لري</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">سرچينه زیاتول</string>
     <string name="hosts_edit_dialog_title">سرچينې سمون</string>
     <string name="hosts_dialog_url">URL: (یو https:// اویا file:// سرچينه) </string>
-    <string name="hosts_dialog_url_hint">د کوربانه سرچيني URL</string>
+    <string name="hosts_dialog_url_hint">د hosts سرچينې پته</string>
 </resources>

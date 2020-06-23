@@ -3,6 +3,8 @@
     <!-- Update notification -->
     <string name="notification_update_channel_name">Оновлення</string>
     <string name="notification_update_host_available_title">Доступне оновлення</string>
+    <string name="notification_update_app_available_title">Оновлення додатку вже доступно</string>
+    <string name="notification_update_app_available_text">Нова версія AdAway доступна для завантаження.</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
     </resources>

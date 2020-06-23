@@ -18,4 +18,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">Tokiko Web-zerbitzaria</string>
     <string name="pref_webserver_enabled">Gaitu web-zerbitzaria</string>
-</resources>
+    </resources>

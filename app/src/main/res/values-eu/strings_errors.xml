@@ -3,4 +3,7 @@
     <!-- Source model errors -->
     <string name="error_no_connection_message">Ez dago Internet elkarketarik</string>
     <string name="error_not_enough_space_message">Ez dago nahikoa toki</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Errorea VPN ad blocking gaitzen.</string>
+    <string name="error_disable_vpn_failed_message">Errorea VPN ad blocking desgaitzen.</string>
     </resources>

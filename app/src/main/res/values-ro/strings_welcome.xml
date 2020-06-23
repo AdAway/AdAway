@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">Android are nevoie de \"root\"</string>
+    <string name="welcome_vpn_method_text3">Compatibilitate</string>
+
+    <string name="welcome_root_missing_title">Este necesar Android cu \'root\'</string>
     </resources>

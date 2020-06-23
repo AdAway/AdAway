@@ -252,7 +252,7 @@ Wilt u herstarten?
     <string name="vpn_notification_starting">bezig met starten</string>
     <string name="vpn_notification_running">actief</string>
     <string name="vpn_notification_stopping">bezig met stoppen</string>
-    <string name="vpn_notification_waiting_for_net">bezig met wachten op netwerk</string>
+    <string name="vpn_notification_waiting_for_net">wachten op een netwerk</string>
     <string name="vpn_notification_reconnecting">bezig met herverbinden</string>
     <string name="vpn_notification_reconnecting_error">fout tijdens herverbinden</string>
     <string name="vpn_notification_paused">onderbroken</string>

@@ -18,4 +18,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">خادم الويب المحلي</string>
     <string name="pref_webserver_enabled">تفعيل خادم الويب</string>
-</resources>
+    </resources>

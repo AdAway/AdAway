@@ -18,4 +18,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">Helyi webszerver</string>
     <string name="pref_webserver_enabled">Webszerver engedélyezése</string>
-</resources>
+    </resources>

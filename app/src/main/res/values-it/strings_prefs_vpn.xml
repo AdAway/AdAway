@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_vpn_title">Blocco pubblicità tramite VPN</string>
+    <string name="pref_vpn_title">Blocco pubblicità su VPN</string>
     <string name="pref_vpn_service_on_boot">Abilita all\'avvio</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">App escluse</string>
-    <string name="pref_vpn_excluded_apps_description">Configura quali app non devono usare la VPN per non bloccare alcuna connessione.</string>
+    <string name="pref_vpn_excluded_apps_description">Configura quali app non devono usare la VPN per non bloccare alcuna connessione</string>
     <string name="pref_vpn_exclude_system_apps">Escludi app di sistema</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>Nessuna</item>

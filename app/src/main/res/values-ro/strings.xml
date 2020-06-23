@@ -25,10 +25,11 @@
     <string name="button_enable_webserver">Activeaza server web</string>
     <string name="button_disable_webserver">Dezactiveaza server web</string>
     <string name="header_vpn">VPN</string>
+    <string name="vpn_status_stopped">Oprit</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Sterge</string>
-    <string name="checkbox_list_context_title">Editeaza pozitia curenta</string>
-    <string name="checkbox_list_context_edit">Editeaza</string>
+    <string name="checkbox_list_context_delete">Ștergere</string>
+    <string name="checkbox_list_context_title">Editare intrare</string>
+    <string name="checkbox_list_context_edit">Editare</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importa…</string>
@@ -76,7 +77,7 @@
     <string name="revert_problem">Restaurare nereusita din cauze necunoscute!</string>
     <string name="revert_problem_title">Restaurare nereusita!</string>
     <string name="download_fail_dialog">Nici una din sursele active pentru fisierele \"hosts\" nu pot fi accesate! Exista conexiune internet?</string>
-    <string name="download_fail_title">Descarcare nereusita</string>
+    <string name="download_fail_title">Descărcare nereușită</string>
     <string name="no_private_file">Fisierul cu atribute speciale nu poate fi creat</string>
     <string name="no_private_file_title">Incercare nereusita de creeare a fisierului cu atribute speciale.</string>
     <string name="enable_systemless_successful_title">Activarea a fost reușită</string>
@@ -100,12 +101,14 @@
 
     <!--Other-->
     <string name="app_subtitle">Program care blocheaza reclame</string>
-    <string name="no_text_editor_title">Nu exista un editor de text instalat in system.</string>
-    <string name="no_text_editor">Nici un editor de text nu a putut fi găsit pentru a deschide fișierul hosts. Puteți să instalați Jota sau alte editoare de text pentru a face asta.\n\nVreți să instalați Jota? </string>
+    <string name="no_text_editor_title">Nu există instalat un editor text</string>
+    <string name="no_text_editor">Niciun editor de text nu a fost găsit pentru a deschide fișierul hosts. Puteți instala Jota sau alte editoare text pentru a face asta.\n\nVreți să instalați Jota?</string>
     <string name="no_file_manager_title">Nu exista un manager de fisiere instalat in sistem</string>
     <string name="no_file_manager">Nici un manager de fișiere nu a putut fi găsit pentru a deschide fișiere. Puteți sa instalați OI File Manager sau alți manageri de fișiere pentru a face asta.\n\nVreți să instalați OI File Manager? </string>
 
     <string name="tcpdump_description">Tcpdump este un utilitar care monitorizeaza si salveaza cererile DNS intr-un fisier dedicat (log). Pentru a-l folosi, lanseaza utilitarul in \"background\", lanseaza aplicatiile care contin reclame, dupa care poti analiza cererile DNS folosing fisierul generat.  </string>
+    <string name="tcpdump_entry_add_blacklist">Adăugare intrare în lista neagră</string>
+    <string name="tcpdump_entry_add_whitelist">Adăugare intrare în lista albă</string>
     <string name="drawer_open">Deschideți meniul</string>
     <string name="drawer_close">Închideți meniul</string>
 
@@ -113,7 +116,7 @@
     <string-array name="drawer_items">
         <item>Home</item>
         <item>Sursele (hosts)</item>
-        <item>Your lists</item>
+        <item>Listele dvs.</item>
         <item>Deschide fisierele \"hosts\"</item>
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
@@ -144,4 +147,10 @@
         <item quantity="other">%d luni</item>
     </plurals>
 
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">se activează</string>
+    <string name="vpn_notification_stopping">se oprește</string>
+    <string name="vpn_notification_paused">în pauză</string>
+    <string name="vpn_notification_stopped">oprit</string>
+    <string name="vpn_notification_action_pause">Pauză</string>
     </resources>

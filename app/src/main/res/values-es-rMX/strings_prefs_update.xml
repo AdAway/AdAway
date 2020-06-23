@@ -9,5 +9,5 @@
     <string name="pref_update_check">Buscar actualizaciones al abrir la app</string>
     <string name="pref_update_check_hosts_daily">Buscar actualizaciones periódicamente</string>
     <string name="pref_update_sync_on_update">Sincronizar durante la actualización</string>
-    <string name="pref_update_sync_unmetered_only">Sincronizar solo en redes de uso no medido</string>
+    <string name="pref_update_sync_unmetered_only">Sincronizar solo en redes sin medición de uso</string>
 </resources>

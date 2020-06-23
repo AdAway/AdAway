@@ -1,7 +1,7 @@
-An ad blocker that uses the hosts file. 
-The hosts file is a system file that contains a list of mappings between host names and IP addresses.
-When an app requests an ad from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
-You can download predefined hosts files from within the app to incorporate them into the system's hosts file. It is also possible to use your own files and to add certain hosts to white- and black-lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+Trình chặn quảng cáo sử dụng các tập tin nguồn.
+Tệp tên miền là một tệp hệ thống chứa danh sách ánh xạ giữa tên máy chủ và địa chỉ IP.
+Khi một ứng dụng yêu cầu quảng cáo từ một máy chủ lưu trữ trong tệp đó, yêu cầu này được chuyển hướng đến IP 127.0.0.1 cục bộ, và vô hiệu hóa nó.
+Bạn có thể tải xuống các tệp máy chủ được xác định trước từ trong ứng dụng để kết hợp chúng vào tệp máy chủ của hệ thống. Cũng có thể sử dụng các tệp của riêng bạn và thêm các máy chủ nhất định vào danh sách chặn hoặc không chặn.
+Bạn có thể tùy chỉnh cho phép chạy một máy chủ web cục bộ để trả lời tên máy chủ bị chặn và chuyển hướng nó đến địa chỉ IP tùy chọn.
 
-Requires root: Yes. The hosts file is located in /system which is read-only by default.
+Yêu cầu root: Có. Tệp máy chủ được đặt trong phân vùng /system ở chế độ chỉ đọc theo mặc định.

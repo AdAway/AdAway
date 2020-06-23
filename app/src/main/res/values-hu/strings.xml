@@ -25,6 +25,12 @@
     <string name="webserver_status_stopped">Megállítva</string>
     <string name="button_enable_webserver">Webszerver engedélyezése</string>
     <string name="button_disable_webserver">Webszerver letiltása</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Fut</string>
+    <string name="vpn_status_stopped">Megállítva</string>
+    <string name="button_enable_vpn">VPN Bekapcsolása</string>
+    <string name="button_disable_vpn">VPN Kikapcsolása</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">Törlés</string>
     <string name="checkbox_list_context_title">Bejegyzés szerkesztése</string>
@@ -44,6 +50,8 @@
     <string name="hosts_content">Hosts fájl tartalmának betöltése…</string>
     <string name="hosts_open_button">Hosts fájl megnyitása</string>
 
+    <!--Status Notification-->
+    <string name="status_check">Frissítés ellenőrzése…</string>
     <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
     <string name="status_update_available">Frissítés érhető el</string>
     <string name="status_update_available_subtitle">Újabb hosts fájlok érhetők el</string>
@@ -59,6 +67,7 @@
     <string name="status_enabled_subtitle">A legújabb hosts fájlok vannak engedélyezve</string>
     <string name="status_disabled">Letiltva</string>
     <string name="status_disabled_subtitle">Az alapértelmezett hosts fájl van telepítve</string>
+    <string name="status_copy_new_hosts">Hosts fájl másolása</string>
     <string name="notification_configuration_changed_action">Alkalmaz</string>
     <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
 
@@ -70,7 +79,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_private_file_fail_title">Privát fájl hiba</string>
     <string name="apply_remount_fail">Nem sikerült a partíciót írhatóként újracsatolni!</string>
     <string name="apply_remount_fail_title">Sikertelen újracsatolás</string>
-    <string name="apply_copy_fail">Nem sikerült a hosts fájlok másolása!</string>
+    <string name="apply_copy_fail">Nem sikerült a hosts fájl másolása!</string>
     <string name="apply_copy_fail_title">Sikertelen másolás</string>
     <string name="apply_success_subtitle">A hosts források beállítása sikerült</string>
     <string name="apply_success_title">Sikeres alkalmazás</string>
@@ -88,13 +97,14 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_dialog">Alkalmazás…</string>
     <string name="apply_dialog_lists">Fekete- és fehérlista alkalmazása</string>
     <string name="apply_dialog_hostnames">Hosts fájlok feldolgozása és összefésülése</string>
-    <string name="apply_dialog_hosts">Hosts fájlok felépítése</string>
-    <string name="apply_dialog_apply">Hosts fájlok alkalmazása</string>
+    <string name="apply_dialog_hosts">Hosts fájl felépítése</string>
+    <string name="apply_dialog_apply">Hosts fájl alkalmazása</string>
     <string name="apply_fail">Nem sikerült a hosts fájl alkalmazása rendszereden!\nPróbáld meg /data/data/hosts-ra módosítani a cél hosts fájlt a beállításokban.</string>
     <string name="apply_fail_title">Az alkalmazás nem sikerült</string>
     <string name="root_access_fail">Ellenőrizd a root kezelő alkalmazásban a root hozzáférés megadását.</string>
     <string name="revert_successful">Visszaállítottad az alapértelmezett hosts fájlt.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződjön meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!) </string>
     <string name="revert_successful_title">Sikeres visszaállítás</string>
+    <string name="revert_failed_status">A hosts fájl visszaállítása nem sikerült</string>
     <string name="revert_problem">A visszaállítás ismeretlen ok miatt nem sikerült.</string>
     <string name="revert_problem_title">Sikertelen visszaállítás!</string>
     <string name="download_fail_dialog">Egyik engedélyezett hosts fájl sem érhető el! Megfelelően csatlakozol az internethez?</string>
@@ -208,4 +218,6 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
         <item quantity="other">%d hónap</item>
     </plurals>
 
+    <string name="vpn_notification_running">aktív</string>
+    <string name="vpn_notification_reconnecting">újracsatlakozás</string>
     </resources>

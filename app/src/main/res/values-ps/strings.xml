@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <!--Buttons-->
+    <string name="button_exit">وتون</string>
+    <string name="button_close">بندول</string>
+    <string name="button_yes">هو</string>
+    <string name="button_no">نه</string>
+    <string name="button_add">زیاتول</string>
+    <string name="button_cancel">ړنګونه</string>
+    <string name="button_save">ساتل </string>
+    <string name="button_help">مرسته</string>
+
+    <!--Home-->
+    <string name="header_help">ښه راغلاست!</string>
+    <string name="text_help">اډاوې د ازادې سرچينې یو وړیا ساوتری دی کوم چې انګروزي تړي. دا د انګروزي شبکو پتې اخلي ترڅو ستاسې په وزله يې وتړي.n\نور معلومات غواړئ؟ د مرستې لپاره لاندې وګورئ!</string>
+    <string name="button_show_help">د نورې مرستې ښودل</string>
+    <string name="button_check_update_hosts">اوسمهالیزو لپاره وګورئ</string>
+    <string name="button_update_hosts">hosts اوسمهالول</string>
+    <string name="button_enable_hosts">د انګروزيو تړل سالول</string>
+    <string name="button_disable_hosts">د انګروزيو تړل بندول</string>
+    <string name="header_webserver">ګورت پالنګر</string>
+    <string name="webserver_status_running">ځغلي</string>
+    <string name="webserver_status_stopped">تمېدلی</string>
+    <string name="webserver_toggle_text">د تړل شويو hostnames غوښتنو ته ځواب ورکولو لپاره په localhost باندې د ګورت پالنګر پیلول او یا تمول</string>
+    <string name="button_enable_webserver">ګورت پالنګر سالول</string>
+    <string name="button_disable_webserver">ګورت پالنګر بندول</string>
+    <string name="header_vpn">اوڅاریز ځاني جال VPN</string>
+    <string name="vpn_status_running">ځغلي</string>
+    <string name="vpn_status_stopped">تمېدلی</string>
+    <string name="vpn_toggle_text">د غوښتنو چاڼولو لپاره د اوڅاريز ځاني جال پیلول او یا تمول</string>
+    <string name="button_enable_vpn">اوڅاریز ځاني جال سالول</string>
+    <string name="button_disable_vpn">اوڅاریز ځاني جال بندول</string>
+
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_delete">ړنګول</string>
+    <string name="checkbox_list_context_title">د ننوت سمون</string>
+    <string name="checkbox_list_context_edit">سمون</string>
+
+    <!--Your lists-->
+    <string name="import_dialog">راوړل...</string>
+    <string name="import_success">شاتړ په بريالي توګه له بهرنۍ زېرمې راوړل شو.</string>
+    <string name="import_failed">د شاتړ راوړنه نابريالۍ شوه. آیا ددې بڼه سمه ده؟ د نورو معلوماتو لپاره logcat وګورئ.</string>
+    <string name="export_dialog">وړل...</string>
+    <string name="export_success">شاتړ په بريالي توګه په بهرنۍ زېرمې کښې د \'adaway-backup.json\' دوتنې ته يووړل شو.</string>
+    <string name="export_failed">د شاتړ وړنه نابريالۍ شوه.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">hosts دوتنه</string>
+    <string name="hosts_content">د hosts دوتنې منځپانګه لېښل...</string>
+    <string name="hosts_open_button">د hosts دوتنه پرانیځئ</string>
+
+    <!--Status Notification-->
+    <string name="status_check">اوسمهالیز لپاره ګورو</string>
+    <string name="status_check_source">سرچینه ګورو د اوسمهاليز لپاره %s</string>
+    <string name="status_retrieve">سرچينې پلټل</string>
+    <string name="status_download_source">سرچينه رالېښل %s</string>
+    <string name="status_copy_source">سرچينه لمېسل %s</string>
+    <string name="status_parse_source">سرچينه تجزيه کول %s</string>
+    <string name="status_revert">د hosts تلوالې دوتنې ته راګرځول</string>
+    <string name="status_revert_done">د hosts تلواله دوتنه بیازېرمه شوه</string>
+    <string name="status_reverting_subtitle">د hosts کره دوتنه پنځول</string>
+    <string name="status_update_available">د سرچينې اوسمهاليز شته</string>
+    <string name="status_update_available_subtitle">نوي hosts دوتنې شته</string>
+    <string name="status_no_update_found">هېڅ سرچينې اوسمهاليز و نه موندل شو</string>
+    <string name="status_no_connection">انټرنېټ پیوستون نشته</string>
+    <string name="status_no_connection_subtitle">انټرنېټ پیوستون شتون نه لري</string>
+    <string name="status_download_fail">سرچينې نشته</string>
+    <string name="status_download_fail_subtitle_new">هېڅ hosts سرچينې ته لاسرسۍ نشته!</string>
+    <string name="status_root_access_denied">وليز لاسرسۍ ور نه کړل شو</string>
+    <string name="status_root_access_denied_subtitle">د خپل ولۍ کاريال نه د وليز لاسرسي پرېښلی ورکړئ </string>
+    <string name="status_failure">یو څه ناسم وشول</string>
+    <string name="status_failure_subtitle">د نورې سپړنې لپاره logcat وګورئ</string>
+    <string name="status_enabled">سالول شوی</string>
+    <string name="status_enabled_subtitle">نوي hosts دوتنې سالول شوي</string>
+    <string name="status_disabled">بند شوی</string>
+    <string name="status_disabled_subtitle">د hosts تلواله دوتنه ولګول شوه</string>
+    <string name="status_apply_sources">ترټولو وروستۍ سرچينې کارونګ</string>
+    <string name="status_create_new_hosts">يوه نوې hosts دوتنه پنځول</string>
+    <string name="status_copy_new_hosts">يوه نوې hosts دوتنه لمېسل</string>
+    <string name="status_check_copy">د hosts دوتنې لمېسه کتل </string>
+    <string name="status_hosts_updated">hosts دوتنه په بريالي توګه اوسمهاله شوه</string>
+    <string name="status_vpn_configuration_updated">د اوڅاریز ځاني جال سازونه په بريالي توګه اوسمهاله شو</string>
+    <string name="notification_configuration_changed">ستاسې سازونې بدلون وموند. تاسې اړ یاستۍ چې کارونګه يې کړئ.</string>
+    <string name="notification_configuration_changed_action">كارونګ</string>
+    <string name="notification_configuration_installing">د نوې سازونې کارونګ...</string>
+    <string name="notification_configuration_failed">د نوې سازونې پر کارونګه کولو کښې نابریالۍ شو.</string>
+
+    <string name="apply_symlink_missing_title">symlink بې درکه دی</string>
+    <string name="apply_not_enough_space_title">تشه بس نه ده</string>
+    <string name="apply_private_file_fail">رالېښل شوې دوتنه لوستل کېږي نه.</string>
+    <string name="apply_private_file_fail_title">ځاني دوتنه نابريالۍ شوه</string>
+    <string name="apply_remount_fail">د وېش بیاځانښلول د لوستنې/ليکنې په توګه نابريالی شو!</string>
+    <string name="apply_remount_fail_title">بیاځانښلون نابريالی شو</string>
+    <string name="apply_copy_fail_status">د hosts دوتنې لمېسل نابريالي شو</string>
+    <string name="apply_copy_fail">د hosts دوتنې لمېسل نابريالي شو!</string>
+    <string name="apply_copy_fail_title">لمېسل نابريالي شو</string>
+    <string name="apply_success_subtitle">کارونګه شوې hosts سرچينې</string>
+    <string name="apply_success_title">کارونګ بریالی شو</string>
+    <string name="apply_success_dialog">کارونګ بریالی شو.n\د بدلونونو د اغېزمن کېدو لپاره ښايي چې د انډروېډ بیاپيلون اړین وي.n\n\آیا تاسې بیاپيلول غواړئ؟n\(د اومتوک د لاسه ورکولو د مخنيوي لپاره دا باوري کړئ چې دم ګړۍ هېڅ کاريال له یاد پاڼې (SD کارټ) څخه ګټه نه اخلي!)</string>
+    <string name="apply_symlink_successful">symlink په بريالۍ توګه وپنځول شو.n\د بدلونونو د اغېزمن کېدو لپاره ښايي چې د انډروېډ بیاپيلون اړین وي.n\n\آیا تاسې بیاپيلول غواړئ؟n\(د اومتوک د لاسه ورکولو د مخنيوي لپاره دا باوري کړئ چې دم ګړۍ هېڅ کاريال له یاد پاڼې (SD کارټ) څخه ګټه نه اخلي!)</string>
+    <string name="apply_symlink_successful_title">د symlink پنځونه بريالۍ شوه</string>
+    <string name="apply_symlink_fail_title">د symlink پنځونه نابريالۍ شوه</string>
+    <string name="apply_help">مهرباني وکړئ، د لا نورو معلوماتو لپاره مرسته ولولئ.</string>
+    <string name="apply_apn_proxy">يو رسي ټکي نوم APN ګوډاګى ستاسې پر انډروېډ باندې امستل شوی دی!n/اډاوې به پر ګرځند شبکه لکه، 3جي، باندې باوري کار و نه کړي. تاسې کولای شئ چې هغه ګوډاګی ناچارند کړئ د خپل ټاکلي رسي ټکي نوم ته په تګ سره (د امستنو کاريال نه: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) او بیا د ګوډاګي ډګر نه ارزښت لېرې کړئ.</string>
+    <string name="apply_apn_proxy_title">رسي ټکي نوم ګوډاګی امستل شو!</string>
+    <string name="no_connection">انټرنېټ پيوستون کار نه کوي.</string>
+    <string name="no_connection_title">پیوستون نشته</string>
+    <string name="download_dialog">رالېښل...</string>
+    <string name="apply_dialog">كارونګ...</string>
+    <string name="apply_dialog_lists">د تورلړ او سپینلړ کارونګ</string>
+    <string name="apply_dialog_hostnames">د hosts دوتنې تجزیه کول او سره ننوېستل</string>
+    <string name="apply_dialog_hosts">د hosts دوتنې جوړول</string>
+    <string name="apply_dialog_apply">د hosts دوتنې کارونګ</string>
+    <string name="apply_fail_status">د نوي hosts دوتنې په کارونګ کې نابریالی شو.</string>
+    <string name="apply_fail">ستاسې پر غونډال کښې د hosts دوتنې کارونګ نابریالي شو!n\په غورتياوو کښې د موخې د hosts دوتنې بدلولو هڅه وکړئ.</string>
+    <string name="apply_fail_title">کارونګ نابریالي شو</string>
+    <string name="revert_successful">تاسې د hosts تلوالې دوتنې ته راوګرځېدلئ.n\د بدلونونو د اغېزمن کېدو لپاره ښايي چې د انډروېډ بیاپيلون اړین وي.n\n\آیا تاسې بیاپيلول غواړئ؟n\(د اومتوک د لاسه ورکولو د مخنيوي لپاره دا باوري کړئ چې دم ګړۍ هېڅ کاريال له یاد پاڼې (SD کارټ) څخه ګټه نه اخلي!)</string>
+    <string name="revert_successful_title">راګرځول بریالي شو</string>
+    <string name="revert_problem_title">راګرځول نابریالي شو!</string>
+    <string name="download_fail_title">رالېښل نابريالي شو</string>
+    <string name="no_private_file_status">د نوي hosts دوتنې په ليکنه کښې نابريالی شو</string>
+    <string name="no_private_file">ځاني دوتنه پنځول کېدای نه شي.</string>
+    <string name="no_private_file_title">د ځاني دوتنې پنځونه نابريالۍ شوه</string>
+    <string name="enable_systemless_successful">تاسې بې غونډاله اکر سال کړ.n\د بدلونونو د اغېزمن کېدو لپاره ښايي چې د انډروېډ بیاپيلون اړین وي.n\n\آیا تاسې بیاپيلول غواړئ؟n\(د اومتوک د لاسه ورکولو د مخنيوي لپاره دا باوري کړئ چې دم ګړۍ هېڅ کاريال له یاد پاڼې (SD کارټ) څخه ګټه نه اخلي!)</string>
+    <string name="enable_systemless_successful_title">سالول بريالي شو</string>
+    <string name="disable_systemless_successful">تاسې بې غونډاله اکر بند کړ.n\د بدلونونو د اغېزمن کېدو لپاره ښايي چې د انډروېډ بیاپيلون اړین وي.n\n\آیا تاسې بیاپيلول غواړئ؟n\(د اومتوک د لاسه ورکولو د مخنيوي لپاره دا باوري کړئ چې دم ګړۍ هېڅ کاريال له یاد پاڼې (SD کارټ) څخه ګټه نه اخلي!)</string>
+    <string name="disable_systemless_successful_title">بندول بريالي شو</string>
+    <string name="enable_vpn_fail">د اوڅاريز ځاني جال انګروزي تړنه سالول نابريالي شو.</string>
+    <string name="disable_vpn_fail">د اوڅاريز ځاني جال انګروزي تړنه بندول نابريالي شو.</string>
+    <string name="enable_systemless_magisk_title">د hosts Magisk رغبېلګه سالول</string>
+    <string name="enable_systemless_magisk">له Magisk سمبالګر نه د بې غونډاله hosts ځانګړنه سال کړئ. ددې د امستنو نه د <cite>Systemless hosts</cite> غوراوى سال کړئ او خپله وزله بیاپيل کړئ.  </string>
+    <string name="disable_systemless_magisk_title">د hosts Magisk رغبېلګه بندول</string>
+    <string name="disable_systemless_magisk">له Magisk سمبالګر نه د بې غونډاله hosts ځانګړنه بنده کړئ. د رغبېلګه لړ نه د <cite>Systemless hosts</cite> رغبېلګه لېرې کړئ او خپله وزله بیاپيل کړئ.  </string>
+
+    <string name="no_hostname">دا یو سم hostname نه دی!‍</string>
+    <string name="no_hostname_title">ناسم بڼول شوی hostname</string>
+    <string name="no_ip">دا یوه سمه انټرنېټ باندره (IP) نه ده!</string>
+    <string name="no_ip_title">ناسمه بڼول شوې انټرنېټ باندره</string>
+    <string name="loading">لېښل...</string>
+
+    <!--Menu entries-->
+    <string name="menu_refresh">تاندول</string>
+    <string name="menu_add">زیاتول</string>
+    <string name="menu_help">مرسته</string>
+    <string name="menu_import">شاتړ راوړنه</string>
+    <string name="menu_export">شاتړ وړنه</string>
+
+    <string name="help_tab_faq">بيابيا كېدونكې پوښتنې</string>
+    <string name="help_tab_problems">ستونزې </string>
+
+    <!--Adware-->
+    <string name="adware_header">انګروزيز ساوتری</string>
+    <string name="adware_scanning">ځېرل;8230#&  </string>
+    <string name="adware_empty">هېڅ انګروزیز ساوتری و نه موندل شو</string>
+
+    <!--Other-->
+    <string name="app_subtitle">انګروزی تړونکی</string>
+    <string name="no_text_editor_title">د متن بیاسمونګر نه دی لګول شوی</string>
+    <string name="no_file_manager_title">دوتنه سمبالګر نه دی لګول شوی</string>
+    <!--Tcpdump-->
+    <string name="tcpdump_header">tcpdump</string>
+    <string name="tcpdump_disable_monitoring">څارنه بندول</string>
+    <string name="tcpdump_enable_monitoring">څارنه سالول </string>
+    <string name="tcpdump_show_results">پایلو ښودل</string>
+    <string name="tcpdump_menu_sort">شپولو اڼل </string>
+    <string name="tcpdump_menu_clear">خبرال پاکول</string>
+    <string name="tcpdump_sort_alphabetical">آبڅیز اڼل</string>
+    <string name="tcpdump_entry_add_blacklist">تور لړ کښې د ننوت زیاتول</string>
+    <string name="tcpdump_entry_add_whitelist">سپين لړ کښې د ننوت زیاتول</string>
+    <string name="drawer_open">غورنۍ پرانيځئ</string>
+    <string name="drawer_close">غورنۍ بنده کړئ</string>
+
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
+    <string-array name="drawer_items">
+        <item>کوربه سرچينې</item>
+        <item>ستاسې لړونه</item>
+        <item>د کوربانه دوتنه پرانیځئ</item>
+        <item>غورتياوې</item>
+        <item>مرسته</item>
+    </string-array>
+    <string name="shortcut_your_lists">ستاسې لړونه</string>
+    <string name="shortcut_preferences">غورتياوې</string>
+
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">ولګول شو %1$s مخکې</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%dپېل</item>
+        <item quantity="other">%dپېله</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%dساعت</item>
+        <item quantity="other">%dساعته</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%dورځ</item>
+        <item quantity="other">%dورځې</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%dمیاشت</item>
+        <item quantity="other">%dمیاشتې</item>
+    </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">پيلېدل</string>
+    <string name="vpn_notification_running">چارنده </string>
+    <string name="vpn_notification_stopping">تمېدل</string>
+    <string name="vpn_notification_waiting_for_net">شبکې ته په ځار شئ</string>
+    <string name="vpn_notification_reconnecting">بياپيوستل </string>
+    <string name="vpn_notification_reconnecting_error">بياپيوستلو کښې تېروتنه</string>
+    <string name="vpn_notification_paused">ځنډېدلی </string>
+    <string name="vpn_notification_stopped">تمېدلی</string>
+    <string name="vpn_notification_title">انګروزی تړونکی اوڅاريز ځاني جال%1$s</string>
+    <string name="vpn_notification_action_pause">ځنډول</string>
+    <string name="vpn_notification_paused_text">بیاروانولو لپاره ووهئ</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">د غونډال انګروزي تړل سالول او بندول</string>
+
+</resources>

@@ -18,7 +18,7 @@
     <string name="pref_redirection_rules">Doorverwezen hosts toepassen uit bronnen</string>
     <string name="pref_redirection_rules_summary">BEVEILIGINGSRISICO!</string>
     <string name="pref_enable_ipv6">IPv6-ondersteuning inschakelen</string>
-    <string name="pref_backup_restore">Blokkaderegels back-uppen/herstellen</string>
+    <string name="pref_backup_restore">Backup/herstel blokkaderegels</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Foutopsporing</string>
     <string name="pref_enable_telemetry">Crashverslagen versturen</string>

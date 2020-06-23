@@ -5,43 +5,43 @@
     <!-- Method UI -->
     <string name="welcome_method_logo">Logo di benvenuto</string>
     <string name="welcome_method_header">Benvenuto in AdAway!</string>
-    <string name="welcome_method_summary">AdAway ha due modalità per bloccare le pubblicità. Scegli quello che preferisci:</string>
+    <string name="welcome_method_summary">AdAway ha due modalità per bloccare le pubblicità. Scegli quella che preferisci:</string>
 
     <string name="welcome_root_method_logo">Logo root</string>
-    <string name="welcome_root_method_title">Blocco pubblicità tramite root</string>
+    <string name="welcome_root_method_title">Blocco pubblicità\ntramite root</string>
     <string name="welcome_root_method_text1">Più veloce</string>
     <string name="welcome_root_method_text2">Non ha impatto sulla batteria</string>
     <string name="welcome_root_method_text3">Richiede il root</string>
 
     <string name="welcome_vpn_method_logo">Logo VPN</string>
-    <string name="welcome_vpn_method_title">Blocco pubblicità tramite VPN</string>
+    <string name="welcome_vpn_method_title">Blocco pubblicità\ntramite VPN</string>
     <string name="welcome_vpn_method_text1">Più lento</string>
-    <string name="welcome_vpn_method_text2">Si esegue in background</string>
+    <string name="welcome_vpn_method_text2">Esecuzione in background</string>
     <string name="welcome_vpn_method_text3">Compatibilità</string>
 
     <string name="welcome_root_missing_title">Richiesto Android con root</string>
-    <string name="welcome_root_missile_description">Non è stato trovato il binario SU o non hai concesso i permessi di root ad AdAway.\n\nPuò succedere quando il tuo dispositivo non ha i diritti di root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android.</string>
+    <string name="welcome_root_missile_description">Non è stato trovato il binario SU o non hai concesso i permessi di root ad AdAway.\n\nPuò succedere quando il tuo dispositivo non ha i diritti di root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android</string>
 
     <string name="welcome_method_pro_logo">Pro</string>
     <string name="welcome_method_con_logo">Contro</string>
 
     <!-- Sync UI -->
     <string name="welcome_sync_done_logo">Sincronizzazione completata</string>
-    <string name="welcome_sync_error_logo">Errore durante la sincronizzazione</string>
+    <string name="welcome_sync_error_logo">Errore durante sincronizzazione</string>
 
     <string name="welcome_sync_header">Sincronizzazione in corso</string>
     <string name="welcome_synced_header">Sincronizzato!</string>
-    <string name="welcome_sync_summary">AdAway scarica da fonti online le reti pubblicitarie da bloccare. Puoi personalizzarle in seguito dalle impostazioni.</string>
+    <string name="welcome_sync_summary">AdAway scarica da sorgenti online le reti pubblicitarie da bloccare. Puoi personalizzarle dalle impostazioni</string>
     <string name="welcome_sync_retry_logo">Riprova sincronizzazione</string>
-    <string name="welcome_sync_error">Sincronizzazione di fallita:\n%s.\nVuoi riprovare?</string>
+    <string name="welcome_sync_error">Sincronizzazione fallita:\n%s.\nRiprovare?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Supporto</string>
     <string name="welcome_support_header">Supportami!</string>
     <string name="welcome_support_summary">È una app gratutia e open-source. La sviluppo nel mio tempo libero. Se ti piace utilizzarla, puoi mostrare il tuo supporto:</string>
-    <string name="welcome_support_button">Fai una donazione su PayPal</string>
-    <string name="welcome_support_telemetry_summary">Ti piacciono i bug? Neanche a me.</string>
-    <string name="welcome_support_telemetry_button">Abilita telemetria per mandarmi le segnalazioni degli errori</string>
+    <string name="welcome_support_button">Donazione su PayPal</string>
+    <string name="welcome_support_telemetry_summary">Ti piacciono i bug? Neanche a me</string>
+    <string name="welcome_support_telemetry_button">Abilita telemetria per inviarmi le segnalazioni di errori</string>
 
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Indietro</string>

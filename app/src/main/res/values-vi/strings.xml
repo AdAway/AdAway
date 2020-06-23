@@ -20,6 +20,7 @@
     <string name="button_update_hosts">Cập nhật file hosts</string>
     <string name="button_enable_hosts">Bật chặn quảng cáo</string>
     <string name="button_disable_hosts">Tắt chặn quảng cáo</string>
+    <string name="header_webserver">Máy chủ web</string>
     <string name="webserver_status_running">Đang chạy</string>
     <string name="webserver_status_stopped">Đã dừng</string>
     <string name="webserver_toggle_text">Chạy hoặc tắt webserver trên máy để trả lời cho những trang quảng cáo bị chặn</string>
@@ -57,18 +58,38 @@
     <string name="status_retrieve">Đang lấy nguồn</string>
     <string name="status_download_source">Đang tải nguồn %s</string>
     <string name="status_copy_source">Đang sao chép nguồn %s</string>
+    <string name="status_parse_source">Hợp nhất nguồn %s</string>
+    <string name="status_revert">Quay lại tập tin nguồn mặc định</string>
+    <string name="status_revert_done">Quay lại tập tin nguồn mặc định</string>
     <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
     <string name="status_update_available">Đã có bản cập nhật</string>
     <string name="status_update_available_subtitle">Đã có tập tin miền mới</string>
+    <string name="status_no_update_found">Không có cập nhật mới</string>
     <string name="status_no_connection">Không có kết nối mạng</string>
     <string name="status_no_connection_subtitle">Không có sẵn kết nối mạng</string>
     <string name="status_download_fail">Không có nguồn nào</string>
     <string name="status_download_fail_subtitle_new">Không kết nối được tới bất cứ nguồn nào!</string>
     <string name="status_root_access_denied">Bị từ chối quyền truy cập root.Bạn đã root máy chưa ?</string>
+    <string name="status_root_access_denied_subtitle">Cho phép quyền root </string>
     <string name="status_failure">Có gì đó không ổn</string>
+    <string name="status_failure_subtitle">Kiểm tra logcat để biết thêm chi tiết</string>
     <string name="status_enabled">Đã bật</string>
     <string name="status_enabled_subtitle">Đã dùng tập tin miền mới</string>
     <string name="status_disabled">Đã tắt</string>
+    <string name="status_disabled_subtitle">Tệp máy chủ mặc định được cài đặt</string>
+    <string name="status_apply_sources">Áp dụng các nguồn mới nhất</string>
+    <string name="status_create_new_hosts">Tạo tập tin máy chủ mới</string>
+    <string name="status_copy_new_hosts">Sao chép tập tin máy chủ mới</string>
+    <string name="status_check_copy">Kiểm tra bản sao tập tin máy chủ</string>
+    <string name="status_hosts_updated">Tập tin máy chủ được cập nhật thành công</string>
+    <string name="status_vpn_configuration_updated">Cấu hình VPN được cập nhật thành công</string>
+    <string name="notification_configuration_changed">Tùy chỉnh Cấu hình đã thay đổi. </string>
+    <string name="notification_configuration_changed_action">Áp dụng</string>
+    <string name="notification_configuration_installing">Đang áp dụng tùy chỉnh mới</string>
+    <string name="notification_configuration_failed">Không thể áp dụng tùy chỉnh mới</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Thiếu liên kết đến mục tiêu tệp máy chủ</string>
     <string name="apply_symlink_missing">Liên kết biểu trưng từ mục tiêu đến /system/etc/hosts không tồn tại hoặc không đúng! AdAway sẽ không hoạt động nếu nó không được dẫn đến đúng tập tin.\n\nBạn có muốn thử tạo liên kết mới?</string>
     <string name="apply_symlink_missing_title">Thiếu liên kết biểu trưng</string>
     <string name="apply_not_enough_space">Không đủ dung lượng trên ổ đĩa!\nHãy thử đổi tập tin miền mục tiêu trong tuỳ chỉnh thành /data/data/hosts.</string>
@@ -77,12 +98,18 @@
     <string name="apply_private_file_fail_title">Tập tin riêng tư thất bại</string>
     <string name="apply_remount_fail">Thất bại khi gắn phân vùng thành đọc/ghi!</string>
     <string name="apply_remount_fail_title">Gắn thất bại</string>
+    <string name="apply_copy_fail_status">Không thể sao chép tập tin máy chủ</string>
     <string name="apply_copy_fail">Thất bại khi sao chép tập tin miền!</string>
     <string name="apply_copy_fail_title">Sao chép thất bại</string>
+    <string name="apply_success_subtitle">Áp dụng Nguồn máy chủ</string>
     <string name="apply_success_title">Áp dụng thành công</string>
+    <string name="apply_success_dialog">Áp dụng đã thành công. \nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực. \n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy đảm bảo không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
+    <string name="apply_symlink_successful">Symlink đã được tạo thành công. \nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực. \n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy đảm bảo không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
     <string name="apply_symlink_successful_title">Tạo liên kết biểu trưng thành công</string>
+    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Tạo liên kết biểu trưng thất bại</string>
     <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
+    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) and remove the value in the proxy field. </string>
     <string name="apply_apn_proxy_title">Đã tạo proxy APN!</string>
     <string name="no_connection">Kết nối mạng không hoạt động.</string>
     <string name="no_connection_title">Không có kết nối</string>
@@ -103,6 +130,8 @@
     <string name="no_private_file_title">Tạo tập tin riêng thất bại</string>
     <string name="enable_systemless_successful_title">Kích hoạt thành công</string>
     <string name="disable_systemless_successful_title">Vô hiệu hóa thành công</string>
+    <string name="enable_vpn_fail">Không thể khởi động trình chặn quảng cáo qua VPN.</string>
+    <string name="disable_vpn_fail">Không thể tắt chặn quảng cáo qua VPN. </string>
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Nhập URL vào tập tin miền:</string>
     <string name="no_hostname">Tên miền không hợp lệ!</string>
@@ -139,6 +168,9 @@
         <item>Tuỳ chỉnh</item>
         <item>Trợ giúp</item>
     </string-array>
+    <string name="shortcut_your_lists">Danh sách của bạn</string>
     <string name="shortcut_preferences">Tuỳ chỉnh</string>
+
+    <string name="vpn_notification_paused_text">Chạm để tiếp tục</string>
 
     </resources>

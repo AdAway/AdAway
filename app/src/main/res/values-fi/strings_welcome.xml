@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">Pääkäyttäjän oikeudet vaaditaan</string>
+    <string name="welcome_title">Tervetuloa</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Tervetuloa logo</string>
+    <string name="welcome_root_missing_title">Rootattu Android vaaditaan</string>
+    <!-- Support -->
+    <string name="welcome_support_logo">Tue</string>
     </resources>

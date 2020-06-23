@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Asetukset</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN pohjainen mainostenesto</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Virheenkorjaus</string>
     </resources>

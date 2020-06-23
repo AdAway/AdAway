@@ -23,4 +23,4 @@
     <string name="pref_webserver">Webserver cục bộ</string>
     <string name="pref_webserver_summary">Máy chủ web cục bộ sử dụng các địa chỉ IP để phản hồi các yêu cầu truy cập các tên miền đã bị chặn, giúp giải quyết việc treo ứng dụng do kết nối bị chặn.</string>
     <string name="pref_webserver_enabled">Bật webserver</string>
-</resources>
+    </resources>

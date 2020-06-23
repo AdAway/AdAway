@@ -1,4 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Ongi etorri</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Ongi etorri logoa</string>
+    <string name="welcome_method_header">Ongi etorri AdAway-ra!</string>
+    <string name="welcome_method_summary">AdAwayk iragarkiak blokeatzeko bi metodo eskaintzen ditu. Aukeratu gustuko duzuna:</string>
+
+    <string name="welcome_root_method_logo">Erro logoa</string>
+    <string name="welcome_root_method_title">Erroan oinarritutako blokeoa.</string>
+    <string name="welcome_root_method_text1">Azkarragoa</string>
+    <string name="welcome_root_method_text2">Bateriarekiko lagungarria</string>
+    <string name="welcome_root_method_text3">Beharrezko erroa</string>
+
+    <string name="welcome_vpn_method_logo">VPN logoa</string>
+    <string name="welcome_vpn_method_title">VPNan oinarritutako blokeoa</string>
+    <string name="welcome_vpn_method_text1">Motelagoa</string>
+    <string name="welcome_vpn_method_text2">Atzeko planoan exekutatu</string>
+    <string name="welcome_vpn_method_text3">Bateragarritasuna</string>
+
     <string name="welcome_root_missing_title">Beharrezkoa Android errotua</string>
-    </resources>
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sinkroinazioa eginda</string>
+    <string name="welcome_sync_error_logo">Errorea sinkronizatze-prozesuan</string>
+
+    <string name="welcome_sync_header">Sinkronizatzen</string>
+    <string name="welcome_synced_header">Sinkronizatuta!</string>
+    <string name="welcome_sync_retry_logo">Saiatu berriro sinkronizatzen</string>
+    <!-- Support -->
+    <string name="welcome_support_logo">Lagundu</string>
+    <string name="welcome_support_header">Lagundu nazazu!</string>
+    <string name="welcome_support_button">Lagundu PayPal-en bidez</string>
+    <string name="welcome_support_telemetry_summary">Zorriak gogoko al dituzu? Nik ere ez.</string>
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Atzera</string>
+    <string name="welcome_next_button">Hurrengoa</string>
+    <string name="welcome_finish_button">Amaitu</string>
+</resources>

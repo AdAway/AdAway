@@ -18,4 +18,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">שרת מקומי</string>
     <string name="pref_webserver_enabled">הפעל שירות</string>
-</resources>
+    </resources>

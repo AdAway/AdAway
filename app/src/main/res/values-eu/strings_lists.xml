@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Zure zerrendak</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">blokeatuta</string>
+    <string name="lists_tab_allowed">baimendua</string>
+    <string name="lists_tab_redirected">birhelbideratzea</string>
+    <string name="lists_menu_filter_hint">host-aren izena bilatu</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Gehitu hostalaria zerrenda-beltzara</string>
     <string name="list_add_dialog_white">Gehitu hostalaria zerrenda-zurira</string>

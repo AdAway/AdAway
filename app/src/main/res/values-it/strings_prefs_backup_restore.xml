@@ -2,7 +2,7 @@
 <resources>
     <string name="pref_backup_restore_title">Backup  &amp; ripristino</string>
     <string name="pref_backup">Backup</string>
-    <string name="pref_backup_summary">Salva le regole di blocco su SDcard esterna</string>
+    <string name="pref_backup_summary">Salva regole di blocco su SDcard</string>
     <string name="pref_restore">Ripristina</string>
-    <string name="pref_restore_summary">Ripristina le regole di blocco da un file di backup</string>
+    <string name="pref_restore_summary">Ripristina regole di blocco da file di backup</string>
 </resources>
