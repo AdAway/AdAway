@@ -24,15 +24,18 @@
         <item name="colorOnSecondary">@color/onPrimary</item>
 
         <item name="android:statusBarColor">?colorPrimary</item>
-        <item name="android:navigationBarColor">?android:colorBackground</item>
     </style>
 
-    <style name="Theme.AdAway.NoActionBar.Red" parent="Theme.AdAway.NoActionBar">
+    <style name="Theme.AdAway.NoActionBar.Red" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/welcomeBackground</item>
+        <item name="colorPrimaryVariant">@color/primaryVariant</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
         <item name="colorSecondary">@color/onPrimary</item>
         <item name="colorSecondaryVariant">@color/primaryVariant</item>
-        <item name="colorOnSecondary">@color/primary</item>
+        <item name="colorOnSecondary">@color/welcomeBackground</item>
 
         <item name="android:statusBarColor">?colorOnSecondary</item>
+        <item name="android:navigationBarColor">@color/welcomeBackground</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>

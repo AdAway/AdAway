@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">Απαιτείται Android με υπερχρήστη</string>
-    </resources>
+    <string name="welcome_title">Καλώς ήρθατε</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Λογότυπο Καλωσορίσματος</string>
+    <string name="welcome_method_header">Καλώς ήλθατε στο AdAway!</string>
+    <string name="welcome_method_summary">Το AdAway παρέχει δύο μεθόδους αποκλεισμού διαφημίσεων. Διαλέξτε αυτή που σας αρέσει:</string>
+
+    <string name="welcome_root_method_logo">Λογότυπο Root</string>
+    <string name="welcome_root_method_title">Root based\nad blocking</string>
+    <string name="welcome_root_method_text1">Γρηγορότερo</string>
+    <string name="welcome_root_method_text2">Φιλικό προς την μπαταρία</string>
+    <string name="welcome_root_method_text3">Απαιτείται Root</string>
+
+    <string name="welcome_vpn_method_logo">Λογότυπο VPN</string>
+    <string name="welcome_vpn_method_title">VPN based\nad blocking</string>
+    <string name="welcome_vpn_method_text1">Πιο αργό</string>
+    <string name="welcome_vpn_method_text2">Εκτελείτε στο παρασκήνιο</string>
+    <string name="welcome_vpn_method_text3">Συμβατότητα</string>
+
+    <string name="welcome_root_missing_title">Απαιτείται Android με Root</string>
+    <string name="welcome_root_missile_description">Είτε το su binary δεν βρέθηκε είτε δεν επιτράψατε την άδεια root στο AdAway.\n\nΑυτό μπορεί να συμβεί όταν η συσκευή σας δεν είναι rooted. Μπορείτε να βρείτε πληροφορίες σχετικά με το πως how να rootάρετε τη συσκευή σας στο wiki.lineageos.org ή σε άλλα Android websites.</string>
+
+    <string name="welcome_method_pro_logo">Πλεονεκτήματα</string>
+    <string name="welcome_method_con_logo">Μειονεκτήματα</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Ο συγχρονισμός ολοκληρώθηκε</string>
+    <string name="welcome_sync_error_logo">Σφάλμα κατά τον συγχρονισμό</string>
+
+    <string name="welcome_sync_header">Συγχρονισμός</string>
+    <string name="welcome_synced_header">Συγχρονίστηκε!</string>
+    <string name="welcome_sync_summary">Το AdAway κατεβάζει δίκτυα διαφημίσεων για αποκλεισμό από διαδικτυακές πηγές. Μπορείτε να τα προσαρμόσετε αργότερα στις ρυθμίσεις.</string>
+    <string name="welcome_sync_retry_logo">Επανάληψη συγχρονισμού</string>
+    <string name="welcome_sync_error">Αποτυχία συγχρονισμού:/n%s.\nΕπανάληψη τώρα;</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Υποστήριξη</string>
+    <string name="welcome_support_header">Υποστήριξε με!</string>
+    <string name="welcome_support_summary">Είναι μια δωρεάν και ανοιχτού κώδικα εφαρμογή. Την αναπτύσσω στον ελεύθερο χρόνο μου. Επομένως αν την απολαμβάνετε, μη διστάσετε να δείξετε την υποστήριξή σας:</string>
+    <string name="welcome_support_button">Δωρεά στο PayPal</string>
+    <string name="welcome_support_telemetry_summary">Σας αρέσουν τα bugs; Ούτε εμένα.</string>
+    <string name="welcome_support_telemetry_button">Ενεργοποιήστε την τηλεμετρία για να μου στέλνετε αναφορές σφαλμάτων</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Πίσω</string>
+    <string name="welcome_next_button">Επόμενο</string>
+    <string name="welcome_finish_button">Τέλος</string>
+</resources>

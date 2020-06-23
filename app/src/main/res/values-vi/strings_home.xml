@@ -1,7 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Đã bị chặn</string>
+    <string name="allowed_hosts_label">Đã cho phép</string>
+    <string name="redirect_hosts_label">Đã chuyển hướng</string>
+
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="other">%d số nguồn đã được cập nhật</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="other">%dsố nguồn chưa được cập nhật</item>
+    </plurals>
+
+    <!-- Help card -->
+    <string name="help_label">Hiện trợ giúp</string>
+
+    <!-- Project card -->
+    <string name="project_label">Mở GitHub</string>
+
+    <!-- Support card -->
+    <string name="support_label">Ủng hộ dự án</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Nhật kí DNS</string>
     <string name="preferences_drawer_item">Tuỳ chỉnh</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Mở thanh điều hướng</string>
+    <string name="adblock_pause_button_description">Tạm dừng/tiếp tục chặn quảng cáo</string>
+    <string name="update_button">Cập nhật các tên miền đã chặn </string>
+    <string name="show_log_button">Hiển thị các tên miền đã yêu cầu</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>

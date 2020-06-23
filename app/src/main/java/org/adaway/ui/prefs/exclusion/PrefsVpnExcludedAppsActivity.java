@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
+import org.adaway.databinding.VpnExcludedAppActivityBinding;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ThemeHelper;
 
@@ -39,7 +39,8 @@ public class PrefsVpnExcludedAppsActivity extends AppCompatActivity implements E
          */
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
-        setContentView(R.layout.vpn_excluded_app_activity);
+        VpnExcludedAppActivityBinding binding = VpnExcludedAppActivityBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(true);
@@ -49,15 +50,14 @@ public class PrefsVpnExcludedAppsActivity extends AppCompatActivity implements E
          * Configure recycler view.
          */
         // Get recycler view
-        RecyclerView recyclerView = findViewById(R.id.vpn_excluded_app_list);
-        recyclerView.setHasFixedSize(true);
+        binding.vpnExcludedAppList.setHasFixedSize(true);
         // Defile recycler layout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        binding.vpnExcludedAppList.setLayoutManager(linearLayoutManager);
         // Create recycler adapter
         this.userApplications = getUserApplications();
         this.adapter = new UserAppRecycleViewAdapter(this);
-        recyclerView.setAdapter(this.adapter);
+        binding.vpnExcludedAppList.setAdapter(this.adapter);
     }
 
     @Override

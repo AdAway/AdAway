@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 
-import org.adaway.R;
+import org.adaway.databinding.WelcomeSupportLayoutBinding;
 
 import static android.content.Intent.ACTION_VIEW;
 import static org.adaway.ui.support.SupportActivity.SUPPORT_LINK;
@@ -25,15 +22,17 @@ import static org.adaway.ui.support.SupportActivity.animateHeart;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class WelcomeSupportFragment extends WelcomeFragment {
+    private WelcomeSupportLayoutBinding binding;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.welcome_support_layout, container, false);
+        this.binding = WelcomeSupportLayoutBinding.inflate(inflater, container, false);
 
-        animateHeart(view);
-        bindSupport(view);
+        animateHeart(this.binding.headerImageView);
+        bindSupport();
 
-        return view;
+        return this.binding.getRoot();
     }
 
     @Override
@@ -41,18 +40,13 @@ public class WelcomeSupportFragment extends WelcomeFragment {
         return true;
     }
 
-    private void bindSupport(View view) {
-        ImageView headerImageView = view.findViewById(R.id.headerImageView);
-        TextView headerTextView = view.findViewById(R.id.headerTextView);
-        CardView supportCardView = view.findViewById(R.id.paypalCardView);
-
+    private void bindSupport() {
         View.OnClickListener listener = v -> {
             Intent browserIntent = new Intent(ACTION_VIEW, Uri.parse(SUPPORT_LINK));
             startActivity(browserIntent);
         };
-
-        headerImageView.setOnClickListener(listener);
-        headerTextView.setOnClickListener(listener);
-        supportCardView.setOnClickListener(listener);
+        this.binding.headerImageView.setOnClickListener(listener);
+        this.binding.headerTextView.setOnClickListener(listener);
+        this.binding.paypalCardView.setOnClickListener(listener);
     }
 }

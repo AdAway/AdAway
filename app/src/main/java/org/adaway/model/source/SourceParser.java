@@ -86,7 +86,7 @@ class SourceParser {
                 }
                 HostListItem item = new HostListItem();
                 item.setType(type);
-                item.setDisplayedHost(hostname);
+                item.setHost(hostname);
                 item.setEnabled(true);
                 if (type == REDIRECTED) {
                     item.setRedirection(ip);

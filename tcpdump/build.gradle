@@ -9,17 +9,25 @@ android {
 
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
-    ndkVersion '21.1.6352462'
+    ndkVersion '21.2.6472646'
 
     defaultConfig {
         minSdkVersion 26
         targetSdkVersion 29
     }
 
+    buildFeatures {
+        buildConfig = false
+    }
+
     externalNativeBuild {
         ndkBuild {
             path 'jni/Android.mk'
         }
+    }
+
+    sonarqube {
+        skipProject = true
     }
 }
 

@@ -46,7 +46,7 @@ import org.adaway.util.RegexUtils;
 public class AllowedHostsFragment extends AbstractListFragment {
     @Override
     protected LiveData<PagedList<HostListItem>> getData() {
-        return this.mViewModel.getWhiteListItems();
+        return this.mViewModel.getAllowedListItems();
     }
 
     @Override
@@ -94,7 +94,7 @@ public class AllowedHostsFragment extends AbstractListFragment {
         View view = factory.inflate(R.layout.lists_white_dialog, null);
         // Set hostname
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
-        inputEditText.setText(item.getDisplayedHost());
+        inputEditText.setText(item.getHost());
         // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
         inputEditText.setSelection(inputEditContent.length());

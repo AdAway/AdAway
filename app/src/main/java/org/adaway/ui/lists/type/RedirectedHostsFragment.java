@@ -50,7 +50,7 @@ public class RedirectedHostsFragment extends AbstractListFragment {
 
     @Override
     protected LiveData<PagedList<HostListItem>> getData() {
-        return this.mViewModel.getRedirectionListItems();
+        return this.mViewModel.getRedirectedListItems();
     }
 
     @Override
@@ -109,7 +109,7 @@ public class RedirectedHostsFragment extends AbstractListFragment {
         // Set hostname and IP
         EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
         EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
-        hostnameEditText.setText(item.getDisplayedHost());
+        hostnameEditText.setText(item.getHost());
         ipEditText.setText(item.getRedirection());
         // Move cursor to end of EditText
         Editable hostnameEditContent = hostnameEditText.getText();

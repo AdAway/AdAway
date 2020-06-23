@@ -11,27 +11,22 @@ import android.net.VpnService;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.arch.core.util.Function;
-import androidx.cardview.widget.CardView;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 
 import org.adaway.AdAwayApplication;
 import org.adaway.R;
+import org.adaway.databinding.HomeActivityBinding;
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ThemeHelper;
@@ -57,7 +52,6 @@ import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.TAB;
-import static org.adaway.util.Constants.TAG;
 
 /**
  * This class is the application main activity.
@@ -65,13 +59,13 @@ import static org.adaway.util.Constants.TAG;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HomeActivity extends AppCompatActivity {
+    private static final String TAG = "Home";
     /**
      * The project link.
      */
     private static final String PROJECT_LINK = "https://github.com/AdAway/AdAway";
 
-    private BottomAppBar appBar;
-    private FloatingActionButton fab;
+    private HomeActivityBinding binding;
     private BottomSheetBehavior<View> drawerBehavior;
     private HomeViewModel homeViewModel;
 
@@ -82,13 +76,13 @@ public class HomeActivity extends AppCompatActivity {
         ThemeHelper.applyTheme(this);
         NotificationHelper.clearUpdateNotifications(this);
         Log.i(TAG, "Starting main activity");
-        setContentView(R.layout.home_activity);
+        this.binding = HomeActivityBinding.inflate(getLayoutInflater());
+        setContentView(this.binding.getRoot());
 
         this.homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         this.homeViewModel.isAdBlocked().observe(this, this::notifyAdBlocked);
         this.homeViewModel.getError().observe(this, this::notifyError);
 
-        this.appBar = findViewById(R.id.bar);
         applyActionBar();
         bindAppVersion();
         bindHostCounter();
@@ -99,8 +93,7 @@ public class HomeActivity extends AppCompatActivity {
         setUpBottomDrawer();
         bindFab();
 
-        NavigationView navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(item -> {
+        this.binding.navigationView.setNavigationItemSelectedListener(item -> {
             if (showFragment(item.getItemId())) {
                 this.drawerBehavior.setState(STATE_HIDDEN);
             }
@@ -146,11 +139,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void applyActionBar() {
-        setSupportActionBar(this.appBar);
+        setSupportActionBar(this.binding.bar);
     }
 
     private void bindAppVersion() {
-        TextView versionTextView = findViewById(R.id.versionTextView);
+        TextView versionTextView = this.binding.content.versionTextView;
         versionTextView.setText(this.homeViewModel.getVersionName());
         versionTextView.setOnClickListener(this::showChangelog);
 
@@ -168,15 +161,15 @@ public class HomeActivity extends AppCompatActivity {
     private void bindHostCounter() {
         Function<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
 
-        TextView blockedHostCountTextView = findViewById(R.id.blockedHostCounterTextView);
+        TextView blockedHostCountTextView = this.binding.content.blockedHostCounterTextView;
         LiveData<Integer> blockedHostCount = this.homeViewModel.getBlockedHostCount();
         Transformations.map(blockedHostCount, stringMapper).observe(this, blockedHostCountTextView::setText);
 
-        TextView allowedHostCountTextView = findViewById(R.id.allowedHostCounterTextView);
+        TextView allowedHostCountTextView = this.binding.content.allowedHostCounterTextView;
         LiveData<Integer> allowedHostCount = this.homeViewModel.getAllowedHostCount();
         Transformations.map(allowedHostCount, stringMapper).observe(this, allowedHostCountTextView::setText);
 
-        TextView redirectHostCountTextView = findViewById(R.id.redirectHostCounterTextView);
+        TextView redirectHostCountTextView = this.binding.content.redirectHostCounterTextView;
         LiveData<Integer> redirectHostCount = this.homeViewModel.getRedirectHostCount();
         Transformations.map(redirectHostCount, stringMapper).observe(this, redirectHostCountTextView::setText);
     }
@@ -184,13 +177,13 @@ public class HomeActivity extends AppCompatActivity {
     private void bindSourceCounter() {
         Resources resources = getResources();
 
-        TextView upToDateSourcesTextView = findViewById(R.id.upToDateSourcesTextView);
+        TextView upToDateSourcesTextView = this.binding.content.upToDateSourcesTextView;
         LiveData<Integer> upToDateSourceCount = this.homeViewModel.getUpToDateSourceCount();
         upToDateSourceCount.observe(this, count ->
                 upToDateSourcesTextView.setText(resources.getQuantityString(R.plurals.up_to_date_source_label, count, count))
         );
 
-        TextView outdatedSourcesTextView = findViewById(R.id.outdatedSourcesTextView);
+        TextView outdatedSourcesTextView = this.binding.content.outdatedSourcesTextView;
         LiveData<Integer> outdatedSourceCount = this.homeViewModel.getOutdatedSourceCount();
         outdatedSourceCount.observe(this, count ->
                 outdatedSourcesTextView.setText(resources.getQuantityString(R.plurals.outdated_source_label, count, count))
@@ -198,8 +191,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void bindPending() {
-        View sourcesImageView = findViewById(R.id.sourcesImageView);
-        View sourcesProgressBar = findViewById(R.id.sourcesProgressBar);
+        View sourcesImageView = this.binding.content.sourcesImageView;
+        View sourcesProgressBar = this.binding.content.sourcesProgressBar;
         this.homeViewModel.getPending().observe(this, pending -> {
             if (pending) {
                 hideView(sourcesImageView);
@@ -212,44 +205,32 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void bindState() {
-        TextView stateTextView = findViewById(R.id.stateTextView);
-        this.homeViewModel.getState().observe(this, stateTextView::setText);
+        this.homeViewModel.getState().observe(this, this.binding.content.stateTextView::setText);
     }
 
     private void bindClickListeners() {
-        CardView blockedHostCardView = findViewById(R.id.blockedHostCardView);
-        blockedHostCardView.setOnClickListener(v -> startHostListActivity(BLOCKED_HOSTS_TAB));
-        CardView allowedHostCardView = findViewById(R.id.allowedHostCardView);
-        allowedHostCardView.setOnClickListener(v -> startHostListActivity(ALLOWED_HOSTS_TAB));
-        CardView redirectHostHostCardView = findViewById(R.id.redirectHostCardView);
-        redirectHostHostCardView.setOnClickListener(v -> startHostListActivity(REDIRECTED_HOSTS_TAB));
-        CardView sourcesCardView = findViewById(R.id.sourcesCardView);
-        sourcesCardView.setOnClickListener(this::startHostsSourcesActivity);
-        ImageView checkForUpdateImageView = findViewById(R.id.checkForUpdateImageView);
-        checkForUpdateImageView.setOnClickListener(this::updateHostsList);
-        ImageView updateImageView = findViewById(R.id.updateImageView);
-        updateImageView.setOnClickListener(this::syncHostsList);
-        CardView helpCardView = findViewById(R.id.helpCardView);
-        helpCardView.setOnClickListener(this::startHelpActivity);
-        CardView projectCardView = findViewById(R.id.projectCardView);
-        projectCardView.setOnClickListener(this::showProjectPage);
-        CardView supportCardView = findViewById(R.id.supportCardView);
-        supportCardView.setOnClickListener(this::showSupportActivity);
+        this.binding.content.blockedHostCardView.setOnClickListener(v -> startHostListActivity(BLOCKED_HOSTS_TAB));
+        this.binding.content.allowedHostCardView.setOnClickListener(v -> startHostListActivity(ALLOWED_HOSTS_TAB));
+        this.binding.content.redirectHostCardView.setOnClickListener(v -> startHostListActivity(REDIRECTED_HOSTS_TAB));
+        this.binding.content.sourcesCardView.setOnClickListener(this::startHostsSourcesActivity);
+        this.binding.content.checkForUpdateImageView.setOnClickListener(this::updateHostsList);
+        this.binding.content.updateImageView.setOnClickListener(this::syncHostsList);
+        this.binding.content.helpCardView.setOnClickListener(this::startHelpActivity);
+        this.binding.content.projectCardView.setOnClickListener(this::showProjectPage);
+        this.binding.content.supportCardView.setOnClickListener(this::showSupportActivity);
     }
 
     private void setUpBottomDrawer() {
-        View bottomDrawer = findViewById(R.id.bottom_drawer);
-        this.drawerBehavior = BottomSheetBehavior.from(bottomDrawer);
+        this.drawerBehavior = BottomSheetBehavior.from(this.binding.bottomDrawer);
         this.drawerBehavior.setState(STATE_HIDDEN);
 
-        this.appBar.setNavigationOnClickListener(v -> this.drawerBehavior.setState(STATE_HALF_EXPANDED));
-//        bar.setNavigationIcon(R.drawable.ic_menu_24dp);
-//        bar.replaceMenu(R.menu.next_actions);
+        this.binding.bar.setNavigationOnClickListener(v -> this.drawerBehavior.setState(STATE_HALF_EXPANDED));
+//        this.binding.bar.setNavigationIcon(R.drawable.ic_menu_24dp);
+//        this.binding.bar.replaceMenu(R.menu.next_actions);
     }
 
     private void bindFab() {
-        this.fab = findViewById(R.id.fab);
-        this.fab.setOnClickListener(v -> this.homeViewModel.toggleAdBlocking());
+        this.binding.fab.setOnClickListener(v -> this.homeViewModel.toggleAdBlocking());
     }
 
     private boolean showFragment(@IdRes int actionId) {
@@ -273,7 +254,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void notifyUpdating(boolean updating) {
-        TextView stateTextView = findViewById(R.id.stateTextView);
+        TextView stateTextView = this.binding.content.stateTextView;
         if (updating) {
             showView(stateTextView);
         } else {
@@ -398,10 +379,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void notifyAdBlocked(boolean adBlocked) {
-        FrameLayout layout = findViewById(R.id.headerFrameLayout);
         int color = adBlocked ? getResources().getColor(R.color.primary, null) : Color.GRAY;
-        layout.setBackgroundColor(color);
-        this.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.logo);
+        this.binding.content.headerFrameLayout.setBackgroundColor(color);
+        this.binding.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.logo);
     }
 
     private void notifyError(HostError error) {

@@ -3,7 +3,7 @@
     <!-- list of issues to configure -->
     <issue id="InvalidPackage">
         <!-- Ignore dnsjava -->
-        <ignore path="**/dnsjava-3.0.0*.jar" />
+        <ignore path="**/dnsjava-3.0.2*.jar" />
         <!-- Ignore pcap4j dependency -->
         <ignore path="**/jna-5.3.1.jar"/>
     </issue>

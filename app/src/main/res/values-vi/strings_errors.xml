@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Không có kết nối mạng</string>
+    <string name="error_no_connection_details">Không thể kết nối internet. Làm ơn kiểm tra cài đặt mạng.</string>
+    <string name="error_download_failed_message">Không thể tải xuống tập tin nguồn </string>
+    <string name="error_download_failed_details">Không thể tải xuống tập tin nguồn. Làm ơn kiểm tra cài đặt mạng.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Không thể tạo tập tin.</string>
+    <string name="error_private_file_failed_details">Không thể tạo tập tin mới. Làm ơn kiểm tra dung lượng còn trống trên thiết bị.</string>
     <string name="error_not_enough_space_message">Không đủ dung lượng</string>
-    </resources>
+    <string name="error_not_enough_space_details">Không thể sao chép tập tin vào phân vùng hệ thống. </string>
+    <string name="error_copy_failed_message">Không thể cải đặt tập tin nguồn.</string>
+    <string name="error_copy_failed_details">Không thể sao chép tập tin vào phân vùng hệ thống. </string>
+    <string name="error_revert_failed_message">Không thể đảo ngược tập tin nguồn </string>
+    <string name="error_revert_failed_details">Không thể khôi phục cài đặt tập tin nguồn mặc định</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Không thể khởi động trình chặn quảng cáo qua VPN.</string>
+    <string name="error_enable_vpn_failed_details">Làm ơn kiểm tra cài đặt VPN thiết bị.</string>
+    <string name="error_disable_vpn_failed_message">Không thể tắt chặn quảng cáo qua VPN. </string>
+    <string name="error_disable_vpn_failed_details">Làm ơn kiểm tra cài đặt VPN thiết bị.</string>
+</resources>

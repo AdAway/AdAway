@@ -14,13 +14,13 @@ repositories {
 android {
     compileSdkVersion 29
     buildToolsVersion '29.0.3'
-    ndkVersion '21.1.6352462'
+    ndkVersion '21.2.6472646'
 
     defaultConfig {
         minSdkVersion 26
         targetSdkVersion 29
-        versionCode 50002   // Read x.yy.zz to match version name
-        versionName '5.0.2'
+        versionCode 50004   // Read x.yy.zz to match version name
+        versionName '5.0.4'
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -30,6 +30,8 @@ android {
                 ]
             }
         }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     /*
@@ -61,9 +63,8 @@ android {
         targetCompatibility 1.8
     }
 
-    // Do not abort build if lint finds errors
-    lintOptions {
-        disable 'MissingTranslation'
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
@@ -77,6 +78,11 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    // Do not abort build if lint finds errors
+    lintOptions {
+        disable 'MissingTranslation'
     }
 }
 
@@ -126,4 +132,9 @@ dependencies {
     // Test related
     testImplementation 'junit:junit:4.13'
     testImplementation 'org.json:json:20190722'
+    androidTestImplementation 'androidx.arch.core:core-testing:2.1.0';
+    androidTestImplementation 'androidx.test:core:1.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1';
+    androidTestImplementation 'androidx.test:runner:1.2.0';
+    androidTestImplementation 'junit:junit:4.13'
 }

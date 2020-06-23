@@ -18,5 +18,4 @@
     <!-- Web server category -->
     <string name="pref_webserver">خادم الويب المحلي</string>
     <string name="pref_webserver_enabled">تفعيل خادم الويب</string>
-    <string name="pref_webserver_on_boot">بدأ خادم الويب عند التشغيل</string>
 </resources>
