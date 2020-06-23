@@ -1,0 +1,36 @@
+<!-- Maintain structure with headings with h2 tags and content with p tags.
+This makes it easy to translate the values with transifex!
+And don't add newlines before or after p tags because of transifex -->
+<!DOCTYPE html>
+<html>
+<head><title>Common problems</title></head>
+<body>
+<h2>Copy of hosts file failed on Android 9+</h2>
+<p>Latest versions of Android use read-only <code>/system</code> partition.<br>
+If you are using Magisk as root solution, ensure you enable the systemless hosts module then reboot.</p>
+
+<h2>Not enough space on partition</h2>
+<p>Try changing the target hosts file in preferences to <code>/data/data/hosts</code> (or <code>/data/hosts</code>) and apply AdAway again.</p>
+
+<h2>Chrome still displays ads</h2>
+<p>Ensure you disable <cite>lite mode</cite> (previously known as <cite>data saver</cite>) from Chrome settings. This features allows Chrome to use private DNS solution and bypass AdAway.</p>
+
+<h2>It does not block ads in application XYZ!</h2>
+<p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
+You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
+<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in our <a href="https://github.com/AdAway/adaway.github.io/issues">GitHub issue tracker</a>.</p>
+
+<h2>Cached Advertisements</h2>
+<p>Sometimes applications cache advertisements after download. This leads to remaining advertisements in some applications. You can try to delete the cache for these applications in Android's Application list to circumvent this problem.</p>
+
+<h2>Application XYZ is not working anymore!</h2>
+<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuse to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <cite>Whitelist</cite> under <cite>Your Lists</cite> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
+
+<h2>Does not work on Android 4.4+</h2>
+<p>Try changing the target hosts file in preferences from <code>/data/data/hosts</code> to <code>/data/hosts</code> or <code>/system/etc/hosts</code> and apply AdAway again.</p>
+
+<h2>The back button in web browsers is not working</h2>
+<p>You can enable AdAway's local webserver in preferences as a workaround.</p>
+
+</body>
+</html>
