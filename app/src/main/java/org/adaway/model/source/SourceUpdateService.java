@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.work.Constraints;
+import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
@@ -52,10 +53,38 @@ public final class SourceUpdateService {
      * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
      */
     public static void enable(Context context, boolean unmeteredNetworkOnly) {
+        enqueueWork(context, REPLACE, unmeteredNetworkOnly);
+    }
+
+    /**
+     * Disable update service.
+     *
+     * @param context The application context.
+     */
+    public static void disable(Context context) {
+        // Cancel previous work
+        WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME);
+    }
+
+    /**
+     * Sync service on user preferences.
+     *
+     * @param context The application context.
+     */
+    static void syncPreferences(Context context) {
+        if (PreferenceHelper.getUpdateCheckHostsDaily(context)) {
+            enqueueWork(context, KEEP, PreferenceHelper.getUpdateOnlyOnWifi(context));
+        } else {
+            disable(context);
+        }
+    }
+
+    private static void enqueueWork(Context context, ExistingPeriodicWorkPolicy workPolicy, boolean unmeteredNetworkOnly) {
+        // Create work request
         PeriodicWorkRequest workRequest = getWorkRequest(unmeteredNetworkOnly);
         // Enqueue work request
         WorkManager workManager = WorkManager.getInstance(context);
-        workManager.enqueueUniquePeriodicWork(WORK_NAME, REPLACE, workRequest);
+        workManager.enqueueUniquePeriodicWork(WORK_NAME, workPolicy, workRequest);
     }
 
     /**
@@ -75,28 +104,6 @@ public final class SourceUpdateService {
                 .setConstraints(constraints)
                 .setInitialDelay(3, HOURS)
                 .build();
-    }
-
-    /**
-     * Disable update service.
-     *
-     * @param context The application context.
-     */
-    public static void disable(Context context) {
-        // Cancel previous work
-        WorkManager.getInstance(context).cancelUniqueWork(WORK_NAME);
-    }
-
-    /**
-     * Sync service on user preferences.
-     *
-     * @param context The application context.
-     */
-    static void syncPreferences(Context context) {
-        PeriodicWorkRequest workRequest = getWorkRequest(PreferenceHelper.getUpdateOnlyOnWifi(context));
-        // Ensure work request is queued
-        WorkManager workManager = WorkManager.getInstance(context);
-        workManager.enqueueUniquePeriodicWork(WORK_NAME, KEEP, workRequest);
     }
 
     /**

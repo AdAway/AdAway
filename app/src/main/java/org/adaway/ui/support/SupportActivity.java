@@ -13,12 +13,16 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import org.adaway.R;
 
 import static android.content.Intent.ACTION_VIEW;
 
+/**
+ * This class is an activity for users to show their supports to the project.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class SupportActivity extends AppCompatActivity {
     /**
      * The support link.
@@ -29,18 +33,16 @@ public class SupportActivity extends AppCompatActivity {
      */
     public static final String SPONSORSHIP_LINK = "https://github.com/sponsors/PerfectSlayer";
 
-    public static void animateHeart(View view) {
-        ImageView headerImageView = view.findViewById(R.id.headerImageView);
-
+    public static void animateHeart(ImageView heartImageView) {
         PropertyValuesHolder growScaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1F, 1.2F);
         PropertyValuesHolder growScaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1F, 1.2F);
-        Animator growAnimator = ObjectAnimator.ofPropertyValuesHolder(headerImageView, growScaleX, growScaleY);
+        Animator growAnimator = ObjectAnimator.ofPropertyValuesHolder(heartImageView, growScaleX, growScaleY);
         growAnimator.setDuration(200);
         growAnimator.setStartDelay(2000);
 
         PropertyValuesHolder shrinkScaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.2F, 1F);
         PropertyValuesHolder shrinkScaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2F, 1F);
-        Animator shrinkAnimator = ObjectAnimator.ofPropertyValuesHolder(headerImageView, shrinkScaleX, shrinkScaleY);
+        Animator shrinkAnimator = ObjectAnimator.ofPropertyValuesHolder(heartImageView, shrinkScaleX, shrinkScaleY);
         growAnimator.setDuration(400);
 
         AnimatorSet animationSet = new AnimatorSet();
@@ -60,12 +62,14 @@ public class SupportActivity extends AppCompatActivity {
         setContentView(R.layout.support_activity);
 
         View view = findViewById(R.id.supportRootLayout);
-        animateHeart(view);
+        ImageView heartImageView = findViewById(R.id.headerImageView);
+        animateHeart(heartImageView);
         bindPaypal(view);
         bindSponsorShip(view);
     }
 
     private void bindPaypal(View view) {
+        bindLink(view, R.id.headerImageView, SUPPORT_LINK);
         bindLink(view, R.id.paypalCardView, SUPPORT_LINK);
     }
 
@@ -74,8 +78,8 @@ public class SupportActivity extends AppCompatActivity {
     }
 
     private void bindLink(View rootView, int viewId, String url) {
-        CardView supportCardView = rootView.findViewById(viewId);
-        supportCardView.setOnClickListener(v -> {
+        View view = rootView.findViewById(viewId);
+        view.setOnClickListener(v -> {
             Intent browserIntent = new Intent(ACTION_VIEW, Uri.parse(url));
             startActivity(browserIntent);
         });

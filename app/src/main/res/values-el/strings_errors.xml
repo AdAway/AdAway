@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Δεν υπάρχει σύνδεση στο ίντερνετ</string>
+    <string name="error_no_connection_details">Δεν είναι δυνατή η σύνδεση στο Διαδίκτυο. Ελέγξτε τη συνδεσιμότητα της συσκευής σας.</string>
+    <string name="error_download_failed_message">Αποτυχία λήψης πηγής hosts</string>
+    <string name="error_download_failed_details">Καμία από τις ενεργοποιημένες πηγές hosts σας δεν είναι προσβάσιμη. Ελέγξτε ότι είστε σωστά συνδεδεμένοι στο Διαδίκτυο.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Αποτυχία δημιουργίας ιδιωτικού αρχείου</string>
+    <string name="error_private_file_failed_details">Δεν είναι δυνατή η δημιουργία ενός ιδιωτικού αρχείου για τη δημιουργία μιας νέας πηγής hosts. Ελέγξτε τον διαθέσιμο χώρο στη συσκευή σας.</string>
     <string name="error_not_enough_space_message">Δεν υπάρχει διαθέσιμος χώρος</string>
-    </resources>
+    <string name="error_not_enough_space_details">Δεν είναι δυνατή η αντιγραφή του αρχείου hosts στο partition του συστήματός σας. Ελέγξτε ότι το Magisk systemless module είναι ενεργοποιημένο και στη συνέχεια κάντε επανεκκίνηση.</string>
+    <string name="error_copy_failed_message">Αποτυχία εγκατάστασης νέου αρχείου hosts</string>
+    <string name="error_copy_failed_details">Δεν είναι δυνατή η αντιγραφή του αρχείου hosts στο /system partition. Ελέγξτε ότι το Magisk systemless module είναι ενεργοποιημένο και στη συνέχεια κάντε επανεκκίνηση. </string>
+    <string name="error_revert_failed_message">Αποτυχία επαναφοράς αρχείου hosts</string>
+    <string name="error_revert_failed_details">Δεν είναι δυνατή η επαναφορά της προεπιλεγμένης διαμόρφωσης αρχείου hosts.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Αποτυχία ενεργοποίησης αποκλεισμού διαφημίσεων VPN.</string>
+    <string name="error_enable_vpn_failed_details">Ελέγξτε τις ρυθμίσεις VPN για να εξουσιοδοτήσετε την εφαρμογή VPN να ξεκινήσει.</string>
+    <string name="error_disable_vpn_failed_message">Αποτυχία απενεργοποίησης αποκλεισμού διαφημίσεων VPN.</string>
+    <string name="error_disable_vpn_failed_details">Ελέγξτε τις ρυθμίσεις VPN για να το απενεργοποιήσετε χειροκίνητα.</string>
+</resources>

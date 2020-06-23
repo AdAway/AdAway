@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 4,
-    "identityHash": "8a69d6056648f0dd059217ce143609a4",
+    "identityHash": "80b1c1d47fbd109a4f052817c9faf980",
     "entities": [
       {
         "tableName": "hosts_sources",
@@ -135,17 +135,53 @@
             ]
           }
         ]
-      }
-    ],
-    "views": [
+      },
       {
-        "viewName": "host_entries",
-        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT `host`, `type`, `redirection` FROM `hosts_lists` WHERE `enabled` = 1 AND ((`type` = 0 AND `host` NOT LIKE (SELECT `host` FROM `hosts_lists` WHERE `enabled` = 1 and `type` = 1)) OR `type` = 2) GROUP BY `host` ORDER BY `host` ASC, `type` DESC, `redirection` ASC"
+        "tableName": "host_entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`host` TEXT NOT NULL, `type` INTEGER NOT NULL, `redirection` TEXT, PRIMARY KEY(`host`))",
+        "fields": [
+          {
+            "fieldPath": "host",
+            "columnName": "host",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "redirection",
+            "columnName": "redirection",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "host"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_host_entries_host",
+            "unique": true,
+            "columnNames": [
+              "host"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_host_entries_host` ON `${TABLE_NAME}` (`host`)"
+          }
+        ],
+        "foreignKeys": []
       }
     ],
+    "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8a69d6056648f0dd059217ce143609a4')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '80b1c1d47fbd109a4f052817c9faf980')"
     ]
   }
 }

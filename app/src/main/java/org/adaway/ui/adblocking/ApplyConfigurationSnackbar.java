@@ -90,7 +90,7 @@ public class ApplyConfigurationSnackbar {
             @Override
             public void onChanged(@Nullable T t) {
                 // Check new data
-                if (t == null || (t instanceof Collection && ((Collection) t).isEmpty())) {
+                if (t == null || (t instanceof Collection && ((Collection<?>) t).isEmpty())) {
                     return;
                 }
                 // First update

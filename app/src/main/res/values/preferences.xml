@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_dark_theme_mode_key" translatable="false">darkThemeMode</string>
-    <string name="pref_dark_theme_mode_def">MODE_NIGHT_FOLLOW_SYSTEM</string>
+    <string name="pref_dark_theme_mode_def">MODE_NIGHT_YES</string>
     <string-array name="pref_dark_theme_mode_entry_values" translatable="false">
         <item>MODE_NIGHT_NO</item>
         <item>MODE_NIGHT_YES</item>
@@ -35,6 +35,8 @@
     <string name="pref_custom_target_def" translatable="false">/data/etc/hosts</string>
     <string name="pref_webserver_enabled_key" translatable="false">webserverEnabled</string>
     <bool name="pref_webserver_enabled_def">true</bool>
+    <string name="pref_webserver_test_key" translatable="false">webserverTest</string>
+    <string name="pref_webserver_certificate_key" translatable="false">webserverCertificate</string>
     <string name="pref_webserver_icon_key" translatable="false">webserverIcon</string>
     <bool name="pref_webserver_icon_def">true</bool>
     <string name="pref_ad_block_method_key" translatable="false">adBlockMethod</string>

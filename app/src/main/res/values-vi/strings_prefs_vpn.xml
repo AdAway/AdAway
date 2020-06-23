@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">Chặn quảng cáo sử dụng VPN</string>
+    <string name="pref_vpn_service_on_boot">Kích hoạt khi khởi động</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Các ứng dụng không bị chặn </string>
+    <string name="pref_vpn_excluded_apps_description">Tùy chỉnh các ứng dụng có thể sử dụng VPN</string>
+    <string name="pref_vpn_exclude_system_apps">Không chặn các ứng dụng hệ thống</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Các ứng dụng không bị chặn </string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Các ứng dụng không bị chặn </string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Chọn tất cả</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Bỏ chọn tất cả</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Biểu tượng ứng dụng</string>
+</resources>

@@ -13,6 +13,7 @@
     <!-- Cards -->
     <color name="cardBackground">#FF424242</color>
     <color name="cardEnabledBackground">#388E3C</color>
+    <color name="welcomeBackground">#B71C1C</color>
     <!-- Notifications -->
     <color name="notification">#b71c1c</color>
 </resources>

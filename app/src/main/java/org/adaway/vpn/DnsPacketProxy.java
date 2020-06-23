@@ -18,6 +18,8 @@ import android.content.Context;
 import android.util.Log;
 
 import org.adaway.AdAwayApplication;
+import org.adaway.db.entity.HostEntry;
+import org.adaway.db.entity.ListType;
 import org.adaway.model.vpn.VpnModel;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
@@ -27,11 +29,14 @@ import org.pcap4j.packet.Packet;
 import org.pcap4j.packet.UdpPacket;
 import org.pcap4j.packet.UnknownPacket;
 import org.pcap4j.packet.namednumber.IpNumber;
+import org.xbill.DNS.AAAARecord;
+import org.xbill.DNS.ARecord;
 import org.xbill.DNS.DClass;
 import org.xbill.DNS.Flags;
 import org.xbill.DNS.Message;
 import org.xbill.DNS.Name;
 import org.xbill.DNS.Rcode;
+import org.xbill.DNS.Record;
 import org.xbill.DNS.SOARecord;
 import org.xbill.DNS.Section;
 import org.xbill.DNS.TextParseException;
@@ -41,6 +46,7 @@ import java.net.DatagramPacket;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Locale;
 
 /**
@@ -186,20 +192,57 @@ public class DnsPacketProxy {
             Log.i(TAG, "handleDnsRequest: Discarding DNS packet with no query " + dnsMsg);
             return;
         }
-        String dnsQueryName = dnsMsg.getQuestion().getName().toString(true);
-        String hostname = dnsQueryName.toLowerCase(Locale.ENGLISH);
-        boolean isBlocked = this.vpnModel != null && this.vpnModel.isBlocked(hostname);
-        if (!isBlocked) {
-            Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + dnsAddress);
-            DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
-            eventLoop.forwardPacket(outPacket, ipPacket);
-        } else {
-            Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " blocked!");
-            dnsMsg.getHeader().setFlag(Flags.QR);
-            dnsMsg.getHeader().setRcode(Rcode.NOERROR);
-            dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
-            handleDnsResponse(ipPacket, dnsMsg.toWire());
+        Name name = dnsMsg.getQuestion().getName();
+        String dnsQueryName = name.toString(true);
+        HostEntry entry = getHostEntry(dnsQueryName);
+        switch (entry.getType()) {
+            case BLOCKED:
+                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " blocked!");
+                dnsMsg.getHeader().setFlag(Flags.QR);
+                dnsMsg.getHeader().setRcode(Rcode.NOERROR);
+                dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
+                handleDnsResponse(ipPacket, dnsMsg.toWire());
+                break;
+            case ALLOWED:
+                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + dnsAddress);
+                DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
+                eventLoop.forwardPacket(outPacket, ipPacket);
+                break;
+            case REDIRECTED:
+                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " redirected to " + entry.getRedirection() + ".");
+                dnsMsg.getHeader().setFlag(Flags.QR);
+                dnsMsg.getHeader().setFlag(Flags.AA);
+                dnsMsg.getHeader().unsetFlag(Flags.RD);
+                dnsMsg.getHeader().setRcode(Rcode.NOERROR);
+                try {
+                    InetAddress address = InetAddress.getByName(entry.getRedirection());
+                    Record record;
+                    if (address instanceof Inet6Address) {
+                        record = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+                    } else {
+                        record = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+                    }
+                    dnsMsg.addRecord(record, Section.ANSWER);
+                } catch (UnknownHostException e) {
+                    org.adaway.util.Log.w(TAG, "Failed to get inet address for host " + dnsQueryName + ".", e);
+                }
+                handleDnsResponse(ipPacket, dnsMsg.toWire());
+                break;
         }
+    }
+
+    private HostEntry getHostEntry(String dnsQueryName) {
+        String hostname = dnsQueryName.toLowerCase(Locale.ENGLISH);
+        HostEntry entry = null;
+        if (this.vpnModel != null) {
+            entry = this.vpnModel.getEntry(hostname);
+        }
+        if (entry == null) {
+            entry = new HostEntry();
+            entry.setHost(hostname);
+            entry.setType(ListType.ALLOWED);
+        }
+        return entry;
     }
 
     /**

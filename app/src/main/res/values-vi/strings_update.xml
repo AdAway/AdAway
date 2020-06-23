@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="update_changelog">Nhật ký thay đổi</string>
-    </resources>
+    <!-- Home screen -->
+    <string name="update_available">Có cập nhật mới!</string>
+
+    <!-- Changelog dialog -->
+    <string name="update_update_title">Có phiên bản mới</string>
+    <string name="update_update_message">Các cập nhật trong phiên bản mới:\n\n</string>
+    <string name="update_up_to_date_title">Đã cập nhật xong</string>
+    <string name="update_up_to_date_message">Các cập nhật trong phiên bản mới:\n\n</string>
+    <string name="update_changelog">Các thay đổi</string>
+    <string name="update_update_button">Cập nhật ngay</string>
+</resources>

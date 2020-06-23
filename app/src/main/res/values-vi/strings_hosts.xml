@@ -3,4 +3,9 @@
     <string name="hosts_title">Các nguồn miền</string>
     <!-- List -->
     <string name="hosts_not_available">không có sẵn</string>
-    </resources>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Thêm nguồn</string>
+    <string name="hosts_edit_dialog_title">Chỉnh sửa nguồn</string>
+    <string name="hosts_dialog_url">URL: (có dạng https:// hoặc file://)</string>
+    <string name="hosts_dialog_url_hint">URL của tập tin nguồn</string>
+</resources>

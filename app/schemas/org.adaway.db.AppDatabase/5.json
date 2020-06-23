@@ -1,0 +1,187 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "80b1c1d47fbd109a4f052817c9faf980",
+    "entities": [
+      {
+        "tableName": "hosts_sources",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `url` TEXT NOT NULL, `enabled` INTEGER NOT NULL, `last_modified_local` INTEGER, `last_modified_online` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "localModificationDate",
+            "columnName": "last_modified_local",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "onlineModificationDate",
+            "columnName": "last_modified_online",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_hosts_sources_url",
+            "unique": true,
+            "columnNames": [
+              "url"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_hosts_sources_url` ON `${TABLE_NAME}` (`url`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "hosts_lists",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `host` TEXT NOT NULL, `type` INTEGER NOT NULL, `enabled` INTEGER NOT NULL, `redirection` TEXT, `source_id` INTEGER NOT NULL, FOREIGN KEY(`source_id`) REFERENCES `hosts_sources`(`id`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "host",
+            "columnName": "host",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enabled",
+            "columnName": "enabled",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "redirection",
+            "columnName": "redirection",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "sourceId",
+            "columnName": "source_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_hosts_lists_host",
+            "unique": false,
+            "columnNames": [
+              "host"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_hosts_lists_host` ON `${TABLE_NAME}` (`host`)"
+          },
+          {
+            "name": "index_hosts_lists_source_id",
+            "unique": false,
+            "columnNames": [
+              "source_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_hosts_lists_source_id` ON `${TABLE_NAME}` (`source_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "hosts_sources",
+            "onDelete": "CASCADE",
+            "onUpdate": "CASCADE",
+            "columns": [
+              "source_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "host_entries",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`host` TEXT NOT NULL, `type` INTEGER NOT NULL, `redirection` TEXT, PRIMARY KEY(`host`))",
+        "fields": [
+          {
+            "fieldPath": "host",
+            "columnName": "host",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "redirection",
+            "columnName": "redirection",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "host"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_host_entries_host",
+            "unique": true,
+            "columnNames": [
+              "host"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_host_entries_host` ON `${TABLE_NAME}` (`host`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '80b1c1d47fbd109a4f052817c9faf980')"
+    ]
+  }
+}
