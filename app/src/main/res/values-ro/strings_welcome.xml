@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Bun venit</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Logo preîntâmpinare</string>
+    <string name="welcome_method_header">Bun venit la AdAway!</string>
+    <string name="welcome_method_summary">AdAway dispune de două metode pentru a bloca reclamele. Alege-o pe cea potrivită:</string>
+
+    <string name="welcome_root_method_logo">Logo rooting</string>
+    <string name="welcome_root_method_title">Blocarea prin root\na reclamelor</string>
+    <string name="welcome_root_method_text1">Rapidă</string>
+    <string name="welcome_root_method_text2">Consum redus al bateriei</string>
+    <string name="welcome_root_method_text3">Acces root necesar</string>
+
+    <string name="welcome_vpn_method_logo">Logo VPN</string>
+    <string name="welcome_vpn_method_title">Blocarea prin server VPN\na reclamelor</string>
+    <string name="welcome_vpn_method_text1">Lentă</string>
+    <string name="welcome_vpn_method_text2">Rulează în fundal</string>
     <string name="welcome_vpn_method_text3">Compatibilitate</string>
 
-    <string name="welcome_root_missing_title">Este necesar Android cu \'root\'</string>
-    </resources>
+    <string name="welcome_root_missing_title">Necesită acces root pe Android</string>
+    <string name="welcome_root_missile_description">Este posibil ca fișierul binar SU să nu fie găsit sau nu ai acordat permisiunea de acces root pentru AdAway.\n\nAcest lucru se poate întâmpla dacă dispozitivul tău nu este root-at. Poți afla mai multe informații despre cum să obții acces root pe dispozitivul tău pe wiki.lineageos.org sau alte site-uri despre Android.</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Contra</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sincronizare finalizată</string>
+    <string name="welcome_sync_error_logo">Eroare în timpul sincronizării</string>
+
+    <string name="welcome_sync_header">Sincronizare</string>
+    <string name="welcome_synced_header">Sincronizat!</string>
+    <string name="welcome_sync_summary">AdAway descarcă conținut online din serverele cu reclame pentru a le restricționa. Poți alege ulterior conținutul blocat din setări.</string>
+    <string name="welcome_sync_retry_logo">Reîncearcă sincronizarea</string>
+    <string name="welcome_sync_error">Imposibil de sincronizat:\n%s.\nReîncercați acum?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Suport</string>
+    <string name="welcome_support_header">Susține-mă!</string>
+    <string name="welcome_support_summary">Este un program cu sursă deschisă. Îl programez în timpul meu liber.
+Dacă ți-a plăcut, îți poți arăta recunoștința astfel:</string>
+    <string name="welcome_support_button">Donează pe PayPal</string>
+    <string name="welcome_support_telemetry_summary">Îți plac erorile? Nici mie.</string>
+    <string name="welcome_support_telemetry_button">Activare serviciu de urmărire pentru trimiterea de rapoarte cu erori.</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Înapoi</string>
+    <string name="welcome_next_button">Următorul</string>
+    <string name="welcome_finish_button">Finalizare</string>
+</resources>
