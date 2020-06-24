@@ -2,5 +2,7 @@
 <resources>
     <string name="pref_backup_restore_title">Salvare &amp; restabilire</string>
     <string name="pref_backup">Salvare</string>
+    <string name="pref_backup_summary">Salvează pe memoria externă regulile de blocare</string>
     <string name="pref_restore">Restabilire</string>
-    </resources>
+    <string name="pref_restore_summary">Restaurare reguli de blocare din fișier</string>
+</resources>
