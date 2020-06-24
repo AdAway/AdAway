@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lists_title">Listele dvs.</string>
+    <string name="lists_title">Liste personale</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">Blocate</string>
     <string name="lists_tab_allowed">Permise</string>
     <string name="lists_tab_redirected">Redirecționate</string>
     <!-- Menu -->
-    <string name="lists_menu_filter">Filtru domenii</string>
-    <string name="lists_menu_filter_hint">Căutare nume...</string>
+    <string name="lists_menu_filter">Filtrare domenii</string>
+    <string name="lists_menu_filter_hint">Căutare nume domeniu...</string>
+    <string name="lists_menu_toggle_sources">Comutare surse</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Adăugare domeniu în lista neagră</string>
     <string name="list_add_dialog_white">Adăugare domeniu în lista albă</string>
