@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
-    <string name="error_no_connection_message">Nu există conexiune internet</string>
+    <string name="error_no_connection_message">Nu există conexiune la internet</string>
+    <string name="error_no_connection_details">Imposibil de conectat la internet. Verificați conexiunea dispozitivului.</string>
+    <string name="error_download_failed_message">Imposibil de descărcat sursele hosts</string>
+    <string name="error_download_failed_details">Nici una din sursele active pentru fisierele \"hosts\" nu pot fi accesate! Exista conexiune internet?</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Imposibil de creat fișierul hosts</string>
+    <string name="error_private_file_failed_details">Imposibil de creat fișierul hosts privat pentru generarea unei noi surse. Verifică dacă există spațiu de stocare disponibil pe dispozitiv.</string>
     <string name="error_not_enough_space_message">Spațiu insuficient</string>
-    </resources>
+    <string name="error_not_enough_space_details">Imposibil de copiat fișierul hosts pe partiția de sistem. Verifică dacă modulul Magisk systemless este activ apoi repornește dispozitivul.</string>
+    <string name="error_copy_failed_message">Imposibil de instalat noul fișier hosts.</string>
+    <string name="error_copy_failed_details">Imposibil de copiat fișierul hosts pe partiția de sistem. Verifică dacă modulul Magisk systemless este activ apoi repornește dispozitivul.</string>
+    <string name="error_revert_failed_message">Imposibil de restaurat fișierul hosts la starea precedentă </string>
+    <string name="error_revert_failed_details">Imposibil de restaurat fișierul hosts la starea inițială</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Imposibil de activat VPN pentru îndepărtare reclame.</string>
+    <string name="error_enable_vpn_failed_details">Verifică setările VPN și permite accesul aplicației pentru a porni serverul VPN.</string>
+    <string name="error_disable_vpn_failed_message">Imposibil de dezactivat VPN pentru îndepărtare reclame.</string>
+    <string name="error_disable_vpn_failed_details">Verifică setările pentru VPN și dezactivează-l manual.</string>
+</resources>
