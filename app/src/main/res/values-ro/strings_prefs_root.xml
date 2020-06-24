@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_root_open_hosts">Deschide fisierele \"hosts\"</string>
-    <string name="pref_apply_method">Locatie fisier \"hosts\" </string>
+    <string name="pref_root_title">Blocarea prin root\na reclamelor</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instalare hosts</string>
+    <string name="pref_root_open_hosts">Deschide fișierul hosts</string>
+    <string name="pref_apply_method">Locația fișierului hosts</string>
+    <string name="pref_apply_method_summary">Citiți sfaturile de ajutor înainte de a utiliza funcția</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Locatie aleasa de utilizator</item>
+        <item>Locație personalizată</item>
     </string-array>
+    <string name="pref_custom_target">Locație personalizată hosts</string>
+    <string name="pref_never_reboot">Ascunde dialogul de repornire după aplicare</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Redirecționare</string>
+    <string name="pref_hosts_redirection_summary">Definire domeniu de redirecționare pentru domeniile blocate din hosts</string>
     <string name="pref_redirection_ipv4">Redirecționare IPv4</string>
     <string name="pref_redirection_ipv6">Redirecționare IPv6</string>
     <!-- Web server category -->
     <string name="pref_webserver">Server web local</string>
+    <string name="pref_webserver_summary">Serverul web local ascultă pe adresa IP locală pentru a răspunde cererilor făcute de către domeniile blocate. Poate fi de ajutor dacă aplicația nu funcționează fără conexiune.</string>
     <string name="pref_webserver_enabled">Activare server web</string>
-    </resources>
+    <string name="pref_webserver_test">Testare server web</string>
+    <string name="pref_webserver_certificate">Instalare certificat subsemnat</string>
+    <string name="pref_webserver_state_checking">Verificare...</string>
+    <string name="pref_webserver_state_not_running">Nu rulează</string>
+    <string name="pref_webserver_state_running_not_installed">Rulează fără certificat instalat</string>
+    <string name="pref_webserver_state_running_and_installed">Rulează cu certificat instalat</string>
+    <string name="pref_webserver_icon">Înlocuiește spațiul liber destinat reclamelor cu pictograma aplicației</string>
+</resources>
