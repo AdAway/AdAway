@@ -3,30 +3,30 @@ This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
 <!DOCTYPE html>
 <html>
-<head><title>Lista cu intrebari frecvente</title></head>
+<head><title>Listă cu întrebări frecvente</title></head>
 <body>
-<h2>Venitul din reclame</h2>
-<p>Există o confuzie în ceea ce privește venitul unui dezvoltator a unei aplicații obținut din afișarea reclamelor. Se crede că dacă un utilizator nu bagă în seamă reclamele afișate într-o aplicație sau website, blocarea acestora nu rănește financiar aplicația sau website-ul respectiv. Această afirmație este greșită, dezvoltatorii obțin venituri și prin afișarea reclamelor. Este alegerea dvs. dacă vreți să blocați reclamele sau nu. Eu personal nu aș folosi aplicații care afișează reclame fiindca mi se par foarte enervante, si fără un "ad-blocker" nu le-aș fi instalat.</p>
+<h2>Venitul obținut din reclame</h2>
+<p>Există o confuzie legată de banii obținuți din reclame, și anume, dacă un utilizator nu interacționează cu reclamele atunci nici blocarea acestora nu afectează financiar site-ul web sau aplicația în cauză. Acest lucru este greșit deoarece dezvoltatorii primesc bani doar afișând reclamele indiferent dacă se interacționează cu ele sau nu. Personal, eu nu aș folosi aplicații care aleg să afișeze reclame deoarece le consider deranjante, deci fără un alt program de blocare a reclamelor nici măcar nu le-aș fi instalat.</p>
 
 <h2>Cum funcționează AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
-If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
+<p>AdAway folosește <a href="http://en.wikipedia.org/wiki/Hosts_file">fișierul hosts</a> pentru a bloca domeniile care trimit reclame. Fișierul host se găsește în <code>/system/etc/hosts</code> și asociază domeniul cu o adresă IP. Este o metoda tradițională de alocare pentru domenii de adrese IP pereche fără a mai avea nevoie de Sistemul de Nume de Domeniu (DNS). Domeniile nedorite vor fi redirectate către <code>127.0.0.1</code> ceea ce înseamnă că vor fi trimise local către dispozitivul dumneavoastră.<br>
+Dacă fișierul hosts nu poate fi suprascris, o soluție de rezervă este utilizarea serverului dedicat VPN. Acesta va filtra pe conexiune domeniile nedorite și va permite trecerea celorlalte.</p>
 
-<h2>De ce trebuie sa restartez Android pentru ca schimbarile sa aiba efect?</h2>
-<p>Java in Android mentine un cache DNS intern. Sistemul de operare va 'vedea' fisierul hosts nou imediat dupa aplicare (se poate verifica acest lucru printr-o comanda ping in linia de comanda) dar un restart este totusi necesar pentru a reimprospata cache-ul DNS din Java.</p>
+<h2>De ce trebuie să repornesc Android pentru ca modificările să aibă efect?</h2>
+<p>Java in Android mentine un cache DNS intern. Sistemul de operare va vedea noul fișier hosts imediat după aplicarea modificărilor (se poate verifica acest lucru printr-o comanda ping în consolă) dar o repornire este totuși necesară pentru a reface cache-ul DNS din Java.</p>
 
 <h2>Cum se foloseste serverul web in AdAway?</h2>
-<p><strong>AdAway will also work without using the webserver!</strong>
-<br><br>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
-<br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<p><strong>AdAway poate funcționa și fără server local!</strong>
+<br><br>Poți activa serverul local din setările AdAway pentru a răspunde cererilor pe adresa IP locală <code>127.0.0.1</code>. Așadar cererile aplicațiilor către serverele de reclame for fi redirecționate către <code>127.0.0.1</code> fiind gestionate de serverul web AdAway.
+<br>Unele aplicații pot să nu mai funcționeze dacă nu reușesc să descarce reclamele.  Cu această metodă, aplicațiile vor avea răspuns la cereri, răspunsul fiind o pagină goală fără reclame sau imagini.</p>
 
-<h2>Cum pot bloca/debloca hostname-uri specifice?</h2>
-<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
+<h2>Cum pot bloca/debloca domenii mai specifice?</h2>
+<p>Adăugați domeniile pe care doriți să le blocați pe <cite>Lista neagră</cite> din <cite>ecranul principal</cite>. Opțional, domeniile pe care doriți să le excludeți din blocare pot fi adăugate pe <cite>Lista albă</cite> iar domeniile pe care doriți să le redirecționați spre o adresă IP specifică, se află în <cite>Lista de redirecționare</cite>.</p>
 
 <h2>Unde pot gasi mai multe surse hosts?</h2>
-<p>See <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+<p>Accesați <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista adițională de surse hosts pentru AdAway</a></p>
 
 <h2>Ajută la traducere/Raportare erori.</h2>
-<p>Please go to <a href="https://adaway.org">https://adaway.org</a>.</p>
+<p>Vizitați pagina <a href="https://adaway.org">https://adaway.org</a>.</p>
 </body>
 </html>
