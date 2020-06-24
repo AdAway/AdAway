@@ -18,7 +18,24 @@
         <item quantity="other">%d surse învechite</item>
     </plurals>
 
-    <string name="preferences_drawer_item">Preferințe</string>
+    <!-- Help card -->
+    <string name="help_label">Arată indicațiile de ajutor</string>
+
+    <!-- Project card -->
+    <string name="project_label">Deschide pagina GitHub</string>
+
+    <!-- Support card -->
+    <string name="support_label">Susține proiectul</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">Jurnal DNS</string>
+    <string name="preferences_drawer_item">Setări</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Deschide meniul cu aplicații</string>
+    <string name="adblock_pause_button_description">Pauză/reluare blocare anunțuri</string>
+    <string name="update_button">Actualizează domeniile blocate</string>
+    <string name="show_log_button">Afișează cererile domeniilor</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
