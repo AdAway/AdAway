@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Preferințe</string>
+    <string name="pref_main_title">Setări</string>
     <!-- General category -->
     <string name="pref_general_category">Generale</string>
     <string name="pref_dark_theme">Temă întunecată</string>
     <string-array name="pref_dark_theme_modes">
         <item>Luminoasă</item>
         <item>Întunecată</item>
-        <item>Implicit sistem</item>
+        <item>Valoare implicită sistem</item>
     </string-array>
     <string name="pref_update_configuration">Actualizări automate</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Blocarea reclamelor</string>
+    <string name="pref_root_ad_blocker_configuration">Blocarea prin root a reclamelor</string>
+    <string name="pref_vpn_ad_blocker_configuration">Blocarea prin server VPN a reclamelor</string>
+    <string name="pref_whitelist_rules">Aplicați sursele permise din hosts</string>
+    <string name="pref_redirection_rules">Aplicați sursele redirecționate din hosts</string>
+    <string name="pref_redirection_rules_summary">RISC DE SECURITATE!</string>
     <string name="pref_enable_ipv6">Activare suport IPv6</string>
+    <string name="pref_backup_restore">Salvare / restabilire copie de rezervă pentru regulile de blocare</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Depanare</string>
-    </resources>
+    <string name="pref_enable_telemetry">Trimitere raport erori</string>
+    <string name="pref_enable_telemetry_summary">Raportează către Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Nesuportat în această versiune</string>
+    <string name="pref_enable_debug">Depanare cu jurnal în timp real</string>
+    <string name="pref_enable_debug_summary">Este necesară repornirea aplicației pentru aplicare</string>
+</resources>
