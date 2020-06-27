@@ -1,3 +1,9 @@
+## [4.3.5] - 2020-06-27
+
+- Fix project Fastlane description for F-Droid store
+
+Special thanks to linsui and IzzySoft for their bug reports and Vankog for translations.
+
 ## [4.3.4] - 2020-04-25
 
 - Fix crash in tcpdump log view on Lollipop

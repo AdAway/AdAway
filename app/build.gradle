@@ -13,8 +13,8 @@ android {
         targetSdkVersion 28
         ndkVersion '21.0.6113669'
 
-        versionCode 40304   // Read 4.xx.yy to match version name
-        versionName '4.3.4'
+        versionCode 40305   // Read 4.xx.yy to match version name
+        versionName '4.3.5'
 
         vectorDrawables.useSupportLibrary = true
 
