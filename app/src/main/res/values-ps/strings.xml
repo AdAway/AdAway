@@ -105,8 +105,8 @@
     <string name="apply_apn_proxy_title">رسي ټکي نوم ګوډاګی امستل شو!</string>
     <string name="no_connection">انټرنېټ پيوستون کار نه کوي.</string>
     <string name="no_connection_title">پیوستون نشته</string>
-    <string name="download_dialog">رالېښل...</string>
-    <string name="apply_dialog">كارونګ...</string>
+    <string name="download_dialog">رالېښل…</string>
+    <string name="apply_dialog">كارونګ…</string>
     <string name="apply_dialog_lists">د تورلړ او سپینلړ کارونګ</string>
     <string name="apply_dialog_hostnames">د hosts دوتنې تجزیه کول او سره ننوېستل</string>
     <string name="apply_dialog_hosts">د hosts دوتنې جوړول</string>
@@ -136,7 +136,7 @@
     <string name="no_hostname_title">ناسم بڼول شوی hostname</string>
     <string name="no_ip">دا یوه سمه انټرنېټ باندره (IP) نه ده!</string>
     <string name="no_ip_title">ناسمه بڼول شوې انټرنېټ باندره</string>
-    <string name="loading">لېښل...</string>
+    <string name="loading">لېښل…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">تاندول</string>
@@ -150,7 +150,7 @@
 
     <!--Adware-->
     <string name="adware_header">انګروزيز ساوتری</string>
-    <string name="adware_scanning">ځېرل;8230#&  </string>
+    <string name="adware_scanning">ځېرل…</string>
     <string name="adware_empty">هېڅ انګروزیز ساوتری و نه موندل شو</string>
 
     <!--Other-->
@@ -177,6 +177,9 @@
         <item>د کوربانه دوتنه پرانیځئ</item>
         <item>غورتياوې</item>
         <item>مرسته</item>
+        <item>Scan for adware</item>
+        <item>Preferences</item>
+        <item>Help</item>
     </string-array>
     <string name="shortcut_your_lists">ستاسې لړونه</string>
     <string name="shortcut_preferences">غورتياوې</string>
