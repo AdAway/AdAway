@@ -8,6 +8,7 @@
 - Fix hosts list apply notification from non-user changes 
 - Fix user excluded application settings
 - Remove navigation bar color customization
+- Update AndroidX dependencies and NDK version
 
 Special thanks to CobalTitan, ipdev, zgfg and sunmybun their bug reports.
 
