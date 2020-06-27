@@ -12,6 +12,12 @@
 
 Special thanks to CobalTitan, ipdev, zgfg and sunmybun their bug reports.
 
+## [4.3.5] - 2020-06-27
+
+- Fix project Fastlane description for F-Droid store
+
+Special thanks to linsui and IzzySoft for their bug reports and Vankog for translations.
+
 ## [5.0.4] - 2020-05-24
 
 *This version is a pre-release*
