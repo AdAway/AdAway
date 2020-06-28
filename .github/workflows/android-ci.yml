@@ -30,10 +30,10 @@ jobs:
         run: ./gradlew assembleRelease --stacktrace
 
       - name: Upload APK
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         with:
           name: AdAway-dev
-          path: app/build/outputs/apk/release/app-release.apk
+          path: app/build/outputs/apk/release/
 
       - name: Analyze project
         env:
