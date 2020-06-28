@@ -1,3 +1,9 @@
+## [5.0.6] - Unreleased
+
+*This version is a pre-release*
+
+- Update target SDK to Android 11
+
 ## [5.0.5] - 2020-06-28
 
 *This version is a pre-release*
