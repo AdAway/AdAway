@@ -8,6 +8,7 @@
     <string name="welcome_method_summary"> AdAway zapewnia dwie metody blokowania reklam. Wybierz tę, którą lubisz:</string>
 
     <string name="welcome_root_method_logo">Logo Root</string>
+    <string name="welcome_root_method_title">Blokowanie bazowane na Root</string>
     <string name="welcome_root_method_text1">Szybciej</string>
     <string name="welcome_root_method_text2">Przyjazny dla baterii</string>
     <string name="welcome_root_method_text3">Wymagany root</string>
@@ -20,6 +21,9 @@
 
     <string name="welcome_root_missing_title">Wymagany jest zrootowany Android</string>
     <string name="welcome_root_missile_description">Nie można znaleźć pliku binarnego su lub nie zezwolono na uprawnienia roota dla AdAway. \n\nMoże to się zdarzyć, gdy urządzenie nie jest zrootowane. Informacje na temat rootowania urządzenia można znaleźć na wiki.lineageos.org lub innych stronach o systemie Android.</string>
+
+    <string name="welcome_method_pro_logo">Plusy</string>
+    <string name="welcome_method_con_logo">Minusy</string>
 
     <!-- Sync UI -->
     <string name="welcome_sync_done_logo">Synchronizacja zakończona</string>
