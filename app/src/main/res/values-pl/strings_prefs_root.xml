@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Blokowanie reklam oparte na Root</string>
     <!-- Hosts install category -->
     <string name="pref_hosts_installation">Instalacja Hosts</string>
     <string name="pref_root_open_hosts">Otwórz plik hosts</string>
