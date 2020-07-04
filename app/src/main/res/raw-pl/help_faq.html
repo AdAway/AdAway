@@ -10,8 +10,7 @@ And don't add newlines before or after p tags because of transifex -->
 Osobiście (autor) nie korzystałbym z aplikacji, które wyświetlają reklamy, ponieważ uważam je za bardzo denerwujące. Tak więc bez blokera reklam nie zainstalowałbym tych aplikacji.</p>
 
 <h2>Jak działa AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
-If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
+<p>AdAway używa <a href="http://en.wikipedia.org/wiki/Hosts_file">pliku hosts</a> do blokowania nazw hostów, które wyświetlają reklamy. Plik hosts jest plikiem znajdującym się w <code>/system/etc/hosts</code>, który mapuje nazwy hostów na adresy IP. Jest to tradycyjny sposób definiowania nazw hostów na pary IP bez polegania na systemie Domain Name System (DNS). Wszystkie niechciane nazwy hostów są przekierowywane do <code>127.0.0.1</code>, co oznacza, że ​​wskażą na twoje własne urządzenie.<br>Jeżeli plik hosts nie jest zapisywalny, zapasowym rozwiązaniem jest użycie wbudowanego VPN. Przefiltruje połączenia do niechcianych nazw hostów i pozwoli pozostałym przejść.</p>
 
 <h2>Dlaczego powinienem zrestartować system Android, aby zmiany przyniosły efekt?</h2>
 <p>Java w Androidzie utrzymuje własną wewnętrzną podręczną pamięć DNS. System operacyjny od razu wykryje nowy plik hosts (możesz to sprawdzić poleceniem ping w wierszu poleceń). Konieczny będzie jednak restart systemu Android w celu odbudowy pamięci podręcznej DNS Javy.</p>
@@ -22,7 +21,7 @@ If the hosts file is not writable, a fallback solution is to use the builtin VPN
 <br>Niektóre aplikacje nie działają, gdy serwery reklam są niedostępne. Dzięki tej metodzie będą ponownie dostępne, odpowiadając pustą stroną i bez reklam.</p>
 
 <h2>Jak mogę zablokować/odblokować określone nazwy hostów?</h2>
-<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
+<p>Dodaj nazwy hostów, które chcesz zablokować do listy<cite>Zablokowanych</cite> w <cite>swoich listach</cite>. Ponadto nazwy hostów, które chcesz wykluczyć z blokowania, można dodać do <cite>Dozwolonych</cite>, a nazwy hostów, które chcesz przekierować do określonego adresu IP, do <cite>Przekierowanych</cite>.</p>
 
 <h2>Gdzie znajdę wiecej źródeł hostów?</h2>
 <p>Zobacz: <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Lista dodatkowych plików hosts dla AdAway</a>.</p>
