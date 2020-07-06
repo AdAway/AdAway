@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">你的清單</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">已阻擋</string>
+    <string name="lists_tab_allowed">已允許</string>
+    <string name="lists_tab_redirected">重新導向</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">過濾 hosts</string>
+    <string name="lists_menu_filter_hint">搜尋主機名……</string>
+    <string name="lists_menu_toggle_sources">切換來源</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">將主機加入至黑名單</string>
     <string name="list_add_dialog_white">將主機至白名單</string>
