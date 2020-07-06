@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">設定</string>
+    <!-- General category -->
+    <string name="pref_general_category">一般</string>
+    <string name="pref_dark_theme">深色主題</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>淺色</item>
+        <item>深色</item>
+        <item>系統預設</item>
+    </string-array>
+    <string name="pref_update_configuration">自動更新</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">廣告阻擋</string>
+    <string name="pref_root_ad_blocker_configuration">基於 Root 的廣告阻擋器</string>
+    <string name="pref_vpn_ad_blocker_configuration">基於 VPN 的廣告阻擋器</string>
+    <string name="pref_whitelist_rules">從來源應用允許的 Hosts</string>
+    <string name="pref_redirection_rules">從源應用重定向 Hosts</string>
+    <string name="pref_redirection_rules_summary">構成安全風險！</string>
+    <string name="pref_enable_ipv6">啟用 IPv6 支援</string>
+    <string name="pref_backup_restore">備份 / 還原阻擋規則</string>
     <!-- Debug category -->
     <string name="pref_debug_category">除錯</string>
-    </resources>
+    <string name="pref_enable_telemetry">傳送崩潰報告</string>
+    <string name="pref_enable_telemetry_summary">向 Sentry (sentry.io) 報告</string>
+    <string name="pref_enable_telemetry_disabled_summary">此版本不支援</string>
+    <string name="pref_enable_debug">詳細的日誌</string>
+    <string name="pref_enable_debug_summary">需要重新啟動應用程式才能應用</string>
+</resources>
