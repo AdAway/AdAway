@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">更新</string>
-    </resources>
+    <!-- Application category -->
+    <string name="pref_update_app_category">應用程式更新</string>
+    <string name="pref_update_check_app_daily">定期檢查更新</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Hosts 更新</string>
+    <string name="pref_update_check">啟動時檢查更新</string>
+    <string name="pref_update_check_hosts_daily">定期檢查更新</string>
+    <string name="pref_update_sync_on_update">同步更新</string>
+    <string name="pref_update_sync_unmetered_only">僅在不限流量的網路上同步</string>
+</resources>
