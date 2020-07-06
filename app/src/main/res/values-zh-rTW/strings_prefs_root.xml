@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">基於 Root 的廣告阻擋器</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Hosts 安裝</string>
     <string name="pref_root_open_hosts">開啟 hosts 檔案</string>
     <string name="pref_apply_method">目標 hosts 檔案</string>
+    <string name="pref_apply_method_summary">使用此功能前，請先閱讀「幫助」</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>自訂目標</item>
     </string-array>
+    <string name="pref_custom_target">自定義目標位置</string>
+    <string name="pref_never_reboot">應用後隱藏重新啟動的對話框</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">重新導向</string>
+    <string name="pref_hosts_redirection_summary">定義重新導向被阻止的 hosts 位置</string>
+    <string name="pref_redirection_ipv4">IPv4 重新導向</string>
+    <string name="pref_redirection_ipv6">IPv6 重新導向</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">本地網頁伺服器</string>
+    <string name="pref_webserver_summary">本地網頁伺服器偵聽本地 IP 位址以響應阻止的主機名請求。它可以幫助你在被封鎖的連線上凍結應用程式。</string>
     <string name="pref_webserver_enabled">啟用網頁伺服器</string>
-    </resources>
+    <string name="pref_webserver_test">測試網頁伺服器</string>
+    <string name="pref_webserver_certificate">安裝自簽憑證</string>
+    <string name="pref_webserver_state_checking">檢查中……</string>
+    <string name="pref_webserver_state_not_running">沒有運作</string>
+    <string name="pref_webserver_state_running_not_installed">正在運作，但未安裝憑證</string>
+    <string name="pref_webserver_state_running_and_installed">運作中並且憑證已安裝</string>
+    <string name="pref_webserver_icon">用應用程式圖示替換空白的廣告區塊</string>
+</resources>
