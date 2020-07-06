@@ -9,8 +9,9 @@ And don't add newlines before or after p tags because of transifex -->
 <p>對一般的使用者來說都存在一個觀念，那就是如果我從不點擊廣告連結的話，那麼直接將它阻擋掉，並不會侵犯到網站或是開發者的利益，但這是不正確的。應用程式開發者仍然是可以獲取報酬，那怕只有顯示廣告。所以請自己決定是否要將軟體中的廣告給阻擋掉。我個人是不會使用那些會經常顯示廣告的應用程式，因為不斷出現的廣告讓我覺得真的很煩，所以如果沒有廣告阻擋這樣的軟體，我想我不會安裝任何帶有廣告的應用程式。</p>
 
 <h2>廣告阻擋是如何運作的？</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
-If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
+<p>AdAway 使用 <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 檔案</a>來阻擋主機名，這些主機名提供廣告。hosts 檔案是 <code>/system/etc/hosts</code> 中的一個檔案，它將主機名對映到 IP 位址。定義主機名到IP 位址對是一種傳統方法，而不依賴網域名稱系統（DNS）。所有不需要的主機名都被重定向到 <code>127.0.0.1</code>，這意味著它們將指向您自己的裝置。<br>
+
+如果 hosts 檔案不可寫，則備用解決方案是使用內建 VPN 服務。它將過濾到不需要的主機名的連線，並讓其他主機通過。</p>
 
 <h2>為什麼我需要重新啟動 Android 來使變更生效？</h2>
 <p>在 Android 上的Java 維護一份獨立的名稱解析快取檔案，作業系統可以對修改過的快取檔案立即做出反應 (可以透過簡單的 ping 來驗證)，但是如果要重新建立這個檔案的話，則必須要重新啟動 Android。</p>
@@ -20,7 +21,7 @@ If the hosts file is not writable, a fallback solution is to use the builtin VPN
 <br><br>你可以從「設定」中啟用本地網頁伺服器，來回應所有發送到本地 IP 位置 <code>127.0.0.1</code> 的查詢。某些應用程式如果沒有正確的接收到來自廣告主機的回應，將會無法正常運作。<br>為了解決這個問題，AdAway 內建的網頁伺服器會回應所有重新導向到 <code>127.0.0.1</code> 的查詢，並且傳回一個空白的網頁，如此一來廣告就不會被正常顯示了。</p>
 
 <h2>如何阻擋或是允許某台特定主機？</h2>
-<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
+<p>將要阻擋的主機名從<cite>主螢幕</cite>新增到<cite>阻擋</cite>清單。 此外，可以將要排除在阻擋之外的主機名新增到<cite>允許</cite>中，而要重定向到特定 IP 位址的主機名則屬於<cite>已重定向</cite>。</p>
 
 <h2>我要如何取得更多的主機清單？</h2>
 <p>查看<a href="https://github.com/AdAway/AdAway/wiki/HostsSources">AdAway額外 hosts 來源清單</a>。</p>
