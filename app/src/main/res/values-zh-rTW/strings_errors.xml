@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">沒有網路連線</string>
+    <string name="error_no_connection_details">無法建立網路連接。請檢查您的設備連線。</string>
+    <string name="error_download_failed_message">無法下載 hosts 來源</string>
+    <string name="error_download_failed_details">無法存取已啟用的 hosts 來源。請檢查您是否正確連線到網際網路。</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">無法建立私人的檔案</string>
+    <string name="error_private_file_failed_details">無法建立私人檔案以生成新的 hosts 來源。請檢查裝置上的可用空間。</string>
     <string name="error_not_enough_space_message">空間不足</string>
-    </resources>
+    <string name="error_not_enough_space_details">無法將 hosts 檔案複製到系統分割區。請檢查 Magisk 的 systemless 模組是否已啟用，然後重新啟動。</string>
+    <string name="error_copy_failed_message">無法安裝新的 hosts 檔案</string>
+    <string name="error_copy_failed_details">無法將 hosts 檔案複製到 /system分割區。請檢查重新啟動後是否已啟用 Magisk 的 systemless 模組。</string>
+    <string name="error_revert_failed_message">無法還原 hosts 檔案</string>
+    <string name="error_revert_failed_details">無法還原默認 hosts 檔案設定。</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">無法啟用 VPN 廣告阻擋。</string>
+    <string name="error_enable_vpn_failed_details">請檢查您的 VPN 設定以授權應用程式 VPN 啟動。</string>
+    <string name="error_disable_vpn_failed_message">無法停用 VPN 廣告阻擋。</string>
+    <string name="error_disable_vpn_failed_details">請檢查您的 VPN 設定來手動停用它。</string>
+</resources>
