@@ -23,8 +23,16 @@
     <string name="header_webserver">網頁伺服器</string>
     <string name="webserver_status_running">執行中</string>
     <string name="webserver_status_stopped">已停止</string>
+    <string name="webserver_toggle_text">啟動或停止本地主機上的網頁伺服器以響應對被阻止主機名的請求。</string>
     <string name="button_enable_webserver">啟用網頁伺服器</string>
     <string name="button_disable_webserver">停用網頁伺服器</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">運行中</string>
+    <string name="vpn_status_stopped">已停止</string>
+    <string name="vpn_toggle_text">啟動或停止 VPN 來過濾請求。</string>
+    <string name="button_enable_vpn">啟動 VPN</string>
+    <string name="button_disable_vpn">停用 VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_delete">刪除</string>
     <string name="checkbox_list_context_title">編輯項目</string>
@@ -44,9 +52,19 @@
     <string name="hosts_content">正在載入 hosts 檔案內容…</string>
     <string name="hosts_open_button">開啟 hosts 檔案</string>
 
+    <!--Status Notification-->
+    <string name="status_check">檢查更新</string>
+    <string name="status_check_source">檢查來源 %s 的更新</string>
+    <string name="status_retrieve">搜尋來源中</string>
+    <string name="status_download_source">下載來源 %s</string>
+    <string name="status_copy_source">複製來源 %s</string>
+    <string name="status_parse_source">解析來源 %s</string>
+    <string name="status_revert">恢復到預設 hosts 檔案</string>
+    <string name="status_revert_done">預設 hosts 檔案已恢復</string>
     <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
     <string name="status_update_available">有更新</string>
     <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
+    <string name="status_no_update_found">找不到來源更新</string>
     <string name="status_no_connection">沒有網路連線</string>
     <string name="status_no_connection_subtitle">沒有可用的網路連線</string>
     <string name="status_download_fail">不可用的來源</string>
@@ -59,7 +77,19 @@
     <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
     <string name="status_disabled">停用</string>
     <string name="status_disabled_subtitle">預設 hosts 檔案已安裝</string>
+    <string name="status_apply_sources">應用最新來源</string>
+    <string name="status_create_new_hosts">建立一個新的 hosts 檔案</string>
+    <string name="status_copy_new_hosts">複製一個新的 hosts 檔案</string>
+    <string name="status_check_copy">正在檢查 hosts 檔案副本</string>
+    <string name="status_hosts_updated">hosts 檔案已更新成功</string>
+    <string name="status_vpn_configuration_updated">VPN 配置更新成功</string>
+    <string name="notification_configuration_changed">您的配置已更改，你需要應用它。</string>
     <string name="notification_configuration_changed_action">套用</string>
+    <string name="notification_configuration_installing">正在應用新配置……</string>
+    <string name="notification_configuration_failed">無法應用新配置。</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">hosts 檔案目標的符號連結遺失</string>
     <string name="apply_symlink_missing">你設定的目標不存在或者不是正確的 /system/etc/hosts 符號連結！沒有正確的符號連結AdAway不能執行。 你需要建立符號連結嗎？</string>
     <string name="apply_symlink_missing_title">符號連結遺失</string>
     <string name="apply_not_enough_space">分割區上沒有足夠的空間！\n請試著在設定裡面將目標 hosts 檔案變更為 /data/data/hosts。</string>
@@ -68,6 +98,7 @@
     <string name="apply_private_file_fail_title">私人檔案失敗</string>
     <string name="apply_remount_fail">重新掛載分區為讀寫模式失敗！</string>
     <string name="apply_remount_fail_title">重新掛載失敗</string>
+    <string name="apply_copy_fail_status">複製 hosts 檔案失敗</string>
     <string name="apply_copy_fail">複製 hosts 檔案失敗！</string>
     <string name="apply_copy_fail_title">複製失敗</string>
     <string name="apply_success_subtitle">已套用 hosts 來源</string>
@@ -88,21 +119,26 @@
     <string name="apply_dialog_hostnames">解析及合併 hosts 檔案</string>
     <string name="apply_dialog_hosts">建立 hosts 檔案</string>
     <string name="apply_dialog_apply">合併 hosts 檔案</string>
+    <string name="apply_fail_status">無法應用新的 hosts 檔案。</string>
     <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
     <string name="apply_fail_title">建立失敗</string>
     <string name="root_access_fail">請檢查您的 root 管理應用程式以確保已授予 root 權限。</string>
     <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="revert_successful_title">還原成功</string>
+    <string name="revert_failed_status">無法還原 hosts 檔案</string>
     <string name="revert_problem">因未知原因還原失敗。</string>
     <string name="revert_problem_title">還原失敗！</string>
     <string name="download_fail_dialog">所有啟用的 hosts 來源都無法連結！您是否正確連上網際網路？</string>
     <string name="download_fail_title">下載失敗</string>
+    <string name="no_private_file_status">無法寫入新的私人 hosts 檔案</string>
     <string name="no_private_file">不能建立私人檔案。</string>
     <string name="no_private_file_title">私人檔案建立失敗</string>
     <string name="enable_systemless_successful">您啟用了 systemless 模式。\n變更需要重新啟動才能生效。\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="enable_systemless_successful_title">啟用成功</string>
     <string name="disable_systemless_successful">您停用了 systemless 模式。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="disable_systemless_successful_title">取消成功</string>
+    <string name="enable_vpn_fail">無法啟用 VPN 廣告阻擋。</string>
+    <string name="disable_vpn_fail">無法停用 VPN 廣告阻擋。</string>
     <string name="enable_systemless_magisk_title">啟用 Magisk hosts 模組</string>
     <string name="enable_systemless_magisk">在 Magisk Manager 中啟用 systemless hosts 功能。請在該軟體的設定中，啟用<cite>Systemless hosts</cite>選項並重啟您的裝置。</string>
     <string name="disable_systemless_magisk_title">停用 Magisk hosts 模組</string>
@@ -179,10 +215,13 @@
     <string name="shortcut_your_lists">你的清單</string>
     <string name="shortcut_preferences">設定</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">%1$s 前安裝</string>
     <string name="hosts_source_up_to_date">%1$s 是最新的</string>
     <string name="hosts_source_need_update">%1$s 需要更新</string>
     <string name="hosts_source_last_update">上次更新 %1$s 前</string>
     <string name="hosts_source_unknown_status">未知更新狀態</string>
+    <string name="hosts_source_few_minutes">幾分鐘</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d 分鐘</item>
     </plurals>
@@ -196,4 +235,20 @@
         <item quantity="other">%d 個月</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">開始</string>
+    <string name="vpn_notification_running">有效的</string>
+    <string name="vpn_notification_stopping">停止</string>
+    <string name="vpn_notification_waiting_for_net">等待網路</string>
+    <string name="vpn_notification_reconnecting">重新連接</string>
+    <string name="vpn_notification_reconnecting_error">重新連接錯誤</string>
+    <string name="vpn_notification_paused">已暫停</string>
+    <string name="vpn_notification_stopped">已停止</string>
+    <string name="vpn_notification_title">廣告攔截器 VPN %1$s</string>
+    <string name="vpn_notification_action_pause">暫停</string>
+    <string name="vpn_notification_paused_text">點選繼續</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">啟用和停用系統廣告阻擋</string>
+
+</resources>
