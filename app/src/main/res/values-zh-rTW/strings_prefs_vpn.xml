@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">基於 VPN 的廣告阻擋器</string>
+    <string name="pref_vpn_service_on_boot">啟動時啟用</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">排除的應用程式</string>
+    <string name="pref_vpn_excluded_apps_description">設定哪些應用程式不應使用 VPN，這樣就不會阻止任何連線。</string>
+    <string name="pref_vpn_exclude_system_apps">排除系統應用程式</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">排除使用者應用程式</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">排除的應用程式</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">選擇全部</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">全部取消選擇</string>
+    <string name="pref_vpn_exclude_user_apps_icon">應用程式圖示</string>
+</resources>
