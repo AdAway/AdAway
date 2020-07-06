@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">歡迎</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">歡迎 logo</string>
+    <string name="welcome_method_header">歡迎來到 AdAway！</string>
+    <string name="welcome_method_summary">AdAway 提供了兩種廣告阻擋方法，選擇一個您喜歡的：</string>
+
+    <string name="welcome_root_method_logo">Root logo</string>
+    <string name="welcome_root_method_title">基於 Root\n 廣告阻擋</string>
+    <string name="welcome_root_method_text1">較快</string>
+    <string name="welcome_root_method_text2">省電</string>
+    <string name="welcome_root_method_text3">需要 Root</string>
+
+    <string name="welcome_vpn_method_logo">VPN logo</string>
+    <string name="welcome_vpn_method_title">基於 VPN\n 廣告阻擋</string>
+    <string name="welcome_vpn_method_text1">較慢</string>
+    <string name="welcome_vpn_method_text2">在背景運作</string>
+    <string name="welcome_vpn_method_text3">相容性</string>
+
     <string name="welcome_root_missing_title">需要 root 權限</string>
-    </resources>
+    <string name="welcome_root_missile_description">找不到 su 二進位制檔案，或者您沒有允許 AdAway root 權限。\n\n 當您的裝置沒有 root 權限時，可能會發生這種情況。您可以在 wiki.lineageos.org 或其他 Android 網站上找到有關如何 root 裝置的資訊。</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">同步完成</string>
+    <string name="welcome_sync_error_logo">同步時出錯</string>
+
+    <string name="welcome_sync_header">同步中</string>
+    <string name="welcome_synced_header">已同步！</string>
+    <string name="welcome_sync_summary">AdAway 從線上來源下載要阻擋的廣告網路，您可以稍後在設定中設定它們。</string>
+    <string name="welcome_sync_retry_logo">重新同步</string>
+    <string name="welcome_sync_error">無法同步：\n%s。\n 是否立即重試？</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">支持</string>
+    <string name="welcome_support_header">支持我們！</string>
+    <string name="welcome_support_summary">這是一個免費的開源應用程式。我利用工作以外的時間開發他。因此，如果你喜歡，請隨時表示支持：</string>
+    <string name="welcome_support_button">在 PayPal 上捐贈</string>
+    <string name="welcome_support_telemetry_summary">你喜歡臭蟲嗎？我也不喜歡。</string>
+    <string name="welcome_support_telemetry_button">啟用自動傳送崩潰報告</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">上一步</string>
+    <string name="welcome_next_button">下一步</string>
+    <string name="welcome_finish_button">完成</string>
+</resources>
