@@ -1,7 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">已阻擋</string>
+    <string name="allowed_hosts_label">已允許</string>
+    <string name="redirect_hosts_label">重新導向</string>
+
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="other">%d 個最新來源</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="other">%d 個過時來源</item>
+    </plurals>
+
+    <!-- Help card -->
+    <string name="help_label">顯示幫助</string>
+
+    <!-- Project card -->
+    <string name="project_label">打開 GitHub 頁面</string>
+
+    <!-- Support card -->
+    <string name="support_label">支持項目</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS 日誌</string>
     <string name="preferences_drawer_item">設定</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">打開導覽抽屜</string>
+    <string name="adblock_pause_button_description">暫停 / 恢復廣告阻擋</string>
+    <string name="update_button">更新阻擋網域</string>
+    <string name="show_log_button">顯示要求的網域</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">請閱讀說明以獲得更多訊息。</string>
