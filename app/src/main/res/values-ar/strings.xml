@@ -83,7 +83,14 @@
     <string name="status_copy_new_hosts">نسخ ملف hosts جديد</string>
     <string name="status_check_copy">التأكد من نسخ ملف hosts</string>
     <string name="status_hosts_updated">تم تحديث ملف hosts بنجاح</string>
+    <string name="status_vpn_configuration_updated">تم تحديث تكوين في بي إن بنجاح</string>
+    <string name="notification_configuration_changed">تم تغيير التكوين الخاص بك. تحتاج إلى تطبيقه.</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
+    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف...</string>
+    <string name="notification_configuration_failed">فشل في تثبيت ملف المضيفات</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">الارتباط الرمزي إلى هدف ملف المضيفين مفقود</string>
     <string name="apply_symlink_missing">symlink من مسارك الى /system/etc/hosts غير موجود او غير صحيح . البرنامج لن يعمل اذا لم يتم تحديد الملف الصحيح . هل تريد محاولة انشاء symlink ؟</string>
     <string name="apply_symlink_missing_title">الارتباط الرمزي مفقود</string>
     <string name="apply_not_enough_space">لا توجد مساحة كافية على القرص حاول تغيير المسار من الاعدادت الى /data/data/hosts</string>
@@ -92,6 +99,7 @@
     <string name="apply_private_file_fail_title">فشل الملف الخاص</string>
     <string name="apply_remount_fail">فشل تحويل القسم لوضع القراءة/الكتابة!</string>
     <string name="apply_remount_fail_title">فشل التحويل</string>
+    <string name="apply_copy_fail_status">فشل نسخ ملف المضيفين</string>
     <string name="apply_copy_fail">فشل نسخ ملفات المضيف!</string>
     <string name="apply_copy_fail_title">فشل النسخ</string>
     <string name="apply_success_subtitle">مصادر المضيف المطبّقة</string>
@@ -112,15 +120,18 @@
     <string name="apply_dialog_hostnames">تحليل ودمج ملفات المضيف</string>
     <string name="apply_dialog_hosts">بناء ملفات المضيف</string>
     <string name="apply_dialog_apply">تنفيذ ملفات المضيف</string>
+    <string name="apply_fail_status">فشل في تطبيق ملف المضيفين الجديد.</string>
     <string name="apply_fail">لقد فشلت عملية تثبيت ملفات المضيف! حاول تغيير مسار الملفات من الاعدادات الى /data/data/hosts</string>
     <string name="apply_fail_title">فشل التنفيذ</string>
     <string name="root_access_fail">الرجاء تفقد برنامج ادارة الرووت للتأكد من أن صلاحيات الرووت مسموحة.</string>
     <string name="revert_successful">تم استرجاع ملف المضيف الإفتراضي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
     <string name="revert_successful_title">تم الاسترجاع</string>
+    <string name="revert_failed_status">غير قادر على إعادة ملف المضيفين</string>
     <string name="revert_problem">الاسترجاع فشل لأسباب غير معروفة.</string>
     <string name="revert_problem_title">فشل الاسترجاع!</string>
     <string name="download_fail_dialog">مصادر المضيف لا يمكن الوصول إليها! هل أنت متصل بالإنترنت؟</string>
     <string name="download_fail_title">فشل التحميل</string>
+    <string name="no_private_file_status">فشل كتابة ملف مضيفين خاصين جدد</string>
     <string name="no_private_file">لا يمكن إنشاء ملف خاص.</string>
     <string name="no_private_file_title">فشل إنشاء ملف خاص</string>
     <string name="enable_systemless_successful">تم تفعيل الوضع اللّانظامي. \nيستوجب إعادة تشغيل الجهاز الآن. \n\nهل تريد إعادة تشغيل جهازك؟ \n(يرجى التأكد من عدم وجود تطبيقات تستخدم بطاقة الذاكرة الآن لتجنّب فقدان أي معلومات!)</string>
@@ -129,6 +140,11 @@
     <string name="disable_systemless_successful_title">تم التعطيل بنجاح</string>
     <string name="enable_vpn_fail">تعذر عن تفعيل إعلانات VPN</string>
     <string name="disable_vpn_fail">تعذر عن إيقاف إعلانات VPN</string>
+    <string name="enable_systemless_magisk_title">تمكين وحدة Magisk المضيفة</string>
+    <string name="enable_systemless_magisk">تمكين ميزة المضيفين بدون نظام من Magisk manager. من إعداداته ، قم بتمكين خيار Hostless hosts ثم أعد تشغيل جهازك.</string>
+    <string name="disable_systemless_magisk_title">تعطيل وحدة Magisk المضيفة</string>
+    <string name="disable_systemless_magisk">تعطيل ميزة المضيفين بدون نظام من Magisk manager. من قائمة الوحدات ، قم بإلغاء تثبيت وحدة Systemless hosts ، ثم أعد تشغيل جهازك.</string>
+
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">أدخل عنوان URL لملفات المضيف:</string>
     <string name="no_hostname">اسم الموقع غير صالح!</string>
@@ -253,4 +269,7 @@
     <string name="vpn_notification_action_pause">إيقاف مؤقت</string>
     <string name="vpn_notification_paused_text">اضغط للاستمرار</string>
 
-    </resources>
+    <!-- Permission -->
+    <string name="permission_status_command_label">تمكين وتعطيل نظام حظر الإعلانات</string>
+
+</resources>
