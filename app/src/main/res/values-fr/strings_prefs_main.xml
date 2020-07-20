@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Blocage des publicités</string>
     <string name="pref_root_ad_blocker_configuration">Bloqueur de publicités pour appareil débridé</string>
     <string name="pref_vpn_ad_blocker_configuration">Bloqueur de publicités fondé sur un RPV</string>
-    <string name="pref_whitelist_rules">Appliquer les hôtes autorisés à partir des sources</string>
-    <string name="pref_redirection_rules">Appliquer les hôtes redirigés à partir des sources</string>
-    <string name="pref_redirection_rules_summary">PRÉSENTE UN RISQUE POUR LA SÉCURITÉ !</string>
     <string name="pref_enable_ipv6">Activer la prise en charge d’IPv6</string>
     <string name="pref_backup_restore">Sauvegarder/restaurer les règles de blocage</string>
     <!-- Debug category -->

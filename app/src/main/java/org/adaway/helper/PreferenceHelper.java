@@ -140,28 +140,6 @@ public class PreferenceHelper {
         );
     }
 
-    public static boolean getWhitelistRules(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(
-                Constants.PREFS_NAME,
-                Context.MODE_PRIVATE
-        );
-        return prefs.getBoolean(
-                context.getString(R.string.pref_whitelist_rules_key),
-                context.getResources().getBoolean(R.bool.pref_whitelist_rules_def)
-        );
-    }
-
-    public static boolean getRedirectionRules(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(
-                Constants.PREFS_NAME,
-                Context.MODE_PRIVATE
-        );
-        return prefs.getBoolean(
-                context.getString(R.string.pref_redirection_rules_key),
-                context.getResources().getBoolean(R.bool.pref_redirection_rules_def)
-        );
-    }
-
     public static String getRedirectionIpv4(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,

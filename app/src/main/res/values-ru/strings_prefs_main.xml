@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Блокировка рекламы</string>
     <string name="pref_root_ad_blocker_configuration">Блокировщик рекламы на основе root</string>
     <string name="pref_vpn_ad_blocker_configuration">Блокировщик рекламы на основе VPN</string>
-    <string name="pref_whitelist_rules">Применить разрешённые хосты из источников</string>
-    <string name="pref_redirection_rules">Применить перенаправленные хосты из источников</string>
-    <string name="pref_redirection_rules_summary">СОЗДАЁТ УГРОЗУ БЕЗОПАСНОСТИ!</string>
     <string name="pref_enable_ipv6">Включить поддержку IPv6</string>
     <string name="pref_backup_restore">Резервная копия / восстановление правил блокировки</string>
     <!-- Debug category -->

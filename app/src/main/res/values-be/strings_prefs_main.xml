@@ -9,9 +9,6 @@
     <string name="pref_ad_block_category">Блакіроўка рэкламы</string>
     <string name="pref_root_ad_blocker_configuration">Блакавальнік рэкламы на аснове root</string>
     <string name="pref_vpn_ad_blocker_configuration">Блакавальнік рэкламы на аснове VPN</string>
-    <string name="pref_whitelist_rules">Прымяніць дазволеныя hosts з крыніц</string>
-    <string name="pref_redirection_rules">Прымяніць перанакіраванныя hosts з крыніц</string>
-    <string name="pref_redirection_rules_summary">СТВАРАЕ ПАГРОЗУ БЯСПЕЦЫ!</string>
     <string name="pref_enable_ipv6">Уключыць падтрымку IPv6</string>
     <string name="pref_backup_restore">Рэзервовая копія / аднаўленне правілаў блакавання</string>
     <!-- Debug category -->

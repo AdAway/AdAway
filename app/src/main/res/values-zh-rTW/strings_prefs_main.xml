@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">廣告阻擋</string>
     <string name="pref_root_ad_blocker_configuration">基於 Root 的廣告阻擋器</string>
     <string name="pref_vpn_ad_blocker_configuration">基於 VPN 的廣告阻擋器</string>
-    <string name="pref_whitelist_rules">從來源應用允許的 Hosts</string>
-    <string name="pref_redirection_rules">從源應用重定向 Hosts</string>
-    <string name="pref_redirection_rules_summary">構成安全風險！</string>
     <string name="pref_enable_ipv6">啟用 IPv6 支援</string>
     <string name="pref_backup_restore">備份 / 還原阻擋規則</string>
     <!-- Debug category -->
