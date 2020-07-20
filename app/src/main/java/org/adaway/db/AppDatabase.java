@@ -9,6 +9,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import org.adaway.R;
 import org.adaway.db.converter.ListTypeConverter;
 import org.adaway.db.converter.ZonedDateTimeConverter;
 import org.adaway.db.dao.HostEntryDao;
@@ -31,7 +32,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-@Database(entities = {HostsSource.class, HostListItem.class, HostEntry.class}, version = 5)
+@Database(entities = {HostsSource.class, HostListItem.class, HostEntry.class}, version = 6)
 @TypeConverters({ListTypeConverter.class, ZonedDateTimeConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
     /**
@@ -57,7 +58,7 @@ public abstract class AppDatabase extends RoomDatabase {
                         @Override
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             AppExecutors.getInstance().diskIO().execute(
-                                    () -> AppDatabase.initialize(instance)
+                                    () -> AppDatabase.initialize(context, instance)
                             );
                         }
                     }).addMigrations(
@@ -75,32 +76,33 @@ public abstract class AppDatabase extends RoomDatabase {
     /**
      * Initialize the database content.
      */
-    private static void initialize(AppDatabase database) {
+    private static void initialize(Context context, AppDatabase database) {
         // Check if there is no hosts source
         HostsSourceDao hostsSourceDao = database.hostsSourceDao();
         if (!hostsSourceDao.getAll().isEmpty()) {
             return;
         }
-        // User source
+        // User list
         HostsSource userSource = new HostsSource();
+        userSource.setLabel(context.getString(R.string.hosts_user_source));
         userSource.setId(USER_SOURCE_ID);
         userSource.setUrl(USER_SOURCE_URL);
-        userSource.setEnabled(true);
+        userSource.setRedirectEnabled(true);
         hostsSourceDao.insert(userSource);
-        // AdAway's own mobile hosts
+        // AdAway official
         HostsSource source1 = new HostsSource();
+        source1.setLabel(context.getString(R.string.hosts_adaway_source));
         source1.setUrl("https://adaway.org/hosts.txt");
-        source1.setEnabled(true);
         hostsSourceDao.insert(source1);
-        // https://github.com/StevenBlack/hosts
+        // StevenBlack
         HostsSource source2 = new HostsSource();
+        source2.setLabel(context.getString(R.string.hosts_stevenblack_source));
         source2.setUrl("https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts");
-        source2.setEnabled(true);
         hostsSourceDao.insert(source2);
-        // https://pgl.yoyo.org/adservers/
+        // Pete Lowe
         HostsSource source3 = new HostsSource();
+        source3.setLabel(context.getString(R.string.hosts_peterlowe_source));
         source3.setUrl("https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext");
-        source3.setEnabled(true);
         hostsSourceDao.insert(source3);
     }
 

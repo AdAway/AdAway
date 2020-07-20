@@ -65,6 +65,11 @@
             android:label="@string/hosts_title"
             android:parentActivityName=".ui.home.HomeActivity" />
         <activity
+            android:name=".ui.source.SourceEditActivity"
+            android:exported="false"
+            android:label="@string/source_edit_title"
+            android:parentActivityName=".ui.hosts.HostsSourcesActivity" />
+        <activity
             android:name=".ui.tcpdump.TcpdumpLogActivity"
             android:label="@string/shortcut_dns_requests"
             android:parentActivityName=".ui.home.HomeActivity" />
