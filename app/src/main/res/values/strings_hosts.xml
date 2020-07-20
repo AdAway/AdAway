@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Hosts sources</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">User list</string>
+    <string name="hosts_adaway_source">AdAway official hosts</string>
+    <string name="hosts_stevenblack_source">StevenBlack Unified hosts</string>
+    <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
     <!-- List -->
     <string name="hosts_not_available">not available</string>
     <!-- Edition dialog -->

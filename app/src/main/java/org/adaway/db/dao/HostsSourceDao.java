@@ -12,6 +12,7 @@ import org.adaway.db.entity.HostsSource;
 
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * This interface is the DAO for {@link HostsSource} entities.
@@ -45,6 +46,9 @@ public interface HostsSourceDao {
 
     @Query("UPDATE hosts_lists SET enabled = :enabled WHERE source_id =:id")
     void setSourceItemsEnabled(int id, boolean enabled);
+
+    @Query("SELECT * FROM hosts_sources WHERE id = :id")
+    Optional<HostsSource> getById(int id);
 
     @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
     List<HostsSource> getAll();

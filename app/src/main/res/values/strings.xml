@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Disable VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Delete</string>
     <string name="checkbox_list_context_title">Edit Entry</string>
+    <string name="checkbox_list_context_apply">Apply</string>
     <string name="checkbox_list_context_edit">Edit</string>
+    <string name="checkbox_list_context_delete">Delete</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importing…</string>

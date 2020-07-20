@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/delete_action"
+        android:icon="@drawable/outline_delete_24"
+        android:title="@string/checkbox_list_context_delete"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/apply_action"
+        android:icon="@drawable/baseline_check_24"
+        android:title="@string/checkbox_list_context_apply"
+        app:showAsAction="ifRoom" />
+</menu>

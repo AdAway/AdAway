@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="source_edit_title">Edit source</string>
+    <string name="source_edit_add_title">Add source</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Label</string>
+    <string name="source_edit_label_required">Label required</string>
+    <string name="source_edit_type">Type</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">File</string>
+    <string name="source_edit_url_location">Location</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Location required</string>
+    <string name="source_edit_file_hint">Press File to select source file</string>
+    <string name="source_edit_location_invalid">Invalid location</string>
+    <string name="source_edit_allowed_hosts">Apply allowed hosts</string>
+    <string name="source_edit_redirected_hosts">Apply redirected hosts</string>
+</resources>

@@ -33,8 +33,12 @@ public class HostsSource {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @NonNull
+    private String label;
+    @NonNull
     private String url;
-    private boolean enabled;
+    private boolean enabled = true;
+    private boolean allowEnabled = true;
+    private boolean redirectEnabled = false;
     @ColumnInfo(name = "last_modified_local")
     private ZonedDateTime localModificationDate;
     @ColumnInfo(name = "last_modified_online")
@@ -48,7 +52,7 @@ public class HostsSource {
      * @return {@code true} if the URL is valid, {@code false} otherwise.
      */
     public static boolean isValidUrl(String url) {
-        return URLUtil.isHttpsUrl(url) || URLUtil.isFileUrl(url);
+        return URLUtil.isHttpsUrl(url) || URLUtil.isContentUrl(url);
     }
 
     public int getId() {
@@ -57,6 +61,15 @@ public class HostsSource {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @NonNull
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(@NonNull String label) {
+        this.label = label;
     }
 
     @NonNull
@@ -74,6 +87,22 @@ public class HostsSource {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public boolean isAllowEnabled() {
+        return allowEnabled;
+    }
+
+    public void setAllowEnabled(boolean allowEnabled) {
+        this.allowEnabled = allowEnabled;
+    }
+
+    public boolean isRedirectEnabled() {
+        return redirectEnabled;
+    }
+
+    public void setRedirectEnabled(boolean redirectEnabled) {
+        this.redirectEnabled = redirectEnabled;
     }
 
     public ZonedDateTime getLocalModificationDate() {
