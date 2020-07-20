@@ -2,9 +2,6 @@
 <resources>
     <string name="pref_main_title">Beállítások</string>
     <string name="pref_dark_theme">Sötét téma engedélyezése</string>
-    <string name="pref_whitelist_rules">Fehérlistázás engedélyezése</string>
-    <string name="pref_redirection_rules">Átirányítások engedélyezése</string>
-    <string name="pref_redirection_rules_summary">BIZTONSÁGI KOCKÁZATOT JELENT! Átirányított bejegyzések engedélyezése a hosts forrásokból.</string>
     <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Hibakeresés</string>

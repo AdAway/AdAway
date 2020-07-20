@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Blokowanie reklam</string>
     <string name="pref_root_ad_blocker_configuration">Blokowanie reklam oparte na Root</string>
     <string name="pref_vpn_ad_blocker_configuration">Blokowanie reklam oparte na VPN</string>
-    <string name="pref_whitelist_rules">Zastosuj dozwolone hosty ze źródeł</string>
-    <string name="pref_redirection_rules">Stosowanie przekierowanych hostów ze źródeł</string>
-    <string name="pref_redirection_rules_summary">STANOWI ZAGROŻENIE DLA BEZPIECZEŃSTWA!</string>
     <string name="pref_enable_ipv6">Włącz obsługę IPv6</string>
     <string name="pref_backup_restore">Kopia zapasowa / przywracanie zasad blokowania</string>
     <!-- Debug category -->

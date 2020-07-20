@@ -18,7 +18,6 @@ import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.git.GitHostsSource;
 import org.adaway.util.Log;
@@ -400,8 +399,7 @@ public class SourceModel {
     private void parseSourceInputStream(HostsSource hostsSource, InputStream inputStream) throws IOException {
         setState(R.string.status_parse_source, hostsSource.getUrl());
         long startTime = System.currentTimeMillis();
-        boolean parseRedirectedHosts = PreferenceHelper.getRedirectionRules(this.context);
-        SourceParser sourceParser = new SourceParser(hostsSource, inputStream, parseRedirectedHosts);
+        SourceParser sourceParser = new SourceParser(hostsSource, inputStream);
         SourceBatchUpdater updater = new SourceBatchUpdater(this.hostListItemDao);
         updater.updateSource(hostsSource, sourceParser.getItems());
         long endTime = System.currentTimeMillis();

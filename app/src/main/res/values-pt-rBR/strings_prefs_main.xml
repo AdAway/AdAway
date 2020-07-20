@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Ad bloqueador</string>
     <string name="pref_root_ad_blocker_configuration">Bloqueador de anúncios baseado em Root</string>
     <string name="pref_vpn_ad_blocker_configuration">Bloqueador de anúncios baseado em VPN</string>
-    <string name="pref_whitelist_rules">Permitir lista branca</string>
-    <string name="pref_redirection_rules">Permitir redirecionamentos</string>
-    <string name="pref_redirection_rules_summary">RISCOS DE SEGURANÇA! Permitir entradas de redirecionamento de Fontes de Hosts.</string>
     <string name="pref_enable_ipv6">Ativar IPv6</string>
     <string name="pref_backup_restore">Backup / restaure regras de bloqueio</string>
     <!-- Debug category -->

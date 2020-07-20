@@ -38,9 +38,9 @@ class SourceParser {
     private final boolean parseRedirectedHosts;
     private final List<HostListItem> items;
 
-    SourceParser(HostsSource hostsSource, InputStream inputStream, boolean parseRedirectedHosts) throws IOException {
+    SourceParser(HostsSource hostsSource, InputStream inputStream) throws IOException {
         this.sourceId = hostsSource.getId();
-        this.parseRedirectedHosts = parseRedirectedHosts;
+        this.parseRedirectedHosts = hostsSource.isRedirectEnabled();
         this.items = parse(inputStream);
     }
 

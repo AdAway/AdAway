@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Werbung blockieren</string>
     <string name="pref_root_ad_blocker_configuration">Root basierender Werbeblocker</string>
     <string name="pref_vpn_ad_blocker_configuration">VPN basierender Ad-Blocker</string>
-    <string name="pref_whitelist_rules">Positivlisten erlauben</string>
-    <string name="pref_redirection_rules">Umleitungen erlauben</string>
-    <string name="pref_redirection_rules_summary">SICHERHEITSGEFÄHRDEND! Weiterleitungseinträge aus Hosts-Quellen zulassen.</string>
     <string name="pref_enable_ipv6">IPv6 aktivieren</string>
     <string name="pref_backup_restore">Sichern / Wiederherstellen Ihrer Listen</string>
     <!-- Debug category -->

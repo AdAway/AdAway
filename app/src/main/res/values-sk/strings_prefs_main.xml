@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Blokovanie reklamy</string>
     <string name="pref_root_ad_blocker_configuration">Blokovač reklám s rootom</string>
     <string name="pref_vpn_ad_blocker_configuration">Blokovač reklám pomocou VPN</string>
-    <string name="pref_whitelist_rules">Aplikovať povolených hostiteľov zo zdrojov</string>
-    <string name="pref_redirection_rules">Aplikovať presmerovaných hostiteľov zo zdrojov</string>
-    <string name="pref_redirection_rules_summary">PREDSTAVUJE BEZPEČNOSTNÉ RIZIKO!</string>
     <string name="pref_enable_ipv6">Povoliť podporu IPv6</string>
     <string name="pref_backup_restore">Zálohovať / obnoviť pravidlá blokovania</string>
     <!-- Debug category -->
