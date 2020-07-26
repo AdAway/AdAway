@@ -1,3 +1,7 @@
+## [4.3.6] - 2020-07-26
+
+- Update NDK version for F-Droid build server 
+
 ## [4.3.5] - 2020-06-27
 
 - Fix project Fastlane description for F-Droid store
