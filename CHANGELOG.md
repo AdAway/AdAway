@@ -2,10 +2,11 @@
 
 *This version is a pre-release*
 
-- Update target SDK to Android 11
 - Fix crash on domain enable/disable action
+- Fix source not applied if disabled and enabled back
+- Update target SDK to Android 11
 
-Special thanks to zgfg for its bug report.
+Special thanks to ipdev99 and zgfg for their bug reports.
 
 ## [5.0.5] - 2020-06-28
 
