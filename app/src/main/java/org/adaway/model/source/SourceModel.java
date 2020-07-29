@@ -275,6 +275,7 @@ public class SourceModel {
             // Clear disabled source
             if (!source.isEnabled()) {
                 this.hostListItemDao.clearSourceHosts(source.getId());
+                this.hostsSourceDao.clearLocaleModificationDate(source.getId());
                 continue;
             }
             // Get hosts source last update
