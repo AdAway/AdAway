@@ -84,7 +84,7 @@ public class ListsViewModel extends AndroidViewModel {
         item.setEnabled(!item.isEnabled());
         EXECUTOR.execute(() -> {
             this.hostListItemDao.update(item);
-            this.modelChanged.setValue(true);
+            this.modelChanged.postValue(true);
         });
     }
 
