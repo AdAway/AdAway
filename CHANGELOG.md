@@ -3,6 +3,9 @@
 *This version is a pre-release*
 
 - Update target SDK to Android 11
+- Fix crash on domain enable/disable action
+
+Special thanks to zgfg for its bug report.
 
 ## [5.0.5] - 2020-06-28
 
@@ -16,7 +19,7 @@
 - Remove navigation bar color customization
 - Update AndroidX dependencies and NDK version
 
-Special thanks to CobalTitan, ipdev, zgfg and sunmybun their bug reports.
+Special thanks to CobalTitan, ipdev, zgfg and sunmybun for their bug reports.
 
 ## [4.3.5] - 2020-06-27
 
