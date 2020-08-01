@@ -271,10 +271,11 @@ public class SourceModel {
         ZonedDateTime now = ZonedDateTime.now();
         // Get each hosts source
         for (HostsSource source : this.hostsSourceDao.getAll()) {
+            int sourceId = source.getId();
             // Clear disabled source
             if (!source.isEnabled()) {
-                this.hostListItemDao.clearSourceHosts(source.getId());
-                this.hostsSourceDao.clearLocaleModificationDate(source.getId());
+                this.hostListItemDao.clearSourceHosts(sourceId);
+                this.hostsSourceDao.clearProperties(sourceId);
                 continue;
             }
             // Get hosts source last update
@@ -306,7 +307,9 @@ public class SourceModel {
                 }
                 // Update local and online modification dates to now
                 localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
-                this.hostsSourceDao.updateModificationDates(source.getId(), localModificationDate, onlineModificationDate);
+                this.hostsSourceDao.updateModificationDates(sourceId, localModificationDate, onlineModificationDate);
+                // Update size
+                this.hostsSourceDao.updateSize(sourceId);
             } catch (IOException exception) {
                 Log.w(TAG, "Failed to retrieve host source " + url + ".", exception);
                 // Increment number of failed copy

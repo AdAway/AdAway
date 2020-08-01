@@ -48,6 +48,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
      */
     @NonNull
     private final HostsSourcesViewCallback viewCallback;
+    private static final String[] QUANTITY_PREFIXES = new String[]{"k", "M", "G"};
 
     /**
      * Constructor.
@@ -112,6 +113,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         holder.labelTextView.setText(source.getLabel());
         holder.urlTextView.setText(source.getUrl());
         holder.updateTextView.setText(getUpdateText(source));
+        holder.sizeTextView.setText(getHostCount(source));
         holder.itemView.setOnClickListener(view -> viewCallback.edit(source));
     }
 
@@ -145,6 +147,33 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         return updateText;
     }
 
+    private String getHostCount(HostsSource source) {
+        // Check empty source
+        int size = source.getSize();
+        if (size <= 0) {
+            return "";
+        }
+        // Compute size decimal length
+        int length = 1;
+        while (size > 10) {
+            size /= 10;
+            length++;
+        }
+        // Compute prefix to use
+        int prefixIndex = (length - 1) / 3 - 1;
+        // Return formatted count
+        Context context = this.viewCallback.getContext();
+        size = source.getSize();
+        if (prefixIndex < 0) {
+            return context.getString(R.string.hosts_count, Integer.toString(size));
+        } else if (prefixIndex >= QUANTITY_PREFIXES.length) {
+            prefixIndex = QUANTITY_PREFIXES.length - 1;
+            size = 13;
+        }
+        size = Math.toIntExact(Math.round(size / Math.pow(10, (prefixIndex + 1) * 3)));
+        return context.getString(R.string.hosts_count, size + QUANTITY_PREFIXES[prefixIndex]);
+    }
+
     /**
      * This class is a the {@link RecyclerView.ViewHolder} for the hosts sources view.
      *
@@ -155,6 +184,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         final TextView labelTextView;
         final TextView urlTextView;
         final TextView updateTextView;
+        final TextView sizeTextView;
 
         /**
          * Constructor.
@@ -167,6 +197,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
             this.labelTextView = itemView.findViewById(R.id.sourceLabelTextView);
             this.urlTextView = itemView.findViewById(R.id.sourceUrlTextView);
             this.updateTextView = itemView.findViewById(R.id.sourceUpdateTextView);
+            this.sizeTextView = itemView.findViewById(R.id.sourceSizeTextView);
         }
     }
 }

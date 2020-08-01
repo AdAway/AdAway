@@ -56,18 +56,21 @@ public interface HostsSourceDao {
     @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
     LiveData<List<HostsSource>> loadAll();
 
-    @Query("UPDATE hosts_sources SET last_modified_local = null WHERE id = :id")
-    void clearLocaleModificationDate(int id);
-
     @Query("UPDATE hosts_sources SET last_modified_online = :dateTime WHERE id = :id")
     void updateOnlineModificationDate(int id, ZonedDateTime dateTime);
 
     @Query("UPDATE hosts_sources SET last_modified_local = :localModificationDate, last_modified_online = :onlineModificationDate WHERE id = :id")
     void updateModificationDates(int id, ZonedDateTime localModificationDate, ZonedDateTime onlineModificationDate);
 
+    @Query("UPDATE hosts_sources SET size = (SELECT count(id) FROM hosts_lists WHERE source_id = :id) WHERE id = :id")
+    void updateSize(int id);
+
     @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online > last_modified_local")
     LiveData<Integer> countOutdated();
 
     @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online <= last_modified_local")
     LiveData<Integer> countUpToDate();
+
+    @Query("UPDATE hosts_sources SET last_modified_local = null, size = 0 WHERE id = :id")
+    void clearProperties(int id);
 }
