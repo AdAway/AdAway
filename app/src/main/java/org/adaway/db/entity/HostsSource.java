@@ -43,6 +43,7 @@ public class HostsSource {
     private ZonedDateTime localModificationDate;
     @ColumnInfo(name = "last_modified_online")
     private ZonedDateTime onlineModificationDate;
+    private int size;
 
     /**
      * Check whether an URL is valid for as host source.<br>
@@ -119,6 +120,14 @@ public class HostsSource {
 
     public void setOnlineModificationDate(ZonedDateTime lastOnlineModification) {
         this.onlineModificationDate = lastOnlineModification;
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     @Override
