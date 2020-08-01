@@ -100,7 +100,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
     @Override
     public HostsSourcesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.checkbox_list_two_entries, parent, false);
+        View view = layoutInflater.inflate(R.layout.hosts_sources_card, parent, false);
         return new ViewHolder(view);
     }
 
@@ -109,7 +109,8 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         HostsSource source = this.getItem(position);
         holder.enabledCheckBox.setChecked(source.isEnabled());
         holder.enabledCheckBox.setOnClickListener(view -> viewCallback.toggleEnabled(source));
-        holder.hostnameTextView.setText(source.getUrl());
+        holder.labelTextView.setText(source.getLabel());
+        holder.urlTextView.setText(source.getUrl());
         holder.updateTextView.setText(getUpdateText(source));
         holder.itemView.setOnClickListener(view -> viewCallback.edit(source));
     }
@@ -151,7 +152,8 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
         final CheckBox enabledCheckBox;
-        final TextView hostnameTextView;
+        final TextView labelTextView;
+        final TextView urlTextView;
         final TextView updateTextView;
 
         /**
@@ -161,9 +163,10 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
          */
         ViewHolder(View itemView) {
             super(itemView);
-            this.enabledCheckBox = itemView.findViewById(R.id.checkbox_list_checkbox);
-            this.hostnameTextView = itemView.findViewById(R.id.checkbox_list_text);
-            this.updateTextView = itemView.findViewById(R.id.checkbox_list_subtext);
+            this.enabledCheckBox = itemView.findViewById(R.id.sourceEnabledCheckBox);
+            this.labelTextView = itemView.findViewById(R.id.sourceLabelTextView);
+            this.urlTextView = itemView.findViewById(R.id.sourceUrlTextView);
+            this.updateTextView = itemView.findViewById(R.id.sourceUpdateTextView);
         }
     }
 }
