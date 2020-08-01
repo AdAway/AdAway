@@ -148,6 +148,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
     }
 
     private String getHostCount(HostsSource source) {
+        // Note: NumberFormat.getCompactNumberInstance is Java 12 only
         // Check empty source
         int size = source.getSize();
         if (size <= 0) {
