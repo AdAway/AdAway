@@ -50,10 +50,10 @@ public interface HostsSourceDao {
     @Query("SELECT * FROM hosts_sources WHERE id = :id")
     Optional<HostsSource> getById(int id);
 
-    @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
+    @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY label ASC")
     List<HostsSource> getAll();
 
-    @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY url ASC")
+    @Query("SELECT * FROM hosts_sources WHERE id != 1 ORDER BY label ASC")
     LiveData<List<HostsSource>> loadAll();
 
     @Query("UPDATE hosts_sources SET last_modified_online = :dateTime WHERE id = :id")
