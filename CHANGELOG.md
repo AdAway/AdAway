@@ -1,3 +1,9 @@
+## [5.0.7] - Unreleased
+
+*This version is a pre-release*
+
+- Update AndroidX dependencies
+
 ## [5.0.6] - 2020-08-02
 
 *This version is a pre-release*
