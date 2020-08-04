@@ -105,8 +105,8 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     annotationProcessor 'androidx.room:room-compiler:2.2.5'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'androidx.work:work-runtime:2.3.4'
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.work:work-runtime:2.4.0'
+    implementation 'com.google.android.material:material:1.2.0'
 
     // Miscellaneous
     implementation 'com.google.guava:guava:29.0-android'
