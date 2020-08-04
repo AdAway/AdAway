@@ -57,7 +57,7 @@
     <string name="status_check_source">Έλεγχος πηγής %s για ενημέρωση</string>
     <string name="status_retrieve">Ανάκτηση πηγών</string>
     <string name="status_download_source">Λήψη πηγής %s</string>
-    <string name="status_copy_source">Αντιγραφή πηγής %s</string>
+    <string name="status_read_source">Αντιγραφή πηγής %s</string>
     <string name="status_parse_source">Ανάλυση πηγής %s</string>
     <string name="status_revert">Επαναφορά στο προεπιλεγμένο hosts file</string>
     <string name="status_revert_done">Τα προεπιλεγμένα hosts file αποκαταστάθηκαν</string>

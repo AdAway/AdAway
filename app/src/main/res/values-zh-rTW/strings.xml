@@ -57,7 +57,7 @@
     <string name="status_check_source">檢查來源 %s 的更新</string>
     <string name="status_retrieve">搜尋來源中</string>
     <string name="status_download_source">下載來源 %s</string>
-    <string name="status_copy_source">複製來源 %s</string>
+    <string name="status_read_source">複製來源 %s</string>
     <string name="status_parse_source">解析來源 %s</string>
     <string name="status_revert">恢復到預設 hosts 檔案</string>
     <string name="status_revert_done">預設 hosts 檔案已恢復</string>

@@ -217,7 +217,7 @@ public class RootModel extends AdBlockModel {
         writer.write(HEADER_SOURCES);
         writer.newLine();
         for (HostsSource hostsSource : this.hostsSourceDao.getEnabled()) {
-            writer.write("# - " + hostsSource.getUrl());
+            writer.write("# - " + hostsSource.getLabel() + ":" + hostsSource.getUrl());
             writer.newLine();
         }
         // Write empty line separator
@@ -237,7 +237,7 @@ public class RootModel extends AdBlockModel {
         String redirectionIpv6 = PreferenceHelper.getRedirectionIpv6(this.context);
         boolean enableIpv6 = PreferenceHelper.getEnableIpv6(this.context);
         // Write each hostname
-        for (HostEntry entry: this.hostEntryDao.getAll()) {
+        for (HostEntry entry : this.hostEntryDao.getAll()) {
             String hostname = entry.getHost();
             if (entry.getType() == REDIRECTED) {
                 writer.write(entry.getRedirection() + " " + hostname);

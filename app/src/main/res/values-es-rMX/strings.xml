@@ -57,7 +57,7 @@
     <string name="status_check_source">Buscando actualizaciones en la fuente %s</string>
     <string name="status_retrieve">Recuperando fuentes</string>
     <string name="status_download_source">Descargando datos de la fuente %s</string>
-    <string name="status_copy_source">Copiando datos de la fuente %s</string>
+    <string name="status_read_source">Copiando datos de la fuente %s</string>
     <string name="status_parse_source">Analizando datos de la fuente %s</string>
     <string name="status_revert">Revirtiendo el archivo hosts a la versión predeterminada</string>
     <string name="status_revert_done">Se restableció el archivo hosts predeterminado</string>

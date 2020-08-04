@@ -57,7 +57,7 @@
     <string name="status_check_source">Перевірка джерела %s на наявність оновлень</string>
     <string name="status_retrieve">Отримання джерел</string>
     <string name="status_download_source">Завантаження джерела %s</string>
-    <string name="status_copy_source">Копіювання джерела %s</string>
+    <string name="status_read_source">Копіювання джерела %s</string>
     <string name="status_parse_source">Обробка джерела %s</string>
     <string name="status_revert">Отримання усталеного файлу hosts</string>
     <string name="status_revert_done">Усталений файл hosts відновлено</string>

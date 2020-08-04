@@ -57,7 +57,7 @@
     <string name="status_check_source">Bezig met controleren vas %s op updates</string>
     <string name="status_retrieve">Bezig met ophalen van bronnen</string>
     <string name="status_download_source">Bezig met ophalen van bron \'%s\'</string>
-    <string name="status_copy_source">Bezig met kopiëren van bron \'%s\'</string>
+    <string name="status_read_source">Bezig met kopiëren van bron \'%s\'</string>
     <string name="status_parse_source">Bezig met verwerken van bron \'%s\'</string>
     <string name="status_revert">Bezig met terugzetten van standaard hosts-bestand</string>
     <string name="status_revert_done">Het standaard hosts-bestand is teruggezet</string>
