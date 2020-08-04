@@ -74,16 +74,23 @@ public class ImportExportHelper {
      */
     public static final int EXPORT_REQUEST_CODE = 43;
     /*
-     * Backup format.
+     * Source backup format.
      */
     private static final String SOURCES_KEY = "sources";
+    private static final String SOURCE_LABEL_ATTRIBUTE = "label";
+    private static final String SOURCE_URL_ATTRIBUTE = "url";
+    private static final String SOURCE_ENABLED_ATTRIBUTE = "enabled";
+    private static final String SOURCE_ALLOW_ATTRIBUTE = "allow";
+    private static final String SOURCE_REDIRECT_ATTRIBUTE = "redirect";
+    /*
+     * User source backup format.
+     */
     private static final String BLOCKED_KEY = "blocked";
     private static final String ALLOWED_KEY = "allowed";
     private static final String REDIRECTED_KEY = "redirected";
     private static final String ENABLED_ATTRIBUTE = "enabled";
     private static final String HOST_ATTRIBUTE = "host";
     private static final String REDIRECT_ATTRIBUTE = "redirect";
-    private static final String URL_ATTRIBUTE = "url";
 
     /**
      * Import a backup file.
@@ -181,15 +188,21 @@ public class ImportExportHelper {
 
     private static JSONObject sourceToJson(HostsSource source) throws JSONException {
         JSONObject sourceObject = new JSONObject();
-        sourceObject.put(URL_ATTRIBUTE, source.getUrl());
-        sourceObject.put(ENABLED_ATTRIBUTE, source.isEnabled());
+        sourceObject.put(SOURCE_LABEL_ATTRIBUTE, source.getLabel());
+        sourceObject.put(SOURCE_URL_ATTRIBUTE, source.getUrl());
+        sourceObject.put(SOURCE_ENABLED_ATTRIBUTE, source.isEnabled());
+        sourceObject.put(SOURCE_ALLOW_ATTRIBUTE, source.isAllowEnabled());
+        sourceObject.put(SOURCE_REDIRECT_ATTRIBUTE, source.isRedirectEnabled());
         return sourceObject;
     }
 
     private static HostsSource sourceFromJson(JSONObject sourceObject) throws JSONException {
         HostsSource source = new HostsSource();
-        source.setUrl(sourceObject.getString(URL_ATTRIBUTE));
-        source.setEnabled(sourceObject.getBoolean(ENABLED_ATTRIBUTE));
+        source.setLabel(sourceObject.getString(SOURCE_LABEL_ATTRIBUTE));
+        source.setUrl(sourceObject.getString(SOURCE_URL_ATTRIBUTE));
+        source.setEnabled(sourceObject.getBoolean(SOURCE_ENABLED_ATTRIBUTE));
+        source.setAllowEnabled(sourceObject.getBoolean(SOURCE_ALLOW_ATTRIBUTE));
+        source.setRedirectEnabled(sourceObject.getBoolean(SOURCE_REDIRECT_ATTRIBUTE));
         return source;
     }
 
