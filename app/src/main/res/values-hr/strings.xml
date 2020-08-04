@@ -57,7 +57,7 @@
     <string name="status_check_source">Provjeravanje ažuriranja na izvoru %s</string>
     <string name="status_retrieve">Primanje izvora</string>
     <string name="status_download_source">Preuzimanje izvora %s</string>
-    <string name="status_copy_source">Kopiranje izvora %s</string>
+    <string name="status_read_source">Kopiranje izvora %s</string>
     <string name="status_parse_source">Obrada izvora %s</string>
     <string name="status_revert">Primanje u zadanu datoteku poslužitelja</string>
     <string name="status_revert_done">Zadana datoteka poslužitelja je obnovljena</string>

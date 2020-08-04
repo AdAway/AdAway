@@ -57,7 +57,7 @@
     <string name="status_check_source">Controllo aggiornamenti sorgente %s</string>
     <string name="status_retrieve">Recupero delle sorgenti</string>
     <string name="status_download_source">Scarico sorgente %s</string>
-    <string name="status_copy_source">Copio sorgente %s</string>
+    <string name="status_read_source">Copio sorgente %s</string>
     <string name="status_parse_source">Analisi sorgente %s</string>
     <string name="status_revert">Ripristino in corso del file hosts predefinito</string>
     <string name="status_revert_done">File hosts predefinito ripristinato</string>

@@ -57,7 +57,7 @@
     <string name="status_check_source">Hľadanie aktualizácií pre zdroj %s</string>
     <string name="status_retrieve">Získavanie zdrojov</string>
     <string name="status_download_source">Sťahovanie zdroja %s</string>
-    <string name="status_copy_source">Kopírovanie zdroja %s</string>
+    <string name="status_read_source">Kopírovanie zdroja %s</string>
     <string name="status_parse_source">Analýza zdroja %s</string>
     <string name="status_revert">Obnovuje sa pôvodný súbor hosts</string>
     <string name="status_revert_done">Pôvodný súbor hosts obnovený</string>

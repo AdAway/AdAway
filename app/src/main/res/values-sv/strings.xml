@@ -57,7 +57,7 @@
     <string name="status_check_source">Kontrollerar om det finns några uppdateringar för källan %s</string>
     <string name="status_retrieve">Tar emot källor</string>
     <string name="status_download_source">Ladda ner källa %s</string>
-    <string name="status_copy_source">Kopierar källan %s</string>
+    <string name="status_read_source">Kopierar källan %s</string>
     <string name="status_parse_source">Tolkar källan %s</string>
     <string name="status_revert">Återställer standardvärdfilen</string>
     <string name="status_revert_done">Standard värdfil återställd</string>

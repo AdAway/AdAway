@@ -153,7 +153,7 @@ public class SourceModel {
             String sourceUrl = source.getUrl();
             ZonedDateTime lastModifiedLocal = source.getLocalModificationDate();
             // Update state
-            setState(R.string.status_check_source, sourceUrl);
+            setState(R.string.status_check_source, source.getLabel());
             // Get hosts source last update
             ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(sourceUrl);
             // Some help with debug here
@@ -300,7 +300,7 @@ public class SourceModel {
                         downloadHostSource(source);
                         break;
                     case "file":
-                        copyHostSourceFile(source);
+                        readSourceFile(source);
                         break;
                     default:
                         Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
@@ -342,7 +342,7 @@ public class SourceModel {
     }
 
     /**
-     * Download an hosts source file and append it to a private file.
+     * Download an hosts source file and append it to the database.
      *
      * @param source The hosts source to download.
      * @throws IOException If the hosts source could not be downloaded.
@@ -369,17 +369,17 @@ public class SourceModel {
     }
 
     /**
-     * Copy a hosts source file and append it to a private file.
+     * Read a hosts source file and append it to the database.
      *
      * @param hostsSource The hosts source to copy.
      * @throws IOException If the hosts source could not be copied.
      */
-    private void copyHostSourceFile(HostsSource hostsSource) throws IOException {
+    private void readSourceFile(HostsSource hostsSource) throws IOException {
         // Get hosts file URL
         String hostsFileUrl = hostsSource.getUrl();
         Log.v(TAG, "Copying hosts source file: " + hostsFileUrl);
         // Set state to copying hosts source
-        setState(R.string.status_copy_source, hostsFileUrl);
+        setState(R.string.status_read_source, hostsFileUrl);
         try {
             // Get file from URL
             File hostsSourceFile = new File(new URL(hostsFileUrl).toURI());
@@ -400,7 +400,7 @@ public class SourceModel {
      * @throws IOException If the source could not be read.
      */
     private void parseSourceInputStream(HostsSource hostsSource, InputStream inputStream) throws IOException {
-        setState(R.string.status_parse_source, hostsSource.getUrl());
+        setState(R.string.status_parse_source, hostsSource.getLabel());
         long startTime = System.currentTimeMillis();
         SourceParser sourceParser = new SourceParser(hostsSource, inputStream);
         SourceBatchUpdater updater = new SourceBatchUpdater(this.hostListItemDao);

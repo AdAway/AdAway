@@ -57,7 +57,7 @@
     <string name="status_check_source">Проверка на източник %s за актуализация</string>
     <string name="status_retrieve">Извличане на източници</string>
     <string name="status_download_source">Изтегляне на източник%s</string>
-    <string name="status_copy_source">Копиране на източник %s</string>
+    <string name="status_read_source">Копиране на източник %s</string>
     <string name="status_parse_source">Разбор на източник %s</string>
     <string name="status_revert">Връщане към файл с хостове по подразбиране</string>
     <string name="status_revert_done">Файлът с хостове по подразбиране е възстановен</string>

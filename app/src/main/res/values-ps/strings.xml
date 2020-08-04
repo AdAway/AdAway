@@ -54,7 +54,7 @@
     <string name="status_check_source">سرچینه ګورو د اوسمهاليز لپاره %s</string>
     <string name="status_retrieve">سرچينې پلټل</string>
     <string name="status_download_source">سرچينه رالېښل %s</string>
-    <string name="status_copy_source">سرچينه لمېسل %s</string>
+    <string name="status_read_source">سرچينه لمېسل %s</string>
     <string name="status_parse_source">سرچينه تجزيه کول %s</string>
     <string name="status_revert">د hosts تلوالې دوتنې ته راګرځول</string>
     <string name="status_revert_done">د hosts تلواله دوتنه بیازېرمه شوه</string>

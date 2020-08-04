@@ -57,7 +57,7 @@
     <string name="status_check_source">Prüfung der Quelle %s auf Aktualisierung</string>
     <string name="status_retrieve">Quellen werden abgerufen</string>
     <string name="status_download_source">Quelle %s wird heruntergeladen</string>
-    <string name="status_copy_source">Quelle %s wird kopiert</string>
+    <string name="status_read_source">Quelle %s wird kopiert</string>
     <string name="status_parse_source">Quelle %s wird analysiert</string>
     <string name="status_revert">Hosts-Datei wird auf Standard zurückgesetzt</string>
     <string name="status_revert_done">Standard-Hosts-Datei wiederhergestellt</string>

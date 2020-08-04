@@ -57,7 +57,7 @@
     <string name="status_check_source">Đang kiểm tra cập nhật %s </string>
     <string name="status_retrieve">Đang lấy nguồn</string>
     <string name="status_download_source">Đang tải nguồn %s</string>
-    <string name="status_copy_source">Đang sao chép nguồn %s</string>
+    <string name="status_read_source">Đang sao chép nguồn %s</string>
     <string name="status_parse_source">Hợp nhất nguồn %s</string>
     <string name="status_revert">Quay lại tập tin nguồn mặc định</string>
     <string name="status_revert_done">Quay lại tập tin nguồn mặc định</string>

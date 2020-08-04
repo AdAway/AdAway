@@ -58,7 +58,7 @@
     <string name="status_check_source">التأكد من المصدر%sمن التحديث</string>
     <string name="status_retrieve">جلب المصادر</string>
     <string name="status_download_source">تحميل المصدر %s</string>
-    <string name="status_copy_source">نسخ المصدر %s</string>
+    <string name="status_read_source">نسخ المصدر %s</string>
     <string name="status_parse_source">تمحيص المصدر %s</string>
     <string name="status_revert">إستعادة إعدادات ملف hosts الإفتراضية</string>
     <string name="status_revert_done">إستعادة ملف hosts الإفتراضي اكتمل</string>
