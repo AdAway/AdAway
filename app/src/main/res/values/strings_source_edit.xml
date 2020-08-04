@@ -15,4 +15,5 @@
     <string name="source_edit_location_invalid">Invalid location</string>
     <string name="source_edit_allowed_hosts">Apply allowed hosts</string>
     <string name="source_edit_redirected_hosts">Apply redirected hosts</string>
+    <string name="source_edit_redirected_hosts_warning">Allowing redirected hosts may cause security issues. Only use this settings on a trusted source as it could redirect some sensitive traffic to whatever server it wants.</string>
 </resources>
