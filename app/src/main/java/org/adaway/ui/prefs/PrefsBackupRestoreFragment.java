@@ -10,7 +10,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
-import org.adaway.helper.ImportExportHelper;
+import org.adaway.model.backup.BackupExporter;
+import org.adaway.model.backup.BackupImporter;
 import org.adaway.util.Log;
 
 import static android.app.Activity.RESULT_OK;
@@ -18,8 +19,6 @@ import static android.content.Intent.ACTION_CREATE_DOCUMENT;
 import static android.content.Intent.ACTION_OPEN_DOCUMENT;
 import static android.content.Intent.CATEGORY_OPENABLE;
 import static android.content.Intent.EXTRA_TITLE;
-import static org.adaway.helper.ImportExportHelper.EXPORT_REQUEST_CODE;
-import static org.adaway.helper.ImportExportHelper.IMPORT_REQUEST_CODE;
 import static org.adaway.util.Constants.PREFS_NAME;
 
 /**
@@ -28,6 +27,14 @@ import static org.adaway.util.Constants.PREFS_NAME;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
+    /**
+     * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
+     */
+    private static final int IMPORT_REQUEST_CODE = 42;
+    /**
+     * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
+     */
+    private static final int EXPORT_REQUEST_CODE = 43;
     private static final String TAG = "BackupRestorePref";
     /**
      * The backup mime type.
@@ -72,10 +79,10 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
         // Check request code
         switch (requestCode) {
             case IMPORT_REQUEST_CODE:
-                ImportExportHelper.importFromBackup(getContext(), backupUri);
+                BackupImporter.importFromBackup(requireContext(), backupUri);
                 break;
             case EXPORT_REQUEST_CODE:
-                ImportExportHelper.exportToBackup(getContext(), backupUri);
+                BackupExporter.exportToBackup(requireContext(), backupUri);
                 break;
             default:
                 Log.w(TAG, "Unsupported request code: " + requestCode + ".");
@@ -84,6 +91,7 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
 
     private void bindBackupPref() {
         Preference backupPreference = findPreference(getString(R.string.pref_backup_key));
+        assert backupPreference != null : "preference not found";
         backupPreference.setOnPreferenceClickListener(preference -> {
             exportToBackup();
             return true;
@@ -92,6 +100,7 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
 
     private void bindRestorePref() {
         Preference backupPreference = findPreference(getString(R.string.pref_restore_key));
+        assert backupPreference != null : "preference not found";
         backupPreference.setOnPreferenceClickListener(preference -> {
             importFromBackup();
             return true;
