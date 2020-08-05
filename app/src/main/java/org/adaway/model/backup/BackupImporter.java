@@ -1,6 +1,5 @@
 package org.adaway.model.backup;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.widget.Toast;
@@ -53,8 +52,6 @@ public final class BackupImporter {
     private static final Executor DISK_IO_EXECUTOR = AppExecutors.getInstance().diskIO();
     private static final Executor MAIN_THREAD_EXECUTOR = AppExecutors.getInstance().mainThread();
 
-    private static ProgressDialog dialog;
-
     /**
      * Import a backup file.
      *
@@ -63,8 +60,6 @@ public final class BackupImporter {
      */
     @UiThread
     public static void importFromBackup(Context context, Uri backupUri) {
-        clearDialog();
-        showImportDialog(context);
         DISK_IO_EXECUTOR.execute(() -> {
             boolean imported = true;
             try {
@@ -74,28 +69,8 @@ public final class BackupImporter {
                 imported = false;
             }
             boolean successful = imported;
-            MAIN_THREAD_EXECUTOR.execute(() -> {
-                clearDialog();
-                notifyImportEnd(context, successful);
-            });
+            MAIN_THREAD_EXECUTOR.execute(() -> notifyImportEnd(context, successful));
         });
-    }
-
-    @UiThread
-    private static void showImportDialog(Context context) {
-        BackupImporter.dialog = new ProgressDialog(context);
-        BackupImporter.dialog.setMessage(context.getString(R.string.import_dialog));
-        BackupImporter.dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        BackupImporter.dialog.setCancelable(false);
-        BackupImporter.dialog.show();
-    }
-
-    @UiThread
-    private static void clearDialog() {
-        if (BackupImporter.dialog != null) {
-            BackupImporter.dialog.cancel();
-            BackupImporter.dialog = null;
-        }
     }
 
     @UiThread

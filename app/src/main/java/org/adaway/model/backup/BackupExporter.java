@@ -1,6 +1,5 @@
 package org.adaway.model.backup;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.net.Uri;
 import android.widget.Toast;
@@ -48,8 +47,6 @@ public class BackupExporter {
     private static final Executor DISK_IO_EXECUTOR = AppExecutors.getInstance().diskIO();
     private static final Executor MAIN_THREAD_EXECUTOR = AppExecutors.getInstance().mainThread();
 
-    private static ProgressDialog dialog;
-
     private BackupExporter() {
 
     }
@@ -60,8 +57,6 @@ public class BackupExporter {
      * @param context The application context.
      */
     public static void exportToBackup(Context context, Uri backupUri) {
-        clearDialog();
-        showExportDialog(context);
         DISK_IO_EXECUTOR.execute(() -> {
             boolean imported = true;
             try {
@@ -71,28 +66,8 @@ public class BackupExporter {
                 imported = false;
             }
             boolean successful = imported;
-            MAIN_THREAD_EXECUTOR.execute(() -> {
-                clearDialog();
-                notifyExportEnd(context, successful);
-            });
+            MAIN_THREAD_EXECUTOR.execute(() -> notifyExportEnd(context, successful));
         });
-    }
-
-    @UiThread
-    private static void showExportDialog(Context context) {
-        BackupExporter.dialog = new ProgressDialog(context);
-        BackupExporter.dialog.setMessage(context.getString(R.string.export_dialog));
-        BackupExporter.dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        BackupExporter.dialog.setCancelable(false);
-        BackupExporter.dialog.show();
-    }
-
-    @UiThread
-    private static void clearDialog() {
-        if (BackupExporter.dialog != null) {
-            BackupExporter.dialog.cancel();
-            BackupExporter.dialog = null;
-        }
     }
 
     @UiThread
