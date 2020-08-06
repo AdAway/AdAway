@@ -3,6 +3,7 @@ package org.adaway.model.source;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,19 +23,17 @@ import org.adaway.model.error.HostErrorException;
 import org.adaway.model.git.GitHostsSource;
 import org.adaway.util.Log;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Objects;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
@@ -227,8 +226,8 @@ public class SourceModel {
         if (GitHostsSource.isHostedOnGit(url)) {
             try {
                 return GitHostsSource.getSource(url).getLastUpdate();
-            } catch (MalformedURLException exception) {
-                Log.w(TAG, "Failed to get GitHub last update for url " + url + ".", exception);
+            } catch (MalformedURLException e) {
+                Log.w(TAG, "Failed to get GitHub last update for url " + url + ".", e);
                 return null;
             }
         }
@@ -242,8 +241,8 @@ public class SourceModel {
             connection.setReadTimeout(30000);
             long lastModified = connection.getLastModified() / 1000;
             return ZonedDateTime.of(LocalDateTime.ofEpochSecond(lastModified, 0, UTC), UTC);
-        } catch (Exception exception) {
-            Log.e(TAG, "Exception while downloading from " + url, exception);
+        } catch (Exception e) {
+            Log.e(TAG, "Exception while downloading from " + url, e);
             return null;
         } finally {
             if (connection instanceof HttpURLConnection) {
@@ -293,25 +292,24 @@ public class SourceModel {
             // Increment number of copy
             numberOfCopies++;
             try {
-                // Check hosts source protocol
-                String protocol = new URL(url).getProtocol();
-                switch (protocol) {
-                    case "https":
+                // Check hosts source type
+                switch (source.getType()) {
+                    case URL:
                         downloadHostSource(source);
                         break;
-                    case "file":
+                    case FILE:
                         readSourceFile(source);
                         break;
                     default:
-                        Log.w(TAG, "Hosts source protocol " + protocol + " is not supported.");
+                        Log.w(TAG, "Hosts source type  is not supported.");
                 }
                 // Update local and online modification dates to now
                 localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
                 this.hostsSourceDao.updateModificationDates(sourceId, localModificationDate, onlineModificationDate);
                 // Update size
                 this.hostsSourceDao.updateSize(sourceId);
-            } catch (IOException exception) {
-                Log.w(TAG, "Failed to retrieve host source " + url + ".", exception);
+            } catch (IOException e) {
+                Log.w(TAG, "Failed to retrieve host source " + url + ".", e);
                 // Increment number of failed copy
                 numberOfFailedCopies++;
             }
@@ -361,10 +359,10 @@ public class SourceModel {
                 .build();
         // Request hosts file and open byte stream
         try (Response response = httpClient.newCall(request).execute();
-             InputStream inputStream = response.body().byteStream()) {
+             InputStream inputStream = Objects.requireNonNull(response.body()).byteStream()) {
             parseSourceInputStream(source, inputStream);
-        } catch (IOException exception) {
-            throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", exception);
+        } catch (IOException e) {
+            throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", e);
         }
     }
 
@@ -375,20 +373,16 @@ public class SourceModel {
      * @throws IOException If the hosts source could not be copied.
      */
     private void readSourceFile(HostsSource hostsSource) throws IOException {
-        // Get hosts file URL
+        // Get hosts file URI
         String hostsFileUrl = hostsSource.getUrl();
-        Log.v(TAG, "Copying hosts source file: " + hostsFileUrl);
+        Uri fileUri = Uri.parse(hostsFileUrl);
+        Log.v(TAG, "Reading hosts source file: " + hostsFileUrl);
         // Set state to copying hosts source
         setState(R.string.status_read_source, hostsFileUrl);
-        try {
-            // Get file from URL
-            File hostsSourceFile = new File(new URL(hostsFileUrl).toURI());
-            // Copy hosts file source to private file
-            try (InputStream inputStream = new FileInputStream(hostsSourceFile)) {
+        try (InputStream inputStream = this.context.getContentResolver().openInputStream(fileUri)) {
                 parseSourceInputStream(hostsSource, inputStream);
-            }
-        } catch (IOException | URISyntaxException exception) {
-            throw new IOException("Error while copying hosts file from " + hostsFileUrl + ".", exception);
+        } catch (IOException e) {
+            throw new IOException("Error while copying hosts file from " + hostsFileUrl + ".", e);
         }
     }
 

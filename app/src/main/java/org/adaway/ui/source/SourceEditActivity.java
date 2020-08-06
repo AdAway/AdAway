@@ -117,15 +117,15 @@ public class SourceEditActivity extends AppCompatActivity {
 
     private void applyInitialValues(HostsSource source) {
         this.binding.labelEditText.setText(source.getLabel());
-        String url = source.getUrl();
-        if (url.startsWith("https://")) {
-            this.binding.typeButtonGroup.check(R.id.url_button);
-            this.binding.locationEditText.setText(url);
-        } else if (url.startsWith("content://")) {
-            this.binding.typeButtonGroup.check(R.id.file_button);
-            this.binding.fileLocationTextView.setText(url);
-            this.binding.fileLocationTextView.setVisibility(VISIBLE);
-            this.binding.locationEditText.setVisibility(INVISIBLE);
+        switch (source.getType()) {
+            case URL:
+                this.binding.typeButtonGroup.check(R.id.url_button);
+                this.binding.locationEditText.setText(source.getUrl());
+            case FILE:
+                this.binding.typeButtonGroup.check(R.id.file_button);
+                this.binding.fileLocationTextView.setText(source.getUrl());
+                this.binding.fileLocationTextView.setVisibility(VISIBLE);
+                this.binding.locationEditText.setVisibility(INVISIBLE);
         }
         this.binding.allowedHostsCheckbox.setChecked(source.isAllowEnabled());
         this.binding.redirectedHostsCheckbox.setChecked(source.isRedirectEnabled());
