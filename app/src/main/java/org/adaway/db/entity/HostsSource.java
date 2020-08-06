@@ -11,6 +11,10 @@ import androidx.room.PrimaryKey;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
+import static org.adaway.db.entity.SourceType.FILE;
+import static org.adaway.db.entity.SourceType.UNSUPPORTED;
+import static org.adaway.db.entity.SourceType.URL;
+
 /**
  * This entity represents a source to get hosts list.
  *
@@ -28,7 +32,7 @@ public class HostsSource {
     /**
      * The user source URL.
      */
-    public static final String USER_SOURCE_URL = "file://app/user/hosts";
+    public static final String USER_SOURCE_URL = "content://org.adaway/user/hosts";
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -80,6 +84,16 @@ public class HostsSource {
 
     public void setUrl(@NonNull String url) {
         this.url = url;
+    }
+
+    public SourceType getType() {
+        if (this.url.startsWith("https://")) {
+            return URL;
+        } else if (this.url.startsWith("content://")) {
+            return FILE;
+        } else {
+            return UNSUPPORTED;
+        }
     }
 
     public boolean isEnabled() {
