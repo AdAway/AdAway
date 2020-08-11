@@ -1,6 +1,8 @@
 package org.adaway.model.source;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -13,6 +15,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
+import org.adaway.db.converter.ZonedDateTimeConverter;
 import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
@@ -41,6 +44,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
+import static android.provider.DocumentsContract.Document.COLUMN_LAST_MODIFIED;
 import static java.time.ZoneOffset.UTC;
 import static java.time.format.FormatStyle.MEDIUM;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
@@ -149,12 +153,11 @@ public class SourceModel {
         // Check each source
         for (HostsSource source : sources) {
             // Get URL and lastModified from db
-            String sourceUrl = source.getUrl();
             ZonedDateTime lastModifiedLocal = source.getLocalModificationDate();
             // Update state
             setState(R.string.status_check_source, source.getLabel());
             // Get hosts source last update
-            ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(sourceUrl);
+            ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(source);
             // Some help with debug here
             Log.d(TAG, "lastModifiedLocal: " + dateToString(lastModifiedLocal));
             Log.d(TAG, "lastModifiedOnline: " + dateToString(lastModifiedOnline));
@@ -216,11 +219,29 @@ public class SourceModel {
     /**
      * Get the hosts source last online update.
      *
-     * @param url The hosts source URL to get last online update.
+     * @param source The hosts source to get last online update.
      * @return The last online date, {@code null} if the date could not be retrieved.
      */
     @Nullable
-    private ZonedDateTime getHostsSourceLastUpdate(String url) {
+    private ZonedDateTime getHostsSourceLastUpdate(HostsSource source) {
+        switch (source.getType()) {
+            case URL:
+                return getUrlLastUpdate(source.getUrl());
+            case FILE:
+                Uri fileUri = Uri.parse(source.getUrl());
+                return getFileLastUpdate(fileUri);
+            default:
+                return null;
+        }
+    }
+
+    /**
+     * Get the url last online update.
+     *
+     * @param url The url to get last online update.
+     * @return The last online date, {@code null} if the date could not be retrieved.
+     */
+    private ZonedDateTime getUrlLastUpdate(String url) {
         Log.v(TAG, "Checking hosts file: " + url);
         // Check Git hosting
         if (GitHostsSource.isHostedOnGit(url)) {
@@ -252,6 +273,32 @@ public class SourceModel {
     }
 
     /**
+     * Get the file last modified date.
+     *
+     * @param fileUri The file uri to get last modified date.
+     * @return The file last modified date, {@code null} if date could not be retrieved.
+     */
+    private ZonedDateTime getFileLastUpdate(Uri fileUri) {
+        ContentResolver contentResolver = this.context.getContentResolver();
+        try (Cursor cursor = contentResolver.query(fileUri, null, null, null, null)) {
+            if (cursor == null) {
+                Log.w(TAG, "The content resolver could not find " + fileUri);
+                return null;
+            }
+            if (!cursor.moveToFirst()) {
+                Log.w(TAG, "The content resolver could not find " + fileUri);
+                return null;
+            }
+            int columnIndex = cursor.getColumnIndex(COLUMN_LAST_MODIFIED);
+            if (columnIndex == -1) {
+                Log.w(TAG, "The content resolver does not support last modified column " + fileUri);
+                return null;
+            }
+            return ZonedDateTimeConverter.fromTimestamp(cursor.getLong(columnIndex));
+        }
+    }
+
+    /**
      * Retrieve all hosts sources files to copy into a private local file.
      *
      * @throws HostErrorException If the hosts sources could not be downloaded.
@@ -271,6 +318,7 @@ public class SourceModel {
         // Get each hosts source
         for (HostsSource source : this.hostsSourceDao.getAll()) {
             int sourceId = source.getId();
+            String url = source.getUrl();
             // Clear disabled source
             if (!source.isEnabled()) {
                 this.hostListItemDao.clearSourceHosts(sourceId);
@@ -278,15 +326,14 @@ public class SourceModel {
                 continue;
             }
             // Get hosts source last update
-            String url = source.getUrl();
-            ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(url);
+            ZonedDateTime onlineModificationDate = getHostsSourceLastUpdate(source);
             if (onlineModificationDate == null) {
                 onlineModificationDate = now;
             }
             // Check if update available
             ZonedDateTime localModificationDate = source.getLocalModificationDate();
             if (localModificationDate != null && localModificationDate.isAfter(onlineModificationDate)) {
-                Log.i(TAG, "Skip source " + url + ": no update.");
+                Log.i(TAG, "Skip source " + source.getUrl() + ": no update.");
                 continue;
             }
             // Increment number of copy
@@ -380,7 +427,7 @@ public class SourceModel {
         // Set state to copying hosts source
         setState(R.string.status_read_source, hostsFileUrl);
         try (InputStream inputStream = this.context.getContentResolver().openInputStream(fileUri)) {
-                parseSourceInputStream(hostsSource, inputStream);
+            parseSourceInputStream(hostsSource, inputStream);
         } catch (IOException e) {
             throw new IOException("Error while copying hosts file from " + hostsFileUrl + ".", e);
         }
