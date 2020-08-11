@@ -125,7 +125,7 @@ public class SourceEditActivity extends AppCompatActivity {
                 this.binding.typeButtonGroup.check(R.id.file_button);
                 this.binding.fileLocationTextView.setText(source.getUrl());
                 this.binding.fileLocationTextView.setVisibility(VISIBLE);
-                this.binding.locationEditText.setVisibility(INVISIBLE);
+                this.binding.urlTextInputLayout.setVisibility(INVISIBLE);
         }
         this.binding.allowedHostsCheckbox.setChecked(source.isAllowEnabled());
         this.binding.redirectedHostsCheckbox.setChecked(source.isRedirectEnabled());
