@@ -24,6 +24,7 @@ import static org.adaway.db.Migrations.MIGRATION_1_2;
 import static org.adaway.db.Migrations.MIGRATION_2_3;
 import static org.adaway.db.Migrations.MIGRATION_3_4;
 import static org.adaway.db.Migrations.MIGRATION_4_5;
+import static org.adaway.db.Migrations.MIGRATION_5_6;
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
 
@@ -65,7 +66,8 @@ public abstract class AppDatabase extends RoomDatabase {
                             MIGRATION_1_2,
                             MIGRATION_2_3,
                             MIGRATION_3_4,
-                            MIGRATION_4_5
+                            MIGRATION_4_5,
+                            MIGRATION_5_6
                     ).build();
                 }
             }
@@ -87,6 +89,7 @@ public abstract class AppDatabase extends RoomDatabase {
         userSource.setLabel(context.getString(R.string.hosts_user_source));
         userSource.setId(USER_SOURCE_ID);
         userSource.setUrl(USER_SOURCE_URL);
+        userSource.setAllowEnabled(true);
         userSource.setRedirectEnabled(true);
         hostsSourceDao.insert(userSource);
         // AdAway official
