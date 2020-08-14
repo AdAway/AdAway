@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Вимкнути VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Видалити</string>
     <string name="checkbox_list_context_title">Редагувати запис</string>
+    <string name="checkbox_list_context_apply">Застосувати</string>
     <string name="checkbox_list_context_edit">Редагувати</string>
+    <string name="checkbox_list_context_delete">Видалити</string>
 
     <!--Your lists-->
     <string name="import_dialog">Імпортування…</string>
@@ -57,7 +58,7 @@
     <string name="status_check_source">Перевірка джерела %s на наявність оновлень</string>
     <string name="status_retrieve">Отримання джерел</string>
     <string name="status_download_source">Завантаження джерела %s</string>
-    <string name="status_read_source">Копіювання джерела %s</string>
+    <string name="status_read_source">Читання джерела %s</string>
     <string name="status_parse_source">Обробка джерела %s</string>
     <string name="status_revert">Отримання усталеного файлу hosts</string>
     <string name="status_revert_done">Усталений файл hosts відновлено</string>
