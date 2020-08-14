@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Zdroje hostitelů</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Seznam uživatele</string>
+    <string name="hosts_adaway_source">Oficiální AdAway hostitelé</string>
+    <string name="hosts_stevenblack_source">StevenBlack Unified hostitelé</string>
+    <string name="hosts_peterlowe_source">Pete Lowe blocklist hostitelé</string>
     <!-- List -->
     <string name="hosts_not_available">není k dispozici</string>
+    <string name="hosts_count">%s hostitelů</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Přidat zdroj</string>
     <string name="hosts_edit_dialog_title">Upravit zdroj</string>
