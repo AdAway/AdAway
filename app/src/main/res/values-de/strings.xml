@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">VPN deaktivieren</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Löschen</string>
     <string name="checkbox_list_context_title">Eintrag bearbeiten</string>
+    <string name="checkbox_list_context_apply">Anwenden</string>
     <string name="checkbox_list_context_edit">Bearbeiten</string>
+    <string name="checkbox_list_context_delete">Löschen</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importiere …</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Prüfung auf Aktualisierung</string>
-    <string name="status_check_source">Prüfung der Quelle %s auf Aktualisierung</string>
+    <string name="status_check_source">Überprüfe%s Quellen auf Aktualisierungen</string>
     <string name="status_retrieve">Quellen werden abgerufen</string>
     <string name="status_download_source">Quelle %s wird heruntergeladen</string>
-    <string name="status_read_source">Quelle %s wird kopiert</string>
-    <string name="status_parse_source">Quelle %s wird analysiert</string>
+    <string name="status_read_source">Lese Quelle %s</string>
+    <string name="status_parse_source">Analysiere %s Quellen</string>
     <string name="status_revert">Hosts-Datei wird auf Standard zurückgesetzt</string>
     <string name="status_revert_done">Standard-Hosts-Datei wiederhergestellt</string>
     <string name="status_reverting_subtitle">Standard-Hosts-Datei wird generiert</string>
