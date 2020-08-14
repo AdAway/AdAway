@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Оновлення</string>
-    </resources>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Оновлення застосунку</string>
+    <string name="pref_update_check_app_daily">Періодично перевіряти наявність оновлень</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Оновлення хостів</string>
+    <string name="pref_update_check">Перевіряти оновлення під час запуску</string>
+    <string name="pref_update_check_hosts_daily">Періодично перевіряти наявність оновлень</string>
+    <string name="pref_update_sync_on_update">Синхронізувати при оновленні</string>
+    <string name="pref_update_sync_unmetered_only">Синхронізувати лише коли W-iFi</string>
+</resources>
