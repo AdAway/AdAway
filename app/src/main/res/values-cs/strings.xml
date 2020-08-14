@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Zakázat VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Smazat</string>
     <string name="checkbox_list_context_title">Upravit položku</string>
+    <string name="checkbox_list_context_apply">Aplikovat</string>
     <string name="checkbox_list_context_edit">Upravit</string>
+    <string name="checkbox_list_context_delete">Smazat</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importování…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Kontrola aktualizace</string>
-    <string name="status_check_source">Kontrola aktualizace zdroje %s</string>
+    <string name="status_check_source">Kontrola aktualizací zdroje %s</string>
     <string name="status_retrieve">Načítání zdrojů</string>
     <string name="status_download_source">Stahování zdroje %s</string>
-    <string name="status_read_source">Kopírování zdroje %s</string>
-    <string name="status_parse_source">Analýza zdroje %s</string>
+    <string name="status_read_source">Čtení zdroje %s</string>
+    <string name="status_parse_source">Zpracovávání zdroje %s</string>
     <string name="status_revert">Obnovování výchozího souboru hostitelů</string>
     <string name="status_revert_done">Výchozí soubor hostitelů obnoven</string>
     <string name="status_reverting_subtitle">Vytváření standardního souboru hostitelů</string>
@@ -116,7 +117,7 @@
     <string name="download_dialog">Stahování…</string>
     <string name="apply_dialog">Aplikování…</string>
     <string name="apply_dialog_lists">Aplikování bílé a černé listiny</string>
-    <string name="apply_dialog_hostnames">Analýza a slučování souborů hostitelů</string>
+    <string name="apply_dialog_hostnames">Zpracovávání a slučování souborů hostitelů</string>
     <string name="apply_dialog_hosts">Vytváření souboru hostitelů</string>
     <string name="apply_dialog_apply">Aplikování souboru hostitelů</string>
     <string name="apply_fail_status">Nepodařilo se aplikovat nový soubor hostitelů</string>
