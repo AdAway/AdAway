@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Host kaynakları</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Kullanıcı listesi</string>
+    <string name="hosts_adaway_source">AdAway resmi hosts</string>
+    <string name="hosts_stevenblack_source">StevenBlack Birleşik hosts</string>
+    <string name="hosts_peterlowe_source">Pete Lowe engel listesi hosts</string>
     <!-- List -->
     <string name="hosts_not_available">Uygun değil</string>
+    <string name="hosts_count">%s hosts</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Kaynak ekle</string>
     <string name="hosts_edit_dialog_title">Kaynak düzenle</string>
