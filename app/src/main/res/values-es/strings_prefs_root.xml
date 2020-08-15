@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_root_open_hosts">Abrir el fichero hosts</string>
+    <string name="pref_root_title">Bloqueador de anuncios basado en root</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instalación de hosts</string>
+    <string name="pref_root_open_hosts">Abrir el archivo hosts</string>
     <string name="pref_apply_method">Ruta del archivo hosts</string>
     <string name="pref_apply_method_summary">Antes de cambiar esta configuración, lea la Ayuda sobre esta funcionalidad.</string>
     <string-array name="pref_apply_method_entries">
@@ -13,9 +16,18 @@
     <string name="pref_never_reboot">Ocultar cuadro de diálogo de reinicio</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Redireccionamiento</string>
+    <string name="pref_hosts_redirection_summary">Definir dónde redirigir los hosts bloqueados</string>
     <string name="pref_redirection_ipv4">Redireccionamiento IPv4</string>
     <string name="pref_redirection_ipv6">Redireccionamiento IPv6</string>
     <!-- Web server category -->
     <string name="pref_webserver">Servidor web local</string>
+    <string name="pref_webserver_summary">El servidor web local escucha las direcciones IP locales para responder a las peticiones de nombres de host bloqueadas. Puede ayudar con la congelación de aplicaciones en conexiones bloqueadas.</string>
     <string name="pref_webserver_enabled">Habilitar servidor web</string>
-    </resources>
+    <string name="pref_webserver_test">Probar servidor web</string>
+    <string name="pref_webserver_certificate">Instalar certificado autofirmado</string>
+    <string name="pref_webserver_state_checking">Comprobando…</string>
+    <string name="pref_webserver_state_not_running">No ejecutando</string>
+    <string name="pref_webserver_state_running_not_installed">Funcionando pero el certificado no está instalado</string>
+    <string name="pref_webserver_state_running_and_installed">Funcionando y el certificado instalado</string>
+    <string name="pref_webserver_icon">Reemplazar espacio en blanco del anuncio por el icono de la aplicación</string>
+</resources>
