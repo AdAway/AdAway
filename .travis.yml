@@ -9,10 +9,10 @@ android:
     - platform-tools
 
     # The Build Tools version used by your project
-    - build-tools-30.0.1
+    - build-tools-30.0.2
 
     # The SDK version used to compile your project
-    - android-29
+    - android-30
 
     # Additional components
     - extra-google-m2repository
