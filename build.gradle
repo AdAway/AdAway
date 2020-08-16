@@ -26,7 +26,7 @@ sonarqube {
         property 'sonar.projectKey', 'org.adaway'
         property 'sonar.organization', 'adaway'
         property 'sonar.projectName', 'AdAway'
-        property 'sonar.projectVersion', '5.0.6'
+        property 'sonar.projectVersion', '5.0.7'
         property 'sonar.host.url', 'https://sonarcloud.io'
     }
 }
