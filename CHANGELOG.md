@@ -1,7 +1,12 @@
-## [5.0.7] - Unreleased
+## [5.0.7] - 2020-08-16
 
 *This version is a pre-release*
 
+- Add hosts sources Storage Access Framework support
+- Add hosts sources label and host counter
+- Improve host sources list and edition UI
+- Improve allowed and redirected hosts settings by applying them per source
+- Fix file based hosts sources not installed due to missing permission
 - Update AndroidX dependencies
 
 ## [5.0.6] - 2020-08-02
