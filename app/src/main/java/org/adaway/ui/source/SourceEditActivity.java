@@ -37,7 +37,7 @@ public class SourceEditActivity extends AppCompatActivity {
     /**
      * The source identifier extra.
      */
-    public static String SOURCE_ID = "sourceId";
+    public static final String SOURCE_ID = "sourceId";
     /**
      * The any type mime type.
      */
@@ -71,11 +71,11 @@ public class SourceEditActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         /*
-         *
+         * Get database access.
          */
         AppDatabase database = AppDatabase.getInstance(this);
         this.hostsSourceDao = database.hostsSourceDao();
-
+        // Set up values
         checkInitialValueFromIntent();
     }
 

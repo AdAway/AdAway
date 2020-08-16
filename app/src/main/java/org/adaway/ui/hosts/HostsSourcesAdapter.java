@@ -171,7 +171,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
             prefixIndex = QUANTITY_PREFIXES.length - 1;
             size = 13;
         }
-        size = Math.toIntExact(Math.round(size / Math.pow(10, (prefixIndex + 1) * 3)));
+        size = Math.toIntExact(Math.round(size / Math.pow(10, (prefixIndex + 1) * 3D)));
         return context.getString(R.string.hosts_count, size + QUANTITY_PREFIXES[prefixIndex]);
     }
 
