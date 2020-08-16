@@ -9,6 +9,8 @@
 - Fix file based hosts sources not installed due to missing permission
 - Update AndroidX dependencies
 
+Special thanks to zgfg for its bug report.
+
 ## [5.0.6] - 2020-08-02
 
 *This version is a pre-release*
