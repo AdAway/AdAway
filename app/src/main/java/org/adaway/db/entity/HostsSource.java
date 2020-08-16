@@ -41,7 +41,7 @@ public class HostsSource {
     @NonNull
     private String url;
     private boolean enabled = true;
-    private boolean allowEnabled = true;
+    private boolean allowEnabled = false;
     private boolean redirectEnabled = false;
     @ColumnInfo(name = "last_modified_local")
     private ZonedDateTime localModificationDate;

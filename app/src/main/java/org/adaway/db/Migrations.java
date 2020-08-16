@@ -86,7 +86,7 @@ class Migrations {
             // Set default values to new source attributes
             database.execSQL("UPDATE `hosts_sources` SET `label` = `url`");
             // Update user hosts list
-            database.execSQL("UPDATE `hosts_sources` SET `url` = \"content://org.adaway/user/hosts\" WHERE `url` = \"file://app/user/hosts\"");
+            database.execSQL("UPDATE `hosts_sources` SET `url` = \"content://org.adaway/user/hosts\", `allowEnabled` = 1, `redirectEnabled` = 1 WHERE `url` = \"file://app/user/hosts\"");
             // Update default hosts source label
             database.execSQL("UPDATE `hosts_sources` SET `label` = \"AdAway official hosts\" WHERE `url` = \"https://adaway.org/hosts.txt\"");
             database.execSQL("UPDATE `hosts_sources` SET `label` = \"StevenBlack Unified hosts\" WHERE `url` = \"https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts\"");
