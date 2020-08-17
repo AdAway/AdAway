@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Zakázať VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Vymazať</string>
     <string name="checkbox_list_context_title">Upraviť položku</string>
+    <string name="checkbox_list_context_apply">Aplikovať</string>
     <string name="checkbox_list_context_edit">Upraviť</string>
+    <string name="checkbox_list_context_delete">Vymazať</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importovanie…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Kontrola aktualizácií</string>
-    <string name="status_check_source">Hľadanie aktualizácií pre zdroj %s</string>
+    <string name="status_check_source">Kontroluje sa aktualizácia pre zdroj %s</string>
     <string name="status_retrieve">Získavanie zdrojov</string>
     <string name="status_download_source">Sťahovanie zdroja %s</string>
-    <string name="status_read_source">Kopírovanie zdroja %s</string>
-    <string name="status_parse_source">Analýza zdroja %s</string>
+    <string name="status_read_source">Čítanie zdroja %s</string>
+    <string name="status_parse_source">Analyzuje sa zdroj %s</string>
     <string name="status_revert">Obnovuje sa pôvodný súbor hosts</string>
     <string name="status_revert_done">Pôvodný súbor hosts obnovený</string>
     <string name="status_reverting_subtitle">Vytváranie štandardného hosts súboru</string>
