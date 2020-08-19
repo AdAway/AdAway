@@ -63,8 +63,10 @@ If you are looking for translating the application in your language, [the transl
 
 AdAway is actively developed by:
 * Bruce Bujon ([@PerfectSlayer](https://github.com/PerfectSlayer)) - Developer  
-[PayPal](https://paypal.me/BruceBUJON) | [GitHub Sponsorship](https://github.com/sponsors/PerfectSlayer) | BTC: `1Cm1df83VCdpzBCSiqBRZzE5oMuLhkQdFF`
+[PayPal](https://paypal.me/BruceBUJON) | [GitHub Sponsorship](https://github.com/sponsors/PerfectSlayer)
 * Daniel Mönch ([@Vankog](https://github.com/Vankog)) - Translations
+* Jawz101 ([@jawz101](https://github.com/jawz101)) - Hosts list
+* Anxhelo Lushka ([@AnXh3L0](https://github.com/AnXh3L0)) - Web site
 
 We do not forget the past maintainers:
 * Dāvis Mošenkovs ([@DavisNT](https://github.com/DavisNT)) - Developer  
