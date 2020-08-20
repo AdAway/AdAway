@@ -366,9 +366,16 @@ public class SourceModel {
             throw new HostErrorException(DOWNLOAD_FAILED);
         }
         // Synchronize hosts entries
-        this.hostEntryDao.sync();
+        syncHostEntries();
         // Mark no update available
         this.updateAvailable.postValue(false);
+    }
+
+    /**
+     * Synchronize hosts entries from current source states.
+     */
+    public void syncHostEntries() {
+        this.hostEntryDao.sync();
     }
 
     /**
