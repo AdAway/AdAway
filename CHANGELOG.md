@@ -2,9 +2,12 @@
 
 *This version is a pre-release*
 
+- Fix source not updated on automatic update
 - Fix user list not sync until source update
 - Update hosts source creation to disable allowed hosts by default
 - Update AndroidX dependencies
+
+Special thanks to jeanrivera for its bug report.
 
 ## [5.0.7] - 2020-08-16
 
