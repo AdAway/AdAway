@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Geen VPN gebruiken</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Verwijderen</string>
     <string name="checkbox_list_context_title">Invoer bewerken</string>
+    <string name="checkbox_list_context_apply">Toepassen</string>
     <string name="checkbox_list_context_edit">Bewerken</string>
+    <string name="checkbox_list_context_delete">Verwijderen</string>
 
     <!--Your lists-->
     <string name="import_dialog">Bezig met importeren…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Bezig met controleren op updates</string>
-    <string name="status_check_source">Bezig met controleren vas %s op updates</string>
+    <string name="status_check_source">Controleer %s bron om te updaten</string>
     <string name="status_retrieve">Bezig met ophalen van bronnen</string>
     <string name="status_download_source">Bezig met ophalen van bron \'%s\'</string>
-    <string name="status_read_source">Bezig met kopiëren van bron \'%s\'</string>
-    <string name="status_parse_source">Bezig met verwerken van bron \'%s\'</string>
+    <string name="status_read_source">Lezen bron %s</string>
+    <string name="status_parse_source">Verwerken %s bron</string>
     <string name="status_revert">Bezig met terugzetten van standaard hosts-bestand</string>
     <string name="status_revert_done">Het standaard hosts-bestand is teruggezet</string>
     <string name="status_reverting_subtitle">Standaard hosts-bestand aanmaken</string>
