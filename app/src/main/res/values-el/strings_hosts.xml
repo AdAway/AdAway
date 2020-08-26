@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Πηγές Hosts </string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Λίστα χρηστών</string>
+    <string name="hosts_adaway_source">Επίσημοι πάροχοι AdAway</string>
+    <string name="hosts_stevenblack_source">Ενοποιημένοι πάροχοι StevenBlack</string>
+    <string name="hosts_peterlowe_source">Πάροχοι λίστας κλειδώματος Pete Lowe</string>
     <!-- List -->
     <string name="hosts_not_available">δεν είναι διαθέσιμο</string>
+    <string name="hosts_count">%s πάροχοι</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Προσθήκη πηγής</string>
     <string name="hosts_edit_dialog_title">Επεξεργασία πηγής</string>
