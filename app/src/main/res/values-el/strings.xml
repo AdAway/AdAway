@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Απενεργοποίηση VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Διαγραφή</string>
     <string name="checkbox_list_context_title">Επεξεργασία καταχώρησης</string>
+    <string name="checkbox_list_context_apply">Εφαρμογή</string>
     <string name="checkbox_list_context_edit">Επεξεργασία</string>
+    <string name="checkbox_list_context_delete">Διαγραφή</string>
 
     <!--Your lists-->
     <string name="import_dialog">Εισαγωγή...</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Έλεγχος για ενημέρωση</string>
-    <string name="status_check_source">Έλεγχος πηγής %s για ενημέρωση</string>
+    <string name="status_check_source">Ελεγχος %s πηγής-ών για ενημέρωση</string>
     <string name="status_retrieve">Ανάκτηση πηγών</string>
     <string name="status_download_source">Λήψη πηγής %s</string>
-    <string name="status_read_source">Αντιγραφή πηγής %s</string>
-    <string name="status_parse_source">Ανάλυση πηγής %s</string>
+    <string name="status_read_source">Ανάγνωση πηγής-ών %s</string>
+    <string name="status_parse_source">Παράθεση απο %s</string>
     <string name="status_revert">Επαναφορά στο προεπιλεγμένο hosts file</string>
     <string name="status_revert_done">Τα προεπιλεγμένα hosts file αποκαταστάθηκαν</string>
     <string name="status_reverting_subtitle">Δημιουργία στάνταρ αρχείου hosts</string>
