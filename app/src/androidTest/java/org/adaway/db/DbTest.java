@@ -13,9 +13,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
+import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.db.entity.HostEntry;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -28,6 +28,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
@@ -87,8 +88,8 @@ public class DbTest {
          * Create sources.
          */
         // Insert user source and external source
-        insertSource(USER_SOURCE_ID, "userSource");
-        insertSource(EXTERNAL_SOURCE_ID, "sourceUrl");
+        insertSource(USER_SOURCE_ID, USER_SOURCE_URL);
+        insertSource(EXTERNAL_SOURCE_ID, "https://adaway.org/hosts.txt");
         // Test only external source is found
         List<HostsSource> sources = this.hostsSourceDao.getAll();
         assertEquals(1, sources.size());
@@ -109,27 +110,27 @@ public class DbTest {
         assertEquals(5, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(5, this.hostEntryDao.getAll().size());
         // Test each host type
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("advertising.apple.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("advertising.apple.com"));
         HostEntry entry = this.hostEntryDao.getEntry("advertising.apple.com");
         assertNotNull(entry);
         assertEquals("advertising.apple.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("an.facebook.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("an.facebook.com"));
         entry = this.hostEntryDao.getEntry("an.facebook.com");
         assertNotNull(entry);
         assertEquals("an.facebook.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("ads.google.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("ads.google.com"));
         entry = this.hostEntryDao.getEntry("ads.google.com");
         assertNotNull(entry);
         assertEquals("ads.google.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("bingads.microsoft.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("bingads.microsoft.com"));
         entry = this.hostEntryDao.getEntry("bingads.microsoft.com");
         assertNotNull(entry);
         assertEquals("bingads.microsoft.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("ads.yahoo.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("ads.yahoo.com"));
         entry = this.hostEntryDao.getEntry("ads.yahoo.com");
         assertNotNull(entry);
         assertEquals("ads.yahoo.com", entry.getHost());
@@ -150,28 +151,28 @@ public class DbTest {
         assertEquals(5, getOrAwaitValue(blockedHostCount).intValue());
         assertEquals(3, this.hostEntryDao.getAll().size());
         // Test each host type
-        assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("adaway.org"));
+        assertEquals(ALLOWED, this.hostEntryDao.getTypeForHost("adaway.org"));
         entry = this.hostEntryDao.getEntry("adaway.org");
         assertNull(entry);
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("advertising.apple.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("advertising.apple.com"));
         entry = this.hostEntryDao.getEntry("advertising.apple.com");
         assertNotNull(entry);
         assertEquals("advertising.apple.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("an.facebook.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("an.facebook.com"));
         entry = this.hostEntryDao.getEntry("an.facebook.com");
         assertNotNull(entry);
         assertEquals("an.facebook.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
-        assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("ads.google.com"));
+        assertEquals(ALLOWED, this.hostEntryDao.getTypeForHost("ads.google.com"));
         entry = this.hostEntryDao.getEntry("ads.google.com");
         assertNull(entry);
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("bingads.microsoft.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("bingads.microsoft.com"));
         entry = this.hostEntryDao.getEntry("bingads.microsoft.com");
         assertNotNull(entry);
         assertEquals("bingads.microsoft.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
-        assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("ads.yahoo.com"));
+        assertEquals(ALLOWED, this.hostEntryDao.getTypeForHost("ads.yahoo.com"));
         entry = this.hostEntryDao.getEntry("ads.yahoo.com");
         assertNull(entry);
 
@@ -190,40 +191,40 @@ public class DbTest {
         assertEquals(3, getOrAwaitValue(allowedHostCount).intValue());
         assertEquals(5, this.hostEntryDao.getAll().size()); // 3 blocked, 2 redirected
         // Test each host type
-        assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("adaway.org"));
+        assertEquals(ALLOWED, this.hostEntryDao.getTypeForHost("adaway.org"));
         entry = this.hostEntryDao.getEntry("adaway.org");
         assertNull(entry);
 
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("advertising.apple.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("advertising.apple.com"));
         entry = this.hostEntryDao.getEntry("advertising.apple.com");
         assertNotNull(entry);
         assertEquals("advertising.apple.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
 
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("an.facebook.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("an.facebook.com"));
         entry = this.hostEntryDao.getEntry("an.facebook.com");
         assertNotNull(entry);
         assertEquals("an.facebook.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
 
-        assertEquals(REDIRECTED, this.hostEntryDao.getTypeOfHost("github.com"));
+        assertEquals(REDIRECTED, this.hostEntryDao.getTypeForHost("github.com"));
         entry = this.hostEntryDao.getEntry("github.com");
         assertNotNull(entry);
         assertEquals("github.com", entry.getHost());
         assertEquals(REDIRECTED, entry.getType());
         assertEquals("1.2.3.4", entry.getRedirection());
 
-        assertEquals(ALLOWED, this.hostEntryDao.getTypeOfHost("ads.google.com"));
+        assertEquals(ALLOWED, this.hostEntryDao.getTypeForHost("ads.google.com"));
         entry = this.hostEntryDao.getEntry("ads.google.com");
         assertNull(entry);
 
-        assertEquals(BLOCKED, this.hostEntryDao.getTypeOfHost("bingads.microsoft.com"));
+        assertEquals(BLOCKED, this.hostEntryDao.getTypeForHost("bingads.microsoft.com"));
         entry = this.hostEntryDao.getEntry("bingads.microsoft.com");
         assertNotNull(entry);
         assertEquals("bingads.microsoft.com", entry.getHost());
         assertEquals(BLOCKED, entry.getType());
 
-        assertEquals(REDIRECTED, this.hostEntryDao.getTypeOfHost("ads.yahoo.com"));
+        assertEquals(REDIRECTED, this.hostEntryDao.getTypeForHost("ads.yahoo.com"));
         entry = this.hostEntryDao.getEntry("ads.yahoo.com");
         assertNotNull(entry);
         assertEquals("ads.yahoo.com", entry.getHost());
@@ -237,8 +238,8 @@ public class DbTest {
          * Create sources.
          */
         // Insert user source and external source
-        insertSource(USER_SOURCE_ID, "userSource");
-        insertSource(EXTERNAL_SOURCE_ID, "sourceUrl");
+        insertSource(USER_SOURCE_ID, USER_SOURCE_URL);
+        insertSource(EXTERNAL_SOURCE_ID, "https://adaway.org/hosts.txt");
 
         /*
          * Test duplicate blocked hosts.
@@ -277,8 +278,8 @@ public class DbTest {
          * Create sources.
          */
         // Insert user source and external source
-        insertSource(USER_SOURCE_ID, "userSource");
-        insertSource(EXTERNAL_SOURCE_ID, "sourceUrl");
+        insertSource(USER_SOURCE_ID, USER_SOURCE_URL);
+        insertSource(EXTERNAL_SOURCE_ID, "https://adaway.org/hosts.txt");
         HostsSource externalHostSource = getSourceFromId(EXTERNAL_SOURCE_ID);
         // Test only external source is found
         List<HostsSource> sources = this.hostsSourceDao.getAll();
@@ -369,8 +370,8 @@ public class DbTest {
          * Create sources.
          */
         // Insert user source and external source
-        insertSource(USER_SOURCE_ID, "userSource");
-        insertSource(EXTERNAL_SOURCE_ID, "sourceUrl");
+        insertSource(USER_SOURCE_ID, USER_SOURCE_URL);
+        insertSource(EXTERNAL_SOURCE_ID, "https://adaway.org/hosts.txt");
 
         /*
          * Insert redirected hosts.
@@ -389,11 +390,11 @@ public class DbTest {
     }
 
     private void insertSource(int id, String url) {
-        HostsSource source1 = new HostsSource();
-        source1.setId(id);
-        source1.setUrl(url);
-        source1.setEnabled(true);
-        this.hostsSourceDao.insert(source1);
+        HostsSource source = new HostsSource();
+        source.setId(id);
+        source.setUrl(url);
+        source.setEnabled(true);
+        this.hostsSourceDao.insert(source);
     }
 
     private void insertBlockedHost(String host, int sourceId) {
