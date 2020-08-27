@@ -4,9 +4,9 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
-import org.adaway.db.entity.HostEntry;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -67,8 +67,11 @@ public interface HostEntryDao {
     @Query("SELECT * FROM `host_entries` ORDER BY `host`")
     List<HostEntry> getAll();
 
-    @Query("SELECT IFNULL((SELECT `type` FROM `host_entries` WHERE `host` == :host LIMIT 1), 1)")
+    @Query("SELECT `type` FROM `host_entries` WHERE `host` == :host LIMIT 1")
     ListType getTypeOfHost(String host);
+
+    @Query("SELECT IFNULL((SELECT `type` FROM `host_entries` WHERE `host` == :host LIMIT 1), 1)")
+    ListType getTypeForHost(String host);
 
     @Nullable
     @Query("SELECT * FROM `host_entries` WHERE `host` == :host LIMIT 1")

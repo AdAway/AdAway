@@ -1,22 +1,19 @@
 package org.adaway.ui.tcpdump;
 
-import android.graphics.PorterDuff;
-
-import androidx.annotation.NonNull;
-
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.DiffUtil;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
+import org.adaway.databinding.TcpdumpLogEntryBinding;
 import org.adaway.db.entity.ListType;
 
+import static android.graphics.PorterDuff.Mode.MULTIPLY;
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
@@ -57,8 +54,8 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.tcpdump_log_entry, parent, false);
-        return new ViewHolder(view);
+        TcpdumpLogEntryBinding binding = TcpdumpLogEntryBinding.inflate(layoutInflater, parent, false);
+        return new ViewHolder(binding);
     }
 
     @Override
@@ -66,18 +63,18 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
         // Get log entry
         LogEntry entry = getItem(position);
         // Set host name
-        holder.hostnameTextView.setText(entry.getHost());
-        holder.hostnameTextView.setOnClickListener(v -> this.callback.openHostInBrowser(entry.getHost()));
+        holder.binding.hostnameTextView.setText(entry.getHost());
+        holder.binding.hostnameTextView.setOnClickListener(v -> this.callback.openHostInBrowser(entry.getHost()));
         // Set type status
-        bindImageView(holder.blackImageView, BLOCKED, entry);
-        bindImageView(holder.whiteImageView, ALLOWED, entry);
-        bindImageView(holder.redirectionImageView, REDIRECTED, entry);
+        bindImageView(holder.binding.blockImageView, BLOCKED, entry);
+        bindImageView(holder.binding.allowImageView, ALLOWED, entry);
+        bindImageView(holder.binding.redirectionImageView, REDIRECTED, entry);
     }
 
     private void bindImageView(ImageView imageView, ListType type, LogEntry entry) {
         if (type == entry.getType()) {
             int primaryColor = this.callback.getColor(R.color.primary);
-            imageView.setColorFilter(primaryColor, PorterDuff.Mode.MULTIPLY);
+            imageView.setColorFilter(primaryColor, MULTIPLY);
             imageView.setOnClickListener(v -> this.callback.removeListItem(entry.getHost()));
         } else {
             imageView.clearColorFilter();
@@ -91,22 +88,16 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
-        final ImageView blackImageView;
-        final ImageView whiteImageView;
-        final ImageView redirectionImageView;
-        final TextView hostnameTextView;
+        final org.adaway.databinding.TcpdumpLogEntryBinding binding;
 
         /**
          * Constructor.
          *
-         * @param itemView The hosts sources view.
+         * @param binding The log entry view binding.
          */
-        ViewHolder(View itemView) {
-            super(itemView);
-            this.blackImageView = itemView.findViewById(R.id.blockImageView);
-            this.whiteImageView = itemView.findViewById(R.id.whiteImageView);
-            this.redirectionImageView = itemView.findViewById(R.id.redirectionImageView);
-            this.hostnameTextView = itemView.findViewById(R.id.hostnameTextView);
+        ViewHolder(TcpdumpLogEntryBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
     }
 }

@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -14,6 +13,8 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
+import static androidx.room.OnConflictStrategy.IGNORE;
+
 /**
  * This interface is the DAO for {@link HostsSource} entities.
  *
@@ -21,7 +22,7 @@ import java.util.Optional;
  */
 @Dao
 public interface HostsSourceDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = IGNORE)
     void insert(HostsSource source);
 
     @Update
