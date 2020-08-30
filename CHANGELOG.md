@@ -1,4 +1,4 @@
-## [5.0.7] - Unreleased
+## [5.0.8] - 2020-08-30
 
 *This version is a pre-release*
 
