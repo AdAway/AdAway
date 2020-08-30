@@ -11,12 +11,12 @@
         android:layout_height="128dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/welcome_support_logo"
-        android:tint="?android:attr/colorControlNormal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_favorite_24">
+        app:srcCompat="@drawable/baseline_favorite_24"
+        app:tint="?android:attr/colorControlNormal">
 
     </ImageView>
 
@@ -62,10 +62,10 @@
             android:id="@+id/paypalTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/paypal"
             android:drawablePadding="8dp"
             android:text="@string/welcome_support_button"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:drawableStartCompat="@drawable/paypal" />
 
     </androidx.cardview.widget.CardView>
 

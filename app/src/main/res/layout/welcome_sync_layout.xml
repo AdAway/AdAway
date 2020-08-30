@@ -25,18 +25,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/welcome_sync_done_logo"
-            android:tint="?android:attr/colorControlNormal"
             android:visibility="invisible"
-            app:srcCompat="@drawable/baseline_check_24" />
+            app:srcCompat="@drawable/baseline_check_24"
+            app:tint="?android:attr/colorControlNormal" />
 
         <ImageView
             android:id="@+id/errorImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/welcome_sync_error_logo"
-            android:tint="?android:attr/colorControlNormal"
             android:visibility="invisible"
-            app:srcCompat="@drawable/ic_cloud_off_24dp" />
+            app:srcCompat="@drawable/ic_cloud_off_24dp"
+            app:tint="?android:attr/colorControlNormal" />
 
     </FrameLayout>
 
