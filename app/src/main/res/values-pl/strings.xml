@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Wyłącz VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Usuń</string>
     <string name="checkbox_list_context_title">Edytuj wpis</string>
+    <string name="checkbox_list_context_apply">Zastosuj</string>
     <string name="checkbox_list_context_edit">Edytuj</string>
+    <string name="checkbox_list_context_delete">Usuń</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importowanie…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Sprawdzanie aktualizacji</string>
-    <string name="status_check_source">Sprawdzanie %s źródła aktualizacji</string>
+    <string name="status_check_source">Sprawdzam %s źródło aktualizacji</string>
     <string name="status_retrieve">Pobieranie źródeł</string>
     <string name="status_download_source">Pobieranie źródła %s</string>
-    <string name="status_read_source">Kopiowanie źródła %s</string>
-    <string name="status_parse_source">Analizowanie źródła %s</string>
+    <string name="status_read_source">Czytanie źródła %s</string>
+    <string name="status_parse_source">Parsowanie źródła %s</string>
     <string name="status_revert">Przywracanie domyślnego pliku hosts</string>
     <string name="status_revert_done">Przywrócono domyślny plik hosts</string>
     <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
@@ -168,7 +169,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Tutaj możesz znaleźć zainstalowane adware, złe aplikacje, które nie mogą być blokowane przez AdAway. Te aplikacje używają na przykład powiadomień Airpush, które pojawiają się nawet wtedy, gdy aplikacja nie działa lub nawet zmienia dzwonek. Jedynym dostępnym środkiem zaradczym jest odinstalowanie tych aplikacji, klikając elementy listy.</string>
-    <string name="adware_scanning">Skanowanie…</string>
+    <string name="adware_scanning">Skanowanie...</string>
     <string name="adware_empty">Nie znaleziono adware!</string>
 
     <!--Other-->
@@ -254,8 +255,8 @@
     <string name="vpn_notification_waiting_for_net">czekam na sieć</string>
     <string name="vpn_notification_reconnecting">ponowne łączenie</string>
     <string name="vpn_notification_reconnecting_error">błąd ponownego łączenia</string>
-    <string name="vpn_notification_paused">wstrzymanie</string>
-    <string name="vpn_notification_stopped">Zatrzymanie</string>
+    <string name="vpn_notification_paused">Wstrzymany</string>
+    <string name="vpn_notification_stopped">Zatrzymany</string>
     <string name="vpn_notification_title">Blokowanie reklam VPN %1$s</string>
     <string name="vpn_notification_action_pause">Wstrzymaj</string>
     <string name="vpn_notification_paused_text">Stuknij, aby wznowić</string>
