@@ -42,21 +42,11 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
-
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 https://git.io/JvXDl
-
-    # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
-    #    and modify them (or add more) to build your code if your project
-    #    uses a compiled language
-
-    #- run: |
-    #   make bootstrap
-    #   make release
+    # Build from command line as Autobuild fails
+    - run: |  
+       echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;30.0.2" --sdk_root=${ANDROID_SDK_ROOT}
+       echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.3.6528147" --sdk_root=${ANDROID_SDK_ROOT}
+       ./gradlew assembleRelease
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
