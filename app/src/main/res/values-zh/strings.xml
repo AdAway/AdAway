@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">禁用VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">删除</string>
     <string name="checkbox_list_context_title">编辑条目</string>
+    <string name="checkbox_list_context_apply">应用</string>
     <string name="checkbox_list_context_edit">编辑</string>
+    <string name="checkbox_list_context_delete">删除</string>
 
     <!--Your lists-->
     <string name="import_dialog">正在导入…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">检查更新</string>
-    <string name="status_check_source">检查源%s的更新</string>
+    <string name="status_check_source">正在为来源 %s 检查更新</string>
     <string name="status_retrieve">检索来源</string>
     <string name="status_download_source">下载资源%s</string>
-    <string name="status_read_source">复制源%s</string>
-    <string name="status_parse_source">解析源%s</string>
+    <string name="status_read_source">正在读取来源 %s</string>
+    <string name="status_parse_source">正在处理来源 %s</string>
     <string name="status_revert">恢复为默认hosts文件</string>
     <string name="status_revert_done">恢复默认hosts文件</string>
     <string name="status_reverting_subtitle">创建标准 hosts 文件</string>
