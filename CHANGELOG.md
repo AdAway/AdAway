@@ -1,3 +1,13 @@
+## [5.0.9] - Unreleased
+
+*This version is a pre-release*
+
+- Fix no hosts to block from 4.x to 5.x migration
+- Fix wrong source type in source edition UI
+- Update AndroidX dependencies
+
+Special thanks to auanasgheps, lukjod, ridobe, sacrificialpawn for their bug reports.
+
 ## [5.0.8] - 2020-08-30
 
 *This version is a pre-release*
