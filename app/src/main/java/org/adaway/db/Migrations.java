@@ -91,6 +91,8 @@ class Migrations {
             database.execSQL("UPDATE `hosts_sources` SET `label` = \"AdAway official hosts\" WHERE `url` = \"https://adaway.org/hosts.txt\"");
             database.execSQL("UPDATE `hosts_sources` SET `label` = \"StevenBlack Unified hosts\" WHERE `url` = \"https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts\"");
             database.execSQL("UPDATE `hosts_sources` SET `label` = \"Pete Lowe blocklist hosts\" WHERE `url` = \"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\"");
+            // Update hosts source date format
+            database.execSQL("UPDATE `hosts_sources` SET `last_modified_online` = `last_modified_online` / 1000");
             // Clear previous file type hosts sources
             database.execSQL("DELETE FROM `hosts_sources` WHERE `url` LIKE \"file://%\"");
         }
