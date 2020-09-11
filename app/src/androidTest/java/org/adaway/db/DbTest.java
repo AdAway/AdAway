@@ -71,7 +71,9 @@ public class DbTest {
     @Before
     public void createDb() {
         Context context = ApplicationProvider.getApplicationContext();
-        this.db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class).build();
+        this.db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class)
+                .allowMainThreadQueries()
+                .build();
         this.hostsSourceDao = this.db.hostsSourceDao();
         this.hostListItemDao = this.db.hostsListItemDao();
         this.hostEntryDao = this.db.hostEntryDao();
@@ -93,7 +95,7 @@ public class DbTest {
         // Test only external source is found
         List<HostsSource> sources = this.hostsSourceDao.getAll();
         assertEquals(1, sources.size());
-        assertEquals("sourceUrl", sources.get(0).getUrl());
+        assertEquals("https://adaway.org/hosts.txt", sources.get(0).getUrl());
 
         /*
          * Test blocked hosts.
@@ -284,7 +286,7 @@ public class DbTest {
         // Test only external source is found
         List<HostsSource> sources = this.hostsSourceDao.getAll();
         assertEquals(1, sources.size());
-        assertEquals("sourceUrl", sources.get(0).getUrl());
+        assertEquals("https://adaway.org/hosts.txt", sources.get(0).getUrl());
 
         /*
          * Test blocked hosts from disabled sources.
@@ -392,6 +394,7 @@ public class DbTest {
     private void insertSource(int id, String url) {
         HostsSource source = new HostsSource();
         source.setId(id);
+        source.setLabel(url);
         source.setUrl(url);
         source.setEnabled(true);
         this.hostsSourceDao.insert(source);
