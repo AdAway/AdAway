@@ -5,6 +5,7 @@
 - Fix no hosts to block from 4.x to 5.x migration
 - Fix wrong source type in source edition UI
 - Update AndroidX dependencies
+- Update mongoose web server
 
 Special thanks to auanasgheps, lukjod, ridobe, sacrificialpawn for their bug reports.
 
