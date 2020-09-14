@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Źródła hostów</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Lista użytkownika</string>
+    <string name="hosts_adaway_source">Oficjalny plik hostów AdAway</string>
+    <string name="hosts_stevenblack_source">Plik hostów StevenBlack Unified</string>
+    <string name="hosts_peterlowe_source">Plik listy bloków hostów Pete Lowe</string>
     <!-- List -->
     <string name="hosts_not_available">niedostępny(e)</string>
+    <string name="hosts_count">%s hostów</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Dodaj źródło</string>
     <string name="hosts_edit_dialog_title">Edytuj źródło</string>
