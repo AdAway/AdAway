@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Източници за Hosts файла</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Потребителски списък</string>
+    <string name="hosts_adaway_source">Официалния хостове на AdAway</string>
+    <string name="hosts_stevenblack_source">Обединени хостове на StevenBlack</string>
+    <string name="hosts_peterlowe_source">Списък с блокирани хостове на Pete Lowe</string>
     <!-- List -->
     <string name="hosts_not_available">не е наличен</string>
+    <string name="hosts_count">%s хостове</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Добавяне на източник</string>
     <string name="hosts_edit_dialog_title">Редактиране на източник</string>
