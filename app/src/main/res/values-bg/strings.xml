@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Спиране на VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Изтриване</string>
     <string name="checkbox_list_context_title">Редактиране</string>
+    <string name="checkbox_list_context_apply">Прилагане</string>
     <string name="checkbox_list_context_edit">Редактиране</string>
+    <string name="checkbox_list_context_delete">Изтриване</string>
 
     <!--Your lists-->
     <string name="import_dialog">Импортиране…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Проверка за актуализация</string>
-    <string name="status_check_source">Проверка на източник %s за актуализация</string>
+    <string name="status_check_source">Проверка за актуализации на %s </string>
     <string name="status_retrieve">Извличане на източници</string>
     <string name="status_download_source">Изтегляне на източник%s</string>
-    <string name="status_read_source">Копиране на източник %s</string>
-    <string name="status_parse_source">Разбор на източник %s</string>
+    <string name="status_read_source">Прочитане на %s</string>
+    <string name="status_parse_source">Анализ на %s</string>
     <string name="status_revert">Връщане към файл с хостове по подразбиране</string>
     <string name="status_revert_done">Файлът с хостове по подразбиране е възстановен</string>
     <string name="status_reverting_subtitle">Създаване на стандартен файл Hosts</string>
