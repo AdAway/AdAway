@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">호스트 소스</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">사용자 리스트</string>
+    <string name="hosts_adaway_source">AdAway 공식 호스트</string>
+    <string name="hosts_stevenblack_source">StevenBlack 통합 호스트</string>
+    <string name="hosts_peterlowe_source">Pete Lowe 블락리스트 호스트</string>
     <!-- List -->
     <string name="hosts_not_available">사용 불가</string>
+    <string name="hosts_count">%s 호스트</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">소스 추가</string>
     <string name="hosts_edit_dialog_title">소스 수정</string>
