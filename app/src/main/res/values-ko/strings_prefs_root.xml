@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">루팅 기반 광고 차단</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">호스트 설치</string>
     <string name="pref_root_open_hosts">호스트 파일 열기</string>
     <string name="pref_apply_method">대상 호스트 파일</string>
+    <string name="pref_apply_method_summary">이 기능을 사용하기 전에 도움말을 읽으십시오</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>사용자 지정 대상</item>
     </string-array>
+    <string name="pref_custom_target">사용자 지정 대상 위치</string>
+    <string name="pref_never_reboot">적용 후 재부팅 대화상자 숨기기</string>
     <!-- Redirection category -->
-    <string name="pref_hosts_redirection">리디렉션</string>
+    <string name="pref_hosts_redirection">리다이렉트</string>
+    <string name="pref_hosts_redirection_summary">차단된 호스트를 리다이렉트할 위치 정의</string>
+    <string name="pref_redirection_ipv4">IPv4 리다이렉트</string>
+    <string name="pref_redirection_ipv6">IPv6 리다이렉트</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">로컬 웹 서버</string>
+    <string name="pref_webserver_summary">로컬 웹 서버는 차단 된 호스트 이름을 요청에 응답하기 위해 로컬 IP 주소를 수신합니다. 차단된 연결로 앱 프리징을 막을 수 있습니다.</string>
     <string name="pref_webserver_enabled">웹 서버 활성화</string>
-    </resources>
+    <string name="pref_webserver_test">시험 웹 서버</string>
+    <string name="pref_webserver_certificate">자체 서명된 인증서 설치</string>
+    <string name="pref_webserver_state_checking">확인 중...</string>
+    <string name="pref_webserver_state_not_running">실행중이 아님</string>
+    <string name="pref_webserver_state_running_not_installed">실행 중이지만 인증서가 설치되지 않음</string>
+    <string name="pref_webserver_state_running_and_installed">실행 중이며 인증서가 설치되어 있음</string>
+    <string name="pref_webserver_icon">빈 광고 공간을 앱 아이콘으로 대체하기</string>
+</resources>
