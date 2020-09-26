@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">환경 설정</string>
+    <!-- General category -->
+    <string name="pref_general_category">일반</string>
+    <string name="pref_dark_theme">테마</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>밝음</item>
+        <item>어두움</item>
+        <item>시스템 기본값</item>
+    </string-array>
+    <string name="pref_update_configuration">자동 업데이트</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">광고 차단</string>
+    <string name="pref_root_ad_blocker_configuration">루팅 기반 광고 차단</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN 기반 광고 차단</string>
+    <string name="pref_enable_ipv6">IPv6 지원 적용</string>
+    <string name="pref_backup_restore">차단 규칙 백업 / 복원하기</string>
     <!-- Debug category -->
     <string name="pref_debug_category">디버깅</string>
-    </resources>
+    <string name="pref_enable_telemetry">충돌 보고서 전송</string>
+    <string name="pref_enable_telemetry_summary">Sentry (sentry.io)에 보고</string>
+    <string name="pref_enable_telemetry_disabled_summary">이 빌드에서는 지원되지 않습니다</string>
+    <string name="pref_enable_debug">상세 로그</string>
+    <string name="pref_enable_debug_summary">적용하려면 앱 재시작이 필요합니다</string>
+</resources>
