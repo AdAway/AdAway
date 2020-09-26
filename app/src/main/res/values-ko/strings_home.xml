@@ -1,7 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">차단 됨</string>
+    <string name="allowed_hosts_label">허용 됨</string>
+    <string name="redirect_hosts_label">리디렉션됨</string>
+
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="other">%d 개의 갱신된 소스</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="other">%d 개의 오래된 소스</item>
+    </plurals>
+
+    <!-- Help card -->
+    <string name="help_label">도움말 보기</string>
+
+    <!-- Project card -->
+    <string name="project_label">GitHub 접속</string>
+
+    <!-- Support card -->
+    <string name="support_label">지원하기</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS 로그</string>
     <string name="preferences_drawer_item">환경 설정</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">네비게이션 서랍 열기</string>
+    <string name="adblock_pause_button_description">광고 차단 일시정지/재개</string>
+    <string name="update_button">차단된 도메인 업데이트</string>
+    <string name="show_log_button">요청된 도메인 보기</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">더 많은 정보는 도움말을 참조해주세요.</string>
