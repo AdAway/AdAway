@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Home screen -->
+    <string name="update_available">업데이트 가능!</string>
+
+    <!-- Changelog dialog -->
+    <string name="update_update_title">사용 가능한 새 버전입니다.</string>
+    <string name="update_update_message">새 버전은 다음과 같이 변경되었습니다:\n\n</string>
+    <string name="update_up_to_date_title">최신 버전입니다</string>
+    <string name="update_up_to_date_message">최신 버전은 다음과 같이 변경되었습니다:\n\n</string>
     <string name="update_changelog">변경사항</string>
-    </resources>
+    <string name="update_update_button">지금 업데이트하기</string>
+</resources>
