@@ -26,69 +26,91 @@
     <string name="webserver_toggle_text">로컬호스트의 웹서버를 시작 또는 중지하여 차단된 호스트명의 요청에 응답합니다.</string>
     <string name="button_enable_webserver">웹 서버 활성화</string>
     <string name="button_disable_webserver">웹 서버 비활성화</string>
+    <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">실행중</string>
     <string name="vpn_status_stopped">중지됨</string>
+    <string name="vpn_toggle_text">필터를 요청하려면, VPN을 시작하거나 중단해야합니다.</string>
     <string name="button_enable_vpn">VPN 활성화</string>
     <string name="button_disable_vpn">VPN 비활성화</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">삭제</string>
     <string name="checkbox_list_context_title">항목 편집</string>
+    <string name="checkbox_list_context_apply">적용</string>
     <string name="checkbox_list_context_edit">편집</string>
+    <string name="checkbox_list_context_delete">삭제</string>
 
     <!--Your lists-->
     <string name="import_dialog">가져오는 중…</string>
     <string name="import_success">백업이 성공적으로 외부 저장소에서부터 불러와졌습니다.</string>
     <string name="import_failed">백업을 불러오는데 실패했습니다. 포멧이 정확한가요? 자세한 내용은 로그캣을 확인해주세요.</string>
     <string name="export_dialog">내보내는 중…</string>
-    <string name="export_success">백업이 외부 저장소의 \'adaway-backup.json\'으로 저장되었습니다.</string>
+    <string name="export_success">백업이 외부 저장소에 \'adaway-backup.json\'로 저장되었습니다.</string>
     <string name="export_failed">백업을 저장하는데 실패했습니다.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">호스트 파일</string>
-    <string name="hosts_description">호스트파일은 호스트이름을 IP주소로 변환하는 파일입니다. 이것은 AdAway에서 다뤄지는 간단한 텍스트 파일입니다. 파일의 시작은 다음과 같습니다:</string>
-    <string name="hosts_content">호스트 파일 컨텐츠 로딩 증…</string>
+    <string name="hosts_description">호스트 파일은 호스트이름을 IP주소로 변환하는 파일입니다. AdAway에서 처리되는 간단한 텍스트 파일입니다. 파일의 시작은 다음과 같습니다:</string>
+    <string name="hosts_content">호스트 파일 컨텐츠 불러오는 중…</string>
     <string name="hosts_open_button">호스트 파일 열기</string>
 
     <!--Status Notification-->
     <string name="status_check">업데이트 확인 중</string>
+    <string name="status_check_source">업데이트를 위한  소스 확인 중 %s</string>
+    <string name="status_retrieve">소스 검색 중</string>
+    <string name="status_download_source">소스 다운로드 중 %s</string>
+    <string name="status_read_source">소스 읽는 중 %s</string>
+    <string name="status_parse_source">소스 분석 중 %s</string>
     <string name="status_revert">기본 호스트 파일로 되돌리는 중</string>
-    <string name="status_revert_done">기본 호스트 파일로 복구되었습니다.</string>
+    <string name="status_revert_done">기본 호스트 파일로 복구 됨</string>
     <string name="status_reverting_subtitle">표준 호스트 파일 생성 중</string>
     <string name="status_update_available">업데이트 가능</string>
     <string name="status_update_available_subtitle">최신 호스트 파일 사용 가능</string>
+    <string name="status_no_update_found">소스 업데이트를 찾을 수 없음</string>
     <string name="status_no_connection">인터넷 연결 안됨</string>
     <string name="status_no_connection_subtitle">사용 가능한 인터넷 연결이 없음</string>
     <string name="status_download_fail">사용할수없는 소스</string>
     <string name="status_download_fail_subtitle_new">접근 가능한 호스트 소스가 없습니다!</string>
-    <string name="status_root_access_denied">루트 권한이 없습니다.</string>
-    <string name="status_root_access_denied_subtitle">당신의 루트 앱에서 루트 권한을 허용하십시오.</string>
-    <string name="status_failure">오류입니다.</string>
+    <string name="status_root_access_denied">루트 권한이 없음</string>
+    <string name="status_root_access_denied_subtitle">루팅앱에서 루팅 권한을 허용하십시오.</string>
+    <string name="status_failure">뭔가 잘못되었습니다</string>
     <string name="status_failure_subtitle">자세한 내용은 로그캣을 확인해주세요.</string>
     <string name="status_enabled">활성화됨</string>
     <string name="status_enabled_subtitle">최신 호스트 파일이 활성화됨</string>
     <string name="status_disabled">비활성화됨</string>
-    <string name="status_disabled_subtitle">기본 호스트 파일들이 설치되어있습니다.</string>
+    <string name="status_disabled_subtitle">기본 호스트 파일들이 설치 됨</string>
+    <string name="status_apply_sources">최근 소스 적용</string>
+    <string name="status_create_new_hosts">새 호스트 파일 생성 중</string>
+    <string name="status_copy_new_hosts">새 호스트 파일 복사 중</string>
+    <string name="status_check_copy">복사 된 새 호스트 파일 확인 중</string>
+    <string name="status_hosts_updated">호스트 파일이 성공적으로 업데이트 됨</string>
+    <string name="status_vpn_configuration_updated">VPN 구성이 성공적으로 업데이트 됨</string>
+    <string name="notification_configuration_changed">변경된 설정을 저장하려면, 적용을 해야합니다.</string>
     <string name="notification_configuration_changed_action">적용</string>
+    <string name="notification_configuration_installing">새 설정 적용 중...</string>
+    <string name="notification_configuration_failed">새 설정 적용에 실패했습니다</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">호스트 파일 대상에 대한 심링크가 누락 됨</string>
     <string name="apply_symlink_missing">대상에서 /system/etc/host으로 연결되는 심링크가 존재하지 않거나 올바르지 않습니다! 올바른 파일을 가르키지 않을 경우 AdAway가 작동하지 않습니다.\n\n심링크 생성을 시도하시겠습니까?</string>
     <string name="apply_symlink_missing_title">심링크가 누락됨</string>
     <string name="apply_not_enough_space">파티션에 공간이 부족합니다!\n환경 설정에서 대상 호스트 파일을 /data/data/hosts로 변경해보십시오.</string>
     <string name="apply_not_enough_space_title">공간 부족</string>
     <string name="apply_private_file_fail">다운로드한 파일을 읽을 수 없습니다.</string>
-    <string name="apply_private_file_fail_title">개인 파일 적용실패</string>
-    <string name="apply_remount_fail">읽기/쓰기 가능한 파티션으로 재장착에 실패함!</string>
+    <string name="apply_private_file_fail_title">개인 파일 적용 실패</string>
+    <string name="apply_remount_fail">읽기/쓰기 가능한 파티션으로 재장착에 실패되었습니다!</string>
     <string name="apply_remount_fail_title">재장착 실패</string>
+    <string name="apply_copy_fail_status">호스트 파일 복사 실패</string>
     <string name="apply_copy_fail">호스트 파일 복사에 실패하였습니다!</string>
-    <string name="apply_copy_fail_title">복사에 실패함</string>
-    <string name="apply_success_subtitle">호스트 소스 적용함</string>
+    <string name="apply_copy_fail_title">복사 실패</string>
+    <string name="apply_success_subtitle">호스트 소스 적용됨</string>
     <string name="apply_success_title">적용 성공</string>
     <string name="apply_success_dialog">성공적으로 적용하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
     <string name="apply_symlink_successful">심링크를 성공적으로 생성하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
     <string name="apply_symlink_successful_title">심링크 생성 성공</string>
-    <string name="apply_symlink_fail">안드로이드가 심링크를 생성하지 못하였습니다.\n이것은 대부분 HTC 전화기의 S-ON이라 불리는 \'기능\'이 원인입니다.\n\n해결을 위해 전화기를 복구 모드로 부팅한 후 \'ln -s /data/data/hosts /system/etc/hosts\'(으)로 심링크를 생성하십시오.\n\n이 방법이 작동하지 않을 경우 인터넷에서 S-OFF 및 전화기 기종을 검색하십시오.</string>
+    <string name="apply_symlink_fail">안드로이드가 심링크를 생성하지 못하였습니다.\n이것은 대부분 HTC 전화기의 S-ON이라 불리는 \'기능\'이 원인입니다!\n\n해결을 위해 전화기를 복구 모드로 부팅한 후 \'ln -s /data/data/hosts /system/etc/hosts\'에서 심링크를 생성하십시오.\n\n이 방법이 작동하지 않을 경우 인터넷에서 S-OFF 및 전화기 기종을 검색하십시오.</string>
     <string name="apply_symlink_fail_title">심링크 생성 실패</string>
-    <string name="apply_help">더 많은 정보는 도움말을 참조해주세요.</string>
-    <string name="apply_apn_proxy">안드로이드에 APN 프록시가 설정되어 있습니다!\nAdAway는 3G와 같은 모바일 네트워크 상에서 안정적으로 작동하지 않습니다. 선택한 APN(설정 앱에서: 네트워크 &amp; 인터넷 -&gt; 모바일 네트워크 -&gt; 고급 -&gt; 어세스 포인트 이름(APN))으로 이동하여 프록시 입력란의 값을 제거함으로 해당 프록시를 비활성화할 수 있습니다.</string>
+    <string name="apply_help">더 많은 정보는 도움말을 참조해주십시오.</string>
+    <string name="apply_apn_proxy">안드로이드에 APN 프록시가 설정되어 있습니다!\nAdAway는 3G와 같은 모바일 네트워크 상에서 안정적으로 작동하지 않습니다. 선택한 APN (설정 앱에서: 네트워크 및 인터넷 -> 모바일 네트워크 -> 고급 -> 액세스 포인트 이름)으로 이동하여 해당 프록시를 비활성화하고 프록시 입력란에 값을 제거할 수 있습니다.</string>
     <string name="apply_apn_proxy_title">APN 프록시가 설정됨!</string>
     <string name="no_connection">인터넷에 연결되지않아 작동하지않습니다</string>
     <string name="no_connection_title">연결 끊김</string>
@@ -98,21 +120,31 @@
     <string name="apply_dialog_hostnames">호스트 파일 구문 분석 및 병합 중</string>
     <string name="apply_dialog_hosts">호스트 파일 생성 중</string>
     <string name="apply_dialog_apply">호스트 파일 적용 중</string>
+    <string name="apply_fail_status">새 호스트 파일 적용 실패</string>
     <string name="apply_fail">시스템에 호스트 파일 적용하는데 실패하였습니다!\n환경 설정에서 대상 호스트 파일을 /data/data/hosts(으)로 변경해보십시오.</string>
     <string name="apply_fail_title">적용에 실패함</string>
     <string name="root_access_fail">당신의 루트 관리자 앱을 확인하여 루트 권한이 허용되어있는지 확인해주십시오.</string>
     <string name="revert_successful">기본 호스트 파일로 되돌리셨습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
     <string name="revert_successful_title">되돌리기 성공</string>
-    <string name="revert_problem">알 수 없는 이유로 되돌리기에 실패하였습니다</string>
+    <string name="revert_failed_status">호스트 파일을 되돌릴 수 없음</string>
+    <string name="revert_problem">알 수 없는 이유로 되돌리기에 실패하였습니다.</string>
     <string name="revert_problem_title">되돌리기에 실패함!</string>
     <string name="download_fail_dialog">활성화된 호스트 소스 중 어느 하나도 연결할 수 없습니다! 인터넷에 제대로 연결되어 있습니까?</string>
-    <string name="download_fail_title">다운로드에 실패함</string>
+    <string name="download_fail_title">다운로드 실패</string>
+    <string name="no_private_file_status">새 개인 호스트 파일 작성 실패</string>
     <string name="no_private_file">개인 파일을 생성할 수 없습니다.</string>
-    <string name="no_private_file_title">개인 파일  생성에 실패함</string>
+    <string name="no_private_file_title">개인 파일 생성에 실패함</string>
     <string name="enable_systemless_successful">Systemless 모드를 활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
     <string name="enable_systemless_successful_title">활성화 성공</string>
     <string name="disable_systemless_successful">Systemless 모드를 비활성화하였습니다.\n변경 사항을 적용하려면 재부팅이 필요할 수 있습니다.\n\n재부팅 하시겠습니까?\n(데이터 손실 방지를 위해 현재 SD카드를 사용 중인 앱이 없는지 확인하십시오!)</string>
     <string name="disable_systemless_successful_title">비활성화 성공</string>
+    <string name="enable_vpn_fail">광고 차단 활성화 실패</string>
+    <string name="disable_vpn_fail">광고 차단 비활성화 실패</string>
+    <string name="enable_systemless_magisk_title">호스트 Magisk 모듈 활성화</string>
+    <string name="enable_systemless_magisk">Magisk 매니저에서 시스템없는 호스트 기능을 활성화합니다. Magisk 설정에서 <cite>Systemless hosts</cite>를 활성화한 다음 재부팅하십시오.</string>
+    <string name="disable_systemless_magisk_title">호스트 Magisk 모듈 비활성화</string>
+    <string name="disable_systemless_magisk">Magisk 매니저에서 시스템없는 호스트 기능을 비활성화합니다. 모듈 목록에서, <cite>Systemless hosts</cite>를 제거한 다음 재부팅하십시오.</string>
+
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">호스트 파일에 URL 입력:</string>
     <string name="no_hostname">이것은 잘못된 호스트명입니다!</string>
@@ -137,14 +169,14 @@
     <!--Adware-->
     <string name="adware_header">애드웨어</string>
     <string name="adware_description">여기서 AdAway로 차단되지 않는 불량 애드웨어 앱을 검색할 수 있습니다. 이 앱들은 앱이 실행 중이지 않을 때나 벨소리를 변경할 때도 팝업 형식으로 나타나는 Alrpush 같은 알림을 사용합니다. 사용 가능한 유일한 대책은 목록 아이템을 클릭하여 제거하는 것입니다.</string>
-    <string name="adware_scanning">스캔중…</string>
+    <string name="adware_scanning">스캔중&#8230;</string>
     <string name="adware_empty">애드웨어가 없습니다!</string>
 
     <!--Other-->
-    <string name="app_subtitle">광고 차단 도구</string>
-    <string name="no_text_editor_title">No text editor installed</string>
+    <string name="app_subtitle">광고 차단기</string>
+    <string name="no_text_editor_title">설치된 텍스트 편집기가 없음</string>
     <string name="no_text_editor">호스트 파일을 열기 위한 텍스트 편집기를 발견하지 못하였습니다. Jota 또는 기타 텍스트 편집기를 설치하여 이를 처리할 수 있습니다.\n\nJota를 설치하시겠습니까?</string>
-    <string name="no_file_manager_title">No file manager installed</string>
+    <string name="no_file_manager_title">파일 관리자가 설치되어있지 않음</string>
     <string name="no_file_manager">파일을 열기 위한 파일 관리자를 발견하지 못했습니다. OI 파일 관리자 또는 기타 파일 관리자를 설치하여 이를 처리할 수 있습니다.\n\nOI 파일 관리자를 설치하시겠습니까?</string>
 
     <!--Tcpdump-->
@@ -153,14 +185,14 @@
     <string name="tcpdump_disable_monitoring">감시 비활성화</string>
     <string name="tcpdump_enable_monitoring">감시 활성화</string>
     <string name="tcpdump_show_results">결과 보기</string>
-    <string name="tcpdump_redirect_dialog_title">도메인 리디렉트</string>
+    <string name="tcpdump_redirect_dialog_title">도메인 리다이렉트</string>
     <string name="tcpdump_menu_sort">도메인 정렬</string>
     <string name="tcpdump_menu_clear">로그 지우기</string>
     <string name="tcpdump_sort_alphabetical">알파벳순 정렬</string>
     <string name="tcpdump_sort_top_level_domain">레벨순 정렬</string>
     <string name="tcpdump_entry_add_blacklist">블랙리스트에 추가</string>
     <string name="tcpdump_entry_add_whitelist">화이트리스트에 추가</string>
-    <string name="tcpdump_entry_add_redirection_list">리디렉션에 추가</string>
+    <string name="tcpdump_entry_add_redirection_list">리다이렉트 리스트에 추가</string>
 
     <string name="pref_edit_text_value">텍스트 값 수정</string>
     <string name="drawer_open">메뉴 열기</string>
@@ -181,13 +213,16 @@
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 리퀘스트</string>
-    <string name="shortcut_your_lists">사용자 리스트</string>
+    <string name="shortcut_your_lists">사용자 목록</string>
     <string name="shortcut_preferences">환경 설정</string>
 
-    <string name="hosts_source_up_to_date">%1$s가 최신입니다.</string>
-    <string name="hosts_source_need_update">%1$s는 업데이트가 필요합니다.</string>
-    <string name="hosts_source_last_update">%1$s일 전에 업데이트 함.</string>
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">%1$s일 전에 설치 됨</string>
+    <string name="hosts_source_up_to_date">%1$s개의 갱신 되어짐</string>
+    <string name="hosts_source_need_update">%1$s개의 업데이트가 필요</string>
+    <string name="hosts_source_last_update">%1$s일 전에 업데이트 됨</string>
     <string name="hosts_source_unknown_status">업데이트 상태 확인 불가</string>
+    <string name="hosts_source_few_minutes">몇 분</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d 분</item>
     </plurals>
@@ -198,7 +233,23 @@
         <item quantity="other">%d 일</item>
     </plurals>
     <plurals name="hosts_source_months">
-        <item quantity="other">%d 달</item>
+        <item quantity="other">%d 개월</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">시작 중</string>
+    <string name="vpn_notification_running">활성화</string>
+    <string name="vpn_notification_stopping">중단 중</string>
+    <string name="vpn_notification_waiting_for_net">네트워크 기다리는 중</string>
+    <string name="vpn_notification_reconnecting">재접속 중</string>
+    <string name="vpn_notification_reconnecting_error">재접속 오류</string>
+    <string name="vpn_notification_paused">일시정지됨</string>
+    <string name="vpn_notification_stopped">중단됨</string>
+    <string name="vpn_notification_title">광고 차단 VPN %1$s</string>
+    <string name="vpn_notification_action_pause">일시정지</string>
+    <string name="vpn_notification_paused_text">탭하여 재개</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">시스템 광고 차단을 활성화하거나 비활성화</string>
+
+</resources>
