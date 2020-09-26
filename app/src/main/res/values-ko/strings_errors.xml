@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">인터넷 연결 안됨</string>
+    <string name="error_no_connection_details">인터넷 연결을 설정할 수 없습니다. 장치 연결을 확인하십시오.</string>
+    <string name="error_download_failed_message">호스트 소스 다운로드 실패</string>
+    <string name="error_download_failed_details">활성화된 호스트 소스에 연결할 수 없습니다. 인터넷에 제대로 연결되어 있는지 확인하십시오.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">개인 파일 생성 실패</string>
+    <string name="error_private_file_failed_details">새 호스트 소스를 빌드하기 위한 개인 파일을 생성할 수 없습니다. 장치에서 사용 가능한 고간을 확인하십시오.</string>
     <string name="error_not_enough_space_message">공간 부족</string>
-    </resources>
+    <string name="error_not_enough_space_details">호스트 파일이 시스템 파티션에 복사 할 수 없습니다. Magisk 시스템 제외 모듈이 재부팅 후 활성화 되어있는지 확인하십시오.</string>
+    <string name="error_copy_failed_message">새 호스트 파일 설치 실패</string>
+    <string name="error_copy_failed_details">호스트 파일이 /system 파티션에 복사할 수 없습니다.  Magisk 시스템 제외 모듈이 재부팅 후 활성화 되어있는지 확인하십시오.</string>
+    <string name="error_revert_failed_message">호스트 파일 되돌리기 실패</string>
+    <string name="error_revert_failed_details">호스트 파일 구성을 기본값으로 복원할 수 없습니다.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">광고 차단 활성화 실패</string>
+    <string name="error_enable_vpn_failed_details">VPN 설정을 확인하여 VPN이 실행되도록 권한을 부여해주십시오.</string>
+    <string name="error_disable_vpn_failed_message">광고 차단 비활성화 실패</string>
+    <string name="error_disable_vpn_failed_details">VPN 설정을 수동으로 비활성화하려면 VPN 설정을 확인하십시오.</string>
+</resources>
