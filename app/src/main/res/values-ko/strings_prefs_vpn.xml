@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN 기반 광고 차단</string>
+    <string name="pref_vpn_service_on_boot">앱 실행시 활성화</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">앱 제외하기</string>
+    <string name="pref_vpn_excluded_apps_description">VPN을 사용하지 않아야 하는 앱을 설정하여 연결이 차단되지 않도록 하십시오.</string>
+    <string name="pref_vpn_exclude_system_apps">시스템 앱 제외하기</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">사용자 앱 제외하기</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">앱 제외하기</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">모두 선택</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">모두 선택 해제</string>
+    <string name="pref_vpn_exclude_user_apps_icon">앱 제외</string>
+</resources>
