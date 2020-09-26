@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">백업 및 복원</string>
+    <string name="pref_backup">백업</string>
+    <string name="pref_backup_summary">차단 규칙을 외부 저장소에 백업합니다</string>
+    <string name="pref_restore">복원</string>
+    <string name="pref_restore_summary">백업된 차단 규칙을 복원합니다</string>
+</resources>
