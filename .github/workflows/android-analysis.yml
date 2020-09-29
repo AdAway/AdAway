@@ -45,7 +45,7 @@ jobs:
           ~/.gradle/wrapper
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
         restore-keys: |
-      ${{ runner.os }}-gradle-
+          ${{ runner.os }}-gradle-
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
