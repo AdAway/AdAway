@@ -49,7 +49,11 @@ final class BackupFormat {
     static HostsSource sourceFromJson(JSONObject sourceObject) throws JSONException {
         HostsSource source = new HostsSource();
         source.setLabel(sourceObject.getString(SOURCE_LABEL_ATTRIBUTE));
-        source.setUrl(sourceObject.getString(SOURCE_URL_ATTRIBUTE));
+        String url = sourceObject.getString(SOURCE_URL_ATTRIBUTE);
+        if (!HostsSource.isValidUrl(url)) {
+            throw new JSONException("Invalid source URL: "+url);
+        }
+        source.setUrl(url);
         source.setEnabled(sourceObject.getBoolean(SOURCE_ENABLED_ATTRIBUTE));
         source.setAllowEnabled(sourceObject.getBoolean(SOURCE_ALLOW_ATTRIBUTE));
         source.setRedirectEnabled(sourceObject.getBoolean(SOURCE_REDIRECT_ATTRIBUTE));
