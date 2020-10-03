@@ -57,7 +57,7 @@ public class HostsSource {
      * @return {@code true} if the URL is valid, {@code false} otherwise.
      */
     public static boolean isValidUrl(String url) {
-        return URLUtil.isHttpsUrl(url) || URLUtil.isContentUrl(url);
+        return (!"https://".equals(url) && URLUtil.isHttpsUrl(url)) || URLUtil.isContentUrl(url);
     }
 
     public int getId() {
