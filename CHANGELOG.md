@@ -1,3 +1,13 @@
+## [5.0.10] - Unreleased
+
+*This version is a pre-release*
+
+- Fix online modification date for unavailable source
+- Prevent missing url at source creation 
+- Prevent invalid source url to be restored
+
+Special thanks to zgfg and ipdev99 for their bug reports.
+
 ## [5.0.9] - 2020-09-13
 
 *This version is a pre-release*
@@ -55,7 +65,7 @@ Special thanks to ipdev99 and zgfg for their bug reports.
 - Remove navigation bar color customization
 - Update AndroidX dependencies and NDK version
 
-Special thanks to CobalTitan, ipdev, zgfg and sunmybun for their bug reports.
+Special thanks to CobalTitan, ipdev99, zgfg and sunmybun for their bug reports.
 
 ## [4.3.5] - 2020-06-27
 
