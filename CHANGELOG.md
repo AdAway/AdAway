@@ -1,12 +1,13 @@
-## [5.0.10] - Unreleased
+## [5.0.10] - 2020-10-10
 
 *This version is a pre-release*
 
 - Fix online modification date for unavailable source
 - Prevent missing url at source creation 
 - Prevent invalid source url to be restored
+- Fix web server certificate install on Android 11
 
-Special thanks to zgfg and ipdev99 for their bug reports.
+Special thanks to zgfg, ipdev99 and ingenium13 for their bug reports.
 
 ## [5.0.9] - 2020-09-13
 
