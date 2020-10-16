@@ -36,7 +36,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -95,7 +94,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
         // Get view model
         this.mViewModel = new ViewModelProvider(this).get(TcpdumpLogViewModel.class);
         // Create recycler adapter
-        ListAdapter adapter = new TcpdumpLogAdapter(this);
+        TcpdumpLogAdapter adapter = new TcpdumpLogAdapter(this);
         recyclerView.setAdapter(adapter);
         /*
          * Configure fab.
