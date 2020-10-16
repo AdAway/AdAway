@@ -1,3 +1,11 @@
+## [5.0.11] - Unreleased
+
+*This version is a pre-release*
+
+- Fix VPN app exclusion on Android 11
+
+Special thanks to spiou and drothenberger for their bug reports.
+
 ## [5.0.10] - 2020-10-10
 
 *This version is a pre-release*
