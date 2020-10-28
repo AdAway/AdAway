@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">Aktualizace AdAway</string>
     <!-- Home screen -->
     <string name="update_available">Aktualizace k dispozici!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">Máte nejnovější verzi</string>
+    <string name="update_update_available_header">Aktualizace je k dispozici</string>
+    <string name="update_updating_header">Aktualizace AdAway</string>
     <string name="update_update_button">Aktualizovat nyní</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Poslední změny:</string>
+    <string name="update_new_changelog_title">Seznam změn:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Stahování poslední verze AdAway…</string>
 </resources>
