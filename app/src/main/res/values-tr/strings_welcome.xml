@@ -3,7 +3,6 @@
     <string name="welcome_title">Hoşgeldiniz</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Hoş geldiniz logosu</string>
     <string name="welcome_method_header">AdAway\'e hoş geldiniz!</string>
     <string name="welcome_method_summary">AdAway iki reklam engelleme yöntemi sunar. Beğendiğiniz birini seçin:</string>
 

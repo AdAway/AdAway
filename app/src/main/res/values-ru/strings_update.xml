@@ -3,11 +3,6 @@
     <!-- Home screen -->
     <string name="update_available">Доступно обновление!</string>
 
-    <!-- Changelog dialog -->
-    <string name="update_update_title">Доступна новая версия</string>
-    <string name="update_update_message">Изменения в новой версии:\n\n</string>
-    <string name="update_up_to_date_title">У вас актуальная версия</string>
-    <string name="update_up_to_date_message">Изменения в последней версии:\n\n</string>
-    <string name="update_changelog">Список изменений</string>
+    <!-- Update activity -->
     <string name="update_update_button">Обновить сейчас</string>
 </resources>

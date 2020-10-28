@@ -6,7 +6,6 @@
     <string name="welcome_last_step">Wizard last step</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Welcome logo</string>
     <string name="welcome_method_header">Welcome to AdAway!</string>
     <string name="welcome_method_summary">AdAway provides two ad blocking methods. Pick the one you like:</string>
 

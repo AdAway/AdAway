@@ -3,7 +3,6 @@
     <string name="welcome_title">歡迎</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">歡迎 logo</string>
     <string name="welcome_method_header">歡迎來到 AdAway！</string>
     <string name="welcome_method_summary">AdAway 提供了兩種廣告阻擋方法，選擇一個您喜歡的：</string>
 

@@ -9,7 +9,7 @@
         android:id="@+id/headerImageView"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:contentDescription="@string/welcome_method_logo"
+        android:contentDescription="@string/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

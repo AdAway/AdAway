@@ -3,7 +3,6 @@
     <string name="welcome_title">Ongi etorri</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Ongi etorri logoa</string>
     <string name="welcome_method_header">Ongi etorri AdAway-ra!</string>
     <string name="welcome_method_summary">AdAwayk iragarkiak blokeatzeko bi metodo eskaintzen ditu. Aukeratu gustuko duzuna:</string>
 

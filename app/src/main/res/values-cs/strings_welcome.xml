@@ -3,7 +3,6 @@
     <string name="welcome_title">Vítejte</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Uvítací logo</string>
     <string name="welcome_method_header">Vítejte v AdAway!</string>
     <string name="welcome_method_summary">AdAway poskytuje dvě metody blokování reklam. Vyberte si tu, která Vám vyhovuje:</string>
 

@@ -109,6 +109,12 @@
             android:name=".ui.prefs.exclusion.PrefsVpnExcludedAppsActivity"
             android:exported="false"
             android:label="@string/pref_vpn_exclude_user_apps_activity" />
+        <activity
+            android:name=".ui.update.UpdateActivity"
+            android:exported="false"
+            android:label="@string/update_title"
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
 
         <service
             android:name=".vpn.VpnService"

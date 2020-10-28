@@ -9,6 +9,7 @@ import android.os.Build;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import org.adaway.R;
 import org.adaway.util.Log;
 import org.json.JSONException;
 
@@ -36,15 +37,18 @@ public class UpdateModel {
     private final Context context;
     private final OkHttpClient client;
     private final MutableLiveData<Manifest> manifest;
+    private final MutableLiveData<Long> updateDownloadId;
     private ApkDownloadReceiver receiver;
 
     /**
      * Constructor.
+     *
      * @param context The application context.
      */
     public UpdateModel(Context context) {
         this.context = context;
         this.manifest = new MutableLiveData<>();
+        this.updateDownloadId = new MutableLiveData<>();
         this.client = buildHttpClient();
         ApkUpdateService.syncPreferences(context);
     }
@@ -67,9 +71,22 @@ public class UpdateModel {
         return VERSION_NAME;
     }
 
-    // TODO Comment
+    /**
+     * Get the last version manifest.
+     *
+     * @return The last version manifest.
+     */
     public LiveData<Manifest> getManifest() {
-        return manifest;
+        return this.manifest;
+    }
+
+    /**
+     * Get the update download identifier.
+     *
+     * @return The update download identifier.
+     */
+    public MutableLiveData<Long> getUpdateDownloadId() {
+        return this.updateDownloadId;
     }
 
     /**
@@ -108,12 +125,14 @@ public class UpdateModel {
 
     /**
      * Update the application to the latest version.
+     *
+     * @return The download identifier ({@code -1} if download was not started).
      */
-    public void update() {
+    public long update() {
         // Check manifest
         Manifest manifest = this.manifest.getValue();
         if (manifest == null) {
-            return;
+            return -1;
         }
         // Check previous broadcast receiver
         if (this.receiver != null) {
@@ -124,13 +143,16 @@ public class UpdateModel {
         // Register new broadcast receiver
         this.receiver = new ApkDownloadReceiver(downloadId);
         this.context.registerReceiver(this.receiver, new IntentFilter(ACTION_DOWNLOAD_COMPLETE));
+        // Return download identifier
+        return downloadId;
     }
 
     private long download(Manifest manifest) {
         Log.i(TAG, "Downloading " + manifest.version + ".");
-        Uri uri = Uri.parse(DOWNLOAD_URL+manifest.versionCode);
+        Uri uri = Uri.parse(DOWNLOAD_URL + manifest.versionCode);
         DownloadManager.Request request = new DownloadManager.Request(uri)
-                .setTitle("AdAway " + manifest.version);
+                .setTitle("AdAway " + manifest.version)
+                .setDescription(this.context.getString(R.string.update_notification_description));
         DownloadManager downloadManager = this.context.getSystemService(DownloadManager.class);
         return downloadManager.enqueue(request);
     }
