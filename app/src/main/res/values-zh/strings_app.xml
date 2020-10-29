@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AdAway</string>
     <string name="app_description">开源广告拦截器</string>
+    <string name="app_logo">AdAway 徽标</string>
 </resources>
