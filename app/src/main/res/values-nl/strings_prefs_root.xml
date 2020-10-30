@@ -25,6 +25,9 @@
     <string name="pref_webserver_enabled">Webserver inschakelen</string>
     <string name="pref_webserver_test">Test webserver</string>
     <string name="pref_webserver_certificate">Installeer zelf ondertekend certificaat</string>
+    <string name="pref_webserver_certificate_dialog_title">Installeer certificaten handmatig</string>
+    <string name="pref_webserver_certificate_dialog_content">Vanaf Android 11 (R), applicaties kunnen niet meer automatisch geautoriseerde certificaten (CA) installeren.\n\nGa naar \"Beveiliging\" in settings, \"Encrypty &amp; credentials\" en dan \"Installeer een certificaat\". Vanaf daar kies voor \"CA certificaat\" en selecteer het nieuwe geëxporteerde certificaat bestand.</string>
+    <string name="pref_webserver_certificate_dialog_action">Open \"Beveiliging\" in settings</string>
     <string name="pref_webserver_state_checking">Controleer…</string>
     <string name="pref_webserver_state_not_running">Niet actief</string>
     <string name="pref_webserver_state_running_not_installed">Actief maar certificaat is niet geinstalleerd</string>
