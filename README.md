@@ -20,13 +20,13 @@ For users with bugs, there may be preview builds available from the [XDA develop
 It is recommended to try those builds to see if your issue is resolved before creating an issue.
 The preview builds may contain bug fixes or new features for new android versions.
 
-[<img src="Resources/XDADevelopers.png"
-      raw="true"
-      alt="Get it on XDA forum"
-      height="60">](https://forum.xda-developers.com/showthread.php?t=2190753) 
 [<img src="Resources/get-it-on-adaway.png"
       alt="Get it on official AdAway website"
       height="80">](https://app.adaway.org/beta.apk)
+[<img src="Resources/XDADevelopers.png"
+      raw="true"
+      alt="Get it on XDA forum"
+      height="60">](https://forum.xda-developers.com/showthread.php?t=2190753)
 
 ### Stable builds
 
@@ -36,6 +36,9 @@ The preview builds may contain bug fixes or new features for new android version
 
 After preview builds have been tested by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
 
+[<img src="Resources/get-it-on-adaway.png"
+    alt="Get it on official AdAway website"
+    height="80">](https://app.adaway.org/adaway.apk)
 [<img src="Resources/get-it-on-fdroid.png"
       raw="true"
       alt="Get it on F-Droid"
