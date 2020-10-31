@@ -22,6 +22,10 @@ package org.adaway.util;
 
 import io.sentry.Sentry;
 
+import static io.sentry.SentryLevel.ERROR;
+import static io.sentry.SentryLevel.INFO;
+import static io.sentry.SentryLevel.WARNING;
+
 /**
  * Wraps Android Logging to enable or disable debug output using Constants
  */
@@ -54,35 +58,34 @@ public final class Log {
     public static void i(String tag, String msg) {
         if (Constants.isDebugEnabled()) {
             android.util.Log.i(tag, msg);
-            Sentry.capture(msg);
+            Sentry.captureMessage(msg, INFO);
         }
     }
 
     public static void i(String tag, String msg, Throwable tr) {
         if (Constants.isDebugEnabled()) {
             android.util.Log.i(tag, msg, tr);
-            Sentry.capture(new Exception(msg, tr));
+            Sentry.captureException(tr, msg);
         }
     }
 
     public static void w(String tag, String msg) {
         android.util.Log.w(tag, msg);
-        Sentry.capture(msg);
+        Sentry.captureMessage(msg, WARNING);
     }
 
     public static void w(String tag, String msg, Throwable tr) {
         android.util.Log.w(tag, msg, tr);
-        Sentry.capture(msg);
-        Sentry.capture(new Exception(msg, tr));
+        Sentry.captureException(tr, msg);
     }
 
     public static void e(String tag, String msg) {
         android.util.Log.e(tag, msg);
-        Sentry.capture(msg);
+        Sentry.captureMessage(msg, ERROR);
     }
 
     public static void e(String tag, String msg, Throwable tr) {
         android.util.Log.e(tag, msg, tr);
-        Sentry.capture(new Exception(msg, tr));
+        Sentry.captureException(tr, msg);
     }
 }

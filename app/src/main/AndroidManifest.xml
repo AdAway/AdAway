@@ -141,6 +141,9 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
+
+        <meta-data android:name="io.sentry.auto-init" android:value="false" />
+        <meta-data android:name="io.sentry.dsn" android:value="https://8dac17b798fb45e492278a678c5ab028@sentry.io/1331667" />
     </application>
 
 </manifest>
