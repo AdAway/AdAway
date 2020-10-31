@@ -4,6 +4,7 @@
 
 - Add application update UI
 - Fix VPN app exclusion on Android 11
+- Update AndroidX and Sentry dependencies
 
 Special thanks to spiou and drothenberger for their bug reports.
 
