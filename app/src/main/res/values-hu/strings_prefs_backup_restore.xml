@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">Mentés &amp; visszaállítás</string>
+    <string name="pref_backup">Biztonsági mentés</string>
+    <string name="pref_backup_summary">Blokkszabályok biztonsági mentése külső tárhelyre</string>
+    <string name="pref_restore">Visszaállítás</string>
+    <string name="pref_restore_summary">Blokkszabályok visszaállítása a biztonsági mentés fájlból</string>
+</resources>
