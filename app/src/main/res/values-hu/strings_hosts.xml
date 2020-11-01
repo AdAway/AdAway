@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Hosts források</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Felhasználói lista</string>
+    <string name="hosts_adaway_source">AdAway official hosts</string>
+    <string name="hosts_stevenblack_source">StevenBlack Unified hosts</string>
+    <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
     <!-- List -->
     <string name="hosts_not_available">nem érhető el</string>
+    <string name="hosts_count">%shosztok</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Forrás hozzáadása</string>
     <string name="hosts_edit_dialog_title">Forrás szerkesztése</string>
