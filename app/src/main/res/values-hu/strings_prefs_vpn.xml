@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN alapú hirdetésblokkolás</string>
+    <string name="pref_vpn_service_on_boot">Engedélyezés indításkor</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Kizárt alkalmazások</string>
+    <string name="pref_vpn_excluded_apps_description">Állítsa be, mely alkalmazások ne használják a VPN-t. Így egyetlen kapcsolat sem lesz blokkolva.</string>
+    <string name="pref_vpn_exclude_system_apps">Rendszeralkalmazások kizárása</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Felhasználói alkalmazások kizárása</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Kizárt alkalmazások</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Összes kijelölése</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Összes kijelölésének törlése</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Application icon</string>
+</resources>
