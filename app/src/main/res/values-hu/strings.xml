@@ -23,18 +23,21 @@
     <string name="header_webserver">Webszerver</string>
     <string name="webserver_status_running">Fut</string>
     <string name="webserver_status_stopped">Megállítva</string>
+    <string name="webserver_toggle_text">Webszerver indítása vagy leállítása a localhost-on, amely válaszol a letiltott hostoknak küldött lekérésekre.</string>
     <string name="button_enable_webserver">Webszerver engedélyezése</string>
     <string name="button_disable_webserver">Webszerver letiltása</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Fut</string>
     <string name="vpn_status_stopped">Megállítva</string>
+    <string name="vpn_toggle_text">Indítsa el vagy állítsa le a VPN-t a kérelmek szűréséhez</string>
     <string name="button_enable_vpn">VPN Bekapcsolása</string>
     <string name="button_disable_vpn">VPN Kikapcsolása</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Törlés</string>
     <string name="checkbox_list_context_title">Bejegyzés szerkesztése</string>
+    <string name="checkbox_list_context_apply">Alkalmaz</string>
     <string name="checkbox_list_context_edit">Szerkesztés</string>
+    <string name="checkbox_list_context_delete">Törlés</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importálás…</string>
@@ -52,9 +55,17 @@
 
     <!--Status Notification-->
     <string name="status_check">Frissítés ellenőrzése…</string>
+    <string name="status_check_source">%s forrás frissítésének ellenőrzése</string>
+    <string name="status_retrieve">Források lekérése</string>
+    <string name="status_download_source">Források letöltése %s</string>
+    <string name="status_read_source">Források olvasása %s</string>
+    <string name="status_parse_source">%s forrás elemzése</string>
+    <string name="status_revert">Alapértelmezett host fájl visszaállítása</string>
+    <string name="status_revert_done">Alapértelmezett host fájl visszaállítva</string>
     <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
     <string name="status_update_available">Frissítés érhető el</string>
     <string name="status_update_available_subtitle">Újabb hosts fájlok érhetők el</string>
+    <string name="status_no_update_found">Nem található forrásfrissítés</string>
     <string name="status_no_connection">Nincs internetkapcsolat</string>
     <string name="status_no_connection_subtitle">Nincs elérhető internetkapcsolat</string>
     <string name="status_download_fail">Elérhetetlen források</string>
@@ -67,18 +78,30 @@
     <string name="status_enabled_subtitle">A legújabb hosts fájlok vannak engedélyezve</string>
     <string name="status_disabled">Letiltva</string>
     <string name="status_disabled_subtitle">Az alapértelmezett hosts fájl van telepítve</string>
+    <string name="status_apply_sources">Legújabb források alkalmazása</string>
+    <string name="status_create_new_hosts">Új hosts fájl készítése</string>
     <string name="status_copy_new_hosts">Hosts fájl másolása</string>
+    <string name="status_check_copy">Hosts fájl másolásának ellenőrzése</string>
+    <string name="status_hosts_updated">Hosts fájl sikeresen frissítve</string>
+    <string name="status_vpn_configuration_updated">VPN konfiguráció sikeresen frissítve</string>
+    <string name="notification_configuration_changed">A konfiguráció megváltozott. Alkalmaznod kell.</string>
     <string name="notification_configuration_changed_action">Alkalmaz</string>
+    <string name="notification_configuration_installing">Új konfiguráció alkalmazása...</string>
+    <string name="notification_configuration_failed">Nem sikerült alkalmazni az új konfigurációt.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Hiányzik a hosts fájl symlink</string>
     <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
 
 Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
-    <string name="apply_symlink_missing_title">Hiányzó szimbolikus link</string>
+    <string name="apply_symlink_missing_title">Hiányzó symlink</string>
     <string name="apply_not_enough_space">Nincs elég hely a partíción!\nPróbáld meg módosítani a cél hosts fájlt /data/data/hosts -ra a beállításokban !</string>
     <string name="apply_not_enough_space_title">Nincs elég hely</string>
     <string name="apply_private_file_fail">A letöltött fájlt nem lehet beolvasni.</string>
     <string name="apply_private_file_fail_title">Privát fájl hiba</string>
     <string name="apply_remount_fail">Nem sikerült a partíciót írhatóként újracsatolni!</string>
     <string name="apply_remount_fail_title">Sikertelen újracsatolás</string>
+    <string name="apply_copy_fail_status">A hosts fájl másolása nem sikerült</string>
     <string name="apply_copy_fail">Nem sikerült a hosts fájl másolása!</string>
     <string name="apply_copy_fail_title">Sikertelen másolás</string>
     <string name="apply_success_subtitle">A hosts források beállítása sikerült</string>
@@ -99,6 +122,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_dialog_hostnames">Hosts fájlok feldolgozása és összefésülése</string>
     <string name="apply_dialog_hosts">Hosts fájl felépítése</string>
     <string name="apply_dialog_apply">Hosts fájl alkalmazása</string>
+    <string name="apply_fail_status">Az új hosts fájl alkalmazása nem sikerült</string>
     <string name="apply_fail">Nem sikerült a hosts fájl alkalmazása rendszereden!\nPróbáld meg /data/data/hosts-ra módosítani a cél hosts fájlt a beállításokban.</string>
     <string name="apply_fail_title">Az alkalmazás nem sikerült</string>
     <string name="root_access_fail">Ellenőrizd a root kezelő alkalmazásban a root hozzáférés megadását.</string>
@@ -109,6 +133,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="revert_problem_title">Sikertelen visszaállítás!</string>
     <string name="download_fail_dialog">Egyik engedélyezett hosts fájl sem érhető el! Megfelelően csatlakozol az internethez?</string>
     <string name="download_fail_title">Sikertelen letöltés</string>
+    <string name="no_private_file_status">A privát hosts fájl írása nem sikerült</string>
     <string name="no_private_file">Privát fájl nem hozható létre.</string>
     <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
     <string name="enable_systemless_successful">Engedélyezted a systemless módot.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
@@ -117,14 +142,14 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="disable_systemless_successful_title">Sikerült a letiltás</string>
     <string name="enable_vpn_fail">Nem sikerült engedélyezni a VPN reklámblokkolást.</string>
     <string name="disable_vpn_fail">Nem sikerült letiltani a VPN reklámblokkolást.</string>
-    <string name="enable_systemless_magisk_title">A Magisk  hosts module bekapcsolása</string>
+    <string name="enable_systemless_magisk_title">Magisk hosts modul engedélyezése</string>
     <string name="enable_systemless_magisk">Systemless hosts funkció bekapcsolása a Magisk managerben. A beállításokban kapcsold be a <cite>Systemless hosts</cite> lehetőséget, majd indítsd újra a készüléket.</string>
-    <string name="disable_systemless_magisk_title">A Magisk hosts module kikapcsolása</string>
+    <string name="disable_systemless_magisk_title">Magisk hosts modul letiltása</string>
     <string name="disable_systemless_magisk">Systemless hosts funkció kikapcsolása a Magisk managerben. A modul listából távolítsd el a <cite>Systemless hosts</cite> modult majd indítsd újra az eszközt.</string>
 
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
-    <string name="no_hostname">Ez nem érvényes hosztnév!</string>
+    <string name="no_hostname">Ez nem egy érvényes hosztnév!</string>
     <string name="no_hostname_title">Helytelenül formázott hosztnév</string>
     <string name="no_ip">Ez nem érvényes IP!</string>
     <string name="no_ip_title">Helytelenül formázott IP cím</string>
@@ -146,7 +171,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Itt megtalálhatók a telepített adware-eket, a rossz alkalmazásokat, amelyeket az AdAway nem blokkolhat. Ezek az alkalmazások például Airpush értesítéseket használnak, amelyek akkor is megjelennek, ha az alkalmazás nem fut, vagy akár csengőhangot is megváltoztathatnak. Az egyetlen használható megoldás az, hogy ezeket az alkalmazásokat a listaelemekre kattintva eltávolítod</string>
-    <string name="adware_scanning">Vizsgálat…</string>
+    <string name="adware_scanning">Vizsgálat&#8230;</string>
     <string name="adware_empty">Nem található adware!</string>
 
     <!--Other-->
@@ -197,27 +222,44 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="shortcut_your_lists">Saját listák</string>
     <string name="shortcut_preferences">Beállítások</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Telepítve %1$sezelőtt</string>
     <string name="hosts_source_up_to_date">Friss (frissítve %1$s ezelőtt)</string>
-    <string name="hosts_source_need_update">A %1$s frissítése szükséges</string>
+    <string name="hosts_source_need_update">%1$sfrissítése szükséges</string>
     <string name="hosts_source_last_update">Utolsó frissítés %1$s ezelőtt</string>
     <string name="hosts_source_unknown_status">Ismeretlen frissítési státusz</string>
+    <string name="hosts_source_few_minutes">néhány perce</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d perc</item>
-        <item quantity="other">%d perc</item>
+        <item quantity="other">%d perccel</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d óra</item>
-        <item quantity="other">%d óra</item>
+        <item quantity="other">%d órával</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d nap</item>
-        <item quantity="other">%d nap</item>
+        <item quantity="other">%d nappal</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d hónap</item>
-        <item quantity="other">%d hónap</item>
+        <item quantity="other">%d hónappal</item>
     </plurals>
 
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">elindítás</string>
     <string name="vpn_notification_running">aktív</string>
+    <string name="vpn_notification_stopping">megállítás</string>
+    <string name="vpn_notification_waiting_for_net">várakozás a hálózatra</string>
     <string name="vpn_notification_reconnecting">újracsatlakozás</string>
-    </resources>
+    <string name="vpn_notification_reconnecting_error">újracsatlakozási hiba</string>
+    <string name="vpn_notification_paused">szüneteltetve</string>
+    <string name="vpn_notification_stopped">megállítva</string>
+    <string name="vpn_notification_title">Hirdetésblokkoló VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Szüneteltetés</string>
+    <string name="vpn_notification_paused_text">Koppints a folytatáshoz</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Rendszer-szintű hirdezésblokkolás engedélyezése vagy letiltása</string>
+
+</resources>
