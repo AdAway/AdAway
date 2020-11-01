@@ -5,6 +5,10 @@
     <string name="lists_tab_blocked">Blokkolt</string>
     <string name="lists_tab_allowed">Megengedett</string>
     <string name="lists_tab_redirected">Átirányítva</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Hosztok szűrése</string>
+    <string name="lists_menu_filter_hint">Hosztnevek keresése</string>
+    <string name="lists_menu_toggle_sources">Források váltása</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Hoszt hozzáadása a feketelistához</string>
     <string name="list_add_dialog_white">Hoszt hozzáadása a fehérlistához</string>
