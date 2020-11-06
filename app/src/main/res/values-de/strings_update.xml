@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway aktualisieren</string>
     <!-- Home screen -->
     <string name="update_available">Aktualisierung verfügbar!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">Sie sind auf dem neusten Stand</string>
+    <string name="update_update_available_header">Aktualisierung verfügbar</string>
+    <string name="update_updating_header">Aktualisierung AdAway</string>
     <string name="update_update_button">Jetzt Aktualisieren</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Letzte Änderungen:</string>
+    <string name="update_new_changelog_title">Aktualisierungsprotokoll:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Herunterladen der neuesten AdAway Version...</string>
 </resources>
