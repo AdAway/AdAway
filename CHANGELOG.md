@@ -1,8 +1,9 @@
-## [5.0.11] - Unreleased
+## [5.1.0] - Unreleased
 
 *This version is a pre-release*
 
 - Add application update UI
+- Add F-Droid apk support to built-in updater
 - Fix VPN app exclusion on Android 11
 - Update AndroidX and Sentry dependencies
 
