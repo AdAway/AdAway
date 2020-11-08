@@ -4,7 +4,6 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.os.Build;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -22,8 +21,10 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
+import static android.os.Build.VERSION.SDK_INT;
 import static org.adaway.BuildConfig.VERSION_CODE;
 import static org.adaway.BuildConfig.VERSION_NAME;
+import static org.adaway.model.update.UpdateStore.getApkStore;
 
 /**
  * This class is the model in charge of updating the application.
@@ -31,13 +32,12 @@ import static org.adaway.BuildConfig.VERSION_NAME;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class UpdateModel {
-    static final String TAG = "UpdateModel";
     private static final String MANIFEST_URL = "https://app.adaway.org/manifest.json";
     private static final String DOWNLOAD_URL = "https://app.adaway.org/adaway.apk?versionCode=";
     private final Context context;
     private final OkHttpClient client;
     private final MutableLiveData<Manifest> manifest;
-    private final MutableLiveData<Long> updateDownloadId;
+    static final String TAG = "UpdateModel";
     private ApkDownloadReceiver receiver;
 
     /**
@@ -48,7 +48,6 @@ public class UpdateModel {
     public UpdateModel(Context context) {
         this.context = context;
         this.manifest = new MutableLiveData<>();
-        this.updateDownloadId = new MutableLiveData<>();
         this.client = buildHttpClient();
         ApkUpdateService.syncPreferences(context);
     }
@@ -81,15 +80,6 @@ public class UpdateModel {
     }
 
     /**
-     * Get the update download identifier.
-     *
-     * @return The update download identifier.
-     */
-    public MutableLiveData<Long> getUpdateDownloadId() {
-        return this.updateDownloadId;
-    }
-
-    /**
      * Check if there is an update available.
      */
     public void checkForUpdate() {
@@ -108,7 +98,8 @@ public class UpdateModel {
         HttpUrl httpUrl = HttpUrl.parse(MANIFEST_URL)
                 .newBuilder()
                 .addQueryParameter("versionCode", Integer.toString(VERSION_CODE))
-                .addQueryParameter("sdkCode", Integer.toString(Build.VERSION.SDK_INT))
+                .addQueryParameter("sdkCode", Integer.toString(SDK_INT))
+                .addQueryParameter("store", getApkStore(this.context).getName())
                 .build();
         Request request = new Request.Builder()
                 .url(httpUrl)
