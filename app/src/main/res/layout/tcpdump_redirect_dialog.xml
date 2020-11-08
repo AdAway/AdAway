@@ -12,7 +12,7 @@
         android:textAppearance="@android:style/TextAppearance.Medium" />
 
     <EditText
-        android:id="@+id/tcpdump_redirect_ip"
+        android:id="@+id/redirect_ip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:importantForAutofill="no"
