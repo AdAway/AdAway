@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Bienvenue !</string>
-    <string name="text_help">AdAway est un programme gratuit et à code source ouvert conçu pour bloquer les publicités. Il obtient les adresses des réseaux publicitaires afin de les bloquer sur votre appareil.\n Voulez-vous en savoir davantage ? Consultez l’aide ci-dessous.</string>
+    <string name="text_help">AdAway est un programme gratuit et à code source ouvert conçu pour bloquer les publicités. Il obtient les adresses des réseaux publicitaires afin de les bloquer sur votre appareil.\nVoulez-vous en apprendre davantage ? Consultez l’aide ci-dessous.</string>
     <string name="button_show_help">Afficher plus d’aide</string>
     <string name="icon_update_status">Mettre à jour l’état</string>
     <string name="text_update">Tous les fichiers hosts des sources définies sont téléchargés, fusionnés avec vos propres listes, puis installés en un seul fichier hosts sur votre système.</string>
@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Désactiver le RPV</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Supprimer</string>
     <string name="checkbox_list_context_title">Modifier l’entrée</string>
+    <string name="checkbox_list_context_apply">Appliquer</string>
     <string name="checkbox_list_context_edit">Modifier</string>
+    <string name="checkbox_list_context_delete">Supprimer</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importation…</string>
@@ -57,7 +58,7 @@
     <string name="status_check_source">Vérification de la présence de mises à jour sur la source %s</string>
     <string name="status_retrieve">Récupération des sources</string>
     <string name="status_download_source">Téléchargement de la source %s</string>
-    <string name="status_read_source">Copie de la source %s</string>
+    <string name="status_read_source">Lecture de la source %s</string>
     <string name="status_parse_source">Analyse de la source %s</string>
     <string name="status_revert">Rétablissement du fichier hosts par défaut</string>
     <string name="status_revert_done">Le fichier hosts par défaut a été restauré</string>
