@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Nėra interneto</string>
+    <string name="error_no_connection_details">Negalimas sujingimas internetu. Prašome patkikrinti įrenginio sujungimą.</string>
+    <string name="error_download_failed_message">Nepavyko atsisiųsti hosts failo</string>
+    <string name="error_download_failed_details">Nei vienas jūsų įjungtas domeno šaltinis yra pasiekiamas. Prašome patikrinti ar esate gerai prisijungę prie interneto.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Nepavyko sukurti privataus failo</string>
+    <string name="error_private_file_failed_details">Nepavyko sukurti privataus failo kad sukurti naujo domeno šaltinio. Prašome patikrintai ar yra laisvos vietos jūsų įrenginyje.</string>
     <string name="error_not_enough_space_message">Nepakanka vietos</string>
-    </resources>
+    <string name="error_not_enough_space_details">Nepavyko nukopijuoti domeno failo į jūsų sistemos particijos skirsnį. Prašome patikrinti ar Magisk ne sisteminis modulis įjungtas, tada perkraukite įrenginį</string>
+    <string name="error_copy_failed_message">Nepavyko instaliuoti naujo hosts domeno failo.</string>
+    <string name="error_copy_failed_details">Nepavyko nukopijuoti domeno failo į jūsų /system particijos skirsnį. Prašome patikrinti ar Magisk ne sisteminis modulis įjungtas, tada perkraukite įrenginį.</string>
+    <string name="error_revert_failed_message">Nepavyko atkurti praėjusio hosts domeno failo</string>
+    <string name="error_revert_failed_details">Nepavyko atkrurti originalaus hosts domeno failo konfiguracijos</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Nepavyko įjungti VPN reklamų blokavimo.</string>
+    <string name="error_enable_vpn_failed_details">Prašome patikrinti jūsų VPN nustatymus kurie atsakingi už aplikacijos VPN paleidimą.</string>
+    <string name="error_disable_vpn_failed_message">Nepavyko išjungti VPN reklamų blokavimo.</string>
+    <string name="error_disable_vpn_failed_details">Prašome patikrinti jūsų VPN nustatymus kad juos išjungti rankiniu būdu.</string>
+</resources>
