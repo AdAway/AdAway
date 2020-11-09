@@ -73,24 +73,21 @@ public class UpdateViewModel extends AdwareViewModel {
             // Check download status
             int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
             switch (status) {
-                case DownloadManager.STATUS_FAILED: {
+                case DownloadManager.STATUS_FAILED:
                     finishDownload = true;
                     this.downloadProgress.postValue(null);
                     break;
-                }
-                case DownloadManager.STATUS_RUNNING: {
+                case DownloadManager.STATUS_RUNNING:
                     total = cursor.getLong(cursor.getColumnIndex(COLUMN_TOTAL_SIZE_BYTES));
                     if (total >= 0) {
                         long downloaded = cursor.getLong(cursor.getColumnIndex(COLUMN_BYTES_DOWNLOADED_SO_FAR));
                         this.downloadProgress.postValue(new DownloadStatus(downloaded, total));
                     }
                     break;
-                }
-                case DownloadManager.STATUS_SUCCESSFUL: {
+                case DownloadManager.STATUS_SUCCESSFUL:
                     this.downloadProgress.postValue(new DownloadStatus(total, total));
                     finishDownload = true;
                     break;
-                }
             }
         }
     }

@@ -100,7 +100,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          */
         this.binding.tcpdumpToggleRecording.setOnClickListener(v -> this.mViewModel.toggleRecording());
         this.mViewModel.isRecording().observe(this, recoding ->
-                this.binding.tcpdumpToggleRecording.setImageResource(recoding == TRUE ?
+                this.binding.tcpdumpToggleRecording.setImageResource(TRUE.equals(recoding) ?
                         R.drawable.ic_pause_24dp :
                         R.drawable.ic_record_24dp
                 )
