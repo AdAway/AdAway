@@ -7,6 +7,7 @@
 - Add custom hosts file parser for big hosts file (1M+ entries, way slower but memory friendly)
 - Fix VPN app exclusion on Android 11
 - Update AndroidX and Sentry dependencies
+- Update translations
 
 Special thanks to spiou, drothenberger and gallegonovato for their bug reports.
 
