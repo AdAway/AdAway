@@ -3,7 +3,6 @@
     <string name="welcome_title">환영합니다</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Welcome logo</string>
     <string name="welcome_method_header">AdAway에 오신 걸 환영합니다!</string>
     <string name="welcome_method_summary">AdAway는 두 가지 광고 차단을 제공하고 있습니다. 원하시는 기능을 선택해 주십시오:</string>
 
