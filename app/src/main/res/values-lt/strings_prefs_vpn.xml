@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">VPN pagrįstas reklamų blokavimas</string>
+    <string name="pref_vpn_service_on_boot">Įjungti įjungimo metu</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Išskirtos aplikacijos</string>
+    <string name="pref_vpn_excluded_apps_description">Sukonfigūruoti kurios aplikacijos nenaudos VPN kad sujungimai nebūtų blokuojami.</string>
+    <string name="pref_vpn_exclude_system_apps">Išskirti sistemos aplikacijos</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Nei viena</item>
+        <item>Visos išskyrus naršykles</item>
+        <item>Visos</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Išskirti vartotojo aplikacijas</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Išskirtos programos</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Pasirinkti visas</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Nebepasirinkti visų</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Programos ikona</string>
+</resources>
