@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!-- Home screen -->
+    <string name="update_available">업데이트 가능!</string>
 </resources>
-
