@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_update_check_app_daily">Kasdien ieškoti atnaujinimų</string>
-    <string name="pref_update_check">Ieškoti atnaujinimų</string>
-    <string name="pref_update_check_hosts_daily">Kasdien ieškoti atnaujinimų</string>
-    </resources>
+    <string name="pref_update_title">Atnaujinimai</string>
+    <!-- Application category -->
+    <string name="pref_update_app_category">Programos atnaujinimai</string>
+    <string name="pref_update_check_app_daily">Periodiškai ieškoti atnaujinimų</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Domeno hosts atnaujinimai</string>
+    <string name="pref_update_check">Ieškoti atnaujinimų paleidimo metu</string>
+    <string name="pref_update_check_hosts_daily">Periodiškai ieškoti atnaujinimų</string>
+    <string name="pref_update_sync_on_update">Sinchronizuoti atnaujinimo metu</string>
+    <string name="pref_update_sync_unmetered_only">Sinchronizuoti tik neribotu tinklu</string>
+</resources>
