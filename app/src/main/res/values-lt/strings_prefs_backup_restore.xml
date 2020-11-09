@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">Padaryti atsarginę kopiją; atkurti </string>
+    <string name="pref_backup">Atsarginė kopija</string>
+    <string name="pref_backup_summary">Sukurti atsarginę kopiją į blokavimo taisyklių į išorinę duomenų laikmeną</string>
+    <string name="pref_restore">Atkurti</string>
+    <string name="pref_restore_summary">Atkrurti jūsų blokavimo taisykles iš atsarginės kopijos</string>
+</resources>
