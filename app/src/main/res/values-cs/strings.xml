@@ -57,7 +57,7 @@
     <string name="status_check_source">Kontrola aktualizace zdroje %s</string>
     <string name="status_retrieve">Načítání zdrojů</string>
     <string name="status_download_source">Stahování zdroje %s</string>
-    <string name="status_copy_source">Kopírování zdroje %s</string>
+    <string name="status_read_source">Kopírování zdroje %s</string>
     <string name="status_parse_source">Analýza zdroje %s</string>
     <string name="status_revert">Obnovování výchozího souboru hostitelů</string>
     <string name="status_revert_done">Výchozí soubor hostitelů obnoven</string>

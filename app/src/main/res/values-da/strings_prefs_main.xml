@@ -2,9 +2,6 @@
 <resources>
     <string name="pref_main_title">Indstillinger</string>
     <string name="pref_dark_theme">Aktiver mørkt tema</string>
-    <string name="pref_whitelist_rules">Tillad hvidlister</string>
-    <string name="pref_redirection_rules">Tillad viderestillinger</string>
-    <string name="pref_redirection_rules_summary">KAN INDEBÆRE SIKKERHEDSRISIKO! Tillad omdirigerings-poster fra hosts-kilder. </string>
     <string name="pref_enable_ipv6">Aktivér IPv6</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Debug</string>

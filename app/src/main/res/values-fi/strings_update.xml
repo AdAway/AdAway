@@ -3,11 +3,6 @@
     <!-- Home screen -->
     <string name="update_available">Päivitys saatavilla!</string>
 
-    <!-- Changelog dialog -->
-    <string name="update_update_title">Uusi versio saatavilla</string>
-    <string name="update_update_message">Uusi versio tuo nämä muutokset:\n\n</string>
-    <string name="update_up_to_date_title">Olet ajan tasalla</string>
-    <string name="update_up_to_date_message">Tämä uusin versio tuo nämä muutokset:\n\n</string>
-    <string name="update_changelog">Muutokset</string>
+    <!-- Update activity -->
     <string name="update_update_button">Päivitä nyt</string>
 </resources>

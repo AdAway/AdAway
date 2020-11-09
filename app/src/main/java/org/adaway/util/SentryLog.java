@@ -4,11 +4,11 @@ import android.content.Context;
 
 import org.adaway.helper.PreferenceHelper;
 
+import io.sentry.Breadcrumb;
 import io.sentry.Sentry;
-import io.sentry.android.AndroidSentryClientFactory;
-import io.sentry.event.Breadcrumb;
-import io.sentry.event.BreadcrumbBuilder;
+import io.sentry.android.core.SentryAndroid;
 
+import static io.sentry.SentryLevel.INFO;
 
 /**
  * This class is a helper to initialize and configuration Sentry.
@@ -16,11 +16,6 @@ import io.sentry.event.BreadcrumbBuilder;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public final class SentryLog {
-    /**
-     * The API key to
-     */
-    private static final String SENTRY_DSN = "https://8dac17b798fb45e492278a678c5ab028@sentry.io/1331667";
-
     /**
      * Private constructor.
      */
@@ -44,10 +39,10 @@ public final class SentryLog {
      * @param enabled Whether the application is allowed to send events to Sentry or not.
      */
     public static void setEnabled(Context context, boolean enabled) {
-        // Select DSN according activation status (null prevent event collection and sending)
-        String dsn = enabled ? SENTRY_DSN : null;
-        // Initialize sentry client
-        Sentry.init(dsn, new AndroidSentryClientFactory(context));
+        if (enabled) {
+            // Initialize sentry client manually
+            SentryAndroid.init(context);
+        }
     }
 
     /**
@@ -56,8 +51,12 @@ public final class SentryLog {
      * @param message The breadcrumb message.
      */
     public static void recordBreadcrumb(String message) {
-        Breadcrumb breadcrumb = new BreadcrumbBuilder().setMessage(message).build();
-        Sentry.getContext().recordBreadcrumb(breadcrumb);
+        Sentry.configureScope(scope -> {
+            Breadcrumb breadcrumb = new Breadcrumb();
+            breadcrumb.setMessage(message);
+            breadcrumb.setLevel(INFO);
+            scope.addBreadcrumb(breadcrumb);
+        });
     }
 
     /**

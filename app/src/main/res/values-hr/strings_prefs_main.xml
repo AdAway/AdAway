@@ -9,9 +9,6 @@
     <string name="pref_ad_block_category">Blokiranje oglasa</string>
     <string name="pref_root_ad_blocker_configuration">Korijenski (root) temeljen blokator oglasa</string>
     <string name="pref_vpn_ad_blocker_configuration">VPN temeljen blokator oglasa</string>
-    <string name="pref_whitelist_rules">Dopusti dodavanje na popis neblokiranih</string>
-    <string name="pref_redirection_rules">Dopusti dodavanja na popis preusmjerenih</string>
-    <string name="pref_redirection_rules_summary">PREDSTAVLJA SIGURNOSNI RIZIK!</string>
     <string name="pref_enable_ipv6">Omogući IPv6 podršku</string>
     <string name="pref_backup_restore">Sigurnosno kopiraj / Obnovi pravila blokiranja</string>
     <!-- Debug category -->

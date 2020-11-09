@@ -24,7 +24,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.databinding.HomeActivityBinding;
 import org.adaway.helper.NotificationHelper;
@@ -32,13 +31,13 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.error.HostError;
-import org.adaway.model.update.Manifest;
 import org.adaway.ui.help.HelpActivity;
 import org.adaway.ui.hosts.HostsSourcesActivity;
 import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.ui.support.SupportActivity;
 import org.adaway.ui.tcpdump.TcpdumpLogActivity;
+import org.adaway.ui.update.UpdateActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
 import org.adaway.util.Log;
 
@@ -145,7 +144,7 @@ public class HomeActivity extends AppCompatActivity {
     private void bindAppVersion() {
         TextView versionTextView = this.binding.content.versionTextView;
         versionTextView.setText(this.homeViewModel.getVersionName());
-        versionTextView.setOnClickListener(this::showChangelog);
+        versionTextView.setOnClickListener(this::showUpdate);
 
         this.homeViewModel.getAppManifest().observe(
                 this,
@@ -310,7 +309,7 @@ public class HomeActivity extends AppCompatActivity {
      *
      * @param view The event source view.
      */
-    private void startHostsSourcesActivity(@SuppressWarnings("unused") View view) {
+    private void startHostsSourcesActivity(View view) {
         startActivity(new Intent(this, HostsSourcesActivity.class));
     }
 
@@ -319,7 +318,7 @@ public class HomeActivity extends AppCompatActivity {
      *
      * @param view The event source view.
      */
-    private void updateHostsList(@SuppressWarnings("unused") View view) {
+    private void updateHostsList(View view) {
         notifyUpdating(true);
         this.homeViewModel.update();
     }
@@ -329,7 +328,7 @@ public class HomeActivity extends AppCompatActivity {
      *
      * @param view The event source view.
      */
-    private void syncHostsList(@SuppressWarnings("unused") View view) {
+    private void syncHostsList(View view) {
         notifyUpdating(true);
         this.homeViewModel.sync();
     }
@@ -340,7 +339,7 @@ public class HomeActivity extends AppCompatActivity {
      *
      * @param view The source event view.
      */
-    private void startHelpActivity(@SuppressWarnings("unused") View view) {
+    private void startHelpActivity(View view) {
         startActivity(new Intent(this, HelpActivity.class));
     }
 
@@ -349,7 +348,7 @@ public class HomeActivity extends AppCompatActivity {
      *
      * @param view The source event view.
      */
-    private void showProjectPage(@SuppressWarnings("unused") View view) {
+    private void showProjectPage(View view) {
         // Show development page
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PROJECT_LINK));
         startActivity(browserIntent);
@@ -360,7 +359,7 @@ public class HomeActivity extends AppCompatActivity {
      *
      * @param view The source event view.
      */
-    private void showSupportActivity(@SuppressWarnings("unused") View view) {
+    private void showSupportActivity(View view) {
         startActivity(new Intent(this, SupportActivity.class));
     }
 
@@ -405,31 +404,8 @@ public class HomeActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void showChangelog(@SuppressWarnings("unused") View view) {
-        // Check manifest
-        Manifest manifest = this.homeViewModel.getAppManifest().getValue();
-        if (manifest == null) {
-            return;
-        }
-        // Format changelog
-        String message = manifest.changelog;
-        // Create dialog
-        MaterialAlertDialogBuilder dialogBuilder = new MaterialAlertDialogBuilder(this);
-        if (manifest.updateAvailable) {
-            message = getString(R.string.update_update_message) + message;
-            dialogBuilder
-                    .setMessage(message)
-                    .setPositiveButton(R.string.update_update_button, (dialog, which) -> {
-                        ((AdAwayApplication) this.getApplication()).getUpdateModel().update();
-                        dialog.dismiss();
-                    })
-                    .setNeutralButton(R.string.button_close, (dialog, which) -> dialog.dismiss());
-        } else {
-            message = getString(R.string.update_up_to_date_message) + message;
-            dialogBuilder.setTitle(R.string.update_up_to_date_title)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.button_close, (dialog, which) -> dialog.dismiss());
-        }
-        dialogBuilder.create().show();
+    private void showUpdate(View view) {
+        Intent intent = new Intent(this, UpdateActivity.class);
+        startActivity(intent);
     }
 }

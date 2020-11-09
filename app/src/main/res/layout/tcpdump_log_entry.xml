@@ -14,13 +14,13 @@
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/tcpdump_entry_add_blacklist"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/whiteImageView"
+        app:layout_constraintEnd_toStartOf="@+id/allowImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_block_24" />
 
     <ImageView
-        android:id="@+id/whiteImageView"
+        android:id="@+id/allowImageView"
         android:layout_width="24sp"
         android:layout_height="24sp"
         android:layout_marginStart="8dp"
@@ -42,7 +42,7 @@
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/tcpdump_entry_add_whitelist"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/whiteImageView"
+        app:layout_constraintStart_toEndOf="@id/allowImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_compare_arrows_24" />
 

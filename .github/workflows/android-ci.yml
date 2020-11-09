@@ -17,6 +17,20 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+    
+      - name: Restore gradle cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      # Manually install latest build tools (takes up to two weeks to update in action images)
+      - name: Install latest build tools
+        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;30.0.2" --sdk_root=${ANDROID_SDK_ROOT}
 
       - name: Install NDK
         run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;21.3.6528147" --sdk_root=${ANDROID_SDK_ROOT}

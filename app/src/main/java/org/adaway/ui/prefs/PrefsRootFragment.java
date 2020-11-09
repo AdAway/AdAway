@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,19 +14,27 @@ import androidx.preference.CheckBoxPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.topjohnwu.superuser.io.SuFile;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Constants;
+import org.adaway.util.Log;
 
+import static android.content.Intent.ACTION_CREATE_DOCUMENT;
+import static android.content.Intent.CATEGORY_OPENABLE;
+import static android.content.Intent.EXTRA_TITLE;
+import static android.os.Build.VERSION.SDK_INT;
+import static android.provider.Settings.ACTION_SECURITY_SETTINGS;
+import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
 import static org.adaway.util.Constants.PREFS_NAME;
 import static org.adaway.util.MountType.READ_ONLY;
 import static org.adaway.util.MountType.READ_WRITE;
 import static org.adaway.util.ShellUtils.remountPartition;
 import static org.adaway.util.WebServerUtils.TEST_URL;
+import static org.adaway.util.WebServerUtils.copyCertificate;
 import static org.adaway.util.WebServerUtils.getWebServerState;
 import static org.adaway.util.WebServerUtils.installCertificate;
 import static org.adaway.util.WebServerUtils.isWebServerRunning;
@@ -38,6 +47,7 @@ import static org.adaway.util.WebServerUtils.stopWebServer;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class PrefsRootFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
+    private static final String TAG = "PrefsRoot";
     /**
      * The request code to identify the hosts file edition without remount action.
      */
@@ -46,6 +56,10 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
      * The request code to identify the hosts file edition with remount action.
      */
     private static final int EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE = 21;
+    /**
+     * The request code to identify the export the web server certificate action.
+     */
+    private static final int EXPORT_WEB_SERVER_CERTIFICATE = 30;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -79,9 +93,16 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE) {
-            SuFile hostFile = new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
-            remountPartition(hostFile, READ_ONLY);
+        switch (requestCode) {
+            case EDIT_HOSTS_AND_REMOUNT_REQUEST_CODE:
+                SuFile hostFile = new SuFile(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
+                remountPartition(hostFile, READ_ONLY);
+            case EXPORT_WEB_SERVER_CERTIFICATE:
+                if (data == null || data.getData() == null) {
+                    Log.w(TAG, "No result data.");
+                    return;
+                }
+                prepareWebServerCertificate(data.getData());
         }
     }
 
@@ -109,7 +130,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
     }
 
     private boolean openHostsFile(@SuppressWarnings("unused") Preference preference) {
-        SuFile hostFile = new SuFile(Constants.ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
+        SuFile hostFile = new SuFile(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
         boolean remount = !hostFile.canWrite() && remountPartition(hostFile, READ_WRITE);
         try {
             Intent intent = new Intent()
@@ -161,9 +182,35 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
     private void bindWebServerCertificate() {
         Preference webServerTest = findPreference(getString(R.string.pref_webserver_certificate_key));
         webServerTest.setOnPreferenceClickListener(preference -> {
-            installCertificate(requireContext());
+            if (SDK_INT < VERSION_CODES.R) {
+                installCertificate(requireContext());
+            } else {
+                Intent intent = new Intent(ACTION_CREATE_DOCUMENT);
+                intent.addCategory(CATEGORY_OPENABLE);
+                intent.setType("application/x-x509-ca-cert");
+                intent.putExtra(EXTRA_TITLE, "adaway-webserver-certificate.crt");
+                startActivityForResult(intent, EXPORT_WEB_SERVER_CERTIFICATE);
+            }
             return true;
         });
+    }
+
+    private void prepareWebServerCertificate(Uri uri) {
+        Log.d(TAG, "Certificate URI: " + uri.toString());
+        copyCertificate(requireActivity(), uri);
+        new MaterialAlertDialogBuilder(requireContext())
+                .setCancelable(true)
+                .setTitle(R.string.pref_webserver_certificate_dialog_title)
+                .setMessage(R.string.pref_webserver_certificate_dialog_content)
+                .setPositiveButton(
+                        R.string.pref_webserver_certificate_dialog_action,
+                        (dialog, which) -> {
+                            dialog.dismiss();
+                            Intent intent = new Intent(ACTION_SECURITY_SETTINGS);
+                            startActivity(intent);
+                        })
+                .create()
+                .show();
     }
 
     private void updateWebServerState() {

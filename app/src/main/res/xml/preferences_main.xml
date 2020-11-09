@@ -29,17 +29,6 @@
             app:key="@string/pref_vpn_ad_block_method_key"
             app:title="@string/pref_vpn_ad_blocker_configuration" />
         <CheckBoxPreference
-            app:defaultValue="@bool/pref_whitelist_rules_def"
-            app:icon="@drawable/baseline_check_24"
-            app:key="@string/pref_whitelist_rules_key"
-            app:title="@string/pref_whitelist_rules" />
-        <CheckBoxPreference
-            app:defaultValue="@bool/pref_redirection_rules_def"
-            app:icon="@drawable/baseline_compare_arrows_24"
-            app:key="@string/pref_redirection_rules_key"
-            app:summary="@string/pref_redirection_rules_summary"
-            app:title="@string/pref_redirection_rules" />
-        <CheckBoxPreference
             app:defaultValue="@bool/pref_enable_ipv6_def"
             app:icon="@drawable/ic_ipv6_24dp"
             app:key="@string/pref_enable_ipv6_key"

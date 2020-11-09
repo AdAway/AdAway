@@ -3,7 +3,6 @@
     <string name="welcome_title">Добре дошли</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Добре дошли лого</string>
     <string name="welcome_method_header">Добре дошли в AdAway!</string>
     <string name="welcome_method_summary">AdAway предоставя два метода за блокиране на реклами. Изберете този, който харесвате:</string>
 

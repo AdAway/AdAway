@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">Respaldar y restaurar</string>
+    <string name="pref_backup">Respaldar</string>
+    <string name="pref_backup_summary">Respaldar tus reglas de bloqueo en el almacenamiento externo</string>
+    <string name="pref_restore">Restaurar</string>
+    <string name="pref_restore_summary">Restaura tus reglas de bloqueo desde archivo de respaldo</string>
+</resources>

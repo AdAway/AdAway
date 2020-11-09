@@ -2,9 +2,6 @@
 <resources>
     <string name="pref_main_title">Preferências</string>
     <string name="pref_dark_theme">Ativar tema escuro</string>
-    <string name="pref_whitelist_rules">Ativar lista branca</string>
-    <string name="pref_redirection_rules">Permitir redirecionamentos</string>
-    <string name="pref_redirection_rules_summary">COLOCA RISCO DE SEGURANÇA! Permitir entradas de redirecionamento em fontes de hosts.</string>
     <string name="pref_enable_ipv6">Ativar IPv6</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Depuração</string>

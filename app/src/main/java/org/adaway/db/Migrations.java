@@ -74,4 +74,29 @@ class Migrations {
             database.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_host_entries_host` ON `host_entries` (`host`)");
         }
     };
+
+    static final Migration MIGRATION_5_6 = new Migration(5, 6) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            // Update hosts_sources table
+            database.execSQL("ALTER TABLE `hosts_sources` ADD `label` TEXT NOT NULL DEFAULT \"\"");
+            database.execSQL("ALTER TABLE `hosts_sources` ADD `allowEnabled` INTEGER NOT NULL DEFAULT 0");
+            database.execSQL("ALTER TABLE `hosts_sources` ADD `redirectEnabled` INTEGER NOT NULL DEFAULT 0");
+            database.execSQL("ALTER TABLE `hosts_sources` ADD `size` INTEGER NOT NULL DEFAULT 0");
+            // Set default values to new source attributes
+            database.execSQL("UPDATE `hosts_sources` SET `label` = `url`");
+            // Update user hosts list
+            database.execSQL("UPDATE `hosts_sources` SET `url` = \"content://org.adaway/user/hosts\", `allowEnabled` = 1, `redirectEnabled` = 1 WHERE `url` = \"file://app/user/hosts\"");
+            // Update default hosts source label
+            database.execSQL("UPDATE `hosts_sources` SET `label` = \"AdAway official hosts\" WHERE `url` = \"https://adaway.org/hosts.txt\"");
+            database.execSQL("UPDATE `hosts_sources` SET `label` = \"StevenBlack Unified hosts\" WHERE `url` = \"https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts\"");
+            database.execSQL("UPDATE `hosts_sources` SET `label` = \"Pete Lowe blocklist hosts\" WHERE `url` = \"https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&showintro=0&mimetype=plaintext\"");
+            // Reset local date to rebuild cache
+            database.execSQL("UPDATE `hosts_sources` SET `last_modified_local` = NULL");
+            // Update hosts source date format
+            database.execSQL("UPDATE `hosts_sources` SET `last_modified_online` = `last_modified_online` / 1000");
+            // Clear previous file type hosts sources
+            database.execSQL("DELETE FROM `hosts_sources` WHERE `url` LIKE \"file://%\"");
+        }
+    };
 }

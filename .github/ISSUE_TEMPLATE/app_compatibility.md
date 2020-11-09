@@ -1,8 +1,8 @@
 ---
 name: App compatibility
 about: Create a report to track third party application compatibility
-title: '[app name] compatibility report'
-labels: specific-app-related
+title: "[app name] compatibility report"
+labels: 'specific-app/site-related :iphone:'
 assignees: ''
 
 ---

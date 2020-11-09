@@ -20,7 +20,6 @@ import java.util.concurrent.Executor;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HostsSourcesViewModel extends AndroidViewModel {
-
     private static final Executor EXECUTOR = AppExecutors.getInstance().diskIO();
     private final HostsSourceDao hostsSourceDao;
 
@@ -35,26 +34,5 @@ public class HostsSourcesViewModel extends AndroidViewModel {
 
     public void toggleSourceEnabled(HostsSource source) {
         EXECUTOR.execute(() -> this.hostsSourceDao.toggleEnabled(source));
-    }
-
-    public void addSourceFromUrl(String url) {
-        HostsSource source = new HostsSource();
-        source.setUrl(url);
-        source.setEnabled(true);
-        EXECUTOR.execute(() -> this.hostsSourceDao.insert(source));
-    }
-
-    public void updateSourceUrl(HostsSource source, String url) {
-        HostsSource newSource = new HostsSource();
-        newSource.setUrl(url);
-        newSource.setEnabled(source.isEnabled());
-        EXECUTOR.execute(() -> {
-            this.hostsSourceDao.delete(source);
-            this.hostsSourceDao.insert(newSource);
-        });
-    }
-
-    public void removeSource(HostsSource source) {
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostsSourceDao.delete(source));
     }
 }

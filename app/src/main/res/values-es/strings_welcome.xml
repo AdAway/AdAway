@@ -3,7 +3,6 @@
     <string name="welcome_title">Bienvenido</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Logo de bienvenida</string>
     <string name="welcome_method_header">¡Bienvenido a AdAway!</string>
     <string name="welcome_root_missing_title">Se requiere un Android rooteado</string>
     </resources>

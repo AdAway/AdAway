@@ -57,7 +57,7 @@
     <string name="status_check_source">%s kaynağı güncelleme için kontrol ediliyor</string>
     <string name="status_retrieve">Kaynakları geri döndür</string>
     <string name="status_download_source">%s kaynağı indiriliyor</string>
-    <string name="status_copy_source">%s kaynağı kopyalanıyor</string>
+    <string name="status_read_source">%s kaynağı kopyalanıyor</string>
     <string name="status_parse_source">%s kaynağı ayrıştırılıyor</string>
     <string name="status_revert">Varsayılan hosts dosyasına geri dönülüyor</string>
     <string name="status_revert_done">Varsayılan hosts dosyası geri yüklendi</string>

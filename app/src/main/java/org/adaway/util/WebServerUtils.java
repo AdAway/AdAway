@@ -20,10 +20,13 @@
 
 package org.adaway.util;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
 import android.security.KeyChain;
+import android.view.ContextThemeWrapper;
 
 import androidx.annotation.StringRes;
 
@@ -33,6 +36,7 @@ import org.adaway.helper.PreferenceHelper;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.ConnectException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -141,6 +145,24 @@ public class WebServerUtils {
             Log.w(TAG, "Failed to read certificate.", e);
         } catch (CertificateException e) {
             Log.w(TAG, "Failed to parse certificate.", e);
+        }
+    }
+
+    public static void copyCertificate(ContextThemeWrapper wrapper, Uri uri) {
+        ContentResolver contentResolver = wrapper.getContentResolver();
+        AssetManager assetManager = wrapper.getAssets();
+        try (InputStream inputStream = assetManager.open("localhost.crt");
+             OutputStream outputStream = contentResolver.openOutputStream(uri)) {
+            if (outputStream == null) {
+                throw new IOException("Failed to open "+uri);
+            }
+            byte[] buffer = new byte[1024];
+            int read;
+            while ((read = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, read);
+            }
+        } catch (IOException e) {
+            Log.w(TAG, "Failed to copy certificate.", e);
         }
     }
 

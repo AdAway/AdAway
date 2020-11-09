@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Αποκλεισμός διαφημίσεων</string>
     <string name="pref_root_ad_blocker_configuration">Αποκλεισμός διαφημίσεων βάσει Root</string>
     <string name="pref_vpn_ad_blocker_configuration">Αποκλεισμός διαφημίσεων βάσει VPN</string>
-    <string name="pref_whitelist_rules">Εφαρμογή επιτρεπόμενων hosts από πηγές</string>
-    <string name="pref_redirection_rules">Εφαρμογή ανακατευθυνόμενων hosts από πηγές</string>
-    <string name="pref_redirection_rules_summary">ΘΕΤΕΙ ΣΕ ΚΙΝΔΥΝΟ ΑΣΦΑΛΕΙΑΣ!</string>
     <string name="pref_enable_ipv6">Ενεργοποίηση υποστήριξης IPv6</string>
     <string name="pref_backup_restore">Κανόνες αποκλεισμού Αντιγράφων ασφαλείας / επαναφοράς</string>
     <!-- Debug category -->

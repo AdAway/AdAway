@@ -57,7 +57,7 @@
     <string name="status_check_source">%s iturriaren eguneraketak egiaztatzen</string>
     <string name="status_retrieve">Iturriak berreskuratzen</string>
     <string name="status_download_source">%s iturria deskargatzen</string>
-    <string name="status_copy_source">%s iturria kopiatzen</string>
+    <string name="status_read_source">%s iturria kopiatzen</string>
     <string name="status_parse_source">%s iturria parseatzen</string>
     <string name="status_revert">Lehenetsitako host fitxategira itzultzen</string>
     <string name="status_revert_done">Lehenetsitako host fitxategia zaharberritua</string>

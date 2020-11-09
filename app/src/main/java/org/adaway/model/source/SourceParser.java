@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -32,15 +33,16 @@ import static org.adaway.util.Constants.LOCALHOST_IPv6;
 class SourceParser {
     private static final String TAG = "SourceParser";
     private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
+    private static final int BIG_HOSTS_SIZE_LIMIT = 1_000_000;
     static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
     private final int sourceId;
     private final boolean parseRedirectedHosts;
     private final List<HostListItem> items;
 
-    SourceParser(HostsSource hostsSource, InputStream inputStream, boolean parseRedirectedHosts) throws IOException {
+    SourceParser(HostsSource hostsSource, InputStream inputStream) throws IOException {
         this.sourceId = hostsSource.getId();
-        this.parseRedirectedHosts = parseRedirectedHosts;
+        this.parseRedirectedHosts = hostsSource.isRedirectEnabled();
         this.items = parse(inputStream);
     }
 
@@ -95,10 +97,39 @@ class SourceParser {
                 parsedItems.add(item);
             }
         }
-        return parsedItems.parallelStream()
-                .filter(this::isRedirectionValid)
-                .filter(this::isHostValid)
-                .collect(Collectors.toList());
+        return filter(parsedItems);
+    }
+
+    /**
+     * Filter parsed items to only keep valid ones.<br>
+     * Parsing relies on two methods:
+     * <ul>
+     *     <li>The default one, the fastest, using parallel streams and a second list for collection. It requires more ram,</li>
+     *     <li>The backup memory friendly one, for too big hosts file. It is way slower than the default one.</li>
+     * </ul>
+     *
+     * @param parsedItems The parsed items.
+     * @return The valid parsed items.
+     */
+    private List<HostListItem> filter(List<HostListItem> parsedItems) {
+        // Check number of items
+        if (parsedItems.size() < BIG_HOSTS_SIZE_LIMIT) {
+            // Default filter method
+            return parsedItems.parallelStream()
+                    .filter(this::isRedirectionValid)
+                    .filter(this::isHostValid)
+                    .collect(Collectors.toList());
+        } else {
+            // Memory friendly filter method
+            Iterator<HostListItem> iterator = parsedItems.iterator();
+            while (iterator.hasNext()) {
+                HostListItem next = iterator.next();
+                if (!isRedirectionValid(next) || !isHostValid(next)) {
+                    iterator.remove();
+                }
+            }
+            return parsedItems;
+        }
     }
 
     private boolean isRedirectionValid(HostListItem item) {

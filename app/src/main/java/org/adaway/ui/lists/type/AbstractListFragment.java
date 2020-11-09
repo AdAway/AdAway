@@ -105,13 +105,13 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
                 }
                 // Check item identifier
                 switch (item.getItemId()) {
-                    case R.id.checkbox_list_context_edit:
+                    case R.id.edit_action:
                         // Edit action item
                         editItem(mActionItem);
                         // Finish action mode
                         mActionMode.finish();
                         return true;
-                    case R.id.checkbox_list_context_delete:
+                    case R.id.delete_action:
                         // Delete action item
                         deleteItem(mActionItem);
                         // Finish action mode

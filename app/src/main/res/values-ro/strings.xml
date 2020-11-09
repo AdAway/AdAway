@@ -57,7 +57,7 @@
     <string name="status_check_source">Verificare sursă %s pentru actualizări</string>
     <string name="status_retrieve">Regăsire surse</string>
     <string name="status_download_source">Descărcare sursă %s</string>
-    <string name="status_copy_source">Copiere sursă %s</string>
+    <string name="status_read_source">Copiere sursă %s</string>
     <string name="status_parse_source">Parsare sursă %s</string>
     <string name="status_revert">Restaurare valori implicite pentru fișierul hosts</string>
     <string name="status_revert_done">Valorile implicite pentru fișierul hosts au fost restaurate</string>

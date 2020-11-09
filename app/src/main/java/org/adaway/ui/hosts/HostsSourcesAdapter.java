@@ -48,6 +48,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
      */
     @NonNull
     private final HostsSourcesViewCallback viewCallback;
+    private static final String[] QUANTITY_PREFIXES = new String[]{"k", "M", "G"};
 
     /**
      * Constructor.
@@ -100,7 +101,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
     @Override
     public HostsSourcesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.checkbox_list_two_entries, parent, false);
+        View view = layoutInflater.inflate(R.layout.hosts_sources_card, parent, false);
         return new ViewHolder(view);
     }
 
@@ -109,9 +110,11 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         HostsSource source = this.getItem(position);
         holder.enabledCheckBox.setChecked(source.isEnabled());
         holder.enabledCheckBox.setOnClickListener(view -> viewCallback.toggleEnabled(source));
-        holder.hostnameTextView.setText(source.getUrl());
+        holder.labelTextView.setText(source.getLabel());
+        holder.urlTextView.setText(source.getUrl());
         holder.updateTextView.setText(getUpdateText(source));
-        holder.itemView.setOnLongClickListener(view -> viewCallback.startAction(source, holder.itemView));
+        holder.sizeTextView.setText(getHostCount(source));
+        holder.itemView.setOnClickListener(view -> viewCallback.edit(source));
     }
 
     private String getUpdateText(HostsSource source) {
@@ -144,6 +147,34 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         return updateText;
     }
 
+    private String getHostCount(HostsSource source) {
+        // Note: NumberFormat.getCompactNumberInstance is Java 12 only
+        // Check empty source
+        int size = source.getSize();
+        if (size <= 0) {
+            return "";
+        }
+        // Compute size decimal length
+        int length = 1;
+        while (size > 10) {
+            size /= 10;
+            length++;
+        }
+        // Compute prefix to use
+        int prefixIndex = (length - 1) / 3 - 1;
+        // Return formatted count
+        Context context = this.viewCallback.getContext();
+        size = source.getSize();
+        if (prefixIndex < 0) {
+            return context.getString(R.string.hosts_count, Integer.toString(size));
+        } else if (prefixIndex >= QUANTITY_PREFIXES.length) {
+            prefixIndex = QUANTITY_PREFIXES.length - 1;
+            size = 13;
+        }
+        size = Math.toIntExact(Math.round(size / Math.pow(10, (prefixIndex + 1) * 3D)));
+        return context.getString(R.string.hosts_count, size + QUANTITY_PREFIXES[prefixIndex]);
+    }
+
     /**
      * This class is a the {@link RecyclerView.ViewHolder} for the hosts sources view.
      *
@@ -151,8 +182,10 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
         final CheckBox enabledCheckBox;
-        final TextView hostnameTextView;
+        final TextView labelTextView;
+        final TextView urlTextView;
         final TextView updateTextView;
+        final TextView sizeTextView;
 
         /**
          * Constructor.
@@ -161,9 +194,11 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
          */
         ViewHolder(View itemView) {
             super(itemView);
-            this.enabledCheckBox = itemView.findViewById(R.id.checkbox_list_checkbox);
-            this.hostnameTextView = itemView.findViewById(R.id.checkbox_list_text);
-            this.updateTextView = itemView.findViewById(R.id.checkbox_list_subtext);
+            this.enabledCheckBox = itemView.findViewById(R.id.sourceEnabledCheckBox);
+            this.labelTextView = itemView.findViewById(R.id.sourceLabelTextView);
+            this.urlTextView = itemView.findViewById(R.id.sourceUrlTextView);
+            this.updateTextView = itemView.findViewById(R.id.sourceUpdateTextView);
+            this.sizeTextView = itemView.findViewById(R.id.sourceSizeTextView);
         }
     }
 }

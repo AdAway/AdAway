@@ -3,7 +3,6 @@
     <string name="welcome_title">Welkom</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Welkomstlogo</string>
     <string name="welcome_method_header">Welkom bij AdAway!</string>
     <string name="welcome_method_summary">AdAway biedt twee blokkeermethoden aan. Kies de gewenste methode:</string>
 

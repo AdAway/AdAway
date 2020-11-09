@@ -14,9 +14,6 @@
     <string name="pref_ad_block_category">Blocarea reclamelor</string>
     <string name="pref_root_ad_blocker_configuration">Blocarea prin root a reclamelor</string>
     <string name="pref_vpn_ad_blocker_configuration">Blocarea prin server VPN a reclamelor</string>
-    <string name="pref_whitelist_rules">Aplicați sursele permise din hosts</string>
-    <string name="pref_redirection_rules">Aplicați sursele redirecționate din hosts</string>
-    <string name="pref_redirection_rules_summary">RISC DE SECURITATE!</string>
     <string name="pref_enable_ipv6">Activare suport IPv6</string>
     <string name="pref_backup_restore">Salvare / restabilire copie de rezervă pentru regulile de blocare</string>
     <!-- Debug category -->

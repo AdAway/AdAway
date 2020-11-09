@@ -11,6 +11,10 @@ import androidx.room.PrimaryKey;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
+import static org.adaway.db.entity.SourceType.FILE;
+import static org.adaway.db.entity.SourceType.UNSUPPORTED;
+import static org.adaway.db.entity.SourceType.URL;
+
 /**
  * This entity represents a source to get hosts list.
  *
@@ -28,17 +32,22 @@ public class HostsSource {
     /**
      * The user source URL.
      */
-    public static final String USER_SOURCE_URL = "file://app/user/hosts";
+    public static final String USER_SOURCE_URL = "content://org.adaway/user/hosts";
 
     @PrimaryKey(autoGenerate = true)
     private int id;
     @NonNull
+    private String label;
+    @NonNull
     private String url;
-    private boolean enabled;
+    private boolean enabled = true;
+    private boolean allowEnabled = false;
+    private boolean redirectEnabled = false;
     @ColumnInfo(name = "last_modified_local")
     private ZonedDateTime localModificationDate;
     @ColumnInfo(name = "last_modified_online")
     private ZonedDateTime onlineModificationDate;
+    private int size;
 
     /**
      * Check whether an URL is valid for as host source.<br>
@@ -48,7 +57,7 @@ public class HostsSource {
      * @return {@code true} if the URL is valid, {@code false} otherwise.
      */
     public static boolean isValidUrl(String url) {
-        return URLUtil.isHttpsUrl(url) || URLUtil.isFileUrl(url);
+        return (!"https://".equals(url) && URLUtil.isHttpsUrl(url)) || URLUtil.isContentUrl(url);
     }
 
     public int getId() {
@@ -60,6 +69,15 @@ public class HostsSource {
     }
 
     @NonNull
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(@NonNull String label) {
+        this.label = label;
+    }
+
+    @NonNull
     public String getUrl() {
         return url;
     }
@@ -68,12 +86,38 @@ public class HostsSource {
         this.url = url;
     }
 
+    public SourceType getType() {
+        if (this.url.startsWith("https://")) {
+            return URL;
+        } else if (this.url.startsWith("content://")) {
+            return FILE;
+        } else {
+            return UNSUPPORTED;
+        }
+    }
+
     public boolean isEnabled() {
         return enabled;
     }
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public boolean isAllowEnabled() {
+        return allowEnabled;
+    }
+
+    public void setAllowEnabled(boolean allowEnabled) {
+        this.allowEnabled = allowEnabled;
+    }
+
+    public boolean isRedirectEnabled() {
+        return redirectEnabled;
+    }
+
+    public void setRedirectEnabled(boolean redirectEnabled) {
+        this.redirectEnabled = redirectEnabled;
     }
 
     public ZonedDateTime getLocalModificationDate() {
@@ -90,6 +134,14 @@ public class HostsSource {
 
     public void setOnlineModificationDate(ZonedDateTime lastOnlineModification) {
         this.onlineModificationDate = lastOnlineModification;
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     @Override

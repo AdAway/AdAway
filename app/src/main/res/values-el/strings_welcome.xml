@@ -3,7 +3,6 @@
     <string name="welcome_title">Καλώς ήρθατε</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Λογότυπο Καλωσορίσματος</string>
     <string name="welcome_method_header">Καλώς ήλθατε στο AdAway!</string>
     <string name="welcome_method_summary">Το AdAway παρέχει δύο μεθόδους αποκλεισμού διαφημίσεων. Διαλέξτε αυτή που σας αρέσει:</string>
 

@@ -34,6 +34,7 @@
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:alpha="0.5"
+            android:contentDescription="@string/welcome_first_step"
             app:srcCompat="@drawable/dot_outline" />
 
         <ImageView
@@ -44,6 +45,7 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:alpha="0.5"
+            android:contentDescription="@string/welcome_second_step"
             app:srcCompat="@drawable/dot_outline" />
 
         <ImageView
@@ -53,6 +55,7 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:alpha="0.5"
+            android:contentDescription="@string/welcome_last_step"
             app:srcCompat="@drawable/dot_outline" />
 
     </LinearLayout>

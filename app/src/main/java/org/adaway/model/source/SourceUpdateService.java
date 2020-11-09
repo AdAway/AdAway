@@ -161,7 +161,10 @@ public final class SourceUpdateService {
         private void doUpdate(AdAwayApplication application) throws HostErrorException {
             // Check if automatic update are enabled
             if (PreferenceHelper.getAutomaticUpdateDaily(application)) {
-                // Install update
+                // Retrieve source updates
+                SourceModel sourceModel = application.getSourceModel();
+                sourceModel.retrieveHostsSources();
+                // Apply source updates
                 AdBlockModel adBlockModel = application.getAdBlockModel();
                 adBlockModel.apply();
             } else {

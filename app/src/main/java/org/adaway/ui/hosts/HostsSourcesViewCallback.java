@@ -1,7 +1,6 @@
 package org.adaway.ui.hosts;
 
 import android.content.Context;
-import android.view.View;
 
 import org.adaway.db.entity.HostsSource;
 
@@ -29,8 +28,6 @@ public interface HostsSourcesViewCallback {
      * Start an action.
      *
      * @param source     The hosts source to start the action.
-     * @param sourceView The hosts source related view.
-     * @return <code>true</code> if the action was started, <code>false</code> otherwise.
      */
-    boolean startAction(HostsSource source, View sourceView);
+    void edit(HostsSource source);
 }

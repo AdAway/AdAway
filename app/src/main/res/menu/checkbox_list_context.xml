@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/checkbox_list_context_edit"
+        android:id="@+id/edit_action"
         android:icon="@drawable/outline_create_24"
         android:title="@string/checkbox_list_context_edit" />
     <item
-        android:id="@+id/checkbox_list_context_delete"
+        android:id="@+id/delete_action"
         android:icon="@drawable/outline_delete_24"
         android:title="@string/checkbox_list_context_delete" />
-
 </menu>

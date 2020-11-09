@@ -3,7 +3,6 @@
     <string name="welcome_title">Вітаємо</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Логотип вітання</string>
     <string name="welcome_method_header">Вітаємо в AdAway!</string>
     <string name="welcome_method_summary">AdAway надає два способи блокування реклами. Виберіть один:</string>
 
