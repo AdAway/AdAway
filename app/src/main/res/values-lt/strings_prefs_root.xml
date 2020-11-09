@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Root pagrįstas\nad blokavimas</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Domeno instaliacija</string>
     <string name="pref_root_open_hosts">Atidaryti host faila</string>
     <string name="pref_apply_method">Nukreipti host failą</string>
     <string name="pref_apply_method_summary">Prieš keičiant šį nustatymą, perskaitykite Pagalbą apie funkcionalumą.</string>
@@ -13,7 +16,21 @@
     <string name="pref_never_reboot">Slepti perkrovimo užklausą</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Nukreipimas</string>
+    <string name="pref_hosts_redirection_summary">Pasirinkti kur nukreipti užblokuotus hosts domenus</string>
+    <string name="pref_redirection_ipv4">IPv4 nukreipimas</string>
+    <string name="pref_redirection_ipv6">IPv6 nukreipimas</string>
     <!-- Web server category -->
     <string name="pref_webserver">Vietinis serveris</string>
-    <string name="pref_webserver_enabled">Įjungti serverį</string>
-    </resources>
+    <string name="pref_webserver_summary">Lokalus web serveris klauso lokalių IP adresų ir blokuoja domenų adresų užklausas. Tai gali padėti su programos strigimu su blokuotu sujungimu.</string>
+    <string name="pref_webserver_enabled">Įjungti web serverį</string>
+    <string name="pref_webserver_test">Testuoti web serverį</string>
+    <string name="pref_webserver_certificate">Instaliuoti savo pažymėtus sertifikatus</string>
+    <string name="pref_webserver_certificate_dialog_title">Sertifikato instrukcijos instaliavimas</string>
+    <string name="pref_webserver_certificate_dialog_content">Pradedant nuo Android 11 (R), programa nebegali automatiškai instaliuoti autorizacijos sertifikato (CA).n\n\ Eikite į \"Saugos\" nustatymus, \"Šifravimas ir Identifikacija\" tada \"Instaliuoti serfifikatą\". Nuo ten, pasirinkti \"CA sertifikatas\" ir naujai eksportuotą sertifikato failą.</string>
+    <string name="pref_webserver_certificate_dialog_action">Atverty \"Saugos\" nustatymus</string>
+    <string name="pref_webserver_state_checking">Tikrinama...</string>
+    <string name="pref_webserver_state_not_running">Neveikia</string>
+    <string name="pref_webserver_state_running_not_installed">Veikia bet serfikatas neįdiegtas</string>
+    <string name="pref_webserver_state_running_and_installed">Veikia, serifikatas instaliuotas</string>
+    <string name="pref_webserver_icon">Pakeisti tuščios reklamos vietą su programėles ikona</string>
+</resources>
