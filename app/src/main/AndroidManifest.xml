@@ -28,6 +28,9 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
 
     <application
         android:name=".AdAwayApplication"
@@ -106,6 +109,12 @@
             android:name=".ui.prefs.exclusion.PrefsVpnExcludedAppsActivity"
             android:exported="false"
             android:label="@string/pref_vpn_exclude_user_apps_activity" />
+        <activity
+            android:name=".ui.update.UpdateActivity"
+            android:exported="false"
+            android:label="@string/update_title"
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
 
         <service
             android:name=".vpn.VpnService"
@@ -132,6 +141,9 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
+
+        <meta-data android:name="io.sentry.auto-init" android:value="false" />
+        <meta-data android:name="io.sentry.dsn" android:value="https://8dac17b798fb45e492278a678c5ab028@sentry.io/1331667" />
     </application>
 
 </manifest>

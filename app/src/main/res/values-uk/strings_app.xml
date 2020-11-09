@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AdAway</string>
     <string name="app_description">Блокувальник реклами з відкритим вихідним кодом</string>
+    <string name="app_logo">Логотип AdAway</string>
 </resources>

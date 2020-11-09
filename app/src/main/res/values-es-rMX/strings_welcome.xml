@@ -3,7 +3,6 @@
     <string name="welcome_title">Te damos la bienvenida</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Logotipo de bienvenida</string>
     <string name="welcome_method_header">Te damos la bienvenida a AdAway</string>
     <string name="welcome_method_summary">AdAway tiene dos métodos de bloqueo de anuncios. Elige el que prefieras:</string>
 

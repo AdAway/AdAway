@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">환영합니다</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_logo">Welcome logo</string>
+    <string name="welcome_method_header">AdAway에 오신 걸 환영합니다!</string>
+    <string name="welcome_method_summary">AdAway는 두 가지 광고 차단을 제공하고 있습니다. 원하시는 기능을 선택해 주십시오:</string>
+
+    <string name="welcome_root_method_logo">Root logo</string>
+    <string name="welcome_root_method_title">루팅 기반\n광고 차단</string>
+    <string name="welcome_root_method_text1">빠름</string>
+    <string name="welcome_root_method_text2">저전력</string>
+    <string name="welcome_root_method_text3">루팅이 필요함</string>
+
+    <string name="welcome_vpn_method_logo">VPN logo</string>
+    <string name="welcome_vpn_method_title">VPN 기반\n광고 차단</string>
+    <string name="welcome_vpn_method_text1">느림</string>
+    <string name="welcome_vpn_method_text2">백그라운드 실행</string>
+    <string name="welcome_vpn_method_text3">호환성</string>
+
     <string name="welcome_root_missing_title">루팅 필수</string>
-    </resources>
+    <string name="welcome_root_missile_description">su 바이너리를 찾을 수 없거나 AdAway에 대한 루팅 권한을 허용하지 않은 경우.\n\n이 문제는 장치가 루팅되지 않은 경우에 발생할 수 있습니다. wiki.lineageos.org 또는 다른 안드로이드 웹 사이트에서 장치를 루팅하는 방법에 대한 정보를 찾을 수 있습니다.</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">동기화 완료</string>
+    <string name="welcome_sync_error_logo">동기화 도중 오류</string>
+
+    <string name="welcome_sync_header">동기화 중</string>
+    <string name="welcome_synced_header">동기화 됨!</string>
+    <string name="welcome_sync_summary">AdAway는 온라인 소스로 부터 차단하기 위해 광고 네트워크를 다운로드합니다. 나중에 설정에서 수정할 수 있습니다.</string>
+    <string name="welcome_sync_retry_logo">동기화 재시도</string>
+    <string name="welcome_sync_error">동기화 실패 됨:\n%s.\n재시도하시겠습니까?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">지원</string>
+    <string name="welcome_support_header">지원해주세요!</string>
+    <string name="welcome_support_summary">이 앱은 무료이면서 오픈 소스입니다. 저는 여가 시간에 개발하고 있습니다. 만약 만족하신다면, 여러분의 지원을 자유롭게 보내주세요:</string>
+    <string name="welcome_support_button">PayPal로 기부하기</string>
+    <string name="welcome_support_telemetry_summary">버그 좋아하시나요? 전 싫어합니다.</string>
+    <string name="welcome_support_telemetry_button">충돌 보고서를 전송하려면, 원격 분석을 활성화 해야합니다.</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">뒤로</string>
+    <string name="welcome_next_button">다음</string>
+    <string name="welcome_finish_button">완료</string>
+</resources>

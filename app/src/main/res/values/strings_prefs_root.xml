@@ -25,6 +25,9 @@
     <string name="pref_webserver_enabled">Enable web server</string>
     <string name="pref_webserver_test">Test web server</string>
     <string name="pref_webserver_certificate">Install self-signed certificate</string>
+    <string name="pref_webserver_certificate_dialog_title">Certificate manual install</string>
+    <string name="pref_webserver_certificate_dialog_content">Starting from Android 11 (R), application can no more automatically install certificate authority (CA).\n\nGo to \"Security\" settings, \"Encryption &amp; credentials\" then \"Install a certificate\". From there, choose \"CA certificate\" and select the newly exported certificate file.</string>
+    <string name="pref_webserver_certificate_dialog_action">Open "Security" settings</string>
     <string name="pref_webserver_state_checking">Checking…</string>
     <string name="pref_webserver_state_not_running">Not running</string>
     <string name="pref_webserver_state_running_not_installed">Running but certificate not installed</string>

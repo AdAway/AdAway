@@ -4,11 +4,11 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.Uri;
-import android.os.Build;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import org.adaway.R;
 import org.adaway.util.Log;
 import org.json.JSONException;
 
@@ -21,8 +21,10 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
+import static android.os.Build.VERSION.SDK_INT;
 import static org.adaway.BuildConfig.VERSION_CODE;
 import static org.adaway.BuildConfig.VERSION_NAME;
+import static org.adaway.model.update.UpdateStore.getApkStore;
 
 /**
  * This class is the model in charge of updating the application.
@@ -30,16 +32,17 @@ import static org.adaway.BuildConfig.VERSION_NAME;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class UpdateModel {
-    static final String TAG = "UpdateModel";
     private static final String MANIFEST_URL = "https://app.adaway.org/manifest.json";
     private static final String DOWNLOAD_URL = "https://app.adaway.org/adaway.apk?versionCode=";
     private final Context context;
     private final OkHttpClient client;
     private final MutableLiveData<Manifest> manifest;
+    static final String TAG = "UpdateModel";
     private ApkDownloadReceiver receiver;
 
     /**
      * Constructor.
+     *
      * @param context The application context.
      */
     public UpdateModel(Context context) {
@@ -67,9 +70,13 @@ public class UpdateModel {
         return VERSION_NAME;
     }
 
-    // TODO Comment
+    /**
+     * Get the last version manifest.
+     *
+     * @return The last version manifest.
+     */
     public LiveData<Manifest> getManifest() {
-        return manifest;
+        return this.manifest;
     }
 
     /**
@@ -91,7 +98,8 @@ public class UpdateModel {
         HttpUrl httpUrl = HttpUrl.parse(MANIFEST_URL)
                 .newBuilder()
                 .addQueryParameter("versionCode", Integer.toString(VERSION_CODE))
-                .addQueryParameter("sdkCode", Integer.toString(Build.VERSION.SDK_INT))
+                .addQueryParameter("sdkCode", Integer.toString(SDK_INT))
+                .addQueryParameter("store", getApkStore(this.context).getName())
                 .build();
         Request request = new Request.Builder()
                 .url(httpUrl)
@@ -108,12 +116,14 @@ public class UpdateModel {
 
     /**
      * Update the application to the latest version.
+     *
+     * @return The download identifier ({@code -1} if download was not started).
      */
-    public void update() {
+    public long update() {
         // Check manifest
         Manifest manifest = this.manifest.getValue();
         if (manifest == null) {
-            return;
+            return -1;
         }
         // Check previous broadcast receiver
         if (this.receiver != null) {
@@ -124,13 +134,16 @@ public class UpdateModel {
         // Register new broadcast receiver
         this.receiver = new ApkDownloadReceiver(downloadId);
         this.context.registerReceiver(this.receiver, new IntentFilter(ACTION_DOWNLOAD_COMPLETE));
+        // Return download identifier
+        return downloadId;
     }
 
     private long download(Manifest manifest) {
         Log.i(TAG, "Downloading " + manifest.version + ".");
-        Uri uri = Uri.parse(DOWNLOAD_URL+manifest.versionCode);
+        Uri uri = Uri.parse(DOWNLOAD_URL + manifest.versionCode);
         DownloadManager.Request request = new DownloadManager.Request(uri)
-                .setTitle("AdAway " + manifest.version);
+                .setTitle("AdAway " + manifest.version)
+                .setDescription(this.context.getString(R.string.update_notification_description));
         DownloadManager downloadManager = this.context.getSystemService(DownloadManager.class);
         return downloadManager.enqueue(request);
     }

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bienvenue</string>
+    <string name="welcome_first_step">Première étape de l’assistant</string>
+    <string name="welcome_second_step">Deuxième étape de l’assistant</string>
+    <string name="welcome_last_step">Dernière étape de l’assistant</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Logo de bienvenue</string>
     <string name="welcome_method_header">Bienvenue dans AdAway !</string>
     <string name="welcome_method_summary">AdAway offre deux modes de blocage des publicités. Sélectionnez celui qui vous convient :</string>
 

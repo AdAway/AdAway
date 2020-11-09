@@ -38,8 +38,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import io.sentry.Sentry;
-
 import static java.util.Collections.emptyList;
 import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
 import static org.adaway.util.ShellUtils.killBundledExecutable;
@@ -117,7 +115,7 @@ class TcpdumpUtils {
             Shell.Result result = Shell.su("tcpdump --version").exec();
             int exitCode = result.getCode();
             String output = mergeAllLines(result.getOut());
-            Sentry.capture(
+            Log.i("TCPDUMP",
                     "Tcpdump " + (exitCode == 0 ? "present" : "missing (" + exitCode + ")") + "\n"
                             + output
             );

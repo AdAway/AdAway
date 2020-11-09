@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">Mise à jour d’AdAway</string>
     <!-- Home screen -->
-    <string name="update_available">Une mise à jour est proposée !</string>
+    <string name="update_available">Une mise à jour est proposée</string>
 
-    <!-- Changelog dialog -->
-    <string name="update_update_title">Une nouvelle version est proposée</string>
-    <string name="update_update_message">La nouvelle version apporte les changements suivants :\n\n</string>
-    <string name="update_up_to_date_title">Votre appli est à jour</string>
-    <string name="update_up_to_date_message">Cette dernière version apporte les changements suivants :\n\n</string>
-    <string name="update_changelog">Journal des changements</string>
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">AdAway est à jour</string>
+    <string name="update_update_available_header">Une mise à jour est proposée</string>
+    <string name="update_updating_header">Mise à jour d’AdAway</string>
     <string name="update_update_button">Mettre à jour maintenant</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Derniers changements :</string>
+    <string name="update_new_changelog_title">Journal des changements :</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Téléchargement de la version d’AdAway la plus récente…</string>
 </resources>

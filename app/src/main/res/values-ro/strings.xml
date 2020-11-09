@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Oprire VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Ștergere</string>
     <string name="checkbox_list_context_title">Editare intrare</string>
+    <string name="checkbox_list_context_apply">Aplică</string>
     <string name="checkbox_list_context_edit">Editare</string>
+    <string name="checkbox_list_context_delete">Ștergere</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importa…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Verificare pentru actualizări</string>
-    <string name="status_check_source">Verificare sursă %s pentru actualizări</string>
+    <string name="status_check_source">Verificare %s sursă pentru actualizări</string>
     <string name="status_retrieve">Regăsire surse</string>
     <string name="status_download_source">Descărcare sursă %s</string>
-    <string name="status_read_source">Copiere sursă %s</string>
-    <string name="status_parse_source">Parsare sursă %s</string>
+    <string name="status_read_source">Se citește sursa %s</string>
+    <string name="status_parse_source">Analizare %s sursă</string>
     <string name="status_revert">Restaurare valori implicite pentru fișierul hosts</string>
     <string name="status_revert_done">Valorile implicite pentru fișierul hosts au fost restaurate</string>
     <string name="status_reverting_subtitle">Sistemul creaza fisiere \"hosts\" standard.</string>
@@ -151,7 +152,7 @@
     <string name="no_ip">Invalid IP!</string>
     <string name="no_ip_title">IP formatat incorect</string>
     <string name="reboot_never_reboot">Nu reporni și nu mă mai întreba data viitoare!</string>
-    <string name="loading">Incarca…</string>
+    <string name="loading">Se încarcă…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Regenerare</string>

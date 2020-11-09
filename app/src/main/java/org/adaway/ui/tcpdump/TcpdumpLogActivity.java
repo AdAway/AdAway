@@ -27,8 +27,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -36,14 +34,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.adaway.R;
+import org.adaway.databinding.TcpdumpLogActivityBinding;
+import org.adaway.databinding.TcpdumpRedirectDialogBinding;
 import org.adaway.db.entity.ListType;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
@@ -56,6 +52,7 @@ import org.adaway.util.RegexUtils;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogViewCallback {
+    private TcpdumpLogActivityBinding binding;
     /**
      * The view model (<code>null</code> if activity is not created).
      */
@@ -72,7 +69,8 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          */
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
-        setContentView(R.layout.tcpdump_log_activity);
+        this.binding = TcpdumpLogActivityBinding.inflate(getLayoutInflater());
+        setContentView(this.binding.getRoot());
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowTitleEnabled(true);
@@ -81,31 +79,26 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
         /*
          * Configure swipe layout.
          */
-        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipeRefresh);
-        swipeRefreshLayout.setOnRefreshListener(() -> this.mViewModel.updateLogs());
+        this.binding.swipeRefresh.setOnRefreshListener(() -> this.mViewModel.updateLogs());
         /*
          * Configure recycler view.
          */
         // Get recycler view
-        RecyclerView recyclerView = findViewById(R.id.tcpdump_log_list);
-        recyclerView.setHasFixedSize(true);
+        this.binding.tcpdumpLogList.setHasFixedSize(true);
         // Defile recycler layout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        this.binding.tcpdumpLogList.setLayoutManager(linearLayoutManager);
         // Get view model
         this.mViewModel = new ViewModelProvider(this).get(TcpdumpLogViewModel.class);
         // Create recycler adapter
-        ListAdapter adapter = new TcpdumpLogAdapter(this);
-        recyclerView.setAdapter(adapter);
+        TcpdumpLogAdapter adapter = new TcpdumpLogAdapter(this);
+        this.binding.tcpdumpLogList.setAdapter(adapter);
         /*
          * Configure fab.
          */
-        FloatingActionButton floatingActionButton = findViewById(R.id.tcpdump_toggle_recording);
-        floatingActionButton.setOnClickListener(v -> this.mViewModel.toggleRecording());
-        this.mViewModel.isRecording().observe(
-                this,
-                recoding ->
-                        floatingActionButton.setImageResource(recoding ?
+        this.binding.tcpdumpToggleRecording.setOnClickListener(v -> this.mViewModel.toggleRecording());
+        this.mViewModel.isRecording().observe(this, recoding ->
+                this.binding.tcpdumpToggleRecording.setImageResource(recoding ?
                         R.drawable.ic_pause_24dp :
                         R.drawable.ic_record_24dp
                 )
@@ -114,17 +107,17 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          * Configure snackbar.
          */
         // Create apply snackbar
-        this.mApplySnackbar = new ApplyConfigurationSnackbar(swipeRefreshLayout, false, false);
+        this.mApplySnackbar = new ApplyConfigurationSnackbar(this.binding.swipeRefresh, false, false);
         /*
          * Load data.
          */
         // Bind view model to the list view
         this.mViewModel.getLogs().observe(this, logEntries -> {
             adapter.submitList(logEntries);
-            swipeRefreshLayout.setRefreshing(false);
+            this.binding.swipeRefresh.setRefreshing(false);
         });
         // Mark as loading data
-        swipeRefreshLayout.setRefreshing(true);
+        this.binding.swipeRefresh.setRefreshing(true);
         // Load initial data
         this.mViewModel.updateLogs();
     }
@@ -164,14 +157,13 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
             this.mApplySnackbar.notifyUpdateAvailable();
         } else {
             // Create dialog view
-            LayoutInflater factory = LayoutInflater.from(this);
-            View view = factory.inflate(R.layout.tcpdump_redirect_dialog, null);
-            EditText ipEditText = view.findViewById(R.id.tcpdump_redirect_ip);
+            LayoutInflater inflater = LayoutInflater.from(this);
+            TcpdumpRedirectDialogBinding redirectBinding = TcpdumpRedirectDialogBinding.inflate(inflater);
             // Create dialog
             AlertDialog alertDialog = new MaterialAlertDialogBuilder(this)
                     .setCancelable(true)
                     .setTitle(R.string.tcpdump_redirect_dialog_title)
-                    .setView(view)
+                    .setView(redirectBinding.getRoot())
                     // Setup buttons
                     .setPositiveButton(
                             R.string.button_add,
@@ -179,7 +171,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
                                 // Close dialog
                                 dialog.dismiss();
                                 // Check IP is valid
-                                String ip = ipEditText.getText().toString();
+                                String ip = redirectBinding.redirectIp.getText().toString();
                                 if (RegexUtils.isValidIP(ip)) {
                                     // Insert list item
                                     this.mViewModel.addListItem(hostName, type, ip);
@@ -196,7 +188,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
             // Show dialog
             alertDialog.show();
             // Set button validation behavior
-            ipEditText.addTextChangedListener(
+            redirectBinding.redirectIp.addTextChangedListener(
                     new AlertDialogValidator(alertDialog, RegexUtils::isValidIP, false)
             );
         }

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway update</string>
     <!-- Home screen -->
     <string name="update_available">Update beschikbaar!</string>
 
-    <!-- Changelog dialog -->
-    <string name="update_update_title">Een nieuwe versie is beschikbaar</string>
-    <string name="update_update_message">De nieuwe versie heeft de volgende wijzigingen:\n\n</string>
-    <string name="update_up_to_date_title">Je bent up-to-date</string>
-    <string name="update_up_to_date_message">Deze laatste versie heeft de volgende wijzigingen:\n\n</string>
-    <string name="update_changelog">Wijzigingslog</string>
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">Je bent up-to-date</string>
+    <string name="update_update_available_header">Er is een update beschikbaar</string>
+    <string name="update_updating_header">Updating AdAway</string>
     <string name="update_update_button">Update nu</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Laatste wijzigingen:</string>
+    <string name="update_new_changelog_title">Changelog:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Downloading nieuwste AdAway versie…</string>
 </resources>

@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Налаштування</string>
+    <!-- General category -->
+    <string name="pref_general_category">Загальні</string>
     <string name="pref_dark_theme">Темна тема</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Світла</item>
+        <item>Темна</item>
+        <item>Системна</item>
+    </string-array>
     <string name="pref_update_configuration">Автоматичні оновлення</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Блокування реклами</string>
     <string name="pref_root_ad_blocker_configuration">Блокувальник реклами з root-правами</string>
+    <string name="pref_vpn_ad_blocker_configuration">Блокування на основі VPN</string>
     <string name="pref_enable_ipv6">Увімкнути підтримку IPv6</string>
+    <string name="pref_backup_restore">Збереження / відновлення правил блокування</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Режим налагодженя</string>
     <string name="pref_enable_telemetry">Відправити звіт про збій</string>
+    <string name="pref_enable_telemetry_summary">Звіт до Sentry (sentry,io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Не підтримується цією збіркою</string>
+    <string name="pref_enable_debug">Детальне журналювання</string>
     <string name="pref_enable_debug_summary">Додаток потрібно оновити, щоб прийняти зміни</string>
 </resources>

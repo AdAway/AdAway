@@ -25,6 +25,9 @@
     <string name="pref_webserver_enabled">Włącz serwer www</string>
     <string name="pref_webserver_test">Przetestuj serwer WWW</string>
     <string name="pref_webserver_certificate">Zainstaluj samopodpisany certyfikat</string>
+    <string name="pref_webserver_certificate_dialog_title">Instalacja ręczna certyfikatu</string>
+    <string name="pref_webserver_certificate_dialog_content">Począwszy od wersji Android 11 (R), aplikacja nie może już automatycznie instalować urzędu certyfikacji (CA).\n\ nPrzejdź do ustawień \"Zabezpieczenia\", \"Szyfrowanie i poświadczenia\", a następnie \"Zainstaluj certyfikat\". Stamtąd wybierz \"Certyfikat CA\" i wybierz nowo wyeksportowany plik certyfikatu.</string>
+    <string name="pref_webserver_certificate_dialog_action">Otwórz ustawienia \"Zabezpieczenia\"</string>
     <string name="pref_webserver_state_checking">Sprawdzanie...</string>
     <string name="pref_webserver_state_not_running">Nie uruchomiony</string>
     <string name="pref_webserver_state_running_not_installed">Uruchomiony, ale certyfikat nie został zainstalowany</string>

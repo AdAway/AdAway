@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Desativar VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Excluir</string>
     <string name="checkbox_list_context_title">Editar Entrada</string>
+    <string name="checkbox_list_context_apply">Aplicar</string>
     <string name="checkbox_list_context_edit">Editar</string>
+    <string name="checkbox_list_context_delete">Excluir</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importando...</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Buscando atualização</string>
-    <string name="status_check_source">Verificando recursos %s para atualização</string>
+    <string name="status_check_source">Verificando %s fonte para atualização</string>
     <string name="status_retrieve">Obtendo fontes</string>
     <string name="status_download_source">Baixando fontes %s</string>
-    <string name="status_read_source">Copiando fontes %s</string>
-    <string name="status_parse_source">Analisando fontes %s</string>
+    <string name="status_read_source">Fonte de leitura %s</string>
+    <string name="status_parse_source">Fonte %s em análise</string>
     <string name="status_revert">Revertendo para o arquivo de hosts padrão</string>
     <string name="status_revert_done">Arquivo de hosts padrão restaurado</string>
     <string name="status_reverting_subtitle">Criando arquivo hosts padrão</string>

@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">Блокування на основі VPN</string>
+    <string name="pref_vpn_service_on_boot">Увімкнути під час запуску</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Виключені застосунки</string>
+    <string name="pref_vpn_excluded_apps_description">Налаштуйте, які застосунки не повинні використовувати VPN, щоб з’єднання не блокувалося.</string>
+    <string name="pref_vpn_exclude_system_apps">Виключені системні застосунки</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Вимкнені застосунки користувача</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Виключені застосунки</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Вибрати всі</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Зняти виділення</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Іконка застосунку</string>
+</resources>

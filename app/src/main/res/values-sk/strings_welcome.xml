@@ -3,7 +3,6 @@
     <string name="welcome_title">Vitajte</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Uvítacie logo</string>
     <string name="welcome_method_header">Vitajte v AdAway!</string>
     <string name="welcome_method_summary">AdAway poskytuje 2 metódy blokovania. Vyberte si jednu:</string>
 

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">Оновлення AdAway</string>
     <!-- Home screen -->
     <string name="update_available">Оновлення доступно!</string>
 
-    <!-- Changelog dialog -->
-    <string name="update_update_title">Нова версія доступна</string>
-    <string name="update_update_message">Нова версія має наступні зміни:\n\n</string>
-    <string name="update_up_to_date_title">Ви маєте останюю версію</string>
-    <string name="update_up_to_date_message">Остання версія має наступні зміни:\n\n</string>
-    <string name="update_changelog">Журанал змін</string>
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">Ви маєте останюю версію</string>
+    <string name="update_update_available_header">Доступне оновлення</string>
+    <string name="update_updating_header">Оновлення AdAway</string>
     <string name="update_update_button">Оновіться зараз</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Останні зміни:</string>
+    <string name="update_new_changelog_title">Список змін:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Завантаження останньої версії AdAway...</string>
 </resources>

@@ -25,6 +25,9 @@
     <string name="pref_webserver_enabled">启用网络服务器</string>
     <string name="pref_webserver_test">测试网络服务器</string>
     <string name="pref_webserver_certificate">安装自签名证书</string>
+    <string name="pref_webserver_certificate_dialog_title">手动安装证书</string>
+    <string name="pref_webserver_certificate_dialog_content">自Android 11 (R) 起，应用程序不能再自动安装证书颁发机构(CA)。\n\n进入“安全”设置，“加密&amp;凭据”，接着“安装一个证书”。从那里，选择“CA 证书”并选择新导出的证书文件。</string>
+    <string name="pref_webserver_certificate_dialog_action">打开\"安全\"设置</string>
     <string name="pref_webserver_state_checking">正在检查…</string>
     <string name="pref_webserver_state_not_running">未运行</string>
     <string name="pref_webserver_state_running_not_installed">正在运行，但未安装证书</string>

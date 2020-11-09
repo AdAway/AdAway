@@ -25,6 +25,9 @@
     <string name="pref_webserver_enabled">Povolit webový server</string>
     <string name="pref_webserver_test">Otestovat webový server</string>
     <string name="pref_webserver_certificate">Nainstalovat certifikát podepsaný sám sebou</string>
+    <string name="pref_webserver_certificate_dialog_title">Ruční instalace certifikátu</string>
+    <string name="pref_webserver_certificate_dialog_content">Počínaje Androidem 11 (R) již aplikace nemůže automaticky nainstalovat certifikační autoritu (CA).\n\nPřejděte do nastavení zabezpečení, \"Šifrování a identifikační údaje\" a poté \"Nainstalovat certifikát\". Odtud zvolte možnost \"Certifikát CA\" a vyberte nově exportovaný soubor certifikátu.</string>
+    <string name="pref_webserver_certificate_dialog_action">Otevřít nastavení zabezpečení</string>
     <string name="pref_webserver_state_checking">Kontrolování…</string>
     <string name="pref_webserver_state_not_running">Neběží</string>
     <string name="pref_webserver_state_running_not_installed">Běží, ale není nainstalován certifikát</string>

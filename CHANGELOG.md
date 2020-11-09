@@ -1,3 +1,26 @@
+## [5.1.0] - Unreleased
+
+*This version is a pre-release*
+
+- Add application update UI
+- Add F-Droid apk support to built-in updater
+- Add custom hosts file parser for big hosts file (1M+ entries, way slower but memory friendly)
+- Fix VPN app exclusion on Android 11
+- Update AndroidX and Sentry dependencies
+
+Special thanks to spiou, drothenberger and gallegonovato for their bug reports.
+
+## [5.0.10] - 2020-10-10
+
+*This version is a pre-release*
+
+- Fix online modification date for unavailable source
+- Prevent missing url at source creation 
+- Prevent invalid source url to be restored
+- Fix web server certificate install on Android 11
+
+Special thanks to zgfg, ipdev99 and ingenium13 for their bug reports.
+
 ## [5.0.9] - 2020-09-13
 
 *This version is a pre-release*
@@ -55,7 +78,7 @@ Special thanks to ipdev99 and zgfg for their bug reports.
 - Remove navigation bar color customization
 - Update AndroidX dependencies and NDK version
 
-Special thanks to CobalTitan, ipdev, zgfg and sunmybun for their bug reports.
+Special thanks to CobalTitan, ipdev99, zgfg and sunmybun for their bug reports.
 
 ## [4.3.5] - 2020-06-27
 

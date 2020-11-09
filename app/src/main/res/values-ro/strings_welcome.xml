@@ -3,7 +3,6 @@
     <string name="welcome_title">Bun venit</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Logo preîntâmpinare</string>
     <string name="welcome_method_header">Bun venit la AdAway!</string>
     <string name="welcome_method_summary">AdAway dispune de două metode pentru a bloca reclamele. Alege-o pe cea potrivită:</string>
 

@@ -8,7 +8,7 @@ import android.net.Uri;
 
 import org.adaway.util.Log;
 
-import static android.content.Context.DOWNLOAD_SERVICE;
+import static android.content.Intent.ACTION_INSTALL_PACKAGE;
 import static org.adaway.model.update.UpdateModel.TAG;
 
 /**
@@ -29,7 +29,7 @@ public class ApkDownloadReceiver extends BroadcastReceiver {
         long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
         //Checking if the received broadcast is for our enqueued download by matching download id
         if (this.downloadId == id) {
-            DownloadManager downloadManager = (DownloadManager) context.getSystemService(DOWNLOAD_SERVICE);
+            DownloadManager downloadManager = context.getSystemService(DownloadManager.class);
             Uri apkUri = downloadManager.getUriForDownloadedFile(id);
             if (apkUri == null) {
                 Log.w(TAG, "Failed to download id: " + id);
@@ -40,7 +40,7 @@ public class ApkDownloadReceiver extends BroadcastReceiver {
     }
 
     private void installApk(Context context, Uri apkUri) {
-        Intent install = new Intent(Intent.ACTION_INSTALL_PACKAGE);
+        Intent install = new Intent(ACTION_INSTALL_PACKAGE);
         install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         install.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         install.setData(apkUri);

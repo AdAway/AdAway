@@ -12,6 +12,7 @@ android {
 
     buildFeatures {
         buildConfig = false
+        prefab = true
     }
 
     externalNativeBuild {

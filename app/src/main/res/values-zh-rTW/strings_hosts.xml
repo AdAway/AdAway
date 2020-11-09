@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Hosts 來源</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">用戶自訂列表</string>
+    <string name="hosts_adaway_source">AdAway官方hosts</string>
+    <string name="hosts_stevenblack_source">StevenBlack的統一化hosts</string>
+    <string name="hosts_peterlowe_source">Pete Lowe的阻擋hosts</string>
     <!-- List -->
     <string name="hosts_not_available">無法使用</string>
+    <string name="hosts_count">第%shosts</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">加入來源</string>
     <string name="hosts_edit_dialog_title">編輯來源</string>

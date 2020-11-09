@@ -261,6 +261,9 @@ public class SourceModel {
             connection.setConnectTimeout(15000);
             connection.setReadTimeout(30000);
             long lastModified = connection.getLastModified() / 1000;
+            if (lastModified == 0) {
+                return null;
+            }
             return ZonedDateTime.of(LocalDateTime.ofEpochSecond(lastModified, 0, UTC), UTC);
         } catch (Exception e) {
             Log.e(TAG, "Exception while downloading from " + url, e);

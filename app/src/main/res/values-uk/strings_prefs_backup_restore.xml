@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">Збереження і відновлення</string>
+    <string name="pref_backup">Збереження</string>
+    <string name="pref_backup_summary">Збереження правил блокування на зовнішнє сховище</string>
+    <string name="pref_restore">Відновлення</string>
+    <string name="pref_restore_summary">Відновити правила блокування зі збереженої копії</string>
+</resources>

@@ -3,7 +3,6 @@
     <string name="welcome_title">Benvenuto</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Logo di benvenuto</string>
     <string name="welcome_method_header">Benvenuto in AdAway!</string>
     <string name="welcome_method_summary">AdAway ha due modalità per bloccare le pubblicità. Scegli quella che preferisci:</string>
 

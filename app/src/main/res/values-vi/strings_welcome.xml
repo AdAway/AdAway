@@ -3,7 +3,6 @@
     <string name="welcome_title">Chào mừng</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Logo chào mừng</string>
     <string name="welcome_method_header">Chào mừng dến với AdAway!</string>
     <string name="welcome_method_summary">AdAway cung cấp hai phương pháp chặn quảng cáo. Hãy chọn phương pháp phù hợp với bạn:</string>
 

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hosts_title">hosts 源</string>
+    <string name="hosts_title">hosts 来源</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">用户列表</string>
+    <string name="hosts_adaway_source">AdAway 官方 hosts</string>
+    <string name="hosts_stevenblack_source">StevenBlack Unified hosts</string>
+    <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
     <!-- List -->
     <string name="hosts_not_available">无法使用</string>
+    <string name="hosts_count">%s hosts</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">添加源</string>
     <string name="hosts_edit_dialog_title">编辑源</string>
     <string name="hosts_dialog_url">URL：（以 https:// 或 file:// 开头）</string>
-    <string name="hosts_dialog_url_hint">hosts 源网址</string>
+    <string name="hosts_dialog_url_hint">hosts 链接</string>
 </resources>

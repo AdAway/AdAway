@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Вітаємо</string>
+    <string name="welcome_first_step">Перший крок</string>
+    <string name="welcome_second_step">Другий крок</string>
+    <string name="welcome_last_step">Останній крок</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_logo">Логотип вітання</string>
     <string name="welcome_method_header">Вітаємо в AdAway!</string>
     <string name="welcome_method_summary">AdAway надає два способи блокування реклами. Виберіть один:</string>
 

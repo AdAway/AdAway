@@ -1,11 +1,6 @@
 name: "CodeQL"
 
 on:
-  push:
-    branches: [master]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [master]
   schedule:
     - cron: '0 1 * * 6'
 
@@ -35,6 +30,17 @@ jobs:
     # the head of the pull request instead of the merge commit.
     - run: git checkout HEAD^2
       if: ${{ github.event_name == 'pull_request' }}
+    
+    # Restore gradle cache 
+    - name: Restore gradle cache
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

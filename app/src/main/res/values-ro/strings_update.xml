@@ -3,11 +3,6 @@
     <!-- Home screen -->
     <string name="update_available">Actualizare disponibilă!</string>
 
-    <!-- Changelog dialog -->
-    <string name="update_update_title">O nouă versiune este disponibilă</string>
-    <string name="update_update_message">Noua versiune aduce următoarele modificări:\n\n</string>
-    <string name="update_up_to_date_title">Aveți ultimele actualizări</string>
-    <string name="update_up_to_date_message">Această versiune aduce următoarele modificări:\n\n</string>
-    <string name="update_changelog">Jurnal de modificări</string>
+    <!-- Update activity -->
     <string name="update_update_button">Actualizează acum</string>
 </resources>

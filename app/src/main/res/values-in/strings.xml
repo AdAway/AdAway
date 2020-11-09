@@ -23,16 +23,21 @@
     <string name="header_webserver">Layanan perambah</string>
     <string name="webserver_status_running">Berjalan</string>
     <string name="webserver_status_stopped">Berhenti</string>
+    <string name="webserver_toggle_text">Mulai atau hentikan web server pada localhost untuk menjawab permintaan untuk memblok hostnames</string>
     <string name="button_enable_webserver">Hidupkan layanan perambah</string>
     <string name="button_disable_webserver">Matikan layanan perambah</string>
     <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Berjalan</string>
+    <string name="vpn_status_stopped">Berhenti</string>
+    <string name="vpn_toggle_text">Mulai atau hentikan VPN untuk menyaring permintaan</string>
     <string name="button_enable_vpn">Hidupkan VPN</string>
     <string name="button_disable_vpn">Matikan VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Hapus</string>
     <string name="checkbox_list_context_title">Ubah Masukan</string>
+    <string name="checkbox_list_context_apply">Terapkan</string>
     <string name="checkbox_list_context_edit">Sunting</string>
+    <string name="checkbox_list_context_delete">Hapus</string>
 
     <!--Your lists-->
     <string name="import_dialog">Mengimpor ...</string>
@@ -50,6 +55,13 @@
 
     <!--Status Notification-->
     <string name="status_check">Memeriksa pembaruan</string>
+    <string name="status_check_source">Cek pembaruan sumber %s</string>
+    <string name="status_retrieve">menerima sumber</string>
+    <string name="status_download_source">Mengunduh sumber %s</string>
+    <string name="status_read_source">membaca sumber %s</string>
+    <string name="status_parse_source">Mengurai %s sumber</string>
+    <string name="status_revert">Mengembalikan ke file hosts standar</string>
+    <string name="status_revert_done">file hosts kembali ke standar</string>
     <string name="status_reverting_subtitle">Membuat host file standar</string>
     <string name="status_update_available">Sumber pembaruan tersedia</string>
     <string name="status_update_available_subtitle">Berkas hosts terbaru tersedia</string>
@@ -66,7 +78,19 @@
     <string name="status_enabled_subtitle">Berkas hosts terbaru dinyalakan</string>
     <string name="status_disabled">Dimatikan</string>
     <string name="status_disabled_subtitle">File host bawaan dipasang</string>
+    <string name="status_apply_sources">Terapkan sumber terbaru</string>
+    <string name="status_create_new_hosts">Membuat file host baru</string>
+    <string name="status_copy_new_hosts">Menyalin file host baru</string>
+    <string name="status_check_copy">Memeriksa salinan file host</string>
+    <string name="status_hosts_updated">Berhasil memperbarui file host</string>
+    <string name="status_vpn_configuration_updated">Berhasil memperbarui konfigurasi VPN</string>
+    <string name="notification_configuration_changed">Konfigurasi anda berubah. Anda perlu menerapkannya.</string>
     <string name="notification_configuration_changed_action">Terapkan</string>
+    <string name="notification_configuration_installing">Menerapkan konfigurasi baru... </string>
+    <string name="notification_configuration_failed">Gagal menerapkan konfigurasi baru</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Symlink ke target file host tidak di temukan</string>
     <string name="apply_symlink_missing">Symlink dari target ke /system/etc/hosts tidak benar atau tidak ada! AdAway tidak akan bekerja jika hal itu tidak dibetulkan.\n\nApa anda ingin mencoba membuat symlink?</string>
     <string name="apply_symlink_missing_title">Symlink tidak ditemukan</string>
     <string name="apply_not_enough_space">Tidak ada cukup ruang di partisi!\nCobalah mengganti target file host di prefrensi menjadi /data/data/hosts.</string>
@@ -75,6 +99,7 @@
     <string name="apply_private_file_fail_title">Berkas pribadi gagal</string>
     <string name="apply_remount_fail">Mount ulang partisi sebagai read/write gagal!</string>
     <string name="apply_remount_fail_title">remount gagal</string>
+    <string name="apply_copy_fail_status">Gagal menyalin file host</string>
     <string name="apply_copy_fail">Penyalinan file host gagal!</string>
     <string name="apply_copy_fail_title">Penyalinan gagal</string>
     <string name="apply_success_subtitle">Sumber host diterapan</string>
@@ -95,21 +120,26 @@
     <string name="apply_dialog_hostnames">Mengakses dan menggabungkan file host</string>
     <string name="apply_dialog_hosts">Menyusun file hosts</string>
     <string name="apply_dialog_apply">Menerapkan file host</string>
+    <string name="apply_fail_status">Gagal menerapkan file host baru</string>
     <string name="apply_fail">Penerapan file host ke sistem anda gagal!\nCobalah untuk mengganti target file host di prefrensi ke /data/data/hosts.</string>
     <string name="apply_fail_title">Pemasangan gagal</string>
     <string name="root_access_fail">Mohon cek aplikasi manajemen root Anda untuk memastikan akses root telah diberikan.</string>
     <string name="revert_successful">Anda mengembalikan ke file host bawaan.\nIni mungkin membutuhkan memuat ulang Android untuk mendapatkan hasil dari perubahan.\n\nApakah anda ingin memuat ulang?\n(Untuk mencegah adanya kehilangan data, pastikan tidak ada aplikasi yang menggunakan kartu SD pada saat ini!)</string>
     <string name="revert_successful_title">Pengembalian berhasil</string>
+    <string name="revert_failed_status">Tidak bisa mengembalikan file host</string>
     <string name="revert_problem">Pengembalian gagal karena alasan yang tidak diketahui.</string>
     <string name="revert_problem_title">Pengembalian gagal</string>
     <string name="download_fail_dialog">Tak satu pun dari sumber host yang Anda aktifkan bisa dijangkau! Apakah Anda terhubung dengan benar dengan internet?</string>
     <string name="download_fail_title">Download gagal</string>
+    <string name="no_private_file_status">Gagal membuat file hosts pribadi</string>
     <string name="no_private_file">Berkas pribadi tidak dapat dibuat.</string>
     <string name="no_private_file_title">Pembuatan berkas pribadi gagal</string>
     <string name="enable_systemless_successful">Kamu mengaktifkan mode systemless.\nlt perlu sekiranya untuk memulai ulang Android agar perubahan efektif.\n\nIngin memulai ulang?\n(Untuk mencegah kehilangan data pastikan tidak ada aplikasi yang menggunakan kartu SD saat ini!)</string>
     <string name="enable_systemless_successful_title">Aktivasi berhasil</string>
     <string name="disable_systemless_successful">Kamu mematikan mode systemless.\nlt perlu sekiranya untuk memulai ulang Android agar perubahan efektif.\n\nIngin memulai ulang?\n(Untuk mencegah kehilangan data pastikan tidak ada aplikasi yang menggunakan kartu SD saat ini!)</string>
     <string name="disable_systemless_successful_title">Berhasil menonaktifkan</string>
+    <string name="enable_vpn_fail">Gagal mengaktifkan VPN pem-blok iklan</string>
+    <string name="disable_vpn_fail">Gagal mematikan VPN pem-blok iklan</string>
     <string name="enable_systemless_magisk_title">Mengaktifkan modul hosts Magisk</string>
     <string name="enable_systemless_magisk">Aktifkan fitur systemless host dari Magisk Manager. Melalui pengaturan, aktifkan pilihan <cite>Systemless hosts</cite> lalu mulai ulang perangkatmu.</string>
     <string name="disable_systemless_magisk_title">Menonaktifkan modul hosts Magisk</string>
@@ -186,10 +216,13 @@
     <string name="shortcut_your_lists">Daftar pribadi</string>
     <string name="shortcut_preferences">Pengaturan</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Terpasang %1$s yang lalu</string>
     <string name="hosts_source_up_to_date">Pembaruan untuk %1$s</string>
     <string name="hosts_source_need_update">Pembaruan dibutuhkan untuk %1$s</string>
     <string name="hosts_source_last_update">Pembaruan terakhir %1$s yang lalu</string>
     <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
+    <string name="hosts_source_few_minutes">beberapa menit</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d menit</item>
     </plurals>
@@ -205,8 +238,18 @@
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">memulai</string>
+    <string name="vpn_notification_running">Aktif</string>
     <string name="vpn_notification_stopping">menghentikan</string>
     <string name="vpn_notification_waiting_for_net">menunggu jaringan</string>
+    <string name="vpn_notification_reconnecting">menghubungkan</string>
+    <string name="vpn_notification_reconnecting_error">gagal menghubungkan</string>
+    <string name="vpn_notification_paused">Jeda</string>
+    <string name="vpn_notification_stopped">berhenti</string>
+    <string name="vpn_notification_title">VPN Pem-blok iklan %1$s</string>
+    <string name="vpn_notification_action_pause">Jeda</string>
     <string name="vpn_notification_paused_text">Tekan untuk melanjutkan</string>
 
-    </resources>
+    <!-- Permission -->
+    <string name="permission_status_command_label">Hidupkan atau matikan ad-blocking sistem</string>
+
+</resources>
