@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Sources de fichiers hosts</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Liste de l’utilisateur</string>
+    <string name="hosts_adaway_source">Fichier hosts officiel d’AdAway</string>
+    <string name="hosts_stevenblack_source">Fichier hosts unifié de StevenBlack</string>
+    <string name="hosts_peterlowe_source">Fichier hosts unifié de Pete Lowe</string>
     <!-- List -->
     <string name="hosts_not_available">non disponibles</string>
+    <string name="hosts_count">%s fichier(s) hosts</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Ajouter une source</string>
     <string name="hosts_edit_dialog_title">Modifier une source</string>
