@@ -115,9 +115,11 @@ class TcpdumpUtils {
             Shell.Result result = Shell.su("tcpdump --version").exec();
             int exitCode = result.getCode();
             String output = mergeAllLines(result.getOut());
-            Log.i("TCPDUMP",
-                    "Tcpdump " + (exitCode == 0 ? "present" : "missing (" + exitCode + ")") + "\n"
-                            + output
+            Log.i(TAG, "Tcpdump " + (
+                            exitCode == 0 ?
+                                    "present" :
+                                    "missing (" + exitCode + ")"
+                    ) + "\n" + output
             );
         } catch (Exception exception) {
             Log.w(TAG, "Failed to check system tcpdump binary.", exception);
