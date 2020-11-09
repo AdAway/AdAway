@@ -9,22 +9,22 @@ And don't add newlines before or after p tags because of transifex -->
 <p>Egzistuoja vienas nesusipratimas, jog jeigu vartotojas niekada nespaudžia ant reklamu, tada jas užblokavus niekuom nepakenks svetainės ar programos kūrejui finansiškai. Tai yra netiesa, kūrėjai taip pat uždirba vien už reklamos peržiūras. Aš asmeniškai niekada nenaudočiau programų kurios rodo reklamas, man tai labai įkyru, tad be reklamos blokuotojo aš nenaudočiau tų programų.</p>
 
 <h2>Kaip veikia AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
-If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
+<p>AdAway naudoja <a href="http://en.wikipedia.org/wiki/Hosts_file">Domeno hosts failą</a>  kad galėtų blokuoti reklamų domenus. Hosts failas yra <code>/system/etc/hosts</code> kuris nukreipia domenus į jų IP adresus. Tai yra tradiciškas būdas juos nukreipti nenaudojant DNS sistemos. Visi nenorimi domenai yra nukreipiami <code>127.0.0.1</code> tai reiškia kad jie eis per jūsų įrenginį. <br>
+Jei domeno failas nėra redaguojamas, kitas sprendimas yra naudoti įdiegtą VPN funkciją. Ji filtruos nenorimus sujungimus su domenais o kitus praleis.</p>
 
-<h2>Why do I have to restart Android for changes to take effect?</h2>
-<p>Java on Android maintains its own internal DNS cache. The operating system will reflect the new hosts file immediately (verify that with ping on the command line) but you'll need to restart Android to rebuild the DNS cache of Java.</p>
+<h2>Kodėl aš turiu perkrauti Android įrenginį kad įsigaliotų pakeitimai?</h2>
+<p>Java, Android platformoje palaiko savo vidinį DNS slėptuvėje cahce. Operatyvioji sistema pritaiko nauja domeno hosts failą iš karto (patvirtina tai su ping atsako komanda) bet jums reikės perkrauti Android įrenginį kad būtų rekonstruojama Java DNS saugykla.</p>
 
-<h2>How to use the webserver in AdAway?</h2>
-<p><strong>AdAway will also work without using the webserver!</strong>
-<br><br>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
-<br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<h2>Kaip naudoti web serverį su AdAway?</h2>
+<p><strong>AdAway veiks ir nenaudojant web serverio!</strong>
+<br><br>Jūs galite įjungti lokalų web serverį AdAway nustatymuose kuris atsakys į lokalių IP adresą<code>127.0.0.1</code>. Tai reiškia kad užklausos iš aplikacijų į reklamų serverius kurios bus nukreiptos į <code>127.0.0.1</code> bus filtruojamos AdAway web serverio.
+<br>Kai kurios aplikacijos atsisako veikti kada reklamos serveris yra nepasiekiamas. Su šiuo metodu jos vėl veiks, tačiau atsakys su tuščiu puslapiu, be reklamos ir be reklamos nuotraukos.</p>
 
-<h2>How can I block/unblock specific hostnames?</h2>
-<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
+<h2>Kaip aš galiu užblokuoti/atblokuoti specifinius domeno adresus?</h2>
+<p>Pridėkite domenų adresus kuriuos jūs norite blokuoti į <cite>Užblokuoti</cite> sąrašą iš <cite>namų ekrano</cite>. Papildomai, domenų adresai kuriuos jūs norite išskirti iš blokavimo gali būti pridėti <cite>Leidžiami</cite> ir domenų adresai kuriuos norite nukreipti į specifišką IP adresą priklauso <cite>Nukreipti</cite>.</p>
 
 <h2>Kur aš galiu rasti daugiau host šaltinių?</h2>
-<p>See <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">List of additional hosts sources for AdAway</a>.</p>
+<p>Žiūrėkite <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">Sąrašas papildomų domenų šaltinių skirtų AdAway</a>.</p>
 
 <h2>Padėkite išversti/praneškite apie klaidas</h2>
 <p>Pereikite į <a href="https://adaway.org">https://adaway.org</a>.</p>
