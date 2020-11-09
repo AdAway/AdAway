@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Zapraszamy</string>
+    <string name="welcome_first_step">Kreator pierwszy krok</string>
+    <string name="welcome_second_step">Drugi krok kreatora</string>
+    <string name="welcome_last_step">Ostatni krok kreatora</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Witamy w AdAway!</string>
@@ -19,7 +22,7 @@
     <string name="welcome_vpn_method_text3">Zgodność</string>
 
     <string name="welcome_root_missing_title">Wymagany jest zrootowany Android</string>
-    <string name="welcome_root_missile_description">Nie można znaleźć pliku binarnego su lub nie zezwolono na uprawnienia roota dla AdAway. \n\nMoże to się zdarzyć, gdy urządzenie nie jest zrootowane. Informacje na temat rootowania urządzenia można znaleźć na wiki.lineageos.org lub innych stronach o systemie Android.</string>
+    <string name="welcome_root_missile_description">Nie można znaleźć pliku binarnego su lub nie zezwolono na uprawnienia roota dla AdAway.\n\nMoże to się zdarzyć, gdy urządzenie nie jest zrootowane. Informacje na temat rootowania urządzenia można znaleźć na wiki.lineageos.org lub innych stronach o systemie Android.</string>
 
     <string name="welcome_method_pro_logo">Plusy</string>
     <string name="welcome_method_con_logo">Minusy</string>
