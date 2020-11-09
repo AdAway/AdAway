@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hosts_title">Host šaltiniai</string>
+    <string name="hosts_title">Host domenų šaltiniai</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Vartotojų sąrašas</string>
+    <string name="hosts_adaway_source">AdAway oficialūs domenai</string>
+    <string name="hosts_stevenblack_source">StevenBlack Unified sujungti domenai</string>
+    <string name="hosts_peterlowe_source">Pete Lowe blokavimo domenai</string>
     <!-- List -->
     <string name="hosts_not_available">nepasiekiama</string>
-    </resources>
+    <string name="hosts_count">%s hosts domenų sąrašai</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Įdėti šaltinį</string>
+    <string name="hosts_edit_dialog_title">Redaguoti šaltinį</string>
+    <string name="hosts_dialog_url">URL: (https:// arba file:// išteklius)</string>
+    <string name="hosts_dialog_url_hint">Domeno išteklio URL</string>
+</resources>
