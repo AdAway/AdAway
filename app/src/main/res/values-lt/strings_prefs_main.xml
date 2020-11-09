@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Nustatymai</string>
+    <!-- General category -->
+    <string name="pref_general_category">Bendri</string>
+    <string name="pref_dark_theme">Tamsi tema</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Šviesi</item>
+        <item>Tamsi</item>
+        <item>Sistemos pasirinkta</item>
+    </string-array>
+    <string name="pref_update_configuration">Automatiniai naujinimai</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Reklamų blokavimas</string>
+    <string name="pref_root_ad_blocker_configuration">Root pagrįstas\nad blokavimas</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN pagrįstas reklamų blokavimas</string>
     <string name="pref_enable_ipv6">Įjungti IPv6</string>
+    <string name="pref_backup_restore">Padaryti atsarginę kopiją / atkurti blokavimo taisykles</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Derinti</string>
+    <string name="pref_enable_telemetry">Siūsti klaidų įrašus</string>
+    <string name="pref_enable_telemetry_summary">Pateikti sargybai (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Nepalaikoma šios programos versijoje</string>
+    <string name="pref_enable_debug">Platus įrašų saugojimas</string>
     <string name="pref_enable_debug_summary">Reikia paleisti iš naujo AdAway, kad veiktų nustatymai.</string>
 </resources>
