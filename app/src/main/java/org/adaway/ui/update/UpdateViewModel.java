@@ -62,6 +62,7 @@ public class UpdateViewModel extends AdwareViewModel {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 Log.d(TAG, "Failed to wait before querying download manager.", e);
+                Thread.currentThread().interrupt();
             }
             // Query download manager
             Cursor cursor = downloadManager.query(query);
