@@ -4,10 +4,11 @@
 
 - Add application update UI
 - Add F-Droid apk support to built-in updater
+- Add custom hosts file parser for big hosts file (1M+ entries, way slower but memory friendly)
 - Fix VPN app exclusion on Android 11
 - Update AndroidX and Sentry dependencies
 
-Special thanks to spiou and drothenberger for their bug reports.
+Special thanks to spiou, drothenberger and gallegonovato for their bug reports.
 
 ## [5.0.10] - 2020-10-10
 
