@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Your lists</string>
-    <string name="list_dialog_hostname">Host vardas:</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Užblokuotos</string>
+    <string name="lists_tab_allowed">Leistos</string>
+    <string name="lists_tab_redirected">Nukreiptos</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Filtruoti domenenai hosts</string>
+    <string name="lists_menu_filter_hint">Ieškoti domeno...</string>
+    <string name="lists_menu_toggle_sources">Pakeisti šaltinius</string>
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Įtraukti į juodą sąrašą</string>
+    <string name="list_add_dialog_white">Įtraukti į baltą sąrašą</string>
+    <string name="list_add_dialog_redirect">Įdėti domeno nukreipimą</string>
+    <string name="list_edit_dialog_black">Redaguoti juodai pažymėtą domeną</string>
+    <string name="list_edit_dialog_white">Redaguoti baltai pažymėtą domeną</string>
+    <string name="list_edit_dialog_redirect">Redaguoti nukreipimą</string>
+    <string name="list_dialog_hostname">Host domeno vardas:</string>
+    <string name="list_dialog_hostname_hint">Domeno išteklio URL</string>
+    <string name="list_dialog_wildcard">(Charakteriai * ir ? leidžiami)</string>
     <string name="list_dialog_ip">IP (IPv4 ar IPv6):</string>
 </resources>
