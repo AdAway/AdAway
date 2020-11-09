@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="notification_update_host_available_title">Pasiekiamas atnaujinimas</string>
-    </resources>
+    <!-- Update notification -->
+    <string name="notification_update_channel_name">Atnaujinimai</string>
+    <string name="notification_update_channel_description">Naujų atnaujinimų pranešimai</string>
+    <string name="notification_update_host_available_title">Šaltinio atnaujinimas galimas</string>
+    <string name="notification_update_host_available_text">Naujesni domeno failai su galimybe atsisiūsti</string>
+    <string name="notification_update_app_available_title">Programos ataujinimas galimas</string>
+    <string name="notification_update_app_available_text">Nauja AdAway versija yra galima atsisiuntimui.</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN </string>
+    <string name="notification_vpn_channel_description">VPN paleisti pranešimai</string>
+</resources>
