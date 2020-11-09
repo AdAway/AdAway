@@ -46,6 +46,8 @@ import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
 import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
+import static java.lang.Boolean.TRUE;
+
 /**
  * This class is an {@link android.app.Activity} to show tcpdump log entries.
  *
@@ -98,7 +100,7 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
          */
         this.binding.tcpdumpToggleRecording.setOnClickListener(v -> this.mViewModel.toggleRecording());
         this.mViewModel.isRecording().observe(this, recoding ->
-                this.binding.tcpdumpToggleRecording.setImageResource(recoding ?
+                this.binding.tcpdumpToggleRecording.setImageResource(recoding == TRUE ?
                         R.drawable.ic_pause_24dp :
                         R.drawable.ic_record_24dp
                 )
