@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Welkom</string>
+    <string name="welcome_first_step">Wizard 1e stap</string>
+    <string name="welcome_second_step">Wizard 2e stap</string>
+    <string name="welcome_last_step">Wizard 3e stap</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Welkom bij AdAway!</string>
