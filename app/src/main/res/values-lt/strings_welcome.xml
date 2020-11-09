@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">Rooted Android būtinas!</string>
-    </resources>
+    <string name="welcome_title">Sveiki</string>
+    <string name="welcome_first_step">Pirmas žingsnis</string>
+    <string name="welcome_second_step">Antras žingsnis</string>
+    <string name="welcome_last_step">Paskutinis žingsnis</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">Sveiki, čia AdAway!</string>
+    <string name="welcome_method_summary">AdAway teikia du reklamų blokavimo metodus. Pasirinkite norimą:</string>
+
+    <string name="welcome_root_method_logo">Root logotipas</string>
+    <string name="welcome_root_method_title">Root pagrįstas\nad blokavimas</string>
+    <string name="welcome_root_method_text1">Greitesnis</string>
+    <string name="welcome_root_method_text2">Draugiškas baterijai</string>
+    <string name="welcome_root_method_text3">Root privalomas</string>
+
+    <string name="welcome_vpn_method_logo">VPN logotipas</string>
+    <string name="welcome_vpn_method_title">VPN pagrįstas\nad blokavimas</string>
+    <string name="welcome_vpn_method_text1">Lėtesnis</string>
+    <string name="welcome_vpn_method_text2">Veikti fone</string>
+    <string name="welcome_vpn_method_text3">Suderinamumas</string>
+
+    <string name="welcome_root_missing_title">Root Android prieiga būtina!</string>
+    <string name="welcome_root_missile_description">Arba su binary nerasta arba jūs neleidote root leidimo AdAway.\n\nTai gali atsitikti kai jūsų įrenginys neturi root prieigos. Galite rasti daugiau informacijos kaip gauti root prieigą wiki.lineageos.org ar kituose Android puslapiuose</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Negatyvai</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sinchronizavimas baigtas</string>
+    <string name="welcome_sync_error_logo">Klaidos sinchronizavimo metu</string>
+
+    <string name="welcome_sync_header">Sinchronizavimas</string>
+    <string name="welcome_synced_header">Susinchronizuota!</string>
+    <string name="welcome_sync_summary">AdAway atsiunčia reklamų adresus kad juos užblokuotų iš tinklo. Jūs galite juos pasirinkti veliau nustatymuose.</string>
+    <string name="welcome_sync_retry_logo">Bandyti sinchronizuoti iš naujo</string>
+    <string name="welcome_sync_error">Sinchronizacija nepavyko%s.\nBandyti iš naujo?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Palaikymas</string>
+    <string name="welcome_support_header">Palaikyk mane!</string>
+    <string name="welcome_support_summary">Tai yra nemokama atviro kodo programa. Aš ją sukūriau mano laisvu laiku. Jeigu jums ji patinka, galite mane palaikyti:</string>
+    <string name="welcome_support_button">Donuoti per PayPal</string>
+    <string name="welcome_support_telemetry_summary">Ar jums patinka klaidos? Man irgi ne.</string>
+    <string name="welcome_support_telemetry_button">Įjungti telemetiją kad man atsiūstu užstrigusios programos įrašus</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Atgal</string>
+    <string name="welcome_next_button">Kitas</string>
+    <string name="welcome_finish_button">Pabaiga</string>
+</resources>
