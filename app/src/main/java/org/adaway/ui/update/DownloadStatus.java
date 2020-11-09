@@ -43,8 +43,10 @@ public class DownloadStatus {
      * @return The formatted status.
      */
     String format(Context context) {
-        String downloaded = Formatter.formatFileSize(context, this.downloaded);
-        String total = Formatter.formatFileSize(context, this.total);
-        return context.getString(R.string.update_progress_label, downloaded, total);
+        return context.getString(
+                R.string.update_progress_label,
+                Formatter.formatFileSize(context, this.downloaded),
+                Formatter.formatFileSize(context, this.total)
+        );
     }
 }
