@@ -1,7 +1,43 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Užblokuotos</string>
+    <string name="allowed_hosts_label">Leistos</string>
+    <string name="redirect_hosts_label">Nukreiptos</string>
+
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="one">%d galiojantis kodas</item>
+        <item quantity="few">%d galiojantys kodai</item>
+        <item quantity="many">%d galiojantys kodai</item>
+        <item quantity="other">%d galiojantys kodai</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="one">%d nebegaliojantis kodas</item>
+        <item quantity="few">%d nebeagliojantys kodai</item>
+        <item quantity="many">%d  nebeagliojantys kodai</item>
+        <item quantity="other">%d  nebeagliojantys kodai</item>
+    </plurals>
+
+    <!-- Help card -->
+    <string name="help_label">Rodyti pagalbą</string>
+
+    <!-- Project card -->
+    <string name="project_label">Atverti GitHub svetainę</string>
+
+    <!-- Support card -->
+    <string name="support_label">Palaikyti projektą</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS įrašai</string>
     <string name="preferences_drawer_item">Nustatymai</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Atverti navigacijos stalčių</string>
+    <string name="adblock_pause_button_description">Stabdyti/tęsti reklamų blokavimą</string>
+    <string name="update_button">Atnaujinti užblokuotus domenus</string>
+    <string name="show_log_button">Rodyti užklaustus domenus</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Detalesnę informaciją rasite skiltyje Pagalba</string>
