@@ -233,21 +233,19 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private boolean showFragment(@IdRes int actionId) {
-        switch (actionId) {
-            case R.id.drawer_preferences:
-                startPrefsActivity();
-                this.drawerBehavior.setState(STATE_HIDDEN);
-                return true;
-            case R.id.drawer_dns_logs:
-                startDnsLogActivity();
-                this.drawerBehavior.setState(STATE_HIDDEN);
-                return true;
-            case R.id.action_update:
-                syncHostsList(null); // TODO
-                return true;
-            case R.id.action_show_log:
-                // TODO
-                break;
+        if (actionId == R.id.drawer_preferences) {
+            startPrefsActivity();
+            this.drawerBehavior.setState(STATE_HIDDEN);
+            return true;
+        } else if (actionId == R.id.drawer_dns_logs) {
+            startDnsLogActivity();
+            this.drawerBehavior.setState(STATE_HIDDEN);
+            return true;
+        } else if (actionId == R.id.action_update) {
+            syncHostsList(null); // TODO
+            return true;
+//        } else if (actionId == R.id.action_show_log) {
+//            // TODO
         }
         return false;
     }

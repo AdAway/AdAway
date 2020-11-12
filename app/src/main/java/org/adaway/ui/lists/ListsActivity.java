@@ -88,18 +88,17 @@ public class ListsActivity extends AppCompatActivity {
         });
         // Add navigation view item selected listener to change view pager current item
         navigationView.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.lists_navigation_blocked:
-                    viewPager.setCurrentItem(0);
-                    return true;
-                case R.id.lists_navigation_allowed:
-                    viewPager.setCurrentItem(1);
-                    return true;
-                case R.id.lists_navigation_redirected:
-                    viewPager.setCurrentItem(2);
-                    return true;
-                default:
-                    return false;
+            if (item.getItemId() == R.id.lists_navigation_blocked) {
+                viewPager.setCurrentItem(0);
+                return true;
+            } else if (item.getItemId() == R.id.lists_navigation_allowed) {
+                viewPager.setCurrentItem(1);
+                return true;
+            } else if (item.getItemId() == R.id.lists_navigation_redirected) {
+                viewPager.setCurrentItem(2);
+                return true;
+            } else {
+                return false;
             }
         });
         // Display requested tab

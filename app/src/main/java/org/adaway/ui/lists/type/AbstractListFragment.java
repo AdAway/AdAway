@@ -104,21 +104,20 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
                     return false;
                 }
                 // Check item identifier
-                switch (item.getItemId()) {
-                    case R.id.edit_action:
-                        // Edit action item
-                        editItem(mActionItem);
-                        // Finish action mode
-                        mActionMode.finish();
-                        return true;
-                    case R.id.delete_action:
-                        // Delete action item
-                        deleteItem(mActionItem);
-                        // Finish action mode
-                        mActionMode.finish();
-                        return true;
-                    default:
-                        return false;
+                if (item.getItemId() == R.id.edit_action) {
+                    // Edit action item
+                    editItem(mActionItem);
+                    // Finish action mode
+                    mActionMode.finish();
+                    return true;
+                } else if (item.getItemId() == R.id.delete_action) {
+                    // Delete action item
+                    deleteItem(mActionItem);
+                    // Finish action mode
+                    mActionMode.finish();
+                    return true;
+                } else {
+                    return false;
                 }
             }
 

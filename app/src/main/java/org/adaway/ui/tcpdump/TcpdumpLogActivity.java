@@ -133,16 +133,14 @@ public class TcpdumpLogActivity extends AppCompatActivity implements TcpdumpLogV
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.sort:
-                this.mViewModel.toggleSort();
-                return true;
-            case R.id.delete:
-                this.mViewModel.clearLogs();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.sort) {
+            this.mViewModel.toggleSort();
+            return true;
+        } else if (item.getItemId() == R.id.delete) {
+            this.mViewModel.clearLogs();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

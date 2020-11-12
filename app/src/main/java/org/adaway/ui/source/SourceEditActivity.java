@@ -165,27 +165,25 @@ public class SourceEditActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Check item identifier
-        switch (item.getItemId()) {
-            case R.id.delete_action:
-                DISK_IO_EXECUTOR.execute(() -> this.hostsSourceDao.delete(this.edited));
-                finish();
-                return true;
-            case R.id.apply_action:
-                HostsSource source = validate();
-                if (source == null) {
-                    return false;
-                }
-                DISK_IO_EXECUTOR.execute(() -> {
-                    if (this.editing) {
-                        this.hostsSourceDao.delete(this.edited);
-                    }
-                    this.hostsSourceDao.insert(source);
-                    finish();
-                });
-                return true;
-            default:
+        if (item.getItemId() == R.id.delete_action) {
+            DISK_IO_EXECUTOR.execute(() -> this.hostsSourceDao.delete(this.edited));
+            finish();
+            return true;
+        } else if (item.getItemId() == R.id.apply_action) {
+            HostsSource source = validate();
+            if (source == null) {
                 return false;
+            }
+            DISK_IO_EXECUTOR.execute(() -> {
+                if (this.editing) {
+                    this.hostsSourceDao.delete(this.edited);
+                }
+                this.hostsSourceDao.insert(source);
+                finish();
+            });
+            return true;
         }
+        return false;
     }
 
     private HostsSource validate() {

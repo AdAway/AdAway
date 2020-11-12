@@ -69,18 +69,17 @@ public class PrefsVpnExcludedAppsActivity extends AppCompatActivity implements E
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            case R.id.select_all:
-                excludeApplications(this.userApplications);
-                this.adapter.notifyDataSetChanged();
-                return true;
-            case R.id.deselect_all:
-                includeApplications(this.userApplications);
-                this.adapter.notifyDataSetChanged();
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        } else if (item.getItemId() == R.id.select_all) {
+            excludeApplications(this.userApplications);
+            this.adapter.notifyDataSetChanged();
+            return true;
+        } else if (item.getItemId() == R.id.deselect_all) {
+            includeApplications(this.userApplications);
+            this.adapter.notifyDataSetChanged();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
