@@ -113,7 +113,7 @@ dependencies {
     implementation 'com.annimon:stream:1.2.1'
     implementation 'com.squareup.okhttp3:okhttp:3.14.7'
     implementation 'org.sufficientlysecure:html-textview:3.9'
-    if (keyStoreDefined && false) {
+    if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {
         implementation 'io.sentry:sentry-android:3.1.0'
