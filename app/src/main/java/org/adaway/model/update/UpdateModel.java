@@ -106,7 +106,11 @@ public class UpdateModel {
                 .build();
         try (Response execute = this.client.newCall(request).execute();
              ResponseBody body = execute.body()) {
-            return new Manifest(body.string(), VERSION_CODE);
+            if (execute.isSuccessful()) {
+                return new Manifest(body.string(), VERSION_CODE);
+            } else {
+                return null;
+            }
         } catch (IOException | JSONException exception) {
             Log.e(TAG, "Unable to download manifest.", exception);
             // Return failed
