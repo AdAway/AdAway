@@ -53,7 +53,7 @@ public class AllowedHostsFragment extends AbstractListFragment {
     public void addItem() {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_white_dialog, null);
+        View view = factory.inflate(R.layout.lists_allowed_dialog, null);
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         // Create dialog
         AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
@@ -91,7 +91,7 @@ public class AllowedHostsFragment extends AbstractListFragment {
     protected void editItem(HostListItem item) {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_white_dialog, null);
+        View view = factory.inflate(R.layout.lists_allowed_dialog, null);
         // Set hostname
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         inputEditText.setText(item.getHost());

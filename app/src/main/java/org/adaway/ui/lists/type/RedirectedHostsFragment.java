@@ -57,7 +57,7 @@ public class RedirectedHostsFragment extends AbstractListFragment {
     public void addItem() {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_redirect_dialog, null);
+        View view = factory.inflate(R.layout.lists_redirected_dialog, null);
         EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
         EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
         // Create dialog
@@ -105,7 +105,7 @@ public class RedirectedHostsFragment extends AbstractListFragment {
     protected void editItem(HostListItem item) {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_redirect_dialog, null);
+        View view = factory.inflate(R.layout.lists_redirected_dialog, null);
         // Set hostname and IP
         EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
         EditText ipEditText = view.findViewById(R.id.list_dialog_ip);

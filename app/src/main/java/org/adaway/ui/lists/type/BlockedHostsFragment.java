@@ -54,7 +54,7 @@ public class BlockedHostsFragment extends AbstractListFragment {
     public void addItem() {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_black_dialog, null);
+        View view = factory.inflate(R.layout.lists_blocked_dialog, null);
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         // Create dialog
         AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
@@ -91,7 +91,7 @@ public class BlockedHostsFragment extends AbstractListFragment {
     protected void editItem(HostListItem item) {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
-        View view = factory.inflate(R.layout.lists_black_dialog, null);
+        View view = factory.inflate(R.layout.lists_blocked_dialog, null);
         // Set hostname
         EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         inputEditText.setText(item.getHost());
