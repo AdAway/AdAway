@@ -86,7 +86,7 @@
     <string name="status_vpn_configuration_updated">VPN 구성이 성공적으로 업데이트 됨</string>
     <string name="notification_configuration_changed">변경된 설정을 저장하려면, 적용을 해야합니다.</string>
     <string name="notification_configuration_changed_action">적용</string>
-    <string name="notification_configuration_installing">새 설정 적용 중...</string>
+    <string name="notification_configuration_installing">새 설정 적용 중…</string>
     <string name="notification_configuration_failed">새 설정 적용에 실패했습니다</string>
 
     <!--Apply and Revert Dialogs-->

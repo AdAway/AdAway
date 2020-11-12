@@ -25,7 +25,7 @@
     <string name="pref_webserver_enabled">Web sunucusunu etkinleştir</string>
     <string name="pref_webserver_test">Web sunucusunu test et</string>
     <string name="pref_webserver_certificate">Kendinden imzalı sertifika kur</string>
-    <string name="pref_webserver_state_checking">Kontrol ediliyor...</string>
+    <string name="pref_webserver_state_checking">Kontrol ediliyor…</string>
     <string name="pref_webserver_state_not_running">Çalışmıyor</string>
     <string name="pref_webserver_state_running_not_installed">Çalışıyor ancak sertifika kurulu değil</string>
     <string name="pref_webserver_state_running_and_installed">Çalışıyor ve sertifika kurulu</string>

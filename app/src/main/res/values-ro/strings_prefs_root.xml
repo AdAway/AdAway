@@ -25,7 +25,7 @@
     <string name="pref_webserver_enabled">Activare server web</string>
     <string name="pref_webserver_test">Testare server web</string>
     <string name="pref_webserver_certificate">Instalare certificat subsemnat</string>
-    <string name="pref_webserver_state_checking">Verificare...</string>
+    <string name="pref_webserver_state_checking">Verificare…</string>
     <string name="pref_webserver_state_not_running">Nu rulează</string>
     <string name="pref_webserver_state_running_not_installed">Rulează fără certificat instalat</string>
     <string name="pref_webserver_state_running_and_installed">Rulează cu certificat instalat</string>

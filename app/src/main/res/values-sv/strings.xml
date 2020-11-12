@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">VPN-konfigurationen uppdaterad</string>
     <string name="notification_configuration_changed">Din konfiguration har ändrats. Den behöver nu verkställas.</string>
     <string name="notification_configuration_changed_action">Verkställ</string>
-    <string name="notification_configuration_installing">Verkställer den nya konfigurationen...</string>
+    <string name="notification_configuration_installing">Verkställer den nya konfigurationen…</string>
     <string name="notification_configuration_failed">Det gick inte att verkställa den nya konfigurationen.</string>
 
     <!--Apply and Revert Dialogs-->

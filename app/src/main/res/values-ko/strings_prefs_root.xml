@@ -25,7 +25,7 @@
     <string name="pref_webserver_enabled">웹 서버 활성화</string>
     <string name="pref_webserver_test">시험 웹 서버</string>
     <string name="pref_webserver_certificate">자체 서명된 인증서 설치</string>
-    <string name="pref_webserver_state_checking">확인 중...</string>
+    <string name="pref_webserver_state_checking">확인 중…</string>
     <string name="pref_webserver_state_not_running">실행중이 아님</string>
     <string name="pref_webserver_state_running_not_installed">실행 중이지만 인증서가 설치되지 않음</string>
     <string name="pref_webserver_state_running_and_installed">실행 중이며 인증서가 설치되어 있음</string>

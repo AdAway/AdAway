@@ -25,7 +25,7 @@
     <string name="pref_webserver_enabled">Ενεργοποίηση του διακομιστή ιστοσελίδων</string>
     <string name="pref_webserver_test">Δοκιμή σέρβερ</string>
     <string name="pref_webserver_certificate">Εγκατάσταση αυτο-υπογραφόμενου πιστοποιητικού</string>
-    <string name="pref_webserver_state_checking">Ελεγχος...</string>
+    <string name="pref_webserver_state_checking">Ελεγχος…</string>
     <string name="pref_webserver_state_not_running">Δεν εκτελείται</string>
     <string name="pref_webserver_state_running_not_installed">Εκτελείται αλλα το πιστοποιητικό δεν έχει εγκατασταθεί</string>
     <string name="pref_webserver_state_running_and_installed">Εκτελείται και το πιστοποιητικό έχει εγκατασταθεί</string>

@@ -37,16 +37,16 @@
     <string name="checkbox_list_context_edit">سمون</string>
 
     <!--Your lists-->
-    <string name="import_dialog">راوړل...</string>
+    <string name="import_dialog">راوړل…</string>
     <string name="import_success">شاتړ په بريالي توګه له بهرنۍ زېرمې راوړل شو.</string>
     <string name="import_failed">د شاتړ راوړنه نابريالۍ شوه. آیا ددې بڼه سمه ده؟ د نورو معلوماتو لپاره logcat وګورئ.</string>
-    <string name="export_dialog">وړل...</string>
+    <string name="export_dialog">وړل…</string>
     <string name="export_success">شاتړ په بريالي توګه په بهرنۍ زېرمې کښې د \'adaway-backup.json\' دوتنې ته يووړل شو.</string>
     <string name="export_failed">د شاتړ وړنه نابريالۍ شوه.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts دوتنه</string>
-    <string name="hosts_content">د hosts دوتنې منځپانګه لېښل...</string>
+    <string name="hosts_content">د hosts دوتنې منځپانګه لېښل…</string>
     <string name="hosts_open_button">د hosts دوتنه پرانیځئ</string>
 
     <!--Status Notification-->
@@ -82,7 +82,7 @@
     <string name="status_vpn_configuration_updated">د اوڅاریز ځاني جال سازونه په بريالي توګه اوسمهاله شو</string>
     <string name="notification_configuration_changed">ستاسې سازونې بدلون وموند. تاسې اړ یاستۍ چې کارونګه يې کړئ.</string>
     <string name="notification_configuration_changed_action">كارونګ</string>
-    <string name="notification_configuration_installing">د نوې سازونې کارونګ...</string>
+    <string name="notification_configuration_installing">د نوې سازونې کارونګ…</string>
     <string name="notification_configuration_failed">د نوې سازونې پر کارونګه کولو کښې نابریالۍ شو.</string>
 
     <string name="apply_symlink_missing_title">symlink بې درکه دی</string>
