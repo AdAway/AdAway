@@ -28,4 +28,4 @@ install:
   - echo y | sdkmanager "ndk;21.3.6528147"
 
 script:
-  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./gradlew sonarqube; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./gradlew assembleRelease; fi
