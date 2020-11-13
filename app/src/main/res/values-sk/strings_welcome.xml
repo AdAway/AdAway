@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Vitajte</string>
+    <string name="welcome_first_step">Sprievodca – 1. krok</string>
+    <string name="welcome_second_step">Sprievodca – 2. krok</string>
+    <string name="welcome_last_step">Sprievodca – posledný krok</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Vitajte v AdAway!</string>
