@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AdAway</string>
     <string name="app_description">Blokovač reklamy s otvoreným kódom</string>
+    <string name="app_logo">AdAway logo</string>
 </resources>
