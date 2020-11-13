@@ -15,6 +15,8 @@
     <bool name="pref_enable_ipv6_def">false</bool>
     <string name="pref_update_check_app_daily_key" translatable="false">updateCheckAppDaily</string>
     <bool name="pref_update_check_app_daily_def">true</bool>
+    <string name="pref_update_include_beta_releases_key" translatable="false">includeBetaReleases</string>
+    <bool name="pref_update_include_beta_releases_def">false</bool>
     <string name="pref_update_check_hosts_daily_key" translatable="false">updateCheckHostsDaily</string>
     <bool name="pref_update_check_hosts_daily_def">true</bool>
     <string name="pref_automatic_update_daily_key" translatable="false">automaticUpdateDaily</string>

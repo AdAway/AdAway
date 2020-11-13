@@ -107,6 +107,17 @@ public class PreferenceHelper {
         );
     }
 
+    public static boolean getIncludeBetaReleases(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        return prefs.getBoolean(
+                context.getString(R.string.pref_update_include_beta_releases_key),
+                context.getResources().getBoolean(R.bool.pref_update_include_beta_releases_def)
+        );
+    }
+
     public static boolean getUpdateCheckHostsDaily(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,

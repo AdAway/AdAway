@@ -8,11 +8,14 @@ import androidx.preference.CheckBoxPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.source.SourceUpdateService;
 import org.adaway.model.update.ApkUpdateService;
+import org.adaway.model.update.UpdateStore;
 
+import static org.adaway.model.update.UpdateStore.ADAWAY;
 import static org.adaway.util.Constants.PREFS_NAME;
 
 /**
@@ -28,6 +31,7 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
         addPreferencesFromResource(R.xml.preferences_update);
         // Bind pref actions
         bindAppUpdatePrefAction();
+        bindAppChannelPrefAction();
         bindHostsUpdatePrefAction();
     }
 
@@ -48,6 +52,14 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
             }
             return true;
         });
+    }
+
+    private void bindAppChannelPrefAction() {
+        Context context = requireContext();
+        AdAwayApplication application = (AdAwayApplication) context.getApplicationContext();
+        UpdateStore store = application.getUpdateModel().getStore();
+        Preference includeBetaReleasesPref = findPreference(getString(R.string.pref_update_include_beta_releases_key));
+        includeBetaReleasesPref.setEnabled(store == ADAWAY);
     }
 
     private void bindHostsUpdatePrefAction() {

@@ -4,6 +4,7 @@
     <!-- Application category -->
     <string name="pref_update_app_category">Application updates</string>
     <string name="pref_update_check_app_daily">Periodically check for update</string>
+    <string name="pref_update_include_beta_releases">Include beta releases</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts updates</string>
     <string name="pref_update_check">Check for updates at startup</string>

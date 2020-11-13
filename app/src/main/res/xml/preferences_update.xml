@@ -7,6 +7,10 @@
             app:defaultValue="@bool/pref_update_check_app_daily_def"
             app:key="@string/pref_update_check_app_daily_key"
             app:title="@string/pref_update_check_app_daily" />
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_update_include_beta_releases_def"
+            app:key="@string/pref_update_include_beta_releases_key"
+            app:title="@string/pref_update_include_beta_releases" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/pref_update_hosts_category">

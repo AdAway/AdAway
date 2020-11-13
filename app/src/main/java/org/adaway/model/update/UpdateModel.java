@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import org.adaway.R;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.Log;
 import org.json.JSONException;
 
@@ -80,6 +81,23 @@ public class UpdateModel {
     }
 
     /**
+     * Get the application update store.
+     * @return The application update store.
+     */
+    public UpdateStore getStore() {
+        return getApkStore(this.context);
+    }
+
+    /**
+     * Get the application update channel.
+     *
+     * @return The application update channel.
+     */
+    public String getChannel() {
+        return PreferenceHelper.getIncludeBetaReleases(this.context) ? "beta" : "stable";
+    }
+
+    /**
      * Check if there is an update available.
      */
     public void checkForUpdate() {
@@ -99,7 +117,8 @@ public class UpdateModel {
                 .newBuilder()
                 .addQueryParameter("versionCode", Integer.toString(VERSION_CODE))
                 .addQueryParameter("sdkCode", Integer.toString(SDK_INT))
-                .addQueryParameter("store", getApkStore(this.context).getName())
+                .addQueryParameter("channel", getChannel())
+                .addQueryParameter("store", getStore().getName())
                 .build();
         Request request = new Request.Builder()
                 .url(httpUrl)
