@@ -1,6 +1,8 @@
-## [5.1.0] - 2020-11-12
+## [5.2.0] - Unreleased
 
-*This version is a pre-release*
+- Add beta channel opt-in preferences
+
+## [5.1.0] - 2020-11-12
 
 - Add application update UI
 - Add F-Droid apk support to built-in updater
