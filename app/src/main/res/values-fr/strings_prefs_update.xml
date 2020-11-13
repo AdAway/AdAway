@@ -4,6 +4,7 @@
     <!-- Application category -->
     <string name="pref_update_app_category">Mises à jour de l’application</string>
     <string name="pref_update_check_app_daily">Vérifier régulièrement la présence de mises à jour</string>
+    <string name="pref_update_include_beta_releases">Inclure les versions bêta</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Mises à jour des hôtes</string>
     <string name="pref_update_check">Vérifier la présence de mises à jour au démarrage</string>
