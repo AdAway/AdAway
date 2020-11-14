@@ -4,6 +4,7 @@
     <!-- Application category -->
     <string name="pref_update_app_category">Оновлення застосунку</string>
     <string name="pref_update_check_app_daily">Періодично перевіряти наявність оновлень</string>
+    <string name="pref_update_include_beta_releases">Шукати бета-релізи</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Оновлення хостів</string>
     <string name="pref_update_check">Перевіряти оновлення під час запуску</string>
