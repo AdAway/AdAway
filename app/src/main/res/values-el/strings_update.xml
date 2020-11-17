@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">Ενημέρωση AdAway</string>
     <!-- Home screen -->
     <string name="update_available">Διαθέσιμη ενημέρωση!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">Είστε ενημερωμένοι</string>
+    <string name="update_update_available_header">Υπάρχει διαθέσιμη ενημέρωση</string>
+    <string name="update_updating_header">Το AdAway ενημερώνεται</string>
     <string name="update_update_button">Ενημέρωση τώρα</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Τελευταίες αλλαγές:</string>
+    <string name="update_new_changelog_title">Αρχείο καταγραφής αλλαγών:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Λήψη της τελευταίας έκδοσης AdAway…</string>
 </resources>
