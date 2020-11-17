@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Καλώς ήρθατε</string>
+    <string name="welcome_first_step">Wizard πρώτο βήμα</string>
+    <string name="welcome_second_step">Wizard δεύτερο βήμα</string>
+    <string name="welcome_last_step">Wizard τελευταίο βήμα</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Καλώς ήλθατε στο AdAway!</string>
