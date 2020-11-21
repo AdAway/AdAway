@@ -4,10 +4,11 @@
     <!-- Application category -->
     <string name="pref_update_app_category">Actualizări aplicație</string>
     <string name="pref_update_check_app_daily">Verificare periodică</string>
+    <string name="pref_update_include_beta_releases">Include versiuni in stadiul \"beta\"</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Actualizări fișier hosts</string>
     <string name="pref_update_check">Verificare actualizări la pornire</string>
     <string name="pref_update_check_hosts_daily">Verificare periodică</string>
-    <string name="pref_update_sync_on_update">Sincronizare automată la actualizare</string>
-    <string name="pref_update_sync_unmetered_only">Sincronizare automată doar pe conexiuni necontorizate</string>
+    <string name="pref_update_sync_on_update">Sincronizare la actualizare</string>
+    <string name="pref_update_sync_unmetered_only">Sincronizare doar pe rețea necontorizată</string>
 </resources>
