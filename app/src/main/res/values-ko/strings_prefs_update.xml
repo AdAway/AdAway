@@ -4,6 +4,7 @@
     <!-- Application category -->
     <string name="pref_update_app_category">앱 업데이트</string>
     <string name="pref_update_check_app_daily">주기적으로 업데이트 확인</string>
+    <string name="pref_update_include_beta_releases">베타 릴리즈 포함</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">호스트 업데이트</string>
     <string name="pref_update_check">앱 실행 시 업데이트 확인</string>
