@@ -7,12 +7,15 @@
 
     <ImageView
         android:id="@+id/headerImageView"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/welcome_support_logo"
+        app:layout_constraintBottom_toTopOf="@+id/headerTextView"
+        app:layout_constraintDimensionRatio="1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHeight_percent="0.15"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_favorite_24"
@@ -22,12 +25,16 @@
 
     <TextView
         android:id="@+id/headerTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:autoSizeTextType="uniform"
         android:text="@string/welcome_support_header"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+        app:layout_constraintBottom_toTopOf="@+id/summaryTextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerImageView" />
 
@@ -36,11 +43,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:autoSizeTextType="uniform"
         android:justificationMode="inter_word"
         android:text="@string/welcome_support_summary"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/paypalCardView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
@@ -49,12 +59,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         app:cardCornerRadius="32dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="24dp"
         app:contentPaddingRight="24dp"
         app:contentPaddingTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/telemetryTextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/summaryTextView">
 
@@ -80,7 +93,9 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/checkBox"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paypalCardView" />
 
     <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/checkBox"
@@ -90,6 +105,8 @@
         android:text="@string/welcome_support_telemetry_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telemetryTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
