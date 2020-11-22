@@ -4,6 +4,7 @@
     <!-- Application category -->
     <string name="pref_update_app_category">App-updates</string>
     <string name="pref_update_check_app_daily">Regelmatig controleren op updates</string>
+    <string name="pref_update_include_beta_releases">Inclusief beta releases</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts-updates</string>
     <string name="pref_update_check">Controleren op updates bij openen van AdAway</string>
