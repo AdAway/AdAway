@@ -4,6 +4,7 @@
     <!-- Application category -->
     <string name="pref_update_app_category">應用程式更新</string>
     <string name="pref_update_check_app_daily">定期檢查更新</string>
+    <string name="pref_update_include_beta_releases">包含 beta 版本</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts 更新</string>
     <string name="pref_update_check">啟動時檢查更新</string>
