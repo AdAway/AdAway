@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">歡迎</string>
+    <string name="welcome_first_step">精靈第一步</string>
+    <string name="welcome_second_step">精靈第二步</string>
+    <string name="welcome_last_step">精靈最後一步</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">歡迎來到 AdAway！</string>
