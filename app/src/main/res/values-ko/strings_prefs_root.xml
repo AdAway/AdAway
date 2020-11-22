@@ -25,7 +25,10 @@
     <string name="pref_webserver_enabled">웹 서버 활성화</string>
     <string name="pref_webserver_test">시험 웹 서버</string>
     <string name="pref_webserver_certificate">자체 서명된 인증서 설치</string>
-    <string name="pref_webserver_state_checking">확인 중…</string>
+    <string name="pref_webserver_certificate_dialog_title">수동 설치 인증</string>
+    <string name="pref_webserver_certificate_dialog_content">Android 11 (R)부터 애플리케이션은 자동으로 인증 기관 (CA)를 설치할 수 없습니다.\n\n\"보안\" 설정으로 이동한 다음 \" 암호화 및 사용자 인증 정보\"에서 \"인증서 설치\"를 해주세요. 그리고 \"CA 인증서\"를 선택한 다음 최근에 내보낸 인증서 파일을 선택해 주세요.</string>
+    <string name="pref_webserver_certificate_dialog_action">\"보안\" 설정 열기</string>
+    <string name="pref_webserver_state_checking">확인 중...</string>
     <string name="pref_webserver_state_not_running">실행중이 아님</string>
     <string name="pref_webserver_state_running_not_installed">실행 중이지만 인증서가 설치되지 않음</string>
     <string name="pref_webserver_state_running_and_installed">실행 중이며 인증서가 설치되어 있음</string>
