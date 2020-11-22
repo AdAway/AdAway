@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">환영합니다</string>
+    <string name="welcome_first_step">마법사 첫번째 설정</string>
+    <string name="welcome_second_step">마법사 두번째 설정</string>
+    <string name="welcome_last_step">마법사 마지막 설정</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">AdAway에 오신 걸 환영합니다!</string>
