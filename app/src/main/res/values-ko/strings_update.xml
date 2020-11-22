@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway 업데이트</string>
     <!-- Home screen -->
     <string name="update_available">업데이트 가능!</string>
+
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">최신 버전입니다</string>
+    <string name="update_update_available_header">업데이트 가능</string>
+    <string name="update_updating_header">AdAway를 업데이트 중</string>
+    <string name="update_update_button">지금 업데이트하기</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">마지막 변경:</string>
+    <string name="update_new_changelog_title">변경사항:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">최신 AdAway 버전을 다운로드 중...</string>
 </resources>
