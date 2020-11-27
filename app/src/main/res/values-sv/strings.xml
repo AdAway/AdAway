@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Inaktivera VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Ta bort</string>
     <string name="checkbox_list_context_title">Redigera post</string>
+    <string name="checkbox_list_context_apply">Verkställ</string>
     <string name="checkbox_list_context_edit">Redigera</string>
+    <string name="checkbox_list_context_delete">Ta bort</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importerar…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Söker efter uppdateringar</string>
-    <string name="status_check_source">Kontrollerar om det finns några uppdateringar för källan %s</string>
+    <string name="status_check_source">Kontrollerar %s-källa för uppdatering</string>
     <string name="status_retrieve">Tar emot källor</string>
     <string name="status_download_source">Ladda ner källa %s</string>
-    <string name="status_read_source">Kopierar källan %s</string>
-    <string name="status_parse_source">Tolkar källan %s</string>
+    <string name="status_read_source">Läser källan %s</string>
+    <string name="status_parse_source">Tolkar %s-källa</string>
     <string name="status_revert">Återställer standardvärdfilen</string>
     <string name="status_revert_done">Standard värdfil återställd</string>
     <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
@@ -85,7 +86,7 @@
     <string name="status_vpn_configuration_updated">VPN-konfigurationen uppdaterad</string>
     <string name="notification_configuration_changed">Din konfiguration har ändrats. Den behöver nu verkställas.</string>
     <string name="notification_configuration_changed_action">Verkställ</string>
-    <string name="notification_configuration_installing">Verkställer den nya konfigurationen…</string>
+    <string name="notification_configuration_installing">Verkställer den nya konfigurationen...</string>
     <string name="notification_configuration_failed">Det gick inte att verkställa den nya konfigurationen.</string>
 
     <!--Apply and Revert Dialogs-->
