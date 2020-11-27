@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Välkommen</string>
+    <string name="welcome_first_step">Guiden första steget</string>
+    <string name="welcome_second_step">Guiden andra steget</string>
+    <string name="welcome_last_step">Guiden sista steget</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Välkommen till AdAway!</string>
