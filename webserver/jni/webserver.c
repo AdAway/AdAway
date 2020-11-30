@@ -18,7 +18,11 @@ static bool icon = 0;
 static void ev_handler(struct mg_connection *c, int ev, void *p) {
     if (ev == MG_EV_HTTP_REQUEST) {
         struct http_message *hm = (struct http_message *) p;
-        if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
+        struct mg_str *host_hdr = mg_get_http_header(hm, "Host");
+        struct mg_str amazon = mg_mk_str("amazon");
+        if (mg_strstr(*host_hdr, amazon) != NULL) {
+            mg_send_head(c, 400, 0, NULL);
+        } else if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
             mg_http_serve_file(c, hm, test_path, mg_mk_str("text/html"), mg_mk_str(""));
         } else if (icon) {
             mg_http_serve_file(c, hm, icon_path, mg_mk_str("image/svg+xml"), mg_mk_str(""));
