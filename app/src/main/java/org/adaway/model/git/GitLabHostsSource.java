@@ -2,9 +2,6 @@ package org.adaway.model.git;
 
 import androidx.annotation.Nullable;
 
-import com.annimon.stream.Collectors;
-import com.annimon.stream.Stream;
-
 import org.adaway.util.Constants;
 import org.adaway.util.Log;
 import org.json.JSONArray;
@@ -16,11 +13,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
+import java.util.Arrays;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+
+import static java.util.stream.Collectors.joining;
 
 /**
  * This class is an utility class to get information from GitLab hosts source hosting.
@@ -57,9 +57,9 @@ public class GitLabHostsSource extends GitHostsSource {
         this.owner = pathParts[1];
         this.repo = pathParts[2];
         this.ref = pathParts[4];
-        this.path = Stream.of(pathParts)
+        this.path = Arrays.stream(pathParts)
                 .skip(5)
-                .collect(Collectors.joining("/"));
+                .collect(joining("/"));
     }
 
     /**

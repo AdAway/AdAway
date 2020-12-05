@@ -1,5 +1,6 @@
 package org.adaway.db.dao;
 
+import androidx.annotation.Nullable;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -10,8 +11,6 @@ import org.adaway.db.entity.ListType;
 
 import java.util.List;
 import java.util.regex.Pattern;
-
-import javax.annotation.Nullable;
 
 import static androidx.room.OnConflictStrategy.REPLACE;
 import static org.adaway.db.entity.ListType.REDIRECTED;

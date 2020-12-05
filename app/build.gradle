@@ -109,9 +109,8 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
 
     // Miscellaneous
-    implementation 'com.google.guava:guava:29.0-android'
-    implementation 'com.annimon:stream:1.2.1'
-    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    implementation 'com.google.guava:guava:30.0-android'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
     implementation 'org.sufficientlysecure:html-textview:3.9'
     if (keyStoreDefined) {
         implementation project(':sentrystub')
@@ -126,15 +125,15 @@ dependencies {
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.8.2'
     implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
-    implementation 'dnsjava:dnsjava:3.2.2'
+    implementation 'dnsjava:dnsjava:3.3.1'
     implementation 'org.slf4j:slf4j-android:1.7.30'
 
     // Test related
-    testImplementation 'junit:junit:4.13'
-    testImplementation 'org.json:json:20190722'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.json:json:20201115'
     androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
     androidTestImplementation 'androidx.test:core:1.3.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'junit:junit:4.13'
+    androidTestImplementation 'junit:junit:4.13.1'
 }

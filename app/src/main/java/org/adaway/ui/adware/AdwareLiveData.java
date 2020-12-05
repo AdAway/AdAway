@@ -1,7 +1,5 @@
 package org.adaway.ui.adware;
 
-import androidx.lifecycle.LiveData;
-
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ComponentInfo;
@@ -9,9 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import androidx.annotation.WorkerThread;
-
-import com.annimon.stream.Collectors;
-import com.annimon.stream.Stream;
+import androidx.lifecycle.LiveData;
 
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Constants;
@@ -19,6 +15,8 @@ import org.adaway.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * This class is {@link LiveData} to represents installed adware on device.
@@ -64,10 +62,10 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
         // Get the adware packages
         List<PackageInfo> adwarePackages = this.getAdwarePackages(pm);
         // Create related adware installs
-        List<AdwareInstall> adwareInstalls = Stream.of(adwarePackages)
+        List<AdwareInstall> adwareInstalls = adwarePackages.stream()
                 .map(this::createInstallFromPackageInfo)
                 .sorted()
-                .collect(Collectors.toList());
+                .collect(toList());
         // Post loaded adware installs
         this.postValue(adwareInstalls);
     }

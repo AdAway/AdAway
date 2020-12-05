@@ -1,6 +1,7 @@
 ## [5.2.0] - Unreleased
 
 - Add beta channel opt-in preferences
+- Update dependencies
 
 ## [5.1.0] - 2020-11-12
 

@@ -6,8 +6,6 @@ import android.widget.Toast;
 
 import androidx.annotation.UiThread;
 
-import com.annimon.stream.Stream;
-
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
@@ -27,6 +25,7 @@ import java.io.OutputStreamWriter;
 import java.util.List;
 import java.util.concurrent.Executor;
 
+import static java.util.stream.Collectors.toList;
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
@@ -98,15 +97,15 @@ public class BackupExporter {
         HostListItemDao hostListItemDao = database.hostsListItemDao();
 
         List<HostListItem> userHosts = hostListItemDao.getUserList();
-        List<HostListItem> blockedHosts = Stream.of(userHosts)
+        List<HostListItem> blockedHosts = userHosts.stream()
                 .filter(value -> value.getType() == BLOCKED)
-                .toList();
-        List<HostListItem> allowedHosts = Stream.of(userHosts)
+                .collect(toList());
+        List<HostListItem> allowedHosts = userHosts.stream()
                 .filter(value -> value.getType() == ALLOWED)
-                .toList();
-        List<HostListItem> redirectedHosts = Stream.of(userHosts)
+                .collect(toList());;
+        List<HostListItem> redirectedHosts = userHosts.stream()
                 .filter(value -> value.getType() == REDIRECTED)
-                .toList();
+                .collect(toList());
 
         JSONObject backupObject = new JSONObject();
         backupObject.put(SOURCES_KEY, buildSourcesBackup(hostsSourceDao.getAll()));
