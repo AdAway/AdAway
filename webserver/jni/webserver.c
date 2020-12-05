@@ -14,6 +14,10 @@ static char ssl_key[100];
 static char test_path[100];
 static char icon_path[100];
 static bool icon = 0;
+// DEBUG -- error code
+static int error_code = 500;
+static char error_path[100];
+// DEBUG -- error code
 
 static void ev_handler(struct mg_connection *c, int ev, void *p) {
     if (ev == MG_EV_HTTP_REQUEST) {
@@ -21,7 +25,7 @@ static void ev_handler(struct mg_connection *c, int ev, void *p) {
         struct mg_str *host_hdr = mg_get_http_header(hm, "Host");
         struct mg_str amazon = mg_mk_str("amazon");
         if (mg_strstr(*host_hdr, amazon) != NULL) {
-            mg_send_head(c, 400, 0, NULL);
+            mg_send_head(c, error_code, 0, NULL);
         } else if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
             mg_http_serve_file(c, hm, test_path, mg_mk_str("text/html"), mg_mk_str(""));
         } else if (icon) {
@@ -61,6 +65,26 @@ void oom_adjust_setup(void) {
     }
 }
 
+void read_error_code(void) {
+    FILE *fp;
+    if ((fp = fopen(error_path, "r")) != NULL) {
+        error_code = 401;
+        if (fscanf(fp, "%d", &error_code) == 1) {
+            printf("setting error code to %d", error_code);
+            __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "setting error code to %d", error_code);
+        } else {
+            error_code = 403;
+            printf("error parsing error code: %s", strerror(errno));
+            __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error parsing error code: %s", strerror(errno));
+        }
+        fclose(fp);
+    } else {
+        error_code = 404;
+        printf("failed to open error code file %s: %s", error_path, strerror(errno));
+        __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "failed to open error code file: %s", strerror(errno));
+    }
+}
+
 bool parse_cli_parameters(int argc, char *argv[]) {
     bool init = 0;
     for (int i = 1; i < argc; i++) {
@@ -74,6 +98,11 @@ bool parse_cli_parameters(int argc, char *argv[]) {
             strcat(icon_path, "/icon.svg");
             strcpy(test_path, resource_path);
             strcat(test_path, "/test.html");
+            // DEBUG -- error code
+            strcpy(error_path, resource_path);
+            strcat(error_path, "/error.txt");
+            read_error_code();
+            // DEBUG -- error code
             init = 1;
         } else if (strcmp(argv[i], "--icon") == 0) {
             icon = 1;

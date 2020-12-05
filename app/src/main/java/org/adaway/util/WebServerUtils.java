@@ -169,6 +169,7 @@ public class WebServerUtils {
     private static void inflateResources(Context context, Path target) {
         AssetManager assetManager = context.getAssets();
         try {
+            inflateResource(assetManager, "error.txt", target);
             inflateResource(assetManager, "localhost.crt", target);
             inflateResource(assetManager, "localhost.key", target);
             inflateResource(assetManager, "icon.svg", target);
