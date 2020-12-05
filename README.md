@@ -47,8 +47,7 @@ The preview builds may contain bug fixes or new features for new android version
 ### Stable builds
 
 **Requirements:**
-* Android 4.1 _Jelly Bean_ or above
-* A **rooted device**
+* Android Android 8 _Oreo_ or above
 
 After preview builds have been tested by the more technical or responsive community within the forums, we will then post the stable build to F-Droid.
 
@@ -59,6 +58,8 @@ After preview builds have been tested by the more technical or responsive commun
       raw="true"
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/org.adaway)
+
+For devices order than Android 8 _Oreo_, use the version 4 of AdAway.
 
 ## Get Host File Sources
 
