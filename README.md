@@ -59,7 +59,7 @@ After preview builds have been tested by the more technical or responsive commun
       alt="Get it on F-Droid"
       height="80">](https://f-droid.org/app/org.adaway)
 
-For devices order than Android 8 _Oreo_, use the version 4 of AdAway.
+For devices older than Android 8 _Oreo_, use the version 4 of AdAway.
 
 ## Get Host File Sources
 
