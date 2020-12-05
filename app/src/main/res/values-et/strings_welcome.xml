@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Tere tulemast</string>
+    <string name="welcome_first_step">Viisardi esimene samm</string>
+    <string name="welcome_second_step">Viisardi teine samm</string>
+    <string name="welcome_last_step">Viisardi viimane samm</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">Tere tulemast AdAwaysse!</string>
+    <string name="welcome_method_summary">AdAway pakub kahte reklaamiblokeerimise viisi. Vali endale meeldiv:</string>
+
+    <string name="welcome_root_method_logo">Juurkasutaja logo</string>
+    <string name="welcome_root_method_title">Juurkasutaja-põhine\nreklaamiblokeerimine</string>
+    <string name="welcome_root_method_text1">Kiirem</string>
+    <string name="welcome_root_method_text2">Akusõbralik</string>
+    <string name="welcome_root_method_text3">Juurkasutaja nõutud</string>
+
+    <string name="welcome_vpn_method_logo">VPNi logo</string>
+    <string name="welcome_vpn_method_title">VPNi-põhine\nreklaamiblokeerimine</string>
+    <string name="welcome_vpn_method_text1">Aeglasem</string>
+    <string name="welcome_vpn_method_text2">Töötab taustal</string>
+    <string name="welcome_vpn_method_text3">Ühilduvus</string>
+
     <string name="welcome_root_missing_title">Vajalik juurkasutaja toega Android</string>
-    </resources>
+    <string name="welcome_root_missile_description">Täitmisfaili \"su\" ei leitud või sa ei lubanud AdAwayle juurkasutaja õigusi.\n\nSee võib juhtuda, kui su seade ei oma juurkasutaja õigusi. Oma seadme juurkasutaja õiguste avamise kohta saad rohkem lugeda wiki.lineageos.org või teistelt Androidi veebilehtedelt.</string>
+
+    <string name="welcome_method_pro_logo">Eelis</string>
+    <string name="welcome_method_con_logo">Puudus</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sünkroonimine lõpetatud</string>
+    <string name="welcome_sync_error_logo">Sünkroonimisel esines tõrge</string>
+
+    <string name="welcome_sync_header">Sünkroonimine</string>
+    <string name="welcome_synced_header">Sünkroonitud!</string>
+    <string name="welcome_sync_summary">AdAway laadib võrguallikatest reklaamivõrgustike nimed, et neid blokeerida. Neid saab hiljem seadetes kohandada.</string>
+    <string name="welcome_sync_retry_logo">Proovi uuesti sünkroonida</string>
+    <string name="welcome_sync_error">Sünkroonimine ebaõnnestus:\n%s.\nProovid uuesti?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Tugi</string>
+    <string name="welcome_support_header">Toeta mind!</string>
+    <string name="welcome_support_summary">See on tasuta ja avatud lähtekoodiga rakendus. Ma arendan seda oma vabast ajast. Seega, kui see sulle meeldib võid vabalt oma toetust näidata:</string>
+    <string name="welcome_support_button">Anneta PayPalis</string>
+    <string name="welcome_support_telemetry_summary">Kas sulle meeldivad vead? Mulle ka mitte.</string>
+    <string name="welcome_support_telemetry_button">Luba krahhiaruannete saatmiseks telemeetria</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Tagasi</string>
+    <string name="welcome_next_button">Edasi</string>
+    <string name="welcome_finish_button">Lõpeta</string>
+</resources>
