@@ -2,6 +2,7 @@
 
 - Add beta channel opt-in preferences
 - Update dependencies
+- Update translations
 
 ## [5.1.0] - 2020-11-12
 
