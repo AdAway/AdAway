@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">Отключить VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Удалить</string>
     <string name="checkbox_list_context_title">Редактировать запись</string>
+    <string name="checkbox_list_context_apply">Применить</string>
     <string name="checkbox_list_context_edit">Редактировать</string>
+    <string name="checkbox_list_context_delete">Удалить</string>
 
     <!--Your lists-->
     <string name="import_dialog">Импорт…</string>
@@ -54,11 +55,11 @@
 
     <!--Status Notification-->
     <string name="status_check">Проверка обновлений</string>
-    <string name="status_check_source">Проверка обновлений в источнике %s</string>
+    <string name="status_check_source">Проверяем %s на наличие обновлений</string>
     <string name="status_retrieve">Получение источников</string>
     <string name="status_download_source">Загрузка источника %s</string>
-    <string name="status_read_source">Копирование источника %s</string>
-    <string name="status_parse_source">Разбор источника %s</string>
+    <string name="status_read_source">Проверяем источник %s</string>
+    <string name="status_parse_source">Обработка источника %s</string>
     <string name="status_revert">Восстановление стандартного файла hosts</string>
     <string name="status_revert_done">Стандартный файл hosts восстановлен</string>
     <string name="status_reverting_subtitle">Создание стандартного файла hosts</string>
@@ -85,7 +86,7 @@
     <string name="status_vpn_configuration_updated">Конфигурация VPN успешно обновлена</string>
     <string name="notification_configuration_changed">Конфигурация изменена. Вам нужно применить её.</string>
     <string name="notification_configuration_changed_action">Применить</string>
-    <string name="notification_configuration_installing">Применение новой конфигурации…</string>
+    <string name="notification_configuration_installing">Применение новой конфигурации...</string>
     <string name="notification_configuration_failed">Не удалось применить новую конфигурацию.</string>
 
     <!--Apply and Revert Dialogs-->
