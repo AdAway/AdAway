@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Добро пожаловать</string>
+    <string name="welcome_first_step">Первый шаг</string>
+    <string name="welcome_second_step">Второй шаг</string>
+    <string name="welcome_last_step">Последний шаг</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Добро пожаловать в AdAway!</string>
