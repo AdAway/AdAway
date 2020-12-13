@@ -4,6 +4,7 @@
     <!-- Application category -->
     <string name="pref_update_app_category">Alkalmazás frissítések</string>
     <string name="pref_update_check_app_daily">Frissítések keresése naponta</string>
+    <string name="pref_update_include_beta_releases">Tartalmazza a béta verziókat</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts frissítések</string>
     <string name="pref_update_check">Frissítések ellenőrzése</string>
