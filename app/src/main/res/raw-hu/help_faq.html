@@ -6,14 +6,14 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>GYIK</title></head>
 <body>
 <h2>Bevétel hirdetéseken keresztül</h2>
-<p>Van egy gyakran elhangzó félreértés mely szerint, ha amúgy se katintanánk a reklámokra, akkor azzal se ártunk egy oldalnak vagy alakalmazásnak, ha meg se jelenítjük a reklámot. Ez nem igaz, mert a fejlesztők már azért is kaphatnak pénzt, hogy megjelenítsék a hirdetést. Az csak a felhasználón múlik, hogy használ-e reklám blokkolót vagy nem.</p>
+<p>Van egy gyakran elhangzó félreértés mely szerint, ha amúgy se kattintanánk a reklámokra, akkor azzal se ártunk egy oldalnak vagy alkalmazásnak, ha meg se jelenítjük a reklámot. Ez nem igaz, mert a fejlesztők már azért is kaphatnak pénzt, hogy megjelenítik a hirdetést. Az csak a felhasználón múlik, hogy használ-e reklám blokkolót vagy nem.</p>
 
 <h2>Hogy működik az AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
-If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
+<p>Az AdAway <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> segítségével blokkolja a reklámokat kiszolgáló hostneveket.. A hosts fájl a <code>/system/etc/hosts</code> könyvtárban található fájl, amely a gazdagépneveket IP-címekre térképezi fel. Hagyományos módszer a gazdanév IP-címpárokhoz történő definiálására anélkül, hogy a Domain Name Systemre (DNS) támaszkodna. Az összes nem kívánt gazdagépnév átirányításra kerül a <code>127.0.0.1</code> címre, ami azt jelenti, hogy a saját eszközre mutatnak.<br>
+Ha a gazdagépfájl nem írható, akkor egy tartalék megoldás a beépített VPN szolgáltatás használata. Szűri a kapcsolatokat a nem kívánt gazdagépnevekkel, és másokat is átenged.</p>
 
 <h2>Miért kell újraindítani az Androidot, hogy a változások életbe lépjenek?</h2>
-<p>Az Java az Android rendszeren saját belső DNS tárat tart fenn. Az operációs rendszer azonnal használja az új hosts fájlt (ezt ellenőrizni is lehet pingeléssel), de a Java DNS tárának újraépítéséhez újra kell indítani az Androidot.</p>
+<p>Java az Android rendszeren saját belső DNS tárat tart fenn. Az operációs rendszer azonnal használja az új hosts fájlt (ezt ellenőrizni is lehet pingeléssel), de a DNS cache tárának újraépítéséhez újra kell indítani az Androidot.</p>
 
 <h2>Hogy kell használni a web kiszolgálót az AdAway-ben?</h2>
 <p><strong>Az AdAway a web kiszolgáló használata nélkül is működni fog.</strong>
@@ -21,12 +21,12 @@ If the hosts file is not writable, a fallback solution is to use the builtin VPN
 <br>Néhány alkalmazás nem hajlandó működni, ha a reklám kiszolgálóik nem érhető el. Ezzel a módszerrel újra elérhetőnek hiszi azt, és egy üres oldalt kapnak vissza.</p>
 
 <h2>Hogyan tudok adott kiszolgálókat (hosts) blokkolni/engedélyezni?</h2>
-<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
+<p>Add hozzá a blokkolni kívánt hosztneveket a <cite>Blokolt</cite> listához a<cite>kezdőlapról</cite>. Ezenkívül a blokkolásból kizárni kívánt gazdagépnevek hozzáadhatók a <cite>Megengedve</cite> és az adott IP-címre átirányítani kívánt hosztnevek a <cite>Átirányítva</cite>helyhez.</p>
 
 <h2>Hol találhatok további hosts forrásokat?</h2>
-<p>Tekintsd meg <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">az AdAwayhez való hosts fájlok további forrásainak listáját</a>!</p>
+<p>Tekintse meg <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">az AdAwayhez való hosts fájlok forrásainak listáját</a>!</p>
 
 <h2>Segítsen fordítani/jelentsen hibákat</h2>
-<p>Kérlek keresd fel a <a href="https://adaway.org">https://adaway.org</a> weboldalt!</p>
+<p>Keresse fel a <a href="https://adaway.org">https://adaway.org</a> weboldalt!</p>
 </body>
 </html>
