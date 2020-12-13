@@ -3,28 +3,28 @@ This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
 <!DOCTYPE html>
 <html>
-<head><title>S-ON related help</title></head>
+<head><title>S-ON kapcsoló súgó</title></head>
 <body>
 <h2>HTC eszközök</h2>
 <p>AdAway nem működik S-ON-t használó eszközön. Ez a 'képesség' számos HTC eszközön létezik, és megakadályozza az AdAway alkalmazást a hosts fájl írásában.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>Az S-OFF azt jelenti, hogy az eszköz NAND rész nem zárolt, és írható. A HTC eszközök alapértéke S-ON, ami azt jelenti, hogy a rendszer bizonyos részeit nem érheti el és nem lehet állandó root jogot adni. Továbbá a firmware képek lenyomatának ellenőrzése is be van kapcsolva az S-ON jelző miatt.</p>
+<p>Az S-OFF azt jelenti, hogy az eszköz NAND rész nem zárolt, és írható. A HTC eszközök alapértéke S-ON, ami azt jelenti, hogy a rendszer bizonyos részeit nem érheti el és nem lehet állandó root jogot adni. Továbbá a firmware aláírásának ellenőrzése is be van kapcsolva az S-ON jelző miatt.</p>
 
 <h2>Nálam S-ON vagy S-OFF van?</h2>
-<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br><br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
+<p>Indítsd a készüléket Boot Menu-be a <cite>hangerő le</cite> gomb nyomva tartásával, miközben lenyomod a bekapcsoló gombot, és a felül lévő szöveg S-OFF vagy S-ON állapotot mutat. A teljes root általában S-OFF állapotot jelent.
+<br><br>Bővebb információ a következő oldalon található: <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. További S-OFF módszerek, mivel az Unrevokable (linkben) érdekelhet, nevezetesen: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
 
 <h2>Kerülő megoldás</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
+<p>Előfeltétel: Telepítened kell egy működő Android SDK-t ADB shell-el a számítógépedre.</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>Indítsd a készüléket Boot Menü-be a <cite>hangerő le</cite> gomb nyomva tartásával, miközben lenyomod a bekapcsoló gombot.</li>
+<li>A <cite>hangerő le</cite> gombbal válaszd a <cite>recovery-t</cite> majd a <cite>bekapcsoló</cite> gomb az indításhoz.</li>
+<li>A clockwork recovery-ben lépj a "partíciók menübe".</li>
+<li>Válaszd ki ezeket: <cite>mount /system</cite>, <cite>mount /sdcard</cite> és <cite>mount /data</cite>.</li>
+<li>Csatlakoztasd az USB kábelt, és nyiss egy parancssort a számítógépen.</li>
+<li>adb shell és Enter majd írd be <code>ln -s /data/hosts /system/etc/hosts</code> (Ez létrehoz egy szimbolikus linket, ami lehetővé teszi az AdAway számára a <code>/data</code> helyen tárolt hosts fájlt szerkesztését, miközben azt az OS úgy használhatja, mintha a <code>/system</code>partíció tárolná.)</li>
+<li>Indítsd újra az eszközt és állítsd be a <cite>Cél hosts fájlt</cite> a <cite>/data/hosts</cite> helyre az AdAway beállításainál.</li>
 <li>Az AdAway alkalmazásnak így már működnie kell.</li>
 </ol>
 </body>
