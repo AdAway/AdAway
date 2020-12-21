@@ -25,6 +25,9 @@
     <string name="pref_webserver_enabled">Aktivera webbserver</string>
     <string name="pref_webserver_test">Testa webbservern</string>
     <string name="pref_webserver_certificate">Installera självsignerat certifikat</string>
+    <string name="pref_webserver_certificate_dialog_title">Installera certifikat manuellt</string>
+    <string name="pref_webserver_certificate_dialog_content">Med start i Android 11 (R) kan appar inte längre automatiskt installera certifikat (CA). \n\Gå till Säkerhet under Inställningar, \"Kryptering &amp; Certifikat\" och \"Installera ett certifikat\". Här väljer du \"CA-certifikat\" och väljer den certifikatfil som du nyss exporterade.</string>
+    <string name="pref_webserver_certificate_dialog_action">Öppna Säkerhetsinställningar</string>
     <string name="pref_webserver_state_checking">Kontrollerar…</string>
     <string name="pref_webserver_state_not_running">Körs inte</string>
     <string name="pref_webserver_state_running_not_installed">Körs men utan installerat certifikat</string>
