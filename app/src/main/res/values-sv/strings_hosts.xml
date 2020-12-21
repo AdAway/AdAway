@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Värdkällor</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Användarlista</string>
+    <string name="hosts_adaway_source">Oficiella AdAway-källor</string>
+    <string name="hosts_stevenblack_source">StevenBlack Unified hosts</string>
+    <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
     <!-- List -->
     <string name="hosts_not_available">ej tillgänglig</string>
+    <string name="hosts_count">%s värdkällor</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Lägg till källa</string>
     <string name="hosts_edit_dialog_title">Redigera källa</string>
