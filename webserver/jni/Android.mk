@@ -20,7 +20,7 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS	       := -D MG_ENABLE_IPV6 -D MG_ENABLE_SSL -std=c99 -O2 -W -Wall -lcrypto -lssl -pthread -pipe $(COPT)
+LOCAL_CFLAGS	       := -D MG_ENABLE_IPV6 -D MG_ENABLE_OPENSSL -std=c99 -O2 -W -Wall -lcrypto -lssl -pthread -pipe $(COPT)
 LOCAL_MODULE           := webserver
 LOCAL_SRC_FILES        := webserver.c mongoose/mongoose.c
 LOCAL_SHARED_LIBRARIES := ssl crypto
