@@ -109,7 +109,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
 
     // Miscellaneous
-    implementation 'com.google.guava:guava:30.0-android'
+    implementation 'com.google.guava:guava:30.1-android'
     implementation 'com.squareup.okhttp3:okhttp:3.14.9'
     implementation 'org.sufficientlysecure:html-textview:3.9'
     if (keyStoreDefined) {
