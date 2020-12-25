@@ -16,5 +16,6 @@
     <!-- Exclude user apps activity -->
     <string name="pref_vpn_exclude_user_apps_activity">Pois jätetyt sovellukset</string>
     <string name="pref_vpn_exclude_user_apps_select_all">Valitse kaikki</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Poista valinta kaikista</string>
     <string name="pref_vpn_exclude_user_apps_icon">Sovelluksen kuvake</string>
 </resources>
