@@ -1,7 +1,10 @@
-## [5.2.0] - Unreleased
+## [5.2.0] - 2021-01-03
 
 - Add beta channel opt-in preferences
+- Update mongoose to latest stable version and rewrite web server
 - Update dependencies
+- Update build tools
+- Update NDK
 - Update translations
 
 ## [5.1.0] - 2020-11-12
