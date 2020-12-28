@@ -378,6 +378,7 @@ public class SourceModel {
      * Synchronize hosts entries from current source states.
      */
     public void syncHostEntries() {
+        setState(R.string.status_sync_database);
         this.hostEntryDao.sync();
     }
 
