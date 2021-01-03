@@ -107,10 +107,14 @@ public class SourceParserTest {
     public void testHostParser() {
         Matcher matcher = HOSTS_PARSER_PATTERN.matcher("# [mocean.mobi]");
         assertFalse(matcher.matches());
-        matcher = HOSTS_PARSER_PATTERN.matcher("127.0.0.1 api.airpush.com ## hope this is all #");
+        matcher = HOSTS_PARSER_PATTERN.matcher("127.0.0.1 www.domain.com ## some comments #");
         assertTrue(matcher.matches());
-        matcher = HOSTS_PARSER_PATTERN.matcher("127.0.0.1 ad.leadboltapps.net ## another airpush style ad");
+        assertEquals("127.0.0.1", matcher.group(1));
+        assertEquals("www.domain.com", matcher.group(2));
+        matcher = HOSTS_PARSER_PATTERN.matcher("127.0.0.1 ad.domain.net ## some comments");
         assertTrue(matcher.matches());
+        assertEquals("127.0.0.1", matcher.group(1));
+        assertEquals("ad.domain.net", matcher.group(2));
     }
 
     @Test

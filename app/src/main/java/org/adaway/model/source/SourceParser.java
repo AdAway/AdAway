@@ -32,7 +32,7 @@ import static org.adaway.util.Constants.LOCALHOST_IPv6;
  */
 class SourceParser {
     private static final String TAG = "SourceParser";
-    private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)";
+    private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+).*$";
     private static final int BIG_HOSTS_SIZE_LIMIT = 1_000_000;
     static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
