@@ -102,7 +102,7 @@ public class BackupExporter {
                 .collect(toList());
         List<HostListItem> allowedHosts = userHosts.stream()
                 .filter(value -> value.getType() == ALLOWED)
-                .collect(toList());;
+                .collect(toList());
         List<HostListItem> redirectedHosts = userHosts.stream()
                 .filter(value -> value.getType() == REDIRECTED)
                 .collect(toList());
