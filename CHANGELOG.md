@@ -2,6 +2,7 @@
 
 - Add beta channel opt-in preferences
 - Update mongoose to latest stable version and rewrite web server
+- Update source parser to prevent stack overflow 
 - Update dependencies
 - Update build tools
 - Update NDK
