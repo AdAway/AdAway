@@ -1,3 +1,9 @@
+## [5.2.1] - 2021-01-06
+
+- Fix F-Droid store detection
+
+Special thanks to TheLonelyGhost, bdtipsntricks, faraz-b bege10, Nathan-Nesbitt and gallegonovato for their bug reports.
+
 ## [5.2.0] - 2021-01-03
 
 - Add beta channel opt-in preferences
