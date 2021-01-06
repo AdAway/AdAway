@@ -28,7 +28,7 @@ public enum UpdateStore {
     /**
      * The F-Droid store with F-Droid signing key.
      */
-    F_DROID("fdroid", "42203f1ac857426d1496e971db96fbe1f88c25c9e1f895a5c98d703891292277"),
+    F_DROID("fdroid", "42203F1AC857426D1496E971DB96FBE1F88C25C9E1F895A5C98D703891292277"),
     /**
      * An unknown store.
      */
