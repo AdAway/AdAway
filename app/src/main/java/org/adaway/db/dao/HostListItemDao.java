@@ -14,6 +14,8 @@ import org.adaway.db.entity.HostListItem;
 import java.util.List;
 import java.util.Optional;
 
+import static androidx.room.OnConflictStrategy.REPLACE;
+
 /**
  * This interface is the DAO for {@link HostListItem} entities.
  *
@@ -21,8 +23,11 @@ import java.util.Optional;
  */
 @Dao
 public interface HostListItemDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = REPLACE)
     void insert(HostListItem... item);
+
+    @Insert(onConflict = REPLACE)
+    void insert(List<HostListItem> items);
 
     @Update
     void update(HostListItem item);
