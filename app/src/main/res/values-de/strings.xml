@@ -55,11 +55,12 @@
 
     <!--Status Notification-->
     <string name="status_check">Prüfung auf Aktualisierung</string>
-    <string name="status_check_source">Überprüfe%s Quellen auf Aktualisierungen</string>
+    <string name="status_check_source">Überprüfe Quelle %s auf Aktualisierungen</string>
     <string name="status_retrieve">Quellen werden abgerufen</string>
     <string name="status_download_source">Quelle %s wird heruntergeladen</string>
     <string name="status_read_source">Lese Quelle %s</string>
-    <string name="status_parse_source">Analysiere %s Quellen</string>
+    <string name="status_parse_source">Analysiere Quelle %s</string>
+    <string name="status_sync_database">Synchronisiere Regeldatenbank</string>
     <string name="status_revert">Hosts-Datei wird auf Standard zurückgesetzt</string>
     <string name="status_revert_done">Standard-Hosts-Datei wiederhergestellt</string>
     <string name="status_reverting_subtitle">Standard-Hosts-Datei wird generiert</string>
@@ -86,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN-Konfiguration erfolgreich aktualisiert</string>
     <string name="notification_configuration_changed">Ihre Konfiguration hat sich geändert. Sie müssen sie anwenden.</string>
     <string name="notification_configuration_changed_action">Anwenden</string>
-    <string name="notification_configuration_installing">Neue Konfiguration wird angewendet …</string>
+    <string name="notification_configuration_installing">Neue Konfiguration wird angewendet ...</string>
     <string name="notification_configuration_failed">Anwendung der neuen Konfiguration fehlgeschlagen.</string>
 
     <!--Apply and Revert Dialogs-->
