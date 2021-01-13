@@ -3,6 +3,7 @@
     <string name="pref_update_title">Aktualizace</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Aktualizace aplikace</string>
+    <string name="pref_update_check_app_startup">Zkontrolovat aktualizace při spuštění</string>
     <string name="pref_update_check_app_daily">Pravidelně kontrolovat aktualizace</string>
     <string name="pref_update_include_beta_releases">Zahrnout beta verze</string>
     <!-- Application hosts -->
