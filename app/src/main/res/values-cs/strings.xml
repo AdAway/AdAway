@@ -60,6 +60,7 @@
     <string name="status_download_source">Stahování zdroje %s</string>
     <string name="status_read_source">Čtení zdroje %s</string>
     <string name="status_parse_source">Zpracovávání zdroje %s</string>
+    <string name="status_sync_database">Synchronizování databáze pravidel</string>
     <string name="status_revert">Obnovování výchozího souboru hostitelů</string>
     <string name="status_revert_done">Výchozí soubor hostitelů obnoven</string>
     <string name="status_reverting_subtitle">Vytváření standardního souboru hostitelů</string>
