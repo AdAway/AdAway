@@ -3,11 +3,12 @@
     <string name="pref_update_title">Aktualisierungen</string>
     <!-- Application category -->
     <string name="pref_update_app_category">App-Aktualisierungen</string>
+    <string name="pref_update_check_app_startup">Beim Start nach Aktualisierungen suchen</string>
     <string name="pref_update_check_app_daily">Täglich nach Aktualisierungen suchen</string>
     <string name="pref_update_include_beta_releases">Beta-Versionen einbeziehen</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts-Aktualisierungen</string>
-    <string name="pref_update_check">Nach Aktualisierungen suchen</string>
+    <string name="pref_update_check">Beim Start nach Aktualisierungen suchen</string>
     <string name="pref_update_check_hosts_daily">Täglich nach Aktualisierungen suchen</string>
     <string name="pref_update_sync_on_update">Synchronisiere beim Aktualisieren</string>
     <string name="pref_update_sync_unmetered_only">Synchronisiere nur im gebührenfreien Netzwerk</string>
