@@ -13,6 +13,8 @@
     <bool name="pref_never_reboot_def">false</bool>
     <string name="pref_enable_ipv6_key" translatable="false">enableIpv6</string>
     <bool name="pref_enable_ipv6_def">false</bool>
+    <string name="pref_update_check_app_startup_key" translatable="false">updateCheckAppStartup</string>
+    <bool name="pref_update_check_app_startup_def">true</bool>
     <string name="pref_update_check_app_daily_key" translatable="false">updateCheckAppDaily</string>
     <bool name="pref_update_check_app_daily_def">true</bool>
     <string name="pref_update_include_beta_releases_key" translatable="false">includeBetaReleases</string>

@@ -4,6 +4,10 @@
 
     <PreferenceCategory app:title="@string/pref_update_app_category">
         <CheckBoxPreference
+            app:defaultValue="@bool/pref_update_check_app_startup_def"
+            app:key="@string/pref_update_check_app_startup_key"
+            app:title="@string/pref_update_check_app_startup" />
+        <CheckBoxPreference
             app:defaultValue="@bool/pref_update_check_app_daily_def"
             app:key="@string/pref_update_check_app_daily_key"
             app:title="@string/pref_update_check_app_daily" />

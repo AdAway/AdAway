@@ -47,7 +47,6 @@ public class HomeViewModel extends AndroidViewModel {
         this.sourceModel = awayApplication.getSourceModel();
         this.adBlockModel = awayApplication.getAdBlockModel();
         this.updateModel = awayApplication.getUpdateModel();
-        EXECUTORS.networkIO().execute(this.updateModel::checkForUpdate);
 
         AppDatabase database = AppDatabase.getInstance(application);
         this.hostsSourceDao = database.hostsSourceDao();
@@ -111,6 +110,10 @@ public class HomeViewModel extends AndroidViewModel {
 
     public LiveData<HostError> getError() {
         return this.error;
+    }
+
+    public void checkForAppUpdate() {
+        EXECUTORS.networkIO().execute(this.updateModel::checkForUpdate);
     }
 
     public void toggleAdBlocking() {

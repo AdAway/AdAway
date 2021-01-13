@@ -3,11 +3,12 @@
     <string name="pref_update_title">Updates</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Application updates</string>
+    <string name="pref_update_check_app_startup">Check for update at startup</string>
     <string name="pref_update_check_app_daily">Periodically check for update</string>
     <string name="pref_update_include_beta_releases">Include beta releases</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts updates</string>
-    <string name="pref_update_check">Check for updates at startup</string>
+    <string name="pref_update_check">Check for update at startup</string>
     <string name="pref_update_check_hosts_daily">Periodically check for update</string>
     <string name="pref_update_sync_on_update">Sync on update</string>
     <string name="pref_update_sync_unmetered_only">Sync on unmetered network only</string>

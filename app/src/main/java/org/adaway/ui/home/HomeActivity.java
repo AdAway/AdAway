@@ -99,7 +99,9 @@ public class HomeActivity extends AppCompatActivity {
             return false; // TODO Handle selection
         });
 
-        checkUpdateAtStartup();
+        if (savedInstanceState == null) {
+            checkUpdateAtStartup();
+        }
     }
 
     @Override
@@ -131,6 +133,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void checkUpdateAtStartup() {
+        boolean checkAppUpdateAtStartup = PreferenceHelper.getUpdateCheckAppStartup(this);
+        if (checkAppUpdateAtStartup) {
+            this.homeViewModel.checkForAppUpdate();
+        }
         boolean checkUpdateAtStartup = PreferenceHelper.getUpdateCheck(this);
         if (checkUpdateAtStartup) {
             updateHostsList(null);
