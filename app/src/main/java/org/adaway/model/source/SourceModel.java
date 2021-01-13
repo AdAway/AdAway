@@ -446,7 +446,7 @@ public class SourceModel {
              InputStreamReader reader = new InputStreamReader(inputStream)) {
             parseSourceInputStream(hostsSource, reader);
         } catch (IOException e) {
-            throw new IOException("Error while copying hosts file from " + hostsFileUrl + ".", e);
+            throw new IOException("Error while reading hosts file from " + hostsFileUrl + ".", e);
         }
     }
 
