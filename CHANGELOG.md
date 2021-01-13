@@ -1,3 +1,9 @@
+## [5.3.0] - Unreleased
+
+- Add new unique source parser with parallel processing
+
+Special thanks to andy356 for its bug report.
+
 ## [5.2.1] - 2021-01-06
 
 - Fix F-Droid store detection
