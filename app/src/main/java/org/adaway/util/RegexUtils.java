@@ -23,7 +23,10 @@ package org.adaway.util;
 import com.google.common.net.InetAddresses;
 import com.google.common.net.InternetDomainName;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static org.adaway.util.Constants.TAG;
 
 public class RegexUtils {
     private static final Pattern WILDCARD_PATTERN = Pattern.compile("[*?]");
@@ -56,9 +59,10 @@ public class RegexUtils {
      */
     public static boolean isValidWildcardHostname(String hostname) {
         // Clear wildcards from host name then validate it
-        String clearedHostname = WILDCARD_PATTERN.matcher(hostname).replaceAll("");
+        Matcher matcher = WILDCARD_PATTERN.matcher(hostname);
+        String clearedHostname = matcher.replaceAll("");
         // Replace wildcards from host name by an alphanumeric character
-        String replacedHostname = WILDCARD_PATTERN.matcher(hostname).replaceAll("a");
+        String replacedHostname = matcher.replaceAll("a");
         // Check if any hostname is valid
         return isValidHostname(clearedHostname) || isValidHostname(replacedHostname);
     }
@@ -74,7 +78,7 @@ public class RegexUtils {
             InetAddresses.forString(ip);
             return true;
         } catch (IllegalArgumentException exception) {
-            Log.d(Constants.TAG, "Invalid IP address: " + ip, exception);
+            Log.d(TAG, "Invalid IP address: " + ip, exception);
             return false;
         }
     }
