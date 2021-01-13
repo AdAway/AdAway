@@ -3,11 +3,12 @@
     <string name="pref_update_title">Mises à jour</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Mises à jour de l’application</string>
+    <string name="pref_update_check_app_startup">Vérifier la présence d’une mise à jour au démarrage</string>
     <string name="pref_update_check_app_daily">Vérifier régulièrement la présence de mises à jour</string>
     <string name="pref_update_include_beta_releases">Inclure les versions bêta</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Mises à jour des hôtes</string>
-    <string name="pref_update_check">Vérifier la présence de mises à jour au démarrage</string>
+    <string name="pref_update_check">Vérifier la présence d’une mise à jour au démarrage</string>
     <string name="pref_update_check_hosts_daily">Vérifier régulièrement la présence de mises à jour</string>
     <string name="pref_update_sync_on_update">Synchroniser lors d’une mise à jour</string>
     <string name="pref_update_sync_unmetered_only">Ne synchroniser que sur les réseaux sans limite de données</string>
