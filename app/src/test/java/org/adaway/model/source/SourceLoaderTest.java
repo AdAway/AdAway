@@ -7,10 +7,10 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.regex.Matcher;
 
-import static org.adaway.model.source.SourceParser.HOSTS_PARSER_PATTERN;
+import static org.adaway.model.source.SourceLoader.HOSTS_PARSER_PATTERN;
 import static org.junit.Assert.*;
 
-public class SourceParserTest {
+public class SourceLoaderTest {
 
     // Test data comes from Guava InternetDomainName unit test
     // https://github.com/google/guava/blob/master/android/guava-tests/test/com/google/common/net/InternetDomainNameTest.java

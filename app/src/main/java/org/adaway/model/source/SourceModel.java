@@ -28,6 +28,8 @@ import org.adaway.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -83,11 +85,11 @@ public class SourceModel {
     /**
      * The update available status.
      */
-    private MutableLiveData<Boolean> updateAvailable;
+    private final MutableLiveData<Boolean> updateAvailable;
     /**
      * The model state.
      */
-    private MutableLiveData<String> state;
+    private final MutableLiveData<String> state;
     /**
      * The HTTP client to download hosts sources ({@code null} until initialized by {@link #getHttpClient()}).
      */
@@ -417,8 +419,8 @@ public class SourceModel {
                 .build();
         // Request hosts file and open byte stream
         try (Response response = httpClient.newCall(request).execute();
-             InputStream inputStream = Objects.requireNonNull(response.body()).byteStream()) {
-            parseSourceInputStream(source, inputStream);
+             Reader reader = Objects.requireNonNull(response.body()).charStream()) {
+            parseSourceInputStream(source, reader);
         } catch (IOException e) {
             throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", e);
         }
@@ -437,8 +439,9 @@ public class SourceModel {
         Log.v(TAG, "Reading hosts source file: " + hostsFileUrl);
         // Set state to copying hosts source
         setState(R.string.status_read_source, hostsFileUrl);
-        try (InputStream inputStream = this.context.getContentResolver().openInputStream(fileUri)) {
-            parseSourceInputStream(hostsSource, inputStream);
+        try (InputStream inputStream = this.context.getContentResolver().openInputStream(fileUri);
+             InputStreamReader reader = new InputStreamReader(inputStream)) {
+            parseSourceInputStream(hostsSource, reader);
         } catch (IOException e) {
             throw new IOException("Error while copying hosts file from " + hostsFileUrl + ".", e);
         }
@@ -448,15 +451,12 @@ public class SourceModel {
      * Parse a source from its input stream to store it into database.
      *
      * @param hostsSource The host source to parse.
-     * @param inputStream The host source input stream to read source from.
-     * @throws IOException If the source could not be read.
+     * @param reader The host source reader.
      */
-    private void parseSourceInputStream(HostsSource hostsSource, InputStream inputStream) throws IOException {
+    private void parseSourceInputStream(HostsSource hostsSource, Reader reader) {
         setState(R.string.status_parse_source, hostsSource.getLabel());
         long startTime = System.currentTimeMillis();
-        SourceParser sourceParser = new SourceParser(hostsSource, inputStream);
-        SourceBatchUpdater updater = new SourceBatchUpdater(this.hostListItemDao);
-        updater.updateSource(hostsSource, sourceParser.getItems());
+        new SourceLoader(hostsSource).parse(reader, this.hostListItemDao);
         long endTime = System.currentTimeMillis();
         Log.i(TAG, "Parsed " + hostsSource.getUrl() + " in " + (endTime - startTime) / 1000 + "s");
     }
