@@ -300,6 +300,9 @@ public class SourceModel {
                 return null;
             }
             return ZonedDateTimeConverter.fromTimestamp(cursor.getLong(columnIndex));
+        } catch (SecurityException e) {
+            Log.i(TAG, "The SAF permission was removed.", e);
+            return null;
         }
     }
 
