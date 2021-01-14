@@ -3,6 +3,7 @@
     <string name="pref_update_title">更新</string>
     <!-- Application category -->
     <string name="pref_update_app_category">应用程序更新</string>
+    <string name="pref_update_check_app_startup">启动时检查更新</string>
     <string name="pref_update_check_app_daily">每天检查更新</string>
     <string name="pref_update_include_beta_releases">包括测试版</string>
     <!-- Application hosts -->
