@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bem-vindo</string>
+    <string name="welcome_first_step">Primeira etapa do assistente</string>
+    <string name="welcome_second_step">Segunda etapa do assistente</string>
+    <string name="welcome_last_step">Última etapa do assistente</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Bem-vindo ao AdAway!</string>
