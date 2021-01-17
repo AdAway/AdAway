@@ -60,6 +60,7 @@
     <string name="status_download_source">Bezig met ophalen van bron \'%s\'</string>
     <string name="status_read_source">Lezen bron %s</string>
     <string name="status_parse_source">Verwerken %s bron</string>
+    <string name="status_sync_database">Database synchroniseren</string>
     <string name="status_revert">Bezig met terugzetten van standaard hosts-bestand</string>
     <string name="status_revert_done">Het standaard hosts-bestand is teruggezet</string>
     <string name="status_reverting_subtitle">Standaard hosts-bestand aanmaken</string>
@@ -86,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN configuratie succesvol bijgewerkt</string>
     <string name="notification_configuration_changed">Je configuratie is gewijzigd. Je moet het toepassen.</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
-    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie…</string>
+    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie...</string>
     <string name="notification_configuration_failed">Toepassen van nieuwe configuratie is mislukt.</string>
 
     <!--Apply and Revert Dialogs-->
