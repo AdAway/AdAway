@@ -3,11 +3,12 @@
     <string name="pref_update_title">Updates</string>
     <!-- Application category -->
     <string name="pref_update_app_category">App-updates</string>
+    <string name="pref_update_check_app_startup">Controleer voor updates tijdens opstarten</string>
     <string name="pref_update_check_app_daily">Regelmatig controleren op updates</string>
     <string name="pref_update_include_beta_releases">Inclusief beta releases</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts-updates</string>
-    <string name="pref_update_check">Controleren op updates bij openen van AdAway</string>
+    <string name="pref_update_check">Controleer voor updates tijdens opstarten</string>
     <string name="pref_update_check_hosts_daily">Regelmatig controleren op updates</string>
     <string name="pref_update_sync_on_update">Synchroniseren na updates</string>
     <string name="pref_update_sync_unmetered_only">Alleen synchroniseren via Wi-Fi</string>
