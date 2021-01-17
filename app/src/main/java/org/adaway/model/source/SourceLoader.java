@@ -58,7 +58,7 @@ class SourceLoader {
         ItemInserter inserter = new ItemInserter(hostsListItemQueue, hostListItemDao, parserCount);
         ExecutorService executorService = Executors.newFixedThreadPool(
                 parserCount + 2,
-                r -> new Thread(r, "SourceLoader")
+                r -> new Thread(r, TAG)
         );
         executorService.execute(sourceReader);
         for (int i = 0; i < parserCount; i++) {
@@ -75,49 +75,6 @@ class SourceLoader {
             Thread.currentThread().interrupt();
         }
         executorService.shutdown();
-    }
-
-    private HostListItem parseHostListItem(String line) {
-        Matcher matcher = HOSTS_PARSER_PATTERN.matcher(line);
-        if (!matcher.matches()) {
-            Log.d(TAG, "Does not match: " + line);
-            return null;
-        }
-        // Check IP address validity or while list entry (if allowed)
-        String ip = matcher.group(1);
-        String hostname = matcher.group(2);
-        // Skip localhost name
-        if (LOCALHOST_HOSTNAME.equals(hostname)) {
-            return null;
-        }
-        // check if ip is 127.0.0.1 or 0.0.0.0
-        ListType type;
-        if (LOCALHOST_IPv4.equals(ip)
-                || BOGUS_IPv4.equals(ip)
-                || LOCALHOST_IPv6.equals(ip)) {
-            type = BLOCKED;
-        } else if (this.parseRedirectedHosts) {
-            type = REDIRECTED;
-        } else {
-            return null;
-        }
-        HostListItem item = new HostListItem();
-        item.setType(type);
-        item.setHost(hostname);
-        item.setEnabled(true);
-        if (type == REDIRECTED) {
-            item.setRedirection(ip);
-        }
-        item.setSourceId(this.sourceId);
-        return item;
-    }
-
-    private boolean isRedirectionValid(HostListItem item) {
-        return item.getType() != REDIRECTED || RegexUtils.isValidIP(item.getRedirection());
-    }
-
-    private boolean isHostValid(HostListItem item) {
-        return RegexUtils.isValidWildcardHostname(item.getHost());
     }
 
     private static class SourceReader implements Runnable {
@@ -144,12 +101,12 @@ class SourceLoader {
     }
 
     private class HostListItemParser implements Runnable {
-        private final BlockingQueue<String> hostsLineQueue;
-        private final BlockingQueue<HostListItem> hostListItemQueue;
+        private final BlockingQueue<String> lineQueue;
+        private final BlockingQueue<HostListItem> itemQueue;
 
         private HostListItemParser(BlockingQueue<String> lineQueue, BlockingQueue<HostListItem> itemQueue) {
-            this.hostsLineQueue = lineQueue;
-            this.hostListItemQueue = itemQueue;
+            this.lineQueue = lineQueue;
+            this.itemQueue = itemQueue;
         }
 
         @Override
@@ -157,7 +114,7 @@ class SourceLoader {
             boolean endOfSource = false;
             while (!endOfSource) {
                 try {
-                    String line = this.hostsLineQueue.take();
+                    String line = this.lineQueue.take();
                     // Check end of queue marker
                     //noinspection StringEquality
                     if (line == END_OF_QUEUE_MARKER) {
@@ -165,11 +122,11 @@ class SourceLoader {
                         // Send end of queue marker to inserter
                         HostListItem endItem = new HostListItem();
                         endItem.setHost(line);
-                        this.hostListItemQueue.add(endItem);
+                        this.itemQueue.add(endItem);
                     } else {
                         HostListItem item = parseHostListItem(line);
                         if (item != null && isRedirectionValid(item) && isHostValid(item)) {
-                            this.hostListItemQueue.add(item);
+                            this.itemQueue.add(item);
                         }
                     }
                 } catch (InterruptedException e) {
@@ -179,6 +136,49 @@ class SourceLoader {
                 }
             }
         }
+
+        private HostListItem parseHostListItem(String line) {
+            Matcher matcher = HOSTS_PARSER_PATTERN.matcher(line);
+            if (!matcher.matches()) {
+                Log.d(TAG, "Does not match: " + line);
+                return null;
+            }
+            // Check IP address validity or while list entry (if allowed)
+            String ip = matcher.group(1);
+            String hostname = matcher.group(2);
+            // Skip localhost name
+            if (LOCALHOST_HOSTNAME.equals(hostname)) {
+                return null;
+            }
+            // check if ip is 127.0.0.1 or 0.0.0.0
+            ListType type;
+            if (LOCALHOST_IPv4.equals(ip)
+                    || BOGUS_IPv4.equals(ip)
+                    || LOCALHOST_IPv6.equals(ip)) {
+                type = BLOCKED;
+            } else if (SourceLoader.this.parseRedirectedHosts) {
+                type = REDIRECTED;
+            } else {
+                return null;
+            }
+            HostListItem item = new HostListItem();
+            item.setType(type);
+            item.setHost(hostname);
+            item.setEnabled(true);
+            if (type == REDIRECTED) {
+                item.setRedirection(ip);
+            }
+            item.setSourceId(SourceLoader.this.sourceId);
+            return item;
+        }
+
+        private boolean isRedirectionValid(HostListItem item) {
+            return item.getType() != REDIRECTED || RegexUtils.isValidIP(item.getRedirection());
+        }
+
+        private boolean isHostValid(HostListItem item) {
+            return RegexUtils.isValidWildcardHostname(item.getHost());
+        }
     }
 
     private static class ItemInserter implements Callable<Integer> {
@@ -186,8 +186,8 @@ class SourceLoader {
         private final HostListItemDao hostListItemDao;
         private final int parserCount;
 
-        private ItemInserter(BlockingQueue<HostListItem> ItemQueue, HostListItemDao hostListItemDao, int parserCount) {
-            this.hostListItemQueue = ItemQueue;
+        private ItemInserter(BlockingQueue<HostListItem> itemQueue, HostListItemDao hostListItemDao, int parserCount) {
+            this.hostListItemQueue = itemQueue;
             this.hostListItemDao = hostListItemDao;
             this.parserCount = parserCount;
         }
