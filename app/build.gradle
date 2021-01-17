@@ -19,8 +19,8 @@ android {
     defaultConfig {
         minSdkVersion 26
         targetSdkVersion 30
-        versionCode 50201   // Read x.yy.zz to match version name
-        versionName '5.2.1'
+        versionCode 50300   // Read x.yy.zz to match version name
+        versionName '5.3.0'
 
         javaCompileOptions {
             annotationProcessorOptions {

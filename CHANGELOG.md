@@ -1,4 +1,4 @@
-## [5.3.0] - Unreleased
+## [5.3.0] - 2021-01-17
 
 - Add new unique source parser with parallel processing
 - Add an option to disable app update check at startup
