@@ -3,6 +3,7 @@
 - Add new unique source parser with parallel processing
 - Add an option to disable app update check at startup
 - Fix crash with source file when SAF permission is removed
+- Fix metered status vpn on Android 11 
 
 Special thanks to andy356, fusionneur and sr1canskhsia for their bug report.
 

@@ -21,6 +21,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
@@ -52,6 +53,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
+import static android.os.Build.VERSION.*;
 import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STARTING;
@@ -425,6 +427,12 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 
         // Allow applications to bypass the VPN
         builder.allowBypass();
+
+        // Set the VPN to unmetered
+        if (SDK_INT >= Build.VERSION_CODES.Q) {
+            builder.setMetered(false);
+        }
+
         configurePackages(builder);
 
         // Explictly allow both families, so we do not block
