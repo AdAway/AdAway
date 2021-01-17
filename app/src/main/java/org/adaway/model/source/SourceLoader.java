@@ -36,7 +36,7 @@ class SourceLoader {
     private static final String TAG = "SourceLoader";
     private static final String END_OF_QUEUE_MARKER = "#EndOfQueueMarker";
     private static final int INSERT_BATCH_SIZE = 100;
-    private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+)\\s*(?:#.*)*$";
+    private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+).*$";
     static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
     private final int sourceId;
