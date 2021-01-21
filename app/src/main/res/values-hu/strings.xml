@@ -60,6 +60,7 @@
     <string name="status_download_source">Források letöltése %s</string>
     <string name="status_read_source">Források olvasása %s</string>
     <string name="status_parse_source">%s forrás elemzése</string>
+    <string name="status_sync_database">Szabály-adatbázis szinkronizálása</string>
     <string name="status_revert">Alapértelmezett host fájl visszaállítása</string>
     <string name="status_revert_done">Alapértelmezett host fájl visszaállítva</string>
     <string name="status_reverting_subtitle">Alapértelmezett hosts fájl létrehozása</string>
@@ -86,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN konfiguráció sikeresen frissítve</string>
     <string name="notification_configuration_changed">A konfiguráció megváltozott. Alkalmaznod kell.</string>
     <string name="notification_configuration_changed_action">Alkalmaz</string>
-    <string name="notification_configuration_installing">Új konfiguráció alkalmazása…</string>
+    <string name="notification_configuration_installing">Új konfiguráció alkalmazása...</string>
     <string name="notification_configuration_failed">Nem sikerült alkalmazni az új konfigurációt.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -105,14 +106,14 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_copy_fail">Nem sikerült a hosts fájl másolása!</string>
     <string name="apply_copy_fail_title">Sikertelen másolás</string>
     <string name="apply_success_subtitle">A hosts források beállítása sikerült</string>
-    <string name="apply_success_title">Sikeres alkalmazás</string>
+    <string name="apply_success_title">Sikeresen alkalmazva</string>
     <string name="apply_success_dialog">Sikeresen alkalmazva.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
     <string name="apply_symlink_successful">A symlink sikeresen létrehozva.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
-    <string name="apply_symlink_successful_title">A szimbolikus link létrehozása sikeres</string>
-    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
+    <string name="apply_symlink_successful_title">A symlink létrehozása sikeres</string>
+    <string name="apply_symlink_fail">Nem tudta létrehozni a symlink-et az Android.\nEz elsősorban a HTC telefonok S-ON \"funkciójának\" köszönhető.\n\nA megoldás az, hogy telefonját recovery módba kapcsolja és létrehozza ott a symlink-et \'ln -s /data/data/hosts /system/etc/hosts\' paranccsal.\n\nHa ez sem működik keressen rá az interneten, arra a szövegre, hogy \"S-OFF + a telefonja\".</string>
     <string name="apply_symlink_fail_title">Szimbolikus link létrehozása sikertelen</string>
     <string name="apply_help">Kérlek olvasd el a Súgót további információkért!</string>
-    <string name="apply_apn_proxy">Egy APN proxy van beállítva az Android!\nAz AdAway nem fog megbízhatóan működni az olyan mobilhálózatokon, mint pl. a 3G. Ezt a proxy-t deaktiválhatod, ha a kiválasztott APN-hez lépsz (A Beállításokban: Hálózat &amp; Internet -&gt; Mobil hálózat -&gt; Haladó -&gt; Hozzáférési pontok nevei) ás távolítsd el az értéket a proxy mezőből.</string>
+    <string name="apply_apn_proxy">Egy APN proxy van beállítva az készülékén!\nAz AdAway nem fog megbízhatóan működni az olyan mobilhálózatokon, mint pl. a 3G. Ezt a proxy-t deaktiválhatod, ha a kiválasztott APN-hez lépsz (A Beállításokban: Hálózat &amp; Internet -&gt; Mobil hálózat -&gt; Haladó -&gt; Hozzáférési pontok nevei) ás távolítsd el az értéket a proxy mezőből.</string>
     <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
     <string name="no_connection">Az internetkapcsolat nem működik.</string>
     <string name="no_connection_title">Nincs kapcsolat</string>
@@ -123,32 +124,32 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_dialog_hosts">Hosts fájl felépítése</string>
     <string name="apply_dialog_apply">Hosts fájl alkalmazása</string>
     <string name="apply_fail_status">Az új hosts fájl alkalmazása nem sikerült</string>
-    <string name="apply_fail">Nem sikerült a hosts fájl alkalmazása rendszereden!\nPróbáld meg /data/data/hosts-ra módosítani a cél hosts fájlt a beállításokban.</string>
+    <string name="apply_fail">Nem sikerült a hosts fájl alkalmazása rendszeren!\nPróbálja meg /data/data/hosts-ra módosítani a cél hosts fájlt a beállításokban.</string>
     <string name="apply_fail_title">Az alkalmazás nem sikerült</string>
-    <string name="root_access_fail">Ellenőrizd a root kezelő alkalmazásban a root hozzáférés megadását.</string>
-    <string name="revert_successful">Visszaállítottad az alapértelmezett hosts fájlt.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződjön meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!) </string>
+    <string name="root_access_fail">Ellenőrizze a root kezelő alkalmazásban a root hozzáférés megadását.</string>
+    <string name="revert_successful">Visszaállította az alapértelmezett hosts fájlt.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretné most újraindítani?\n(Az adatvesztés elkerülése érdekében győződjön meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!) </string>
     <string name="revert_successful_title">Sikeres visszaállítás</string>
     <string name="revert_failed_status">A hosts fájl visszaállítása nem sikerült</string>
     <string name="revert_problem">A visszaállítás ismeretlen ok miatt nem sikerült.</string>
     <string name="revert_problem_title">Sikertelen visszaállítás!</string>
-    <string name="download_fail_dialog">Egyik engedélyezett hosts fájl sem érhető el! Megfelelően csatlakozol az internethez?</string>
+    <string name="download_fail_dialog">Egyik engedélyezett hosts fájl sem érhető el! Megfelelő az internetkapcsolat?</string>
     <string name="download_fail_title">Sikertelen letöltés</string>
     <string name="no_private_file_status">A privát hosts fájl írása nem sikerült</string>
     <string name="no_private_file">Privát fájl nem hozható létre.</string>
     <string name="no_private_file_title">Privát fájl létrehozása sikertelen.</string>
-    <string name="enable_systemless_successful">Engedélyezted a systemless módot.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
+    <string name="enable_systemless_successful">Engedélyezte a systemless módot.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretné most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
     <string name="enable_systemless_successful_title">Engedélyezés sikeres</string>
-    <string name="disable_systemless_successful">Kikapcsoltad a systemless módot.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretnéd most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
+    <string name="disable_systemless_successful">Kikapcsolta a systemless módot.\nElőfordulhat, hogy a módosítások érvényesítéséhez újra kell indítani az Androidot.\n\nSzeretné most újraindítani?\n(Az adatvesztés elkerülése érdekében győződj meg róla, hogy egyetlen alkalmazás sem használja az SD kártyát!)</string>
     <string name="disable_systemless_successful_title">Sikerült a letiltás</string>
-    <string name="enable_vpn_fail">Nem sikerült engedélyezni a VPN reklámblokkolást.</string>
+    <string name="enable_vpn_fail">Nem sikerült a VPN reklámblokkolás engedélyezése.</string>
     <string name="disable_vpn_fail">Nem sikerült letiltani a VPN reklámblokkolást.</string>
     <string name="enable_systemless_magisk_title">Magisk hosts modul engedélyezése</string>
-    <string name="enable_systemless_magisk">Systemless hosts funkció bekapcsolása a Magisk managerben. A beállításokban kapcsold be a <cite>Systemless hosts</cite> lehetőséget, majd indítsd újra a készüléket.</string>
+    <string name="enable_systemless_magisk">Systemless hosts funkció bekapcsolása a Magisk managerben. A beállításokban kapcsolja be a <cite>Systemless hosts</cite> lehetőséget, majd indítsa újra a készüléket.</string>
     <string name="disable_systemless_magisk_title">Magisk hosts modul letiltása</string>
-    <string name="disable_systemless_magisk">Systemless hosts funkció kikapcsolása a Magisk managerben. A modul listából távolítsd el a <cite>Systemless hosts</cite> modult majd indítsd újra az eszközt.</string>
+    <string name="disable_systemless_magisk">Systemless hosts funkció kikapcsolása a Magisk managerben. A modul listából távolítssa el a <cite>Systemless hosts</cite> modult majd indítsa újra az eszközt.</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Add meg a host fájl URL címét:</string>
+    <string name="hosts_add_dialog">Adja meg a host fájl URL címét:</string>
     <string name="no_hostname">Ez nem egy érvényes hosztnév!</string>
     <string name="no_hostname_title">Helytelenül formázott hosztnév</string>
     <string name="no_ip">Ez nem érvényes IP!</string>
@@ -170,24 +171,20 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_description">Itt megtalálhatók a telepített adware-eket, a rossz alkalmazásokat, amelyeket az AdAway nem blokkolhat. Ezek az alkalmazások például Airpush értesítéseket használnak, amelyek akkor is megjelennek, ha az alkalmazás nem fut, vagy akár csengőhangot is megváltoztathatnak. Az egyetlen használható megoldás az, hogy ezeket az alkalmazásokat a listaelemekre kattintva eltávolítod</string>
+    <string name="adware_description">Itt megtalálhatja a telepített adware-eket, a rossz alkalmazásokat, amelyeket az AdAway nem blokkolhat. Ezek az alkalmazások például Airpush értesítéseket használnak, amelyek akkor is megjelennek, ha az alkalmazás nem fut, vagy akár csengőhangot is megváltoztathatnak. Az egyetlen használható megoldás az, hogy ezeket az alkalmazásokat a listaelemekre kattintva eltávolítja.</string>
     <string name="adware_scanning">Vizsgálat&#8230;</string>
     <string name="adware_empty">Nem található adware!</string>
 
     <!--Other-->
     <string name="app_subtitle">Hirdetésblokkoló</string>
     <string name="no_text_editor_title">Nincs telepítve szövegszerkesztő</string>
-    <string name="no_text_editor">Nem találni olyan szövegszerkesztőt, amely megnyitná a host fájlt. A fájl kezeléséhez feltelepítheted a Jota-t vagy más szövegszerkesztőt.
-
-Szeretnéd telepíteni a Jota-t?</string>
+    <string name="no_text_editor">Nem találni olyan szövegszerkesztőt, amely megnyitná a hosts fájlt. A fájl kezeléséhez feltelepítheti a Jota-t vagy más szövegszerkesztőt. Szeretné telepíteni a Jota-t?</string>
     <string name="no_file_manager_title">Nincs telepítve fájlkezelő</string>
-    <string name="no_file_manager">Nincs olyan fájlkezelő telepítve, amely megnyithatná a fájlt. A fájl kezeléséhez telepíthető az OI File Manager-t, vagy bármilyen más fájlkezelőt.
-
-Szeretnéd telepíteni az OI File Manager-t?</string>
+    <string name="no_file_manager">Nincs olyan fájlkezelő telepítve, amely megnyithatná a fájlt. A fájl kezeléséhez telepítheti az OI File Manager-t, vagy bármilyen más fájlkezelőt. Szeretné telepíteni az OI File Manager-t?</string>
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">A tcpdump olyan eszköz, amely monitorozza és elmenti egy naplófájlba a DNS kéréseket. Futtasd a háttérben, majd a reklámokat megjelenítő alkalmazások elindítását követően után elemezd a DNS kérések a napló alapján. A lehetséges reklámkiszolgáló-szerverek ezután hozzáadhatóak a feketelistához.</string>
+    <string name="tcpdump_description">A tcpdump olyan eszköz, amely monitorozza és elmenti egy naplófájlba a DNS kéréseket. Futtassa a háttérben, majd a reklámokat megjelenítő alkalmazások elindítását követően után elemezze a DNS kérések a napló alapján. A lehetséges reklámkiszolgáló-szerverek ezután hozzáadhatóak a feketelistához.</string>
     <string name="tcpdump_disable_monitoring">Monitorozás tiltása</string>
     <string name="tcpdump_enable_monitoring">Monitorozás engedélyezése</string>
     <string name="tcpdump_show_results">Eredmények megjelenítése</string>
@@ -257,7 +254,7 @@ Szeretnéd telepíteni az OI File Manager-t?</string>
     <string name="vpn_notification_stopped">megállítva</string>
     <string name="vpn_notification_title">Hirdetésblokkoló VPN %1$s</string>
     <string name="vpn_notification_action_pause">Szüneteltetés</string>
-    <string name="vpn_notification_paused_text">Koppints a folytatáshoz</string>
+    <string name="vpn_notification_paused_text">Koppintson a folytatáshoz</string>
 
     <!-- Permission -->
     <string name="permission_status_command_label">Rendszer-szintű hirdezésblokkolás engedélyezése vagy letiltása</string>
