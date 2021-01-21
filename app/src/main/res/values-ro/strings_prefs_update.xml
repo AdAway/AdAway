@@ -3,6 +3,7 @@
     <string name="pref_update_title">Actualizări</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Actualizări aplicație</string>
+    <string name="pref_update_check_app_startup">Verificare actualizări la pornire</string>
     <string name="pref_update_check_app_daily">Verificare periodică</string>
     <string name="pref_update_include_beta_releases">Include versiuni in stadiul \"beta\"</string>
     <!-- Application hosts -->
