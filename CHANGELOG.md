@@ -1,3 +1,7 @@
+## [5.3.1] - Unreleased
+
+- Update Android gradle plugin
+
 ## [5.3.0] - 2021-01-17
 
 - Add new unique source parser with parallel processing
