@@ -1,6 +1,7 @@
 ## [5.3.1] - Unreleased
 
 - Update Android gradle plugin
+- Fix welcome screen telemetry preference
 
 ## [5.3.0] - 2021-01-17
 

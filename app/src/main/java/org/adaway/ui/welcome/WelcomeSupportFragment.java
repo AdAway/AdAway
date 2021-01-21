@@ -11,8 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.adaway.databinding.WelcomeSupportLayoutBinding;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.util.SentryLog;
 
 import static android.content.Intent.ACTION_VIEW;
+import static android.view.View.INVISIBLE;
 import static org.adaway.ui.support.SupportActivity.SUPPORT_LINK;
 import static org.adaway.ui.support.SupportActivity.animateHeart;
 
@@ -31,6 +34,7 @@ public class WelcomeSupportFragment extends WelcomeFragment {
 
         animateHeart(this.binding.headerImageView);
         bindSupport();
+        bindTelemetry();
 
         return this.binding.getRoot();
     }
@@ -48,5 +52,16 @@ public class WelcomeSupportFragment extends WelcomeFragment {
         this.binding.headerImageView.setOnClickListener(listener);
         this.binding.headerTextView.setOnClickListener(listener);
         this.binding.paypalCardView.setOnClickListener(listener);
+    }
+
+    private void bindTelemetry() {
+        this.binding.telemetryCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            PreferenceHelper.setTelemetryEnabled(requireContext(), isChecked);
+            SentryLog.setEnabled(getContext(), isChecked);
+        });
+        if (SentryLog.isStub()) {
+            this.binding.telemetryTextView.setVisibility(INVISIBLE);
+            this.binding.telemetryCheckBox.setVisibility(INVISIBLE);
+        }
     }
 }
