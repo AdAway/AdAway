@@ -21,13 +21,13 @@
     <string name="button_enable_hosts">Habilitar bloqueo de anuncios</string>
     <string name="button_disable_hosts">Deshabilitar bloqueo de anuncios</string>
     <string name="header_webserver">Servidor web</string>
-    <string name="webserver_status_running">Ejecutando</string>
+    <string name="webserver_status_running">Funcionando</string>
     <string name="webserver_status_stopped">Detenido</string>
     <string name="webserver_toggle_text">Iniciar o detener el servidor web en localhost para responder a las peticiones de nombres de host bloqueados.</string>
     <string name="button_enable_webserver">Habilitar servidor web</string>
     <string name="button_disable_webserver">Deshabilitar servidor web</string>
     <string name="header_vpn">VPN</string>
-    <string name="vpn_status_running">Ejecutando</string>
+    <string name="vpn_status_running">Funcionando</string>
     <string name="vpn_status_stopped">Detenido</string>
     <string name="vpn_toggle_text">Iniciar o detener VPN para filtrar peticiones.</string>
     <string name="button_enable_vpn">Habilitar VPN</string>
@@ -60,6 +60,7 @@
     <string name="status_download_source">Descargando fuente %s</string>
     <string name="status_read_source">Fuente de lectura %s</string>
     <string name="status_parse_source">Analizando fuente %s</string>
+    <string name="status_sync_database">Sincronización de las reglas de la base de datos</string>
     <string name="status_revert">Volviendo al archivo hosts predeterminado</string>
     <string name="status_revert_done">Archivo hosts predeterminado restaurado</string>
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
@@ -86,7 +87,7 @@
     <string name="status_vpn_configuration_updated">Configuración VPN actualizada correctamente</string>
     <string name="notification_configuration_changed">Tu configuración ha cambiado. Debes aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Aplicando nueva configuración…</string>
+    <string name="notification_configuration_installing">Aplicando nueva configuración...</string>
     <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -168,7 +169,7 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_description">Aquí se puede encontrar adware instalado, aplicaciones defectuosas que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no se está ejecutando o incluso cambiar el tono de llamada. La única contramedida disponible es desinstalar esas aplicaciones haciendo clic en los elementos de la lista.</string>
+    <string name="adware_description">Aquí se puedes encontrar adware instalado, aplicaciones defectuosas que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no se está funcionando o incluso cambiar el tono de llamada. La única contramedida disponible es desinstalar esas aplicaciones haciendo clic en los elementos de la lista.</string>
     <string name="adware_scanning">Escaneando&#8230;</string>
     <string name="adware_empty">¡No se ha encontrado Adware!</string>
 
@@ -204,7 +205,7 @@
         <item>Fuentes de archivos hosts</item>
         <item>Tus listas</item>
         <item>Abrir el archivo hosts</item>
-        <item>Registrar peticiones DNS</item>
+        <item>Registro de peticiones DNS</item>
         <item>Escanear adware</item>
         <item>Preferencias</item>
         <item>Ayuda</item>
