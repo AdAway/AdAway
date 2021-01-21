@@ -51,12 +51,12 @@ class VpnWatchdog {
     private static final int INIT_PENALTY_END = 5000;
     private static final int INIT_PENALTY_INC = 200;
 
-    int initPenalty = INIT_PENALTY_START;
-    int pollTimeout = POLL_TIMEOUT_START;
+    private int initPenalty = INIT_PENALTY_START;
+    private int pollTimeout = POLL_TIMEOUT_START;
 
     // Information about when packets where received.
-    long lastPacketSent = 0;
-    long lastPacketReceived = 0;
+    private long lastPacketSent = 0;
+    private long lastPacketReceived = 0;
 
     private boolean enabled = false;
     private InetAddress target;
@@ -66,11 +66,13 @@ class VpnWatchdog {
      * Returns the current poll time out.
      */
     int getPollTimeout() {
-        if (!enabled)
+        if (!this.enabled) {
             return -1;
-        if (lastPacketReceived < lastPacketSent)
+        }
+        if (this.lastPacketReceived < this.lastPacketSent) {
             return POLL_TIMEOUT_WAITING;
-        return pollTimeout;
+        }
+        return this.pollTimeout;
     }
 
     /**
@@ -88,19 +90,19 @@ class VpnWatchdog {
     void initialize(boolean enabled) {
         Log.d(TAG, "initialize: Initializing watchdog");
 
-        pollTimeout = POLL_TIMEOUT_START;
-        lastPacketSent = 0;
+        this.pollTimeout = POLL_TIMEOUT_START;
+        this.lastPacketSent = 0;
         this.enabled = enabled;
 
-        if (!enabled) {
+        if (!this.enabled) {
             Log.d(TAG, "initialize: Disabled.");
             return;
         }
 
-        if (initPenalty > 0) {
-            Log.d(TAG, "init penalty: Sleeping for " + initPenalty + "ms");
+        if (this.initPenalty > 0) {
+            Log.d(TAG, "init penalty: Sleeping for " + this.initPenalty + "ms");
             try {
-                Thread.sleep(initPenalty);
+                Thread.sleep(this.initPenalty);
             } catch (InterruptedException exception) {
                 Log.d(TAG, "Failed to wait the initial penalty");
                 Thread.currentThread().interrupt();
@@ -114,23 +116,24 @@ class VpnWatchdog {
      * @throws VpnWorker.VpnNetworkException When the watchdog timed out
      */
     void handleTimeout() throws VpnWorker.VpnNetworkException {
-        if (!enabled)
+        if (!this.enabled) {
             return;
+        }
         Log.d(TAG, "handleTimeout: Milliseconds elapsed between last receive and sent: "
-                + (lastPacketReceived - lastPacketSent));
-        // Receive really timed out.
-        if (lastPacketReceived < lastPacketSent && lastPacketSent != 0) {
-            initPenalty += INIT_PENALTY_INC;
-            if (initPenalty > INIT_PENALTY_END)
-                initPenalty = INIT_PENALTY_END;
+                + (this.lastPacketReceived - this.lastPacketSent));
+        // Receive really timed out
+        if (this.lastPacketReceived < this.lastPacketSent && this.lastPacketSent != 0) {
+            this.initPenalty += INIT_PENALTY_INC;
+            if (this.initPenalty > INIT_PENALTY_END) {
+                this.initPenalty = INIT_PENALTY_END;
+            }
             throw new VpnWorker.VpnNetworkException("Watchdog timed out");
         }
-        // We received a packet after sending it, so we can be more confident and grow our wait
-        // time.
-        pollTimeout *= POLL_TIMEOUT_GROW;
-        if (pollTimeout > POLL_TIMEOUT_END)
-            pollTimeout = POLL_TIMEOUT_END;
-
+        // We received a packet after sending it, so we can be more confident and grow our wait time
+        this.pollTimeout *= POLL_TIMEOUT_GROW;
+        if (this.pollTimeout > POLL_TIMEOUT_END) {
+            this.pollTimeout = POLL_TIMEOUT_END;
+        }
 
         sendPacket();
     }
@@ -141,11 +144,11 @@ class VpnWatchdog {
      * @param packetData The data of the packet
      */
     void handlePacket(byte[] packetData) {
-        if (!enabled)
+        if (!this.enabled) {
             return;
-
+        }
         Log.d(TAG, "handlePacket: Received packet of length " + packetData.length);
-        lastPacketReceived = System.currentTimeMillis();
+        this.lastPacketReceived = System.currentTimeMillis();
     }
 
     /**
@@ -154,9 +157,9 @@ class VpnWatchdog {
      * @throws VpnWorker.VpnNetworkException If sending failed and we should restart
      */
     void sendPacket() throws VpnWorker.VpnNetworkException {
-        if (!enabled)
+        if (!this.enabled) {
             return;
-
+        }
         Log.d(TAG, "sendPacket: Sending packet, poll timeout is " + pollTimeout);
 
         DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, target, 53);
@@ -164,7 +167,7 @@ class VpnWatchdog {
             DatagramSocket socket = newDatagramSocket();
             socket.send(outPacket);
             socket.close();
-            lastPacketSent = System.currentTimeMillis();
+            this.lastPacketSent = System.currentTimeMillis();
         } catch (IOException e) {
             throw new VpnWorker.VpnNetworkException("Received exception", e);
         }

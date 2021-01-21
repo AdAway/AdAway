@@ -2,10 +2,18 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     app:title="@string/pref_root_title">
 
-    <CheckBoxPreference
-        app:defaultValue="@bool/pref_vpn_service_on_boot_def"
-        app:key="@string/pref_vpn_service_on_boot_key"
-        app:title="@string/pref_vpn_service_on_boot" />
+    <PreferenceCategory app:title="@string/pref_general_category">
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_vpn_service_on_boot_def"
+            app:key="@string/pref_vpn_service_on_boot_key"
+            app:title="@string/pref_vpn_service_on_boot" />
+
+        <CheckBoxPreference
+            app:defaultValue="@bool/pref_vpn_watchdog_enabled_def"
+            app:key="@string/pref_vpn_watchdog_enabled_key"
+            app:title="@string/pref_vpn_service_monitor"
+            app:summary="@string/pref_vpn_service_monitor_description"/>
+    </PreferenceCategory>
 
     <!-- App bypass-->
     <PreferenceCategory app:title="@string/pref_vpn_excluded_apps">

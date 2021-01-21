@@ -247,9 +247,9 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         }
 
         Log.d(TAG, "doOne: Polling " + polls.length + " file descriptors");
-        int result = Os.poll(polls, vpnWatchDog.getPollTimeout());
+        int result = Os.poll(polls, this.vpnWatchDog.getPollTimeout());
         if (result == 0) {
-            vpnWatchDog.handleTimeout();
+            this.vpnWatchDog.handleTimeout();
             return true;
         }
         if (blockFd.revents != 0) {

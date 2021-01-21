@@ -1,7 +1,10 @@
-## [5.3.1] - Unreleased
+## [5.4.0] - Unreleased
 
+- Add VPN monitor option to prevent disconnection
 - Update Android gradle plugin
 - Fix welcome screen telemetry preference
+
+Special thanks to BearTM, elvissteinjr, ipdev99, RobBeyer for their bug reports.
 
 ## [5.3.0] - 2021-01-17
 
@@ -10,7 +13,7 @@
 - Fix crash with source file when SAF permission is removed
 - Fix metered status vpn on Android 11 
 
-Special thanks to andy356, fusionneur and sr1canskhsia for their bug report.
+Special thanks to andy356, fusionneur and sr1canskhsia for their bug reports.
 
 ## [5.2.1] - 2021-01-06
 
