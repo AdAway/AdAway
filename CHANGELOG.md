@@ -2,6 +2,7 @@
 
 - Add VPN monitor option to prevent disconnection
 - Update Android gradle plugin
+- Update Sentry DSN to support older TLS versions
 - Fix welcome screen telemetry preference
 
 Special thanks to BearTM, elvissteinjr, ipdev99, RobBeyer for their bug reports.

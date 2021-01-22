@@ -143,7 +143,7 @@
         </receiver>
 
         <meta-data android:name="io.sentry.auto-init" android:value="false" />
-        <meta-data android:name="io.sentry.dsn" android:value="https://8dac17b798fb45e492278a678c5ab028@sentry.io/1331667" />
+        <meta-data android:name="io.sentry.dsn" android:value="https://8dac17b798fb45e492278a678c5ab028@o209266.ingest.sentry.io/1331667" />
     </application>
 
 </manifest>
