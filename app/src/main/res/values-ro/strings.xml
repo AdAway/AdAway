@@ -24,8 +24,8 @@
     <string name="webserver_status_running">Pornit</string>
     <string name="webserver_status_stopped">Oprit</string>
     <string name="webserver_toggle_text">Pornire sau oprire server web local pentru a răspunde cererilor pe domeniile restricționate.</string>
-    <string name="button_enable_webserver">Activeaza server web</string>
-    <string name="button_disable_webserver">Dezactiveaza server web</string>
+    <string name="button_enable_webserver">Activează server web</string>
+    <string name="button_disable_webserver">Dezactivează server web</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Rulează</string>
     <string name="vpn_status_stopped">Oprit</string>
@@ -40,30 +40,31 @@
     <string name="checkbox_list_context_delete">Ștergere</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importa…</string>
+    <string name="import_dialog">Importă…</string>
     <string name="import_success">Copie de rezervă importată cu succes din stocarea externă.</string>
     <string name="import_failed">Imposibil de importat copia de rezervă. Ați verificat corectitudinea formatului? Analizează logcat-ul pentru mai multe detalii.</string>
-    <string name="export_dialog">Exporta…</string>
+    <string name="export_dialog">Exportă…</string>
     <string name="export_success">Copia de rezervă a fost exportată cu succes către fișierul \'adaway-backup.json\' pe stocarea externă.</string>
     <string name="export_failed">Imposibil de exportat copia de rezervă.</string>
 
     <!--Hosts content-->
-    <string name="hosts_header">Fisierul \'host\'</string>
+    <string name="hosts_header">Fișierul \'hosts\'</string>
     <string name="hosts_description">Fișierul hosts este un fișier de sistem care mapează numele serverelor la adrese IP. Este pur și simplu un fișier text a cărui configurație este gestionată de către  AdAway. Iată câteva linii din începutul fișierului:</string>
-    <string name="hosts_content">Încărcare conținut din fișierul hosts…</string>
+    <string name="hosts_content">Încărcare conținut din fișierul hosts...</string>
     <string name="hosts_open_button">Deschidere fișier hosts</string>
 
     <!--Status Notification-->
     <string name="status_check">Verificare pentru actualizări</string>
-    <string name="status_check_source">Verificare %s sursă pentru actualizări</string>
+    <string name="status_check_source">Verificare sursă %s pentru actualizări</string>
     <string name="status_retrieve">Regăsire surse</string>
     <string name="status_download_source">Descărcare sursă %s</string>
     <string name="status_read_source">Se citește sursa %s</string>
-    <string name="status_parse_source">Analizare %s sursă</string>
+    <string name="status_parse_source">Analizare sursă %s</string>
+    <string name="status_sync_database">Sincronizare bază de date cu reguli</string>
     <string name="status_revert">Restaurare valori implicite pentru fișierul hosts</string>
     <string name="status_revert_done">Valorile implicite pentru fișierul hosts au fost restaurate</string>
     <string name="status_reverting_subtitle">Sistemul creaza fisiere \"hosts\" standard.</string>
-    <string name="status_update_available">O noua versiune este disponibila </string>
+    <string name="status_update_available">Sursă actualizată disponibilă</string>
     <string name="status_update_available_subtitle">Noi fisiere \"host\" sunt disponibile</string>
     <string name="status_no_update_found">Nu au fost găsite actualizări pentru surse</string>
     <string name="status_no_connection">Nu există conexiune internet</string>
@@ -86,7 +87,7 @@
     <string name="status_vpn_configuration_updated">Configurația VPN a fost actualizată cu succes</string>
     <string name="notification_configuration_changed">Configurația a fost modificată. Modificările necesită aplicare.</string>
     <string name="notification_configuration_changed_action">Aplică</string>
-    <string name="notification_configuration_installing">Aplicare configurație nouă…</string>
+    <string name="notification_configuration_installing">Aplicare configurație nouă...</string>
     <string name="notification_configuration_failed">Imposibil de aplicat noua configurație.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -100,16 +101,16 @@
     <string name="apply_remount_fail">Reactivarea partiției pentru citire/scriere nereușită!</string>
     <string name="apply_remount_fail_title">Remontare partiție nereușită</string>
     <string name="apply_copy_fail_status">Imposibil de copiat fișierul hosts</string>
-    <string name="apply_copy_fail">Copierea fisierelor \"hosts\" nereusita</string>
-    <string name="apply_copy_fail_title">Copiere nereusita</string>
+    <string name="apply_copy_fail">Copierea fișierelor \"hosts\" nereușită!</string>
+    <string name="apply_copy_fail_title">Copiere nereușită</string>
     <string name="apply_success_subtitle">Surse aplicate pe hosts</string>
-    <string name="apply_success_title">Aplicarea modificariolor a fost reusita</string>
+    <string name="apply_success_title">Aplicare reușită</string>
     <string name="apply_success_dialog">Aplicarea modificărilor nu a reușit.\nPoate fi necesară repornirea Android pentru ca modificările să aibă efect.\n\nContinuați cu repornirea?\n(Pentru a preveni pierderi de date asigurați-vă  că nicio aplicație nu utilizează stocarea SD în prezent!)</string>
     <string name="apply_symlink_successful">Legătura simbolică a fost creată cu succes.\nPoate fi necesară repornirea Android pentru ca modificările să aibă efect.\n\nContinuați cu repornirea?\n(Pentru a preveni pierderi de date asigurați-vă că nicio aplicație nu utilizează stocarea SD în prezent!)</string>
     <string name="apply_symlink_successful_title">Legătura simbolică a fost creată cu succes</string>
     <string name="apply_symlink_fail">Legătura simbolică nu a putut fi creată de către Android.\nAcest lucru se întâmplă de obicei datorită \'funcției\' S-ON pe dispozitivele HTC!\n\nO soluție ar putea fi repornirea în modul de recuperare și realizarea arborelui legăturii simbolice de acolo prin \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nDacă nici această soluție nu funcționează căutați pe Internet despre S-OFF pentru dispozitivul curent.</string>
     <string name="apply_symlink_fail_title">Crearea legăturii simbolice a eșuat</string>
-    <string name="apply_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
+    <string name="apply_help">Citește secțiunea \"Ajutor\" pentru mai multe informații.</string>
     <string name="apply_apn_proxy">Un proxy de la furnizorul mobil de tip APN este activat pe Android!nAdAway nu va funcționa corespunzător când se află pe rețele de date mobile 3G/4G/5G. Poți dezactiva acel proxy din lista de APN (Aplicația de Setări: Conexiuni &amp; Internet -> Rețele Mobile -> Avansat->Nume puncte de acces) prin ștergea valorii introduse în câmpul de proxy.</string>
     <string name="apply_apn_proxy_title">Punctul de acces APN proxy a fost setat!</string>
     <string name="no_connection">Conexiunea la Internet nu funcționează.</string>
@@ -122,13 +123,13 @@
     <string name="apply_dialog_apply">Sistemul aplică fișierul hosts</string>
     <string name="apply_fail_status">Imposibil de aplicat noul fișier hosts.</string>
     <string name="apply_fail">Aplicarea fișierului hosts pe sistemul dumneavoastră a eșuat!\nÎncercați să schimbați fișierul hosts țintă din preferințe în /data/data/hosts. </string>
-    <string name="apply_fail_title">Aplicarea modificarilor nu a fost reusita</string>
+    <string name="apply_fail_title">Aplicare nereușită</string>
     <string name="root_access_fail">Verifică te rog aplicația de rooting pentru asigurarea faptului că accesul este permis acestei aplicații.</string>
     <string name="revert_successful">A fost restaurat foșierul hosts inițial.\nPoate fi necesară repornirea Android pentru ca modificările să aibă efect.\n\nContinuați cu repornirea?\n(Pentru a preveni pierderi de date asigurați-vă că nicio aplicație nu utilizează stocarea SD în prezent!)</string>
-    <string name="revert_successful_title">Restaurat la starea precedentă cu succes</string>
+    <string name="revert_successful_title">Restaurare reușită</string>
     <string name="revert_failed_status">Imposibil de restaurat fișierul hosts la starea precedentă </string>
-    <string name="revert_problem">Restaurare nereusita din cauze necunoscute!</string>
-    <string name="revert_problem_title">Restaurare nereusita!</string>
+    <string name="revert_problem">Restaurare nereușită din cauze necunoscute.</string>
+    <string name="revert_problem_title">Restaurare nereușită!</string>
     <string name="download_fail_dialog">Nici una din sursele active pentru fisierele \"hosts\" nu pot fi accesate! Exista conexiune internet?</string>
     <string name="download_fail_title">Descărcare nereușită</string>
     <string name="no_private_file_status">Imposibil de scris noul fișier hosts cu atribut privat</string>
@@ -146,10 +147,10 @@
     <string name="disable_systemless_magisk">Dezactivați funcția de hosting fără suport de sistem din Magisk manager. Din lista de module a managerului, dezinstalați modulul <cite>Systemless hosts</cite> apoi reporniți dispozitivul.</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Adauga adresa (URL) la fisierele \"host\"</string>
+    <string name="hosts_add_dialog">Adăugare adresă (URL) la fișierul \'hosts\':</string>
     <string name="no_hostname">Nume invalid pentru fisierul \"host\"</string>
     <string name="no_hostname_title">Hostname formatat incorect</string>
-    <string name="no_ip">Invalid IP!</string>
+    <string name="no_ip">IP incorect!</string>
     <string name="no_ip_title">IP formatat incorect</string>
     <string name="reboot_never_reboot">Nu reporni și nu mă mai întreba data viitoare!</string>
     <string name="loading">Se încarcă…</string>
@@ -163,7 +164,7 @@
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">Lista cu intrebari frecvente</string>
+    <string name="help_tab_faq">Listă cu întrebări frecvente</string>
     <string name="help_tab_problems">Probleme</string>
 
     <!--Adware-->
@@ -203,7 +204,7 @@
         <item>Home</item>
         <item>Sursele (hosts)</item>
         <item>Listele dvs.</item>
-        <item>Deschide fisierele \"hosts\"</item>
+        <item>Deschide fișierul \'hosts\'</item>
         <item>Log DNS requests</item>
         <item>Scan for adware</item>
         <item>Preferințe</item>
