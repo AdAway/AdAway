@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Blokowanie reklam oparte na VPN</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Włącz podczas uruchamiania</string>
+    <string name="pref_vpn_service_monitor">Monitoruj połączenie</string>
+    <string name="pref_vpn_service_monitor_description">Okresowo sprawdzaj stan sieci, aby ponownie uruchomić VPN po rozłączeniu.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Wykluczone aplikacje</string>
     <string name="pref_vpn_excluded_apps_description">Skonfiguruj, które aplikacje nie powinny korzystać z VPN, aby żadne połączenia nie były blokowane.</string>
