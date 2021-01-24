@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Blokování reklamy pomocí VPN</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Povolit při spuštění</string>
+    <string name="pref_vpn_service_monitor">Monitorovat připojení</string>
+    <string name="pref_vpn_service_monitor_description">Pravidelně kontrolovat stav sítě za účelem restartování VPN při odpojení.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Vyloučené aplikace</string>
     <string name="pref_vpn_excluded_apps_description">Nakonfigurujte, které aplikace by neměly používat VPN, takže nebudou blokována žádná spojení.</string>
