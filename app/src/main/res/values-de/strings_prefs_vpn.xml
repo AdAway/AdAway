@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN basierender Werbeblocker</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Beim Starten einschalten</string>
+    <string name="pref_vpn_service_monitor">Verbindung überwachen</string>
+    <string name="pref_vpn_service_monitor_description">Überprüfen Sie regelmäßig den Netzwerkstatus, um VPN beim Trennen der Verbindung neu zu starten.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Ausgenommene Anwendungen</string>
     <string name="pref_vpn_excluded_apps_description">Konfiguriere welche Anwendungen das VPN nicht verwenden sollen, damit keine Verbindungen blockiert werden.</string>
