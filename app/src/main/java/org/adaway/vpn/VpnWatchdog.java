@@ -55,11 +55,19 @@ class VpnWatchdog {
     private int pollTimeout = POLL_TIMEOUT_START;
 
     // Information about when packets where received.
-    private long lastPacketSent = 0;
-    private long lastPacketReceived = 0;
+    private long lastPacketSent;
+    private long lastPacketReceived;
 
-    private boolean enabled = false;
-    private InetAddress target;
+    private boolean enabled;
+    private DatagramPacket checkAlivePacket;
+
+    VpnWatchdog() {
+        // Set default timestamps
+        this.lastPacketSent = 0;
+        this.lastPacketReceived = 0;
+        // Set disable by default
+        this.enabled = false;
+    }
 
 
     /**
@@ -79,7 +87,7 @@ class VpnWatchdog {
      * Sets the target address ping packets should be sent to.
      */
     void setTarget(InetAddress target) {
-        this.target = target;
+        this.checkAlivePacket = new DatagramPacket(new byte[0], 0, 0 /* length */, target, 53);
     }
 
     /**
@@ -157,19 +165,16 @@ class VpnWatchdog {
      * @throws VpnWorker.VpnNetworkException If sending failed and we should restart
      */
     void sendPacket() throws VpnWorker.VpnNetworkException {
-        if (!this.enabled) {
+        if (!this.enabled || this.checkAlivePacket == null) {
             return;
         }
-        Log.d(TAG, "sendPacket: Sending packet, poll timeout is " + pollTimeout);
+        Log.d(TAG, "sendPacket: Sending packet, poll timeout is " + this.pollTimeout + ".");
 
-        DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, target, 53);
-        try {
-            DatagramSocket socket = newDatagramSocket();
-            socket.send(outPacket);
-            socket.close();
+        try (DatagramSocket socket = newDatagramSocket()) {
+            socket.send(this.checkAlivePacket);
             this.lastPacketSent = System.currentTimeMillis();
         } catch (IOException e) {
-            throw new VpnWorker.VpnNetworkException("Received exception", e);
+            throw new VpnWorker.VpnNetworkException("Failed to send check-alive packet.", e);
         }
     }
 
