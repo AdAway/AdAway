@@ -51,6 +51,7 @@ import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.TAB;
+import static org.adaway.ui.welcome.WelcomeMethodFragment.VPN_START_REQUEST_CODE;
 
 /**
  * This class is the application main activity.
@@ -71,7 +72,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        checkFirstStep();
         ThemeHelper.applyTheme(this);
         NotificationHelper.clearUpdateNotifications(this);
         Log.i(TAG, "Starting main activity");
@@ -105,6 +105,12 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        checkFirstStep();
+    }
+
+    @Override
     public void onBackPressed() {
         // Hide drawer if expanded
         if (this.drawerBehavior != null && this.drawerBehavior.getState() != STATE_HIDDEN) {
@@ -127,8 +133,8 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(new Intent(this, WelcomeActivity.class));
             finish();
         } else if (adBlockMethod == VPN && (prepareIntent = VpnService.prepare(this)) != null) {
-            // Prepare VNP
-            startActivity(prepareIntent);
+            // Prepare VPN
+            startActivityForResult(prepareIntent, VPN_START_REQUEST_CODE);
         }
     }
 

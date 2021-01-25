@@ -30,7 +30,10 @@ import static org.adaway.model.adblocking.AdBlockMethod.VPN;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class WelcomeMethodFragment extends WelcomeFragment {
-    private static final int VPN_START_REQUEST_CODE = 10;
+    /**
+     * The start activity request code to prepare VPN.
+     */
+    public static final int VPN_START_REQUEST_CODE = 10;
     private WelcomeMethodLayoutBinding binding;
     @ColorInt
     private int cardColor;
@@ -63,7 +66,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
         }
     }
 
-    private void checkRoot(@SuppressWarnings("unused") @Nullable View view) {
+    private void checkRoot(@Nullable View view) {
         notifyVpnDisabled();
         if (Shell.rootAccess()) {
             notifyRootEnabled();
@@ -72,7 +75,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
         }
     }
 
-    private void enableVpnService(@SuppressWarnings("unused") @Nullable View view) {
+    private void enableVpnService(@Nullable View view) {
         notifyRootDisabled(false);
         Context context = getContext();
         if (context == null) {
