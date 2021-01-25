@@ -2,7 +2,12 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">تحديثات</string>
+    <string name="notification_update_channel_description">إشعارات تحديث جديد</string>
     <string name="notification_update_host_available_title">يوجد تحديث متوفر</string>
+    <string name="notification_update_host_available_text">أحدث الملفات المضيفة المتاحة للتنزيل.</string>
+    <string name="notification_update_app_available_title">تحديث التطبيق متاح</string>
+    <string name="notification_update_app_available_text">إصدار جديد من AdAway متاح للتنزيل.</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">في بي إن</string>
-    </resources>
+    <string name="notification_vpn_channel_description">إشعارات تشغيل VPN</string>
+</resources>
