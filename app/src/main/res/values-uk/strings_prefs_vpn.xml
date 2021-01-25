@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Блокування на основі VPN</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Увімкнути під час запуску</string>
+    <string name="pref_vpn_service_monitor">Перевіряти з’єднання</string>
+    <string name="pref_vpn_service_monitor_description">Періодично перевіряти стан мережі, і за потреби перезавантажувати VPN при роз’єднанні.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Виключені застосунки</string>
     <string name="pref_vpn_excluded_apps_description">Налаштуйте, які застосунки не повинні використовувати VPN, щоб з’єднання не блокувалося.</string>
