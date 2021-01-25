@@ -34,9 +34,10 @@
     <string name="button_disable_vpn">إيقاف VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">حذف</string>
     <string name="checkbox_list_context_title">تحرير المدخلة</string>
+    <string name="checkbox_list_context_apply">تنفيذ</string>
     <string name="checkbox_list_context_edit">تحرير</string>
+    <string name="checkbox_list_context_delete">حذف</string>
 
     <!--Your lists-->
     <string name="import_dialog">استيراد…</string>
@@ -55,11 +56,12 @@
 
     <!--Status Notification-->
     <string name="status_check">التأكد من التحديثات</string>
-    <string name="status_check_source">التأكد من المصدر%sمن التحديث</string>
+    <string name="status_check_source">جاري تفقد مصدر %sللبحث عن تحديثات</string>
     <string name="status_retrieve">جلب المصادر</string>
     <string name="status_download_source">تحميل المصدر %s</string>
-    <string name="status_read_source">نسخ المصدر %s</string>
-    <string name="status_parse_source">تمحيص المصدر %s</string>
+    <string name="status_read_source">جاري قراءة المصدر %s</string>
+    <string name="status_parse_source">جاري نسخ المصدر %s</string>
+    <string name="status_sync_database">جاري مزامنة قاعدة البيانات</string>
     <string name="status_revert">إستعادة إعدادات ملف hosts الإفتراضية</string>
     <string name="status_revert_done">إستعادة ملف hosts الإفتراضي اكتمل</string>
     <string name="status_reverting_subtitle">إنشاء ملفات المضيف الأساسية</string>
@@ -86,7 +88,7 @@
     <string name="status_vpn_configuration_updated">تم تحديث تكوين في بي إن بنجاح</string>
     <string name="notification_configuration_changed">تم تغيير التكوين الخاص بك. تحتاج إلى تطبيقه.</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
-    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف…</string>
+    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف...</string>
     <string name="notification_configuration_failed">فشل في تثبيت ملف المضيفات</string>
 
     <!--Apply and Revert Dialogs-->
