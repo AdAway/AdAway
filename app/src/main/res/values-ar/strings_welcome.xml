@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">مرحبا </string>
+    <string name="welcome_first_step">أول خطوة لتحضير التطبيق</string>
+    <string name="welcome_second_step">ثاني خطوة لتحضير التطبيق</string>
+    <string name="welcome_last_step">آخر خطوة لتحضير التطبيق</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">مرحبًا بك في AdAway !</string>
+    <string name="welcome_method_summary">AdAway يقدم لك طريقتين لمنع الإعلانات</string>
+
+    <string name="welcome_root_method_logo">أيقونة الرووت</string>
+    <string name="welcome_root_method_title">منع إعلانات يعتمد على الرووت</string>
+    <string name="welcome_root_method_text1">أسرع</string>
+    <string name="welcome_root_method_text2">صديق للبطارية</string>
+    <string name="welcome_root_method_text3">الرووت مطلوب</string>
+
+    <string name="welcome_vpn_method_logo">أيقونة ال VPN</string>
+    <string name="welcome_vpn_method_title">مانع إعلانات يعتمد على ال VPN</string>
+    <string name="welcome_vpn_method_text1">أبطىْ</string>
+    <string name="welcome_vpn_method_text2">تشغيل في الخلفية</string>
+    <string name="welcome_vpn_method_text3">توافق</string>
+
     <string name="welcome_root_missing_title">مطلوب روت للهاتف</string>
-    </resources>
+    <string name="welcome_root_missile_description">إما أن su binary لا يمكن العثور عليه أو أنك لم تسمح بإذن الجذر لـ AdAway. يمكن أن يحدث هذا عندما لا يكون جهازك بدون رووت. يمكنك العثور على معلومات حول كيفية عمل رووت لجهازك على wiki.lineageos.org أو مواقع Android الأخرى.</string>
+
+    <string name="welcome_method_pro_logo">إحترافي</string>
+    <string name="welcome_method_con_logo">عيوب</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">تمت المزامنة</string>
+    <string name="welcome_sync_error_logo">حصل خطأ أثناء المزامنة</string>
+
+    <string name="welcome_sync_header">جاري المزامنة</string>
+    <string name="welcome_synced_header">تمت المزامنة</string>
+    <string name="welcome_sync_summary">AdAway يقوم بتنزيل شبكات الإعلانات لمنعها من المصادر عبر الإنترنت. يمكنك تخصيصها لاحقًا في الإعدادات.</string>
+    <string name="welcome_sync_retry_logo">أعد محاولة المزامنة</string>
+    <string name="welcome_sync_error">فشل مزامنة
+%s
+أعد المحاولة الآن؟</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">الدعم</string>
+    <string name="welcome_support_header">إدعمني!</string>
+    <string name="welcome_support_summary">إنه تطبيق مجاني ومفتوح المصدر. أقوم بتطويره في وقت فراغي. لذلك إذا كنت تستمتع به ، فلا تتردد في إظهار دعمك:</string>
+    <string name="welcome_support_button">تبرع على PayPal</string>
+    <string name="welcome_support_telemetry_summary">هل وجدت مشاكل في التطبيق؟ ولا أنا.</string>
+    <string name="welcome_support_telemetry_button">قم بتفعيل إرسال تقارير مشاكل التطبيق</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">رجوع</string>
+    <string name="welcome_next_button">التالي</string>
+    <string name="welcome_finish_button">إنتهاء</string>
+</resources>
