@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">قوائمك</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">محظور</string>
+    <string name="lists_tab_allowed">مسموح</string>
+    <string name="lists_tab_redirected">معاد توجيهه</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">فلتر المضيفين</string>
+    <string name="lists_menu_filter_hint">إبحث في المضيف...</string>
+    <string name="lists_menu_toggle_sources">تبديل المصادر</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">إضافة المضيف للقائمة السوداء </string>
     <string name="list_add_dialog_white">إضافة المضيف للقائمة البيضاء</string>
