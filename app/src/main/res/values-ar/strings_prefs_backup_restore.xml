@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">النسخ الاحتياطي و الإستعادة</string>
+    <string name="pref_backup">النسخ الاحتياطي</string>
+    <string name="pref_backup_summary">نسخ احتياطي إلى ذاكرة خارجية</string>
+    <string name="pref_restore">إستعادة</string>
+    <string name="pref_restore_summary">إستعادة نسخة إحتياطية من ملف</string>
+</resources>
