@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">مانع إعلانات يعتمد على الرووت</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">تثبيت المضيفين</string>
     <string name="pref_root_open_hosts">فتح ملفات المضيف</string>
     <string name="pref_apply_method">مسار ملفات المضيف</string>
     <string name="pref_apply_method_summary">قبل تغيير هذا الإعداد، يجب قراءة التعليمات حول هذه الوظيفة.</string>
@@ -13,9 +16,22 @@
     <string name="pref_never_reboot">إخفاء مُحاور إعادة التشغيل</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">إعادة التوجيه</string>
+    <string name="pref_hosts_redirection_summary">حدد مكان إعادة توجيه المضيفين المحظورين</string>
     <string name="pref_redirection_ipv4">عنوان إعادة التوجيه IPv4</string>
     <string name="pref_redirection_ipv6">عنوان إعادة التوجيه IPv6</string>
     <!-- Web server category -->
     <string name="pref_webserver">خادم الويب المحلي</string>
+    <string name="pref_webserver_summary">يستمع خادم الويب المحلي إلى عناوين IP المحلية للرد على طلبات اسم المضيف المحظورة. قد يساعد في حالة تجمد التطبيق عند الاتصالات المحظورة.</string>
     <string name="pref_webserver_enabled">تفعيل خادم الويب</string>
-    </resources>
+    <string name="pref_webserver_test">اختبار خادم الويب</string>
+    <string name="pref_webserver_certificate">قم بتثبيت شهادة موقعة ذاتيًا</string>
+    <string name="pref_webserver_certificate_dialog_title">التثبيت اليدوي للشهادة</string>
+    <string name="pref_webserver_certificate_dialog_content">بدءًا من أندرويد 11 (R)، لم يعد بإمكان التطبيق التثبيت التلقائي للمرجع المصدق (CA). 
+انتقل إلى إعدادات \"الأمان\" ، و \"بيانات الاعتماد والتشفير\" ثم \"تثبيت شهادة\". من هناك ، اختر \"شهادة CA\" وحدد ملف الشهادة الذي تم تصديره حديثًا.</string>
+    <string name="pref_webserver_certificate_dialog_action">افتح إعدادات \"الأمان\"</string>
+    <string name="pref_webserver_state_checking">تدقيق…</string>
+    <string name="pref_webserver_state_not_running">لا يعمل</string>
+    <string name="pref_webserver_state_running_not_installed">قيد التشغيل ولكن الشهادة غير مثبتة</string>
+    <string name="pref_webserver_state_running_and_installed">قيد التشغيل والشهادة مثبتة</string>
+    <string name="pref_webserver_icon">استبدل المساحة الإعلانية الفارغة بأيقونة التطبيق</string>
+</resources>
