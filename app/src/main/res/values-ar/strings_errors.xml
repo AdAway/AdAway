@@ -2,8 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">غير متصل بالشبكة</string>
+    <string name="error_no_connection_details">تعذر إنشاء اتصال بالإنترنت. يرجى التحقق من اتصال جهازك.</string>
+    <string name="error_download_failed_message">فشل تحميل مصدر المضيفين</string>
+    <string name="error_download_failed_details">لا يمكن الوصول إلى أي من مصادر المضيفين المفعلة. يرجى التحقق من أنك متصل بشكل صحيح بالإنترنت.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">فشل إنشاء ملف خاص</string>
+    <string name="error_private_file_failed_details">تعذر إنشاء ملف خاص لبناء مصدر مضيف جديد. يرجى التحقق من المساحة الخالية المتوفرة على جهازك.</string>
     <string name="error_not_enough_space_message">لا توجد مساحة كافية</string>
+    <string name="error_not_enough_space_details">تعذر نسخ ملف المضيفين إلى قسم النظام لديك. يرجى التحقق من تمكين Magisk systemless module ثم إعادة التشغيل.</string>
+    <string name="error_copy_failed_message">فشل تثبيت ملف المضيفين الجديد</string>
+    <string name="error_copy_failed_details">تعذر نسخ ملف المضيفين إلى مجلد النظام. يرجى التحقق من تمكين Magisk systemless module لإعادة التشغيل.</string>
+    <string name="error_revert_failed_message">فشلت إعادة ملف المضيفين</string>
+    <string name="error_revert_failed_details">غير قادر على استعادة الإعداد الافتراضي لملف المضيفين.</string>
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">تعذر عن تفعيل إعلانات VPN</string>
+    <string name="error_enable_vpn_failed_details">يرجى التحقق من إعدادات VPN الخاصة بك للسماح ل VPN التطبيق للبدء.</string>
     <string name="error_disable_vpn_failed_message">تعذر عن إيقاف إعلانات VPN</string>
-    </resources>
+    <string name="error_disable_vpn_failed_details">يرجى التحقق من إعدادات VPN الخاصة بك لتعطيلها يدويًا.</string>
+</resources>
