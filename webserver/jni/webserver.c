@@ -31,9 +31,9 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
         struct mg_http_message *hm = (struct mg_http_message *) ev_data;
         struct settings *s = (struct settings *) fn_data;
         if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
-            mg_http_serve_file(c, hm, s->test_path, "text/html");
+            mg_http_serve_file(c, hm, s->test_path, "text/html", NULL);
         } else if (s->icon) {
-            mg_http_serve_file(c, hm, s->icon_path, "image/svg+xml");
+            mg_http_serve_file(c, hm, s->icon_path, "image/svg+xml", NULL);
         } else {
             mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
         }

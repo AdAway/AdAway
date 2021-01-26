@@ -1,8 +1,9 @@
 # Mongoose - Embedded Web Server / Embedded Networking Library
 
 ![License: GPLv2](https://img.shields.io/badge/license-GPL_2-green.svg "License")
-[![Build Status](https://travis-ci.org/cesanta/mongoose.svg?branch=master)](https://travis-ci.org/cesanta/mongoose)
+[![Build Status]( https://github.com/cesanta/mongoose/workflows/build/badge.svg)](https://github.com/cesanta/mongoose/actions)
 [![Code Coverage](https://codecov.io/gh/cesanta/mongoose/branch/master/graph/badge.svg)](https://codecov.io/gh/cesanta/mongoose)
+[![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/mongoose.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
 
 Mongoose is a networking library for C/C++. It implements event-driven
 non-blocking APIs for TCP, UDP, HTTP, WebSocket, MQTT.  It has been designed
@@ -34,15 +35,10 @@ Looking for a complete IoT solution? Check out
 
 * Cross-platform: works on Linux/UNIX, MacOS, QNX, eCos, Windows, Android,
   iPhone, FreeRTOS, etc
-* Supported hardware platforms: TI CC3200, TI MSP432, NRF52, STM32, PIC32, ESP8266, ESP32 and more
-* Builtin protocols:
-   - plain TCP, plain UDP, SSL/TLS (over TCP, one-way or two-way)
-   - HTTP client, HTTP server
-   - WebSocket client, WebSocket server
-   - MQTT client
-   - DNS client, async DNS resolver
-* Single-threaded, asynchronous, non-blocking core with simple event-based API
-* Native support for [LWIP embedded TCP/IP stack](https://en.wikipedia.org/wiki/LwIP)
+* Supported embedded architectures: ESP32, ESP8266, TI CC3200, TI MSP432, NRF52, STM32, PIC32, NXP, and more
+* Builtin protocols: plain TCP/UDP, HTTP, MQTT, Websocket
+* SSL/TLS support: mbedTLS, OpenSSL or custom via API
+* Asynchronous DNS resolver
 * Tiny static and run-time footprint
 * Source code is both ISO C and ISO C++ compliant
 * Very easy to integrate: just copy
