@@ -3,9 +3,11 @@
 - Add VPN monitor option to prevent disconnection
 - Update Android gradle plugin
 - Update Sentry DSN to support older TLS versions
+- Update mongoose web server
 - Fix welcome screen telemetry preference
+- Fix VPN authorization check at startup
 
-Special thanks to BearTM, elvissteinjr, ipdev99, RobBeyer for their bug reports.
+Special thanks to BearTM, elvissteinjr, ipdev99, patkarmandar, RobBeyer for their bug reports.
 
 ## [5.3.0] - 2021-01-17
 
