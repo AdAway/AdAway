@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">الخيارات</string>
+    <!-- General category -->
+    <string name="pref_general_category">عام</string>
+    <string name="pref_dark_theme">ثيم داكن</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>مضيئ</item>
+        <item>داكن</item>
+        <item>الإعداد الإفتراضي للنظام</item>
+    </string-array>
+    <string name="pref_update_configuration">تحديثات تلقائية</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">منع إعلانات</string>
+    <string name="pref_root_ad_blocker_configuration">مانع إعلانات يعتمد على الرووت</string>
+    <string name="pref_vpn_ad_blocker_configuration">مانع إعلانات يعتمد على ال VPN</string>
+    <string name="pref_enable_ipv6">تفعيل دعم IPv6</string>
+    <string name="pref_backup_restore">قواعد حظر النسخ الاحتياطي / الاستعادة</string>
     <!-- Debug category -->
     <string name="pref_debug_category">التصحيح</string>
-    </resources>
+    <string name="pref_enable_telemetry">إرسال تقارير الأعطال</string>
+    <string name="pref_enable_telemetry_summary">إرسال تقارير الأعطال إلى Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">غير مدعوم في هذا الإصدار</string>
+    <string name="pref_enable_debug">تسجيل التقارير المفصل</string>
+    <string name="pref_enable_debug_summary">إعادة التشغيل مطلوبة لتطبيق الإعدادات</string>
+</resources>
