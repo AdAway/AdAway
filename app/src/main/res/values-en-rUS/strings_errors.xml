@@ -1,3 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <!-- Source model errors -->
+    <string name="error_no_connection_message">No Internet connection</string>
+    <string name="error_no_connection_details">Unable to establish a connection to the Internet. Please check your device connectivity.</string>
+    <string name="error_download_failed_message">Failed to download hosts source</string>
+    <string name="error_download_failed_details">None of your enabled hosts sources are reachable. Please check you are properly connected to the Internet.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Failed to create private file</string>
+    <string name="error_private_file_failed_details">Unable to create a private file to build a new hosts source. Please check the free space available on your device.</string>
+    <string name="error_not_enough_space_message">Not enough space</string>
+    <string name="error_not_enough_space_details">Unable to copy hosts file to your system partition. Please check Magisk systemless module is enabled then reboot.</string>
+    <string name="error_copy_failed_message">Failed to install new hosts file</string>
+    <string name="error_copy_failed_details">Unable to copy hosts file to /system partition. Please check Magisk systemless module is enabled the reboot.</string>
+    <string name="error_revert_failed_message">Failed to revert hosts file</string>
+    <string name="error_revert_failed_details">Unable to restore default hosts file configuration.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Failed to enable VPN ad blocking.</string>
+    <string name="error_enable_vpn_failed_details">Please check your VPN settings to authorize the application VPN to start.</string>
+    <string name="error_disable_vpn_failed_message">Failed to disable VPN ad blocking.</string>
+    <string name="error_disable_vpn_failed_details">Please check your VPN settings to disable it manually.</string>
+</resources>
