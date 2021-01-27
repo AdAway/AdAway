@@ -1,3 +1,260 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    </resources>
+    <!--Buttons-->
+    <string name="button_exit">Exit</string>
+    <string name="button_close">Close</string>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="button_add">Add</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_help">Help</string>
+
+    <!--Home-->
+    <string name="header_help">Welcome!</string>
+    <string name="text_help">AdAway is a free and open-source software design to block advertising. It fetches advertising network addresses to block them on your device.\nWant to know more? Check the help below!</string>
+    <string name="button_show_help">Show more help</string>
+    <string name="icon_update_status">Update status</string>
+    <string name="text_update">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
+    <string name="button_check_update_hosts">Check for updates</string>
+    <string name="button_update_hosts">Update hosts</string>
+    <string name="button_enable_hosts">Enable ad-blocking</string>
+    <string name="button_disable_hosts">Disable ad-blocking</string>
+    <string name="header_webserver">Web server</string>
+    <string name="webserver_status_running">Running</string>
+    <string name="webserver_status_stopped">Stopped</string>
+    <string name="webserver_toggle_text">Start or stop webserver on localhost to answer requests to blocked hostnames.</string>
+    <string name="button_enable_webserver">Enable web server</string>
+    <string name="button_disable_webserver">Disable web server</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Running</string>
+    <string name="vpn_status_stopped">Stopped</string>
+    <string name="vpn_toggle_text">Start or stop VPN to filter requests.</string>
+    <string name="button_enable_vpn">Enable VPN</string>
+    <string name="button_disable_vpn">Disable VPN</string>
+
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_title">Edit Entry</string>
+    <string name="checkbox_list_context_apply">Apply</string>
+    <string name="checkbox_list_context_edit">Edit</string>
+    <string name="checkbox_list_context_delete">Delete</string>
+
+    <!--Your lists-->
+    <string name="import_dialog">Importing…</string>
+    <string name="import_success">Backup successfully imported from your external storage.</string>
+    <string name="import_failed">Failed to import backup. Is its format correct? Check logcat for more details.</string>
+    <string name="export_dialog">Exporting…</string>
+    <string name="export_success">Backup successfully exported to \'adaway-backup.json\' file on your external storage.</string>
+    <string name="export_failed">Failed to export backup.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">The hosts file</string>
+    <string name="hosts_description">The hosts file is a system file that maps hostnames to IP addresses. It is a plain text file which configuration is handled by AdAway. Here are its few first lines:</string>
+    <string name="hosts_content">Loading the hosts file content…</string>
+    <string name="hosts_open_button">Open the hosts file</string>
+
+    <!--Status Notification-->
+    <string name="status_check">Checking for update</string>
+    <string name="status_check_source">Checking %s source for update</string>
+    <string name="status_retrieve">Retrieving sources</string>
+    <string name="status_download_source">Downloading source %s</string>
+    <string name="status_read_source">Reading source %s</string>
+    <string name="status_parse_source">Parsing %s source</string>
+    <string name="status_sync_database">Syncing rule database</string>
+    <string name="status_revert">Reverting to default hosts file</string>
+    <string name="status_revert_done">Default hosts file restored</string>
+    <string name="status_reverting_subtitle">Creating standard hosts file</string>
+    <string name="status_update_available">Source update available</string>
+    <string name="status_update_available_subtitle">Newer hosts files available</string>
+    <string name="status_no_update_found">No source update found</string>
+    <string name="status_no_connection">No Internet connection</string>
+    <string name="status_no_connection_subtitle">No Internet connection available</string>
+    <string name="status_download_fail">Unavailable sources</string>
+    <string name="status_download_fail_subtitle_new">No hosts sources are reachable!</string>
+    <string name="status_root_access_denied">Root access denied</string>
+    <string name="status_root_access_denied_subtitle">Allow root access from your root app</string>
+    <string name="status_failure">Something went wrong</string>
+    <string name="status_failure_subtitle">Check the logcat for more details</string>
+    <string name="status_enabled">Enabled</string>
+    <string name="status_enabled_subtitle">Newest hosts files enabled</string>
+    <string name="status_disabled">Disabled</string>
+    <string name="status_disabled_subtitle">Default hosts file installed</string>
+    <string name="status_apply_sources">Apply latest sources</string>
+    <string name="status_create_new_hosts">Creating a new hosts file</string>
+    <string name="status_copy_new_hosts">Copying a new hosts file</string>
+    <string name="status_check_copy">Checking hosts file copy</string>
+    <string name="status_hosts_updated">Hosts file successfully updated</string>
+    <string name="status_vpn_configuration_updated">VPN configuration successfully updated</string>
+    <string name="notification_configuration_changed">Your configuration changed. You need to apply it.</string>
+    <string name="notification_configuration_changed_action">Apply</string>
+    <string name="notification_configuration_installing">Applying new configuration…</string>
+    <string name="notification_configuration_failed">Failed to apply new configuration.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">The symlink to the hosts file target is missing</string>
+    <string name="apply_symlink_missing">Symlink from your target to /system/etc/hosts is not existing or incorrect! AdAway will not work if it is not pointing to the right file.\n\nDo you want to try creating a symlink?</string>
+    <string name="apply_symlink_missing_title">Symlink missing</string>
+    <string name="apply_not_enough_space">Not enough space on the partition!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
+    <string name="apply_not_enough_space_title">Not enough space</string>
+    <string name="apply_private_file_fail">Downloaded file could not be read.</string>
+    <string name="apply_private_file_fail_title">Private file fail</string>
+    <string name="apply_remount_fail">Remounting the partition as read/write failed!</string>
+    <string name="apply_remount_fail_title">Remount failed</string>
+    <string name="apply_copy_fail_status">Failed to copy hosts file</string>
+    <string name="apply_copy_fail">Copying of hosts file failed!</string>
+    <string name="apply_copy_fail_title">Copy failed</string>
+    <string name="apply_success_subtitle">Applied hosts sources</string>
+    <string name="apply_success_title">Applying successful</string>
+    <string name="apply_success_dialog">Applying was successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
+    <string name="apply_symlink_successful">Symlink was created successful.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
+    <string name="apply_symlink_successful_title">Symlink creation successful</string>
+    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
+    <string name="apply_symlink_fail_title">Symlink creation failed</string>
+    <string name="apply_help">Please read Help for more information.</string>
+    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) and remove the value in the proxy field.</string>
+    <string name="apply_apn_proxy_title">APN proxy set!</string>
+    <string name="no_connection">The connection to the Internet is not working.</string>
+    <string name="no_connection_title">No Connection</string>
+    <string name="download_dialog">Downloading…</string>
+    <string name="apply_dialog">Applying…</string>
+    <string name="apply_dialog_lists">Applying Blacklist and Whitelist</string>
+    <string name="apply_dialog_hostnames">Parsing and merging hosts files</string>
+    <string name="apply_dialog_hosts">Building hosts file</string>
+    <string name="apply_dialog_apply">Applying hosts file</string>
+    <string name="apply_fail_status">Failed to apply new hosts file.</string>
+    <string name="apply_fail">Applying the hosts file to your system failed!\nTry changing the target hosts file in preferences to /data/data/hosts.</string>
+    <string name="apply_fail_title">Applying failed</string>
+    <string name="root_access_fail">Please check your root management app to ensure root access has been granted.</string>
+    <string name="revert_successful">You reverted to the default hosts file.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!) </string>
+    <string name="revert_successful_title">Reverting successful</string>
+    <string name="revert_failed_status">Unable to revert hosts file</string>
+    <string name="revert_problem">Reverting failed due to unknown reasons.</string>
+    <string name="revert_problem_title">Reverting failed!</string>
+    <string name="download_fail_dialog">None of your enabled hosts sources are reachable! Are you properly connected to the Internet?</string>
+    <string name="download_fail_title">Download failed</string>
+    <string name="no_private_file_status">Failed to write new private hosts file</string>
+    <string name="no_private_file">Private file can not be created.</string>
+    <string name="no_private_file_title">Private file creation failed</string>
+    <string name="enable_systemless_successful">You enabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
+    <string name="enable_systemless_successful_title">Enabling successful</string>
+    <string name="disable_systemless_successful">You disabled systemless mode.\nIt may be necessary to reboot Android for the changes to take effect.\n\nDo you want to reboot?\n(To prevent data loss make sure no app uses the SD card at the moment!)</string>
+    <string name="disable_systemless_successful_title">Disabling successful</string>
+    <string name="enable_vpn_fail">Failed to enable VPN ad blocking.</string>
+    <string name="disable_vpn_fail">Failed to disable VPN ad blocking.</string>
+    <string name="enable_systemless_magisk_title">Enabling hosts Magisk module</string>
+    <string name="enable_systemless_magisk">Enable systemless hosts feature from Magisk manager. From its settings, enable the <cite>Systemless hosts</cite> option then reboot your device.</string>
+    <string name="disable_systemless_magisk_title">Disabling hosts Magisk module</string>
+    <string name="disable_systemless_magisk">Disable systemless hosts feature from Magisk manager. From the module list, uninstall the <cite>Systemless hosts</cite> module then reboot your device.</string>
+
+    <!--Other Dialogs-->
+    <string name="hosts_add_dialog">Input URL to hosts file:</string>
+    <string name="no_hostname">This is not a valid hostname!</string>
+    <string name="no_hostname_title">Improperly formatted hostname</string>
+    <string name="no_ip">This is not a valid IP!</string>
+    <string name="no_ip_title">Improperly formatted IP</string>
+    <string name="reboot_never_reboot">Never reboot and don\'t show this question next time!</string>
+    <string name="loading">Loading…</string>
+
+    <!--Menu entries-->
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_add">Add</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_import">Import backup</string>
+    <string name="menu_export">Export backup</string>
+
+    <!--Help-->
+    <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
+    <string name="help_tab_faq">FAQ</string>
+    <string name="help_tab_problems">Problems</string>
+
+    <!--Adware-->
+    <string name="adware_header">Adware</string>
+    <string name="adware_description">Here you can find installed adware, bad applications which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to uninstall those apps by clicking on the list items.</string>
+    <string name="adware_scanning">Scanning&#8230;</string>
+    <string name="adware_empty">No Adware were found!</string>
+
+    <!--Other-->
+    <string name="app_subtitle">Ad blocker</string>
+    <string name="no_text_editor_title">No text editor installed</string>
+    <string name="no_text_editor">No text editor could be found to open the hosts file. You can install Jota or other text editors to handle this.\n\nDo you want to install Jota?</string>
+    <string name="no_file_manager_title">No file manager installed</string>
+    <string name="no_file_manager">No file manager could be found to open files. You can install OI File Manager or other file managers to handle this.\n\nDo you want to install OI File Manager?</string>
+
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
+    <string name="tcpdump_description">Tcpdump is a tool to monitor DNS requests and save them in a log file. You can start it in the background, run applications that display ads, and afterwards analyze the DNS requests using the log file. Possible ad server can then be added to your blacklist.</string>
+    <string name="tcpdump_disable_monitoring">Disable monitoring</string>
+    <string name="tcpdump_enable_monitoring">Enable monitoring</string>
+    <string name="tcpdump_show_results">Show results</string>
+    <string name="tcpdump_redirect_dialog_title">Redirect domain</string>
+    <string name="tcpdump_menu_sort">Sort domains</string>
+    <string name="tcpdump_menu_clear">Clear log</string>
+    <string name="tcpdump_sort_alphabetical">Alphabetical sort</string>
+    <string name="tcpdump_sort_top_level_domain">Top level domain sort</string>
+    <string name="tcpdump_entry_add_blacklist">Add entry to black list</string>
+    <string name="tcpdump_entry_add_whitelist">Add entry to white list</string>
+    <string name="tcpdump_entry_add_redirection_list">Add entry to redirect list</string>
+
+    <string name="pref_edit_text_value">Edit text preference value</string>
+    <string name="drawer_open">Open menu</string>
+    <string name="drawer_close">Close menu</string>
+
+    <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
+    <string-array name="drawer_items">
+        <item>Home</item>
+        <item>Hosts sources</item>
+        <item>Your lists</item>
+        <item>Open hosts file</item>
+        <item>Log DNS requests</item>
+        <item>Scan for adware</item>
+        <item>Preferences</item>
+        <item>Help</item>
+    </string-array>
+    <!--Drawer menu labels-->
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">DNS requests</string>
+    <string name="shortcut_your_lists">Your lists</string>
+    <string name="shortcut_preferences">Preferences</string>
+
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Installed %1$s ago</string>
+    <string name="hosts_source_up_to_date">Up-to-date for %1$s</string>
+    <string name="hosts_source_need_update">Need update for %1$s</string>
+    <string name="hosts_source_last_update">Last update %1$s ago</string>
+    <string name="hosts_source_unknown_status">Unknown update status</string>
+    <string name="hosts_source_few_minutes">few minutes</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d month</item>
+        <item quantity="other">%d months</item>
+    </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">starting</string>
+    <string name="vpn_notification_running">active</string>
+    <string name="vpn_notification_stopping">stopping</string>
+    <string name="vpn_notification_waiting_for_net">wait for network</string>
+    <string name="vpn_notification_reconnecting">reconnecting</string>
+    <string name="vpn_notification_reconnecting_error">reconnecting error</string>
+    <string name="vpn_notification_paused">paused</string>
+    <string name="vpn_notification_stopped">stopped</string>
+    <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Pause</string>
+    <string name="vpn_notification_paused_text">Tap to resume</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Enable and disable system ad-blocking</string>
+
+</resources>
