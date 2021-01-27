@@ -1,3 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_root_title">Root based ad blocker</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Hosts install</string>
+    <string name="pref_root_open_hosts">Open hosts file</string>
+    <string name="pref_apply_method">Target hosts file</string>
+    <string name="pref_apply_method_summary">Read Help before using this feature</string>
+    <string-array name="pref_apply_method_entries">
+        <item>/system/etc/hosts</item>
+        <item>/data/hosts</item>
+        <item>/data/data/hosts</item>
+        <item>Custom target</item>
+    </string-array>
+    <string name="pref_custom_target">Custom target location</string>
+    <string name="pref_never_reboot">Hide reboot dialog after apply</string>
+    <!-- Redirection category -->
+    <string name="pref_hosts_redirection">Redirection</string>
+    <string name="pref_hosts_redirection_summary">Define where to redirect blocked hosts</string>
+    <string name="pref_redirection_ipv4">IPv4 redirection</string>
+    <string name="pref_redirection_ipv6">IPv6 redirection</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Local web server</string>
+    <string name="pref_webserver_summary">The local web server listens on local IP addresses to answer to blocked hostname requests. It may help with app freezing on blocked connection.</string>
+    <string name="pref_webserver_enabled">Enable web server</string>
+    <string name="pref_webserver_test">Test web server</string>
+    <string name="pref_webserver_certificate">Install self-signed certificate</string>
+    <string name="pref_webserver_certificate_dialog_title">Certificate manual install</string>
+    <string name="pref_webserver_certificate_dialog_content">Starting from Android 11 (R), application can no more automatically install certificate authority (CA).\n\nGo to \"Security\" settings, \"Encryption &amp; credentials\" then \"Install a certificate\". From there, choose \"CA certificate\" and select the newly exported certificate file.</string>
+    <string name="pref_webserver_certificate_dialog_action">Open "Security" settings</string>
+    <string name="pref_webserver_state_checking">Checking…</string>
+    <string name="pref_webserver_state_not_running">Not running</string>
+    <string name="pref_webserver_state_running_not_installed">Running but certificate not installed</string>
+    <string name="pref_webserver_state_running_and_installed">Running and certificate installed</string>
+    <string name="pref_webserver_icon">Replace blank ad space by app icon</string>
+</resources>
