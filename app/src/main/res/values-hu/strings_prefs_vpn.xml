@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN alapú hirdetésblokkolás</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Engedélyezés indításkor</string>
+    <string name="pref_vpn_service_monitor">Kapcsolat figyelő</string>
+    <string name="pref_vpn_service_monitor_description">Rendszeresen ellenőrzi a hálózat állapotát a VPN újraindításához a szétkapcsoláskor.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Kizárt alkalmazások</string>
     <string name="pref_vpn_excluded_apps_description">Állítsa be, mely alkalmazások ne használják a VPN-t. Így egyetlen kapcsolat sem lesz blokkolva.</string>
