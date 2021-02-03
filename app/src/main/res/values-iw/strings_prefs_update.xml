@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">עדכונים</string>
-    </resources>
+    <!-- Application category -->
+    <string name="pref_update_app_category">עידכוני יישום</string>
+    <string name="pref_update_check_app_startup">בדיקת קיום עדכונים בהפעלה</string>
+    <string name="pref_update_check_app_daily">בדיקת קיום עדכונים מידי פעם</string>
+    <string name="pref_update_include_beta_releases">כולל גרסת בטא</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">עדכוני מארחים</string>
+    <string name="pref_update_check">בדיקת עדכונים בהפעלה</string>
+    <string name="pref_update_check_hosts_daily">בדיקת קיום עדכונים מידי פעם</string>
+    <string name="pref_update_sync_on_update">סנכרון בעת עדכון</string>
+    <string name="pref_update_sync_unmetered_only">סנכרון בעת שימוש ברשת לא נמדדת בלבד</string>
+</resources>
