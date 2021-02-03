@@ -2,5 +2,12 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">עדכונים</string>
-    <string name="notification_update_host_available_title">קיים עידכון</string>
-    </resources>
+    <string name="notification_update_channel_description">התראות עדכון חדשות</string>
+    <string name="notification_update_host_available_title">עדכוני מקורות זמינים</string>
+    <string name="notification_update_host_available_text">קובץ hosts חדש יותר זמין להורדה</string>
+    <string name="notification_update_app_available_title">עדכון יישום זמין</string>
+    <string name="notification_update_app_available_text">גרסה חדשה של AdAway זמינה להורדה.</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
+    <string name="notification_vpn_channel_description">התראות ריצת VPN</string>
+</resources>
