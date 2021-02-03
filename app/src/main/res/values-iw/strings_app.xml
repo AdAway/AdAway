@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AdAway</string>
-    </resources>
+    <string name="app_description">חוסם פרסומות עם קוד מקור חופשי</string>
+    <string name="app_logo">לוגו AdAway</string>
+</resources>
