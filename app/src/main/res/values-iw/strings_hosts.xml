@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hosts_title">לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</string>
+    <string name="hosts_title">מקורות מארחים</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">רשימת משתמש</string>
+    <string name="hosts_adaway_source">מארחים רשמיים של AdAway</string>
+    <string name="hosts_stevenblack_source">איחוד מארחים StevenBlack</string>
+    <string name="hosts_peterlowe_source">Pete Lowe רשימת חסימת מארחים</string>
     <!-- List -->
     <string name="hosts_not_available">לא זמין</string>
+    <string name="hosts_count">%s מארחים</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">הוסף מקור</string>
     <string name="hosts_edit_dialog_title">ערוך מקור</string>
     <string name="hosts_dialog_url">כתובת URL: (כתובת https:// או file://)</string>
-    <string name="hosts_dialog_url_hint">כתובת URL למקור hosts</string>
+    <string name="hosts_dialog_url_hint">כתובת URL למקור מארחים</string>
 </resources>
