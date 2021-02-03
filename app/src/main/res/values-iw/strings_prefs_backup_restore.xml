@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">גיבוי &amp;שיחזור</string>
+    <string name="pref_backup">גיבוי</string>
+    <string name="pref_backup_summary">גיבוי לאיחסון חיצוני את חוקי החסימה שלך</string>
+    <string name="pref_restore">שחזור</string>
+    <string name="pref_restore_summary">שחזור חוקי חסימה מקובץ גיבוי</string>
+</resources>
