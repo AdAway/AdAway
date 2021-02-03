@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">הרשימות שלך</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">חסום</string>
+    <string name="lists_tab_allowed">מאופשר</string>
+    <string name="lists_tab_redirected">מופנה</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">סינון מארחים</string>
+    <string name="lists_menu_filter_hint">חיפוש שם מארח...</string>
+    <string name="lists_menu_toggle_sources">החלפת מקורות</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">הוסף host לרשימה שחורה</string>
-    <string name="list_add_dialog_white">הוסף host לרשימה לבנה</string>
-    <string name="list_add_dialog_redirect">הוסף הפניית host</string>
-    <string name="list_edit_dialog_black">ערוך host ברשימה שחורה</string>
-    <string name="list_edit_dialog_white">ערוך host ברשימה לבנה</string>
+    <string name="list_add_dialog_black">הוסף מארח לרשימה שחורה</string>
+    <string name="list_add_dialog_white">הוסף מארח לרשימה לבנה</string>
+    <string name="list_add_dialog_redirect">הוסף הפניית מארח</string>
+    <string name="list_edit_dialog_black">ערוך מארח ברשימה שחורה</string>
+    <string name="list_edit_dialog_white">ערוך מארח ברשימה לבנה</string>
     <string name="list_edit_dialog_redirect">ערוך הפנייה</string>
     <string name="list_dialog_hostname">שם שרת:</string>
-    <string name="list_dialog_hostname_hint">כתובת URL למקור hosts</string>
+    <string name="list_dialog_hostname_hint">כתובת URL למקור מארחים</string>
     <string name="list_dialog_wildcard">(תווים כלליים * ו ? מותרים)</string>
     <string name="list_dialog_ip">IP (IPv4 או IPv6):</string>
 </resources>
