@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">עדכון AdAway</string>
+    <!-- Home screen -->
+    <string name="update_available">עדכון זמין!</string>
 
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">זו הגרסה האחרונה</string>
+    <string name="update_update_available_header">עדכון זמין</string>
+    <string name="update_updating_header">מעדכן את AdAway</string>
+    <string name="update_update_button">עדכן כעת</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">שינויים אחרונים:</string>
+    <string name="update_new_changelog_title">רשימת שינויים:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">הורדת גרסה אחרונה של AdAway…</string>
 </resources>
