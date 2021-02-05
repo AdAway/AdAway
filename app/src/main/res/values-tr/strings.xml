@@ -55,11 +55,12 @@
 
     <!--Status Notification-->
     <string name="status_check">Güncellemeler kontrol ediliyor</string>
-    <string name="status_check_source">%s güncelleme için denetleniyor</string>
+    <string name="status_check_source">%s kaynağı güncelleme için denetleniyor</string>
     <string name="status_retrieve">Kaynakları geri döndür</string>
     <string name="status_download_source">%s kaynağı indiriliyor</string>
     <string name="status_read_source">Kaynak okunuyor %s</string>
     <string name="status_parse_source">%s kaynak ayrıştırılıyor</string>
+    <string name="status_sync_database">Veritabanı kuralı senkronize ediliyor</string>
     <string name="status_revert">Varsayılan hosts dosyasına geri dönülüyor</string>
     <string name="status_revert_done">Varsayılan hosts dosyası geri yüklendi</string>
     <string name="status_reverting_subtitle">Varsayılan bir hosts dosyası yapılıyor</string>
