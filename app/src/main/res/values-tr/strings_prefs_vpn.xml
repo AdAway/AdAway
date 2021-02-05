@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN tabanlı reklam engelleyici</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Başlangıçta etkinleştir</string>
+    <string name="pref_vpn_service_monitor">Ekran bağlantısı</string>
+    <string name="pref_vpn_service_monitor_description">VPN bağlantısı bulunmadığı durumlarda düzenli olarak VPN bağlantısının tekrar sağlanabilmesi için bağlantıyı kontrol et</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Hariç tutulan uygulamalar</string>
     <string name="pref_vpn_excluded_apps_description">Hangi uygulamaların VPN\'yi kullanmaması gerektiğini yapılandırın, böylece bağlantı engellenmez.</string>
