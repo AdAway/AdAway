@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway güncellemesi</string>
     <!-- Home screen -->
     <string name="update_available">Güncelleme mevcut!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">Güncel</string>
+    <string name="update_update_available_header">Güncelleme mevcut</string>
+    <string name="update_updating_header">AdAway güncelleştiriliyor</string>
     <string name="update_update_button">Şimdi güncelle</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Son değişiklikler:</string>
+    <string name="update_new_changelog_title">Değişim Kayıtları:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">AdAway\'in en son sürümü indiriliyor...</string>
 </resources>
