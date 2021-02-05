@@ -3,10 +3,12 @@
     <string name="pref_update_title">Güncellemeler</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Uygulama güncellemeleri</string>
+    <string name="pref_update_check_app_startup">Başlangıçta güncellemeleri kontrol et</string>
     <string name="pref_update_check_app_daily">Güncellemeleri günlük denetle</string>
+    <string name="pref_update_include_beta_releases">Beta sürümleri de dahil</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts güncellemeleri</string>
-    <string name="pref_update_check">Güncellemeleri kontrol et</string>
+    <string name="pref_update_check">Başlangıçta güncellemeleri kontrol et</string>
     <string name="pref_update_check_hosts_daily">Güncellemeleri günlük denetle</string>
     <string name="pref_update_sync_on_update">Güncellemede eşitle</string>
     <string name="pref_update_sync_unmetered_only">Yalnızca ölçülmemiş ağda eşitle</string>
