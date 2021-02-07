@@ -55,11 +55,12 @@
 
     <!--Status Notification-->
     <string name="status_check">檢查更新</string>
-    <string name="status_check_source">正在檢查%s個更新來源</string>
+    <string name="status_check_source">正在檢查 %s 來源的更新</string>
     <string name="status_retrieve">搜尋來源中</string>
     <string name="status_download_source">下載來源 %s</string>
     <string name="status_read_source">讀取來源%s</string>
     <string name="status_parse_source">正在分析來源%s</string>
+    <string name="status_sync_database">正在同步規則資料庫</string>
     <string name="status_revert">恢復到預設 hosts 檔案</string>
     <string name="status_revert_done">預設 hosts 檔案已恢復</string>
     <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
