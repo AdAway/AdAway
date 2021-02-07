@@ -271,32 +271,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <FrameLayout
-                android:id="@+id/sourcesFrameLayout"
-                android:layout_width="0dp"
+            <ImageView
+                android:id="@+id/sourceImageView"
+                android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
                 app:layout_constraintBottom_toTopOf="@id/stateTextView"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.25">
+                app:layout_constraintWidth_percent="0.25"
+                android:contentDescription="@string/icon_update_status"
+                app:srcCompat="@drawable/ic_collections_bookmark_24dp">
 
-                <ProgressBar
-                    android:id="@+id/sourcesProgressBar"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:id="@+id/sourcesImageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/icon_update_status"
-                    app:srcCompat="@drawable/ic_collections_bookmark_24dp" />
-
-            </FrameLayout>
+            </ImageView>
 
             <TextView
                 android:id="@+id/upToDateSourcesTextView"
@@ -308,7 +296,7 @@
                 app:layout_constraintEnd_toStartOf="@id/checkForUpdateImageView"
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintHorizontal_weight="2"
-                app:layout_constraintStart_toEndOf="@id/sourcesFrameLayout"
+                app:layout_constraintStart_toEndOf="@id/sourceImageView"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="3 up-to-date sources" />
 
@@ -331,7 +319,7 @@
                 app:layout_constraintEnd_toStartOf="@id/updateImageView"
                 app:layout_constraintHorizontal_bias="0.66"
                 app:layout_constraintHorizontal_weight="2"
-                app:layout_constraintStart_toEndOf="@id/sourcesFrameLayout"
+                app:layout_constraintStart_toEndOf="@id/sourceImageView"
                 app:layout_constraintTop_toBottomOf="@id/upToDateSourcesTextView"
                 tools:text="2 outdated sources" />
 
@@ -344,6 +332,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/checkForUpdateImageView"
                 app:srcCompat="@drawable/ic_get_app_24dp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/sourcesProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/stateTextView"
+                app:layout_constraintTop_toBottomOf="@+id/outdatedSourcesTextView"
+                tools:visibility="visible" />
 
             <TextView
                 android:id="@+id/stateTextView"

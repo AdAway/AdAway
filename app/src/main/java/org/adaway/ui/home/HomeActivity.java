@@ -202,14 +202,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void bindPending() {
-        View sourcesImageView = this.binding.content.sourcesImageView;
         View sourcesProgressBar = this.binding.content.sourcesProgressBar;
         this.homeViewModel.getPending().observe(this, pending -> {
             if (pending) {
-                hideView(sourcesImageView);
                 showView(sourcesProgressBar);
             } else {
-                showView(sourcesImageView);
                 hideView(sourcesProgressBar);
             }
         });
