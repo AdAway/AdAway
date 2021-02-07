@@ -1,9 +1,11 @@
 ## [5.4.0] - Unreleased
 
 - Add VPN monitor option to prevent disconnection
+- Update source update status indicator
 - Update Android gradle plugin
 - Update Sentry DSN to support older TLS versions
 - Update mongoose web server
+- Update dependencies
 - Fix welcome screen telemetry preference
 - Fix VPN authorization check at startup
 
