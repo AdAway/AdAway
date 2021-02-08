@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Блокировщик рекламы на основе VPN</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Включить при запуске</string>
+    <string name="pref_vpn_service_monitor">Проверка соединения</string>
+    <string name="pref_vpn_service_monitor_description">Периодически проверяйте состояние сети, чтобы перезапустить VPN при отключении.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Исключённые приложения</string>
     <string name="pref_vpn_excluded_apps_description">Настройте, какие приложения не должны использовать VPN, а не значит их подключения не будут блокироваться.</string>
