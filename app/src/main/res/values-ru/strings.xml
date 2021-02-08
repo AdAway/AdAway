@@ -60,6 +60,7 @@
     <string name="status_download_source">Загрузка источника %s</string>
     <string name="status_read_source">Проверяем источник %s</string>
     <string name="status_parse_source">Обработка источника %s</string>
+    <string name="status_sync_database">Синхронизация правил базы данных</string>
     <string name="status_revert">Восстановление стандартного файла hosts</string>
     <string name="status_revert_done">Стандартный файл hosts восстановлен</string>
     <string name="status_reverting_subtitle">Создание стандартного файла hosts</string>
