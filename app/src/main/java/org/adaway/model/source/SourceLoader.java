@@ -19,6 +19,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.util.Constants.BOGUS_IPv4;
@@ -39,17 +40,15 @@ class SourceLoader {
     private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+).*$";
     static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
 
-    private final int sourceId;
-    private final boolean parseRedirectedHosts;
+    private final HostsSource source;
 
     SourceLoader(HostsSource hostsSource) {
-        this.sourceId = hostsSource.getId();
-        this.parseRedirectedHosts = hostsSource.isRedirectEnabled();
+        this.source = hostsSource;
     }
 
     void parse(Reader reader, HostListItemDao hostListItemDao) {
         // Clear current hosts
-        hostListItemDao.clearSourceHosts(this.sourceId);
+        hostListItemDao.clearSourceHosts(this.source.getId());
         // Create batch
         int parserCount = 3;
         LinkedBlockingQueue<String> hostsLineQueue = new LinkedBlockingQueue<>();
@@ -62,7 +61,7 @@ class SourceLoader {
         );
         executorService.execute(sourceReader);
         for (int i = 0; i < parserCount; i++) {
-            executorService.execute(new HostListItemParser(hostsLineQueue, hostsListItemQueue));
+            executorService.execute(new HostListItemParser(this.source, hostsLineQueue, hostsListItemQueue));
         }
         Future<Integer> inserterFuture = executorService.submit(inserter);
         try {
@@ -100,17 +99,20 @@ class SourceLoader {
         }
     }
 
-    private class HostListItemParser implements Runnable {
+    private static class HostListItemParser implements Runnable {
+        private final HostsSource source;
         private final BlockingQueue<String> lineQueue;
         private final BlockingQueue<HostListItem> itemQueue;
 
-        private HostListItemParser(BlockingQueue<String> lineQueue, BlockingQueue<HostListItem> itemQueue) {
+        private HostListItemParser(HostsSource source, BlockingQueue<String> lineQueue, BlockingQueue<HostListItem> itemQueue) {
+            this.source = source;
             this.lineQueue = lineQueue;
             this.itemQueue = itemQueue;
         }
 
         @Override
         public void run() {
+            boolean allowedList = this.source.isAllowEnabled();
             boolean endOfSource = false;
             while (!endOfSource) {
                 try {
@@ -124,7 +126,7 @@ class SourceLoader {
                         endItem.setHost(line);
                         this.itemQueue.add(endItem);
                     } else {
-                        HostListItem item = parseHostListItem(line);
+                        HostListItem item = allowedList ? parseAllowListItem(line) : parseHostListItem(line);
                         if (item != null && isRedirectionValid(item) && isHostValid(item)) {
                             this.itemQueue.add(item);
                         }
@@ -146,6 +148,7 @@ class SourceLoader {
             // Check IP address validity or while list entry (if allowed)
             String ip = matcher.group(1);
             String hostname = matcher.group(2);
+            assert hostname != null;
             // Skip localhost name
             if (LOCALHOST_HOSTNAME.equals(hostname)) {
                 return null;
@@ -156,7 +159,7 @@ class SourceLoader {
                     || BOGUS_IPv4.equals(ip)
                     || LOCALHOST_IPv6.equals(ip)) {
                 type = BLOCKED;
-            } else if (SourceLoader.this.parseRedirectedHosts) {
+            } else if (this.source.isRedirectEnabled()) {
                 type = REDIRECTED;
             } else {
                 return null;
@@ -168,7 +171,23 @@ class SourceLoader {
             if (type == REDIRECTED) {
                 item.setRedirection(ip);
             }
-            item.setSourceId(SourceLoader.this.sourceId);
+            item.setSourceId(this.source.getId());
+            return item;
+        }
+
+        private HostListItem parseAllowListItem(String line) {
+            // Extract hostname
+            int indexOf = line.indexOf('#');
+            if (indexOf == 1) {
+                line = line.substring(0, indexOf);
+            }
+            line = line.trim();
+            // Create item
+            HostListItem item = new HostListItem();
+            item.setType(ALLOWED);
+            item.setHost(line);
+            item.setEnabled(true);
+            item.setSourceId(this.source.getId());
             return item;
         }
 
@@ -177,7 +196,14 @@ class SourceLoader {
         }
 
         private boolean isHostValid(HostListItem item) {
-            return RegexUtils.isValidWildcardHostname(item.getHost());
+            String hostname = item.getHost();
+            if (item.getType() == BLOCKED) {
+                if (hostname.indexOf('?') != -1 || hostname.indexOf('*') != -1) {
+                    return false;
+                }
+                return RegexUtils.isValidHostname(hostname);
+            }
+            return RegexUtils.isValidWildcardHostname(hostname);
         }
     }
 
