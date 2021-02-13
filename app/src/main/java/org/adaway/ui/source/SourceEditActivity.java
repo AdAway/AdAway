@@ -239,8 +239,9 @@ public class SourceEditActivity extends AppCompatActivity {
         HostsSource source = new HostsSource();
         source.setLabel(label);
         source.setUrl(url);
-        source.setAllowEnabled(this.binding.allowFormatButton.isChecked());
-        source.setRedirectEnabled(this.binding.redirectedHostsCheckbox.isChecked());
+        boolean allowFormat = this.binding.allowFormatButton.isChecked();
+        source.setAllowEnabled(allowFormat);
+        source.setRedirectEnabled(!allowFormat && this.binding.redirectedHostsCheckbox.isChecked());
         return source;
     }
 
