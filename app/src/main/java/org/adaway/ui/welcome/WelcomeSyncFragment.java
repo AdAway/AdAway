@@ -15,8 +15,8 @@ import org.adaway.databinding.WelcomeSyncLayoutBinding;
 import org.adaway.model.error.HostError;
 import org.adaway.ui.home.HomeViewModel;
 
-import static org.adaway.ui.welcome.WelcomeActivity.hideView;
-import static org.adaway.ui.welcome.WelcomeActivity.showView;
+import static org.adaway.ui.Animations.hideView;
+import static org.adaway.ui.Animations.showView;
 
 /**
  * This class is a fragment to first sync the main hosts source.

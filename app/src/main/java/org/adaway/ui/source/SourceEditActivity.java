@@ -27,8 +27,10 @@ import java.util.concurrent.Executor;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static java.util.Objects.requireNonNull;
-import static org.adaway.ui.welcome.WelcomeActivity.hideView;
-import static org.adaway.ui.welcome.WelcomeActivity.showView;
+import static org.adaway.ui.Animations.hideView;
+import static org.adaway.ui.Animations.setHidden;
+import static org.adaway.ui.Animations.setShown;
+import static org.adaway.ui.Animations.showView;
 
 /**
  * This activity create, edit and delete a hosts source.
@@ -136,10 +138,13 @@ public class SourceEditActivity extends AppCompatActivity {
                 break;
         }
         this.binding.redirectedHostsCheckbox.setChecked(source.isRedirectEnabled());
-        this.binding.redirectedHostsCheckbox.setVisibility(source.isAllowEnabled() ? INVISIBLE : VISIBLE);
-        this.binding.redirectedHostsCheckbox.setAlpha(source.isAllowEnabled() ? 0f : 1f);
-        this.binding.redirectedHostsWarningTextView.setVisibility(source.isAllowEnabled() ? INVISIBLE : VISIBLE);
-        this.binding.redirectedHostsWarningTextView.setAlpha(source.isAllowEnabled() ? 0f : 1f);
+        if (source.isAllowEnabled()) {
+            setHidden(this.binding.redirectedHostsCheckbox);
+            setHidden(this.binding.redirectedHostsWarningTextView);
+        } else {
+            setShown(this.binding.redirectedHostsCheckbox);
+            setShown(this.binding.redirectedHostsWarningTextView);
+        }
     }
 
     private void bindLocation() {
