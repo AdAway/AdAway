@@ -1,7 +1,5 @@
 package org.adaway.ui.home;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -41,12 +39,12 @@ import org.adaway.ui.update.UpdateActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
 import org.adaway.util.Log;
 
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN;
 import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
+import static org.adaway.ui.Animations.hideView;
+import static org.adaway.ui.Animations.showView;
 import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
@@ -272,32 +270,6 @@ public class HomeActivity extends AppCompatActivity {
 //        if (updateItemMenu != null) {
 //            updateItemMenu.setIcon(updating ? R.drawable.ic_language_red : R.drawable.ic_sync_24dp);
 //        }
-    }
-
-    private void showView(View view) {
-        view.clearAnimation();
-        view.setAlpha(0F);
-        view.setVisibility(VISIBLE);
-        view.animate()
-                .alpha(1F)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        view.setVisibility(VISIBLE);
-                    }
-                });
-    }
-
-    private void hideView(View view) {
-        view.clearAnimation();
-        view.animate()
-                .alpha(0F)
-                .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        view.setVisibility(GONE);
-                    }
-                });
     }
 
     /**

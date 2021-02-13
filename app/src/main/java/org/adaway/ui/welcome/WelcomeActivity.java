@@ -1,11 +1,7 @@
 package org.adaway.ui.welcome;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -16,8 +12,8 @@ import org.adaway.R;
 import org.adaway.databinding.WelcomeActivityBinding;
 import org.adaway.ui.home.HomeActivity;
 
-import static android.view.View.INVISIBLE;
-import static android.view.View.VISIBLE;
+import static org.adaway.ui.Animations.hideView;
+import static org.adaway.ui.Animations.showView;
 
 /**
  * This class is a welcome activity to run first time setup on the user device.
@@ -28,30 +24,6 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeNavigab
     private WelcomeActivityBinding binding;
     private WelcomePagerAdapter pagerAdapter;
     private ImageView[] dotImageViews;
-
-    public static void showView(View view) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, View.ALPHA, 1F);
-        objectAnimator.setAutoCancel(true);
-        objectAnimator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                view.setVisibility(VISIBLE);
-            }
-        });
-        objectAnimator.start();
-    }
-
-    public static void hideView(View view) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, View.ALPHA, 0F);
-        objectAnimator.setAutoCancel(true);
-        objectAnimator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                view.setVisibility(INVISIBLE);
-            }
-        });
-        objectAnimator.start();
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
