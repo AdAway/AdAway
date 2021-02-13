@@ -27,6 +27,8 @@ import java.util.concurrent.Executor;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static java.util.Objects.requireNonNull;
+import static org.adaway.ui.welcome.WelcomeActivity.hideView;
+import static org.adaway.ui.welcome.WelcomeActivity.showView;
 
 /**
  * This activity create, edit and delete a hosts source.
@@ -106,17 +108,21 @@ public class SourceEditActivity extends AppCompatActivity {
                     MAIN_THREAD_EXECUTOR.execute(() -> {
                         applyInitialValues(source);
                         bindLocation();
+                        bindFormats();
                     });
                 });
             });
         } else {
             setTitle(R.string.source_edit_add_title);
             bindLocation();
+            bindFormats();
         }
     }
 
     private void applyInitialValues(HostsSource source) {
         this.binding.labelEditText.setText(source.getLabel());
+        this.binding.blockFormatButton.setChecked(!source.isAllowEnabled());
+        this.binding.allowFormatButton.setChecked(source.isAllowEnabled());
         switch (source.getType()) {
             case URL:
                 this.binding.typeButtonGroup.check(R.id.url_button);
@@ -129,8 +135,11 @@ public class SourceEditActivity extends AppCompatActivity {
                 this.binding.urlTextInputLayout.setVisibility(INVISIBLE);
                 break;
         }
-        this.binding.allowedHostsCheckbox.setChecked(source.isAllowEnabled());
         this.binding.redirectedHostsCheckbox.setChecked(source.isRedirectEnabled());
+        this.binding.redirectedHostsCheckbox.setVisibility(source.isAllowEnabled() ? INVISIBLE : VISIBLE);
+        this.binding.redirectedHostsCheckbox.setAlpha(source.isAllowEnabled() ? 0f : 1f);
+        this.binding.redirectedHostsWarningTextView.setVisibility(source.isAllowEnabled() ? INVISIBLE : VISIBLE);
+        this.binding.redirectedHostsWarningTextView.setAlpha(source.isAllowEnabled() ? 0f : 1f);
     }
 
     private void bindLocation() {
@@ -152,6 +161,18 @@ public class SourceEditActivity extends AppCompatActivity {
             }
         });
         this.binding.fileLocationTextView.setOnClickListener(view -> openDocument());
+    }
+
+    private void bindFormats() {
+        this.binding.blockFormatButton.addOnCheckedChangeListener((button, isChecked) -> {
+            if (isChecked) {
+                showView(this.binding.redirectedHostsCheckbox);
+                showView(this.binding.redirectedHostsWarningTextView);
+            } else {
+                hideView(this.binding.redirectedHostsCheckbox);
+                hideView(this.binding.redirectedHostsWarningTextView);
+            }
+        });
     }
 
     @Override
@@ -213,7 +234,7 @@ public class SourceEditActivity extends AppCompatActivity {
         HostsSource source = new HostsSource();
         source.setLabel(label);
         source.setUrl(url);
-        source.setAllowEnabled(this.binding.allowedHostsCheckbox.isChecked());
+        source.setAllowEnabled(this.binding.allowFormatButton.isChecked());
         source.setRedirectEnabled(this.binding.redirectedHostsCheckbox.isChecked());
         return source;
     }
