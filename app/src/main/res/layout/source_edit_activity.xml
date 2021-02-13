@@ -6,7 +6,7 @@
     android:padding="16dp">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/labelTextInputLayout"
+        android:id="@+id/label_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/source_edit_label"
@@ -23,16 +23,16 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/text_view_id"
+        android:id="@+id/type_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/source_edit_type"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toTopOf="@+id/urlTextInputLayout"
+        app:layout_constraintBottom_toTopOf="@+id/url_text_input_layout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelTextInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/label_text_input_layout" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/type_button_group"
@@ -41,8 +41,8 @@
         android:layout_marginTop="8dp"
         app:checkedButton="@+id/url_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_view_id"
-        app:layout_constraintTop_toBottomOf="@+id/labelTextInputLayout"
+        app:layout_constraintStart_toEndOf="@+id/type_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/label_text_input_layout"
         app:singleSelection="true">
 
         <com.google.android.material.button.MaterialButton
@@ -62,7 +62,7 @@
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/urlTextInputLayout"
+        android:id="@+id/url_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/type_button_group">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/locationEditText"
+            android:id="@+id/location_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/source_edit_url_location_default" />
@@ -86,36 +86,36 @@
         android:text="@string/source_edit_file_hint"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/allowedHostsCheckbox"
+        app:layout_constraintBottom_toTopOf="@+id/allowed_hosts_checkbox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/type_button_group" />
 
     <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/allowedHostsCheckbox"
+        android:id="@+id/allowed_hosts_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/source_edit_allowed_hosts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/urlTextInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/url_text_input_layout">
 
     </com.google.android.material.checkbox.MaterialCheckBox>
 
     <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/redirectedHostsCheckbox"
+        android:id="@+id/redirected_hosts_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/source_edit_redirected_hosts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allowedHostsCheckbox">
+        app:layout_constraintTop_toBottomOf="@+id/allowed_hosts_checkbox">
 
     </com.google.android.material.checkbox.MaterialCheckBox>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/redirected_hosts_warning_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -123,5 +123,5 @@
         android:text="@string/source_edit_redirected_hosts_warning"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/redirectedHostsCheckbox" />
+        app:layout_constraintTop_toBottomOf="@+id/redirected_hosts_checkbox" />
 </androidx.constraintlayout.widget.ConstraintLayout>
