@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Αποκλεισμός διαφημίσεων βάσει VPN</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Ενεργοποίηση κατά την εκκίνηση</string>
+    <string name="pref_vpn_service_monitor">Παρακολούθηση σύνδεσης</string>
+    <string name="pref_vpn_service_monitor_description">Ελέγχετε περιοδικά την κατάσταση δικτύου για επανεκκίνηση του VPN κατά την αποσύνδεση.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Εξαιρούμενες εφαρμογές</string>
     <string name="pref_vpn_excluded_apps_description">Διαμορφώστε ποιες εφαρμογές δεν πρέπει να χρησιμοποιούν το VPN, ώστε να μην αποκλείονται συνδέσεις.</string>
