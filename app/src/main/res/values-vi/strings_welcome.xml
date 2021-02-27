@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Chào mừng</string>
+    <string name="welcome_first_step">Bước đầu wizard</string>
+    <string name="welcome_second_step">Bước wizard thứ hai</string>
+    <string name="welcome_last_step">Bước wizard cuối cùng</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Chào mừng dến với AdAway!</string>
