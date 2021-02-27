@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">Cập nhật AdAway</string>
     <!-- Home screen -->
     <string name="update_available">Có cập nhật mới!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">Đã cập nhật xong</string>
+    <string name="update_update_available_header">Đã có bản cập nhật</string>
+    <string name="update_updating_header">Đang cập nhật AdAway</string>
     <string name="update_update_button">Cập nhật ngay</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Các thay đổi mới:</string>
+    <string name="update_new_changelog_title">Changelog:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Đang tải xuống bản mới nhất của AdAway...</string>
 </resources>
