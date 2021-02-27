@@ -23,4 +23,14 @@
     <string name="pref_webserver">Webserver cục bộ</string>
     <string name="pref_webserver_summary">Máy chủ web cục bộ sử dụng các địa chỉ IP để phản hồi các yêu cầu truy cập các tên miền đã bị chặn, giúp giải quyết việc treo ứng dụng do kết nối bị chặn.</string>
     <string name="pref_webserver_enabled">Bật webserver</string>
-    </resources>
+    <string name="pref_webserver_test">Thử nghiệm web server</string>
+    <string name="pref_webserver_certificate">Cài đặt chứng chỉ tự kí</string>
+    <string name="pref_webserver_certificate_dialog_title">Cài đặt thủ công chứng chỉ</string>
+    <string name="pref_webserver_certificate_dialog_content">Từ Android 11 (R) trở đi, ứng dụng sẽ không được phép tự cài đặt các chứng chỉ uỷ quyền (CA). \n\nVào cài đặt \"Bảo mật\", \"Mã hoá &amp; chứng chỉ\" rồi \"Cài đặt chứng chỉ\". Chọn \"Chứng chỉ CA\" và lựa chọn file chứng chỉ mới được xuất.</string>
+    <string name="pref_webserver_certificate_dialog_action">Mở cài đặt \"Bảo mật\"</string>
+    <string name="pref_webserver_state_checking">Đang kiểm tra...</string>
+    <string name="pref_webserver_state_not_running">Không hoạt động</string>
+    <string name="pref_webserver_state_running_not_installed">Hoạt động nhưng chứng chỉ chưa được cài đặt</string>
+    <string name="pref_webserver_state_running_and_installed">Đang hoạt động và đã cài đặt chứng chỉ</string>
+    <string name="pref_webserver_icon">Đổi chỗ quảng cáo bằng icon ứng dụng</string>
+</resources>
