@@ -1,3 +1,11 @@
+## [5.5.0] - Unreleased
+
+- Add allow list support
+- Improve source edition UI
+- Improve animations
+
+Special thanks to jawz101 and zgfg for their bug reports.
+
 ## [5.4.0] - 2021-02-28
 
 - Add VPN monitor option to prevent disconnection
