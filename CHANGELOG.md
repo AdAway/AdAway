@@ -1,4 +1,4 @@
-## [5.4.0] - Unreleased
+## [5.4.0] - 2021-02-28
 
 - Add VPN monitor option to prevent disconnection
 - Update source update status indicator
