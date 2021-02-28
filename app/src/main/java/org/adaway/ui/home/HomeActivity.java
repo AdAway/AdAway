@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,7 +51,6 @@ import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.TAB;
-import static org.adaway.ui.welcome.WelcomeMethodFragment.VPN_START_REQUEST_CODE;
 
 /**
  * This class is the application main activity.
@@ -66,6 +67,7 @@ public class HomeActivity extends AppCompatActivity {
     private HomeActivityBinding binding;
     private BottomSheetBehavior<View> drawerBehavior;
     private HomeViewModel homeViewModel;
+    private ActivityResultLauncher<Intent> prepareVpnLauncher;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -95,6 +97,10 @@ public class HomeActivity extends AppCompatActivity {
                 this.drawerBehavior.setState(STATE_HIDDEN);
             }
             return false; // TODO Handle selection
+        });
+
+        this.prepareVpnLauncher = registerForActivityResult(new StartActivityForResult(), result -> {
+
         });
 
         if (savedInstanceState == null) {
@@ -132,7 +138,7 @@ public class HomeActivity extends AppCompatActivity {
             finish();
         } else if (adBlockMethod == VPN && (prepareIntent = VpnService.prepare(this)) != null) {
             // Prepare VPN
-            startActivityForResult(prepareIntent, VPN_START_REQUEST_CODE);
+            this.prepareVpnLauncher.launch(prepareIntent);
         }
     }
 
