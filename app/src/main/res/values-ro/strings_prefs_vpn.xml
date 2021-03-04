@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Blocarea prin server VPN a reclamelor</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Activare la pornire</string>
+    <string name="pref_vpn_service_monitor">Monitorizare conexiune</string>
+    <string name="pref_vpn_service_monitor_description">Verificare periodică a stării internetului pentru repornirea VPN la deconectare</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Aplicații excluse</string>
-    <string name="pref_vpn_excluded_apps_description">Alegeți aplicațiile care nu ar trebui blocate de către VPN deci conexiunea lor va rămâne nerestricționată</string>
+    <string name="pref_vpn_excluded_apps_description">Alegeți aplicațiile care nu ar trebui să fie blocate de către VPN deci conexiunea lor va rămâne nerestricționată</string>
     <string name="pref_vpn_exclude_system_apps">Excludere aplicații de sistem</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>Niciuna</item>
