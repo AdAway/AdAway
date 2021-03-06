@@ -3,6 +3,7 @@
 - Add allow list support
 - Improve source edition UI
 - Improve animations
+- Update dependencies
 
 Special thanks to jawz101 and zgfg for their bug reports.
 
