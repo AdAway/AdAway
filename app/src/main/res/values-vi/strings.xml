@@ -11,9 +11,9 @@
     <string name="button_help">Trợ giúp</string>
 
     <!--Home-->
-    <string name="header_help">Chào mừng</string>
-    <string name="text_help">Adaway là một phần mềm miễn phí và là phần mềm mở dùng để chặn quảng cáo trên các máy đã root./n Muốn biết thêm thông tin?? Hãy xem bên dưới, và được dịch bởi DuykhanhGaming</string>
-    <string name="button_show_help">Thêm hướng dẫn</string>
+    <string name="header_help">Chào mừng!</string>
+    <string name="text_help">AdAway là một phần mềm miễn phí và mã nguồn mở được thiết kế để chặn quảng cáo. Nó lấy địa chỉ các mạng quảng cáo để chặn chúng trên thiết bị của bạn.\nBạn có muốn biết thêm không? Hãy xem trợ giúp ở bên dưới!</string>
+    <string name="button_show_help">Hiện thêm trợ giúp</string>
     <string name="icon_update_status">Cập nhật tình trạng</string>
     <string name="text_update">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
     <string name="button_check_update_hosts">Kiểm tra cập nhật</string>
@@ -23,28 +23,29 @@
     <string name="header_webserver">Máy chủ web</string>
     <string name="webserver_status_running">Đang chạy</string>
     <string name="webserver_status_stopped">Đã dừng</string>
-    <string name="webserver_toggle_text">Chạy hoặc tắt webserver trên máy để trả lời cho những trang quảng cáo bị chặn</string>
+    <string name="webserver_toggle_text">Bắt đầu hoặc dừng máy chủ web trên localhost để trả lời những yêu cầu đến các tên miền bị chặn.</string>
     <string name="button_enable_webserver">Bật webserver</string>
     <string name="button_disable_webserver">Tắt webserver </string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Đang chạy</string>
     <string name="vpn_status_stopped">Đã dừng</string>
-    <string name="vpn_toggle_text">Chạy hoặc tắt VPN để chặn quảng cáo</string>
+    <string name="vpn_toggle_text">Bắt đầu hoặc dừng VPN để lọc các yêu cầu.</string>
     <string name="button_enable_vpn">Bật VPN</string>
     <string name="button_disable_vpn">Tắt VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Xoá</string>
     <string name="checkbox_list_context_title">Chỉnh sửa mục</string>
+    <string name="checkbox_list_context_apply">Áp dụng</string>
     <string name="checkbox_list_context_edit">Chỉnh sửa</string>
+    <string name="checkbox_list_context_delete">Xoá</string>
 
     <!--Your lists-->
     <string name="import_dialog">Đang nhập…</string>
-    <string name="import_success">Đã nhập tệp sao lưu thành công từ bộ nhớ</string>
+    <string name="import_success">Đã nhập tệp sao lưu thành công từ bộ nhớ ngoài.</string>
     <string name="import_failed">Lỗi nhập tệp sao lưu, nó có đúng dạng không? Xem logcat để biết thêm chi tiết</string>
     <string name="export_dialog">Đang xuất…</string>
-    <string name="export_success">Tệp sao lưu đã xuất thành công đến \'adaway-backup.json\' trên máy</string>
-    <string name="export_failed">Lỗi khi xuất tệp sao lưu</string>
+    <string name="export_success">Bản sao lưu được xuất thành công ra tập tin \'%s\' trên bộ nhớ ngoài.</string>
+    <string name="export_failed">Xuất tập tin sao lưu \'%s\' thất bại.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Tệp hosts</string>
@@ -54,11 +55,12 @@
 
     <!--Status Notification-->
     <string name="status_check">Đang kiểm tra cập nhật</string>
-    <string name="status_check_source">Đang kiểm tra cập nhật %s </string>
+    <string name="status_check_source">Đang kiểm tra cập nhật từ nguồn %s</string>
     <string name="status_retrieve">Đang lấy nguồn</string>
     <string name="status_download_source">Đang tải nguồn %s</string>
-    <string name="status_read_source">Đang sao chép nguồn %s</string>
-    <string name="status_parse_source">Hợp nhất nguồn %s</string>
+    <string name="status_read_source">Đang đọc nguồn %s</string>
+    <string name="status_parse_source">Đang hợp nhất nguồn %s</string>
+    <string name="status_sync_database">Đồng bộ cơ sở dữ liệu bộ lọc</string>
     <string name="status_revert">Quay lại tập tin nguồn mặc định</string>
     <string name="status_revert_done">Quay lại tập tin nguồn mặc định</string>
     <string name="status_reverting_subtitle">Đang tạo tập tin miền chuẩn</string>
@@ -69,7 +71,7 @@
     <string name="status_no_connection_subtitle">Không có sẵn kết nối mạng</string>
     <string name="status_download_fail">Không có nguồn nào</string>
     <string name="status_download_fail_subtitle_new">Không kết nối được tới bất cứ nguồn nào!</string>
-    <string name="status_root_access_denied">Bị từ chối quyền truy cập root.Bạn đã root máy chưa ?</string>
+    <string name="status_root_access_denied">Quyền truy cập root bị từ chối</string>
     <string name="status_root_access_denied_subtitle">Cho phép quyền root </string>
     <string name="status_failure">Có gì đó không ổn</string>
     <string name="status_failure_subtitle">Kiểm tra logcat để biết thêm chi tiết</string>
@@ -85,7 +87,7 @@
     <string name="status_vpn_configuration_updated">Cấu hình VPN được cập nhật thành công</string>
     <string name="notification_configuration_changed">Tùy chỉnh Cấu hình đã thay đổi. </string>
     <string name="notification_configuration_changed_action">Áp dụng</string>
-    <string name="notification_configuration_installing">Đang áp dụng tùy chỉnh mới</string>
+    <string name="notification_configuration_installing">Đang áp dụng thiết lập mới...</string>
     <string name="notification_configuration_failed">Không thể áp dụng tùy chỉnh mới</string>
 
     <!--Apply and Revert Dialogs-->
@@ -101,12 +103,12 @@
     <string name="apply_copy_fail_status">Không thể sao chép tập tin máy chủ</string>
     <string name="apply_copy_fail">Thất bại khi sao chép tập tin miền!</string>
     <string name="apply_copy_fail_title">Sao chép thất bại</string>
-    <string name="apply_success_subtitle">Áp dụng Nguồn máy chủ</string>
+    <string name="apply_success_subtitle">Đã áp dụng các nguồn tên miền</string>
     <string name="apply_success_title">Áp dụng thành công</string>
-    <string name="apply_success_dialog">Áp dụng đã thành công. \nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực. \n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy đảm bảo không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
-    <string name="apply_symlink_successful">Symlink đã được tạo thành công. \nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực. \n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy đảm bảo không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
+    <string name="apply_success_dialog">Áp dụng đã thành công. \nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực. \n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy chắc chắn không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
+    <string name="apply_symlink_successful">Liên kết biểu tượng đã được tạo thành công.\nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực.\n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy chắc chắn không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
     <string name="apply_symlink_successful_title">Tạo liên kết biểu trưng thành công</string>
-    <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
+    <string name="apply_symlink_fail">Liên kết biểu tượng không thể được tạo bởi Android.\nViệc này thất bại phần lớn vì một \'tính năng\' gọi là S-ON trên các điện thoại HTC!\n\nMột giải pháp là khởi động điện thoại của bạn vào chế độ phục hồi và tạo liên kết biểu tượng ở đó bằng lệnh \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu việc này không được thì hãy tìm kiếm S-OFF và điện thoại của bạn trên Internet.</string>
     <string name="apply_symlink_fail_title">Tạo liên kết biểu trưng thất bại</string>
     <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
     <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) and remove the value in the proxy field. </string>
@@ -119,44 +121,84 @@
     <string name="apply_dialog_hostnames">Đang xử lý và hợp nhất các tập tin miền</string>
     <string name="apply_dialog_hosts">Đang tạo tập tin miền</string>
     <string name="apply_dialog_apply">Đang áp dụng tập tin miền</string>
-    <string name="apply_fail">Thất bại khi áp dụng tập tin miền vào hệ thống!\nHãy thử đổi tập tin miền mục tiêu trong tuỳ chỉnh thành /data/data/hosts.</string>
+    <string name="apply_fail_status">Không thể áp dụng file hosts mới.</string>
+    <string name="apply_fail">Thất bại khi áp dụng tập tin miền vào hệ thống!\nHãy thử đổi tập tin miền mục tiêu trong cài đặt thành /data/data/hosts.</string>
     <string name="apply_fail_title">Áp dụng thất bại</string>
+    <string name="root_access_fail">Hãy kiểm tra ứng dụng quản lý root để chắc rằng quyền truy cập root đã được cấp phép.</string>
+    <string name="revert_successful">Bạn đã quay về tập tin miền mặc định.\nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực.\n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy chắc chắn không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
     <string name="revert_successful_title">Đổi lại thành công</string>
+    <string name="revert_failed_status">Không thể quay lại tập tin miền ban đầu</string>
     <string name="revert_problem">Đổi lại bị thất bại mà không rõ nguyên nhân.</string>
     <string name="revert_problem_title">Đổi lại thất bại!</string>
     <string name="download_fail_dialog">Không truy cập được bất kỳ nguồn tên miền đã kích hoạt nào! Bạn có đang kết nối mạng không?</string>
     <string name="download_fail_title">Tải về thất bại</string>
+    <string name="no_private_file_status">Viết tập tin miền riêng mới thất bại</string>
     <string name="no_private_file">Không thể tạo tập tin riêng.</string>
     <string name="no_private_file_title">Tạo tập tin riêng thất bại</string>
+    <string name="enable_systemless_successful">Bạn đã bật chế độ không dùng hệ thống.\nCó thể cần phải khởi động lại Android để các thay đổi có hiệu lực.\n\nBạn có muốn khởi động lại không?\n(Để tránh mất dữ liệu, hãy chắc chắn không có ứng dụng nào sử dụng thẻ SD vào lúc này!)</string>
     <string name="enable_systemless_successful_title">Kích hoạt thành công</string>
+    <string name="disable_systemless_successful">Bạn đã vô hiệu hoá chế độ systemless.\nCó thể sẽ cần thiết phải khởi động lại Android để sự thay đổi có hiệu quả. \n\nBạn có muốn khởi động lại?\n(Để tránh mất dữ liệu hãy chắc rằng không có ứng dụng nào đang sử dụng thẻ SD lúc này!)</string>
     <string name="disable_systemless_successful_title">Vô hiệu hóa thành công</string>
     <string name="enable_vpn_fail">Không thể khởi động trình chặn quảng cáo qua VPN.</string>
     <string name="disable_vpn_fail">Không thể tắt chặn quảng cáo qua VPN. </string>
+    <string name="enable_systemless_magisk_title">Kích hoạt module Magisk hosts</string>
+    <string name="enable_systemless_magisk">Kích hoạt tính năng systemless hosts của Magisk. Ở cài đặt, kích hoạt lựa chọn <cite>Systemless hosts</cite>rồi khởi động lại thiết bị của bạn.</string>
+    <string name="disable_systemless_magisk_title">Vô hiệu hoá module Magisk hosts</string>
+    <string name="disable_systemless_magisk">Vô hiệu hoá tính năng systemless hosts của Magisk. Ở danh sách module, gỡ cài đặt module <cite>Systemless hosts</cite> rồi khởi động lại thiết bị của bạn.</string>
+
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Nhập URL vào tập tin miền:</string>
     <string name="no_hostname">Tên miền không hợp lệ!</string>
     <string name="no_hostname_title">Định dạng tên miền không đúng</string>
     <string name="no_ip">IP không hợp lệ!</string>
     <string name="no_ip_title">Định dạng IP không đúng</string>
+    <string name="reboot_never_reboot">Không bao giờ khởi động lại và đừng hiện câu hỏi này lần tiếp theo!</string>
     <string name="loading">Đang tải…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Làm mới</string>
     <string name="menu_add">Thêm</string>
     <string name="menu_help">Trợ giúp</string>
+    <string name="menu_import">Nhập bản sao lưu</string>
+    <string name="menu_export">Xuất bản sao lưu</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">Hỏi đáp</string>
+    <string name="help_tab_faq">Những câu hỏi thường gặp</string>
     <string name="help_tab_problems">Vấn đề</string>
+
+    <!--Adware-->
+    <string name="adware_header">Adware</string>
+    <string name="adware_description">Ở đây bạn có thể tìm thấy ứng dụng quảng cáo, đó là những ứng dụng xấu không thể bị chặn bởi AdAway. Các ứng dụng này sử dụng, ví dụ là các thông báo Airpush hiện lên kể cả khi ứng dụng đó không chạy hoặc kể cả là thay đổi nhạc chuông của bạn. Biện pháp phản lại duy nhất có sẵn là gỡ cài đặt các ứng dụng đó bằng cách nhấn vào các mục trong danh sách.</string>
+    <string name="adware_scanning">Đang quét&#8320;</string>
+    <string name="adware_empty">Không tìm thấy Adware!</string>
 
     <!--Other-->
     <string name="app_subtitle">Ứng dụng chặn quảng cáo</string>
     <string name="no_text_editor_title">Chưa cài trình sửa văn bản</string>
     <string name="no_text_editor">Không tìm thấy trình sửa văn bản để mở tập tin miền. Bạn có thể cài Jota hoặc các trình sửa văn bản khác.\n\nBạn có muốn cài Jota?</string>
-    <string name="no_file_manager_title">Chưa cài trình quản lý tập tin</string>
+    <string name="no_file_manager_title">Không có trình quản lý tập tin nào được cài đặt</string>
     <string name="no_file_manager">Không tìm thấy trình quản lý để mở tập tin. Bạn có thể cài OI File Manager hoặc các trình quản lý khác.\n\nBạn có muốn cài OI File Manager?</string>
 
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_description">Tcpdump là công cụ giám sát các yêu cầu DNS và lưu chúng vào tập tin nhật ký. Bạn có thể khởi động nó trong chế độ nền, chạy các ứng dụng có quảng cáo và sau đó phân tích yêu cầu DNS qua tập tin nhật ký. Máy chủ quảng cáo nhận được sẽ bị đưa vào danh sách đen.</string>
+    <string name="tcpdump_disable_monitoring">Tắt giám sát</string>
+    <string name="tcpdump_enable_monitoring">Bật giám sát</string>
+    <string name="tcpdump_show_results">Hiện kết quả</string>
+    <string name="tcpdump_redirect_dialog_title">Chuyển hướng miền</string>
+    <string name="tcpdump_menu_sort">Sắp xếp theo tên miền</string>
+    <string name="tcpdump_menu_clear">Xoá log</string>
+    <string name="tcpdump_sort_alphabetical">Sắp xếp theo thứ tự chữ cái</string>
+    <string name="tcpdump_sort_top_level_domain">Sắp xếp miền cấp trên cùng</string>
+    <string name="tcpdump_entry_add_blacklist">Thêm mục vào danh sách đen</string>
+    <string name="tcpdump_entry_add_whitelist">Thêm mục vào danh sách trắng</string>
+    <string name="tcpdump_entry_add_redirection_list">Thêm mục vào danh sách chuyển hướng</string>
+
+    <string name="pref_edit_text_value">Chỉnh sửa giá trị cài đặt văn bản</string>
+    <string name="drawer_open">Mở menu</string>
+    <string name="drawer_close">Đóng menu</string>
+
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -168,9 +210,47 @@
         <item>Tuỳ chỉnh</item>
         <item>Trợ giúp</item>
     </string-array>
+    <!--Drawer menu labels-->
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">Các yêu cầu DNS</string>
     <string name="shortcut_your_lists">Danh sách của bạn</string>
     <string name="shortcut_preferences">Tuỳ chỉnh</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Đã cài đặt %1$s trước</string>
+    <string name="hosts_source_up_to_date">Đã cập nhật %1$s trước</string>
+    <string name="hosts_source_need_update">Cần được cập nhật %1$s</string>
+    <string name="hosts_source_last_update">Cập nhật lần cuối %1$s trước</string>
+    <string name="hosts_source_unknown_status">Trạng thái cập nhật không xác định</string>
+    <string name="hosts_source_few_minutes">vài phút</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="other">%d phút</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="other">%d giờ</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="other">%d ngày</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="other">%d tháng</item>
+    </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">đang bắt đầu</string>
+    <string name="vpn_notification_running">hoạt động</string>
+    <string name="vpn_notification_stopping">đang dừng</string>
+    <string name="vpn_notification_waiting_for_net">đang kết nối</string>
+    <string name="vpn_notification_reconnecting">đang kết nối lại</string>
+    <string name="vpn_notification_reconnecting_error">lỗi kết nối lại</string>
+    <string name="vpn_notification_paused">đã tạm dừng</string>
+    <string name="vpn_notification_stopped">đã dừng lại</string>
+    <string name="vpn_notification_title">VPN chặn quảng cáo %1$s</string>
+    <string name="vpn_notification_action_pause">Tạm dừng</string>
     <string name="vpn_notification_paused_text">Chạm để tiếp tục</string>
 
-    </resources>
+    <!-- Permission -->
+    <string name="permission_status_command_label">Kích hoạt và vô hiệu hoá chặn quảng cáo hệ thống</string>
+
+</resources>
