@@ -2,9 +2,11 @@ package org.adaway.ui.prefs;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts.CreateDocument;
+import androidx.activity.result.contract.ActivityResultContracts.OpenDocument;
 import androidx.annotation.NonNull;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -12,13 +14,8 @@ import androidx.preference.PreferenceFragmentCompat;
 import org.adaway.R;
 import org.adaway.model.backup.BackupExporter;
 import org.adaway.model.backup.BackupImporter;
-import org.adaway.util.Log;
 
-import static android.app.Activity.RESULT_OK;
-import static android.content.Intent.ACTION_CREATE_DOCUMENT;
-import static android.content.Intent.ACTION_OPEN_DOCUMENT;
 import static android.content.Intent.CATEGORY_OPENABLE;
-import static android.content.Intent.EXTRA_TITLE;
 import static org.adaway.util.Constants.PREFS_NAME;
 
 /**
@@ -28,15 +25,6 @@ import static org.adaway.util.Constants.PREFS_NAME;
  */
 public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
     /**
-     * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
-     */
-    private static final int IMPORT_REQUEST_CODE = 42;
-    /**
-     * The request code to identify the selection of a file in {@link androidx.fragment.app.Fragment#onActivityResult(int, int, Intent)}.
-     */
-    private static final int EXPORT_REQUEST_CODE = 43;
-    private static final String TAG = "BackupRestorePref";
-    /**
      * The backup mime type.
      */
     private static final String JSON_MIME_TYPE = "application/json";
@@ -44,12 +32,23 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
      * The default backup file name.
      */
     private static final String BACKUP_FILE_NAME = "adaway-backup.json";
+    /**
+     * The launcher to start import backup activity.
+     */
+    private ActivityResultLauncher<String[]> importActivityLauncher;
+    /**
+     * The launcher to start export backup activity.
+     */
+    private ActivityResultLauncher<String> exportActivityLauncher;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         // Configure preferences
         getPreferenceManager().setSharedPreferencesName(PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences_backup_restore);
+        // Register for activities
+        registerForImportActivity();
+        registerForExportActivity();
         // Bind pref actions
         bindBackupPref();
         bindRestorePref();
@@ -61,39 +60,42 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
         PrefsActivity.setAppBarTitle(this, R.string.pref_backup_restore_title);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Check result
-        if (resultCode != RESULT_OK) {
-            return;
-        }
-        // Check data
-        if (data == null || data.getData() == null) {
-            Log.w(TAG, "No result data.");
-            return;
-        }
-        // Get selected file URI
-        Uri backupUri = data.getData();
-        Log.d(TAG, "Backup URI: " + backupUri.toString());
-        // Check request code
-        switch (requestCode) {
-            case IMPORT_REQUEST_CODE:
+    private void registerForImportActivity() {
+        this.importActivityLauncher = registerForActivityResult(new OpenDocument() {
+            @NonNull
+            @Override
+            public Intent createIntent(@NonNull Context context, @NonNull String[] input) {
+                return super.createIntent(context, input)
+                        .addCategory(CATEGORY_OPENABLE);
+            }
+        }, backupUri -> {
+            if (backupUri != null) {
                 BackupImporter.importFromBackup(requireContext(), backupUri);
-                break;
-            case EXPORT_REQUEST_CODE:
+            }
+        });
+    }
+
+    private void registerForExportActivity() {
+        this.exportActivityLauncher = registerForActivityResult(new CreateDocument() {
+            @NonNull
+            @Override
+            public Intent createIntent(@NonNull Context context, @NonNull String input) {
+                return super.createIntent(context, input)
+                        .addCategory(CATEGORY_OPENABLE)
+                        .putExtra(Intent.EXTRA_MIME_TYPES, new String[]{JSON_MIME_TYPE});
+            }
+        }, backupUri -> {
+            if (backupUri != null) {
                 BackupExporter.exportToBackup(requireContext(), backupUri);
-                break;
-            default:
-                Log.w(TAG, "Unsupported request code: " + requestCode + ".");
-        }
+            }
+        });
     }
 
     private void bindBackupPref() {
         Preference backupPreference = findPreference(getString(R.string.pref_backup_key));
         assert backupPreference != null : "preference not found";
         backupPreference.setOnPreferenceClickListener(preference -> {
-            exportToBackup();
+            this.exportActivityLauncher.launch(BACKUP_FILE_NAME);
             return true;
         });
     }
@@ -102,29 +104,8 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
         Preference backupPreference = findPreference(getString(R.string.pref_restore_key));
         assert backupPreference != null : "preference not found";
         backupPreference.setOnPreferenceClickListener(preference -> {
-            importFromBackup();
+            this.importActivityLauncher.launch(new String[]{JSON_MIME_TYPE});
             return true;
         });
-    }
-
-    /**
-     * Import from a user backup.
-     */
-    private void importFromBackup() {
-        Intent intent = new Intent(ACTION_OPEN_DOCUMENT);
-        intent.addCategory(CATEGORY_OPENABLE);
-        intent.setType(JSON_MIME_TYPE);
-        startActivityForResult(intent, IMPORT_REQUEST_CODE);
-    }
-
-    /**
-     * Export to a user backup.
-     */
-    private void exportToBackup() {
-        Intent intent = new Intent(ACTION_CREATE_DOCUMENT);
-        intent.addCategory(CATEGORY_OPENABLE);
-        intent.setType(JSON_MIME_TYPE);
-        intent.putExtra(EXTRA_TITLE, BACKUP_FILE_NAME);
-        startActivityForResult(intent, EXPORT_REQUEST_CODE);
     }
 }

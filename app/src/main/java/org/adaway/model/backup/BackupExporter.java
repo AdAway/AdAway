@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -65,15 +66,21 @@ public class BackupExporter {
                 imported = false;
             }
             boolean successful = imported;
-            MAIN_THREAD_EXECUTOR.execute(() -> notifyExportEnd(context, successful));
+            String fileName = getFileNameFromUri(backupUri);
+            MAIN_THREAD_EXECUTOR.execute(() -> notifyExportEnd(context, successful, fileName));
         });
     }
 
+    private static String getFileNameFromUri(Uri backupUri) {
+        String path = backupUri.getPath();
+        return path == null ? "" : new File(path).getName();
+    }
+
     @UiThread
-    private static void notifyExportEnd(Context context, boolean successful) {
+    private static void notifyExportEnd(Context context, boolean successful, String backupUri) {
         Toast.makeText(
                 context,
-                context.getString(successful ? R.string.export_success : R.string.export_failed),
+                context.getString(successful ? R.string.export_success : R.string.export_failed, backupUri),
                 Toast.LENGTH_LONG
         ).show();
     }

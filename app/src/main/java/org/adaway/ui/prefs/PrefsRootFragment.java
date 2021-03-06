@@ -47,7 +47,13 @@ import static org.adaway.util.WebServerUtils.stopWebServer;
  */
 public class PrefsRootFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String TAG = "PrefsRoot";
+    /**
+     * The launcher to start open hosts file activity.
+     */
     private ActivityResultLauncher<Intent> openHostsFileLauncher;
+    /**
+     * The launcher to prepare web service certificate activity.
+     */
     private ActivityResultLauncher<String> prepareCertificateLauncher;
 
     @Override
@@ -124,6 +130,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void bindOpenHostsFile() {
         Preference openHostsFilePreference = findPreference(getString(R.string.pref_open_hosts_key));
+        assert openHostsFilePreference != null : "preference not found";
         openHostsFilePreference.setOnPreferenceClickListener(this::openHostsFile);
     }
 
@@ -150,6 +157,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
         Context context = requireContext();
         boolean ipv6Enabled = PreferenceHelper.getEnableIpv6(context);
         Preference ipv6RedirectionPreference = findPreference(getString(R.string.pref_redirection_ipv6_key));
+        assert ipv6RedirectionPreference != null : "preference not found";
         ipv6RedirectionPreference.setEnabled(ipv6Enabled);
     }
 
@@ -157,6 +165,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
         Context context = requireContext();
         // Start web server when preference is enabled
         CheckBoxPreference webServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
+        assert webServerEnabledPref != null : "preference not found";
         webServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if (newValue.equals(true)) {
                 // Start web server
@@ -174,6 +183,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void bindWebServerTest() {
         Preference webServerTest = findPreference(getString(R.string.pref_webserver_test_key));
+        assert webServerTest != null : "preference not found";
         webServerTest.setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(TEST_URL));
             startActivity(intent);
@@ -183,6 +193,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void bindWebServerCertificate() {
         Preference webServerTest = findPreference(getString(R.string.pref_webserver_certificate_key));
+        assert webServerTest != null : "preference not found";
         webServerTest.setOnPreferenceClickListener(preference -> {
             if (SDK_INT < VERSION_CODES.R) {
                 installCertificate(requireContext());
@@ -217,6 +228,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void updateWebServerState() {
         Preference webServerTest = findPreference(getString(R.string.pref_webserver_test_key));
+        assert webServerTest != null : "preference not found";
         webServerTest.setSummary(R.string.pref_webserver_state_checking);
         AppExecutors executors = AppExecutors.getInstance();
         executors.networkIO().execute(() -> {
