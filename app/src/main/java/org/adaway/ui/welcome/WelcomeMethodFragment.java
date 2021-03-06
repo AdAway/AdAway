@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,11 +32,8 @@ import static org.adaway.model.adblocking.AdBlockMethod.VPN;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class WelcomeMethodFragment extends WelcomeFragment {
-    /**
-     * The start activity request code to prepare VPN.
-     */
-    public static final int VPN_START_REQUEST_CODE = 10;
     private WelcomeMethodLayoutBinding binding;
+    private ActivityResultLauncher<Intent> prepareVpnLauncher;
     @ColorInt
     private int cardColor;
     @ColorInt
@@ -44,26 +43,20 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = WelcomeMethodLayoutBinding.inflate(inflater, container, false);
+        this.prepareVpnLauncher = registerForActivityResult(new StartActivityForResult(), result -> {
+            if (result.getResultCode() == RESULT_OK) {
+                notifyVpnEnabled();
+            } else {
+                notifyVpnDisabled();
+            }
+        });
 
         this.binding.rootCardView.setOnClickListener(this::checkRoot);
         this.binding.vpnCardView.setOnClickListener(this::enableVpnService);
 
         this.cardColor = getResources().getColor(R.color.cardBackground, null);
         this.cardEnabledColor = getResources().getColor(R.color.cardEnabledBackground, null);
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // Check VPN activation request
-        if (requestCode == VPN_START_REQUEST_CODE) {
-            if (resultCode == RESULT_OK) {
-                notifyVpnEnabled();
-            } else {
-                notifyVpnDisabled();
-            }
-        }
+        return this.binding.getRoot();
     }
 
     private void checkRoot(@Nullable View view) {
@@ -86,7 +79,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
         if (prepareIntent == null) {
             notifyVpnEnabled();
         } else {
-            startActivityForResult(prepareIntent, VPN_START_REQUEST_CODE);
+            this.prepareVpnLauncher.launch(prepareIntent);
         }
     }
 
