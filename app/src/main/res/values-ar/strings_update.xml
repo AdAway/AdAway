@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">سجل التغيير:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">جاري تنزيل أحدث إصدار من AdAway...</string>
+    <string name="update_notification_description">جاري تنزيل أحدث إصدار من AdAway…</string>
 </resources>

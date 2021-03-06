@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">Cấu hình VPN được cập nhật thành công</string>
     <string name="notification_configuration_changed">Tùy chỉnh Cấu hình đã thay đổi. </string>
     <string name="notification_configuration_changed_action">Áp dụng</string>
-    <string name="notification_configuration_installing">Đang áp dụng thiết lập mới...</string>
+    <string name="notification_configuration_installing">Đang áp dụng thiết lập mới…</string>
     <string name="notification_configuration_failed">Không thể áp dụng tùy chỉnh mới</string>
 
     <!--Apply and Revert Dialogs-->

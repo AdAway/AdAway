@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">Configuración VPN actualizada correctamente</string>
     <string name="notification_configuration_changed">Tu configuración ha cambiado. Debes aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Aplicando nueva configuración...</string>
+    <string name="notification_configuration_installing">Aplicando nueva configuración…</string>
     <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->

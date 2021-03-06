@@ -7,7 +7,7 @@
     <!-- Update activity -->
     <string name="update_up_to_date_header">У вас актуальная версия</string>
     <string name="update_update_available_header">Доступно обновление</string>
-    <string name="update_updating_header">Обновляем AdAway...</string>
+    <string name="update_updating_header">Обновляем AdAway…</string>
     <string name="update_update_button">Обновить сейчас</string>
     <string name="update_progress_label">%1$s / %2$s</string>
     <string name="update_last_changelog_title">Последние изменения:</string>

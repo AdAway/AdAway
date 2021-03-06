@@ -28,7 +28,7 @@
     <string name="pref_webserver_certificate_dialog_title">Руководство установления сертификата.</string>
     <string name="pref_webserver_certificate_dialog_content">Начиная с 11 версии андроид (R), приложение больше не может устанавливать главный сертификат (CA)\n\nИдите в настройки безопасности, \"Личные данные\" и затем \"установить сертификат\". От сюда выберите \"CA сертификат\" и выберете новый выгруженный файл.</string>
     <string name="pref_webserver_certificate_dialog_action">Откройте настройки безопасности</string>
-    <string name="pref_webserver_state_checking">Проверка...</string>
+    <string name="pref_webserver_state_checking">Проверка…</string>
     <string name="pref_webserver_state_not_running">Не запущен</string>
     <string name="pref_webserver_state_running_not_installed">Запущен, но сертификат не установлен</string>
     <string name="pref_webserver_state_running_and_installed">Запущен, сертификат установлен</string>

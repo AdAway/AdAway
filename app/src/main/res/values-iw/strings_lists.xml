@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">מופנה</string>
     <!-- Menu -->
     <string name="lists_menu_filter">סינון מארחים</string>
-    <string name="lists_menu_filter_hint">חיפוש שם מארח...</string>
+    <string name="lists_menu_filter_hint">חיפוש שם מארח…</string>
     <string name="lists_menu_toggle_sources">החלפת מקורות</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">הוסף מארח לרשימה שחורה</string>

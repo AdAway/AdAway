@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">Konfiguracja VPN została zaktualizowana</string>
     <string name="notification_configuration_changed">Twoja konfiguracja została zmieniona. Musisz ją zastosować.</string>
     <string name="notification_configuration_changed_action">Zastosuj</string>
-    <string name="notification_configuration_installing">Zastosowanie nowej konfiguracji...</string>
+    <string name="notification_configuration_installing">Zastosowanie nowej konfiguracji…</string>
     <string name="notification_configuration_failed">Nie można zastosować nowej konfiguracji.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -170,7 +170,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Tutaj możesz znaleźć zainstalowane adware, złe aplikacje, które nie mogą być blokowane przez AdAway. Te aplikacje używają na przykład powiadomień Airpush, które pojawiają się nawet wtedy, gdy aplikacja nie działa lub nawet zmienia dzwonek. Jedynym dostępnym środkiem zaradczym jest odinstalowanie tych aplikacji, klikając elementy listy.</string>
-    <string name="adware_scanning">Skanowanie...</string>
+    <string name="adware_scanning">Skanowanie…</string>
     <string name="adware_empty">Nie znaleziono adware!</string>
 
     <!--Other-->

@@ -28,7 +28,7 @@
     <string name="pref_webserver_certificate_dialog_title">Cài đặt thủ công chứng chỉ</string>
     <string name="pref_webserver_certificate_dialog_content">Từ Android 11 (R) trở đi, ứng dụng sẽ không được phép tự cài đặt các chứng chỉ uỷ quyền (CA). \n\nVào cài đặt \"Bảo mật\", \"Mã hoá &amp; chứng chỉ\" rồi \"Cài đặt chứng chỉ\". Chọn \"Chứng chỉ CA\" và lựa chọn file chứng chỉ mới được xuất.</string>
     <string name="pref_webserver_certificate_dialog_action">Mở cài đặt \"Bảo mật\"</string>
-    <string name="pref_webserver_state_checking">Đang kiểm tra...</string>
+    <string name="pref_webserver_state_checking">Đang kiểm tra…</string>
     <string name="pref_webserver_state_not_running">Không hoạt động</string>
     <string name="pref_webserver_state_running_not_installed">Hoạt động nhưng chứng chỉ chưa được cài đặt</string>
     <string name="pref_webserver_state_running_and_installed">Đang hoạt động và đã cài đặt chứng chỉ</string>

@@ -28,7 +28,7 @@
     <string name="pref_webserver_certificate_dialog_title">Manuel sertifika kurulumu</string>
     <string name="pref_webserver_certificate_dialog_content">Android 11 (R)\'den başlatılan uygulama artık otomatik olarak doğrulama sertifikası (CA) yükleyemez. Bunun için: \"Güvenlik\" ayarlarına gidin. \"Şifreleme &amp: kimlikleri\"ni seçin daha sonra \"Bir sertifika yükle\"yi seçin. Oradan da, \"CA sertifikası\"nı seçin ve yeni dışa aktarılmış sertifika dosyanızı seçin.</string>
     <string name="pref_webserver_certificate_dialog_action">\"Güvenlik\" ayarlarını açın</string>
-    <string name="pref_webserver_state_checking">Kontrol ediliyor...</string>
+    <string name="pref_webserver_state_checking">Kontrol ediliyor…</string>
     <string name="pref_webserver_state_not_running">Çalışmıyor</string>
     <string name="pref_webserver_state_running_not_installed">Çalışıyor ancak sertifika kurulu değil</string>
     <string name="pref_webserver_state_running_and_installed">Çalışıyor ve sertifika kurulu</string>
