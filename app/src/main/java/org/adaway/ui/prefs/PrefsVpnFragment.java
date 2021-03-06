@@ -4,8 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
@@ -22,13 +23,15 @@ import static org.adaway.util.Constants.PREFS_NAME;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class PrefsVpnFragment extends PreferenceFragmentCompat {
-    private static final int RESTART_VPN_REQUEST_CODE = 2000;
+    private ActivityResultLauncher<Intent> startActivityLauncher;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         // Configure preferences
         getPreferenceManager().setSharedPreferencesName(PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences_vpn);
+        // Register for activity
+        registerForStartActivity();
         // Bind pref actions
         bindExcludedSystemApps();
         bindExcludedUserApps();
@@ -40,15 +43,16 @@ public class PrefsVpnFragment extends PreferenceFragmentCompat {
         PrefsActivity.setAppBarTitle(this, R.string.pref_vpn_title);
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == RESTART_VPN_REQUEST_CODE) {
-            restartVpn();
-        }
+    private void registerForStartActivity() {
+        this.startActivityLauncher = registerForActivityResult(
+                new StartActivityForResult(),
+                result -> restartVpn()
+        );
     }
 
     private void bindExcludedSystemApps() {
         ListPreference excludeUserAppsPreferences = findPreference(getString(R.string.pref_vpn_excluded_system_apps_key));
+        assert excludeUserAppsPreferences != null : "preference not found";
         excludeUserAppsPreferences.setOnPreferenceChangeListener((preference, newValue) -> {
             restartVpn();
             return true;
@@ -58,8 +62,10 @@ public class PrefsVpnFragment extends PreferenceFragmentCompat {
     private void bindExcludedUserApps() {
         Context context = requireContext();
         Preference excludeUserAppsPreferences = findPreference(getString(R.string.pref_vpn_excluded_user_apps_key));
+        assert excludeUserAppsPreferences != null : "preference not found";
         excludeUserAppsPreferences.setOnPreferenceClickListener(preference -> {
-            startActivityForResult(new Intent(context, PrefsVpnExcludedAppsActivity.class), RESTART_VPN_REQUEST_CODE);
+            Intent intent = new Intent(context, PrefsVpnExcludedAppsActivity.class);
+            this.startActivityLauncher.launch(intent);
             return true;
         });
     }

@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.annotation.NonNull;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.Preference;
@@ -108,7 +109,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
     }
 
     private void registerForOpenHostActivity() {
-        this.openHostsFileLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        this.openHostsFileLauncher = registerForActivityResult(new StartActivityForResult(), result -> {
             SuFile hostFile = new SuFile(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
             remountPartition(hostFile, READ_ONLY);
         });
