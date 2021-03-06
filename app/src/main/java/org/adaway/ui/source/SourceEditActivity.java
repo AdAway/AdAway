@@ -8,6 +8,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -46,15 +48,12 @@ public class SourceEditActivity extends AppCompatActivity {
      * The any type mime type.
      */
     private static final String ANY_MIME_TYPE = "*/*";
-    /**
-     * The open host request code.
-     */
-    private static final int OPEN_HOST_REQUEST_CODE = 30;
     private static final Executor DISK_IO_EXECUTOR = AppExecutors.getInstance().diskIO();
     private static final Executor MAIN_THREAD_EXECUTOR = AppExecutors.getInstance().mainThread();
 
     private SourceEditActivityBinding binding;
     private HostsSourceDao hostsSourceDao;
+    private ActivityResultLauncher<Intent> startActivityLauncher;
     private boolean editing;
     private HostsSource edited;
 
@@ -79,23 +78,27 @@ public class SourceEditActivity extends AppCompatActivity {
          */
         AppDatabase database = AppDatabase.getInstance(this);
         this.hostsSourceDao = database.hostsSourceDao();
+        // Register for activity
+        registerForStartActivity();
         // Set up values
         checkInitialValueFromIntent();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent resultData) {
-        super.onActivityResult(requestCode, resultCode, resultData);
-        Uri uri;
-        if (requestCode == OPEN_HOST_REQUEST_CODE && resultCode == RESULT_OK
-                && resultData != null && (uri = resultData.getData()) != null) {
-            // Persist read permission
-            int takeFlags = resultData.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
-            getContentResolver().takePersistableUriPermission(uri, takeFlags);
-            // Update file location
-            this.binding.fileLocationTextView.setText(uri.toString());
-            this.binding.fileLocationTextView.setError(null);
-        }
+    private void registerForStartActivity() {
+        this.startActivityLauncher = registerForActivityResult(new StartActivityForResult(), result -> {
+            Uri uri;
+            Intent data = result.getData();
+            if (result.getResultCode() == RESULT_OK
+                    && data != null
+                    && (uri = data.getData()) != null) {
+                // Persist read permission
+                int takeFlags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
+                getContentResolver().takePersistableUriPermission(uri, takeFlags);
+                // Update file location
+                this.binding.fileLocationTextView.setText(uri.toString());
+                this.binding.fileLocationTextView.setError(null);
+            }
+        });
     }
 
     private void checkInitialValueFromIntent() {
@@ -249,6 +252,6 @@ public class SourceEditActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType(ANY_MIME_TYPE);
-        startActivityForResult(intent, OPEN_HOST_REQUEST_CODE);
+        this.startActivityLauncher.launch(intent);
     }
 }
