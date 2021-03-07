@@ -24,6 +24,7 @@ struct settings {
     char test_path[100];
     char icon_path[100];
     bool icon;
+    bool debug;
 };
 
 static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
@@ -94,6 +95,8 @@ struct settings parse_cli_parameters(int argc, char *argv[]) {
             s.init = true;
         } else if (strcmp(argv[i], "--icon") == 0) {
             s.icon = true;
+        } else if (strcmp(argv[i], "--debug") == 0) {
+            s.debug = true;
         }
     }
     return s;
@@ -106,8 +109,13 @@ int main(int argc, char *argv[]) {
 
     struct settings s = parse_cli_parameters(argc, argv);
     if (!s.init) {
-        __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Missing parameters");
+        __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Missing parameters.");
         return EXIT_FAILURE;
+    }
+
+    if (s.debug) {
+        __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Debug mode activated.");
+        mg_log_set("3");
     }
 
     oom_adjust_setup();
