@@ -40,17 +40,17 @@
     <string name="checkbox_list_context_delete">Διαγραφή</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Εισαγωγή…</string>
+    <string name="import_dialog">Εισαγωγή...</string>
     <string name="import_success">Η δημιουργία αντιγράφων ασφαλείας έγινε με επιτυχία από το εξωτερικό αποθηκευτικό χώρο.</string>
     <string name="import_failed">Αποτυχία εισαγωγής αντιγράφων ασφαλείας. Είναι σωστή η μορφή του; Ελέγξτε το αρχείο logcat για περισσότερες λεπτομέρειες.</string>
-    <string name="export_dialog">Εξαγωγή…</string>
-    <string name="export_success">Το αντίγραφο ασφαλείας εξήχθη με επιτυχία στο αρχείο \'adaway-backup.json\' στο εξωτερικό σας αποθηκευτικό χώρο.</string>
-    <string name="export_failed">Αποτυχία εξαγωγής αντίγραφου ασφαλείας.</string>
+    <string name="export_dialog">Εξαγωγή...</string>
+    <string name="export_success">Το αντίγραφο ασφαλείας εξήχθη με επιτυχία στο αρχείο \'%s\' στον εξωτερικό χώρο αποθήκευσης σας.</string>
+    <string name="export_failed">Αποτυχία εξαγωγής αρχείου αντιγράφου ασφαλείας \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Το αρχείο hosts</string>
     <string name="hosts_description">Το αρχείο hosts είναι ένα αρχείο συστήματος το οποίο αντιστοιχίζει ονόματα διακομιστών σε διευθύνσεις IP. Είναι ένα αρχείο απλού κειμένου το οποίο ρυθμίζει το AdAway. Εδώ παρατίθενται οι πρώτες του γραμμές:</string>
-    <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts…</string>
+    <string name="hosts_content">Γίνεται φόρτωση του περιεχομένου του αρχείου hosts...</string>
     <string name="hosts_open_button">Άνοιγμα του αρχείου hosts</string>
 
     <!--Status Notification-->
@@ -129,8 +129,8 @@
     <string name="apply_apn_proxy_title">Υπάρχει ορισμένος διαμεσολαβητής APN!</string>
     <string name="no_connection">Η σύνδεση στο ίντερνετ δεν λειτουργεί</string>
     <string name="no_connection_title">Αδυναμία συνδεσης</string>
-    <string name="download_dialog">Λήψη…</string>
-    <string name="apply_dialog">Εφαρμογή…</string>
+    <string name="download_dialog">Λήψη...</string>
+    <string name="apply_dialog">Εφαρμογή...</string>
     <string name="apply_dialog_lists">Εφαρμογή Λευκής και Μαύρης λίστας</string>
     <string name="apply_dialog_hostnames">Ανάλυση και συγχώνευση αρχείων hosts</string>
     <string name="apply_dialog_hosts">Δημιουργία αρχείου hosts</string>
@@ -171,7 +171,7 @@
     <string name="no_ip">Αυτή η διεύθυνση IP δεν είναι έγκυρη! </string>
     <string name="no_ip_title">Κακή μορφή διεύθυνσης IP</string>
     <string name="reboot_never_reboot">Να μην γίνετε ποτέ επανεκκίνηση και να μην εμφανιστεί αυτή η ερώτηση την επόμενη φορά!</string>
-    <string name="loading">Φόρτωση…</string>
+    <string name="loading">Φόρτωση...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Ανανέωση</string>
