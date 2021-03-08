@@ -44,8 +44,8 @@
     <string name="import_success">La sauvegarde a été importée avec succès de votre mémoire externe.</string>
     <string name="import_failed">Échec d’importation de la sauvegarde. Le format est-il correct ? Consultez logcat pour plus de précisions.</string>
     <string name="export_dialog">Exportation…</string>
-    <string name="export_success">La sauvegarde a été exportée avec succès dans le fichier « adaway-backup.json » sur votre mémoire externe.</string>
-    <string name="export_failed">Échec d’exportation de la sauvegarde.</string>
+    <string name="export_success">La sauvegarde a été exportée avec succès vers le fichier « %s » de votre mémoire externe.</string>
+    <string name="export_failed">Échec d’exportation du fichier de sauvegarde « %s ».</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Le fichier hosts</string>
