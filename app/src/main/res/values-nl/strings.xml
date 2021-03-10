@@ -44,8 +44,8 @@
     <string name="import_success">De back-up is geïmporteerd van uw externe opslag.</string>
     <string name="import_failed">Het importeren is mislukt. Is het formaat juist? Bekijk de logcat voor meer informatie.</string>
     <string name="export_dialog">Bezig met exporteren…</string>
-    <string name="export_success">De back-up is geëxporteerd naar \'adaway-backup.json\' op uw externe opslag.</string>
-    <string name="export_failed">Het exporteren is mislukt.</string>
+    <string name="export_success">De back-up is succesvol geëxporteerd naar \'%s\' op uw externe opslag.</string>
+    <string name="export_failed">Het exporteren van backup file \'%s\' is mislukt.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Het hosts-bestand</string>
@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN configuratie succesvol bijgewerkt</string>
     <string name="notification_configuration_changed">Je configuratie is gewijzigd. Je moet het toepassen.</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
-    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie…</string>
+    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie...</string>
     <string name="notification_configuration_failed">Toepassen van nieuwe configuratie is mislukt.</string>
 
     <!--Apply and Revert Dialogs-->
