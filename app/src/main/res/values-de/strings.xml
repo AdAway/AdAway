@@ -44,8 +44,8 @@
     <string name="import_success">Sicherung erfolgreich aus externem Speicher importiert. </string>
     <string name="import_failed">Import der Sicherung fehlgeschlagen. War das Format korrekt? Protokoll nach Einzelheiten dazu überprüfen.</string>
     <string name="export_dialog">Exportiere…</string>
-    <string name="export_success">Sicherung erfolgreich in Datei \'adaway-backup.json\' auf externen Speicher exportiert.</string>
-    <string name="export_failed">Export der Sicherung fehlgeschlagen.</string>
+    <string name="export_success">Sicherung erfolgreich in Datei \'%s\' auf externen Speicher exportiert.</string>
+    <string name="export_failed">Exportieren der Sicherungsdatei \'%s\' fehlgeschlagen</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Die Hosts-Datei</string>
@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN-Konfiguration erfolgreich aktualisiert</string>
     <string name="notification_configuration_changed">Ihre Konfiguration hat sich geändert. Sie müssen sie anwenden.</string>
     <string name="notification_configuration_changed_action">Anwenden</string>
-    <string name="notification_configuration_installing">Neue Konfiguration wird angewendet …</string>
+    <string name="notification_configuration_installing">Neue Konfiguration wird angewendet ...</string>
     <string name="notification_configuration_failed">Anwendung der neuen Konfiguration fehlgeschlagen.</string>
 
     <!--Apply and Revert Dialogs-->
