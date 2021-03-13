@@ -49,6 +49,7 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
 import static android.provider.DocumentsContract.Document.COLUMN_LAST_MODIFIED;
 import static java.time.ZoneOffset.UTC;
 import static java.time.format.FormatStyle.MEDIUM;
+import static java.time.temporal.ChronoUnit.WEEKS;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
 import static org.adaway.model.error.HostError.NO_CONNECTION;
 
@@ -131,7 +132,7 @@ public class SourceModel {
     }
 
     /**
-     * Check if there is update available in hosts sources.
+     * Check if there is update available for hosts sources.
      *
      * @throws HostErrorException If the hosts sources could not be checked.
      */
@@ -142,7 +143,6 @@ public class SourceModel {
         }
         // Initialize update status
         boolean updateAvailable = false;
-        boolean anyHostsSourceVerified = false;
         // Get hosts sources
         List<HostsSource> sources = this.hostsSourceDao.getEnabled();
         if (sources.isEmpty()) {
@@ -166,25 +166,26 @@ public class SourceModel {
             // Save last modified online
             this.hostsSourceDao.updateOnlineModificationDate(source.getId(), lastModifiedOnline);
             // Check if last modified online retrieved
-            if (lastModifiedOnline != null) {
-                anyHostsSourceVerified = true;
+            if (lastModifiedOnline == null) {
+                // If not, consider update is available if install is older than a day
+                ZonedDateTime lastWeek = ZonedDateTime.now().minus(1, WEEKS);
+                if (lastModifiedLocal != null && lastModifiedLocal.isBefore(lastWeek)) {
+                    updateAvailable = true;
+                }
+            } else {
                 // Check if update is available for this source and source enabled
                 if (source.isEnabled() && (lastModifiedLocal == null || lastModifiedOnline.isAfter(lastModifiedLocal))) {
                     updateAvailable = true;
                 }
             }
         }
-        // Check if any hosts source was verified
-        if (!anyHostsSourceVerified) {
-            throw new HostErrorException(DOWNLOAD_FAILED);
-        }
         // Check if update is available
+        Log.d(TAG, "Update check result: " + updateAvailable);
         if (updateAvailable) {
             setState(R.string.status_update_available);
         } else {
             setState(R.string.status_no_update_found);
         }
-        Log.d(TAG, "Update check result: " + updateAvailable);
         this.updateAvailable.postValue(updateAvailable);
         return updateAvailable;
     }
