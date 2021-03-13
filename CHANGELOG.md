@@ -3,7 +3,9 @@
 - Add allow list support
 - Improve source edition UI
 - Improve animations
+- Update mongoose web server
 - Update dependencies
+- Fix web server TLS issue
 
 Special thanks to jawz101 and zgfg for their bug reports.
 
