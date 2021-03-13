@@ -21,7 +21,10 @@ on the top 9 things to avoid when embedding a web server.
 
 - [Download “9 Things NOT to do when embedding a web server” white paper here](https://www.cesanta.com/whitepaper.html)
 
-Looking for a complete IoT solution? Check out
+# Looking for a pre-compiled Mongoose web server Windows or Mac binary?
+- [Download pre-compiled Mongoose web server binary](https://mongoose.ws/)
+
+# Looking for a complete IoT solution? Check out
 - [VCON](https://vcon.io) - Arduino compatible MCU modules with built-in firmware OTA updates
 - [Mongoose OS](https://mongoose-os.com) - open source embedded operating system for low-power connected microcontrollers. Secure, designed for commercial Internet of Things products
 
@@ -33,11 +36,10 @@ Looking for a complete IoT solution? Check out
 
 # Features
 
-* Cross-platform: works on Linux/UNIX, MacOS, QNX, eCos, Windows, Android,
-  iPhone, FreeRTOS, etc
-* Supported embedded architectures: ESP32, ESP8266, TI CC3200, TI MSP432, NRF52, STM32, PIC32, NXP, and more
+* Cross-platform: works on Linux/UNIX, MacOS, Windows, Android, FreeRTOS, etc
+* Supported embedded architectures: ESP32, ESP8266, TI, NRF52, STM32, PIC32, NXP, and more
 * Builtin protocols: plain TCP/UDP, HTTP, MQTT, Websocket
-* SSL/TLS support: mbedTLS, OpenSSL or custom via API
+* SSL/TLS support: mbedTLS, OpenSSL or custom (via API)
 * Asynchronous DNS resolver
 * Tiny static and run-time footprint
 * Source code is both ISO C and ISO C++ compliant
@@ -70,5 +72,4 @@ Contributions are welcome! Please follow the guidelines below:
 - When making pull requests, please make sure that it has only one commit,
  and imlements/fixes only one piece of functionality
 
-# Looking for a pre-compiled Mongoose web server Windows or Mac binary?
-- [Download pre-compiled Mongoose web server binary.](https://www.cesanta.com/binary.html)
+
