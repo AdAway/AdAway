@@ -2,12 +2,13 @@
 
 - Add allow list support
 - Improve source edition UI
+- Improve source update check
 - Improve animations
 - Update mongoose web server
 - Update dependencies
 - Fix web server TLS issue
 
-Special thanks to jawz101 and zgfg for their bug reports.
+Special thanks to gallegonovato, jawz101 and zgfg for their bug reports.
 
 ## [5.4.0] - 2021-02-28
 
