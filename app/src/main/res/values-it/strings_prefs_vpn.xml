@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Blocco pubblicità su VPN</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Abilita all\'avvio</string>
+    <string name="pref_vpn_service_monitor">Monitora connessione</string>
+    <string name="pref_vpn_service_monitor_description">Controlla periodicamente lo stato della rete per riavviare la VPN quando si disconnette.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">App escluse</string>
     <string name="pref_vpn_excluded_apps_description">Configura quali app non devono usare la VPN per non bloccare alcuna connessione</string>
