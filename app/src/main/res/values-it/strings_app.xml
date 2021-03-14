@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">AdAway</string>
     <string name="app_description">Blocco pubblicità Open Source</string>
+    <string name="app_logo">Logo di AdAway</string>
 </resources>
