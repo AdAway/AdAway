@@ -182,7 +182,7 @@
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Despejo TCP</string>
-    <string name="tcpdump_description">Tcpdump é uma ferramenta para monitorar solicitações de DNS e salvá-las em um arquivo de registro. Você pode iniciá-la em segundo plano, executar apps que mostram anúncios, e logo após analisar as solicitações de DNS usando arquivo de registro. O possivel servidor de anúncios pode ser então adicionado na sua lista negra.</string>
+    <string name="tcpdump_description">Tcpdump é uma ferramenta para monitorar solicitações de DNS e salvá-las em um arquivo de registro. Você pode iniciá-la em segundo plano, executar apps que mostram anúncios, e logo após analisar as solicitações de DNS usando arquivo de registro. O possível servidor de anúncios pode ser então adicionado na sua lista negra.</string>
     <string name="tcpdump_disable_monitoring">Desativar monitoramento</string>
     <string name="tcpdump_enable_monitoring">Ativar monitoramento</string>
     <string name="tcpdump_show_results">Mostrar resultados</string>
