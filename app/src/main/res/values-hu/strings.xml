@@ -44,8 +44,8 @@
     <string name="import_success">A biztonsági mentés importja a külső tárolóból sikeres.</string>
     <string name="import_failed">A biztonsági másolat importálás nem sikerült. Megfelelő a formátuma? További részletekért ellenőrizd a logcat-et.</string>
     <string name="export_dialog">Exportálás…</string>
-    <string name="export_success">A biztonsági mentés sikeresen exportálva \'adaway-backup.json\' néven a külső tárhelyen.</string>
-    <string name="export_failed">A biztonsági másolat exportálása nem sikerült.</string>
+    <string name="export_success">A bizt.mentés sikeresen exportálva \'%s\' néven a külső tárhelyre.</string>
+    <string name="export_failed">Sikertelen a bizt.mentés exportja \'%s\' fájlba.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">A hosts fájl</string>
@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN konfiguráció sikeresen frissítve</string>
     <string name="notification_configuration_changed">A konfiguráció megváltozott. Alkalmaznod kell.</string>
     <string name="notification_configuration_changed_action">Alkalmaz</string>
-    <string name="notification_configuration_installing">Új konfiguráció alkalmazása…</string>
+    <string name="notification_configuration_installing">Új konfiguráció alkalmazása...</string>
     <string name="notification_configuration_failed">Nem sikerült alkalmazni az új konfigurációt.</string>
 
     <!--Apply and Revert Dialogs-->
