@@ -1,4 +1,4 @@
-## [5.5.0] - Unreleased
+## [5.5.0] - 2021-03-17
 
 - Add allow list support
 - Improve source edition UI
