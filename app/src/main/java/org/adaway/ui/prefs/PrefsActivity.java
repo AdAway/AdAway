@@ -72,6 +72,8 @@ public class PrefsActivity extends AppCompatActivity implements PreferenceFragme
                 pref.getFragment()
         );
         fragment.setArguments(args);
+        // See https://developer.android.com/guide/topics/ui/settings/organize-your-settings#java
+        //noinspection deprecation
         fragment.setTargetFragment(caller, 0);
         // Replace the existing Fragment with the new Fragment
         getSupportFragmentManager().beginTransaction()
