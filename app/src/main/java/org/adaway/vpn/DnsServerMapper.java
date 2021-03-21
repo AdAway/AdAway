@@ -30,7 +30,7 @@ class DnsServerMapper {
         this.upstreamDnsServers = new ArrayList<>();
     }
 
-    InetAddress configure(android.net.VpnService.Builder builder) throws VpnWorker.VpnNetworkException {
+    InetAddress configure(VpnService.Builder builder) throws VpnWorker.VpnNetworkException {
         // Get the current DNS servers before starting the VPN
         List<InetAddress> dnsServers = getNetworkDnsServers();
         if (dnsServers.isEmpty()) {
