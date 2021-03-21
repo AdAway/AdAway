@@ -53,6 +53,8 @@ public class UpdateActivity extends AppCompatActivity {
 
     private void bindProgress() {
         this.updateViewModel.getDownloadProgress().observe(this, progress -> {
+            this.binding.updateButton.setVisibility(INVISIBLE);
+            this.binding.downloadProgressBar.setVisibility(VISIBLE);
             this.binding.downloadProgressBar.setProgress(progress.progress, true);
             this.binding.progressTextView.setText(progress.format(this));
         });
