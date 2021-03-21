@@ -20,71 +20,74 @@
 
 package org.adaway.ui.help;
 
-import org.sufficientlysecure.htmltextview.HtmlTextView;
-
-import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.util.TypedValue;
+import android.text.Html;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RawRes;
+import androidx.fragment.app.Fragment;
+
+import org.adaway.R;
+import org.adaway.util.Log;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class HelpFragmentHtml extends Fragment {
-    public static final String ARG_HTML_FILE = "htmlFile";
-    private Activity mActivity;
-    private int htmlFile;
+    private static final String TAG = "Help";
+    private static final String ARG_HTML_FILE = "htmlFile";
 
     /**
      * Create a new instance of HelpFragmentHtml, providing "htmlFile" as an argument.
      */
-    static HelpFragmentHtml newInstance(int htmlFile) {
-        HelpFragmentHtml f = new HelpFragmentHtml();
+    static HelpFragmentHtml newInstance(@RawRes int htmlFile) {
+        HelpFragmentHtml instance = new HelpFragmentHtml();
 
         // Supply html raw file input as an argument.
         Bundle args = new Bundle();
         args.putInt(ARG_HTML_FILE, htmlFile);
-        f.setArguments(args);
+        instance.setArguments(args);
 
-        return f;
-    }
-
-    /**
-     * Workaround for Android Bug. See
-     * http://stackoverflow.com/questions/8748064/starting-activity-from
-     * -fragment-causes-nullpointerexception
-     */
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        setUserVisibleHint(true);
+        return instance;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        htmlFile = getArguments().getInt(ARG_HTML_FILE);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Spanned spanned = new SpannableString("");
+        if (getArguments() != null) {
+            int htmlFile = getArguments().getInt(ARG_HTML_FILE);
+            try {
+                spanned = Html.fromHtml(readHtmlRawFile(htmlFile));
+            } catch (IOException e) {
+                Log.w(TAG, "Failed to read help file.");
+            }
+        }
 
-        mActivity = getActivity();
+        View view = inflater.inflate(R.layout.help_fragment, container, false);
+        TextView helpTextView = view.findViewById(R.id.helpTextView);
+        helpTextView.setText(spanned);
+        helpTextView.setMovementMethod(LinkMovementMethod.getInstance());
+        return view;
+    }
 
-        ScrollView scroller = new ScrollView(mActivity);
-        HtmlTextView text = new HtmlTextView(mActivity);
-
-        // padding
-        int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, mActivity
-                .getResources().getDisplayMetrics());
-        text.setPadding(padding, padding, padding, 0);
-
-        scroller.addView(text);
-
-        // load html from raw resource (Parsing handled by HtmlTextView library)
-        text.setHtml(htmlFile);
-
-        // no flickering when clicking textview for Android < 4
-        text.setTextColor(getResources().getColor(android.R.color.secondary_text_dark_nodisable));
-
-        return scroller;
+    private String readHtmlRawFile(@RawRes int resourceId) throws IOException {
+        try (InputStream inputStream = getResources().openRawResource(resourceId);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            StringBuilder content = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line);
+            }
+            return content.toString();
+        }
     }
 }

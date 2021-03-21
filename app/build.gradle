@@ -111,7 +111,6 @@ dependencies {
     // Miscellaneous
     implementation 'com.google.guava:guava:30.1-android'
     implementation 'com.squareup.okhttp3:okhttp:3.14.9'
-    implementation 'org.sufficientlysecure:html-textview:3.9'
     if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {
