@@ -2,6 +2,7 @@
 
 - Improve application update screen
 - Update Android gradle plugin
+- Remove html-textview dependency and jcenter repository
 
 Special thanks to SapphireExile its their bug report.
 
