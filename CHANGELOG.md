@@ -1,3 +1,10 @@
+## [5.5.1] - Unreleased
+
+- Improve application update screen
+- Update Android gradle plugin
+
+Special thanks to SapphireExile its their bug report.
+
 ## [5.5.0] - 2021-03-17
 
 - Add allow list support
