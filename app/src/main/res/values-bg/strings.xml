@@ -44,8 +44,8 @@
     <string name="import_success">Архивът беше успешно внесен от Вашата карта памет.</string>
     <string name="import_failed">Внасянето на архива се провали. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
     <string name="export_dialog">Експортиране…</string>
-    <string name="export_success">Архивът беше успешно изнесен в картата памет във файл с име \'adaway-backup.json\'.</string>
-    <string name="export_failed">Изнасянето на архива се провали.</string>
+    <string name="export_success">Архивът е успешно изнесен във файла „%s“ на външното ви хранилище.</string>
+    <string name="export_failed">Грешка при изнасяне на архивен файл \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файлът Hosts</string>
@@ -60,6 +60,7 @@
     <string name="status_download_source">Изтегляне на източник%s</string>
     <string name="status_read_source">Прочитане на %s</string>
     <string name="status_parse_source">Анализ на %s</string>
+    <string name="status_sync_database">Синхронизиране на базата данни с правила</string>
     <string name="status_revert">Връщане към файл с хостове по подразбиране</string>
     <string name="status_revert_done">Файлът с хостове по подразбиране е възстановен</string>
     <string name="status_reverting_subtitle">Създаване на стандартен файл Hosts</string>
@@ -86,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN конфигурацията се актуализира успешно</string>
     <string name="notification_configuration_changed">Вашата конфигурация се промени. Трябва да я приложите.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
-    <string name="notification_configuration_installing">Прилагане на нова конфигурация…</string>
+    <string name="notification_configuration_installing">Прилагане на нова конфигурация...</string>
     <string name="notification_configuration_failed">Прилагането на нова конфигурация се провали.</string>
 
     <!--Apply and Revert Dialogs-->
