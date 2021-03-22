@@ -1,1 +1,1 @@
-AdAway ist ein Open-Source-Werbeblocker für Android, der die Hosts-Datei verwendet.
+Ein Werbeblocker für Android mit passivem (root) oder aktivem Arbeitsmodus.
