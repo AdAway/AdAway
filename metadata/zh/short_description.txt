@@ -1,1 +1,1 @@
-AdAway 是一款 Android 开源广告拦截器，使用 hosts 文件实现拦截。
+一款 Android 的广告拦截器，可在被动(root)或主动(非 root)模式下使用。
