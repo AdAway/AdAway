@@ -1,1 +1,1 @@
-An ad blocker for Android with passive (root) or active (non-root) modes.
+A Free and Open Source ad blocker for Android.
