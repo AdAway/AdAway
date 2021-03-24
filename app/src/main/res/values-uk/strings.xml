@@ -44,8 +44,8 @@
     <string name="import_success">Резервну копію успішно імпортовано із зовнішнього сховища.</string>
     <string name="import_failed">Не вдалося імпортувати резервну копію. Можливо формат не вірний. Перевірте logcat для з\'ясування подробиць.</string>
     <string name="export_dialog">Експортування…</string>
-    <string name="export_success">Резервну копію успішно експортовано в файл \'adaway-backup.json\' на зовнішнє сховище.</string>
-    <string name="export_failed">Не вдалося експортувати резервну копію.</string>
+    <string name="export_success">Резервну копію успішно експортовано в файл \'%s\' на зовнішнє сховище.</string>
+    <string name="export_failed">Не вдалося експортувати резервну копію в файл \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
