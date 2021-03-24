@@ -70,7 +70,7 @@ Special thanks to <contributors> for theirs contributions and <bug reporters> fo
 
 [U][SIZE="4"]Download:[/SIZE][/U]
 
-[URL="https://app.adaway.org/adaway.apk"]AdAway <application version>[/URL] (sha2: <apk file checksum>)
+[URL="https://app.adaway.org/adaway.apk"]AdAway <application version>[/URL]
 ```
 
 ### Beta releases
