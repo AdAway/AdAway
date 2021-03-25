@@ -1,7 +1,9 @@
-Un bloqueur de publicités qui utilise le fichier hosts.
-Le fichier hosts est un fichier système qui comprend une liste de correspondances entre noms d’hôtes et adresses IP.
-Quand une appli demande une publicité à un hôte qui se trouve dans ce fichier, cette requête est redirigée vers l’adresse IP locale 127.0.0.1, ce qui ne retourne rien.
-Vous pouvez télécharger des fichiers hosts prédéfinis à partir de l’appli pour les incorporer au fichier hosts de votre système. Il est aussi possible d’utiliser vos propres fichiers et de mettre certains hôtes en liste blanche ou noire.
-Des options permettent d’exécuter un serveur Web local pour répondre aux noms d’hôtes bloqués et pour plutôt rediriger les requêtes vers l’adresse IP de votre choix.
+Un bloqueur de publicité libre pour Android.
 
-L’accès racine est exigé. Le fichier hosts est situé dans /system qui est en lecture seule par défaut.
+L’application est offerte pour les appareils débridés et non débridés (racine).
+Sur un appareil débridé, l’application met à jour le fichier hosts de votre système, qui comprend une liste de correspondances entre noms d’hôtes et adresses IP.
+Sur un appareil non débridé, l’application utilise la fonction RPV pour bloquer les connexions sortantes vers les publicités et les traqueurs.
+Donc quand une appli demande une publicité ou un traqueur à un hôte qui se trouve dans ce fichier, cette requête est redirigée vers l’adresse IP locale 127.0.0.1, ce qui ne retourne rien.
+
+Vous pouvez télécharger des listes prédéfinies de publicités et de bloqueurs, sous la forme de fichiers hosts, à partir de l’appli pour les incorporer. Il est aussi possible d’utiliser vos propres fichiers et d’ajouter certains hôtes aux listes d’acceptation et de blocage.
+Des options permettent d’exécuter un serveur Web local pour répondre aux noms d’hôtes bloqués et pour plutôt rediriger les requêtes vers l’adresse IP de votre choix.
