@@ -1,7 +1,9 @@
-Ein Werbeblocker, der die Hosts-Datei nutzt.
-Die Hosts-Datei ist eine Systemdatei, die eine Liste von Zuordnungen zwischen Host-Namen und IP-Adressen enthält.
-Wenn eine App Werbung von einem Host aus dieser Datei anfordert, wird diese Anfrage an die lokale IP 127.0.0.1 umgeleitet, wodurch nichts passiert.
-Sie können vordefinierte Hosts-Dateien direkt in der App herunterladen und in die Hosts-Datei des Systems integrieren. Es ist zudem möglich, Ihre eigenen Dateien zu benutzen und bestimmte Hosts White- und Blacklisten zuzuordnen.
-Es gibt die Möglichkeit, einen lokalen Webserver zu betreiben, der auf blockierte Host-Namen reagiert und Anfragen an sie an eine selbstgewählte IP-Adresse weiterleitet.
+Ein kostenloser und quelloffener Werbeblocker für Android.
 
-Benötigt Root: Ja. Die Hosts-Datei liegt unter /system, worauf normalerweise lediglich lesend zugegriffen werden kann.
+Die Anwendung ist für gerootete und nicht gerootete Geräte verfügbar.
+Wenn Sie ein gerootetes Gerät verwenden, aktualisiert die Anwendung die Hosts-Datei Ihres Systems, die eine Liste der Zuordnungen zwischen Hostnamen und IP-Adressen enthält.
+Wenn Sie ein nicht gerootetes Gerät verwenden, nutzt die Anwendung die VPN-Funktion, um ausgehende Verbindungen zu Werbung und Trackern zu blockieren.
+Wenn also eine App eine Werbeanzeige oder einen Tracker von einem Host in dieser Datei anfordert, wird diese Anforderung an die lokale IP 127.0.0.1 weitergeleitet, was nichts bewirkt.
+
+Sie können vordefinierte Werbungs- und Sperrlisten als Hosts-Dateien aus der App herunterladen und einbinden. Es ist auch möglich, eigene Dateien zu verwenden und bestimmte Hosts zu erlaubten und blockierten Listen hinzuzufügen.
+Es gibt die Möglichkeit, einen lokalen Webserver zu betreiben, der auf blockierte Host-Namen reagiert und Anfragen an sie an eine selbstgewählte IP-Adresse weiterleitet.
