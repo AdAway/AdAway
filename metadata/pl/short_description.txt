@@ -1,1 +1,1 @@
-AdAway to blokująca reklamy typu open source aplikacja dla systemu Android, korzystająca z pliku hosts.
+Darmowa aplikacja o otwartym kodzie źródłowym, służąca do blokowania reklam dla systemu Android.
