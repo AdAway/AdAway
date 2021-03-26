@@ -1,1 +1,1 @@
-Ein Werbeblocker für Android mit passivem (root) oder aktivem Arbeitsmodus.
+Ein kostenloser und quelloffener Werbeblocker für Android.
