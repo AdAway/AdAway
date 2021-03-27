@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Definir dónde redirigir los hosts bloqueados</string>
     <string name="pref_redirection_ipv4">Redireccionamiento IPv4</string>
     <string name="pref_redirection_ipv6">Redireccionamiento IPv6</string>
+    <string name="pref_redirection_invalid">Redirección no válida</string>
     <!-- Web server category -->
     <string name="pref_webserver">Servidor web local</string>
     <string name="pref_webserver_summary">El servidor web local escucha las direcciones IP locales para responder a las peticiones de nombres de host bloqueadas. Puede ayudar con la congelación de aplicaciones en conexiones bloqueadas.</string>
