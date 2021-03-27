@@ -42,6 +42,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import static android.text.Html.FROM_HTML_MODE_LEGACY;
+
 public class HelpFragmentHtml extends Fragment {
     private static final String TAG = "Help";
     private static final String ARG_HTML_FILE = "htmlFile";
@@ -66,7 +68,7 @@ public class HelpFragmentHtml extends Fragment {
         if (getArguments() != null) {
             int htmlFile = getArguments().getInt(ARG_HTML_FILE);
             try {
-                spanned = Html.fromHtml(readHtmlRawFile(htmlFile));
+                spanned = Html.fromHtml(readHtmlRawFile(htmlFile), FROM_HTML_MODE_LEGACY);
             } catch (IOException e) {
                 Log.w(TAG, "Failed to read help file.");
             }
