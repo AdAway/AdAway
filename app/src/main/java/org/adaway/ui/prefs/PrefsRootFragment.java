@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -17,6 +18,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.common.net.InetAddresses;
 import com.topjohnwu.superuser.io.SuFile;
 
 import org.adaway.R;
@@ -25,9 +27,14 @@ import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Log;
 
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+
 import static android.content.Intent.CATEGORY_OPENABLE;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.provider.Settings.ACTION_SECURITY_SETTINGS;
+import static android.widget.Toast.LENGTH_SHORT;
 import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
 import static org.adaway.util.Constants.PREFS_NAME;
 import static org.adaway.util.MountType.READ_ONLY;
@@ -48,6 +55,7 @@ import static org.adaway.util.WebServerUtils.stopWebServer;
  */
 public class PrefsRootFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String TAG = "PrefsRoot";
+    private static final String PREFERENCE_NOT_FOUND = "preference not found";
     /**
      * The launcher to start open hosts file activity.
      */
@@ -131,7 +139,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void bindOpenHostsFile() {
         Preference openHostsFilePreference = findPreference(getString(R.string.pref_open_hosts_key));
-        assert openHostsFilePreference != null : "preference not found";
+        assert openHostsFilePreference != null : PREFERENCE_NOT_FOUND;
         openHostsFilePreference.setOnPreferenceClickListener(this::openHostsFile);
     }
 
@@ -157,16 +165,38 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
     private void bindRedirection() {
         Context context = requireContext();
         boolean ipv6Enabled = PreferenceHelper.getEnableIpv6(context);
+        Preference ipv4RedirectionPreference = findPreference(getString(R.string.pref_redirection_ipv4_key));
+        assert ipv4RedirectionPreference != null : PREFERENCE_NOT_FOUND;
+        ipv4RedirectionPreference.setOnPreferenceChangeListener(
+                (preference, newValue) -> validateRedirection(Inet4Address.class, (String) newValue)
+        );
         Preference ipv6RedirectionPreference = findPreference(getString(R.string.pref_redirection_ipv6_key));
-        assert ipv6RedirectionPreference != null : "preference not found";
+        assert ipv6RedirectionPreference != null : PREFERENCE_NOT_FOUND;
         ipv6RedirectionPreference.setEnabled(ipv6Enabled);
+        ipv6RedirectionPreference.setOnPreferenceChangeListener(
+                (preference, newValue) -> validateRedirection(Inet6Address.class, (String) newValue)
+        );
+    }
+
+    private boolean validateRedirection(Class<? extends InetAddress> addressType, String redirection) {
+        boolean valid;
+        try {
+            InetAddress inetAddress = InetAddresses.forString(redirection);
+            valid = addressType.isAssignableFrom(inetAddress.getClass());
+        } catch (IllegalArgumentException exception) {
+            valid = false;
+        }
+        if (!valid) {
+            Toast.makeText(requireContext(), R.string.pref_redirection_invalid, LENGTH_SHORT).show();
+        }
+        return valid;
     }
 
     private void bindWebServerPrefAction() {
         Context context = requireContext();
         // Start web server when preference is enabled
         CheckBoxPreference webServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
-        assert webServerEnabledPref != null : "preference not found";
+        assert webServerEnabledPref != null : PREFERENCE_NOT_FOUND;
         webServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if (newValue.equals(true)) {
                 // Start web server
@@ -184,7 +214,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void bindWebServerTest() {
         Preference webServerTest = findPreference(getString(R.string.pref_webserver_test_key));
-        assert webServerTest != null : "preference not found";
+        assert webServerTest != null : PREFERENCE_NOT_FOUND;
         webServerTest.setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(TEST_URL));
             startActivity(intent);
@@ -194,7 +224,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void bindWebServerCertificate() {
         Preference webServerTest = findPreference(getString(R.string.pref_webserver_certificate_key));
-        assert webServerTest != null : "preference not found";
+        assert webServerTest != null : PREFERENCE_NOT_FOUND;
         webServerTest.setOnPreferenceClickListener(preference -> {
             if (SDK_INT < VERSION_CODES.R) {
                 installCertificate(requireContext());
@@ -229,7 +259,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void updateWebServerState() {
         Preference webServerTest = findPreference(getString(R.string.pref_webserver_test_key));
-        assert webServerTest != null : "preference not found";
+        assert webServerTest != null : PREFERENCE_NOT_FOUND;
         webServerTest.setSummary(R.string.pref_webserver_state_checking);
         AppExecutors executors = AppExecutors.getInstance();
         executors.networkIO().execute(() -> {

@@ -1,11 +1,12 @@
 ## [5.5.1] - Unreleased
 
+- Add redirection validation
 - Improve application update screen
 - Update Android gradle plugin
 - Update NDK
 - Remove html-textview dependency and jcenter repository
 
-Special thanks to SapphireExile its their bug report.
+Special thanks to SapphireExile, zgfg for their bug reports.
 
 ## [5.5.0] - 2021-03-17
 

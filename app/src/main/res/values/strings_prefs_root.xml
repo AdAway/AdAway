@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Define where to redirect blocked hosts</string>
     <string name="pref_redirection_ipv4">IPv4 redirection</string>
     <string name="pref_redirection_ipv6">IPv6 redirection</string>
+    <string name="pref_redirection_invalid">Invalid redirection</string>
     <!-- Web server category -->
     <string name="pref_webserver">Local web server</string>
     <string name="pref_webserver_summary">The local web server listens on local IP addresses to answer to blocked hostname requests. It may help with app freezing on blocked connection.</string>
