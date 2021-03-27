@@ -1,1 +1,1 @@
-AdAway es un bloqueador de anuncios de código abierto para Android que utiliza el archivo hosts.
+Un bloqueador de anuncios libre y de código abierto para Android.
