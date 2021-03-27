@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Určit kam přesměrovat zablokované hostitele</string>
     <string name="pref_redirection_ipv4">Přesměrování IPv4</string>
     <string name="pref_redirection_ipv6">Přesměrování IPv6</string>
+    <string name="pref_redirection_invalid">Neplatné přesměrování</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokální webový server</string>
     <string name="pref_webserver_summary">Lokální webový server naslouchá na lokálních IP adresách a odpovídá na požadavky na zablokovaná jména hostitelů. To může pomoci se zamrzáváním aplikací po zablokování spojení.</string>
