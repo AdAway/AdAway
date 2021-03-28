@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ஆட்அவே</string>
-    </resources>
+    <string name="app_description">திறந்த மூல விளம்பர-தடுப்பான்</string>
+    <string name="app_logo">ஆட்அவே சின்னம்</string>
+</resources>
