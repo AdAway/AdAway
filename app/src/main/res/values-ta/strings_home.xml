@@ -1,6 +1,41 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-    <string name="preferences_drawer_item">Preferences</string>
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">தடுக்கப்பட்ட</string>
+    <string name="allowed_hosts_label">அனுமதிக்கப்பட்ட</string>
+    <string name="redirect_hosts_label">வழிமாற்றப்பட்டது</string>
 
-    </resources>
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="one">%d புதுப்பித்த மூலம்</item>
+        <item quantity="other">%d புதுப்பித்த மூலங்கள்</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="one">%d காலாவதியான மூலம்</item>
+        <item quantity="other">%d காலாவதியான மூலங்கள்</item>
+    </plurals>
+
+    <!-- Help card -->
+    <string name="help_label">உதவி காட்டு</string>
+
+    <!-- Project card -->
+    <string name="project_label">கிட்ஹப் பக்கத்தைத் திற</string>
+
+    <!-- Support card -->
+    <string name="support_label">திட்டத்தை ஆதரி</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS பதிவுகள்</string>
+    <string name="preferences_drawer_item">விருப்பத்தேர்வுகள்</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">வழிசெலுத்தல் அலமாரியைத் திற</string>
+    <string name="adblock_pause_button_description">விளம்பரத் தடுப்பை இடைநிறுத்து/மறுத்துவக்கு</string>
+    <string name="update_button">தடுக்கப்பட்ட களங்களை புதுப்பி</string>
+    <string name="show_log_button">கோரப்பட்ட களங்களைக் காண்பி</string>
+
+    <!-- Error dialog -->
+    <string name="error_dialog_help">மேலும் தகவலுக்கு உதவியைப் படிக்கவும்</string>
+
+</resources>
