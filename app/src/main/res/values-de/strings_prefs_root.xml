@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Festlegen wohin blockierte Hosts umgeleitet werden sollen</string>
     <string name="pref_redirection_ipv4">Umleitungs-IPv4</string>
     <string name="pref_redirection_ipv6">Umleitungs-IPv6</string>
+    <string name="pref_redirection_invalid">Ungültige Umleitung</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokaler Webserver</string>
     <string name="pref_webserver_summary">Der lokale Webserver überwacht lokale IP-Adressen um auf blockierte Hostnamen zu antworten. Dies kann helfen wenn Apps einfrieren bei blockierter Verbindung.</string>
@@ -28,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Zertifikat manuell installieren</string>
     <string name="pref_webserver_certificate_dialog_content">Ab Android 11 (R), kann die Anwendung die Zertifizierungsstelle (CA) nicht mehr automatisch installieren.\n\nGehen Sie zu \"Sicherheit\"-Einstellungen, \"Verschlüsselung und Anmeldeinformationen\" und dann zu \"Zertifikat installieren\". Wählen Sie dort \"CA-Zertifikat\" und wählen Sie die neu exportierte Zertifikatsdatei aus.</string>
     <string name="pref_webserver_certificate_dialog_action">\"Sicherheit\"-Einstellungen öffnen</string>
-    <string name="pref_webserver_state_checking">Überprüfe…</string>
+    <string name="pref_webserver_state_checking">Überprüfe...</string>
     <string name="pref_webserver_state_not_running">Läuft nicht</string>
     <string name="pref_webserver_state_running_not_installed">Läuft aber Zertifikat nicht installiert</string>
     <string name="pref_webserver_state_running_and_installed">Läuft und Zertifikat installiert</string>
