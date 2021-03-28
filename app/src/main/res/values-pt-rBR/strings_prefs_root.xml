@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Definir para onde redirecionar hosts bloqueados</string>
     <string name="pref_redirection_ipv4">Redirecionamento de IPv4</string>
     <string name="pref_redirection_ipv6">Redirecionamento de IPv6</string>
+    <string name="pref_redirection_invalid">Redirecionamento inválido</string>
     <!-- Web server category -->
     <string name="pref_webserver">Servidor Web Local</string>
     <string name="pref_webserver_summary">O servidor da Web local escutam os endereços IP locais para responder a solicitações de nome de host bloqueadas. Pode ajudar com o congelamento de aplicativos na conexão bloqueada.</string>
@@ -28,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Instalação manual do certificado</string>
     <string name="pref_webserver_certificate_dialog_content">A partir do Android 11 (R), o aplicativo não pode mais instalar automaticamente a autoridade de certificação (CA).\n\nVá para as configurações de \"Segurança\", \"Criptografia e credenciais\" e, em seguida, \"Instalar um certificado\". A partir daí, escolha \"certificado CA\" e selecione o arquivo de certificado recém-exportado.</string>
     <string name="pref_webserver_certificate_dialog_action">Abra as configurações de \"Segurança\"</string>
-    <string name="pref_webserver_state_checking">Checando…</string>
+    <string name="pref_webserver_state_checking">Checando...</string>
     <string name="pref_webserver_state_not_running">Não executando</string>
     <string name="pref_webserver_state_running_not_installed">Em execução, mas o certificado não foi instalado</string>
     <string name="pref_webserver_state_running_and_installed">Em execução e certificado instalado</string>
