@@ -1,7 +1,9 @@
-Um bloqueador de anúncios que usa o arquivo hosts
-O arquivo de hosts é um arquivo de sistema que contém uma lista de mapeamentos entre nomes de hospedagem e endereços de IP.
-Quando um app solicita um anúncio de um host naquele arquivo, essa solicitação é redirecionada para o IP local 127.0.0.1, que não faz nada.
-Você pode baixar arquivos de hosts predefinidos de dentro do aplicativo para incorporá-los no arquivo de hosts do sistema. Também é possível usar seus próprios arquivos e adicionar determinados hosts a listas brancas e negras.
-Há opções para executar um servidor Web local para responder a nomes de host bloqueados ou para direcionar solicitações para o endereço IP de sua escolha.
+Um bloqueador de anúncios gratuito e de código aberto para Android.
 
-Nescessita de Root: Sim. O arquivo hosts é localizado em /system, que é 'somente leitura' por padrão.
+O aplicativo está disponível para dispositivos com e sem root.
+Usando o dispositivo com acesso root, o aplicativo atualiza o arquivo de hosts do sistema que contém uma lista de mapeamentos entre nomes de host e endereços IP.
+Usando um dispositivo sem acesso root, o aplicativo usa o recurso VPN para bloquear conexões de saída para anúncios e rastreadores.
+Portanto, quando um aplicativo solicita um anúncio ou rastreador de um host naquele arquivo, essa solicitação é redirecionada para o IP local 127.0.0.1, que não faz nada.
+
+Você pode baixar anúncios predefinidos e listas de bloqueadores como arquivos de hosts de dentro do aplicativo para incorporar. Também é possível usar seus próprios arquivos e adicionar certos hosts a listas de permitidos e bloqueados.
+Há opções para executar um servidor Web local para responder a nomes de host bloqueados ou para direcionar solicitações para o endereço IP de sua escolha.
