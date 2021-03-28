@@ -40,17 +40,17 @@
     <string name="checkbox_list_context_delete">Excluir</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importando…</string>
+    <string name="import_dialog">Importando...</string>
     <string name="import_success">Backup importado com sucesso do seu armazenamento externo.</string>
     <string name="import_failed">Falha ao importar backup. Seu formato está correto? Verifique o logcat para mais detalhes.</string>
-    <string name="export_dialog">Exportando…</string>
-    <string name="export_success">Backup exportado com sucesso para o arquivo \'adaway-backup.json\' em seu armazenamento externo.</string>
-    <string name="export_failed">Falha ao exportar o backup.</string>
+    <string name="export_dialog">Exportando...</string>
+    <string name="export_success"> Backup exportado com sucesso para o arquivo \'%s\' em seu armazenamento externo.</string>
+    <string name="export_failed">Falha ao exportar arquivo de backup \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">O arquivo de hosts</string>
     <string name="hosts_description">O arquivo hosts é um arquivo de sistema que mapeia nomes de host para endereços IP. É um arquivo de texto simples cuja configuração é gerenciada pela AdAway. Aqui estão suas poucas primeiras linhas:</string>
-    <string name="hosts_content">Carregando o conteúdo do arquivo hosts…</string>
+    <string name="hosts_content">Carregando o conteúdo do arquivo hosts...</string>
     <string name="hosts_open_button">Abrir arquivo hosts</string>
 
     <!--Status Notification-->
@@ -115,8 +115,8 @@
     <string name="apply_apn_proxy_title">APN proxy definida!</string>
     <string name="no_connection">A conexão com a Internet não está funcionando.</string>
     <string name="no_connection_title">Sem Conexão</string>
-    <string name="download_dialog">Baixando…</string>
-    <string name="apply_dialog">Aplicando…</string>
+    <string name="download_dialog">Baixando...</string>
+    <string name="apply_dialog">Aplicando...</string>
     <string name="apply_dialog_lists">Aplicando Lista Negra e Lista Branca</string>
     <string name="apply_dialog_hostnames">Analisando e mesclando arquivos hosts</string>
     <string name="apply_dialog_hosts">Compilando arquivo hosts</string>
@@ -153,7 +153,7 @@
     <string name="no_ip">Este não é um IP válido!</string>
     <string name="no_ip_title">IP incorretamente formatado</string>
     <string name="reboot_never_reboot">Nunca reinicie e não mostre esta pergunta na próxima vez!</string>
-    <string name="loading">Carregando…</string>
+    <string name="loading">Carregando...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Atualizar</string>
@@ -182,7 +182,7 @@
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Despejo TCP</string>
-    <string name="tcpdump_description">Tcpdump é uma ferramenta para monitorar solicitações de DNS e salvá-las em um arquivo de registro. Você pode iniciá-la em segundo plano, executar apps que mostram anúncios, e logo após analisar as solicitações de DNS usando arquivo de registro. O possível servidor de anúncios pode ser então adicionado na sua lista negra.</string>
+    <string name="tcpdump_description">Tcpdump é uma ferramenta para monitorar solicitações de DNS e salvá-las em um arquivo de registro. Você pode iniciá-la em segundo plano, executar apps que mostram anúncios, e logo após analisar as solicitações de DNS usando arquivo de registro. O possivel servidor de anúncios pode ser então adicionado na sua lista negra.</string>
     <string name="tcpdump_disable_monitoring">Desativar monitoramento</string>
     <string name="tcpdump_enable_monitoring">Ativar monitoramento</string>
     <string name="tcpdump_show_results">Mostrar resultados</string>
