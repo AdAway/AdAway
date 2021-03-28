@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">定义重定向被阻止hosts的位置</string>
     <string name="pref_redirection_ipv4">IPv4 重定向</string>
     <string name="pref_redirection_ipv6">IPv6 重定向</string>
+    <string name="pref_redirection_invalid">无效的重定向</string>
     <!-- Web server category -->
     <string name="pref_webserver">本地网络服务器</string>
     <string name="pref_webserver_summary">本地Web服务器侦听本地IP 地址，以回答被阻止的主机名请求。 它可能有助于阻止连接冻结的应用程序。</string>
