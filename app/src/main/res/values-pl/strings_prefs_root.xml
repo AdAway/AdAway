@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Określ, gdzie przekierować blokowanie hosts</string>
     <string name="pref_redirection_ipv4">Przekierowanie IPv4</string>
     <string name="pref_redirection_ipv6">Przekierowanie IPv6</string>
+    <string name="pref_redirection_invalid">Nieprawidłowe przekierowanie</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokalny serwer www</string>
     <string name="pref_webserver_summary">Lokalny serwer WWW nasłuchuje na lokalnych adresach IP, aby odpowiedzieć na zablokowane żądania nazwy hosta. Może to pomóc w zawieszaniu się aplikacji przy zablokowanym połączeniu.</string>
@@ -28,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Instalacja ręczna certyfikatu</string>
     <string name="pref_webserver_certificate_dialog_content">Począwszy od wersji Android 11 (R), aplikacja nie może już automatycznie instalować urzędu certyfikacji (CA).\n\ nPrzejdź do ustawień \"Zabezpieczenia\", \"Szyfrowanie i poświadczenia\", a następnie \"Zainstaluj certyfikat\". Stamtąd wybierz \"Certyfikat CA\" i wybierz nowo wyeksportowany plik certyfikatu.</string>
     <string name="pref_webserver_certificate_dialog_action">Otwórz ustawienia \"Zabezpieczenia\"</string>
-    <string name="pref_webserver_state_checking">Sprawdzanie…</string>
+    <string name="pref_webserver_state_checking">Sprawdzanie...</string>
     <string name="pref_webserver_state_not_running">Nie uruchomiony</string>
     <string name="pref_webserver_state_running_not_installed">Uruchomiony, ale certyfikat nie został zainstalowany</string>
     <string name="pref_webserver_state_running_and_installed">Uruchamianie i instalowanie certyfikatu</string>
