@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Ορίστε πού θα ανακατευθύνετε αποκλεισμένα hosts</string>
     <string name="pref_redirection_ipv4">Ανακατεύθυνση IPv4</string>
     <string name="pref_redirection_ipv6">Ανακατεύθυνση IPv6</string>
+    <string name="pref_redirection_invalid">Μη έγκυρη ανακατεύθυνση</string>
     <!-- Web server category -->
     <string name="pref_webserver">Τοπικός διακομιστής ιστοσελίδων</string>
     <string name="pref_webserver_summary">Ο τοπικός διακομιστής ιστού ακούει τοπικές διευθύνσεις IP για να απαντήσει σε αποκλεισμένες αιτήσεις hostsname. Μπορεί να βοηθήσει στην κατάψυξη εφαρμογών σε αποκλεισμένη σύνδεση.</string>
@@ -28,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Χειροκίνητη εγκατάσταση πιστοποιητικού</string>
     <string name="pref_webserver_certificate_dialog_content">Ξεκινώντας από το Android 11 (R), η εφαρμογή δεν μπορεί πλέον να εγκαταστήσει αυτόματα την αρχή έκδοσης πιστοποιητικών (CA).\n\nΜεταβείτε στις ρυθμίσεις \"Ασφάλεια\", \"Κρυπτογράφηση &amp; διαπιστευτήρια\" και στη συνέχεια, \"Εγκαταστήστε ένα πιστοποιητικό\". Από εκεί, επιλέξτε \"Πιστοποιητικό CA\" και επιλέξτε το αρχείο πιστοποιητικού που εξήχθη πρόσφατα.</string>
     <string name="pref_webserver_certificate_dialog_action">Ανοίξτε τις ρυθμίσεις \"Ασφάλεια\"</string>
-    <string name="pref_webserver_state_checking">Ελεγχος…</string>
+    <string name="pref_webserver_state_checking">Ελεγχος...</string>
     <string name="pref_webserver_state_not_running">Δεν εκτελείται</string>
     <string name="pref_webserver_state_running_not_installed">Εκτελείται αλλα το πιστοποιητικό δεν έχει εγκατασταθεί</string>
     <string name="pref_webserver_state_running_and_installed">Εκτελείται και το πιστοποιητικό έχει εγκατασταθεί</string>
