@@ -19,14 +19,15 @@
     <string name="pref_hosts_redirection_summary">Définir où rediriger les hôtes bloqués</string>
     <string name="pref_redirection_ipv4">Redirection IPv4</string>
     <string name="pref_redirection_ipv6">Redirection IPv6</string>
+    <string name="pref_redirection_invalid">La redirection est invalide</string>
     <!-- Web server category -->
     <string name="pref_webserver">Serveur Web local</string>
     <string name="pref_webserver_summary">Le serveur Web local écoute les adresses IP locales pour répondre aux requêtes vers des noms d’hôtes bloqués. Cela pourrait empêcher le gel de certaines applications lors de connexions bloquées.</string>
     <string name="pref_webserver_enabled">Activer le serveur Web</string>
     <string name="pref_webserver_test">Tester le serveur Web</string>
     <string name="pref_webserver_certificate">Installer un certificat autosigné</string>
-    <string name="pref_webserver_certificate_dialog_title">Installation manuelle de certificats</string>
-    <string name="pref_webserver_certificate_dialog_content">À partir d’Android 11 Ⓡ, une application ne peut plus installer manuellement une autorité de certification (CA).\n\nAccédez à Paramètres > Sécurité > Chiffrement et authentifiants, puis Installer un certificat. Choisissez ensuite Certificat CA et sélectionnez le fichier du certificat nouvellement exporté.</string>
+    <string name="pref_webserver_certificate_dialog_title">Installation manuelle d’un certificat</string>
+    <string name="pref_webserver_certificate_dialog_content">À partir d’Android 11 Ⓡ, une application ne peut plus installer manuellement une autorité de certification (CA).\n\nAccédez aux paramètres Sécurité > Chiffrement et authentifiants, puis Installer un certificat. Choisissez ensuite Certificat CA et sélectionnez le fichier du certificat nouvellement exporté.</string>
     <string name="pref_webserver_certificate_dialog_action">Ouvrir les paramètres « Sécurité »</string>
     <string name="pref_webserver_state_checking">Vérification…</string>
     <string name="pref_webserver_state_not_running">N’est pas en fonction</string>
