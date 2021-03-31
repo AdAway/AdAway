@@ -4,9 +4,10 @@
 - Improve application update screen
 - Update Android gradle plugin
 - Update NDK
+- Fix VPN crash when the only system DNS server available uses IPv6 and IPv6 is disabled from settings 
 - Remove html-textview dependency and jcenter repository
 
-Special thanks to SapphireExile, zgfg for their bug reports.
+Special thanks to FrostbiterTy, SapphireExile, zgfg for their bug reports.
 
 ## [5.5.0] - 2021-03-17
 

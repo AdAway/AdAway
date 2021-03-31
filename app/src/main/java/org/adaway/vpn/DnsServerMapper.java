@@ -136,6 +136,10 @@ class DnsServerMapper {
 
     private boolean hasIpV6Servers(Collection<InetAddress> dnsServers) {
         if (!PreferenceHelper.getEnableIpv6(this.context)) {
+            // Allow IPv6 DNS server even if IPv6 is disable if the only server available is an IPv6 address
+            if (dnsServers.size() == 1 && dnsServers.iterator().next() instanceof Inet6Address) {
+                return true;
+            }
             return false;
         }
 
