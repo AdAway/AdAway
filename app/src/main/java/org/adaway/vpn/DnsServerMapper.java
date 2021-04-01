@@ -135,13 +135,11 @@ class DnsServerMapper {
     }
 
     private boolean hasIpV6Servers(Collection<InetAddress> dnsServers) {
-        if (!PreferenceHelper.getEnableIpv6(this.context)) {
-            // Allow IPv6 DNS server even if IPv6 is disable if the only server available is an IPv6 address
-            if (dnsServers.size() == 1 && dnsServers.iterator().next() instanceof Inet6Address) {
-                return true;
-            }
-            return false;
-        }
+        boolean hasIpv6Server = dnsServers.stream()
+                .anyMatch(server -> server instanceof Inet6Address);
+        boolean hasOnlyOnServer = dnsServers.size() == 1;
+        boolean isIpv6Enabled = PreferenceHelper.getEnableIpv6(this.context);
+        return (isIpv6Enabled || hasOnlyOnServer) && hasIpv6Server;
 
         // TODO Custom DNS servers
 //        if (config.dnsServers.enabled) {
@@ -150,12 +148,6 @@ class DnsServerMapper {
 //                    return true;
 //            }
 //        }
-        for (InetAddress inetAddress : dnsServers) {
-            if (inetAddress instanceof Inet6Address)
-                return true;
-        }
-
-        return false;
     }
 
     private void addIpv4DnsServer(android.net.VpnService.Builder builder, String format, InetAddress addr) {
