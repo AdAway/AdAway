@@ -21,33 +21,37 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/julian-klode/dns66  
   GPLv3
 
+* dnsjava
+  https://github.com/dnsjava/dnsjava
+  BSD-2-Clause License 
+
 * Guava  
   https://github.com/google/guava  
-  Apache License v2
-
-* HtmlTextView  
-  https://github.com/dschuermann/html-textview  
   Apache License v2
 
 * libsu 
   https://github.com/topjohnwu/libsu  
   Apache License v2
-
-* Lightweight-Stream-API  
-  https://github.com/aNNiMON/Lightweight-Stream-API  
+ 
+* Material Components for Android
+  https://github.com/material-components/material-components-android
   Apache License v2
 
 * Mongoose Webserver  
   https://github.com/cesanta/mongoose  
   GPLv2 License
 
+* OkHttp  
+  https://github.com/square/okhttp  
+  Apache License v2
+
 * Openssl    
   https://www.openssl.org/    
   [OpenSSL license](https://www.openssl.org/source/license-openssl-ssleay.txt)
 
-* OkHttp  
-  https://github.com/square/okhttp  
-  Apache License v2
+* Pcap4J
+  https://github.com/kaitoy/pcap4j
+  MIT License
 
 * Sentry Java  
   https://github.com/getsentry/sentry-java  
