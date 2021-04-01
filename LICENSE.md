@@ -21,9 +21,9 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/julian-klode/dns66  
   GPLv3
 
-* dnsjava
-  https://github.com/dnsjava/dnsjava
-  BSD-2-Clause License 
+* dnsjava  
+  https://github.com/dnsjava/dnsjava  
+  BSD-2-Clause License
 
 * Guava  
   https://github.com/google/guava  
@@ -33,8 +33,8 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/topjohnwu/libsu  
   Apache License v2
  
-* Material Components for Android
-  https://github.com/material-components/material-components-android
+* Material Components for Android  
+  https://github.com/material-components/material-components-android  
   Apache License v2
 
 * Mongoose Webserver  
@@ -45,12 +45,12 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/square/okhttp  
   Apache License v2
 
-* Openssl    
-  https://www.openssl.org/    
+* Openssl  
+  https://www.openssl.org/  
   [OpenSSL license](https://www.openssl.org/source/license-openssl-ssleay.txt)
 
-* Pcap4J
-  https://github.com/kaitoy/pcap4j
+* Pcap4J  
+  https://github.com/kaitoy/pcap4j  
   MIT License
 
 * Sentry Java  
@@ -58,7 +58,7 @@ If not, see <https://www.gnu.org/licenses/>.
   BSD 3-Clause License
 
 * SLF4J  
-  https://www.slf4j.org/
+  https://www.slf4j.org/  
   MIT License
 
 * Tcpdump/Libpcap  
