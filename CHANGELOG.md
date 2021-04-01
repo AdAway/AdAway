@@ -4,6 +4,7 @@
 - Improve application update screen
 - Update Android gradle plugin
 - Update NDK
+- Update dependencies
 - Fix VPN crash when the only system DNS server available uses IPv6 and IPv6 is disabled from settings 
 - Remove html-textview dependency and jcenter repository
 
