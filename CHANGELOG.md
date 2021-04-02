@@ -1,4 +1,4 @@
-## [5.5.1] - Unreleased
+## [5.5.1] - 2021-04-02
 
 - Add redirection validation
 - Improve application update screen
