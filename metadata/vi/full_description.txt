@@ -1,7 +1,9 @@
-Trình chặn quảng cáo sử dụng các tập tin nguồn.
-Tệp tên miền là một tệp hệ thống chứa danh sách ánh xạ giữa tên máy chủ và địa chỉ IP.
-Khi một ứng dụng yêu cầu quảng cáo từ một máy chủ lưu trữ trong tệp đó, yêu cầu này được chuyển hướng đến IP 127.0.0.1 cục bộ, và vô hiệu hóa nó.
-Bạn có thể tải xuống các tệp máy chủ được xác định trước từ trong ứng dụng để kết hợp chúng vào tệp máy chủ của hệ thống. Cũng có thể sử dụng các tệp của riêng bạn và thêm các máy chủ nhất định vào danh sách chặn hoặc không chặn.
-Bạn có thể tùy chỉnh cho phép chạy một máy chủ web cục bộ để trả lời tên máy chủ bị chặn và chuyển hướng nó đến địa chỉ IP tùy chọn.
+Trình chặn quảng cáo mã nguồn mở cho Android.
 
-Yêu cầu root: Có. Tệp máy chủ được đặt trong phân vùng /system ở chế độ chỉ đọc theo mặc định.
+Ứng dụng có sẵn cho các thiết bị đã root và chưa root.
+Với thiết bị đã root, ứng dụng sẽ cập nhật file hosts của hệ thống bao gồm danh sách chỉ rõ tên máy chủ và địa chỉ IP.
+Với thiết bị chưa root, ứng dụng sẽ dùng tính năng VPN để chặn các kết nối tới các quảng cáo và các trình theo dõi.
+Do vậy khi một ứng dụng yêu cầu một quảng cáo hoặc một trình giám sát từ một máy chủ lưu trữ tệp đó, yêu cầu này sẽ bị chuyển hướng tới IP nội bộ là 127.0.0.1, thứ mà sẽ không làm gì hết.
+
+Bạn có thể tải xuống các danh sách chặn quảng cáo dưới dạng tệp hosts từ trong ứng dụng để tích hợp. Bạn cũng có thể sử dụng tệp của riêng mình để thêm một số hosts nhất định vào danh sách cho phép hoặc bị chặn.
+Bạn có thể tùy chỉnh cho phép chạy một máy chủ web cục bộ để trả lời tên máy chủ bị chặn và chuyển hướng nó đến địa chỉ IP tùy chọn.
