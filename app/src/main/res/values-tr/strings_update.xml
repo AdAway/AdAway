@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Değişim Kayıtları:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">AdAway\'in en son sürümü indiriliyor…</string>
+    <string name="update_notification_description">AdAway\'in en son sürümü indiriliyor...</string>
 </resources>

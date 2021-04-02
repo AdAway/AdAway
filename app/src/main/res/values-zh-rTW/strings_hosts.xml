@@ -2,7 +2,7 @@
 <resources>
     <string name="hosts_title">Hosts 來源</string>
     <!-- Default hosts source -->
-    <string name="hosts_user_source">用戶自訂列表</string>
+    <string name="hosts_user_source">用戶自訂清單</string>
     <string name="hosts_adaway_source">AdAway官方hosts</string>
     <string name="hosts_stevenblack_source">StevenBlack的統一化hosts</string>
     <string name="hosts_peterlowe_source">Pete Lowe的阻擋hosts</string>

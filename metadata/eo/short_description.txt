@@ -1,1 +1,1 @@
-Malfermitkoda reklamoblokilo por Android uzanta dosieron “hosts”.
+A free and Open Source ad blocker for Android.

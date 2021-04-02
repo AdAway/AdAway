@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">ようこそ！</string>
-    <string name="text_help">AdAwayは、広告をブロックするためのフリーでオープンソースのソフトウェアです。広告用ネットワークアドレスを取ってきて、あなたのデバイス上で遮断します。\ nもっと知りたいですか？ 以下のヘルプをチェックしてください！</string>
+    <string name="text_help">AdAwayは、広告をブロックするためのフリーでオープンソースのソフトウェアです。広告用ネットワークアドレスを取得して、あなたのデバイス上で遮断します。\nもっと知りたいですか？ 以下のヘルプをチェックしてください！</string>
     <string name="button_show_help">詳しいヘルプを表示</string>
     <string name="icon_update_status">最新状況</string>
     <string name="text_update">定義されたソースからhostsファイルをダウンロードし、システムのhostsファイルに統合してインストールします</string>
@@ -26,18 +26,16 @@
     <string name="button_enable_webserver">Webサーバーを有効にする</string>
     <string name="button_disable_webserver">Webサーバーを無効にする</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">削除</string>
     <string name="checkbox_list_context_title">項目を編集する</string>
+    <string name="checkbox_list_context_apply">適用する</string>
     <string name="checkbox_list_context_edit">編集</string>
+    <string name="checkbox_list_context_delete">削除</string>
 
     <!--Your lists-->
     <string name="import_dialog">インポート中…</string>
     <string name="import_success">外部ストレージからバックアップが正常にインポートされました。</string>
     <string name="import_failed">バックアップのインポートに失敗しました。 バックアップの形式は正しいですか? 詳細は、 logcat を確認してください。</string>
     <string name="export_dialog">エクスポート中…</string>
-    <string name="export_success">バックアップは、外部ストレージ上の \"adaway-backup.json\" に正常にエクスポートされました。</string>
-    <string name="export_failed">バックアップのエクスポートに失敗しました。</string>
-
     <!--Hosts content-->
     <string name="hosts_header">hostsファイル</string>
     <string name="hosts_description">hostsファイルはホスト名をIPアドレスに対応させるシステムファイルです。 AdAwayが処理する設定が書かれたただのテキストファイルです。 最初の数行はこんな感じです：</string>

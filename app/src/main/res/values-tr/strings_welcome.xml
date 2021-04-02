@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Hoşgeldiniz</string>
-    <string name="welcome_first_step">Sihirbaz kurulumunun ilk adımı</string>
-    <string name="welcome_second_step">Sihirbaz kurulumunun ikinci adımı</string>
+    <string name="welcome_first_step">Sihirbaz kurulumunun ilk aşaması</string>
+    <string name="welcome_second_step">Sihirbaz kurulumunun ikinci aşaması</string>
     <string name="welcome_last_step">Sihirbaz kurulumunun son aşaması</string>
 
     <!-- Method UI -->

@@ -13,13 +13,13 @@
     <string name="text_update">Vse hosts datoteke danih virov so prenešene, združene z vašimi osebnimi seznami in nameščene kot ena hosts datoteka na vašem sistemu.</string>
     <string name="button_check_update_hosts">Preveri za posodobitve</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Odstrani</string>
     <string name="checkbox_list_context_title">Uredi vnos</string>
     <string name="checkbox_list_context_edit">Uredi</string>
+    <string name="checkbox_list_context_delete">Odstrani</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Uvažanje…</string>
-    <string name="export_dialog">Izvažanje…</string>
+    <string name="import_dialog">Uvažanje...</string>
+    <string name="export_dialog">Izvažanje...</string>
     <string name="status_reverting_subtitle">Ustvarjanje privzete hosts datoteke</string>
     <string name="status_update_available_subtitle">Na voljo so posodobljene hosts datoteke</string>
     <string name="status_no_connection">Ni omrežne povezave</string>
@@ -46,8 +46,8 @@
     <string name="apply_apn_proxy_title">APN proxy nastavljen!</string>
     <string name="no_connection">Omrežna povezava ni vzpostavljena.</string>
     <string name="no_connection_title">Ni povezave</string>
-    <string name="download_dialog">Prenašanje…</string>
-    <string name="apply_dialog">Uporabljanje…</string>
+    <string name="download_dialog">Prenašanje...</string>
+    <string name="apply_dialog">Uporabljanje...</string>
     <string name="apply_dialog_lists">Uporabljanje seznama blokiranih in dovoljenih virov</string>
     <string name="apply_dialog_hostnames">Združevanje hosts datotek</string>
     <string name="apply_dialog_hosts">Izgradnja hosts datotek</string>
@@ -69,7 +69,7 @@
     <string name="no_hostname_title">Nepravilno oblikovano domensko ime</string>
     <string name="no_ip">Neveljaven IP!</string>
     <string name="no_ip_title">Nepravilno oblikovan IP</string>
-    <string name="loading">Nalaganje…</string>
+    <string name="loading">Nalaganje...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Osveži</string>

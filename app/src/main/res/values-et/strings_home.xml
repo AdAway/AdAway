@@ -1,8 +1,35 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Blokeeritud</string>
+    <string name="allowed_hosts_label">Lubatud</string>
+    <string name="redirect_hosts_label">Ümbersuunatud</string>
+
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="one">%d kaasaegne allikas</item>
+        <item quantity="other">%d kaasaegset allikat</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="one">%d aegunud allikas</item>
+        <item quantity="other">%d aegunud allikat</item>
+    </plurals>
+
+    <!-- Help card -->
+    <string name="help_label">Kuva abi</string>
+
+    <!-- Project card -->
+    <string name="project_label">Ava GitHubi leht</string>
+
+    <!-- Support card -->
+    <string name="support_label">Toeta projekti</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNSi logid</string>
     <string name="preferences_drawer_item">Eelistused</string>
 
+    <string name="adblock_pause_button_description">Peata/jätka reklaamiblokeerimist</string>
     <!-- Error dialog -->
     <string name="error_dialog_help">Palun loe abi rohkema teabe saamiseks.</string>
 

@@ -1,1 +1,1 @@
-برنامه AdAway یک برنامه متن باز برای مسدود کردن تبلیغات در اندروید میباشد
+A free and Open Source ad blocker for Android.

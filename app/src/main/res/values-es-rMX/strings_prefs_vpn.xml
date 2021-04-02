@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">Bloqueador de anuncios basado en VPN</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Habilitar en el inicio</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Aplicaciones excluidas</string>

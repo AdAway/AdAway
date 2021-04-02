@@ -28,14 +28,14 @@
     <string name="welcome_method_con_logo">Inconvénients</string>
 
     <!-- Sync UI -->
-    <string name="welcome_sync_done_logo">La synchro est terminée</string>
-    <string name="welcome_sync_error_logo">Erreur de synchro</string>
+    <string name="welcome_sync_done_logo">La synchronisation est terminée</string>
+    <string name="welcome_sync_error_logo">Erreur de synchronisation</string>
 
     <string name="welcome_sync_header">Synchronisation</string>
-    <string name="welcome_synced_header">La synchro est terminée</string>
+    <string name="welcome_synced_header">La synchronisation est terminée</string>
     <string name="welcome_sync_summary">AdAway télécharge de sources en ligne la liste de réseaux publicitaires à bloquer. Vous pouvez les personnaliser ultérieurement dans les paramètres.</string>
     <string name="welcome_sync_retry_logo">Essayer de resynchroniser</string>
-    <string name="welcome_sync_error">Échec de synchro :\n%s.\nRessayer maintenant ?</string>
+    <string name="welcome_sync_error">Échec de synchronisation :\n%s.\nRéessayer maintenant ?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Dons</string>

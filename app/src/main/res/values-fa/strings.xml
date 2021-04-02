@@ -26,18 +26,16 @@
     <string name="button_enable_webserver">فعالسازی وب سرور</string>
     <string name="button_disable_webserver">غیرفعالسازی وب سرور</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">حذف کردن</string>
     <string name="checkbox_list_context_title">ویرایش ورودی</string>
+    <string name="checkbox_list_context_apply">اعمال تغییرات</string>
     <string name="checkbox_list_context_edit">ویرایش</string>
+    <string name="checkbox_list_context_delete">حذف کردن</string>
 
     <!--Your lists-->
     <string name="import_dialog">بارگیری…</string>
     <string name="import_success">فایل پشتیبانی با موفقیت از کارت حافظه شما بارگذاری شد.</string>
     <string name="import_failed">بارگذاری فایل پشتبانی با شکست مواجه شد. فرمت فایل درست است؟ فایل ثبت رویدادها رو چک کنید.</string>
     <string name="export_dialog">در حال خروجی گرفتن…</string>
-    <string name="export_success">فایل بکاپ با موفقیت در حافظه جانبی شما به اسم \'adaway-backup.json\' ساخته شد.</string>
-    <string name="export_failed">عملیات ساخت بکاپ با شکست مواجه شد.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">فایل هاست ها</string>
     <string name="hosts_description">فایل هاست ها یک فایل سیستمی است که نام هاست ها را به آی پی آدرس ها مرتبط میکند.این یک فایل متنی ساده است که توسط  AdAway تنظیم شده است.در اینجا چند خط ابتدایی آن را داریم:</string>

@@ -12,6 +12,6 @@
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Lägg till källa</string>
     <string name="hosts_edit_dialog_title">Redigera källa</string>
-    <string name="hosts_dialog_url">URL: (använd https:// eller file:// resurs)</string>
+    <string name="hosts_dialog_url">URL: (använd https:// eller file://-resurs)</string>
     <string name="hosts_dialog_url_hint">Värdkällans webbadress</string>
 </resources>

@@ -1,7 +1,9 @@
-hosts ファイルによる広告ブロッカー
-hosts ファイルとは、ホスト名とそのIPアドレスの対応表が書かれたシステムファイルです。
-あるアプリがそのファイル内にあるホストへ広告を要求すると、その要求はローカル IPアドレスの 127.0.0.1 へ転送されます。これにより何も起こりません。
-アプリ内から定義済み hosts ファイルをダウンロードして、これをシステム側の hosts ファイルに統合することができます。自作ファイルを使うことも、特定のホストをホワイトリストやブラックリストに入れることもできます。
-ローカルにWebサーバーを建てて遮断されたホスト名に応答することや、代わりに要求を自分で決めたIPアドレスに転送するオプションもあります。
+A Free and Open Source ad blocker for Android.
 
-root 必要か： はい。 hosts ファイルは本来読み込み専用である /system に置かれています。
+The application is available for rooted and non-rooted devices.
+Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
+Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
+So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+
+You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+ローカルにWebサーバーを建てて遮断されたホスト名に応答することや、代わりに要求を自分で決めたIPアドレスに転送するオプションもあります。

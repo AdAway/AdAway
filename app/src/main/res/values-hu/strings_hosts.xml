@@ -8,7 +8,7 @@
     <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
     <!-- List -->
     <string name="hosts_not_available">nem érhető el</string>
-    <string name="hosts_count">%shosztok</string>
+    <string name="hosts_count">%shoszt</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Forrás hozzáadása</string>
     <string name="hosts_edit_dialog_title">Forrás szerkesztése</string>

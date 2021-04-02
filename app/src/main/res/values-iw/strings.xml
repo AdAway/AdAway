@@ -2,12 +2,12 @@
 <resources>
     <!--Buttons-->
     <string name="button_exit">יציאה</string>
-    <string name="button_close">לא נמצא Busybox. כדי להתקין אותו מהמרקט לחץ על הלחצן מתחת.</string>
+    <string name="button_close">סגירה</string>
     <string name="button_yes">כן</string>
     <string name="button_no">לא</string>
-    <string name="button_add">הוסף</string>
+    <string name="button_add">הוספה</string>
     <string name="button_cancel">ביטול</string>
-    <string name="button_save">שמור</string>
+    <string name="button_save">שמירה</string>
     <string name="button_help">עזרה</string>
 
     <!--Home-->
@@ -15,50 +15,70 @@
     <string name="text_help">AdAway היא תוכנה בחינם וקוד פתוח לחסימת פרסומות. התוכנה שולפת כתובות רשת של מפרסמים כדי לחסום אותן במכשיר שלך.\n רוצה לדעת עוד? בדוק את העזרה למטה!</string>
     <string name="button_show_help">הצג עזרה נוספת</string>
     <string name="icon_update_status">מצב העדכון</string>
-    <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ hosts יחיד במערכת..</string>
-    <string name="button_check_update_hosts">בדוק עידכונים</string>
-    <string name="button_update_hosts">עדכן hosts</string>
+    <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ מארחים יחיד במערכת..</string>
+    <string name="button_check_update_hosts">בדיקת עדכונים</string>
+    <string name="button_update_hosts">עדכן מארחים</string>
     <string name="button_enable_hosts">הפעל חסימת פרסומות</string>
     <string name="button_disable_hosts">בטל חסימת פרסומות</string>
     <string name="header_webserver">שרת Web</string>
     <string name="webserver_status_running">פעיל</string>
-    <string name="webserver_status_stopped">מכובה</string>
+    <string name="webserver_status_stopped">כבוי</string>
     <string name="button_enable_webserver">הפעל שרת Web</string>
     <string name="button_disable_webserver">בטל שרת Web</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">פעיל</string>
+    <string name="vpn_status_stopped">כבוי</string>
+    <string name="button_enable_vpn">VPN פעיל</string>
+    <string name="button_disable_vpn">VPN לא פעיל</string>
+
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">מחק</string>
     <string name="checkbox_list_context_title">ערוך רשומה</string>
+    <string name="checkbox_list_context_apply">החל</string>
     <string name="checkbox_list_context_edit">ערוך</string>
+    <string name="checkbox_list_context_delete">מחק</string>
 
     <!--Your lists-->
     <string name="import_dialog">מייבא…</string>
     <string name="import_success">גיבוי יובא בהצלחה מהאחסון החיצוני</string>
     <string name="import_failed">ייבוא הגיבוי נכשל. האם פורמט הגיבוי נכון? בדוק את logcat לפרטים נוספים.</string>
     <string name="export_dialog">מייצא…</string>
-    <string name="export_success">הגיבוי מיוצא בהצלחה לקובץ \'adaway-backup.json\' באחסון החיצוני שלך.</string>
-    <string name="export_failed">ייצוא גיבוי נכשל.</string>
-
     <!--Hosts content-->
-    <string name="hosts_header">קובץ hosts</string>
-    <string name="hosts_description">קובץ ה-host הוא קובץ מערכת הממפה שמות מארחים לכתובות IP. זהו קובץ טקסט רגיל אשר התצורה מטופלת על ידי AdAway. להלן כמה שורות ראשונות:</string>
-    <string name="hosts_content">טוען תוכן קובץ hosts…</string>
-    <string name="hosts_open_button">פתח קובץ hosts</string>
+    <string name="hosts_header">קובץ מארחים</string>
+    <string name="hosts_description">קובץ המארחים הוא קובץ מערכת הממפה שמות מארחים לכתובות IP. זהו קובץ טקסט רגיל אשר התצורה מטופלת על ידי AdAway. להלן כמה שורות ראשונות:</string>
+    <string name="hosts_content">טוען תוכן קובץ מארחים…</string>
+    <string name="hosts_open_button">פתח קובץ מארחים</string>
 
-    <string name="status_reverting_subtitle">יוצר קובץ hosts רגיל</string>
+    <!--Status Notification-->
+    <string name="status_check">בדיקת עדכונים</string>
+    <string name="status_check_source">בדיקת עדכון במקור %s </string>
+    <string name="status_retrieve">אחזור מקורות</string>
+    <string name="status_download_source">מוריד את מקור %s</string>
+    <string name="status_read_source">קורא את מקור %s</string>
+    <string name="status_parse_source">מנתח את מקור%s</string>
+    <string name="status_sync_database">מסנכרן חוקי מסד נתונים</string>
+    <string name="status_revert">מאחזר לברירת מחדל את קובץ המארחים</string>
+    <string name="status_revert_done">קובץ מארחים שוחזר לברירת מחדל</string>
+    <string name="status_reverting_subtitle">יוצר קובץ מארחים רגיל</string>
     <string name="status_update_available">קיים עידכון</string>
-    <string name="status_update_available_subtitle">קבצי hosts חדשים זמינים להורדה</string>
+    <string name="status_update_available_subtitle">קבצי מארחים חדשים זמינים להורדה</string>
+    <string name="status_no_update_found">לא נמצאו עדכוני מקורות</string>
     <string name="status_no_connection">אין חיבור לאינטרנט</string>
     <string name="status_no_connection_subtitle">אין חיבור זמין לאינטרנט</string>
     <string name="status_download_fail">מקורות לא זמינים</string>
-    <string name="status_download_fail_subtitle_new">אין מקורות זמינים!</string>
+    <string name="status_download_fail_subtitle_new">לא הושגו מקורות מארחים!</string>
     <string name="status_root_access_denied">אין גישת root</string>
     <string name="status_root_access_denied_subtitle">אפשר גישת root מאפליקציית ה-root שלך</string>
     <string name="status_failure">משהו לא תקין קרה</string>
     <string name="status_failure_subtitle">בדוק ב-logcat על מנת לקבל מידע נוסף</string>
     <string name="status_enabled">פעיל</string>
-    <string name="status_enabled_subtitle">קבצי hosts חדשים פעילים</string>
+    <string name="status_enabled_subtitle">קבצי מארחים חדשים פעילים</string>
     <string name="status_disabled">לא פעיל</string>
-    <string name="status_disabled_subtitle">קובץ hosts ברירת המחדל הותקן</string>
+    <string name="status_disabled_subtitle">קובץ מארחים ברירת המחדל הותקן</string>
+    <string name="status_apply_sources">החלת מקורות אחרונים</string>
+    <string name="status_create_new_hosts">יצירת קובץ מארחים חדש</string>
+    <string name="status_copy_new_hosts">העתקת קובץ מארחים חדש</string>
+    <string name="status_check_copy">בדיקת העתק קובץ מארחים </string>
+    <string name="status_hosts_updated">קובץ מארחים עודכן בהצלחה</string>
     <string name="notification_configuration_changed_action">החל</string>
     <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
     <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
@@ -68,9 +88,10 @@
     <string name="apply_private_file_fail_title">החלת קובץ פרטי נכשל</string>
     <string name="apply_remount_fail">הענקת הרשאות קריאה/כתיבה נכשלו!</string>
     <string name="apply_remount_fail_title">הענקת הרשאות נכשלה</string>
-    <string name="apply_copy_fail">העתקת קובץ hosts נכשלה</string>
+    <string name="apply_copy_fail_status">נכשל בהעתקת קובץ מארחים</string>
+    <string name="apply_copy_fail">העתקת קובץ מארחים נכשלה</string>
     <string name="apply_copy_fail_title">העתקה נכשלה</string>
-    <string name="apply_success_subtitle">עדכן מקורות hosts</string>
+    <string name="apply_success_subtitle">עדכן מקורות מארחים</string>
     <string name="apply_success_title">החלת ההגדרות הושלמה בהצלחה</string>
     <string name="apply_success_dialog">החלת השינויים בוצעה בהצלחה. אך יתכן שיהיה צורך להפעיל מחדש את אנדרואיד כדי שהשינויים ייכנסו לתוקף.\n\nהאם ברצונך לאתחל מחדש?\n(כדי למנוע אובדן נתונים וודא שאף אפליקציה לא משתמשת בכרטיס ה- SD כרגע!)</string>
     <string name="apply_symlink_successful">הקישור הסימבולי נוצר בהצלחה.\nכדי להחיל את השינויים ייתכן שיש צורך בהפעלה מחדש.\n\nלהפעיל מחדש עכשיו?\n(כדאי להמנע מאיבוד מידע יש לוודא שאף אפליקציה לא משתמשת בכרטיס הזיכרון!)</string>
@@ -85,25 +106,28 @@
     <string name="download_dialog">מוריד…</string>
     <string name="apply_dialog">מחיל…</string>
     <string name="apply_dialog_lists">החל רשימה שחורה ולבנה</string>
-    <string name="apply_dialog_hostnames">מאחד קבצי hosts</string>
-    <string name="apply_dialog_hosts">בונה קובץ hosts</string>
-    <string name="apply_dialog_apply">מחיל קובץ hosts</string>
-    <string name="apply_fail">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
+    <string name="apply_dialog_hostnames">מאחד קבצי מארחים</string>
+    <string name="apply_dialog_hosts">בונה קובץ מארחים</string>
+    <string name="apply_dialog_apply">מחיל קובץ מארחים</string>
+    <string name="apply_fail_status">כשלון בהגדרת קובץ מארחים חדש</string>
+    <string name="apply_fail">החלת קובץ מארחים במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
     <string name="apply_fail_title">החלת הגדרות נכשלה</string>
     <string name="root_access_fail">אנא בדוק את אפליקציית ניהול ה-root שלך כדי לוודא שניתנה גישה ל-root.</string>
     <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
+    <string name="revert_failed_status">לא ניתן להחזיר את קובץ המארחים</string>
     <string name="revert_problem">שיחזור נכשל מסיבות לא ידועות.</string>
     <string name="revert_problem_title">שחזור נכשל!</string>
-    <string name="download_fail_dialog">אף אחד מהמקורות שלך זמינים בדוק שאתה מחובר לאינטרנט ונסה שוב</string>
+    <string name="download_fail_dialog">אף אחד ממקורות המארחים שלך לא הושג, בטוח שיש חיבור לאינטרנט? נא לבדוק שוב</string>
     <string name="download_fail_title">הורדה נכשלה</string>
+    <string name="no_private_file_status">כישלון בכתיבת קובץ מארחים פרטי חדש</string>
     <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
     <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
     <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
     <string name="disable_systemless_successful_title">כובה בהצלחה</string>
-    <string name="enable_systemless_magisk_title">הפעלת מודול hosts Magisk</string>
-    <string name="disable_systemless_magisk_title">כיבוי מודול hosts Magisk</string>
+    <string name="enable_systemless_magisk_title">הפעלת מודול מארחים Magisk</string>
+    <string name="disable_systemless_magisk_title">כיבוי מודול מארחים Magisk</string>
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">הכנס כתובת לקובץ hosts:</string>
+    <string name="hosts_add_dialog">הכנס כתובת לקובץ מארחים:</string>
     <string name="no_hostname">שם השרת אינו חוקי!</string>
     <string name="no_hostname_title">שם השרת בתבנית לא נכונה</string>
     <string name="no_ip">כתובת ה IP אינה חוקית!</string>
@@ -123,13 +147,15 @@
     <string name="help_tab_faq">שאלות ותשובות</string>
     <string name="help_tab_problems">תקלות</string>
 
-    <string name="adware_scanning">סורק…</string>
+    <!--Adware-->
+    <string name="adware_header">תוכנת פירסום</string>
+    <string name="adware_scanning">סורק&#8230;</string>
     <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
 
     <!--Other-->
     <string name="app_subtitle">חסום פרסומות</string>
     <string name="no_text_editor_title">לא מותקן עורך טקסט</string>
-    <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ hosts. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
+    <string name="no_text_editor">לא נמצא עורך טקסט כל שהוא מותקן עבור פתיחת קובץ מארחים. אתה יכול להתקין את העורך Jota או כל עורך טקסט אחר כדי לפתוח את הקובץ.\n\nאתה רוצה להתקין את Jota כעת?</string>
     <string name="no_file_manager_title">לא מותקן מנהל קבצים</string>
     <string name="no_file_manager">לא נמצא מנהל קבצים לפתיחת קובץ זה. תוכל להתקין את  OI File Manager או כל מנהל קבצים אחר כדי לפתור זאת.\n\nהאם אתה רוצה להתקין את OI File Manager כעת?</string>
 
@@ -148,17 +174,18 @@
     <string name="tcpdump_entry_add_whitelist">הוסף לרשימה לבנה</string>
     <string name="tcpdump_entry_add_redirection_list">הוסף לרשימת הפניות</string>
 
+    <string name="pref_edit_text_value">ערוך את ערך העדפת הטקסט</string>
     <string name="drawer_open">פתח תפריט</string>
     <string name="drawer_close">סגור תפריט</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
-        <item>Home</item>
-        <item>לפני שאתה משנה הגדרה זו. קרא בבקשה בעזרה מידע אודות פונקציה זו.</item>
-        <item>Your lists</item>
-        <item>פתח קובץ hosts</item>
-        <item>Log DNS requests</item>
-        <item>Scan for adware</item>
+        <item>בית</item>
+        <item>מקורות מארחים</item>
+        <item>הרשימות שלך</item>
+        <item>פתיחת קובץ מארחים</item>
+        <item>לוג בקשות DNS</item>
+        <item>סרוק תוכנות פירסום</item>
         <item>העדפות</item>
         <item>עזרה</item>
     </string-array>
@@ -169,10 +196,13 @@
     <string name="shortcut_your_lists">הרשימות שלך</string>
     <string name="shortcut_preferences">העדפות</string>
 
-    <string name="hosts_source_up_to_date">עדכני עבור %1$s</string>
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">הותקנו לפני %1$s</string>
+    <string name="hosts_source_up_to_date">עודכן לפני %1$s</string>
     <string name="hosts_source_need_update">נדרש עדכון עבור %1$s</string>
-    <string name="hosts_source_last_update">נדרש עדכון מלפני %1$s</string>
+    <string name="hosts_source_last_update">עדכון אחרון לפני %1$s</string>
     <string name="hosts_source_unknown_status">מצב עדכון לא ידוע</string>
+    <string name="hosts_source_few_minutes">כמה דקות</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">דקה %d</item>
         <item quantity="two">%d דקות</item>
@@ -198,4 +228,20 @@
         <item quantity="other">%dחודשים</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">מפעיל</string>
+    <string name="vpn_notification_running">פעיל</string>
+    <string name="vpn_notification_stopping">עוצר</string>
+    <string name="vpn_notification_waiting_for_net">ממתין לרשת</string>
+    <string name="vpn_notification_reconnecting">מתחבר מחדש</string>
+    <string name="vpn_notification_reconnecting_error">שגיאת התחברות מחדש</string>
+    <string name="vpn_notification_paused">מושהה</string>
+    <string name="vpn_notification_stopped">נעצר</string>
+    <string name="vpn_notification_title">חוסם פרסומות VPN %1$s</string>
+    <string name="vpn_notification_action_pause">השהה</string>
+    <string name="vpn_notification_paused_text">הקשה כדי להמשיך</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">הפעלה וכיבוי מערכת חוסם הפרסומות</string>
+
+</resources>

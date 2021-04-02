@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lists_title">Your lists</string>
+    <string name="lists_title">Túas listas</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Bloqueado</string>
+    <string name="lists_tab_allowed">Permitido</string>
+    <string name="lists_tab_redirected">Redirixido</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Filtrar hosts</string>
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Engadir host á lista negra</string>
+    <string name="list_add_dialog_white">Engadir host á lista branca</string>
+    <string name="list_add_dialog_redirect">Engadir host de redirección</string>
     </resources>

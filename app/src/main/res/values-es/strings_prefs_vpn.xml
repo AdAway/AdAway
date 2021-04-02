@@ -3,7 +3,7 @@
     <string name="pref_vpn_title">Bloqueador de anuncios basado en VPN</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Habilitar al inicio</string>
-    <string name="pref_vpn_service_monitor">Conexión del monitor</string>
+    <string name="pref_vpn_service_monitor">Monitor de conexión</string>
     <string name="pref_vpn_service_monitor_description">Comprobar periódicamente el estado de la red para reiniciar la VPN en caso de desconexión.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Aplicaciones excluidas</string>

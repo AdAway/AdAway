@@ -4,5 +4,7 @@
     <string name="update_available">Päivitys saatavilla!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">Olet ajan tasalla</string>
+    <string name="update_update_available_header">Päivitys saatavilla</string>
     <string name="update_update_button">Päivitä nyt</string>
-</resources>
+    </resources>

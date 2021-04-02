@@ -4,5 +4,7 @@
     <string name="update_available">Dostupno ažuriranje!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">Ažurirano</string>
+    <string name="update_update_available_header">Ažuriranje je dostupno</string>
     <string name="update_update_button">Ažuriraj odmah</string>
-</resources>
+    </resources>

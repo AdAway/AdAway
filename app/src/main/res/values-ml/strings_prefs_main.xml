@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">മുൻ‌ഗണനകൾ</string>
+    <string name="pref_root_ad_blocker_configuration">റൂട്ട് അടിസ്ഥാനമാക്കിയുള്ള പരസ്യ ബ്ലോക്കർ</string>
     <!-- Debug category -->
     <string name="pref_debug_category">ഡീബഗ് ചെയ്യുക</string>
     </resources>

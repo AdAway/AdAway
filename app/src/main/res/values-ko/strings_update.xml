@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">변경사항:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">최신 AdAway 버전을 다운로드 중…</string>
+    <string name="update_notification_description">최신 AdAway 버전을 다운로드 중...</string>
 </resources>

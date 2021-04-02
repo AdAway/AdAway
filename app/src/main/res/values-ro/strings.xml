@@ -44,13 +44,10 @@
     <string name="import_success">Copie de rezervă importată cu succes din stocarea externă.</string>
     <string name="import_failed">Imposibil de importat copia de rezervă. Ați verificat corectitudinea formatului? Analizează logcat-ul pentru mai multe detalii.</string>
     <string name="export_dialog">Exportă…</string>
-    <string name="export_success">Copia de rezervă a fost exportată cu succes către fișierul \'adaway-backup.json\' pe stocarea externă.</string>
-    <string name="export_failed">Imposibil de exportat copia de rezervă.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Fișierul \'hosts\'</string>
     <string name="hosts_description">Fișierul hosts este un fișier de sistem care mapează numele serverelor la adrese IP. Este pur și simplu un fișier text a cărui configurație este gestionată de către  AdAway. Iată câteva linii din începutul fișierului:</string>
-    <string name="hosts_content">Încărcare conținut din fișierul hosts…</string>
+    <string name="hosts_content">Încărcare conținut din fișierul hosts...</string>
     <string name="hosts_open_button">Deschidere fișier hosts</string>
 
     <!--Status Notification-->
@@ -87,7 +84,7 @@
     <string name="status_vpn_configuration_updated">Configurația VPN a fost actualizată cu succes</string>
     <string name="notification_configuration_changed">Configurația a fost modificată. Modificările necesită aplicare.</string>
     <string name="notification_configuration_changed_action">Aplică</string>
-    <string name="notification_configuration_installing">Aplicare configurație nouă…</string>
+    <string name="notification_configuration_installing">Aplicare configurație nouă...</string>
     <string name="notification_configuration_failed">Imposibil de aplicat noua configurație.</string>
 
     <!--Apply and Revert Dialogs-->

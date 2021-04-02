@@ -44,13 +44,10 @@
     <string name="import_success">Atsarginė kopija sėkmingai importuota iš jūsų išorinės atminties.</string>
     <string name="import_failed">Nepavyko importuoti atsarginės kopijos. Ar jos formatas teisingas? Patikrinkite logcat failą dėl išsamesnių detalių.</string>
     <string name="export_dialog">Eksportuojama…</string>
-    <string name="export_success">Atsarginė kopija eksportuota į \'adaway-backup.json\' failą jūsų išorinėje atmintyje.</string>
-    <string name="export_failed">Nepavyko eksportuoti atsarginės kopijos.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Hosts failas</string>
     <string name="hosts_description">Hosts failas yra sistemos failas kuris pritaiko domenus prie IP adresų. Tai yra paprastas teksto failas kurio konfiguraciją tvarko ir naudoja AdAway. Čia yra jos pirmos eilutės:</string>
-    <string name="hosts_content">Kraunama hosts failo duomenys…</string>
+    <string name="hosts_content">Kraunama hosts failo duomenys...</string>
     <string name="hosts_open_button">Atverti hosts failą</string>
 
     <!--Status Notification-->
@@ -86,7 +83,7 @@
     <string name="status_vpn_configuration_updated">VPN konfigūracija sėkmingai atnaujinta</string>
     <string name="notification_configuration_changed">Jūsų konfiguracija išsaugota. Jums reikia ją pritaikyti.</string>
     <string name="notification_configuration_changed_action">Pritaikyti</string>
-    <string name="notification_configuration_installing">Pritaikoma nauja konfigūracija…</string>
+    <string name="notification_configuration_installing">Pritaikoma nauja konfigūracija...</string>
     <string name="notification_configuration_failed">Nepavyko pritaikyti naujos konfigūracijos.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -202,10 +199,10 @@
     <string-array name="drawer_items">
         <item>Namai</item>
         <item>Hosts šaltiniai</item>
-        <item>Your lists</item>
+        <item>Jūsų sarašai</item>
         <item>Atverti hosts failą</item>
-        <item>Log DNS requests</item>
-        <item>Scan for adware</item>
+        <item>Rinkti DNS užklausas</item>
+        <item>Skanuoti dėl reklamų virusų</item>
         <item>Nustatymai</item>
         <item>Pagalba</item>
     </string-array>

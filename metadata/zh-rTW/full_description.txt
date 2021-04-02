@@ -1,7 +1,9 @@
-使用 hosts 檔案的廣告阻擋程式。
-hosts 檔案是個包含在 host 及 IP 位址對應清單的系統檔案。
-當 app 要求從清單中的 host 取得廣告時，此要求將會被轉址至本機 127.0.0.1 並不做任何事。
-您可以在應用程式中下載預先定義的 hosts 檔案，以將它們合併到系統的 hosts 檔案中。您也可以使用自己的檔案，並將某些主機加入到白名單和黑名單中。
-可經由選項建立本機網頁伺服器以針對被阻擋的主機名稱連線請求做出回應並重新導向至您自訂的IP 位址。
+A Free and Open Source ad blocker for Android.
 
-需要 root 權限：是。hosts 檔案位於預設為唯讀的 /system 目錄。
+The application is available for rooted and non-rooted devices.
+Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
+Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
+So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+
+You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+可經由選項建立本機網頁伺服器以針對被阻擋的主機名稱連線請求做出回應並重新導向至您自訂的IP 位址。

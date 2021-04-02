@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">VPN configuratie succesvol bijgewerkt</string>
     <string name="notification_configuration_changed">Je configuratie is gewijzigd. Je moet het toepassen.</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
-    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie…</string>
+    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie...</string>
     <string name="notification_configuration_failed">Toepassen van nieuwe configuratie is mislukt.</string>
 
     <!--Apply and Revert Dialogs-->

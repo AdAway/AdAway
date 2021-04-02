@@ -2,4 +2,6 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">Yeniləmələr</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
     </resources>

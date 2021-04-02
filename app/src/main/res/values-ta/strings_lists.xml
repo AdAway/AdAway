@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lists_title">Your lists</string>
+    <string name="lists_title">உங்கள் பட்டியல்கள்</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">தடுக்கப்பட்டவை</string>
+    <string name="lists_tab_allowed">அனுமதிக்கப்பட்ட</string>
+    <string name="lists_tab_redirected">வழிமாற்றப்பட்டது</string>
+    <string name="lists_menu_toggle_sources">மூலங்களை இருநிலை மாற்று</string>
+    <string name="list_edit_dialog_redirect">வழிமாற்றங்களை திருத்து</string>
+    <string name="list_dialog_hostname_hint">ஹோஸ்டுகளின் மூல URL</string>
     </resources>

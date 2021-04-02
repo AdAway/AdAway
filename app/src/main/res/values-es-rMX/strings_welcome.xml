@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Te damos la bienvenida</string>
-
     <!-- Method UI -->
     <string name="welcome_method_header">Te damos la bienvenida a AdAway</string>
     <string name="welcome_method_summary">AdAway tiene dos métodos de bloqueo de anuncios. Elige el que prefieras:</string>

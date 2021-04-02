@@ -44,9 +44,6 @@
     <string name="import_success">Backup successfully imported from your external storage.</string>
     <string name="import_failed">Failed to import backup. Is its format correct? Check logcat for more details.</string>
     <string name="export_dialog">Exporting…</string>
-    <string name="export_success">Backup successfully exported to \'adaway-backup.json\' file on your external storage.</string>
-    <string name="export_failed">Failed to export backup.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">The hosts file</string>
     <string name="hosts_description">The hosts file is a system file that maps hostnames to IP addresses. It is a plain text file which configuration is handled by AdAway. Here are its few first lines:</string>

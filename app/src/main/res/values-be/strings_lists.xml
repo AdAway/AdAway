@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">Перанакіравана</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Фільтраваць hosts</string>
-    <string name="lists_menu_filter_hint">Пошук назвы host…</string>
+    <string name="lists_menu_filter_hint">Пошук назвы host...</string>
     <string name="lists_menu_toggle_sources">Пераключыць крыніцы</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Дадаць host у чорны спіс</string>

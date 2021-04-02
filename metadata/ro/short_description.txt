@@ -1,1 +1,1 @@
-AdAway este un proiect sursa-deschisa pentru Android care foloseste fisierul 'hosts'
+A free and Open Source ad blocker for Android.

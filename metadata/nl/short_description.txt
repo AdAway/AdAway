@@ -1,1 +1,1 @@
-AdAway is een vrije reclameblokkeerder voor Android, die gebruik maakt van het hosts-bestand.
+A free and Open Source ad blocker for Android.

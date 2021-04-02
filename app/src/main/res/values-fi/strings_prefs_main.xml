@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Asetukset</string>
+    <!-- General category -->
+    <string name="pref_general_category">Yleiset</string>
+    <string name="pref_dark_theme">Tummateema</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Vaalea</item>
+        <item>Tumma</item>
+        <item>Järjestelmän oletus</item>
+    </string-array>
+    <string name="pref_update_configuration">Automaattiset päivitykset</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Mainostentorjunta</string>
     <string name="pref_vpn_ad_blocker_configuration">VPN pohjainen mainostenesto</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Virheenkorjaus</string>
+    <string name="pref_enable_telemetry">Lähetä virheraportteja</string>
+    <string name="pref_enable_telemetry_disabled_summary">Ei ole tuettu tässä julkaisussa</string>
     </resources>

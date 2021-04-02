@@ -19,9 +19,9 @@
     <string name="webserver_status_running">Kjører</string>
     <string name="webserver_status_stopped">Stoppet</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Slett</string>
     <string name="checkbox_list_context_title">Rediger oppføring</string>
     <string name="checkbox_list_context_edit">Rediger</string>
+    <string name="checkbox_list_context_delete">Slett</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importerer …</string>

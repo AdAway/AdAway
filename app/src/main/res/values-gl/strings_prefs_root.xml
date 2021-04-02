@@ -7,4 +7,5 @@
         <item>/data/data/hosts</item>
         <item>Custom target</item>
     </string-array>
+    <string name="pref_webserver_enabled">Activar servidor web</string>
     </resources>

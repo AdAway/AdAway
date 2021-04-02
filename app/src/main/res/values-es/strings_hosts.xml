@@ -4,8 +4,8 @@
     <!-- Default hosts source -->
     <string name="hosts_user_source">Lista del usuario</string>
     <string name="hosts_adaway_source">Hosts oficiales de AdAway</string>
-    <string name="hosts_stevenblack_source">StevenBlack Unified hosts</string>
-    <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
+    <string name="hosts_stevenblack_source">Hosts unificados de StevenBlack</string>
+    <string name="hosts_peterlowe_source">Lista de bloqueo de Pete Lowe</string>
     <!-- List -->
     <string name="hosts_not_available">no disponible</string>
     <string name="hosts_count">%s hosts</string>

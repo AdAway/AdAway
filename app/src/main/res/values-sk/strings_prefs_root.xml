@@ -26,7 +26,7 @@
     <string name="pref_webserver_test">Testovať web server</string>
     <string name="pref_webserver_certificate">Inštalovať certifikát s vlastným podpisom</string>
     <string name="pref_webserver_certificate_dialog_title">Ručná inštalácia certifikátu</string>
-    <string name="pref_webserver_certificate_dialog_content">Od Androidu 11 (R) aplikácie nemôžu automaticky inštalovať dôveryhodné certifikáty CA.\n\nPrejdite na nastavenie \"Zabezpečenie\", \"Šifrovanie a poverenia\", potom \"Inštalovať certifikát\". Tam vyberte \"Certifikát CA\" a vyberte nový exportovaný súbor s certifikátom.</string>
+    <string name="pref_webserver_certificate_dialog_content">Od Androidu 11 (R) aplikácie nemôžu automaticky inštalovať dôveryhodné certifikáty (CA).\n\nPrejdite na nastavenie \"Zabezpečenie\", \"Šifrovanie a poverenia\", potom \"Inštalovať certifikát\". Tam vyberte \"Certifikát CA\" a vyberte nový exportovaný súbor s certifikátom.</string>
     <string name="pref_webserver_certificate_dialog_action">Otvoriť nastavenie Zabezpečenie</string>
     <string name="pref_webserver_state_checking">Kontrolovanie…</string>
     <string name="pref_webserver_state_not_running">Nie je spustený</string>

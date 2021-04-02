@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_backup_restore_title">Varmuuskopioi &amp; palauta</string>
+    <string name="pref_backup">Varmuuskopioi</string>
+    <string name="pref_restore">Palauta</string>
     </resources>

@@ -10,9 +10,9 @@
     <string name="button_help">Tulong</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Ibura</string>
     <string name="checkbox_list_context_title">Palitan ang entry</string>
     <string name="checkbox_list_context_edit">Palitan</string>
+    <string name="checkbox_list_context_delete">Ibura</string>
 
     <!--Your lists-->
     <string name="import_dialog">Nag-iimport…</string>

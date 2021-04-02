@@ -4,14 +4,14 @@
     <!-- Hosts card -->
     <string name="blocked_hosts_label">차단 됨</string>
     <string name="allowed_hosts_label">허용 됨</string>
-    <string name="redirect_hosts_label">리디렉션됨</string>
+    <string name="redirect_hosts_label">리다이렉트 됨</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="other">%d 개의 갱신된 소스</item>
+        <item quantity="other">%d개의 갱신된 소스</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="other">%d 개의 오래된 소스</item>
+        <item quantity="other">%d개의 오래된 소스</item>
     </plurals>
 
     <!-- Help card -->

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN pohjainen mainos esto</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Aktivoi käynnistyksessä</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Pois jätetyt sovellukset</string>

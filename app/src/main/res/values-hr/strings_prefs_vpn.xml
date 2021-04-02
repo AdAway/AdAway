@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN temeljen blokator oglasa</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Omogući pri pokretanju</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Izuzete aplikacije</string>

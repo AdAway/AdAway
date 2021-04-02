@@ -74,7 +74,7 @@
     <string name="status_root_access_denied">Acceso root denegado</string>
     <string name="status_root_access_denied_subtitle">Permitir el acceso root desde la aplicación root</string>
     <string name="status_failure">Algo salió mal</string>
-    <string name="status_failure_subtitle">Compruebe el logcat para más detalles</string>
+    <string name="status_failure_subtitle">Comprueba el logcat para más detalles</string>
     <string name="status_enabled">Habilitado</string>
     <string name="status_enabled_subtitle">Nuevos archivos hosts habilitados</string>
     <string name="status_disabled">Deshabilitado</string>

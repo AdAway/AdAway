@@ -1,1 +1,1 @@
-AdAway Android-rako iturburu irekiko iragarki blokeatzaile bat da.
+A free and Open Source ad blocker for Android.

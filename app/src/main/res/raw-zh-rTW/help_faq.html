@@ -9,7 +9,7 @@ And don't add newlines before or after p tags because of transifex -->
 <p>對一般的使用者來說都存在一個觀念，那就是如果我從不點擊廣告連結的話，那麼直接將它阻擋掉，並不會侵犯到網站或是開發者的利益，但這是不正確的。應用程式開發者仍然是可以獲取報酬，那怕只有顯示廣告。所以請自己決定是否要將軟體中的廣告給阻擋掉。我個人是不會使用那些會經常顯示廣告的應用程式，因為不斷出現的廣告讓我覺得真的很煩，所以如果沒有廣告阻擋這樣的軟體，我想我不會安裝任何帶有廣告的應用程式。</p>
 
 <h2>廣告阻擋是如何運作的？</h2>
-<p>AdAway 使用 <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 檔案</a>來阻擋主機名，這些主機名提供廣告。hosts 檔案是 <code>/system/etc/hosts</code> 中的一個檔案，它將主機名對映到 IP 位址。定義主機名到IP 位址對是一種傳統方法，而不依賴網域名稱系統（DNS）。所有不需要的主機名都被重定向到 <code>127.0.0.1</code>，這意味著它們將指向您自己的裝置。<br>
+<p>AdAway 使用 <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts 檔案</a>來阻擋主機名，這些主機名提供廣告。hosts 檔案是 <code>/system/etc/hosts</code> 中的一個檔案，它將主機名對映到 IP 位址。定義主機名到IP 位址對是一種傳統方法，而不依賴網域名稱系統（DNS）。所有不需要的主機名都被重新導向到 <code>127.0.0.1</code>，這意味著它們將指向您自己的裝置。<br>
 
 如果 hosts 檔案不可寫，則備用解決方案是使用內建 VPN 服務。它將過濾到不需要的主機名的連線，並讓其他主機通過。</p>
 
@@ -21,7 +21,7 @@ And don't add newlines before or after p tags because of transifex -->
 <br><br>你可以從「設定」中啟用本地網頁伺服器，來回應所有發送到本地 IP 位置 <code>127.0.0.1</code> 的查詢。某些應用程式如果沒有正確的接收到來自廣告主機的回應，將會無法正常運作。<br>為了解決這個問題，AdAway 內建的網頁伺服器會回應所有重新導向到 <code>127.0.0.1</code> 的查詢，並且傳回一個空白的網頁，如此一來廣告就不會被正常顯示了。</p>
 
 <h2>如何阻擋或是允許某台特定主機？</h2>
-<p>將要阻擋的主機名從<cite>主螢幕</cite>新增到<cite>阻擋</cite>清單。 此外，可以將要排除在阻擋之外的主機名新增到<cite>允許</cite>中，而要重定向到特定 IP 位址的主機名則屬於<cite>已重定向</cite>。</p>
+<p>將要阻擋的主機名從<cite>主螢幕</cite>加入到<cite>阻擋</cite>清單。 此外，可以將要排除在阻擋之外的主機名新增到<cite>允許</cite>中，而要重新導向到特定 IP 位址的主機名則屬於<cite>已重新導向</cite>。</p>
 
 <h2>我要如何取得更多的主機清單？</h2>
 <p>查看<a href="https://github.com/AdAway/AdAway/wiki/HostsSources">AdAway額外 hosts 來源清單</a>。</p>

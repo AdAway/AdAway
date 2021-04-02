@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Dobrodošli</string>
-
     <!-- Method UI -->
     <string name="welcome_method_header">Dobrodošli u AdAway!</string>
     <string name="welcome_method_summary">AdAway omogućuje dva načina blokiranja oglasa. Odaberite poželjni način:</string>

@@ -8,7 +8,7 @@
     <string name="pref_update_include_beta_releases">包括测试版</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">hosts 更新</string>
-    <string name="pref_update_check">启动时检查更新</string>
+    <string name="pref_update_check">启动时检查更新 </string>
     <string name="pref_update_check_hosts_daily">定时检查更新</string>
     <string name="pref_update_sync_on_update">同步更新（Sync on update）</string>
     <string name="pref_update_sync_unmetered_only">仅在连接至不计费网络时同步</string>

@@ -6,7 +6,6 @@
     <string name="pref_update_check_app_daily">Povremeno provjeri ažuriranja</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Ažurianja poslužitelja</string>
-    <string name="pref_update_check">Provjeri ažuriranja pri pokretanju</string>
     <string name="pref_update_check_hosts_daily">Povremeno provjeri ažuriranja</string>
     <string name="pref_update_sync_on_update">Uskladi pri ažuriranju</string>
     <string name="pref_update_sync_unmetered_only">Uskladi samo na mrežama s neograničenim podacima</string>

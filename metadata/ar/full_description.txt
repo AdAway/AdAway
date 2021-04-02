@@ -1,7 +1,9 @@
-مانع إعلانات يستعمل ملف المضيف.
-ملف المضيف هو ملف في النظام و يحتوي على قائمة تعيينات بين أسماء المضيفين وعناوين الآي بي.
-عندما يقومُ تطبيق ما بطلب إعلان من مضيف في ذلك الملف ، تتم إعادة توجيه هذا الطلب إلى العنوان المحلي 127.0.0.1 الذي بدوره لا يفعل شيئًا.
-يمكنك تنزيل ملفات المضيفات المحددة مُسبقًا من داخل التطبيق لدمجها مع ملف مضيف النظام. من الممكن أيضًا استخدام ملفاتك الخاصة وإضافة مضيفين معيّنين إلى القوائم البيضاء والسوداء.
-توجد خيارات لتشغيل خادم الويب المحلي للردّ على أسماء المضيف المحظورة وتوجيه الطلبات إلى عنوان الآي بي الذي تختاره أنت بدلاً من ذلك.
+A Free and Open Source ad blocker for Android.
 
-يتطلب الروت: نعم. يقع ملف المضيف في /system وهو للقراءة فقط بالوضع الإفتراضي.
+The application is available for rooted and non-rooted devices.
+Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
+Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
+So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+
+You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+توجد خيارات لتشغيل خادم الويب المحلي للردّ على أسماء المضيف المحظورة وتوجيه الطلبات إلى عنوان الآي بي الذي تختاره أنت بدلاً من ذلك.

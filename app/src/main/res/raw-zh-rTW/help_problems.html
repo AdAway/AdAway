@@ -7,13 +7,13 @@ And don't add newlines before or after p tags because of transifex -->
 <body>
 <h2>在 Android 9+ 中複製 hosts 檔案失敗</h2>
 <p>最新的 Android 版本中使用了唯讀的 <code>/system</code>分割區<br>。
-如果你使用 Magisk 當作 root  的解決方案，請確定你已啟用 systemless hosts 模組並重啟。</p>
+如果你使用 Magisk 當作 root  的解決方案，請確定你已啟用 systemless hosts 模組並重啟。</p>
 
 <h2>分割區上無足夠的空間</h2>
 <p>請在設定中將目標 hosts 檔案的位置變更為 <code>/data/data/hosts</code>（或 <code>/data/hosts</code>），並且再次套用 AdAway。</p>
 
 <h2>無法在 Android 4.4+ 版以上運作</h2>
-<p>請在設定中將目標 hosts 檔案的位置從 <code>/data/data/hosts</code> 變更為 <code>/data/hosts</code> 或 <code>/system/etc/hosts</code>，並且再次套用 AdAway。</p>
+<p>確保從 Chrome 設定中停用<cite>精簡模式</cite>（以前稱為 <cite>data saver</cite>）。這個特性允許 Chrome 使用私有 DNS 解決方案並繞過 AdAway。</p>
 
 <h2>在某些應用程式中仍然看的到廣告！</h2>
 <p>有些hostnames可能不在<cite>hosts 來源</cite>的hosts 檔案之中或廣告圖像被包括在應用程式之中，以至不用上網也可顯示廣告。<br><br>

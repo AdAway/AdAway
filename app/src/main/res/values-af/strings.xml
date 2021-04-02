@@ -14,9 +14,9 @@
     <string name="button_check_update_hosts">Kyk vir opdaterings</string>
     <string name="button_enable_webserver">Aktiveer webbediener</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Vee uit</string>
     <string name="checkbox_list_context_title">Redigeer Inskrywing</string>
     <string name="checkbox_list_context_edit">Redigeer</string>
+    <string name="checkbox_list_context_delete">Vee uit</string>
 
     <!--Your lists-->
     <string name="import_dialog">Besig met invoering…</string>

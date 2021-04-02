@@ -6,25 +6,25 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>S-ON related help</title></head>
 <body>
 <h2>HTC uređaji</h2>
-<p>AdAway ne radi kada koristite uređaje sa S-ON. Ova "funkcija" postoji na mnogim HTC uređajima i sprečava AdAway od pisanja host fajla.</p>
+<p>AdAway ne radi kada koristite uređjaje sa S-ON-om. Ova "funkcija" postoji na mnogim HTC uređajima i sprečava AdAway da menja host fajl.</p>
 
 <h2>S-ON/S-OFF?</h2>
-<p>S-OFF znači da je NAND deo uređaja je otključan i da na njega može biti pisano. Fabrički je podešen S-On na HTC uređajima, što znači da ne možete da pristupite pojedinim oblastima sistema niti možete da garantujete trajni "Root". Štaviše, provera potpisa za sistemske nadogradnje je takođe osiguran S-ON-om.</p>
+<p>S-OFF znači da je NAND deo uređjaja otključan i da se na njega može pisati. Fabrički je podešen S-On na HTC uređajima, što znači da ne možete da pristupite pojedinim oblastima sistema niti možete da garantujete trajni "Root". Štaviše, provera potpisa za sistemske nadogradnje je takođje osiguran S-ON-om.</p>
 
 <h2>Da li ja imam S-ON ili S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br><br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
+<p>Pokrenite Boot Menu na vašem uređaju držanjem dugmeta <cite>volume down</cite> dok pritiskate dugme Power i tekst na vrhu će prikazati status S-OFF ili S-ON. Potpun "Root" obično znači S-OFF.
+<br><br>Više informacija možete pronaći na <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Dodatne S-OFF metode od Unrevokable (na linku) vas mogu zanimati, imenom: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine...</p>
 
 <h2>Rešenje</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
+<p>Preduslov: Morate da instalirate Android SDK sa ADB-om na vaš PC</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>Pokrenite "Boot Menu" na vašem uređaju držanjem <cite>volume down</cite> dugme dok pritiskate "power" dugme.</li>
+<li>Koristite <cite>volume down</cite> dugme da selektujete <cite>recovery</cite>, zatim <cite>power</cite> da udjete u njega.</li>
+<li>U clockwork recovery-u udjite u "partitions menu".</li>
+<li>Selektujte <cite>mount /system</cite>, <cite>mount /sdcard</cite> i <cite>mount /data</cite>.</li>
+<li>Priključite svoje USB kabl i zatim otvoride command line na svom računaru.</li>
+<li>Otvorite adb shell i ukucajte <code>ln -s /data/hosts /system/etc/hosts</code> (Ovo kreira symbolic link, koji doyvoljava AdAway-u da edituje host file sačuvan u <code>/data</code> istovremeno dozvoljavajući OS-u da koristi fajl kao da je sačuvan u <code>/system</code>.)</li>
+<li>Restartujte svoj uredjaj i namestite <cite>Target hosts file</cite> na <cite>/data/hosts</cite> u AdAway's podešavanjima.</li>
 <li>AdAway bi trebalo da radi sada.</li>
 </ol>
 </body>

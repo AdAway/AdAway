@@ -44,9 +44,6 @@
     <string name="import_success">Säkerhetskopian importerades från din extern lagring.</string>
     <string name="import_failed">Det gick inte att importera säkerhetskopian. Är dess format rätt? Kolla logcat för mer detaljer.</string>
     <string name="export_dialog">Exporterar…</string>
-    <string name="export_success">Säkerhetskopian exporterades till filen \"adaway-backup.json\" på din externa lagringsenhet.</string>
-    <string name="export_failed">Det gick inte att exportera säkerhetskopian.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Värdfilen</string>
     <string name="hosts_description">Värdfilen (HOSTS) är en systemfil som mappar om värdnamn till IP-adresser. Det är en vanlig textfil som AdAway kan hantera. Här är några rader från början av filen:</string>
@@ -86,7 +83,7 @@
     <string name="status_vpn_configuration_updated">VPN-konfigurationen uppdaterad</string>
     <string name="notification_configuration_changed">Din konfiguration har ändrats. Den behöver nu verkställas.</string>
     <string name="notification_configuration_changed_action">Verkställ</string>
-    <string name="notification_configuration_installing">Verkställer den nya konfigurationen…</string>
+    <string name="notification_configuration_installing">Verkställer den nya konfigurationen...</string>
     <string name="notification_configuration_failed">Det gick inte att verkställa den nya konfigurationen.</string>
 
     <!--Apply and Revert Dialogs-->

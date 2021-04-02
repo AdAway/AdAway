@@ -15,7 +15,7 @@
     <string name="text_help">AdAway — это бесплатное приложение с открытым исходным кодом для блокировки рекламы. Оно собирает адреса из рекламной сети и блокирует их на вашем устройстве.\nХотите узнать больше? Читайте справку!</string>
     <string name="button_show_help">Расширенная справка</string>
     <string name="icon_update_status">Обновить статус</string>
-    <string name="text_update">Все списки хостов загружаются с указанных источников, объединяются с вашими списками и устанавливаются в вашу систему в виде единого файла hosts.</string>
+    <string name="text_update">Все списки хостов загружаются из определенных источников, объединяются с вашими собственными списками и устанавливаются в вашу систему в виде единого файла hosts.</string>
     <string name="button_check_update_hosts">Проверить обновления</string>
     <string name="button_update_hosts">Обновить хосты</string>
     <string name="button_enable_hosts">Вкл. блокировку рекламы</string>
@@ -41,12 +41,9 @@
 
     <!--Your lists-->
     <string name="import_dialog">Импорт…</string>
-    <string name="import_success">Резервная копия успешно импортирована с вашего внешнего хранилища.</string>
+    <string name="import_success">Резервная копия успешно импортирована из вашего внешнего хранилища.</string>
     <string name="import_failed">Не удалось импортировать резервную копию. Возможно её формат не верен? Проверьте logcat для подробностей.</string>
     <string name="export_dialog">Экспорт…</string>
-    <string name="export_success">Резервная копия успешно импортирована в файл \'adaway-backup.json\' на ваше внешнее хранилище.</string>
-    <string name="export_failed">Не удалось эскортировать резервную копию.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts — это системный файл, сопоставляющий имена узлов с IP-адресами. Это обычный текстовый файл, содержимое которого обрабатывает AdAway. Вот его первые строки:</string>
@@ -64,11 +61,11 @@
     <string name="status_revert">Восстановление стандартного файла hosts</string>
     <string name="status_revert_done">Стандартный файл hosts восстановлен</string>
     <string name="status_reverting_subtitle">Создание стандартного файла hosts</string>
-    <string name="status_update_available">Доступно обновление</string>
-    <string name="status_update_available_subtitle">Доступны свежие списки хостов</string>
+    <string name="status_update_available">Доступно обновление источников</string>
+    <string name="status_update_available_subtitle">Доступны более новые списки хостов</string>
     <string name="status_no_update_found">Обновления источников не найдены</string>
-    <string name="status_no_connection">Нет соединения с интернет</string>
-    <string name="status_no_connection_subtitle">Нет доступного подключения к интернет</string>
+    <string name="status_no_connection">Нет соединения с интернетом</string>
+    <string name="status_no_connection_subtitle">Нет доступного подключения к интернету</string>
     <string name="status_download_fail">Недоступный источник</string>
     <string name="status_download_fail_subtitle_new">Нет доступных источников хостов!</string>
     <string name="status_root_access_denied">Доступ root был отклонён</string>
@@ -87,17 +84,17 @@
     <string name="status_vpn_configuration_updated">Конфигурация VPN успешно обновлена</string>
     <string name="notification_configuration_changed">Конфигурация изменена. Вам нужно применить её.</string>
     <string name="notification_configuration_changed_action">Применить</string>
-    <string name="notification_configuration_installing">Применение новой конфигурации…</string>
+    <string name="notification_configuration_installing">Применение новой конфигурации...</string>
     <string name="notification_configuration_failed">Не удалось применить новую конфигурацию.</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">Отсутствует символическая ссылка на целевой файл hosts</string>
-    <string name="apply_symlink_missing">Ссылка на ваш /system/etc/hosts неправильная или не существует! AdAway не будет работать, если не указать правильный файл.\n\nВы хотите попробовать создать ссылку?</string>
-    <string name="apply_symlink_missing_title">Ссылка отсутствует</string>
+    <string name="apply_symlink_missing_status">Символическая ссылка на целевой файл hosts отсутствует</string>
+    <string name="apply_symlink_missing">Символическая ссылка на ваш /system/etc/hosts не существует или неверна! AdAway не будет работать, если не указать правильный файл.\n\nВы хотите попробовать создать символическую ссылку?</string>
+    <string name="apply_symlink_missing_title">Символическая ссылка отсутствует</string>
     <string name="apply_not_enough_space">Не хватает места на дисковом разделе!\nПопробуйте заменить путь к файлу в настройках на /data/data/hosts.</string>
     <string name="apply_not_enough_space_title">Не хватает места</string>
     <string name="apply_private_file_fail">Загруженный файл не может быть прочитан.</string>
-    <string name="apply_private_file_fail_title">Сбой файла</string>
+    <string name="apply_private_file_fail_title">Сбой личного файла</string>
     <string name="apply_remount_fail">Не удалось перемонтировать раздел для чтения/записи!</string>
     <string name="apply_remount_fail_title">Перемонтировать не удалось</string>
     <string name="apply_copy_fail_status">Не удалось скопировать файл hosts</string>
@@ -115,11 +112,11 @@
 
 Вы хотите перегрузить Android?
 (Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
-    <string name="apply_symlink_successful_title">Ссылка создана успешно</string>
-    <string name="apply_symlink_fail">Android не смог создать ссылку.\nВозможно, это из-за особенности телефонов HTC, называемой S-ON!\n\nРешение заключается в загрузке телефона в режиме восстановления и создания ссылки при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nЕсли это не поможет, то надо искать информацию в интернете по S-OFF и вашему телефону.</string>
-    <string name="apply_symlink_fail_title">Ошибка создания ссылки</string>
+    <string name="apply_symlink_successful_title">Символическая ссылка создана успешно</string>
+    <string name="apply_symlink_fail">Android не смог создать символическую ссылку.\nВозможно, это из-за \'функции\' телефонов HTC, называемой S-ON!\n\nРешение состоит в том, чтобы загрузить телефон в режим восстановления и создать там символическую ссылку при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nЕсли это не поможет, то надо искать информацию в интернете по S-OFF и вашему телефону.</string>
+    <string name="apply_symlink_fail_title">Не удалось создать символическую ссылку</string>
     <string name="apply_help">Пожалуйста, прочите Справку, чтобы узнать больше.</string>
-    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настроек: Сеть и Интернет -&gt; Мобильная сеть -&gt; Дополнительно -&gt; Точки доступа APN) и удалить значение в поле Прокси.</string>
+    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать надежно в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настройки: Сеть и Интернет -> Мобильная сеть -> Дополнительно -> Точки доступа APN) и удалить значение в поле прокси.</string>
     <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
     <string name="no_connection">Отсутствует подключение к интернет.</string>
     <string name="no_connection_title">Нет соединения</string>
@@ -132,8 +129,8 @@
     <string name="apply_fail_status">Не удалось применить новый файл hosts.</string>
     <string name="apply_fail">Не удалось применить файл hosts на вашей системе!\nПопробуйте изменить путь к файлу hosts в настройках на /data/data/hosts.</string>
     <string name="apply_fail_title">Применение не удалось</string>
-    <string name="root_access_fail">Пожалуйста, проверьте, ваше приложение, предоставляющее root-доступ.</string>
-    <string name="revert_successful">Вы вернулись к файлу hosts по-умолчанию.
+    <string name="root_access_fail">Пожалуйста, проверьте ваше приложение для управления root-доступом, чтобы убедиться, что root-доступ был предоставлен.</string>
+    <string name="revert_successful">Вы вернулись к файлу hosts по умолчанию.
 Возможно, потребуется перезагрузить Android, чтобы изменения вступили в силу.
 
 Вы хотите перегрузить Android?
@@ -144,9 +141,9 @@
     <string name="revert_problem_title">Восстановление не удалось!</string>
     <string name="download_fail_dialog">Ни один из ваших активных источников хостов недоступен! Вы правильно подключены к интернету?</string>
     <string name="download_fail_title">Загрузка не удалась</string>
-    <string name="no_private_file_status">Не удалось записать новый файл hosts</string>
-    <string name="no_private_file">Файл не может быть создан.</string>
-    <string name="no_private_file_title">Не удалось создать файл</string>
+    <string name="no_private_file_status">Не удалось записать новый личный файл hosts</string>
+    <string name="no_private_file">Личный файл не может быть создан.</string>
+    <string name="no_private_file_title">Не удалось создать личный файл</string>
     <string name="enable_systemless_successful">Вы активировали бессистемный режим.
 Возможно, потребуется перезагрузка, чтобы изменения вступили в силу.
 
@@ -159,20 +156,20 @@
 Вы хотите перезагрузить систему?
 (Для предотвращения потери данных убедитесь, что никакие приложения в данный момент не используют карту памяти!)</string>
     <string name="disable_systemless_successful_title">Успешно отключено</string>
-    <string name="enable_vpn_fail">Не удалось включить VPN блокировки рекламы.</string>
-    <string name="disable_vpn_fail">Не удалось отключить VPN блокировки рекламы.</string>
+    <string name="enable_vpn_fail">Не удалось включить VPN блокировку рекламы.</string>
+    <string name="disable_vpn_fail">Не удалось отключить VPN блокировку рекламы.</string>
     <string name="enable_systemless_magisk_title">Включить модуль хостов Magisk</string>
-    <string name="enable_systemless_magisk">Включить бессистемную функцию хостов из менеджера Magisk. Среди его настроек включите параметр <cite>Бессистемный hosts</cite>, затем перезапустите ваше устройство.</string>
+    <string name="enable_systemless_magisk">Включить функцию бессистемных хостов из Magisk. В его настройках включите параметр <cite>Бессистемный hosts</cite>, затем перезапустите ваше устройство.</string>
     <string name="disable_systemless_magisk_title">Отключить модуль хостов Magisk</string>
-    <string name="disable_systemless_magisk">Выключить бессистемную функцию хостов из менеджера Magisk. Среди его настроек удалите модуль <cite>Бессистемный hosts</cite>, затем перезапустите ваше устройство.</string>
+    <string name="disable_systemless_magisk">Выключить функцию бессистемных хостов из Magisk. Из списка модулей удалите модуль <cite>Бессистемный hosts</cite>, затем перезапустите ваше устройство.</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Вставьте URL в файл hosts:</string>
-    <string name="no_hostname">Это недопустимое имя источника!</string>
+    <string name="hosts_add_dialog">Вставьте URL-адрес в файл hosts:</string>
+    <string name="no_hostname">Это недопустимое имя хоста!</string>
     <string name="no_hostname_title">Неправильно отформатированное имя хоста</string>
     <string name="no_ip">Это недопустимый IP-адрес!</string>
     <string name="no_ip_title">Неправильно отформатированный IP-адрес</string>
-    <string name="reboot_never_reboot">Не перезагружать и не показывать этот вопрос в дальнейшем!</string>
+    <string name="reboot_never_reboot">Никогда не перезагружать и не показывать этот вопрос в дальнейшем!</string>
     <string name="loading">Загрузка…</string>
 
     <!--Menu entries-->
@@ -190,7 +187,7 @@
     <!--Adware-->
     <string name="adware_header">Приложения с рекламой</string>
     <string name="adware_description">Поиск приложений с рекламой, называемые Adware, и которые AdAway не может заблокировать. Эти приложения используют, например, систему уведомлений Airpush, которая показывает рекламу даже тогда, когда приложение не работает, или даже может изменить мелодию вашего звонка. Избавиться от такой рекламы можно только удалив приложения, указанные в результатах сканирования, путём нажатия на элементы списка.</string>
-    <string name="adware_scanning">Сканирование…</string>
+    <string name="adware_scanning">Сканирование&#8230;</string>
     <string name="adware_empty">Приложения с рекламой не найдены!</string>
 
     <!--Other-->
@@ -225,8 +222,8 @@
         <item>Источники хостов</item>
         <item>Ваши списки</item>
         <item>Открыть файл hosts</item>
-        <item>Журнал запросов DNS</item>
-        <item>Сканирование Adware</item>
+        <item>Журнал DNS-запросов</item>
+        <item>Сканирование на наличие приложений с рекламой</item>
         <item>Настройки</item>
         <item>Справка</item>
     </string-array>
@@ -278,7 +275,7 @@
     <string name="vpn_notification_reconnecting_error">ошибка переподключения</string>
     <string name="vpn_notification_paused">приостановлено</string>
     <string name="vpn_notification_stopped">остановлено</string>
-    <string name="vpn_notification_title">VPN блокировшика %1$s</string>
+    <string name="vpn_notification_title">Блокировщик рекламы VPN %1$s</string>
     <string name="vpn_notification_action_pause">Приостановить</string>
     <string name="vpn_notification_paused_text">Нажмите для продолжения</string>
 

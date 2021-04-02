@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Luettelosi</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Torjuttu</string>
+    <string name="lists_tab_allowed">Hyväksytty </string>
     <string name="list_dialog_hostname">host-nimi:</string>
     <string name="list_dialog_hostname_hint">Isännän lähde URL</string>
     <string name="list_dialog_ip">IP (IPv4 tai IPv6):</string>

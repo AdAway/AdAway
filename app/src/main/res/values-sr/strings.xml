@@ -17,9 +17,10 @@
     <string name="button_enable_webserver">Omogući webserver</string>
     <string name="button_disable_webserver">Onemogući webserver</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Ukloni</string>
     <string name="checkbox_list_context_title">Uredi ulazak</string>
+    <string name="checkbox_list_context_apply">Primeni</string>
     <string name="checkbox_list_context_edit">Uredi</string>
+    <string name="checkbox_list_context_delete">Ukloni</string>
 
     <!--Your lists-->
     <string name="import_dialog">Uvoz…</string>

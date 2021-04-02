@@ -44,9 +44,6 @@
     <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
     <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
     <string name="export_dialog">Dışa aktarılıyor…</string>
-    <string name="export_success">Yedekleme, harici depolama alanınıza \'adaway-backup.json\' dosya ismiyle başarılı olarak aktarıldı.</string>
-    <string name="export_failed">Yedekleme dışa aktarılamadı.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Host dosyası</string>
     <string name="hosts_description">Sunucu dosyası, sunucu adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>

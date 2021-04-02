@@ -3,4 +3,6 @@
     <!-- Update notification -->
     <string name="notification_update_channel_name">อัพเดท</string>
     <string name="notification_update_host_available_title">สามารถอัพเดตได้</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
     </resources>

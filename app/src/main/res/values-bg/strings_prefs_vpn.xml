@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN базиран блокер на реклами</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Разрешаване при стартиране</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Изключени приложения</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Preferenze</string>
+    <string name="pref_main_title">Impostazioni</string>
     <!-- General category -->
     <string name="pref_general_category">Generale</string>
     <string name="pref_dark_theme">Tema scuro</string>

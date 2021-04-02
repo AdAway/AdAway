@@ -3,7 +3,7 @@
     <string name="pref_main_title">Beállítások</string>
     <!-- General category -->
     <string name="pref_general_category">Általános</string>
-    <string name="pref_dark_theme">Sötét téma engedélyezése</string>
+    <string name="pref_dark_theme">Sötét téma</string>
     <string-array name="pref_dark_theme_modes">
         <item>Világos</item>
         <item>Sötét</item>

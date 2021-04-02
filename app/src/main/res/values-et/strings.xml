@@ -32,9 +32,10 @@
     <string name="button_disable_vpn">Keela VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Kustuta</string>
     <string name="checkbox_list_context_title">Muuda üksust</string>
+    <string name="checkbox_list_context_apply">Rakenda</string>
     <string name="checkbox_list_context_edit">Muuda</string>
+    <string name="checkbox_list_context_delete">Kustuta</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importimine…</string>

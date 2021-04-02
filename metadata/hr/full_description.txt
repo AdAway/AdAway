@@ -1,7 +1,9 @@
-Blokator oglasa koji koristi datoteku poslužitelja.
-Datoteka poslužitelja je datoteka sustava koja sadrži popis mapiranja između naziva poslužitelja i IP adresa.
-Kada aplikacija zahtjeva oglas s poslužitelja koji je sadržan u datoteci poslužitelja, taj zahtjev je preusmjeren na lokalnu adresu 127.0.0.1, koja ne čini ništa.
-Možete preuzeti preddefinirane datoteke poslužitelja sadržane u aplikaciji kako bi ih umetnuli u datoteku poslužitelja sustava. Moguće je koristiti vlastite datoteke i dodavanje određenih poslužitelja na popis blokiranih/neblokiranih.
-Postoje mogućnosti pokretanja lokalnog web poslužitelja kao odgovor na blokirane nazive poslužitelja i izravan zahtjev na vaše odabrane IP adrese.
+A Free and Open Source ad blocker for Android.
 
-Zahtijeva root (korijenski pristup): Da. Datoteka poslužitelja koja se nalazi u /system ima po zadanome samo dozvole čitanja.
+The application is available for rooted and non-rooted devices.
+Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
+Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
+So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+
+You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Postoje mogućnosti pokretanja lokalnog web poslužitelja kao odgovor na blokirane nazive poslužitelja i izravan zahtjev na vaše odabrane IP adrese.

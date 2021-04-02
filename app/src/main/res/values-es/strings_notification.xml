@@ -9,5 +9,5 @@
     <string name="notification_update_app_available_text">Nueva versión de AdAway está disponible para su descarga.</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
-    <string name="notification_vpn_channel_description">VPN ejecutando notificaciones</string>
+    <string name="notification_vpn_channel_description">Notificaciones de VPN funcionando</string>
 </resources>

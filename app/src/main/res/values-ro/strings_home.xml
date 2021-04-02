@@ -19,7 +19,7 @@
     </plurals>
 
     <!-- Help card -->
-    <string name="help_label">Arată indicațiile de ajutor</string>
+    <string name="help_label">Arată ajutor</string>
 
     <!-- Project card -->
     <string name="project_label">Deschide pagina GitHub</string>
@@ -38,6 +38,6 @@
     <string name="show_log_button">Afișează cererile domeniilor</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Citeste sectiunea \"Ajutor\" pentru mai multe informatii!</string>
+    <string name="error_dialog_help">Citește secțiunea de Ajutor pentru mai multe informații!</string>
 
 </resources>

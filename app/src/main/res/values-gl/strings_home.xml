@@ -1,6 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Bloqueado</string>
+    <string name="allowed_hosts_label">Permitido</string>
+    <string name="redirect_hosts_label">Redirixido</string>
+
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
@@ -11,6 +16,18 @@
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
+    <!-- Help card -->
+    <string name="help_label">Amosar axuda</string>
+
+    <!-- Project card -->
+    <string name="project_label">Abrir páxina de GitHub</string>
+
     <string name="preferences_drawer_item">Preferences</string>
 
-    </resources>
+    <string name="update_button">Actualizar dominios bloqueados</string>
+    <string name="show_log_button">Amosar dominios solicitados</string>
+
+    <!-- Error dialog -->
+    <string name="error_dialog_help">Por favor ler Axuda para máis información.</string>
+
+</resources>

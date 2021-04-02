@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_vpn_title">Bloqueador de publicidade baseado en VPN</string>
+    <!-- Service configuration -->
+    <string name="pref_vpn_service_on_boot">Habilitar no arranque</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Aplicacións excluídas</string>
+    <string name="pref_vpn_excluded_apps_description">Configure cales aplicacións non deberían utilizar a VPN para que non se bloqueen súas conexións.</string>
+    <string name="pref_vpn_exclude_system_apps">Excluír aplicacións do sistema</string>
+    <string name="pref_vpn_exclude_user_apps">Excluír aplicacións do usuario</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Aplicacións excluídas</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Selecciona todas</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Quitar selección a todas</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Icona da aplicación</string>
+</resources>

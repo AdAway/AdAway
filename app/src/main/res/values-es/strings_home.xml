@@ -36,6 +36,6 @@
     <string name="show_log_button">Mostrar peticiones a dominios</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Por favor lea la Ayuda para más información.</string>
+    <string name="error_dialog_help">Por favor lee la Ayuda para más información.</string>
 
 </resources>

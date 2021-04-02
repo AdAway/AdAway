@@ -1,15 +1,55 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="help_tab_faq">FAQ</string>
+    <!--Buttons-->
+    <string name="button_exit">Chiqish</string>
+    <string name="button_close">Yopish</string>
+    <string name="button_yes">Ha</string>
+    <string name="button_no">Yo\'q</string>
+    <string name="button_add">Qo\'shish</string>
+    <string name="button_cancel">Bekor qilish</string>
+    <string name="button_save">Saqlash</string>
+    <string name="button_help">Yordam</string>
+
+    <!--Home-->
+    <string name="header_help">Xush kelibsiz!</string>
+    <string name="text_help">AdAway - bu reklamani blokirovka qilish uchun bepul va ochiq kodli dasturiy ta\'minot dizayni. U bilgan reklama adreslari bilan sizning qurilmangizdagi reklamani bloklaydi. \nQo\'shimcha ma\'lumot bilmoqchimisiz? Quyidagi yordamni tekshiring.</string>
+    <string name="button_show_help">Qo\'shimcha yordamni ko\'rish</string>
+    <string name="icon_update_status">Holatni yangilash</string>
+    <string name="text_update">Hamma xost fayllar belgilangan manbadan yuklab olinib, sizning bor ro\'yxatingiz bilan birlashitrilib, sizning sistemangizda bitta xost fayl qilib o\'rnatildi.</string>
+    <string name="button_check_update_hosts">Yangilanishlarni tekshirish</string>
+    <string name="button_update_hosts">Xostni yangilash</string>
+    <string name="button_enable_hosts">Reklama blokirovkasini yoqish</string>
+    <string name="button_disable_hosts">Reklama blokirovkasini o\'chirish</string>
+    <string name="header_webserver">Veb-server</string>
+    <string name="webserver_status_running">Ishlamoqda</string>
+    <string name="webserver_status_stopped">Toxtatilgan</string>
+    <string name="webserver_toggle_text">Bloklangan xost nomlariga berilgan so\'rovlarga javob berish uchun  veb-serverni ishga tushiring yoki to\'xtating.</string>
+    <string name="button_enable_webserver">Veb-serverni ishga tushirish</string>
+    <string name="button_disable_webserver">Veb-serverni ishdan to\'xtatish</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Ishlamoqda</string>
+    <string name="vpn_status_stopped">Toxtatilgan</string>
+    <string name="vpn_toggle_text">So\'rovlarni filtrlash uchun VPN-ni ishga tushiring yoki to\'xtating.</string>
+    <string name="button_enable_vpn">VPN-ni ishga tushirish</string>
+    <string name="button_disable_vpn">VPN-ni ishdan toxtatish</string>
+
+    <!--Checkbox List-->
+    <string name="checkbox_list_context_title">Yozuvni tahrirlash</string>
+    <string name="menu_add">Qo\'shish</string>
+    <string name="menu_help">Yordam</string>
+    <string name="help_tab_faq">TSS</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
-        <item>Home</item>
-        <item>Hosts sources</item>
-        <item>Your lists</item>
-        <item>Open hosts file</item>
-        <item>Log DNS requests</item>
-        <item>Scan for adware</item>
-        <item>Preferences</item>
-        <item>Help</item>
+        <item>Uy</item>
+        <item>Xostlar manbalari</item>
+        <item>Sizning ro\'yxatingiz</item>
+        <item>Xostlar faylini ochish</item>
+        <item>DNS-so\'rovlarni ro\'yxatdan o\'tkazish</item>
+        <item>Reklama dasturini qidirish</item>
+        <item>Sozlamalar</item>
+        <item>Yordam</item>
     </string-array>
+    <string name="shortcut_your_lists">Sizning ro\'yxatingiz</string>
+    <string name="shortcut_preferences">Sozlamalar</string>
+
     </resources>

@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">החלת קובץ hosts במערכת נכשלה!\nנסה לשנות את הגדרת יעד הקובץ בהעדפות התוכנה ל /data/data/hosts.</string>
-    </resources>
+    <string name="welcome_title">ברוך הבא!</string>
+    <string name="welcome_first_step">אשף הצעד הראשון</string>
+    <string name="welcome_second_step">אשף הצעד השני</string>
+    <string name="welcome_last_step">אשף הצעד האחרון</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">ברוכים הבאים אל AdAway!</string>
+    <string name="welcome_method_summary">AdAway מספק שתי שיטות חסימת פרסומות, נא לבחור את השיטה המועדפת עליכם:</string>
+
+    <string name="welcome_root_method_logo">לוגו גישת שורש</string>
+    <string name="welcome_root_method_title">מבוסס גישת שורש\nחוסם פרסומות</string>
+    <string name="welcome_root_method_text1">מהיר יותר</string>
+    <string name="welcome_root_method_text2">ידידותי לסוללה</string>
+    <string name="welcome_root_method_text3">נדרש גישת שורש</string>
+
+    <string name="welcome_vpn_method_logo">לוגו VPN</string>
+    <string name="welcome_vpn_method_title">מבוסס VPN\nחוסם פרסומות</string>
+    <string name="welcome_vpn_method_text1">איטי יותר</string>
+    <string name="welcome_vpn_method_text2">פועל ברקע</string>
+    <string name="welcome_vpn_method_text3">מותאם</string>
+
+    <string name="welcome_root_missing_title">גישת שורש אנדרואיד נדרשת</string>
+    <string name="welcome_method_pro_logo">מקצועי</string>
+    <string name="welcome_method_con_logo">עם</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">סנכרון הושלם</string>
+    <string name="welcome_sync_error_logo">שגיאת בעת סינכרון</string>
+
+    <string name="welcome_sync_header">מסנכרן</string>
+    <string name="welcome_synced_header">סונכרן!</string>
+    <!-- Support -->
+    <string name="welcome_support_logo">תמיכה</string>
+    <string name="welcome_support_header">תמוך בי!</string>
+    <string name="welcome_support_summary">זו אפליקציית קוד פתוח בחינם. אני מפתח את זה בזמני החופשי. אז אם אתה נהנה מזה, אל תהסס להראות את תמיכתך:</string>
+    <string name="welcome_support_button">תרומה באמצעות PayPal</string>
+    <string name="welcome_support_telemetry_summary">אתה אוהב באגים? גמאני לא.</string>
+    <string name="welcome_support_telemetry_button">הפעלת טלמטריה בכדי לשלוח לי דוחות קריסה</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">אחורה</string>
+    <string name="welcome_next_button">קדימה</string>
+    <string name="welcome_finish_button">סיום</string>
+</resources>

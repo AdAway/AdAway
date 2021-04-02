@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Changelog:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Đang tải xuống bản mới nhất của AdAway…</string>
+    <string name="update_notification_description">Đang tải xuống bản mới nhất của AdAway...</string>
 </resources>

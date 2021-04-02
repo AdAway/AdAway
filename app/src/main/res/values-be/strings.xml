@@ -34,18 +34,16 @@
     <string name="button_disable_vpn">Адключыць VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Выдаліць</string>
     <string name="checkbox_list_context_title">Рэдагаваць запіс</string>
+    <string name="checkbox_list_context_apply">Прымяніць</string>
     <string name="checkbox_list_context_edit">Рэдагаваць</string>
+    <string name="checkbox_list_context_delete">Выдаліць</string>
 
     <!--Your lists-->
     <string name="import_dialog">Імпарт…</string>
     <string name="import_success">Рэзервовая копія паспяхова імпартавана з вашага знешняга сховішча.</string>
     <string name="import_failed">Не ўдалося імпартаваць рэзервовую копію. Магчыма яе фармат не дакладны? Праверце logcat для падрабязнасцяў.</string>
     <string name="export_dialog">Экспарт…</string>
-    <string name="export_success">Рэзервовая копія паспяхова імпартавана ў файл \'adaway-backup.json\' на ваша знешняе сховішча.</string>
-    <string name="export_failed">Не ўдалося экспартаваць рэзервовую копію.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts - гэта сістэмны файл, супастаўляючы імёны вузлоў з IP-адрасамі. Гэта звычайны тэкставы файл, змесціва якога апрацоўвае AdAway. Вось яго першыя радкі:</string>
@@ -54,11 +52,8 @@
 
     <!--Status Notification-->
     <string name="status_check">Праверка абнаўленняў</string>
-    <string name="status_check_source">Праверка абнаўленняў у крыніцы %s</string>
     <string name="status_retrieve">Атрыманне крыніц</string>
     <string name="status_download_source">Спампоўка крыніцы %s</string>
-    <string name="status_read_source">Капіяванне крыніцы %s</string>
-    <string name="status_parse_source">Разбор крыніцы %s</string>
     <string name="status_revert">Аднаўленне стандартнага файла hosts</string>
     <string name="status_revert_done">Стандартны файл hosts адноўлены</string>
     <string name="status_reverting_subtitle">Стварэнне стандартнага файла hosts</string>

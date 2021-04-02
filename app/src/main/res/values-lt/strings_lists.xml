@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">Nukreiptos</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtruoti domenenai hosts</string>
-    <string name="lists_menu_filter_hint">Ieškoti domeno…</string>
+    <string name="lists_menu_filter_hint">Ieškoti domeno...</string>
     <string name="lists_menu_toggle_sources">Pakeisti šaltinius</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Įtraukti į juodą sąrašą</string>

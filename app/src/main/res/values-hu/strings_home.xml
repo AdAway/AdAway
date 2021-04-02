@@ -9,21 +9,21 @@
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="other">%d naprakész forrás</item>
     </plurals>
     <plurals name="outdated_source_label">
         <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="other">%d elavult forrás</item>
     </plurals>
 
     <!-- Help card -->
     <string name="help_label">Súgó megjelenítése</string>
 
     <!-- Project card -->
-    <string name="project_label">GitHub lap megnyitás</string>
+    <string name="project_label">GitHub oldal megnyitása</string>
 
     <!-- Support card -->
-    <string name="support_label">Projekt támogatás</string>
+    <string name="support_label">Projekt támogatása</string>
 
     <!-- App bar drawer -->
     <string name="dns_log_drawer_item">DNS naplók</string>
@@ -36,6 +36,6 @@
     <string name="show_log_button">A kért domainek megjelenítése</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Kérlek olvasd el a Súgót további információkért!</string>
+    <string name="error_dialog_help">Kérlek olvassa el a Súgót további információkért!</string>
 
 </resources>

@@ -6,7 +6,7 @@ And don't add newlines before or after p tags because of transifex -->
 <head><title>Ayuda relacionada con S-ON</title></head>
 <body>
 <h2>Dispositivos HTC</h2>
-<p>AdAway no funciona cuando está usando un dispositivo con el llamado S-ON. Esta 'característica' existe en muchos dispositivos HTC e impide que AdAway escriba en el fichero hosts.</p>
+<p>AdAway no funciona cuando estés usando un dispositivo con el llamado S-ON. Esta 'característica' existe en muchos dispositivos HTC e impide que AdAway escriba en el archivo hosts.</p>
 
 <h2>¿S-ON/S-OFF?</h2>
 <p>S-OFF significa que la parte de la (memoria) NAND del dispositivo está desbloqueada y se puede escribir sobre ella. La configuración predeterminada para los dispositivos HTC es S-ON, lo que significa que usted ni puede acceder a ciertas áreas del sistema, ni puede garantizarse un rooteado permanente. Más aún, la comprobación de firmas para imágenes de firmware está asegurada por el indicativo S-ON.</p>
@@ -23,8 +23,8 @@ And don't add newlines before or after p tags because of transifex -->
 <li>En la recuperación del sistema de reloj vaya a "menú de particiones".</li>
 <li>Seleccione <cite>mount /system</cite>, <cite>mount /sdcard</cite> y <cite>mount /data</cite>.</li>
 <li>Conecte su cable USB y abra una línea de comandos en su PC.</li>
-<li>Introduzca adb shell y escriba <code>ln -s /data/hosts /system/etc/hosts</code> (Esto crea un enlace simbólico que permite a AdAway editar el archivo de hosts almacenado en <code>/data</code> mientras que permite al sistema operativo utilizar el archivo como si estuviera almacenado en <code>/system</code>).</li>
-<li>Reinicie su dispositivo y <cite>establezca el archivo de hosts</cite> de destino en <cite>/data/hosts</cite> en las preferencias de AdAway.</li>
+<li>Ingresa adb shell y escribe <code>ln -s /data/hosts /system/etc/hosts</code> (Esto crea un enlace simbólico que permite a AdAway editar el archivo hosts almacenado en <code>/data</code> mientras que permite al sistema operativo utilizar el archivo como si estuviera almacenado en <code>/system</code>).</li>
+<li>Reinicia tu dispositivo y <cite>establece el archivo hosts</cite> de destino en <cite>/data/hosts</cite> en las preferencias de AdAway.</li>
 <li>AdAway ahora debe funcionar.</li>
 </ol>
 </body>

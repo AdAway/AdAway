@@ -1,7 +1,9 @@
-Ad blocker, ktorý využíva hosts file.
-Súbor hosts je systémový súbor, ktorý obsahuje zoznam názvov hostiteľov a ich IP adresy.
-Keď aplikácia požiada o reklamu od hostiteľa, ktorý sa nachádza v súbore, táto požiadavka je presmerovaná na lokálnu IP 127.0.0.1, ktorá nič neurobí.
-Môžete si stiahnuť pripravené súbory hosts z aplikácie a zahrnúť ich do systémového súboru hosts. Môžete použiť aj vlastné súbory a pridať nejakých hostiteľov na bielu alebo čiernu listinu.
-Je tu aj možnosť spustiť lokálny webový server, ktorý bude reagovať na blokované hostiteľské názvy a ich požiadavky posielať na vami zvolenú IP adresu.
+A Free and Open Source ad blocker for Android.
 
-Vyžaduje root: Áno. Súbor hosts sa nachádza v /system, ktorý je predvolene iba na čítanie.
+The application is available for rooted and non-rooted devices.
+Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
+Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
+So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+
+You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Je tu aj možnosť spustiť lokálny webový server, ktorý bude reagovať na blokované hostiteľské názvy a ich požiadavky posielať na vami zvolenú IP adresu.

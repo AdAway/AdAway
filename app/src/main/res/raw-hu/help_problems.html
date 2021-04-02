@@ -5,15 +5,15 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>Gyakori problémák</title></head>
 <body>
-<h2>A hosts fájl másolása nem sikerült az Android 9+ rendszeren</h2>
-<p>Az újabb Android verziókban a <code>/system</code> partition.<br> csak-olvasható
-Ha Magisk-ot használsz roothoz, nézz utána, hogy bekapcsoltad-e a systemless hosts modult, majd indítsd újra.</p>
+<h2>A hosts fájl másolása nem sikerült Android 9 vagy újabb rendszeren</h2>
+<p>Az újabb Android verziókban a <code>/system</code> partíció csak-olvasható.<br>
+Ha Magisk-ot használ roothoz, nézzen utána, hogy bekapcsolta-e a systemless hosts modult, majd indítsa újra a készüléket.</p>
 
 <h2>Nincs elég hely a partíción</h2>
-<p>Próbáld meg átállítani a cél hosts fájl elérési helyét a beállításokban <code>/data/data/hosts</code>-ra (vagy <code>/data/hosts</code>-ra) és alkalmazd az AdAway-t újra.</p>
+<p>Próbálja meg átállítani a cél hosts fájl elérési helyét a beállításokban <code>/data/data/hosts</code>-ra (vagy <code>/data/hosts</code>-ra) és alkalmazza az AdAway-t újra.</p>
 
-<h2>Nem működik Android 4.4+ -on</h2>
-<p>Próbáld meg átállítani a cél hosts fájl elérési helyét a beállításokban <code>/data/data/hosts-ról</code> <code>/data/hosts-ra</code> vagy <code>/system/etc/hosts</code>-ra, majd alkalmazd az AdAway-t újra.</p>
+<h2>Chrome továbbra is megjeleníti a hirdetéseket</h2>
+<p>Győződjön meg arról, hogy letiltotta az <cite>egyszerűsített módot</cite> (korábban <cite>adatforgalom csökkentés</cite>). Ez a funkció lehetővé teszi a Chrome számára a Chrome számára, hogy privát DNS megoldást használjon, és megkerülje az AdAway-t.</p>
 
 <h2>Nem blokkolja a hirdetéseket XYZ alkalmazásban!</h2>
 <p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
@@ -24,13 +24,13 @@ You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out whi
 <p>Néhány alkalmazás gyorstárazza a reklámokat letöltés után. Így reklámok maradhatnak egyes alkalmazásokban. Megpróbálhatja kitörölni ezen alkalmazások gyorstárát az Android Alkalmazások listájában, hogy ezek a reklámok is eltűnjenek.</p>
 
 <h2>Az XYZ alkalmazás már nem működik!</h2>
-<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuse to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <cite>Whitelist</cite> under <cite>Your Lists</cite> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
+<p>Egyes alkalmazásoknak kommunikálniuk kell az AdAway által blokkolt hosztnévvel, vagy különben megtagadja a munkát, amikor a hosztnév, mely szolgáltatja a reklámokat, nem elérhető. Lásd <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">1https://github.com/AdAway/AdAway/wiki/ProblematicApps1</a>, hogy tudomást szerezzen az összes problémás alkalmazásról. Ellenkező esetben ki kell tapasztalnia, hogy mely hosztneveket kell hozzáadni a <cite>Fehérlistához</cite>a <cite>Saját Lista</cite>menüpont alatt, majd jelentheti az<a href="https://github.com/AdAway/AdAway/issues">AdAway bug tracker-jében</a>.</p>
+
+<h2>Nem működik Android 4.4 vagy újabb verziókon</h2>
+<p>Próbálja meg átállítani a cél hosts fájl elérési helyét a beállításokban <code>/data/data/hosts</code>-ról <code>/data/hosts</code>-ra vagy <code>/system/etc/hosts</code>-ra és alkalmazza az AdAway-t újra.</p>
 
 <h2>A vissza gombok nem működnek a böngészőkben</h2>
-<p>Engedélyezheted az AdAway helyi webszerverét a beállításokban, a probléma megkerüléséhez.</p>
-
-<h2>A vissza gombok nem működnek a böngészőkben</h2>
-<p>Engedélyezheted az AdAway helyi webszerverét a beállításokban, a probléma megkerüléséhez.</p>
+<p>Engedélyezheti az AdAway helyi webszerverét a beállításokban, a probléma megkerüléséhez.</p>
 
 </body>
 </html>

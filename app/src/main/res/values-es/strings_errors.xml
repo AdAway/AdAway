@@ -4,10 +4,10 @@
     <string name="error_no_connection_message">No hay conexión a Internet</string>
     <string name="error_no_connection_details">No se pudo establecer una conexión a Internet. Verifica la conectividad de tu dispositivo.</string>
     <string name="error_download_failed_message">Error al descargar la fuente de hosts</string>
-    <string name="error_download_failed_details">No se pudo acceder a ninguna de las fuentes de host habilitadas. Por favor, comprueba que estás conectado correctamente a Internet.</string>
+    <string name="error_download_failed_details">No se pudo acceder a ninguna de las fuentes de host habilitadas. Verifica que estés conectado correctamente a Internet.</string>
     <!-- Hosts install model error -->
     <string name="error_private_file_failed_message">Error al crear archivo privado</string>
-    <string name="error_private_file_failed_details">No se puede crear un archivo privado para construir una nueva fuente de hosts. Por favor, comprueba el espacio libre disponible en tu dispositivo.</string>
+    <string name="error_private_file_failed_details">No se puede crear un archivo privado para construir una nueva fuente de hosts. Verifica el espacio libre disponible en tu dispositivo.</string>
     <string name="error_not_enough_space_message">No hay suficiente espacio</string>
     <string name="error_not_enough_space_details">No se pudo copiar el archivo hosts a la partición del sistema. Verifica que el módulo sin sistema Magisk esté habilitado y luego reinicia.</string>
     <string name="error_copy_failed_message">Error al instalar nuevo archivo hosts</string>

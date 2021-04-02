@@ -1,1 +1,1 @@
-AdAway hosts faylını işlədən Android üçün açıq-qaynaqlı reklam bloklayıcıdır.
+A free and Open Source ad blocker for Android.

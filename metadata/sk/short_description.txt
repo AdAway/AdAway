@@ -1,1 +1,1 @@
-AdAway je open sourceový blokovač reklám pre Android využívajúci súbor hosts.
+A free and Open Source ad blocker for Android.

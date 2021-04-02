@@ -14,12 +14,58 @@
     <string name="header_help">Benvido!</string>
     <string name="button_show_help">Amosar máis axuda</string>
     <string name="icon_update_status">Estado da actualización</string>
+    <string name="button_check_update_hosts">Comprobar actualizacións</string>
+    <string name="button_update_hosts">Actualizar hosts</string>
+    <string name="button_enable_hosts">Habilitar bloqueo de publicidade</string>
+    <string name="button_disable_hosts">Deshabilitar bloqueo de publicidade</string>
+    <string name="header_webserver">Servidor web</string>
+    <string name="webserver_status_running">En execución</string>
     <string name="webserver_status_stopped">Detido</string>
+    <string name="button_enable_webserver">Habilitar servidor web</string>
+    <string name="button_disable_webserver">Deshabilitar servidor web</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">En execución</string>
+    <string name="vpn_status_stopped">Detido</string>
+    <string name="button_enable_vpn">Habilitar VPN</string>
+    <string name="button_disable_vpn">Deshabilitar VPN</string>
+
+    <string name="checkbox_list_context_apply">Aplicar</string>
+    <string name="checkbox_list_context_edit">Editar</string>
+    <string name="checkbox_list_context_delete">Eliminar</string>
+
     <!--Your lists-->
     <string name="import_dialog">Estase a importar…</string>
+    <string name="import_success">Copia de seguridade importada correctamente dende o teu almacenamento externo.</string>
     <string name="export_dialog">Estase a exportar…</string>
+    <!--Hosts content-->
+    <string name="hosts_header">O arquivo hosts</string>
+    <string name="hosts_content">Cargando contido do arquivo hosts...</string>
+    <string name="hosts_open_button">Abrir o arquivo hosts</string>
+
+    <string name="status_download_source">Descargando fonte %s</string>
+    <string name="status_revert">Reverter ó arquivo hosts por defecto</string>
+    <string name="status_revert_done">Arquivo hosts predeterminado restablecido</string>
+    <string name="status_reverting_subtitle">Creando arquivo hosts estándar</string>
+    <string name="status_update_available">Actualización da fonte dispoñíbel</string>
+    <string name="status_update_available_subtitle">Arquivos hosts recentes dispoñíbeis</string>
+    <string name="status_no_connection">Sen conexión a Internet</string>
+    <string name="status_no_connection_subtitle">Non hai conexión a Internet dispoñíbel</string>
+    <string name="status_download_fail">Fontes non dispoñíbeis.</string>
+    <string name="status_download_fail_subtitle_new">Non hay fontes de hosts accesíbeis</string>
+    <string name="status_root_access_denied">Acceso root denegado</string>
+    <string name="status_enabled">Habilitado</string>
+    <string name="status_disabled">Deshabilitado</string>
+    <string name="status_hosts_updated">Arquivo hosts actualizado correctamente</string>
+    <string name="notification_configuration_changed_action">Aplicar</string>
+    <string name="notification_configuration_failed">Erro ao aplicar a nova configuración.</string>
+
+    <string name="apply_not_enough_space_title">Non hai espazo dabondo</string>
+    <string name="apply_private_file_fail">O arquivo descargado non se puido ler.</string>
+    <string name="apply_help">Por favor ler Axuda para máis información.</string>
     <string name="download_dialog">Estase a descarregar…</string>
     <string name="apply_dialog">Estase a aplicar…</string>
+    <string name="enable_vpn_fail">Erro ao habilitar o bloqueo de publicidade VPN.</string>
+    <string name="disable_vpn_fail">Erro ao deshabilitar o bloqueo de publicidade VPN.</string>
     <string name="menu_add">Engadir</string>
     <string name="menu_help">Axuda</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
@@ -33,4 +79,5 @@
         <item>Preferences</item>
         <item>Axuda</item>
     </string-array>
+    <string name="shortcut_your_lists">Túas listas</string>
     </resources>

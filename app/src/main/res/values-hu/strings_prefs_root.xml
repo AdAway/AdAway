@@ -21,14 +21,14 @@
     <string name="pref_redirection_ipv6">IPv6 átirányítás</string>
     <!-- Web server category -->
     <string name="pref_webserver">Helyi webszerver</string>
-    <string name="pref_webserver_summary">A helyi webszerver meghallgatja a helyi IP-címeket, hogy válaszoljon a blokkolt gazdagép-kérelmekre. Segíthet az alkalmazás lefagyasztásában blokkolt kapcsolat esetén.</string>
+    <string name="pref_webserver_summary">A helyi webszerver meghallgatja a helyi IP-címeket, hogy válaszoljon a blokkolt gazdagép-kérelmekre. Segítheti az alkalmazás lefagyasztását blokkolt kapcsolat esetén.</string>
     <string name="pref_webserver_enabled">Webszerver engedélyezése</string>
     <string name="pref_webserver_test">Webszerver tesztelése</string>
     <string name="pref_webserver_certificate">Önaláírt tanusítvány telepítése</string>
     <string name="pref_webserver_certificate_dialog_title">Tanusítvány manuális telepítése</string>
     <string name="pref_webserver_certificate_dialog_content">Az Android 11 (R) verziótól kezdve az alkalmazás már nem tudja automatikusan telepíteni a tanusítványt (CA).\n\nLépjen a \"biztonsági\" beállítások menübe, majd \"Titkosítás és hitelesítő adatok\", azután a \"Tanusítvány telepítése\" opcióba. Ott válassza a \"CA tanusítványt\" és jelölje ki az újonnan exportált fájlt.</string>
     <string name="pref_webserver_certificate_dialog_action">\"Biztonsági\" beállítások megnyitása</string>
-    <string name="pref_webserver_state_checking">Ellenőrzés…</string>
+    <string name="pref_webserver_state_checking">Ellenőrzés...</string>
     <string name="pref_webserver_state_not_running">Nem fut</string>
     <string name="pref_webserver_state_running_not_installed">Fut, de a tanusítvány nincs telepítve</string>
     <string name="pref_webserver_state_running_and_installed">Fut és a tanusítvány telepítve van</string>

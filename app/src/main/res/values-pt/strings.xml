@@ -25,25 +25,29 @@
     <string name="webserver_status_stopped">Parado</string>
     <string name="button_enable_webserver">Ativar servidor web</string>
     <string name="button_disable_webserver">Desativar servidor web</string>
+    <string name="header_vpn">VPN</string>
+    <string name="button_enable_vpn">Ativar VPN</string>
+    <string name="button_disable_vpn">Desativar VPN</string>
+
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Eliminar</string>
     <string name="checkbox_list_context_title">Editar entrada</string>
+    <string name="checkbox_list_context_apply">Aplicar</string>
     <string name="checkbox_list_context_edit">Editar</string>
+    <string name="checkbox_list_context_delete">Eliminar</string>
 
     <!--Your lists-->
     <string name="import_dialog">A importar…</string>
     <string name="import_success">Cópia de segurança importada com sucesso do armazenamento externo.</string>
     <string name="import_failed">A importação da cópia de segurança falhou. O formato é o correto? Verifique o logcat para mais informações.</string>
     <string name="export_dialog">A exportar…</string>
-    <string name="export_success">Cópia de segurança exportada com sucesso para o ficheiro \'adaway-backup.json\' no armazenamento externo.</string>
-    <string name="export_failed">Falha na exportação da cópia de segurança.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">O ficheiro hosts</string>
     <string name="hosts_description">O ficheiro hosts é um ficheiro do sistema que mapeia os nomes de hospedeiro para endereços de IP. É um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
     <string name="hosts_content">A carregar o conteúdo do ficheiro hosts…</string>
     <string name="hosts_open_button">Abrir o ficheiro hosts</string>
 
+    <!--Status Notification-->
+    <string name="status_check">A procurar atualização</string>
     <string name="status_reverting_subtitle">A criar um ficheiro de hosts padrão</string>
     <string name="status_update_available">Atualização disponível</string>
     <string name="status_update_available_subtitle">Novos ficheiros de hosts disponíveis</string>
@@ -59,7 +63,14 @@
     <string name="status_enabled_subtitle">Os ficheiros de hosts mais recentes estão ativos</string>
     <string name="status_disabled">Desativado</string>
     <string name="status_disabled_subtitle">Instalado o ficheiro de hosts padrão.</string>
+    <string name="status_create_new_hosts">A criar um ficheiro hosts novo</string>
+    <string name="status_copy_new_hosts">A copiar o novo ficheiro hosts</string>
+    <string name="status_hosts_updated">Ficheiro hosts atualizado com sucesso</string>
+    <string name="status_vpn_configuration_updated">Configuração da VPN atualizada com sucesso</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
+    <string name="notification_configuration_installing">A aplicar nova configuração...</string>
+    <string name="notification_configuration_failed">Falha ao aplicar nova configuração</string>
+
     <string name="apply_symlink_missing">Uma ligação simbólica do seu destino para /system/etc/hosts não existe ou está incorreta! O AdAway não funcionará se não estiver a apontar para o ficheiro correto.\n\nPretende tentar criar uma ligação simbólica?</string>
     <string name="apply_symlink_missing_title">Ligação simbólica em falta</string>
     <string name="apply_not_enough_space">Não existe espaço suficiente na partição!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
@@ -68,6 +79,7 @@
     <string name="apply_private_file_fail_title">Falha no ficheiro privado</string>
     <string name="apply_remount_fail">Falha ao remontar a partição em modo leitura/escrita!</string>
     <string name="apply_remount_fail_title">Falha ao remontar</string>
+    <string name="apply_copy_fail_status">Falha ao copiar o ficheiro hosts</string>
     <string name="apply_copy_fail">Falha ao copiar o ficheiro de hosts!</string>
     <string name="apply_copy_fail_title">Falha ao copiar</string>
     <string name="apply_success_subtitle">As fontes de hosts foram aplicadas</string>
@@ -88,11 +100,13 @@
     <string name="apply_dialog_hostnames">A analisar e fundir os ficheiros de hosts</string>
     <string name="apply_dialog_hosts">A construir o ficheiro de hosts</string>
     <string name="apply_dialog_apply">A aplicar o ficheiro de hosts</string>
+    <string name="apply_fail_status">Falha ao aplicar o novo ficheiro hosts</string>
     <string name="apply_fail">Falha ao aplicar o ficheiro de hosts no sistema!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
     <string name="apply_fail_title">Falha ao aplicar</string>
     <string name="root_access_fail">Por favor verifique a sua app de gestão root para certificar-se que o acesso root foi concedido.</string>
     <string name="revert_successful">Reverteu o ficheiro de hosts predefinido.\nPoderá ser necessário reiniciar o Android para que as alterações surtem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
     <string name="revert_successful_title">Revertido com sucesso</string>
+    <string name="revert_failed_status">Incapaz de reverter o ficheiro hosts</string>
     <string name="revert_problem">Falha ao reverter por motivos desconhecidos.</string>
     <string name="revert_problem_title">Falha ao reverter!</string>
     <string name="download_fail_dialog">Nenhuma das suas fontes de hosts ativadas está alcançável! Está corretamente ligado à internet?</string>
@@ -179,6 +193,8 @@
     <string name="shortcut_your_lists">As suas listas</string>
     <string name="shortcut_preferences">Preferências</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Instalado à%1$satrás</string>
     <string name="hosts_source_up_to_date"> Atualizado para %1$s</string>
     <string name="hosts_source_need_update">Precisa de atualização para %1$s</string>
     <string name="hosts_source_last_update">Última atualização há %1$s</string>
@@ -200,4 +216,6 @@
         <item quantity="other">%d meses</item>
     </plurals>
 
+    <string name="vpn_notification_running">Ativo</string>
+    <string name="vpn_notification_reconnecting_error">Erro de conexão</string>
     </resources>

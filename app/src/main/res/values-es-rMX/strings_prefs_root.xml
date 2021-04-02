@@ -25,6 +25,8 @@
     <string name="pref_webserver_enabled">Habilitar servidor web</string>
     <string name="pref_webserver_test">Probar servidor web</string>
     <string name="pref_webserver_certificate">Instalar certificado autofirmado</string>
+    <string name="pref_webserver_certificate_dialog_title">Instalacion manual de Certificado</string>
+    <string name="pref_webserver_certificate_dialog_action">Abrir ajustes de \"Seguridad\"</string>
     <string name="pref_webserver_state_checking">Comprobando…</string>
     <string name="pref_webserver_state_not_running">Inactivo</string>
     <string name="pref_webserver_state_running_not_installed">Activo (certificado no instalado)</string>

@@ -21,18 +21,16 @@
     <string name="webserver_status_stopped">En parada</string>
     <string name="header_vpn">VPN</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Desaniciar</string>
     <string name="checkbox_list_context_title">Editar entrada</string>
     <string name="checkbox_list_context_edit">Editar</string>
+    <string name="checkbox_list_context_delete">Desaniciar</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importando…</string>
     <string name="export_dialog">Esportando…</string>
-    <string name="export_failed">Fallu al esportar la copia de seguranza.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">El ficheru hosts</string>
-    <string name="hosts_content">Cargando\'l conteníu del ficheru hosts…</string>
+    <string name="hosts_content">Cargando\'l conteníu del ficheru hosts...</string>
     <string name="hosts_open_button">Abrir el ficheru hosts</string>
 
     <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>

@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
+    <!--Buttons-->
+    <string name="button_exit">نکلیٔے</string>
+    <string name="button_close">بند کریں</string>
+    <string name="button_yes">جی ہاں</string>
+    <string name="button_no">نہیں</string>
+    <string name="button_add">جمع کریں</string>
+    <string name="button_cancel">منسوخ کریں</string>
+    <string name="button_save">محفوظ کریں</string>
+    <string name="button_help">مدد</string>
+
+    <!--Home-->
+    <string name="header_help">خوش آمدید</string>
+    <string name="text_help">AdAway اشتہارات کو بلاک کرنے کے لیے ایک مفت اور open source سافٹویٔر ہے۔ یہ آپ کے سسٹم پر اشتہارات کو بلاک کرنے کے لیے اشتہاری کمپنیوں کے ویب اڈریس (web address) اکٹھے کرتا ہے۔ مزید معلومات کے لیے نیچے دی گٔی مدد ملاحظہ کریں۔</string>
+    <string name="button_show_help">مزید مدد دکھائیے</string>
+    <string name="menu_add">جمع کریں</string>
+    <string name="menu_help">مدد</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>

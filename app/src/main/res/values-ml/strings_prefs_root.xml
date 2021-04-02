@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">റൂട്ട് അടിസ്ഥാനമാക്കിയുള്ള പരസ്യ ബ്ലോക്കർ</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">hosts ഇൻസ്റ്റാൾ ചെയുന്നു </string>
     <string name="pref_root_open_hosts">Open hosts file</string>
     <string name="pref_apply_method">ടാർഗെറ്റ് ഹോസ്റ്റസ് ഫയൽ</string>
     <string-array name="pref_apply_method_entries">
@@ -8,5 +11,16 @@
         <item>/data/data/hosts</item>
         <item>Custom target</item>
     </string-array>
+    <!-- Redirection category -->
+    <string name="pref_hosts_redirection">റീഡയറക്ഷൻ</string>
+    <string name="pref_redirection_ipv4">റീഡയറക്ഷൻ IPv4</string>
+    <string name="pref_redirection_ipv6">റീഡയറക്ഷൻ IPv6</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">പ്രാദേശിക വെബ്‌സർവർ</string>
     <string name="pref_webserver_enabled">വെബ് സെർവർ പ്രാപ്തമാക്കുക</string>
+    <string name="pref_webserver_test">വെബ് സെർവർ പരിശോധിക്കുക</string>
+    <string name="pref_webserver_certificate_dialog_title">സർ‌ട്ടിഫിക്കറ്റ് മാനുവൽ‌ ഇൻ‌സ്റ്റാൾ‌</string>
+    <string name="pref_webserver_certificate_dialog_action">സുരക്ഷാ ക്രമീകരണങ്ങൾ തുറക്കുക</string>
+    <string name="pref_webserver_state_checking">പരിശോധിക്കുന്നു</string>
+    <string name="pref_webserver_state_not_running">പ്രവർത്തിക്കുന്നില്ല</string>
     </resources>

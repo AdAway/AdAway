@@ -8,7 +8,14 @@
         <item>/data/data/hosts</item>
         <item>Mukautettu kohde</item>
     </string-array>
+    <string name="pref_custom_target">Mukautetun kohteen sijainti</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Uudelleenohjaus</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Paikallinen web-palvelin </string>
     <string name="pref_webserver_enabled">Ota web-palvelin käyttöön</string>
+    <string name="pref_webserver_test">Testaa web-palvelinta</string>
+    <string name="pref_webserver_certificate_dialog_action">Avaa \"Turvallisuus\'\" -asetukset</string>
+    <string name="pref_webserver_state_checking">Tarkistetaan... </string>
+    <string name="pref_webserver_state_not_running">Ei käynnissä</string>
     </resources>

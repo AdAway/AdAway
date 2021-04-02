@@ -26,18 +26,16 @@
     <string name="button_enable_webserver">വെബ് സെർവർ പ്രാപ്തമാക്കുക</string>
     <string name="button_disable_webserver">വെബ് സെർവർ അപ്രാപ്തമാക്കുക</string>
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">നീക്കം ചെയ്യുക </string>
     <string name="checkbox_list_context_title">ചേർത്തത് തിരുത്തുക </string>
+    <string name="checkbox_list_context_apply">പ്രയോഗിക്കുക</string>
     <string name="checkbox_list_context_edit">തിരുത്തുക </string>
+    <string name="checkbox_list_context_delete">നീക്കം ചെയ്യുക </string>
 
     <!--Your lists-->
     <string name="import_dialog">ഇറക്കുമതി ചെയ്യുന്നു…</string>
     <string name="import_success">നിങ്ങളുടെ ബാഹ്യ സംഭരണത്തിൽ നിന്ന് ബാക്കപ്പ് വിജയകരമായി ഇറക്കുമതി ചെയ്തു.</string>
     <string name="import_failed">ബാക്കപ്പ് ഇറക്കുമതി ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.അതിന്റെ ഫോർമാറ്റ് ശരിയാണോ?കൂടുതൽ വിവരങ്ങൾക്ക് ലോഗ്കാറ്റ് പരിശോധിക്കുക.</string>
     <string name="export_dialog">കയറ്റുമതി ചെയ്യുന്നു </string>
-    <string name="export_success">നിങ്ങളുടെ ബാഹ്യ സംഭരണത്തിലെ \'adaway-backup.json\' ഫയലിലേക്ക് ബാക്കപ്പ് വിജയകരമായി എക്‌സ്‌പോർട്ടുചെയ്‌തു.</string>
-    <string name="export_failed">ബാക്കപ്പ് എക്‌സ്‌പോർട്ടുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">ഹോസ്റ്റുകളുടെ ഫയൽ</string>
     <string name="hosts_description">ഹോസ്റ്റ്നാമങ്ങൾ IP വിലാസങ്ങളിലേക്ക് മാപ്പ് ചെയ്യുന്ന ഒരു സിസ്റ്റം ഫയലാണ് ഹോസ്റ്റ്സ് ഫയൽ.AdAway കോൺഫിഗറേഷൻ കൈകാര്യം ചെയ്യുന്ന ഒരു പ്ലെയിൻ ടെക്സ്റ്റ് ഫയലാണിത്.അതിന്റെ ആദ്യ വരികൾ ഇതാ:</string>

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
-    <string name="button_exit">ปิด</string>
+    <string name="button_exit">ออก</string>
     <string name="button_close">ปิด</string>
     <string name="button_yes">ใช่</string>
     <string name="button_no">ไม่</string>
@@ -24,10 +24,17 @@
     <string name="webserver_status_stopped">กำลังหยุด</string>
     <string name="button_enable_webserver">เปิดใช้งานเว็บเซิร์ฟเวอร์</string>
     <string name="button_disable_webserver">ปิดใช้งานเว็บเซิร์ฟเวอร์</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">กำลังทำงาน</string>
+    <string name="vpn_status_stopped">กำลังหยุด</string>
+    <string name="button_enable_vpn">เปิดใช้งาน VPN</string>
+    <string name="button_disable_vpn">ปิดใช้งาน VPN</string>
+
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">ลบ</string>
     <string name="checkbox_list_context_title">แก้ไขรายการ</string>
+    <string name="checkbox_list_context_apply">นำไปใช้</string>
     <string name="checkbox_list_context_edit">แก้ไข</string>
+    <string name="checkbox_list_context_delete">ลบ</string>
 
     <!--Your lists-->
     <string name="import_dialog">กำลังนำเข้า…</string>
@@ -37,18 +44,31 @@
     <string name="hosts_content">กำลังโหลดเนื้อหาไฟล์โฮสต์…</string>
     <string name="hosts_open_button">เปิดไฟล์ hosts</string>
 
+    <!--Status Notification-->
+    <string name="status_check">กำลังตรวจสอบอัปเดตใหม่</string>
+    <string name="status_check_source">กำลังตรวจสอบ %s จากแหล่งที่มาสำหรับการอัปเดต</string>
+    <string name="status_revert_done">กู้โฮสต์ไฟล์ต้นฉบับกลับคืนแล้ว</string>
     <string name="status_reverting_subtitle">กำลังสร้างไฟล์โฮสต์มาตรฐาน</string>
     <string name="status_update_available">สามารถอัพเดตได้</string>
     <string name="status_update_available_subtitle">สามารถอัพเดตไฟล์โฮสต์ได้</string>
+    <string name="status_no_update_found">ไม่พบการอัปเดตแหล่งที่มา</string>
     <string name="status_no_connection">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
     <string name="status_no_connection_subtitle">ไม่มีการเชื่อมต่ออินเตอร์เน็ต</string>
     <string name="status_download_fail">ไม่สามารถใช้งานแหล่งที่มาได้</string>
     <string name="status_download_fail_subtitle_new">ไม่สามารถเข้าถึงแหล่งที่มาโฮสต์ได้</string>
+    <string name="status_root_access_denied">สิทธิ์ผู้ดูแลระบบถูกปฏิเสธ</string>
+    <string name="status_root_access_denied_subtitle">อนุญาตสิทธิ์ผู้ดูแลระบบจากแอพผู้ดูแลระบบแล้ว</string>
+    <string name="status_failure">มีบางอย่างผิดปกติ</string>
     <string name="status_failure_subtitle">ตรวจสอบ logcat สำหรับรายละเอียดเพิ่มเติม</string>
     <string name="status_enabled">เปิดใช้งานแล้ว</string>
     <string name="status_enabled_subtitle">เปิดใช้งานไฟล์โฮสต์แล้ว</string>
     <string name="status_disabled">ปิดใช้งาน</string>
     <string name="status_disabled_subtitle">คืนค่าไฟล์โฮสต์เป็นค่าเริ่มต้นแล้ว</string>
+    <string name="status_apply_sources">ใช้แหล่งข้อมูลล่าสุด</string>
+    <string name="notification_configuration_changed_action">นำไปใช้</string>
+    <string name="notification_configuration_installing">ใช้ตั้งค่าใหม่</string>
+    <string name="notification_configuration_failed">ใช้ตั้งค่าใหม่ล้มเหลว</string>
+
     <string name="apply_symlink_missing">Symlink จากเป้าหมายของคุณไปยัง /system/etc/hosts ไม่พบหรือไม่ถูกต้อง AdAway จะไม่ทำงานหากไม่เลือกไปยังไฟล์ที่ถูกต้อง\n\nต้องการสร้างไฟล์ Symlink?</string>
     <string name="apply_symlink_missing_title">ไม่พบ Symlink</string>
     <string name="apply_not_enough_space">พื้นที่ไม่เพียงพอ\nลองเปลี่ยนไฟล์โฮสต์ในการตั้งค่าไปยัง /data/data/hosts</string>
@@ -57,6 +77,7 @@
     <string name="apply_private_file_fail_title">ไฟล์ส่วนตัวล้มเหลว</string>
     <string name="apply_remount_fail">กำลังเม้าท์พาร์ติชั่นเป็น  read/write ล้มเหลว!</string>
     <string name="apply_remount_fail_title">เม้าท์ล้มเหลว</string>
+    <string name="apply_copy_fail_status">คัดลอกไฟล์โฮสต์ล้มเหลว</string>
     <string name="apply_copy_fail">คัดลอกไฟล์โฮสต์ล้มเหลว</string>
     <string name="apply_copy_fail_title">คัดลอกล้มเหลว</string>
     <string name="apply_success_subtitle">ใช้แหล่งที่มาของโฮสต์แล้ว</string>
@@ -69,13 +90,15 @@
     <string name="no_connection_title">ไม่มีการเชื่อมต่อ</string>
     <string name="download_dialog">กำลังดาวน์โหลด…</string>
     <string name="apply_dialog">กำลังใช้งาน…</string>
-    <string name="apply_dialog_lists">กำลังใช้งานบัญชีดำและบัญชีขาว</string>
+    <string name="apply_dialog_lists">กำลังใช้รายการที่ถูกห้ามและรายการที่อนุญาต</string>
     <string name="apply_dialog_hostnames">กำลังแยกและรวมไฟล์โฮสต์</string>
     <string name="apply_dialog_hosts">กำลังสร้างไฟล์โฮสต์</string>
     <string name="apply_dialog_apply">กำลังใช้งานไฟล์โฮสต์</string>
+    <string name="apply_fail_status">นำไฟล์โฮสต์ใหม่ไปใช้ล้มเหลว</string>
     <string name="apply_fail">ใช้งานไฟล์โฮสต์ไปยังระบบล้มเหลว!\nลองเปลี่ยนไฟล์โฮสต์ในการตั้งค่าไปยัง /data/data/hosts</string>
     <string name="apply_fail_title">นำไปใช้ล้มเหลว</string>
     <string name="revert_successful_title">คืนค่าเสร็จสิ้น</string>
+    <string name="revert_failed_status">ไม่สามารถคืนค่าได้</string>
     <string name="revert_problem">คืนค่าล้มเหลวไม่ทราบเหตุผล</string>
     <string name="revert_problem_title">คืนค่าล้มเหลว!</string>
     <string name="download_fail_dialog">ไม่พบแหล่งที่มาโฮสต์ที่สามารถเข้าถึงได้! ต้องการเชื่อมต่ออินเตอร์เน็ต?</string>
@@ -84,18 +107,24 @@
     <string name="no_private_file_title">สร้างไฟล์ส่วนตัวล้มเหลว</string>
     <string name="enable_systemless_successful_title">การเปิดใช้งานเสร็จสมบูรณ์</string>
     <string name="disable_systemless_successful_title">การปิดใช้งานเสร็จสมบูรณ์</string>
+    <string name="enable_systemless_magisk_title">กำลังเปิดใช้งานไฟล์โฮสต์จากโมดูล Magisk</string>
+    <string name="disable_systemless_magisk_title">กำลังปิดใช้งานไฟล์โฮสต์จากโมดูล Magisk</string>
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">ใส่ URL ไปยังไฟล์โฮสต์:</string>
     <string name="no_hostname">ชื่อโฮสต์ไม่ถูกต้อง!</string>
     <string name="no_hostname_title">รูปแบบชื่อโฮสต์ไม่ถูกต้อง</string>
     <string name="no_ip">IP ไม่ถูกต้อง!</string>
     <string name="no_ip_title">รูปแบบ IP ไม่ถูกต้อง</string>
+    <string name="reboot_never_reboot">ไม่ต้องรีบูตและไม่แสดงคำถามนี้ครั้งหน้า</string>
     <string name="loading">กำลังโหลด…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">รีเฟรช</string>
     <string name="menu_add">เพิ่ม</string>
     <string name="menu_help">ช่วยเหลือ</string>
+    <string name="menu_import">นำเข้าข้อมูลสำรอง</string>
+    <string name="menu_export">ส่งออกข้อมูลสำรอง</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">ถาม-ตอบ</string>
@@ -103,6 +132,9 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
+    <string name="adware_scanning">กำลังสแกน&#8230;</string>
+    <string name="adware_empty">ไม่พบ Adware</string>
+
     <!--Other-->
     <string name="app_subtitle">บล็อคโฆษณา</string>
     <string name="no_text_editor_title">ไม่ได้ติดตั้งตัวแก้ไขข้อความ</string>
@@ -147,8 +179,40 @@
     <string name="shortcut_your_lists">รายการของคุณ</string>
     <string name="shortcut_preferences">การตั้งค่า</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">ติดตั้งเมื่อ %1$s ที่ผ่านมา</string>
     <string name="hosts_source_up_to_date">อัพเดทล่าสุดสำหรับ %1$s</string>
     <string name="hosts_source_need_update">ต้องการอัพเดทสำหรับ %1$s</string>
     <string name="hosts_source_last_update">ปรับปรุงครั้งล่าสุด %1$s ที่ผ่านมา</string>
     <string name="hosts_source_unknown_status">สถานะอัพเดทที่ไม่รู้จัก</string>
-    </resources>
+    <string name="hosts_source_few_minutes">ไม่กี่นาทีที่แล้ว</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="other">%d นาที</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="other">%d ชั่วโมง</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="other">%d วัน</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="other">%d เดือน</item>
+    </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">กำลังเริ่มต้น</string>
+    <string name="vpn_notification_running">กำลังทำงาน</string>
+    <string name="vpn_notification_stopping">กำลังหยุด</string>
+    <string name="vpn_notification_waiting_for_net">รอสัญญาณอินเตอร์เน็ต</string>
+    <string name="vpn_notification_reconnecting">กำลังเชื่อมต่ออีกครั้ง</string>
+    <string name="vpn_notification_reconnecting_error">เชื่อมต่อผิดพลาด</string>
+    <string name="vpn_notification_paused">หยุดชั่วคราว</string>
+    <string name="vpn_notification_stopped">หยุด</string>
+    <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
+    <string name="vpn_notification_action_pause">หยุด</string>
+    <string name="vpn_notification_paused_text">แตะเพื่อดำเนินการต่อ</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">เปิดใช้งานหรือปิดใช้งานระบบบล็อคโฆษณา</string>
+
+</resources>

@@ -4,7 +4,7 @@
     <string name="notification_update_channel_name">Обновления</string>
     <string name="notification_update_channel_description">Уведомления об обновлении</string>
     <string name="notification_update_host_available_title">Доступно обновление</string>
-    <string name="notification_update_host_available_text">Доступны свежие списки хостов для загрузки</string>
+    <string name="notification_update_host_available_text">Доступны более новые списки хостов для загрузки.</string>
     <string name="notification_update_app_available_title">Доступно обновление приложения</string>
     <string name="notification_update_app_available_text">Новая версия AdAway доступна для загрузки.</string>
     <!-- VPN notification -->

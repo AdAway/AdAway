@@ -25,25 +25,34 @@
     <string name="webserver_status_stopped">Aturat</string>
     <string name="button_enable_webserver">Activa el servidor web</string>
     <string name="button_disable_webserver">Desactiva el servidor web</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">En execució</string>
+    <string name="vpn_status_stopped">Aturat</string>
+    <string name="vpn_toggle_text">Arrenca o para la VPN per a filtrar peticions</string>
+    <string name="button_enable_vpn">Activa la VPN</string>
+    <string name="button_disable_vpn">Desactiva la VPN</string>
+
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Elimina</string>
     <string name="checkbox_list_context_title">Edita l\'entrada</string>
+    <string name="checkbox_list_context_apply">Aplica</string>
     <string name="checkbox_list_context_edit">Edita</string>
+    <string name="checkbox_list_context_delete">Elimina</string>
 
     <!--Your lists-->
     <string name="import_dialog">S\'està important….</string>
     <string name="import_success">S\'ha importat correctament la còpia de l\'emmagatzematge extern.</string>
     <string name="import_failed">Ha fallat en importar la còpia. El format és correcte? Mireu l\'informe del logcat per a més informació.</string>
     <string name="export_dialog">S\'està exportant…</string>
-    <string name="export_success">S\'ha exportat correctament el fitxer «adaway-backup.json» a l\'emmagatzematge extern.</string>
-    <string name="export_failed">Ha fallat en exportar la còpia de seguretat.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">El fitxer d\'amfitrions</string>
     <string name="hosts_description">El fitxer d\'amfitrions és un fitxer del sistema on s\'associen  noms d\'amfitrió a les corresponents adreces IP. És un fitxer en text pla on la seva configuració és administrada per l\'AdAway. Aquí podeu veure les primeres línies:</string>
     <string name="hosts_content">S\'està carregant el contingut del fitxer d\'amfitrions…</string>
     <string name="hosts_open_button">Obre el fitxer d\'amfitrions</string>
 
+    <!--Status Notification-->
+    <string name="status_check">S\'estan comprovant les actualitzacions</string>
+    <string name="status_retrieve">Recuperant recursos</string>
+    <string name="status_download_source">Descarregant recurs %s</string>
     <string name="status_reverting_subtitle">Creació del fitxer estàndard de servidors</string>
     <string name="status_update_available">Actualització disponible</string>
     <string name="status_update_available_subtitle">Amfitrions nous disponibles</string>
@@ -60,6 +69,7 @@
     <string name="status_disabled">Desactivat</string>
     <string name="status_disabled_subtitle">S\'han instal·lat els fitxers d\'amfitrions per defecte</string>
     <string name="notification_configuration_changed_action">Aplica</string>
+    <string name="notification_configuration_installing">Aplicant nova configuració...</string>
     <string name="apply_symlink_missing">L\'enllaç simbòlic cap a /system/etc/hosts no existeix o no és correcte! L\'AdAway no funcionarà si no apunta al fitxer correcte.\n\nVoleu intentar crear un enllaç simbòlic?</string>
     <string name="apply_symlink_missing_title">Falta l\'enllaç simbòlic</string>
     <string name="apply_not_enough_space">No hi ha prou espai a la partició!\nProveu canviant el fitxer a les preferències a /data/data/hosts.</string>
@@ -68,6 +78,7 @@
     <string name="apply_private_file_fail_title">Error al fitxer privat</string>
     <string name="apply_remount_fail">Ha fallat al muntar la partició en mode lectura/escriptura!</string>
     <string name="apply_remount_fail_title">Ha fallat en muntar</string>
+    <string name="apply_copy_fail_status">Error al copiar l\'arxiu de hosts</string>
     <string name="apply_copy_fail">No s\'ha pogut copiar el fitxer!</string>
     <string name="apply_copy_fail_title">Ha fallat la còpia</string>
     <string name="apply_success_subtitle">S\'han aplicat les fonts</string>
@@ -88,15 +99,18 @@
     <string name="apply_dialog_hostnames">Processant i unint els fitxers hosts</string>
     <string name="apply_dialog_hosts">Construïnt fitxer hosts</string>
     <string name="apply_dialog_apply">Aplicant el fitxer hosts</string>
+    <string name="apply_fail_status">Error al aplicar el nou arxiu de hosts</string>
     <string name="apply_fail">No s\'ha pogut aplicar el fitxer al sistema!\nProveu canviant la ruta del fitxer a les preferències a /data/data/hosts.</string>
     <string name="apply_fail_title">Aplicació fallida</string>
     <string name="root_access_fail">Verifiqueu que l\'aplicació disposa de permisos d\'administrador (Root).</string>
     <string name="revert_successful">Heu restaurat al fitxer per defecte.\nÉs necessari reiniciar Android per aplicar els canvis.\n\nVoleu reiniciar ara?\n(Per evitar cap pèrdua a la targeta SD, assegureu-vos que cap altra aplicació l\'està utilitzant en aquest moment!) </string>
     <string name="revert_successful_title">S\'ha revertit correctament</string>
+    <string name="revert_failed_status">No s\'ha pogut revertir l\'arxiu de hosts</string>
     <string name="revert_problem">Procés de revertiment fallit degut a causes desconegudes</string>
     <string name="revert_problem_title">Ha fallat en restaurar!</string>
     <string name="download_fail_dialog">No es pot contactar amb cap font dels fitxers d\'amfitrions. Comproveu la connexió a internet.</string>
     <string name="download_fail_title">Error amb la baixada</string>
+    <string name="no_private_file_status">Error al escriure el nou arxiu de hosts privat</string>
     <string name="no_private_file">No s\'ha pogut crear el fitxer privat.</string>
     <string name="no_private_file_title">Error en la creació del fitxer privat</string>
     <string name="enable_systemless_successful_title">S\'ha habilitat correctament</string>
@@ -168,4 +182,29 @@
     <string name="hosts_source_need_update">Actualització necessària per %1$s</string>
     <string name="hosts_source_last_update">Darrera actualització fa %1$s</string>
     <string name="hosts_source_unknown_status">Estat d\'actualització desconegut</string>
-    </resources>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dies</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d mes</item>
+        <item quantity="other">%dmesos</item>
+    </plurals>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">començant</string>
+    <string name="vpn_notification_running">actiu</string>
+    <string name="vpn_notification_stopping">aturant</string>
+    <string name="vpn_notification_waiting_for_net">espera a tenir xarxa</string>
+    <string name="vpn_notification_reconnecting">reconnectant</string>
+    <string name="vpn_notification_reconnecting_error">error durant la reconnexió</string>
+    <string name="vpn_notification_paused">pausat</string>
+    <string name="vpn_notification_stopped">aturat</string>
+    <string name="vpn_notification_title">VPN bloquejadora d\'anuncis %1$s</string>
+    <string name="vpn_notification_action_pause">Pausa</string>
+    <string name="vpn_notification_paused_text">Prem per reprendre</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">Activa i desactiva el bloqueig d\'anuncis de sistema</string>
+
+</resources>

@@ -2,6 +2,5 @@
 <resources>
     <string name="pref_update_title">Pembaruan</string>
     <string name="pref_update_check_app_daily">Periksa pembaruan setiap hari</string>
-    <string name="pref_update_check">Memeriksa pembaruan</string>
     <string name="pref_update_check_hosts_daily">Periksa pembaruan setiap hari</string>
     </resources>

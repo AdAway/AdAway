@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <!-- Source model errors -->
+    <string name="error_no_connection_message">Non hai conexión a Internet</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Erro ao crear arquivo privado</string>
+    <string name="error_not_enough_space_message">Non hai espazo dabondo</string>
+    <string name="error_copy_failed_message">Erro ao instalar novo arquivo hosts</string>
+    <string name="error_copy_failed_details">Foi incapaz de copiar o arquivo hosts á partición do sistema. Verifica que o módulo systemless de Magisk esté habilitado para reiniciar.</string>
+    <string name="error_revert_failed_message">Erro ao revertir o arquivo hosts</string>
+    <string name="error_revert_failed_details">Non se é capaz de restaurar-la configuración predeterminada do arquivo hosts.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Erro ao habilitar o bloqueo de publicidade VPN.</string>
+    <string name="error_disable_vpn_failed_message">Erro ao deshabilitar o bloqueo de publicidade VPN.</string>
+    <string name="error_disable_vpn_failed_details">Por favor comproba os axustes da túa VPN para deshabilitala manualmente. </string>
+</resources>

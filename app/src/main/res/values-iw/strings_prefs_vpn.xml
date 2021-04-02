@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_vpn_title">חוסם פרסומות מבוסס רשת פרטית וירטואלית (VPN) </string>
-    <string name="pref_vpn_service_on_boot">הפעל באופן אוטומטי לאחר הפעלה מחדש של המכשיר</string>
+    <string name="pref_vpn_title">חוסם פרסומות מבוסס VPN</string>
+    <!-- Service configuration -->
+    <string name="pref_vpn_service_on_boot">הפעלת בעת הפעלת המכשיר</string>
     <!-- Excluded applications -->
-    <string name="pref_vpn_excluded_apps">התעלם מאפליקציות</string>
-    <string name="pref_vpn_excluded_apps_description">הגדר אילו אפליקציות לא יוכלו להשתמש בVPN כדי שלא יתנתקו חיבורים</string>
-    <string name="pref_vpn_exclude_system_apps">התעלם מאפליקציות מערכת</string>
+    <string name="pref_vpn_excluded_apps">התעלם מיישומים</string>
+    <string name="pref_vpn_excluded_apps_description">הגדר אילו יישומים לא יוכלו להשתמש ב-VPN כדי שלא יתנתקו חיבורים</string>
+    <string name="pref_vpn_exclude_system_apps">התעלם מיישומי מערכת</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>ריק</item>
+        <item>ללא</item>
         <item>הכל למעט דפדפנים</item>
         <item>הכל</item>
     </string-array>
@@ -17,5 +18,5 @@
     <string name="pref_vpn_exclude_user_apps_activity">התעלם מאפליקציות</string>
     <string name="pref_vpn_exclude_user_apps_select_all">בחר הכל</string>
     <string name="pref_vpn_exclude_user_apps_deselect_all">הסר הכל</string>
-    <string name="pref_vpn_exclude_user_apps_icon">סמל אפליקציה</string>
+    <string name="pref_vpn_exclude_user_apps_icon">סמל יישום</string>
 </resources>

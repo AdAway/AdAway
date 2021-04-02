@@ -3,4 +3,6 @@
     <!-- Update notification -->
     <string name="notification_update_channel_name">Atualizações</string>
     <string name="notification_update_host_available_title">Atualização disponível</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
     </resources>

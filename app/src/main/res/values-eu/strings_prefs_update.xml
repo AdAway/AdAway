@@ -4,6 +4,5 @@
     <!-- Application category -->
     <string name="pref_update_app_category">Aplikazioaren eguneraketak</string>
     <string name="pref_update_check_app_daily">Egiaztatu eguneraketak egunero</string>
-    <string name="pref_update_check">Egiaztatu eguneraketak</string>
     <string name="pref_update_check_hosts_daily">Egiaztatu eguneraketak egunero</string>
     </resources>

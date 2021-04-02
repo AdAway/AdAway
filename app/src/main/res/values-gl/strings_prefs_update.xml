@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_update_title">Unha nova versión de AdAway está dispoñibel para descargar</string>
     </resources>

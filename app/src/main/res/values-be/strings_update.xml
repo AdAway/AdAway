@@ -4,5 +4,7 @@
     <string name="update_available">Даступна абнаўленне!</string>
 
     <!-- Update activity -->
+    <string name="update_up_to_date_header">У вас актуальная версія</string>
+    <string name="update_update_available_header">Даступна абнаўленне</string>
     <string name="update_update_button">Абнавіць зараз</string>
-</resources>
+    </resources>

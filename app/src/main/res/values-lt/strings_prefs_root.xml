@@ -28,7 +28,7 @@
     <string name="pref_webserver_certificate_dialog_title">Sertifikato instrukcijos instaliavimas</string>
     <string name="pref_webserver_certificate_dialog_content">Pradedant nuo Android 11 (R), programa nebegali automatiškai instaliuoti autorizacijos sertifikato (CA).n\n\ Eikite į \"Saugos\" nustatymus, \"Šifravimas ir Identifikacija\" tada \"Instaliuoti serfifikatą\". Nuo ten, pasirinkti \"CA sertifikatas\" ir naujai eksportuotą sertifikato failą.</string>
     <string name="pref_webserver_certificate_dialog_action">Atverty \"Saugos\" nustatymus</string>
-    <string name="pref_webserver_state_checking">Tikrinama…</string>
+    <string name="pref_webserver_state_checking">Tikrinama...</string>
     <string name="pref_webserver_state_not_running">Neveikia</string>
     <string name="pref_webserver_state_running_not_installed">Veikia bet serfikatas neįdiegtas</string>
     <string name="pref_webserver_state_running_and_installed">Veikia, serifikatas instaliuotas</string>

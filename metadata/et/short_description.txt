@@ -1,1 +1,1 @@
-AdAway on avatud lähtekoodiga reklaamiblokeerija Androidile, kasutades hosts-faili.
+A free and Open Source ad blocker for Android.

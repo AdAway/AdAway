@@ -1,6 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Torjuttu</string>
+    <string name="allowed_hosts_label">Hyväksytty </string>
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
@@ -11,6 +14,17 @@
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
+    <!-- Help card -->
+    <string name="help_label">Näytä ohje</string>
+
+    <!-- Project card -->
+    <string name="project_label">Avaa GitHub-sivu</string>
+
+    <!-- Support card -->
+    <string name="support_label">Tue projektia</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS-lokit</string>
     <string name="preferences_drawer_item">Asetukset</string>
 
     <!-- Error dialog -->

@@ -1,1 +1,1 @@
-Az AdAway egy nyílt forráskódú hirdetésblokkoló program Android-ra (a host fájlt használja).
+A free and Open Source ad blocker for Android.

@@ -6,7 +6,6 @@
     <string name="button_no">نا</string>
     <string name="button_cancel">ھەڵوەشاندن</string>
     <string name="checkbox_list_context_edit">دەستکاری</string>
-
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>

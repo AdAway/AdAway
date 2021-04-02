@@ -1,1 +1,1 @@
-AdAway je blokator oglasa otvorenog kôda za Android koji koristi datoteku poslužitelja.
+A free and Open Source ad blocker for Android.

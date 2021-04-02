@@ -11,9 +11,8 @@
     <string name="button_help">ជំនួយ</string>
 
     <string name="button_check_update_hosts">ពិនិត្យមើលភាពទាន់សម័យ</string>
-    <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">លុបចេញ</string>
     <string name="checkbox_list_context_edit">កែប្រែ</string>
+    <string name="checkbox_list_context_delete">លុបចេញ</string>
 
     <string name="status_update_available">រកឃើញមានជំនាន់ថ្មី</string>
     <string name="status_no_connection">ពុំមានតំនរភ្ជាប់អ៊ិនធឺណែត</string>

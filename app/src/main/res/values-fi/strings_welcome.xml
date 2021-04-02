@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Tervetuloa</string>
-
-    <!-- Method UI -->
+    <string name="welcome_root_method_text1">Nopeammin </string>
+    <string name="welcome_root_method_text2">Akkuystävällinen</string>
+    <string name="welcome_vpn_method_logo">VPN-logo</string>
+    <string name="welcome_vpn_method_title">VPN-pohjainen\nmainostorjunta</string>
+    <string name="welcome_vpn_method_text1">Hitaammin </string>
+    <string name="welcome_vpn_method_text2">Suorita taustalla</string>
     <string name="welcome_root_missing_title">Rootattu Android vaaditaan</string>
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Synkronointi valmis</string>
+    <string name="welcome_sync_error_logo">Virhe synkronoidessa</string>
+
+    <string name="welcome_sync_header">Synkronoidaan </string>
+    <string name="welcome_synced_header">Synkronoitu! </string>
+    <string name="welcome_sync_retry_logo">Yritä uudelleen synkronointia</string>
+    <string name="welcome_sync_error">Synkronointi epäonnistui:\n%s.\nYritä uudelleen nyt? </string>
+
     <!-- Support -->
     <string name="welcome_support_logo">Tue</string>
-    </resources>
+    <string name="welcome_support_header">Tue minua! </string>
+    <string name="welcome_support_button">Lahjoita Paypallilla</string>
+    <string name="welcome_support_telemetry_summary">Pidätkö ohjelmointivirheistä? En minäkään. </string>
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Takaisin</string>
+    <string name="welcome_next_button">Seuraava</string>
+    <string name="welcome_finish_button">Valmis</string>
+</resources>

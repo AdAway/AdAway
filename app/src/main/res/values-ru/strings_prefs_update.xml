@@ -5,7 +5,7 @@
     <string name="pref_update_app_category">Обновления приложения</string>
     <string name="pref_update_check_app_startup">Проверять обновления при запуске</string>
     <string name="pref_update_check_app_daily">Периодическая проверка обновлений</string>
-    <string name="pref_update_include_beta_releases">Включая бета версии</string>
+    <string name="pref_update_include_beta_releases">Включая бета-версии</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Обновления хостов</string>
     <string name="pref_update_check">Проверять обновления при запуске</string>

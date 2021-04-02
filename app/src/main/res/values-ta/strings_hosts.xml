@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hosts_title">Hosts sources</string>
-    </resources>
+    <string name="hosts_title">ஹோஸ்டுகளின் மூலங்கள்</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">பயனர் பட்டியல்</string>
+    <string name="hosts_adaway_source">ஆட்அவே அதிகார்வப்பூர்வ ஹோஸ்டுகள்</string>
+    <!-- List -->
+    <string name="hosts_not_available">கிடைக்கவில்லை</string>
+    <string name="hosts_count">%s ஹோஸ்டுகள்</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">மூலத்தைச் சேர்</string>
+    <string name="hosts_edit_dialog_title">மூலத்தைத் திருத்து</string>
+    <string name="hosts_dialog_url_hint">ஹோஸ்டுகளின் மூல URL</string>
+</resources>

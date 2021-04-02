@@ -34,18 +34,16 @@
     <string name="button_disable_vpn">Inhabilitar la VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_delete">Borrar</string>
     <string name="checkbox_list_context_title">Editar entrada</string>
+    <string name="checkbox_list_context_apply">Aplicar</string>
     <string name="checkbox_list_context_edit">Editar</string>
+    <string name="checkbox_list_context_delete">Borrar</string>
 
     <!--Your lists-->
     <string name="import_dialog">Importando…</string>
     <string name="import_success">Se importó correctamente la copia de seguridad del almacenamiento externo.</string>
     <string name="import_failed">No se pudo importar la copia de seguridad. Asegúrate de que el formato sea correcto. Revisa el registro de logcat para obtener más detalles.</string>
     <string name="export_dialog">Exportando…</string>
-    <string name="export_success">Se exportó correctamente la copia de seguridad al archivo “adaway-backup.json” del almacenamiento externo.</string>
-    <string name="export_failed">No se pudo exportar la copia de seguridad.</string>
-
     <!--Hosts content-->
     <string name="hosts_header">El archivo hosts</string>
     <string name="hosts_description">El archivo hosts es un archivo del sistema que permite asignar los nombres de hosts a las direcciones IP. Es un archivo de texto sin formato cuya configuración administra AdAway. Estas son sus primeras líneas:</string>
@@ -54,11 +52,8 @@
 
     <!--Status Notification-->
     <string name="status_check">Buscando actualizaciones</string>
-    <string name="status_check_source">Buscando actualizaciones en la fuente %s</string>
     <string name="status_retrieve">Recuperando fuentes</string>
     <string name="status_download_source">Descargando datos de la fuente %s</string>
-    <string name="status_read_source">Copiando datos de la fuente %s</string>
-    <string name="status_parse_source">Analizando datos de la fuente %s</string>
     <string name="status_revert">Revirtiendo el archivo hosts a la versión predeterminada</string>
     <string name="status_revert_done">Se restableció el archivo hosts predeterminado</string>
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>

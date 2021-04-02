@@ -7,7 +7,6 @@
     <string name="pref_update_include_beta_releases">Inkludera betautgåvor</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Värduppdateringar</string>
-    <string name="pref_update_check">Sök efter uppdateringar vid start</string>
     <string name="pref_update_check_hosts_daily">Sök regelbundet efter uppdateringar</string>
     <string name="pref_update_sync_on_update">Synkronisera vid uppdatering</string>
     <string name="pref_update_sync_unmetered_only">Synkronisera endast på nätverk med obegränsad data</string>

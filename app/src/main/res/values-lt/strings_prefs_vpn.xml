@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN pagrįstas reklamų blokavimas</string>
+    <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Įjungti įjungimo metu</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Išskirtos aplikacijos</string>

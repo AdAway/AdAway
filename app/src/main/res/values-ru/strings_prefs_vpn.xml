@@ -7,18 +7,18 @@
     <string name="pref_vpn_service_monitor_description">Периодически проверяйте состояние сети, чтобы перезапустить VPN при отключении.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Исключённые приложения</string>
-    <string name="pref_vpn_excluded_apps_description">Настройте, какие приложения не должны использовать VPN, а не значит их подключения не будут блокироваться.</string>
+    <string name="pref_vpn_excluded_apps_description">Настройте, какие приложения не должны использовать VPN, чтобы никакие соединения не блокировались.</string>
     <string name="pref_vpn_exclude_system_apps">Исключить системные приложения</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Никакие</item>
+        <item>Все, кроме браузеров</item>
+        <item>Все</item>
     </string-array>
     <string name="pref_vpn_exclude_user_apps">Исключить пользовательские приложения</string>
 
     <!-- Exclude user apps activity -->
     <string name="pref_vpn_exclude_user_apps_activity">Исключённые приложения</string>
     <string name="pref_vpn_exclude_user_apps_select_all">Выбрать все</string>
-    <string name="pref_vpn_exclude_user_apps_deselect_all">Снять выбор всех</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Отменить выбрать все</string>
     <string name="pref_vpn_exclude_user_apps_icon">Значок приложения</string>
 </resources>

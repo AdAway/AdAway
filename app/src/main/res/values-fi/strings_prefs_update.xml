@@ -7,7 +7,6 @@
     <string name="pref_update_include_beta_releases">Sisällytä beta-julkaisut</string>
     <!-- Application hosts -->
     <string name="pref_update_hosts_category">Hosts-päivityksiä </string>
-    <string name="pref_update_check">Tarkista päivityksiä käynnistettäessä </string>
     <string name="pref_update_check_hosts_daily">Säännöllisesti tarkista päivityksiä </string>
     <string name="pref_update_sync_on_update">Synkronoi päivittäessä</string>
     <string name="pref_update_sync_unmetered_only">Synkronoi ainoastaan rajattomalla yhteydellä</string>

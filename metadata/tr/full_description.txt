@@ -1,7 +1,9 @@
-Hosts dosyasını kullanan bir reklam engelleyici.
-Hosts dosyası, host adları ve IP adresleri arasındaki eşlemelerin listesini içeren bir sistem dosyasıdır.
-Bir uygulama bu dosyadaki bir host'dan bir reklam istediğinde, bu istek hiçbir şey yapmadan yerel IP 127.0.0.1'e yönlendirilir.
-Önceden tanımlanmış host dosyalarını, uygulamanın içerisinden sistem ana dosyalarına dahil etmek için uygulama içinden indirebilirsiniz. Kendi dosyalarınızı kullanmak ve beyaz ve kara listelere belirli host eklemek de mümkündür.
-Engellenen host adlarına yanıt vermek ve bunun yerine tercih ettiğiniz IP adresine istekleri yönlendirmek için yerel bir web sunucusunu çalıştırma seçenekleri vardır.
+A Free and Open Source ad blocker for Android.
 
-Kök erişimi gerektirir: Evet. Hosts dosyası varsayılan olarak salt okunur olan /system de bulunur.
+The application is available for rooted and non-rooted devices.
+Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
+Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
+So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+
+You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Engellenen host adlarına yanıt vermek ve bunun yerine tercih ettiğiniz IP adresine istekleri yönlendirmek için yerel bir web sunucusunu çalıştırma seçenekleri vardır.
