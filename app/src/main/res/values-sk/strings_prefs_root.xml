@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Zadať, kam presmerovať blokované domény</string>
     <string name="pref_redirection_ipv4">Presmerovanie IPv4</string>
     <string name="pref_redirection_ipv6">Presmerovanie IPv6</string>
+    <string name="pref_redirection_invalid">Neplatné presmerovanie</string>
     <!-- Web server category -->
     <string name="pref_webserver">Miestny webserver</string>
     <string name="pref_webserver_summary">Miestny webserver počúva na miestnej IP adrese, aby odpovedal za požiadavky blokovaných domén.</string>
