@@ -1,1 +1,1 @@
-A free and Open Source ad blocker for Android.
+Bezplatný open source blokovač reklamy pre Android.
