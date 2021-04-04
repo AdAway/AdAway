@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">காப்புப்பிரதி &amp; மீட்டமை</string>
+    <string name="pref_backup">காப்புப்பிரதி</string>
+    <string name="pref_backup_summary">உங்கள் தடுப்பு விதிகளை வெளிப்புற சேமிப்பகத்துக்கு காப்புப்பிரதி எடுக்கவும்</string>
+    <string name="pref_restore">மீட்டெடு</string>
+    <string name="pref_restore_summary">காப்புப்பிரதி கோப்பிலிருந்து உங்கள் தடுப்பு விதிகளை மீட்டெடு</string>
+</resources>
