@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Imposta reindirizzamento hosts bloccati</string>
     <string name="pref_redirection_ipv4">Reindirizzamento IPv4</string>
     <string name="pref_redirection_ipv6">Reindirizzamento IPv6</string>
+    <string name="pref_redirection_invalid">Reindirizzamento non valido</string>
     <!-- Web server category -->
     <string name="pref_webserver">Web server locale</string>
     <string name="pref_webserver_summary">Web server locale in ascolto degli indirizzi IP locali per rispondere alle richieste degli hostname bloccati. Può aiutare con le app che danno problemi sulle connessioni bloccate</string>
