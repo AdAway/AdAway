@@ -20,11 +20,11 @@ And don't add newlines before or after p tags because of transifex -->
 <ol>
 <li>Khởi động vào Boot Menu trên thiết bị của bạn và giữ nút <cite>giảm âm lượng</cite> đồng thời với nút nguồn</li>
 <li>Sử dụng <cite>giảm âm lượng</cite> để chọn <cite>recovery</cite> rồi <cite>nguồn</cite> để khởi động nó. </li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>Trong clockwork recovery, đi đến "menu phân vùng".</li>
+<li>Chọn <cite>mount /system</cite>, <cite>mount /sdcard</cite> và <cite>mount /data</cite>.</li>
+<li>Cắm dây USB và mở một dòng lệnh trên PC.</li>
+<li>Nhập adb shell và đánh vào <code>ln -s /data/hosts /system/etc/hosts</code> (Việc này sẽ tạo một liên kết biểu tượng, nó cho phép AdAway chỉnh sửa tệp miền được lưu trữ trong <code>/data</code> trong khi cũng cho phép HĐH sử dụng tệp đó như thể nó được lưu trữ trong <code>/system</code>.)</li>
+<li>Khởi động lại thiết bị và đặt <i>Tệp miền mục tiêu</i> thành <i>/data/hosts</i> trong cài đặt của AdAway.</li>
 <li>AdAway sẽ hoạt động bình thường.</li>
 </ol>
 </body>
