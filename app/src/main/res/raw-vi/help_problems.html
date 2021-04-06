@@ -3,31 +3,31 @@ This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
 <!DOCTYPE html>
 <html>
-<head><title>Các lỗi phố biến</title></head>
+<head><title>Các vấn đề phố biến</title></head>
 <body>
-<h2>Không thể sao chép tập tin miền trên Android 9 trở lên </h2>
-<p>Các phiên bản mới nhất của Android chỉ cho phép đọc phân vùng <code>/system</code><br>
-Nếu bạn đang root bằng Magisk, hãy bật systemless hosts module và khởi động lại máy. </p>
+<h2>Sao chép tệp miền thất bại trên Android 9+</h2>
+<p>Các phiên bản mới nhất của Android sử dụng phân vùng <code>/system</code> chỉ đọc.<br>
+Nếu bạn đang root bằng Magisk, hãy đảm bảo rằng bạn bật mô-đun systemless hosts và khởi động lại.</p>
 
-<h2>Không đủ dung lượng trên ổ đĩa</h2>
-<p>Hãy thay đổi tập tin miền thành <code>/data/data/hosts</code> (hoặc <code>/data/hosts</code>).</p>
+<h2>Không đủ dung lượng trên phân vùng</h2>
+<p>Hãy thử đổi tệp miền mục tiêu trong cài đặt thành <code>/data/data/hosts</code> (hoặc <code>/data/hosts</code>) và áp dụng lại AdAway.</p>
 
 <h2>Chrome vẫn hiển thị quảng cáo</h2>
-<p>Hãy thay đổi tập tin miền thành <cite>/data/data/hosts</cite> (hoặc <cite>/data/hosts</cite>).</p>
+<p>Hãy đảm bảo bạn tắt <cite>chế độ lite</cite> (trước kia được biết đến là <cite>trình tiết kiệm dữ liệu</cite>) trong cài đặt của Chrome. Tính năng này cho phép Chrome sử dụng giải pháp DNS riêng và vượt qua AdAway.</p>
 
 <h2>Nó không chặn quảng cáo trong ứng dụng XYZ!</h2>
-<p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
-You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
-<br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in our <a href="https://github.com/AdAway/adaway.github.io/issues">GitHub issue tracker</a>.</p>
+<p>Một số tên miền có thể bị thiếu trong các tệp miền được cung cấp từ <cite>Nguồn miền</cite> hoặc ứng dụng đó đã tích hợp các hình ảnh để cung cấp quảng cáo mà không truy cập internet.<br><br>
+Bạn có thể ghi nhật ký các yêu cầu DNS (Menu-&gt;Ghi nhật ký các yêu cầu DNS) từ AdAway để tìm xem những tên miền bổ sung nào cần phải bị chặn.
+<br><br>Thêm các tên miền đáng nghi vào Danh sách đen của bạn bằng cách nhấn giữ các mục trong Nhật ký và báo cáo những tên miền đó khi bạn đã xác minh chúng trong <a href="https://github.com/AdAway/adaway.github.io/issues">trình theo dõi vấn đề trên GitHub</a> của chúng tôi.</p>
 
 <h2>Các quảng cáo đã tạm lưu</h2>
 <p>Đôi lúc ứng dụng lưu giữ quảng cáo sau khi tải về. Điều này dẫn đến quảng cáo vẫn tồn tại trong một vài ứng dụng. Bạn có thể thử xoá bộ nhớ đệm của những ứng dụng này trong danh sách Ứng dụng của Android để ngăn chặn tình trạng này.</p>
 
 <h2>Ứng dụng XYZ không còn hoạt động nữa!</h2>
-<p>Some applications need to communicate with a hostname that is blocked by AdAway or refuse to work when the hostnames which should serve ads are not reachable. See <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a> to get a list of known applications that have problems. Otherwise, find out which hostnames are needed and add them to your <cite>Whitelist</cite> under <cite>Your Lists</cite> and report them to the <a href="https://github.com/AdAway/AdAway/issues">bug tracker of AdAway</a>.</p>
+<p>Một số ứng dụng cần giao tiếp với tên miền bị AdAway chặn hoặc từ chối hoạt động khi không truy cập được các tên miền phục vụ quảng cáo. Hãy xem <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/dschuermann/ad-away/wiki/ProblematicApps</a> để xem danh sách các ứng dụng có vấn đề đã biết. Nếu không, hãy tìm hiểu xem những tên miền nào được cần đến và thêm chúng vào <cite>Danh sách trắng</cite> dưới <cite>Danh sách của bạn</cite> và báo cáo chúng trong <a href="https://github.com/AdAway/AdAway/issues">trình theo dõi lỗi của AdAway</a>.</p>
 
 <h2>Không hoạt động trên Android 4.4+</h2>
-<p>Hãy thay đổi tập tin miền thành <code>/data/data/hosts</code> hoặc <code>/data/hosts</code> hoặc <code>/system/etc/hosts</code>.</p>
+<p>Hãy thử đổi tệp miền mục tiêu trong cài đặt từ <code>/data/data/hosts</code> thành <code>/data/hosts</code> hoặc <code>/system/etc/hosts</code> và áp dụng lại AdAway.</p>
 
 <h2>Nút trở về trên trình duyệt hiện không hoạt động</h2>
 <p>Bạn có thể bật webserver cục bộ của AdAway trong tuỳ chỉnh để giải quyết.</p>
