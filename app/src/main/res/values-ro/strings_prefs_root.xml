@@ -27,8 +27,8 @@
     <string name="pref_webserver_certificate">Instalare certificat subsemnat</string>
     <string name="pref_webserver_certificate_dialog_title">Instalare manuală certificat</string>
     <string name="pref_webserver_certificate_dialog_content">Începând cu versiunea 11 a Android (R), nu se mai pot instala automat certificate de autoritate (CA).\n\nAccesați setarea \"Securitate\", \"Criptare și date de conectare\" apoi \"Instalați de pe stocare\". Alegeți \"Certificat CA\" și instalați certificatul exportat de aplicație.</string>
-    <string name="pref_webserver_certificate_dialog_action">Accesați setarea \"Securitate\" (Security)<br></string>
-    <string name="pref_webserver_state_checking">Verificare...</string>
+    <string name="pref_webserver_certificate_dialog_action">Accesați setarea \"Securitate\" (Security)<br/></string>
+    <string name="pref_webserver_state_checking">Verificare…</string>
     <string name="pref_webserver_state_not_running">Nu rulează</string>
     <string name="pref_webserver_state_running_not_installed">Rulează fără certificat instalat</string>
     <string name="pref_webserver_state_running_and_installed">Rulează cu certificat instalat</string>

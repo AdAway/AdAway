@@ -38,13 +38,13 @@
     <string name="checkbox_list_context_delete">ړنګول</string>
 
     <!--Your lists-->
-    <string name="import_dialog">راوړل...</string>
+    <string name="import_dialog">راوړل…</string>
     <string name="import_success">شاتړ په بريالي توګه له بهرنۍ زېرمې راوړل شو.</string>
     <string name="import_failed">د شاتړ راوړنه نابريالۍ شوه. آیا ددې بڼه سمه ده؟ د نورو معلوماتو لپاره logcat وګورئ.</string>
-    <string name="export_dialog">وړل...</string>
+    <string name="export_dialog">وړل…</string>
     <!--Hosts content-->
     <string name="hosts_header">hosts دوتنه</string>
-    <string name="hosts_content">د hosts دوتنې منځپانګه لېښل...</string>
+    <string name="hosts_content">د hosts دوتنې منځپانګه لېښل…</string>
     <string name="hosts_open_button">د hosts دوتنه پرانیځئ</string>
 
     <!--Status Notification-->
@@ -77,7 +77,7 @@
     <string name="status_vpn_configuration_updated">د اوڅاریز ځاني جال سازونه په بريالي توګه اوسمهاله شو</string>
     <string name="notification_configuration_changed">ستاسې سازونې بدلون وموند. تاسې اړ یاستۍ چې کارونګه يې کړئ.</string>
     <string name="notification_configuration_changed_action">كارونګ</string>
-    <string name="notification_configuration_installing">د نوې سازونې کارونګ...</string>
+    <string name="notification_configuration_installing">د نوې سازونې کارونګ…</string>
     <string name="notification_configuration_failed">د نوې سازونې پر کارونګه کولو کښې نابریالۍ شو.</string>
 
     <string name="apply_symlink_missing_title">symlink بې درکه دی</string>
@@ -100,8 +100,8 @@
     <string name="apply_apn_proxy_title">رسي ټکي نوم ګوډاګی امستل شو!</string>
     <string name="no_connection">انټرنېټ پيوستون کار نه کوي.</string>
     <string name="no_connection_title">پیوستون نشته</string>
-    <string name="download_dialog">رالېښل...</string>
-    <string name="apply_dialog">كارونګ...</string>
+    <string name="download_dialog">رالېښل…</string>
+    <string name="apply_dialog">كارونګ…</string>
     <string name="apply_dialog_lists">د تورلړ او سپینلړ کارونګ</string>
     <string name="apply_dialog_hostnames">د hosts دوتنې تجزیه کول او سره ننوېستل</string>
     <string name="apply_dialog_hosts">د hosts دوتنې جوړول</string>
@@ -131,7 +131,7 @@
     <string name="no_hostname_title">ناسم بڼول شوی hostname</string>
     <string name="no_ip">دا یوه سمه انټرنېټ باندره (IP) نه ده!</string>
     <string name="no_ip_title">ناسمه بڼول شوې انټرنېټ باندره</string>
-    <string name="loading">لېښل...</string>
+    <string name="loading">لېښل…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">تاندول</string>
@@ -145,7 +145,7 @@
 
     <!--Adware-->
     <string name="adware_header">انګروزيز ساوتری</string>
-    <string name="adware_scanning">ځېرل;8230#&  </string>
+    <string name="adware_scanning">ځېرل…</string>
     <string name="adware_empty">هېڅ انګروزیز ساوتری و نه موندل شو</string>
 
     <!--Other-->

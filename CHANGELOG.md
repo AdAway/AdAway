@@ -1,3 +1,7 @@
+## [5.5.2] - 2021-04-02
+
+- Update translations
+
 ## [5.5.1] - 2021-04-02
 
 - Add redirection validation
