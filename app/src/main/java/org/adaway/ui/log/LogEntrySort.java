@@ -1,4 +1,4 @@
-package org.adaway.ui.tcpdump;
+package org.adaway.ui.log;
 
 import org.adaway.R;
 
@@ -13,7 +13,7 @@ enum LogEntrySort {
     ALPHABETICAL {
         @Override
         int getName() {
-            return R.string.tcpdump_sort_alphabetical;
+            return R.string.log_sort_alphabetical;
         }
 
         @Override
@@ -24,7 +24,7 @@ enum LogEntrySort {
     TOP_LEVEL_DOMAIN {
         @Override
         int getName() {
-            return R.string.tcpdump_sort_top_level_domain;
+            return R.string.log_sort_top_level_domain;
         }
 
         @Override

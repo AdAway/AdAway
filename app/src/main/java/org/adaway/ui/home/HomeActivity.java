@@ -36,7 +36,7 @@ import org.adaway.ui.hosts.HostsSourcesActivity;
 import org.adaway.ui.lists.ListsActivity;
 import org.adaway.ui.prefs.PrefsActivity;
 import org.adaway.ui.support.SupportActivity;
-import org.adaway.ui.tcpdump.TcpdumpLogActivity;
+import org.adaway.ui.log.LogActivity;
 import org.adaway.ui.update.UpdateActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
 import org.adaway.util.Log;
@@ -361,7 +361,7 @@ public class HomeActivity extends AppCompatActivity {
      * @param view The source event view.
      */
     private void startDnsLogActivity(View view) {
-        startActivity(new Intent(this, TcpdumpLogActivity.class));
+        startActivity(new Intent(this, LogActivity.class));
     }
 
     private void notifyAdBlocked(boolean adBlocked) {

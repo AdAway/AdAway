@@ -1,17 +1,17 @@
-package org.adaway.ui.tcpdump;
+package org.adaway.ui.log;
 
 import androidx.annotation.NonNull;
 
 import org.adaway.db.entity.ListType;
 
 /**
- * This class is represents the {@link TcpdumpLogActivity} callback.
+ * This class is represents the {@link LogActivity} callback.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public interface TcpdumpLogViewCallback {
+public interface LogViewCallback {
     /**
-     * Add a {@link android.app.LauncherActivity.ListItem}.
+     * Add a {@link org.adaway.db.entity.HostListItem}.
      *
      * @param hostName The item host name.
      * @param type     The item type.
@@ -19,7 +19,7 @@ public interface TcpdumpLogViewCallback {
     void addListItem(@NonNull String hostName, @NonNull ListType type);
 
     /**
-     * Remove a {@link android.app.LauncherActivity.ListItem}
+     * Remove a {@link org.adaway.db.entity.HostListItem}
      *
      * @param hostName The item host name.
      */

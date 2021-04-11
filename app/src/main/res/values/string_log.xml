@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Toggle log recording</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Alphabetical sort</string>
+    <string name="log_sort_top_level_domain">Top level domain sort</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Redirect domain</string>
+</resources>

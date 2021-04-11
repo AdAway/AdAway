@@ -1,4 +1,4 @@
-package org.adaway.ui.tcpdump;
+package org.adaway.ui.log;
 
 import android.app.Application;
 import android.widget.Toast;
@@ -25,11 +25,11 @@ import java.util.stream.Collectors;
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 
 /**
- * This class is an {@link AndroidViewModel} for the {@link TcpdumpLogActivity}.
+ * This class is an {@link AndroidViewModel} for the {@link LogActivity}.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class TcpdumpLogViewModel extends AndroidViewModel {
+public class LogViewModel extends AndroidViewModel {
     private final AdBlockModel adBlockModel;
     private final HostListItemDao hostListItemDao;
     private final HostEntryDao hostEntryDao;
@@ -37,7 +37,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
     private final MutableLiveData<Boolean> recording;
     private LogEntrySort sort;
 
-    public TcpdumpLogViewModel(@NonNull Application application) {
+    public LogViewModel(@NonNull Application application) {
         super(application);
         this.adBlockModel = ((AdAwayApplication) application).getAdBlockModel();
         this.hostListItemDao = AppDatabase.getInstance(application).hostsListItemDao();
@@ -133,7 +133,7 @@ public class TcpdumpLogViewModel extends AndroidViewModel {
         List<LogEntry> entries = this.logEntries.getValue();
         if (entries != null) {
             List<LogEntry> sortedEntries = new ArrayList<>(entries);
-            Collections.sort(sortedEntries, this.sort.comparator());
+            sortedEntries.sort(this.sort.comparator());
             this.logEntries.postValue(sortedEntries);
         }
         // Notify user

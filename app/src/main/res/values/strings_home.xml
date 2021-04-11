@@ -19,7 +19,7 @@
     <string name="update_hosts_description">Update hosts</string>
 
     <!-- Log card -->
-    <string name="log_label">Show request log</string>
+    <string name="log_label">Show DNS request log</string>
 
     <!-- Help card -->
     <string name="help_label">Show help\nand tips</string>

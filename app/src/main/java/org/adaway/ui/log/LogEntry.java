@@ -1,4 +1,4 @@
-package org.adaway.ui.tcpdump;
+package org.adaway.ui.log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -6,13 +6,13 @@ import androidx.annotation.Nullable;
 import org.adaway.db.entity.ListType;
 
 /**
- * This class represents a tcpdump log entry.
+ * This class represents a DNS request log entry.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 class LogEntry implements Comparable<LogEntry> {
     @NonNull
-    private String host;
+    private final String host;
 
     @Nullable
     private ListType type;

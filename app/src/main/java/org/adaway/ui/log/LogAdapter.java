@@ -1,4 +1,4 @@
-package org.adaway.ui.tcpdump;
+package org.adaway.ui.log;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.adaway.R;
-import org.adaway.databinding.TcpdumpLogEntryBinding;
+import org.adaway.databinding.LogEntryBinding;
 import org.adaway.db.entity.ListType;
 
 import static android.graphics.PorterDuff.Mode.MULTIPLY;
@@ -19,11 +19,11 @@ import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 
 /**
- * This class is a the {@link RecyclerView.Adapter} for the tcpdump log view.
+ * This class is a the {@link RecyclerView.Adapter} for the DNS request log view.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHolder> {
+class LogAdapter extends ListAdapter<LogEntry, LogAdapter.ViewHolder> {
     /**
      * This callback is use to compare hosts sources.
      */
@@ -43,9 +43,9 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
     /**
      * The activity view callback.
      */
-    private final TcpdumpLogViewCallback callback;
+    private final LogViewCallback callback;
 
-    TcpdumpLogAdapter(TcpdumpLogViewCallback callback) {
+    LogAdapter(LogViewCallback callback) {
         super(DIFF_CALLBACK);
         this.callback = callback;
     }
@@ -54,7 +54,7 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        TcpdumpLogEntryBinding binding = TcpdumpLogEntryBinding.inflate(layoutInflater, parent, false);
+        LogEntryBinding binding = LogEntryBinding.inflate(layoutInflater, parent, false);
         return new ViewHolder(binding);
     }
 
@@ -88,14 +88,14 @@ class TcpdumpLogAdapter extends ListAdapter<LogEntry, TcpdumpLogAdapter.ViewHold
      * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
      */
     static class ViewHolder extends RecyclerView.ViewHolder {
-        final org.adaway.databinding.TcpdumpLogEntryBinding binding;
+        final org.adaway.databinding.LogEntryBinding binding;
 
         /**
          * Constructor.
          *
          * @param binding The log entry view binding.
          */
-        ViewHolder(TcpdumpLogEntryBinding binding) {
+        ViewHolder(LogEntryBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

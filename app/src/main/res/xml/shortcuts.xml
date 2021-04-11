@@ -21,7 +21,7 @@
         android:shortcutShortLabel="@string/shortcut_dns_requests">
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="org.adaway.ui.tcpdump.TcpdumpLogActivity"
+            android:targetClass="org.adaway.ui.log.LogActivity"
             android:targetPackage="org.adaway">
         </intent>
     </shortcut>
