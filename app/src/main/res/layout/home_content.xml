@@ -35,6 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
+        android:contentDescription="@string/app_logo"
         app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.1"
@@ -119,6 +120,7 @@
         android:id="@+id/blockedHostImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:contentDescription="@string/blocked_hosts_label"
         android:elevation="15dp"
         app:layout_constraintBottom_toTopOf="@+id/blockedHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/blockedHostCardView"
@@ -178,11 +180,11 @@
 
     </androidx.cardview.widget.CardView>
 
-
     <ImageView
         android:id="@+id/allowedHostImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:contentDescription="@string/allowed_hosts_label"
         android:elevation="15dp"
         app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/allowedHostCardView"
@@ -247,6 +249,7 @@
         android:id="@+id/redirectHostImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:contentDescription="@string/redirect_hosts_label"
         android:elevation="15dp"
         app:layout_constraintBottom_toTopOf="@+id/redirectHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/redirectHostCardView"
@@ -304,6 +307,7 @@
                 android:id="@+id/checkForUpdateImageView"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:contentDescription="@string/check_hosts_update_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_sync_24dp" />
@@ -323,7 +327,6 @@
                 app:layout_constraintTop_toBottomOf="@id/upToDateSourcesTextView"
                 tools:text="2 outdated sources" />
 
-
             <ImageView
                 android:id="@+id/updateImageView"
                 android:layout_width="32dp"
@@ -331,7 +334,8 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/checkForUpdateImageView"
-                app:srcCompat="@drawable/ic_get_app_24dp" />
+                app:srcCompat="@drawable/ic_get_app_24dp"
+                android:contentDescription="@string/update_hosts_description" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/sourcesProgressBar"

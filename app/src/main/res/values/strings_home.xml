@@ -15,12 +15,14 @@
         <item quantity="one">%d outdated source</item>
         <item quantity="other">%d outdated sources</item>
     </plurals>
+    <string name="check_hosts_update_description">Check for hosts updates</string>
+    <string name="update_hosts_description">Update hosts</string>
 
     <!-- Log card -->
     <string name="log_label">Show request log</string>
 
     <!-- Help card -->
-    <string name="help_label">Show help<br/>and tips</string>
+    <string name="help_label">Show help\nand tips</string>
 
     <!-- Project card -->
     <string name="project_label">Open GitHub page</string>

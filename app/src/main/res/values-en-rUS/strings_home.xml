@@ -17,7 +17,7 @@
     </plurals>
 
     <!-- Help card -->
-    <string name="help_label">Show help</string>
+    <string name="help_label">Show help\nand tips</string>
 
     <!-- Project card -->
     <string name="project_label">Open GitHub page</string>

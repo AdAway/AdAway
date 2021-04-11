@@ -16,8 +16,6 @@
     <string name="button_show_help">Show more help</string>
     <string name="icon_update_status">Update status</string>
     <string name="text_update">All hosts files from the defined sources are downloaded, merged with your own lists and installed as one hosts file on your system.</string>
-    <string name="button_check_update_hosts">Check for updates</string>
-    <string name="button_update_hosts">Update hosts</string>
     <string name="button_enable_hosts">Enable ad-blocking</string>
     <string name="button_disable_hosts">Disable ad-blocking</string>
     <string name="header_webserver">Web server</string>
