@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/drawer_dns_logs"
-        android:icon="@drawable/ic_language_24dp"
-        android:title="@string/dns_log_drawer_item"
+        android:id="@+id/drawer_github_project"
+        android:icon="@drawable/ic_github_24dp"
+        android:title="@string/github_project_drawer_item"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/drawer_preferences"

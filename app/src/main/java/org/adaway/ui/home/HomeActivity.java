@@ -250,8 +250,8 @@ public class HomeActivity extends AppCompatActivity {
             startPrefsActivity();
             this.drawerBehavior.setState(STATE_HIDDEN);
             return true;
-        } else if (actionId == R.id.drawer_dns_logs) {
-            startDnsLogActivity(null);  // TODO Removed. Need update
+        } else if (actionId == R.id.drawer_github_project) {
+            showProjectPage();
             this.drawerBehavior.setState(STATE_HIDDEN);
             return true;
         } else if (actionId == R.id.action_update) {
@@ -329,11 +329,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     /**
-     * Show development page.
-     *
-     * @param view The source event view.
+     * Show development project page.
      */
-    private void showProjectPage(View view) {
+    private void showProjectPage() {
         // Show development page
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(PROJECT_LINK));
         startActivity(browserIntent);

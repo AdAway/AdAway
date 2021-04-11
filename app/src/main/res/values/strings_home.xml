@@ -31,7 +31,7 @@
     <string name="support_label">Support project</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">DNS logs</string>
+    <string name="github_project_drawer_item">GitHub project</string>
     <string name="preferences_drawer_item">Preferences</string>
 
     <!-- App bar buttons -->
