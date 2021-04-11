@@ -361,7 +361,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/helpCardView"
+        android:id="@+id/logCardView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
@@ -372,7 +372,7 @@
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/projectCardView"
+        app:layout_constraintBottom_toBottomOf="@+id/helpCardView"
         app:layout_constraintEnd_toStartOf="@+id/badge1Space"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
@@ -380,11 +380,11 @@
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
 
         <TextView
-            android:id="@+id/helpTextView"
+            android:id="@+id/logTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/help_label" />
+            android:text="@string/log_label" />
 
     </androidx.cardview.widget.CardView>
 
@@ -392,15 +392,16 @@
         android:id="@+id/helpImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:contentDescription="@string/log_label"
         android:elevation="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/helpCardView"
-        app:layout_constraintEnd_toEndOf="@+id/helpCardView"
-        app:layout_constraintStart_toStartOf="@+id/helpCardView"
-        app:layout_constraintTop_toTopOf="@+id/helpCardView"
-        app:srcCompat="@drawable/ic_help_24dp" />
+        app:layout_constraintBottom_toTopOf="@+id/logCardView"
+        app:layout_constraintEnd_toEndOf="@+id/logCardView"
+        app:layout_constraintStart_toStartOf="@+id/logCardView"
+        app:layout_constraintTop_toTopOf="@+id/logCardView"
+        app:srcCompat="@drawable/ic_outline_rule_24" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/projectCardView"
+        android:id="@+id/helpCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -419,11 +420,11 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/projectTextView"
+            android:id="@+id/helpTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/project_label" />
+            android:text="@string/help_label" />
 
     </androidx.cardview.widget.CardView>
 
@@ -431,12 +432,13 @@
         android:id="@+id/projectImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:contentDescription="@string/help_label"
         android:elevation="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/projectCardView"
-        app:layout_constraintEnd_toEndOf="@+id/projectCardView"
-        app:layout_constraintStart_toStartOf="@+id/projectCardView"
-        app:layout_constraintTop_toTopOf="@+id/projectCardView"
-        app:srcCompat="@drawable/ic_github_24dp" />
+        app:layout_constraintBottom_toTopOf="@+id/helpCardView"
+        app:layout_constraintEnd_toEndOf="@+id/helpCardView"
+        app:layout_constraintStart_toStartOf="@+id/helpCardView"
+        app:layout_constraintTop_toTopOf="@+id/helpCardView"
+        app:srcCompat="@drawable/ic_help_24dp" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/supportCardView"
@@ -450,7 +452,7 @@
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/projectCardView"
+        app:layout_constraintBottom_toBottomOf="@+id/helpCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
@@ -470,6 +472,7 @@
         android:id="@+id/supportImageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:contentDescription="@string/support_label"
         android:elevation="15dp"
         app:layout_constraintBottom_toTopOf="@+id/supportCardView"
         app:layout_constraintEnd_toEndOf="@+id/supportCardView"
@@ -482,7 +485,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="top"
-        app:layout_constraintTop_toBottomOf="@id/projectCardView"
+        app:layout_constraintTop_toBottomOf="@id/helpCardView"
         tools:layout_editor_absoluteX="411dp" />
 
     <androidx.constraintlayout.widget.Guideline

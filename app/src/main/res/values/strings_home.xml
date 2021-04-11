@@ -16,8 +16,11 @@
         <item quantity="other">%d outdated sources</item>
     </plurals>
 
+    <!-- Log card -->
+    <string name="log_label">Show request log</string>
+
     <!-- Help card -->
-    <string name="help_label">Show help</string>
+    <string name="help_label">Show help<br/>and tips</string>
 
     <!-- Project card -->
     <string name="project_label">Open GitHub page</string>
