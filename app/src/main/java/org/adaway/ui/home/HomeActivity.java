@@ -227,8 +227,8 @@ public class HomeActivity extends AppCompatActivity {
         this.binding.content.sourcesCardView.setOnClickListener(this::startHostsSourcesActivity);
         this.binding.content.checkForUpdateImageView.setOnClickListener(this::updateHostsList);
         this.binding.content.updateImageView.setOnClickListener(this::syncHostsList);
+        this.binding.content.logCardView.setOnClickListener(this::startDnsLogActivity);
         this.binding.content.helpCardView.setOnClickListener(this::startHelpActivity);
-        this.binding.content.projectCardView.setOnClickListener(this::showProjectPage);
         this.binding.content.supportCardView.setOnClickListener(this::showSupportActivity);
     }
 
@@ -251,7 +251,7 @@ public class HomeActivity extends AppCompatActivity {
             this.drawerBehavior.setState(STATE_HIDDEN);
             return true;
         } else if (actionId == R.id.drawer_dns_logs) {
-            startDnsLogActivity();
+            startDnsLogActivity(null);  // TODO Removed. Need update
             this.drawerBehavior.setState(STATE_HIDDEN);
             return true;
         } else if (actionId == R.id.action_update) {
@@ -357,8 +357,10 @@ public class HomeActivity extends AppCompatActivity {
 
     /**
      * Start DNS log activity.
+     *
+     * @param view The source event view.
      */
-    private void startDnsLogActivity() {
+    private void startDnsLogActivity(View view) {
         startActivity(new Intent(this, TcpdumpLogActivity.class));
     }
 
