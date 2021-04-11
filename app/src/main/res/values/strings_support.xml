@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="support_title">Support</string>
-    <string name="support_sponsorship_button">Become sponsor</string>
+    <string name="support_sponsorship_button">Become a sponsor</string>
 </resources>
