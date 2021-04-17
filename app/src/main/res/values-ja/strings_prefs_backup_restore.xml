@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">バックアップ &amp; リストア</string>
+    <string name="pref_backup">バックアップ</string>
+    <string name="pref_backup_summary">ブロックルールを外部ストレージにバックアップ</string>
+    <string name="pref_restore">リストア</string>
+    <string name="pref_restore_summary">バックアップファイルからブロックルールを復元</string>
+</resources>
