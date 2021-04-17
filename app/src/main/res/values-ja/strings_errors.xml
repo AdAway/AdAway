@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">ネット接続なし</string>
+    <string name="error_no_connection_details">インターネットへの接続を確立できません。端末の接続状態を確認してください。</string>
+    <string name="error_download_failed_message">hostsソースのダウンロードに失敗しました</string>
+    <string name="error_download_failed_details">有効にしたhostsソースに到達できません。インターネットに正しく接続されているか確認してください。</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">プライベートファイルの作成に失敗しました</string>
+    <string name="error_private_file_failed_details">新しいhostsソースを構築するためのプライベートファイルを作成できません。端末の空き容量を確認してください。</string>
     <string name="error_not_enough_space_message">空き容量不足</string>
-    </resources>
+    <string name="error_not_enough_space_details">hostsファイルをシステムパーティションにコピーできません。Magiskのシステムレスモジュールが有効になっているか確認し、再起動してください。</string>
+    <string name="error_copy_failed_message">新しいhostsファイルのインストールに失敗しました</string>
+    <string name="error_copy_failed_details">hostsファイルを/systemパーティションにコピーすることができません。Magiskのシステムレスモジュールが有効になっているか確認し、再起動してください。</string>
+    <string name="error_revert_failed_message">hostsファイルの復元に失敗しました</string>
+    <string name="error_revert_failed_details">デフォルトのhostsファイル構成を復元できません。</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">VPN広告ブロックの有効化に失敗しました</string>
+    <string name="error_enable_vpn_failed_details">端末のVPN設定を確認して、アプリからのVPNの起動を許可してください。</string>
+    <string name="error_disable_vpn_failed_message">VPN広告ブロックの無効化に失敗しました</string>
+    <string name="error_disable_vpn_failed_details">端末のVPN設定を確認して、手動で無効にしてください。</string>
+</resources>
