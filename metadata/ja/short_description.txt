@@ -1,1 +1,1 @@
-A free and Open Source ad blocker for Android.
+Android用の無料かつオープンソースの広告ブロックソフトです。
