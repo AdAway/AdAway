@@ -1,7 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">禁止</string>
+    <string name="allowed_hosts_label">許可</string>
+    <string name="redirect_hosts_label">転送</string>
+
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="other">%d 最新ソース</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="other">%d 古いソース</item>
+    </plurals>
+
+    <!-- Help card -->
+    <string name="help_label">ヘルプを表示</string>
+
+    <!-- Project card -->
+    <string name="project_label">GitHub ページを開く</string>
+
+    <!-- Support card -->
+    <string name="support_label">プロジェクト サポート</string>
+
+    <!-- App bar drawer -->
+    <string name="dns_log_drawer_item">DNS ログ</string>
     <string name="preferences_drawer_item">設定</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">ナビゲーションドロワーを開く</string>
+    <string name="adblock_pause_button_description">広告ブロックの一時停止/再開</string>
+    <string name="update_button">ブロックされたドメインの更新</string>
+    <string name="show_log_button">要求されたドメインの表示</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">詳しくはヘルプをご覧ください</string>
