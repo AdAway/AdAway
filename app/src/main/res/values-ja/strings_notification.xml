@@ -2,5 +2,12 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">アップデート</string>
+    <string name="notification_update_channel_description">新しいアップデートの通知</string>
     <string name="notification_update_host_available_title">更新があります</string>
-    </resources>
+    <string name="notification_update_host_available_text">新しいhostsファイルがダウンロード可能になりました</string>
+    <string name="notification_update_app_available_title">アプリを更新できます</string>
+    <string name="notification_update_app_available_text">AdAwayの新しいバージョンがダウンロードできます</string>
+    <!-- VPN notification -->
+    <string name="notification_vpn_channel_name">VPN</string>
+    <string name="notification_vpn_channel_description">VPN実行中の通知</string>
+</resources>
