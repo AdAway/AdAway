@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">ようこそ</string>
+    <string name="welcome_first_step">最初のウィザード</string>
+    <string name="welcome_second_step">次のウィザード</string>
+    <string name="welcome_last_step">最後のウィザード</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">AdAwayへようこそ!</string>
+    <string name="welcome_method_summary">AdAwayには2つの広告ブロック方法があります。好きな方を選んでください。</string>
+
+    <string name="welcome_root_method_logo">Root logo</string>
+    <string name="welcome_root_method_title">Root based\nad blocking</string>
+    <string name="welcome_root_method_text1">高速</string>
+    <string name="welcome_root_method_text2">バッテリーに優しい</string>
+    <string name="welcome_root_method_text3">Rootが必要</string>
+
+    <string name="welcome_vpn_method_logo">VPN logo</string>
+    <string name="welcome_vpn_method_title">VPN based\nad blocking</string>
+    <string name="welcome_vpn_method_text1">低速</string>
+    <string name="welcome_vpn_method_text2">バックグラウンドで動作</string>
+    <string name="welcome_vpn_method_text3">互換性が高い</string>
+
     <string name="welcome_root_missing_title">root化されたAndroidが必要です</string>
-    </resources>
+    <string name="welcome_root_missile_description">suのバイナリが見つからなかったか、AdAwayにroot権限が許可されていないかのどちらかです。\n\nこれは、お使いのデバイスがroot化されていない場合に発生する可能性があります。デバイスをroot化する方法については、wiki.lineageos.orgやその他のAndroidのウェブサイトで確認できます。</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sync done</string>
+    <string name="welcome_sync_error_logo">Error during sync</string>
+
+    <string name="welcome_sync_header">同期中</string>
+    <string name="welcome_synced_header">同期しました!</string>
+    <string name="welcome_sync_summary">AdAwayは、オンラインソースからブロックする広告ネットワークをダウンロードします。後から設定でカスタマイズすることができます。</string>
+    <string name="welcome_sync_retry_logo">Retry sync</string>
+    <string name="welcome_sync_error">同期失敗:\n%s.\nリトライしますか?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Support</string>
+    <string name="welcome_support_header">サポートしてね!</string>
+    <string name="welcome_support_summary">これは無料のオープンソースアプリです。私は自由な時間を使って開発しています。ですから、もし楽しんでいただけたなら遠慮なくサポートしてください。</string>
+    <string name="welcome_support_button">PayPalで寄付する</string>
+    <string name="welcome_support_telemetry_summary">バグは嫌いですよね？私もです。</string>
+    <string name="welcome_support_telemetry_button">クラッシュレポートの収集と報告を有効にする</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">戻る</string>
+    <string name="welcome_next_button">次へ</string>
+    <string name="welcome_finish_button">完了</string>
+</resources>
