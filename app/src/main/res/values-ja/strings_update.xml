@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway update</string>
+    <!-- Home screen -->
+    <string name="update_available">アップデートできます!</string>
+
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">最新版です</string>
     <string name="update_update_available_header">更新があります</string>
-    </resources>
+    <string name="update_updating_header">AdAway 更新中</string>
+    <string name="update_update_button">今すぐ更新</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">変更点:</string>
+    <string name="update_new_changelog_title">変更履歴:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">最新のAdAwayをダウンロードしています...</string>
+</resources>
