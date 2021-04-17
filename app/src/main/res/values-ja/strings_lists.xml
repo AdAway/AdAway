@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">あなたのリスト</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">ブロック</string>
+    <string name="lists_tab_allowed">許可</string>
+    <string name="lists_tab_redirected">転送</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">hostsのフィルタリング</string>
+    <string name="lists_menu_filter_hint">hostnameを検索…</string>
+    <string name="lists_menu_toggle_sources">ソースを切り替える</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">ホストをブラックリストに追加する</string>
     <string name="list_add_dialog_white">ホストをホワイトリストに追加する</string>
