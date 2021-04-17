@@ -23,8 +23,16 @@
     <string name="header_webserver">ウェブサーバー</string>
     <string name="webserver_status_running">起動中</string>
     <string name="webserver_status_stopped">停止</string>
+    <string name="webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します</string>
     <string name="button_enable_webserver">Webサーバーを有効にする</string>
     <string name="button_disable_webserver">Webサーバーを無効にする</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">実行中</string>
+    <string name="vpn_status_stopped">停止中</string>
+    <string name="vpn_toggle_text">VPNによるフィルタリングを開始/停止します</string>
+    <string name="button_enable_vpn">VPN 有効</string>
+    <string name="button_disable_vpn">VPN 無効</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_title">項目を編集する</string>
     <string name="checkbox_list_context_apply">適用する</string>
@@ -36,15 +44,29 @@
     <string name="import_success">外部ストレージからバックアップが正常にインポートされました。</string>
     <string name="import_failed">バックアップのインポートに失敗しました。 バックアップの形式は正しいですか? 詳細は、 logcat を確認してください。</string>
     <string name="export_dialog">エクスポート中…</string>
+    <string name="export_success">バックアップは、外部ストレージ上の \'%s\' へ正常にエクスポートされました。</string>
+    <string name="export_failed">バックアップ\'%s\'のエクスポートに失敗しました。</string>
+
     <!--Hosts content-->
     <string name="hosts_header">hostsファイル</string>
     <string name="hosts_description">hostsファイルはホスト名をIPアドレスに対応させるシステムファイルです。 AdAwayが処理する設定が書かれたただのテキストファイルです。 最初の数行はこんな感じです：</string>
     <string name="hosts_content">hostsファイルの内容を読み込み中…</string>
     <string name="hosts_open_button">hostsファイルを開く</string>
 
+    <!--Status Notification-->
+    <string name="status_check">更新を確認中</string>
+    <string name="status_check_source">%sの更新を確認中</string>
+    <string name="status_retrieve">ソースの取得</string>
+    <string name="status_download_source">%sをダウンロード中</string>
+    <string name="status_read_source">%sを読込中</string>
+    <string name="status_parse_source">%sを解析中</string>
+    <string name="status_sync_database">ルールデータベースを同期</string>
+    <string name="status_revert">デフォルトhostsファイルに戻す</string>
+    <string name="status_revert_done">デフォルトhostsファイルをリストアしました</string>
     <string name="status_reverting_subtitle">標準hostsファイルを作成中</string>
     <string name="status_update_available">更新があります</string>
     <string name="status_update_available_subtitle">新しいhostsファイルがあります</string>
+    <string name="status_no_update_found">ソースの更新はありません</string>
     <string name="status_no_connection">ネット接続なし</string>
     <string name="status_no_connection_subtitle">ネットに接続されていません</string>
     <string name="status_download_fail">取得先が利用できません</string>
@@ -57,7 +79,19 @@
     <string name="status_enabled_subtitle">最新の hosts ファイルが有効になりました</string>
     <string name="status_disabled">無効になっています</string>
     <string name="status_disabled_subtitle">デフォルトの hosts ファイルがインストールされました</string>
+    <string name="status_apply_sources">最新のソースを適用</string>
+    <string name="status_create_new_hosts">新しいhostsファイルの作成</string>
+    <string name="status_copy_new_hosts">新しいhostsファイルをコピー</string>
+    <string name="status_check_copy">hostsファイルのコピーを確認</string>
+    <string name="status_hosts_updated">hostsファイルの更新に成功</string>
+    <string name="status_vpn_configuration_updated">VPN構成の更新に成功</string>
+    <string name="notification_configuration_changed">設定が変更されました。適用する必要があります。</string>
     <string name="notification_configuration_changed_action">適用する</string>
+    <string name="notification_configuration_installing">新しい設定を適用しています…</string>
+    <string name="notification_configuration_failed">新しい設定の適用に失敗しました</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">hostsファイルターゲットへのシンボリックリンクが不明です</string>
     <string name="apply_symlink_missing">/system/etc/hostsへのシンボリックリンクは存在しないか不正です! AdAwayは正しいファイルが指定されていないと動作しません。\n\nシンボリックリンクを作成しますか？</string>
     <string name="apply_symlink_missing_title">シンボリックリンクが見つかりません</string>
     <string name="apply_not_enough_space">このパーティションに十分な容量がありません!\n設定で対象とする hosts ファイルを /data/data/hosts に変更してみてください。</string>
@@ -66,6 +100,7 @@
     <string name="apply_private_file_fail_title">プライベートファイル失敗</string>
     <string name="apply_remount_fail">パーティションの 読み/書き での再マウントに失敗しました！</string>
     <string name="apply_remount_fail_title">再マウント失敗</string>
+    <string name="apply_copy_fail_status">hostsファイルのコピーに失敗</string>
     <string name="apply_copy_fail">hostsファイルのコピー失敗！</string>
     <string name="apply_copy_fail_title">コピー失敗</string>
     <string name="apply_success_subtitle">hosts のソースを適用しました</string>
@@ -86,21 +121,26 @@
     <string name="apply_dialog_hostnames">hostsファイルの解析･統合中…</string>
     <string name="apply_dialog_hosts">hostsファイルを構築中…</string>
     <string name="apply_dialog_apply">hostsファイルを適用中</string>
+    <string name="apply_fail_status">新しいhostsファイルの適用に失敗</string>
     <string name="apply_fail">hostsファイルの適用に失敗しました!\n設定で対象とする hosts ファイルを /data/data/hosts に変更してみてください。</string>
     <string name="apply_fail_title">適用に失敗</string>
     <string name="root_access_fail">ルート管理アプリをチェックして、ルートアクセスが許可されていることを確認してください。</string>
     <string name="revert_successful">デフォルトの hosts ファイルに差し戻しました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
     <string name="revert_successful_title">元に戻しました</string>
+    <string name="revert_failed_status">hostsファイルを元に戻せません</string>
     <string name="revert_problem">何らかの理由により元に戻せませんでした</string>
     <string name="revert_problem_title">元に戻せません！</string>
     <string name="download_fail_dialog">どの hosts 取得先にも接続できません！ インターネットに接続されていますか？</string>
     <string name="download_fail_title">ダウンロード失敗</string>
+    <string name="no_private_file_status">新しいプライベートhostsファイルの書き込みに失敗しました</string>
     <string name="no_private_file">プライベートファイルが作成できません</string>
     <string name="no_private_file_title">プライベートファイルの作成失敗</string>
     <string name="enable_systemless_successful">システムレスモードを有効にしました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
     <string name="enable_systemless_successful_title">有効化は成功です</string>
     <string name="disable_systemless_successful">システムレスモードを無効にしました。\n実際に変更されるには Android の再起動が必要なことがあります。\n\n再起動しますか？\n(データの損傷を防ぐため、現在 SDカードを使っているアプリが無いのを確認してください！)</string>
     <string name="disable_systemless_successful_title">無効化は成功です</string>
+    <string name="enable_vpn_fail">VPN広告ブロックの有効化に失敗しました</string>
+    <string name="disable_vpn_fail">VPN広告ブロックの無効化に失敗しました</string>
     <string name="enable_systemless_magisk_title">Magisk の hosts モジュールの有効化</string>
     <string name="enable_systemless_magisk">Magisk マネージャーから Systemless hosts 機能を有効にします。設定から Systemless hosts オプションを有効にしてから、デバイスを再起動します。</string>
     <string name="disable_systemless_magisk_title">Magisk の hosts モジュールの無効化</string>
@@ -130,7 +170,7 @@
     <!--Adware-->
     <string name="adware_header">アドウェア</string>
     <string name="adware_description">ここではAdAway によってブロックできない、インストール済みの有害アプリ (アドウェア) を一覧化しています。 これらのアプリは例えば、プッシュ通知を使用してアプリが実行されていないときにもポップアップしたり、着信音を無断で変更したりします。 対策はリスト項目をタップして、アプリをアンインストールすることだけです。</string>
-    <string name="adware_scanning">スキャン中…</string>
+    <string name="adware_scanning">スキャン中&#8230;</string>
     <string name="adware_empty">アドウェアは検出されませんでした！</string>
 
     <!--Other-->
@@ -177,10 +217,13 @@
     <string name="shortcut_your_lists">あなたのリスト</string>
     <string name="shortcut_preferences">設定</string>
 
-    <string name="hosts_source_up_to_date">最新の %1$s</string>
-    <string name="hosts_source_need_update">%1$sの更新が必要</string>
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">インストール済み %1$s</string>
+    <string name="hosts_source_up_to_date">最新 %1$s</string>
+    <string name="hosts_source_need_update">更新が必要 %1$s</string>
     <string name="hosts_source_last_update">前回の更新 %1$s</string>
-    <string name="hosts_source_unknown_status">不明な更新ステータス</string>
+    <string name="hosts_source_unknown_status">更新ステータスが不明</string>
+    <string name="hosts_source_few_minutes">数分</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d 分</item>
     </plurals>
@@ -194,4 +237,20 @@
         <item quantity="other">%d 月</item>
     </plurals>
 
-    </resources>
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">開始</string>
+    <string name="vpn_notification_running">動作中</string>
+    <string name="vpn_notification_stopping">停止</string>
+    <string name="vpn_notification_waiting_for_net">ネットワークを待機中</string>
+    <string name="vpn_notification_reconnecting">再接続</string>
+    <string name="vpn_notification_reconnecting_error">再接続エラー</string>
+    <string name="vpn_notification_paused">一時停止</string>
+    <string name="vpn_notification_stopped">停止</string>
+    <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
+    <string name="vpn_notification_action_pause">一時停止</string>
+    <string name="vpn_notification_paused_text">タップして復帰</string>
+
+    <!-- Permission -->
+    <string name="permission_status_command_label">広告ブロックシステムの有効化と無効化</string>
+
+</resources>
