@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Root based ad blocker</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">hostsインストール</string>
     <string name="pref_root_open_hosts">hostsファイルを開く</string>
     <string name="pref_apply_method">ターゲットhostsファイル</string>
+    <string name="pref_apply_method_summary">この機能を使用する前に、ヘルプをお読みください</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>カスタムターゲット</item>
     </string-array>
+    <string name="pref_custom_target">カスタムターゲットの場所</string>
+    <string name="pref_never_reboot">適用後の再起動ダイアログを表示しない</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">リダイレクト</string>
+    <string name="pref_hosts_redirection_summary">ブロックされたホストのリダイレクト先を定義します</string>
+    <string name="pref_redirection_ipv4">IPv4リダイレクト</string>
+    <string name="pref_redirection_ipv6">IPv6リダイレクト</string>
+    <string name="pref_redirection_invalid">無効なリダイレクト</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">ローカルWebサーバー</string>
+    <string name="pref_webserver_summary">ローカルWebサーバーがブロックされたホスト名のリクエストに答えます。接続がブロックされた影響によるアプリのフリーズを防ぐことができます。</string>
     <string name="pref_webserver_enabled">Webサーバーを有効にする</string>
-    </resources>
+    <string name="pref_webserver_test">Webサーバーのテスト</string>
+    <string name="pref_webserver_certificate">自己署名証明書のインストール</string>
+    <string name="pref_webserver_certificate_dialog_title">証明書の手動インストール</string>
+    <string name="pref_webserver_certificate_dialog_content">Android 11 (R)以降、アプリから認証局（CA）の自動インストールができなくなりました。\n\n\"セキュリティ\"設定の\"暗号化と認証情報\"から\"証明書のインストール\"を選択してください。そこから\"CA証明書\"を選択し、エクスポートした証明書ファイルを選択してください。</string>
+    <string name="pref_webserver_certificate_dialog_action">\"セキュリティ\"設定を開く</string>
+    <string name="pref_webserver_state_checking">確認中…</string>
+    <string name="pref_webserver_state_not_running">実行していません</string>
+    <string name="pref_webserver_state_running_not_installed">実行中ですが証明書がインストールされていません</string>
+    <string name="pref_webserver_state_running_and_installed">実行中で証明書がインストールされています</string>
+    <string name="pref_webserver_icon">空白になる広告スペースをアプリアイコンで置き換える</string>
+</resources>
