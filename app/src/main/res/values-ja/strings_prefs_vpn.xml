@@ -1,3 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_vpn_title">VPN based ad blocker</string>
+    <!-- Service configuration -->
+    <string name="pref_vpn_service_on_boot">起動時に有効にする</string>
+    <string name="pref_vpn_service_monitor">接続を監視する</string>
+    <string name="pref_vpn_service_monitor_description">定期的にネットワークの状態を確認し、切断時にVPNを再起動します</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">対象外のアプリケーション</string>
+    <string name="pref_vpn_excluded_apps_description">VPNを使用しないアプリケーションを設定すると、接続がブロックされなくなります</string>
+    <string name="pref_vpn_exclude_system_apps">システムアプリを除外する</string>
+    <string-array name="pref_vpn_excluded_system_apps_entries">
+        <item>除外しない</item>
+        <item>ブラウザを除くすべて</item>
+        <item>すべて</item>
+    </string-array>
+    <string name="pref_vpn_exclude_user_apps">ユーザーアプリを除外する</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">対象外のアプリケーション</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">すべて選択</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">すべての選択を解除</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Application icon</string>
+</resources>
