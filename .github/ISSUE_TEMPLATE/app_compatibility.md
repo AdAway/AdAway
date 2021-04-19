@@ -18,4 +18,5 @@ A clear and concise description of what the bug is.
 If applicable, describe the whitelist domains to add to fix the issue:
  - www.somedomain.com
  - *.server.org
+
 Please add tag `workaround-available` if a work around is available.
