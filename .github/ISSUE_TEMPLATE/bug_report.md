@@ -25,8 +25,8 @@ If applicable, add screenshots to help explain your problem.
 
 **Device**
  - AdAway version: [e.g. 4.0.4]
- - Device: [e.g. iPhone6]
- - Android version: [e.g. iOS8.1]
+ - Device: [e.g. Pixel 4a]
+ - Android version: [e.g. 11]
  - Root version [e.g. Magisk 18.1, SuperSU 2.82]
 
 **Additional context**
