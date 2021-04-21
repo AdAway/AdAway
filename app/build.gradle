@@ -101,7 +101,7 @@ dependencies {
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.0.0'
     implementation 'androidx.paging:paging-runtime:2.1.2'
     implementation 'androidx.preference:preference:1.1.1'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation 'androidx.room:room-runtime:2.2.6'
     annotationProcessor 'androidx.room:room-compiler:2.2.6'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
