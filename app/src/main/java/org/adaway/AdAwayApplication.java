@@ -43,10 +43,10 @@ public class AdAwayApplication extends Application {
         if (PreferenceHelper.getDebugEnabled(this)) {
             Log.d(Constants.TAG, "Debug set to true by preference!");
             Constants.enableDebug();
-            Shell.Config.verboseLogging(true);
+            Shell.enableVerboseLogging = true;
         } else {
             Constants.disableDebug();
-            Shell.Config.verboseLogging(false);
+            Shell.enableVerboseLogging = false;
         }
         // Create notification channels
         NotificationHelper.createNotificationChannels(this);
