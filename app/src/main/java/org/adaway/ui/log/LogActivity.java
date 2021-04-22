@@ -47,6 +47,8 @@ import org.adaway.ui.dialog.AlertDialogValidator;
 import org.adaway.util.RegexUtils;
 
 import static java.lang.Boolean.TRUE;
+import static org.adaway.ui.Animations.hideView;
+import static org.adaway.ui.Animations.showView;
 
 /**
  * This class is an {@link android.app.Activity} to show DNS request log entries.
@@ -78,10 +80,18 @@ public class LogActivity extends AppCompatActivity implements LogViewCallback {
             actionBar.setDisplayShowTitleEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        // Get view model
+        this.mViewModel = new ViewModelProvider(this).get(LogViewModel.class);
         /*
          * Configure swipe layout.
          */
-        this.binding.swipeRefresh.setOnRefreshListener(() -> this.mViewModel.updateLogs());
+        this.binding.swipeRefresh.setOnRefreshListener(this.mViewModel::updateLogs);
+        /*
+         * Configure empty view.
+         */
+        if (this.mViewModel.areBlockedRequestsIgnored()) {
+            this.binding.emptyTextView.append(getString(R.string.log_blocked_requests_ignored));
+        }
         /*
          * Configure recycler view.
          */
@@ -90,8 +100,6 @@ public class LogActivity extends AppCompatActivity implements LogViewCallback {
         // Defile recycler layout
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         this.binding.logList.setLayoutManager(linearLayoutManager);
-        // Get view model
-        this.mViewModel = new ViewModelProvider(this).get(LogViewModel.class);
         // Create recycler adapter
         LogAdapter adapter = new LogAdapter(this);
         this.binding.logList.setAdapter(adapter);
@@ -115,6 +123,11 @@ public class LogActivity extends AppCompatActivity implements LogViewCallback {
          */
         // Bind view model to the list view
         this.mViewModel.getLogs().observe(this, logEntries -> {
+            if (logEntries.isEmpty()) {
+                showView(this.binding.emptyTextView);
+            } else {
+                hideView(this.binding.emptyTextView);
+            }
             adapter.submitList(logEntries);
             this.binding.swipeRefresh.setRefreshing(false);
         });

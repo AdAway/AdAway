@@ -14,6 +14,7 @@ import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.ListType;
+import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.util.AppExecutors;
 
@@ -45,6 +46,10 @@ public class LogViewModel extends AndroidViewModel {
         this.logEntries = new MutableLiveData<>();
         this.recording = new MutableLiveData<>(this.adBlockModel.isRecordingLogs());
         this.sort = LogEntrySort.TOP_LEVEL_DOMAIN;
+    }
+
+    public boolean areBlockedRequestsIgnored() {
+        return this.adBlockModel.getMethod() == AdBlockMethod.ROOT;
     }
 
     public LiveData<List<LogEntry>> getLogs() {
