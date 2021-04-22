@@ -131,6 +131,11 @@ public class LogActivity extends AppCompatActivity implements LogViewCallback {
             adapter.submitList(logEntries);
             this.binding.swipeRefresh.setRefreshing(false);
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         // Mark as loading data
         this.binding.swipeRefresh.setRefreshing(true);
         // Load initial data
