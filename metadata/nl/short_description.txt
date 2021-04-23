@@ -1,1 +1,1 @@
-A free and Open Source ad blocker for Android.
+Een gratis en open source advertentie blokkeerder voor Android.
