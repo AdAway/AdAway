@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Bepaal waar de geblokkeerde hosts naar moeten worden omgeleid</string>
     <string name="pref_redirection_ipv4">IPv4 doorverwijzing</string>
     <string name="pref_redirection_ipv6">IPv6 doorverwijzing</string>
+    <string name="pref_redirection_invalid">Ongeldige doorverwijzing</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokale webserver</string>
     <string name="pref_webserver_summary">De lokale webserver luistert naar lokale ip-adressen om aanvragen van geblokkeerde hostnamen te beantwoorden. indien de connectie blokkeert kan app freezing helpen.</string>
