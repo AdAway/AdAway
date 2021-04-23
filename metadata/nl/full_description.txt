@@ -1,9 +1,9 @@
-A Free and Open Source ad blocker for Android.
+Een gratis en open source advertentie blokkeerder voor Android.
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+De app is beschikbaar voor rooted en non-rooted toestellen.
+Gebruik makend van een rooted toestel, the app vernieuwd je systeem hosts bestand dat een lijst met koppelingen bevat van host namen en IP adressen.
+Gebruik makend van een non-rooted toestel, the app gebruikt VPN om uitgaande connecties naar advertenties en trackers te blokkeren.
+Dus wanneer een app reclame opvraagt van een host in dat bestand, wordt dit verzoek doorgestuurd naar het lokale IP-adres 127.0.0.1, wat niets doet.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+U kunt vooraf ingestelde hosts-bestanden in de app downloaden om ze in uw hosts-bestands in te voegen. Het is ook mogelijk uw eigen bestanden te gebruiken en bepaalde hosts aan witte dan wel zwarte lijsten toe te voegen.
 Er zijn opties om een lokale webserver uit te voeren, die antwoordt op geblokkeerde hostnamen en verzoeken doorstuurt naar een IP-adres naar keuze.
