@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Afslut</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Se mere hjælp</string>
     <string name="icon_update_status">Opdater status</string>
     <string name="text_update">Alle hosts-filer fra de definerede kilder er hentet, flettet sammen med dine egne lister og installeret som en hosts-fil på dit system.</string>
-    <string name="button_check_update_hosts">Check for opdateringer</string>
-    <string name="button_update_hosts">Opdater hosts</string>
     <string name="button_enable_hosts">Aktiver ad-blocking</string>
     <string name="button_disable_hosts">Deaktiver ad-blocking</string>
     <string name="header_webserver">Webserver</string>
@@ -75,12 +73,12 @@
     <string name="apply_symlink_fail">Symlink kunne ikke oprettes af Android.\nDet mislykkes hovedsageligt på grund af en \"funktion\", der hedder S-ON på HTC-telefoner!\n\nDen løsning er at starte din telefon i gendannelsesmodus og oprette symlink der med \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nHvis dette ikke virker, søg på internettet for S-OFF og din telefon.</string>
     <string name="apply_symlink_fail_title">Oprettelse af symlink mislykkedes</string>
     <string name="apply_help">Venligst læs Hjælp for mere information.</string>
-    <string name="apply_apn_proxy">En APN-proxy er indstillet på din Android!\nAdAway fungerer ikke pålideligt, når du er på mobilnetværk som 3G. Du kan deaktivere den pågældende proxy ved at gå til din valgte APN (Fra indstillingsappen: Netværk og internet -> Mobilnetværk -> Avanceret -> Adgangspunktnavn) og fjerne værdien i proxy-feltet.</string>
+    <string name="apply_apn_proxy">En APN-proxy er indstillet på din Android!\nAdAway fungerer ikke pålideligt, når du er på mobilnetværk som 3G. Du kan deaktivere den pågældende proxy ved at gå til din valgte APN (Fra indstillingsappen: Netværk og internet -&gt; Mobilnetværk -&gt; Avanceret -&gt; Adgangspunktnavn) og fjerne værdien i proxy-feltet.</string>
     <string name="apply_apn_proxy_title">APN proxy indstillet!</string>
     <string name="no_connection">Internetforbindelsen virker ikke.</string>
     <string name="no_connection_title">Ingen forbindelse</string>
-    <string name="download_dialog">Henter...</string>
-    <string name="apply_dialog">Anvender...</string>
+    <string name="download_dialog">Henter…</string>
+    <string name="apply_dialog">Anvender…</string>
     <string name="apply_dialog_lists">Anvender godkendte og ikke godkendte lister</string>
     <string name="apply_dialog_hostnames">Parser og fletter hosts-filer</string>
     <string name="apply_dialog_hosts">Opbygger hosts-filen</string>
@@ -124,7 +122,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Her kan du finde installerede adware, dårlige applikationer, som ikke kan blokeres af AdAway. Disse apps bruger f.eks. Airpush-underretninger, der dukker op, selvom appen ikke kører eller endda ændrer din ringetone. Den eneste tilgængelige modforanstaltning er at afinstallere disse apps ved at klikke på listeposterne.</string>
-    <string name="adware_scanning">Scanning&#8230;</string>
+    <string name="adware_scanning">Scanning…</string>
     <string name="adware_empty">Ingen Adware blev fundet!</string>
 
     <!--Other-->
@@ -140,11 +138,8 @@
     <string name="tcpdump_disable_monitoring">Deaktiver overvågning</string>
     <string name="tcpdump_enable_monitoring">Aktiver overvågning</string>
     <string name="tcpdump_show_results">Vis resultater</string>
-    <string name="tcpdump_redirect_dialog_title">Viderestil domæne</string>
     <string name="tcpdump_menu_sort">Sorter domæner</string>
     <string name="tcpdump_menu_clear">Ryd log</string>
-    <string name="tcpdump_sort_alphabetical">Sorter alfabetisk</string>
-    <string name="tcpdump_sort_top_level_domain">Sorter topniveau domæne</string>
     <string name="tcpdump_entry_add_blacklist">Tilføj adgang til sort liste</string>
     <string name="tcpdump_entry_add_whitelist">Tilføj adgang til hvide liste</string>
     <string name="tcpdump_entry_add_redirection_list">Tilføj adgang til omdirigeringsliste</string>

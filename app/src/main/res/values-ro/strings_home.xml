@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
     <!-- Hosts card -->
@@ -28,7 +28,6 @@
     <string name="support_label">Susține proiectul</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">Jurnal DNS</string>
     <string name="preferences_drawer_item">Setări</string>
 
     <!-- App bar buttons -->

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Avslutt</string>
@@ -15,7 +15,6 @@
     <string name="button_show_help">Vis mere hjelp</string>
     <string name="icon_update_status">Oppdater statusen</string>
     <string name="text_update">Alle vertsfiler fra de valgte kildene blir lastet ned, slått sammen med dine egne lister, og installert som én vertsfil på systemet ditt.</string>
-    <string name="button_check_update_hosts">Se etter oppdateringer</string>
     <string name="webserver_status_running">Kjører</string>
     <string name="webserver_status_stopped">Stoppet</string>
     <!--Checkbox List-->

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
     <!-- Hosts card -->
@@ -24,7 +24,6 @@
     <string name="support_label">Tue projektia</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">DNS-lokit</string>
     <string name="preferences_drawer_item">Asetukset</string>
 
     <!-- Error dialog -->

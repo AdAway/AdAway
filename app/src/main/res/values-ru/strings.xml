@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Выход</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Расширенная справка</string>
     <string name="icon_update_status">Обновить статус</string>
     <string name="text_update">Все списки хостов загружаются из определенных источников, объединяются с вашими собственными списками и устанавливаются в вашу систему в виде единого файла hosts.</string>
-    <string name="button_check_update_hosts">Проверить обновления</string>
-    <string name="button_update_hosts">Обновить хосты</string>
     <string name="button_enable_hosts">Вкл. блокировку рекламы</string>
     <string name="button_disable_hosts">Откл. блокировку рекламы</string>
     <string name="header_webserver">Веб-сервер</string>
@@ -116,7 +114,7 @@
     <string name="apply_symlink_fail">Android не смог создать символическую ссылку.\nВозможно, это из-за \'функции\' телефонов HTC, называемой S-ON!\n\nРешение состоит в том, чтобы загрузить телефон в режим восстановления и создать там символическую ссылку при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nЕсли это не поможет, то надо искать информацию в интернете по S-OFF и вашему телефону.</string>
     <string name="apply_symlink_fail_title">Не удалось создать символическую ссылку</string>
     <string name="apply_help">Пожалуйста, прочите Справку, чтобы узнать больше.</string>
-    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать надежно в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настройки: Сеть и Интернет -> Мобильная сеть -> Дополнительно -> Точки доступа APN) и удалить значение в поле прокси.</string>
+    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать надежно в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настройки: Сеть и Интернет -&gt; Мобильная сеть -&gt; Дополнительно -&gt; Точки доступа APN) и удалить значение в поле прокси.</string>
     <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
     <string name="no_connection">Отсутствует подключение к интернет.</string>
     <string name="no_connection_title">Нет соединения</string>
@@ -187,7 +185,7 @@
     <!--Adware-->
     <string name="adware_header">Приложения с рекламой</string>
     <string name="adware_description">Поиск приложений с рекламой, называемые Adware, и которые AdAway не может заблокировать. Эти приложения используют, например, систему уведомлений Airpush, которая показывает рекламу даже тогда, когда приложение не работает, или даже может изменить мелодию вашего звонка. Избавиться от такой рекламы можно только удалив приложения, указанные в результатах сканирования, путём нажатия на элементы списка.</string>
-    <string name="adware_scanning">Сканирование&#8230;</string>
+    <string name="adware_scanning">Сканирование…</string>
     <string name="adware_empty">Приложения с рекламой не найдены!</string>
 
     <!--Other-->
@@ -203,11 +201,8 @@
     <string name="tcpdump_disable_monitoring">Откл. мониторинг</string>
     <string name="tcpdump_enable_monitoring">Вкл. мониторинг</string>
     <string name="tcpdump_show_results">Результаты</string>
-    <string name="tcpdump_redirect_dialog_title">Перенаправить домен</string>
     <string name="tcpdump_menu_sort">Сортировать домены</string>
     <string name="tcpdump_menu_clear">Очистить журнал</string>
-    <string name="tcpdump_sort_alphabetical">Сортировка по алфавиту</string>
-    <string name="tcpdump_sort_top_level_domain">Сортировка по наивысшему уровню домена</string>
     <string name="tcpdump_entry_add_blacklist">Добавить запись в Чёрный список</string>
     <string name="tcpdump_entry_add_whitelist">Добавить запись в Белый список</string>
     <string name="tcpdump_entry_add_redirection_list">Добавить запись в список Перенаправлений</string>

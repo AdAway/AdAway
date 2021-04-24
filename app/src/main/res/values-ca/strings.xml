@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Surt</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Mostra més ajuda</string>
     <string name="icon_update_status">Estat d\'actualització</string>
     <string name="text_update">Es baixen tots els fitxers d\'amfitrió d\'unes fonts definides, s\'uneixen amb les vostres llistes que personalitzeu i s\'instal·len com a un únic fitxer amfitrió al vostre sistema.</string>
-    <string name="button_check_update_hosts">Comprova actualitzacions</string>
-    <string name="button_update_hosts">Actualitza els amfitrions</string>
     <string name="button_enable_hosts">Activa el bloqueig d\'anuncis</string>
     <string name="button_disable_hosts">Desactiva el bloqueig d\'anuncis</string>
     <string name="header_webserver">Servidor web</string>
@@ -147,11 +145,8 @@
     <string name="tcpdump_disable_monitoring">Desactiva la supervisió</string>
     <string name="tcpdump_enable_monitoring">Activa la supervisió</string>
     <string name="tcpdump_show_results">Mostra els resultats</string>
-    <string name="tcpdump_redirect_dialog_title">Redirigeix domini</string>
     <string name="tcpdump_menu_sort">Ordena dominis</string>
     <string name="tcpdump_menu_clear">Esborra el registre</string>
-    <string name="tcpdump_sort_alphabetical">Ordena alfabèticament</string>
-    <string name="tcpdump_sort_top_level_domain">Ordena per nivell de domini</string>
     <string name="tcpdump_entry_add_blacklist">Afegeix una entrada a la llista negra</string>
     <string name="tcpdump_entry_add_whitelist">Afegeix una entrada a la llista blanca</string>
     <string name="tcpdump_entry_add_redirection_list">Afegeix una entrada a la llista de redireccions</string>

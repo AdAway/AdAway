@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Irten</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Erakutsi laguntza gehiago</string>
     <string name="icon_update_status">Eguneratu egoera</string>
     <string name="text_update">Zehaztutako iturburuetako hostalari agiri guztiak jeitsi eta batu dira zeure zerrendarekin eta hostalari agiri bat bezala ezarri dira zure sisteman.</string>
-    <string name="button_check_update_hosts">Egiaztatu eguneraketak</string>
-    <string name="button_update_hosts">Eguneratu hostalariak</string>
     <string name="button_enable_hosts">Gaitu iragarki-blokeatzailea</string>
     <string name="button_disable_hosts">Ezgaitu iragarki-blokeatzailea</string>
     <string name="header_webserver">Web zerbitzaria</string>
@@ -152,7 +150,7 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_scanning">Eskaneatzen&#8230;</string>
+    <string name="adware_scanning">Eskaneatzen…</string>
     <string name="adware_empty">Ez da Adwarerik topatu!</string>
 
     <!--Other-->
@@ -168,11 +166,8 @@
     <string name="tcpdump_disable_monitoring">Ezgaitu kontrola</string>
     <string name="tcpdump_enable_monitoring">Gaitu kontrola</string>
     <string name="tcpdump_show_results">Erakutsi emaitzak</string>
-    <string name="tcpdump_redirect_dialog_title">Birbideratu domeinua</string>
     <string name="tcpdump_menu_sort">Ordenatu domeinuak</string>
     <string name="tcpdump_menu_clear">Garbitu egunkaria</string>
-    <string name="tcpdump_sort_alphabetical">Ordenatu alfabetikoki</string>
-    <string name="tcpdump_sort_top_level_domain">Ordenatu gai-mailako domeinukoki</string>
     <string name="tcpdump_entry_add_blacklist">Gehitu sarrera zerrenda-beltzara</string>
     <string name="tcpdump_entry_add_whitelist">Gehitu sarrera zerrenda-zurira</string>
     <string name="tcpdump_entry_add_redirection_list">Gehitu sarrera birbidalketa zerrendara</string>
