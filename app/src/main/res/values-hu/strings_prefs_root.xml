@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Adja meg hova irányítsa a letiltott hosztokat</string>
     <string name="pref_redirection_ipv4">IPv4 átirányítás</string>
     <string name="pref_redirection_ipv6">IPv6 átirányítás</string>
+    <string name="pref_redirection_invalid">Érvénytelen átirányítás</string>
     <!-- Web server category -->
     <string name="pref_webserver">Helyi webszerver</string>
     <string name="pref_webserver_summary">A helyi webszerver meghallgatja a helyi IP-címeket, hogy válaszoljon a blokkolt gazdagép-kérelmekre. Segítheti az alkalmazás lefagyasztását blokkolt kapcsolat esetén.</string>
