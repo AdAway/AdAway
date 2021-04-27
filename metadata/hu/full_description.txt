@@ -1,9 +1,9 @@
-A Free and Open Source ad blocker for Android.
+Ingyenes és nyílt forráskódú hirdetésblokkoló az Android számára.
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+Az alkalmazás elérhető rootolt és nem rootolt eszközökre.
+Rootolt eszköz használatával az alkalmazás frissíti a rendszer hosts fájlját, amely tartalmazza a gazdagépnevek és az IP-címek közötti leképezések listáját.
+Nem rootolt eszköz használatával az alkalmazás VPN funkcióval blokkolja a hirdetésekhez és a nyomkövetőkhöz irányuló kimenő kapcsolatokat.
+Tehát, amikor egy alkalmazás hirdetést kér egy adott állomásból, ez a kérés átirányításra kerül a helyi 127.0.0.1 IP-re, amely így nem tesz semmit.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Letölthetsz előre definiált, hirdetéseket és blokk-listákat hosts fájlokként az alkalmazáson belül, hogy beépítsd ezeket. Lehetőség van saját fájlok használatára, valamint bizonyos gazdagépek hozzáadására az engedélyezett és letiltottak listáihoz.
 Lehetőség van helyi webszerver futtatására, hogy az válaszoljon a blokkolt gazdanevekre és a kéréseket a választott IP címre irányítsa.
