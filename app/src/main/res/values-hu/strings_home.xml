@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -15,9 +15,14 @@
         <item quantity="one">%d outdated source</item>
         <item quantity="other">%d elavult forrás</item>
     </plurals>
+    <string name="check_hosts_update_description">Hosts frissítések ellenőrzése</string>
+    <string name="update_hosts_description">Hosztok frissítése</string>
+
+    <!-- Log card -->
+    <string name="log_label">Mutassa a DNS kérések naplót</string>
 
     <!-- Help card -->
-    <string name="help_label">Súgó megjelenítése</string>
+    <string name="help_label">Mutassa a súgó\nand tippeket</string>
 
     <!-- Project card -->
     <string name="project_label">GitHub oldal megnyitása</string>
@@ -26,6 +31,7 @@
     <string name="support_label">Projekt támogatása</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">GitHub projekt</string>
     <string name="preferences_drawer_item">Beállítások</string>
 
     <!-- App bar buttons -->
