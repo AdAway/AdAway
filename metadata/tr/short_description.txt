@@ -1,1 +1,1 @@
-A free and Open Source ad blocker for Android.
+Android için ücretsiz ve açık kaynak reklam engelleyici.
