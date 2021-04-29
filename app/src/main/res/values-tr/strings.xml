@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Çıkış</string>
@@ -42,6 +42,9 @@
     <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
     <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
     <string name="export_dialog">Dışa aktarılıyor…</string>
+    <string name="export_success">Yedekleme, harici depolama alanınızdaki \'%s\' başarıyla aktarıldı.</string>
+    <string name="export_failed">Yedekleme dosyası dışa aktarılamadı \'%s\'.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Host dosyası</string>
     <string name="hosts_description">Sunucu dosyası, sunucu adlarını IP adreslerine eşleyen bir sistem dosyasıdır. Bu yapılandırmanın AdAway tarafından ele alındığı düz bir metin dosyasıdır. İşte ilk birkaç satırı:</string>
@@ -106,7 +109,7 @@
     <string name="apply_symlink_fail">Symlink Android tarafından oluşturulamadı.\nBu HTC telefonlarında S-ON adlı bir \'özellik\' nedeniyle başarısız oluyor!\n\nBunun bir çözümü, telefonunuzu kurtarma moduna geçirmek ve orada \'ln -s /data/data/hosts /system/etc/hosts\'\' ile sembolik bağlantı oluşturmaktır.\n\nBu işe yaramazsa, internette cihazınız ve S-OFF ile ilgili araştırma yapınız.</string>
     <string name="apply_symlink_fail_title">Symlink oluşturma başarısız</string>
     <string name="apply_help">Daha fazla bilgi için Yardım\'ı okuyunuz.</string>
-    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz.Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -&gt; Mobil şebeke -&gt; Gelişmiş -&gt; Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
+    <string name="apply_apn_proxy">Androidinizde bir APN proxy\'si ayarlandı!\n3G gibi Mobil Ağlarda AdAway güvenilir bir şekilde çalışmaz.Seçtiğiniz APN\'ye giderek bu proxy\'yi devre dışı bırakabilirsiniz (Ayarlar uygulamasından: Ağ ve İnternet -> Mobil şebeke -> Gelişmiş -> Erişim Noktası İsimleri) ve proxy alanındaki değeri kaldırın.</string>
     <string name="apply_apn_proxy_title">APN Vekil Sunucu ayarlandı</string>
     <string name="no_connection">İnternet bağlantısı çalışmıyor.</string>
     <string name="no_connection_title">Bağlantı Yok</string>
@@ -165,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">AdAway tarafından engellenemeyen, adware yüklü kötü uygulamaları burada bulabilirsiniz. Bu uygulamalar, örneğin uygulama çalışmıyorken bile ortaya çıkan Airpush bildirimlerini kullanır ve hatta zil sesini değiştirir. Kullanılabilir tek önlem, listedeki öğeleri tıklatarak bu uygulamaları kaldırmaktır.</string>
-    <string name="adware_scanning">Taranıyor…</string>
+    <string name="adware_scanning">Taranıyor&#8230;</string>
     <string name="adware_empty">Adware bulunamadı!</string>
 
     <!--Other-->
