@@ -1,4 +1,4 @@
-## [5.6.0] - Unreleased
+## [5.6.0] - 2021-04-30
 
 - Improve navigation by moving DNS logs to home screen
 - Improve DNS logs usage by explaining usage and limitation
