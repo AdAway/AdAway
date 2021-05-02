@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -11,17 +11,22 @@
         <item quantity="one">%d up-to-date source</item>
         <item quantity="few">%d up-to-date sources</item>
         <item quantity="many">%d up-to-date sources</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="other">%d aktualne źródła</item>
     </plurals>
     <plurals name="outdated_source_label">
         <item quantity="one">%d outdated source</item>
         <item quantity="few">%d outdated sources</item>
         <item quantity="many">%d outdated sources</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="other">%d nieaktualnych źródeł</item>
     </plurals>
+    <string name="check_hosts_update_description">Sprawdź aktualizacje hostów</string>
+    <string name="update_hosts_description">Zaktualizuj hosty</string>
+
+    <!-- Log card -->
+    <string name="log_label">Pokaż dziennik żądań DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Pokaż pomoc</string>
+    <string name="help_label">Pokaż pomoc\i wskazówki</string>
 
     <!-- Project card -->
     <string name="project_label">Otwórz stronę GitHub</string>
@@ -30,6 +35,7 @@
     <string name="support_label">Wsparcie projektu</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Projekt GitHub</string>
     <string name="preferences_drawer_item">Ustawienia</string>
 
     <!-- App bar buttons -->
