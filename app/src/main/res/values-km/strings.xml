@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">ចាកចេញ</string>
@@ -9,8 +9,6 @@
     <string name="button_cancel">បោះបង់</string>
     <string name="button_save">រក្សាទុក</string>
     <string name="button_help">ជំនួយ</string>
-
-    <string name="button_check_update_hosts">ពិនិត្យមើលភាពទាន់សម័យ</string>
     <string name="checkbox_list_context_edit">កែប្រែ</string>
     <string name="checkbox_list_context_delete">លុបចេញ</string>
 

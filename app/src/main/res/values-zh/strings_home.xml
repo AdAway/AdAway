@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
     <!-- Hosts card -->
@@ -24,7 +24,6 @@
     <string name="support_label">支持本项目</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">DNS 日志</string>
     <string name="preferences_drawer_item">首选项</string>
 
     <!-- App bar buttons -->

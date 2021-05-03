@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Ieșire</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Afișează mai multe sfaturi</string>
     <string name="icon_update_status">Starea actualizărilor</string>
     <string name="text_update">Toate fișierele \"host\" din sursa definită vor fi descărcate, combinate cu lista personală și apoi instalate ca un fișier \"hosts\" unitar.  </string>
-    <string name="button_check_update_hosts">Verificare pentru actualizări</string>
-    <string name="button_update_hosts">Actualizare fișier hosts</string>
     <string name="button_enable_hosts">Activare blocare reclame</string>
     <string name="button_disable_hosts">Dezactivare blocare reclame</string>
     <string name="header_webserver">Server web</string>
@@ -108,7 +106,7 @@
     <string name="apply_symlink_fail">Legătura simbolică nu a putut fi creată de către Android.\nAcest lucru se întâmplă de obicei datorită \'funcției\' S-ON pe dispozitivele HTC!\n\nO soluție ar putea fi repornirea în modul de recuperare și realizarea arborelui legăturii simbolice de acolo prin \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nDacă nici această soluție nu funcționează căutați pe Internet despre S-OFF pentru dispozitivul curent.</string>
     <string name="apply_symlink_fail_title">Crearea legăturii simbolice a eșuat</string>
     <string name="apply_help">Citește secțiunea \"Ajutor\" pentru mai multe informații.</string>
-    <string name="apply_apn_proxy">Un proxy de la furnizorul mobil de tip APN este activat pe Android!nAdAway nu va funcționa corespunzător când se află pe rețele de date mobile 3G/4G/5G. Poți dezactiva acel proxy din lista de APN (Aplicația de Setări: Conexiuni &amp; Internet -> Rețele Mobile -> Avansat->Nume puncte de acces) prin ștergea valorii introduse în câmpul de proxy.</string>
+    <string name="apply_apn_proxy">Un proxy de la furnizorul mobil de tip APN este activat pe Android!nAdAway nu va funcționa corespunzător când se află pe rețele de date mobile 3G/4G/5G. Poți dezactiva acel proxy din lista de APN (Aplicația de Setări: Conexiuni &amp; Internet -&gt; Rețele Mobile -&gt; Avansat-&gt;Nume puncte de acces) prin ștergea valorii introduse în câmpul de proxy.</string>
     <string name="apply_apn_proxy_title">Punctul de acces APN proxy a fost setat!</string>
     <string name="no_connection">Conexiunea la Internet nu funcționează.</string>
     <string name="no_connection_title">Nu există conexiune!</string>
@@ -167,7 +165,7 @@
     <!--Adware-->
     <string name="adware_header">Aplicație cu reclame</string>
     <string name="adware_description">Aici se regăsesc aplicațiile ce conțin reclame, aplicații pe care AdAway nu le poate bloca. Aceste aplicații pot de exemplu să trimită notificări chiar dacă aplicația nu rulează sau pot chiar modifica tonul de apel. Singura măsură împotriva acestora este dezinstalarea prin atingerea lor în această listă.</string>
-    <string name="adware_scanning">Scanare&#8230;</string>
+    <string name="adware_scanning">Scanare…</string>
     <string name="adware_empty">Niciun Adware găsit!</string>
 
     <!--Other-->
@@ -183,11 +181,8 @@
     <string name="tcpdump_disable_monitoring">Dezactivare monitorizare</string>
     <string name="tcpdump_enable_monitoring">Activare monitorizare</string>
     <string name="tcpdump_show_results">Afișare rezultate</string>
-    <string name="tcpdump_redirect_dialog_title">Redirecționare domeniu</string>
     <string name="tcpdump_menu_sort">Sortare domenii</string>
     <string name="tcpdump_menu_clear">Șterge log-uri</string>
-    <string name="tcpdump_sort_alphabetical">Sortare alfabetică</string>
-    <string name="tcpdump_sort_top_level_domain">Sortare domeniu pe nivel superior</string>
     <string name="tcpdump_entry_add_blacklist">Adăugare intrare în lista neagră</string>
     <string name="tcpdump_entry_add_whitelist">Adăugare intrare în lista albă</string>
     <string name="tcpdump_entry_add_redirection_list">Adăugare înregistrare pe lista de redirecționare</string>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
     <!-- Hosts card -->
@@ -19,9 +19,14 @@
         <item quantity="many">%d zastaralé zdroje</item>
         <item quantity="other">%d zastaralých zdrojů</item>
     </plurals>
+    <string name="check_hosts_update_description">Zkontrolovat aktualizace hostitelů</string>
+    <string name="update_hosts_description">Aktualizovat hostitele</string>
+
+    <!-- Log card -->
+    <string name="log_label">Zobrazit záznam DNS požadavků</string>
 
     <!-- Help card -->
-    <string name="help_label">Zobrazit nápovědu</string>
+    <string name="help_label">Zobrazit nápovědu\na tipy</string>
 
     <!-- Project card -->
     <string name="project_label">Otevřít stránku GitHub</string>
@@ -30,7 +35,7 @@
     <string name="support_label">Podpořit projekt</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">Protokoly DNS</string>
+    <string name="github_project_drawer_item">GitHub projekt</string>
     <string name="preferences_drawer_item">Nastavení</string>
 
     <!-- App bar buttons -->

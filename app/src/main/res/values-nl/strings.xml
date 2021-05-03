@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Afsluiten</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Meer hulp tonen</string>
     <string name="icon_update_status">Status bijwerken</string>
     <string name="text_update">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
-    <string name="button_check_update_hosts">Controleren op updates</string>
-    <string name="button_update_hosts">Hosts bijwerken</string>
     <string name="button_enable_hosts">Advertentieblokkering inschakelen</string>
     <string name="button_disable_hosts">Advertentieblokkering uitschakelen</string>
     <string name="header_webserver">Webserver</string>
@@ -195,11 +193,8 @@ Wilt u herstarten?
     <string name="tcpdump_disable_monitoring">Monitoring uitschakelen</string>
     <string name="tcpdump_enable_monitoring">Monitoring inschakelen</string>
     <string name="tcpdump_show_results">Laat resultaat zien</string>
-    <string name="tcpdump_redirect_dialog_title">Doorverwijzingsdomein</string>
     <string name="tcpdump_menu_sort">Sorteer domeinen</string>
     <string name="tcpdump_menu_clear">Wis log</string>
-    <string name="tcpdump_sort_alphabetical">Sorteer alfabetisch</string>
-    <string name="tcpdump_sort_top_level_domain">Bovenste niveau domein sortering</string>
     <string name="tcpdump_entry_add_blacklist">Host toevoegen aan blacklist</string>
     <string name="tcpdump_entry_add_whitelist">Host toevoegen aan whitelist</string>
     <string name="tcpdump_entry_add_redirection_list">Hostdoorschakeling toevoegen</string>

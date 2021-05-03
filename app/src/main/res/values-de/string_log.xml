@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Alphabetische Sortierung</string>
+    <string name="log_sort_top_level_domain">Nach Top-Level-Domänen sortieren</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Domäne umleiten</string>
+</resources>

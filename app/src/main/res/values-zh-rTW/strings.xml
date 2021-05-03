@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">離開</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">顯示更多說明</string>
     <string name="icon_update_status">更新狀態</string>
     <string name="text_update">所有來自已定義來源的 hosts 檔案已下載、與您的自訂清單整合，並以一個 hosts 檔案安裝至系統中。</string>
-    <string name="button_check_update_hosts">檢查更新</string>
-    <string name="button_update_hosts">更新 hosts</string>
     <string name="button_enable_hosts">啟用廣告封鎖</string>
     <string name="button_disable_hosts">停用廣告封鎖</string>
     <string name="header_webserver">網頁伺服器</string>
@@ -186,11 +184,8 @@
     <string name="tcpdump_disable_monitoring">停用監視</string>
     <string name="tcpdump_enable_monitoring">啟用監視</string>
     <string name="tcpdump_show_results">顯示結果</string>
-    <string name="tcpdump_redirect_dialog_title">重新導向網域</string>
     <string name="tcpdump_menu_sort">排序網域</string>
     <string name="tcpdump_menu_clear">清除記錄</string>
-    <string name="tcpdump_sort_alphabetical">依照字母順序排序</string>
-    <string name="tcpdump_sort_top_level_domain">頂級網域排序</string>
     <string name="tcpdump_entry_add_blacklist">加入項目至黑名單</string>
     <string name="tcpdump_entry_add_whitelist">加入項目至白名單</string>
     <string name="tcpdump_entry_add_redirection_list">加入項目至重新導向清單</string>

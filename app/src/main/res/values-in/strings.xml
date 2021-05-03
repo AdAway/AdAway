@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Keluar</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Tampilkan semua bantuan</string>
     <string name="icon_update_status">Keterangan pembaharuan</string>
     <string name="text_update">Semua file hosts dari sumber yang ditentukan sudah didownload dan digabungkan dengan daftar anda dan dipasang menjadi satu file host dalam sistem anda.</string>
-    <string name="button_check_update_hosts">Memeriksa pembaruan</string>
-    <string name="button_update_hosts">Perbaharui daftar</string>
     <string name="button_enable_hosts">Hidupkan pemblokir iklan</string>
     <string name="button_disable_hosts">Matikan pemblokir iklan</string>
     <string name="header_webserver">Layanan perambah</string>
@@ -107,12 +105,12 @@
     <string name="apply_symlink_fail">Symlink tidak dapat di buat oleh Android.\nKebanyakan ini gagal karena \'fitur\' yang disebut S-ON pada ponsel HTC!\n\nSolusi untuk masalah ini adalah dengan masuk ke mode recovery lalu buat symlink dengan perintah \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nJika masih tidak mempan carilah di Internet cara untuk S-OFF ponselmu.</string>
     <string name="apply_symlink_fail_title">Pembuatan symlink gagal</string>
     <string name="apply_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
-    <string name="apply_apn_proxy">Sebuah proksi APN terkonfigurasi pada Android mu!\nAdAway mungkin tidak berdungsi semestinya pada jaringan seperti 3G. Kamu bisa mematikan proksi pada APN terkonfigurasi (Pengaturan aplikasi: Jaringan &amp; Internet -> Jaringan Mobile -> Lanjutan -> Nama Akses Poin) dan hapus nilai pada kolom proksi.</string>
+    <string name="apply_apn_proxy">Sebuah proksi APN terkonfigurasi pada Android mu!\nAdAway mungkin tidak berdungsi semestinya pada jaringan seperti 3G. Kamu bisa mematikan proksi pada APN terkonfigurasi (Pengaturan aplikasi: Jaringan &amp; Internet -&gt; Jaringan Mobile -&gt; Lanjutan -&gt; Nama Akses Poin) dan hapus nilai pada kolom proksi.</string>
     <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
     <string name="no_connection">Koneksi internet tidak berfungsi.</string>
     <string name="no_connection_title">Tidak ada koneksi</string>
-    <string name="download_dialog">Sedang mendownload...</string>
-    <string name="apply_dialog">Menerapkan perubahan...</string>
+    <string name="download_dialog">Sedang mendownload…</string>
+    <string name="apply_dialog">Menerapkan perubahan…</string>
     <string name="apply_dialog_lists">Menerapkan daftar hitam dan putih</string>
     <string name="apply_dialog_hostnames">Mengakses dan menggabungkan file host</string>
     <string name="apply_dialog_hosts">Menyusun file hosts</string>
@@ -166,7 +164,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Disini Anda dapat menemukan adware yang terpasang, aplikasi jelek yang tidak dapat diblok oleh AdAway. Aplikasi ini digunakan sebagai contoh, notifikasi Airpush yang muncul ketika aplikasi tidak berjalan ataupun mengganti ringtonemu. Satu-satunya penanggulangan yang tersedia adalah melepas aplikasi-aplikasi tersebut dengan mengklik pada daftar item.</string>
-    <string name="adware_scanning">Memindai&#8230;</string>
+    <string name="adware_scanning">Memindai…</string>
     <string name="adware_empty">Adware tidak ditemukan!</string>
 
     <!--Other-->
@@ -182,11 +180,8 @@
     <string name="tcpdump_disable_monitoring">Matikan pemantauan</string>
     <string name="tcpdump_enable_monitoring">Hidupkan pemantauan</string>
     <string name="tcpdump_show_results">Tampilkan hasil</string>
-    <string name="tcpdump_redirect_dialog_title">Alihkan domain</string>
     <string name="tcpdump_menu_sort">Sortir domain</string>
     <string name="tcpdump_menu_clear">Bersihkan catatan</string>
-    <string name="tcpdump_sort_alphabetical">Urutkan sesuai abjad</string>
-    <string name="tcpdump_sort_top_level_domain">Urutkan sesuai TLD</string>
     <string name="tcpdump_entry_add_blacklist">Tambahkan pada daftar hitam</string>
     <string name="tcpdump_entry_add_whitelist">Tambahkan pada daftar putih</string>
     <string name="tcpdump_entry_add_redirection_list">Tambahkan pada daftar pengalihan</string>
