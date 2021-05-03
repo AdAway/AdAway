@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Išeiti</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Parodyti daugiau pagalbos</string>
     <string name="icon_update_status">Atnaujinti būseną</string>
     <string name="text_update">Visi hosts failai atsiųsti ir apjungti su įdiegtu hosts failu.</string>
-    <string name="button_check_update_hosts">Ieškoti atnaujinimų</string>
-    <string name="button_update_hosts">Atnaujinti hosts failą</string>
     <string name="button_enable_hosts">Įjungti reklamų blokavimą</string>
     <string name="button_disable_hosts">Išjungti reklamų blokavimą</string>
     <string name="header_webserver">Web tinklo serveris</string>
@@ -107,7 +105,7 @@
     <string name="apply_symlink_fail">Symlink nuoroda jūsų įrenginyje negalėjo būti sukurta.\nTaip įvyksta dėl \'funkcijos\' pavadinimu S-ON HTC telefonuose!\n\nA Sprendimas yra įjungti jūsų įrenginį į atsarginių kopijų rėžimą recovery mode ir sukurti nuorodą symlink, ten, naudojant \'In -s /data/data/hosts /system/etc/hosts\'.\n\n Jei nesuveiks jums reikės internete surasti S-OFF jūsų įrenginiui.</string>
     <string name="apply_symlink_fail_title">Nepavyko sukurti symlink</string>
     <string name="apply_help">Detalesnę informaciją rasite skiltyje Pagalba</string>
-    <string name="apply_apn_proxy">APN proxy serveris yra įjungtas jūsų įrenginyje!\nAdAway neveiks patikimai kai naujomi mobilieji tinklai kaip 3G. Jūs galite deaktyvuoti jūsų proxy pasirenkant jūsų pasirinktą APN (Nustatymuose: Tinklas  &amp; Internetas -> Mobilusis tinklas -> Sudėtingiau -> Prieigų Taškų Pavadinimai) ir ištrinti adresą iš proxy laukelio.</string>
+    <string name="apply_apn_proxy">APN proxy serveris yra įjungtas jūsų įrenginyje!\nAdAway neveiks patikimai kai naujomi mobilieji tinklai kaip 3G. Jūs galite deaktyvuoti jūsų proxy pasirenkant jūsų pasirinktą APN (Nustatymuose: Tinklas  &amp; Internetas -&gt; Mobilusis tinklas -&gt; Sudėtingiau -&gt; Prieigų Taškų Pavadinimai) ir ištrinti adresą iš proxy laukelio.</string>
     <string name="apply_apn_proxy_title">APN proxy nustatytas!</string>
     <string name="no_connection">Prisijungti pire interneto nepavyko.</string>
     <string name="no_connection_title">Nėra Interneto</string>
@@ -166,7 +164,7 @@
     <!--Adware-->
     <string name="adware_header">Adware Reklamų virusas</string>
     <string name="adware_description">Čia jūs galite rasti blogas programas kurios negali būti užblokuotos AdAway programoje. Šios programos naudoja Airpush pranėšimus, kurie iššoka net jei ir programa išjungta, gali net pakeisti skambučio toną. Vienintelis būdas to išvengti - Ištrinti šias programas paspaudžiant ant programų sarašo.</string>
-    <string name="adware_scanning">Skanuojama&#8230;</string>
+    <string name="adware_scanning">Skanuojama…</string>
     <string name="adware_empty">Nerasta Adware Reklamų virusų.</string>
 
     <!--Other-->
@@ -182,11 +180,8 @@
     <string name="tcpdump_disable_monitoring">Išjungti sekimą</string>
     <string name="tcpdump_enable_monitoring">įjungti sekimą</string>
     <string name="tcpdump_show_results">Parodyti rezultatus</string>
-    <string name="tcpdump_redirect_dialog_title">Nukreipti domeną</string>
     <string name="tcpdump_menu_sort">Rūsiuoti domenus</string>
     <string name="tcpdump_menu_clear">Išvalyti surinktą informaciją</string>
-    <string name="tcpdump_sort_alphabetical">Alfabetinis rūšiavimas</string>
-    <string name="tcpdump_sort_top_level_domain">Viršutinio lygio domeno rūšiavimas</string>
     <string name="tcpdump_entry_add_blacklist">Įdėti įėjima į juodą sąrašą</string>
     <string name="tcpdump_entry_add_whitelist">Įdėti įėjimą į baltajį sąrašą</string>
     <string name="tcpdump_entry_add_redirection_list">Įdėti įėjima į nukreipimo sąrašą</string>

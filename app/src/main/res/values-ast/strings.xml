@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Colar</string>
@@ -14,7 +14,6 @@
     <string name="header_help">¡Afáyate!</string>
     <string name="text_help">Adaway ye un programa gratuitu y de códigu abiertu diseñáu pa bloquiar anuncios. Va en cata de les direiciones de les redes d\'anuncios pa bloquiales nel preséu.\n¿Quies saber más? ¡Mira l\'ayuda d\'embaxo!</string>
     <string name="text_update">Tolos ficheros «Hosts» de les fontes defeníes báxense, amiéstense coles tos propies llistes ya instálense como un ficheru «Hosts» nel sistema.</string>
-    <string name="button_check_update_hosts">Comprobar anovamientos</string>
     <string name="button_enable_hosts">Activar el bloquéu d\'anuncios</string>
     <string name="header_webserver">Sirvidor web</string>
     <string name="webserver_status_running">N\'execución</string>
@@ -111,7 +110,6 @@
     <string name="tcpdump_disable_monitoring">Desactivar la supervisión</string>
     <string name="tcpdump_enable_monitoring">Activar la supervisión</string>
     <string name="tcpdump_show_results">Amosar resultaos</string>
-    <string name="tcpdump_sort_alphabetical">Orde alfabéticu</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>

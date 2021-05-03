@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">خروج</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">إظهار المزيد من المساعدة</string>
     <string name="icon_update_status">حالة التحديث</string>
     <string name="text_update">جميع ملفات المضيف ستحمل و ستدمج مع قوائمك و ستثبت في ملف واحد على نظامك.</string>
-    <string name="button_check_update_hosts">التحقق من وجود تحديثات</string>
-    <string name="button_update_hosts">تحديث ملفات المضيف</string>
     <string name="button_enable_hosts">تشغيل حجب الإعلانات</string>
     <string name="button_disable_hosts">إيقاف حجب الإعلانات</string>
     <string name="header_webserver">خادم الويب</string>
@@ -184,11 +182,8 @@
     <string name="tcpdump_disable_monitoring">إيقاف المُراقبة</string>
     <string name="tcpdump_enable_monitoring">تشغيل المُراقبة</string>
     <string name="tcpdump_show_results">عرض النتائج</string>
-    <string name="tcpdump_redirect_dialog_title">إعادة توجيه الـ domain</string>
     <string name="tcpdump_menu_sort">ترتيب الـ domains</string>
     <string name="tcpdump_menu_clear">محي السّجلّ</string>
-    <string name="tcpdump_sort_alphabetical">ترتيب أبجدي</string>
-    <string name="tcpdump_sort_top_level_domain">ترتيب Top level domain</string>
     <string name="tcpdump_entry_add_blacklist">إضافة المُدخَل للقائمة السوداء</string>
     <string name="tcpdump_entry_add_whitelist">إضافة المُدخَل للقائمة البيضاء</string>
     <string name="tcpdump_entry_add_redirection_list">إضافة المُدخَل إلى قائمة إعادة التوجيه</string>

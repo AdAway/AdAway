@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Έξοδος</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Εμφάνιση περισσότερης βοήθειας</string>
     <string name="icon_update_status">Κατάσταση ενημέρωσης</string>
     <string name="text_update">Όλα τα αρχεία hosts από τις πηγές που ορίστηκαν λήφθηκαν, συγχωνεύθηκαν με τις δικές σας λίστες και εγκαταστάθηκαν ως ένα αρχείο hosts στο σύστημά σας.</string>
-    <string name="button_check_update_hosts">Έλεγχος για ενημερώσεις</string>
-    <string name="button_update_hosts">Ενημέρωση του αρχείου hosts</string>
     <string name="button_enable_hosts">Ενεργοποίηση του αποκλεισμού διαφημίσεων</string>
     <string name="button_disable_hosts">Απενεργοποίηση του αποκλεισμού διαφημίσεων</string>
     <string name="header_webserver">Διακομιστής διαδικτύου</string>
@@ -125,12 +123,12 @@
 Αν αυτό δεν επιτύχει, αναζητήστε στο Internet για S-OFF και το μοντέλο της συσκευής σας.</string>
     <string name="apply_symlink_fail_title">Η δημιουργία συντόμευσης απέτυχε</string>
     <string name="apply_help">Παρακαλούμε ανατρέξτε στην Βοήθεια για περισσότερες πληροφορίες</string>
-    <string name="apply_apn_proxy">Ένας διαμεσολαβητής APN είναι ορίσμενος στο Android σας!\nΤο AdAway δεν λειτουργεί αξιόπιστα  σε δίκυτα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Απο τα Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) και να αφαιρέσετε την τιμή στο πεδίο proxy.</string>
+    <string name="apply_apn_proxy">Ένας διαμεσολαβητής APN είναι ορίσμενος στο Android σας!\nΤο AdAway δεν λειτουργεί αξιόπιστα  σε δίκυτα κινητής τηλεφωνίας όπως 3G. Μπορείτε να απενεργοποιήσετε τον διαμεσολαβητή πηγαίνοντας στο επιλεγμένο APN (Απο τα Settings app: Network &amp; Internet -&gt; Mobile network -&gt; Advanced -&gt; Access Point Names) και να αφαιρέσετε την τιμή στο πεδίο proxy.</string>
     <string name="apply_apn_proxy_title">Υπάρχει ορισμένος διαμεσολαβητής APN!</string>
     <string name="no_connection">Η σύνδεση στο ίντερνετ δεν λειτουργεί</string>
     <string name="no_connection_title">Αδυναμία συνδεσης</string>
-    <string name="download_dialog">Λήψη...</string>
-    <string name="apply_dialog">Εφαρμογή...</string>
+    <string name="download_dialog">Λήψη…</string>
+    <string name="apply_dialog">Εφαρμογή…</string>
     <string name="apply_dialog_lists">Εφαρμογή Λευκής και Μαύρης λίστας</string>
     <string name="apply_dialog_hostnames">Ανάλυση και συγχώνευση αρχείων hosts</string>
     <string name="apply_dialog_hosts">Δημιουργία αρχείου hosts</string>
@@ -188,7 +186,7 @@
     <!--Adware-->
     <string name="adware_header">Κακόβουλο λογισμικό διαφημίσεων</string>
     <string name="adware_description">Εδώ μπορείτε να βρείτε τα εγκατεστημένα κακόβουλα λογισμικά διαφημίσεων, εφαρμογές τις οποίες το AdAway δεν μπορεί να αποκλείσει. Αυτές οι εφαρμογές χρησιμοποιούν, για παράδειγμα, ειδοποιήσεις Airpush οι οποίες εμφανίζονται ακόμα και όταν οι κακόβουλες εφαρμογές δεν εκτελούνται, ενώ μπορούν ακόμα να αλλάξουν και τον ήχο κλήσης σας. Η μόνη διαθέσιμη μέθοδος αντιμετώπισής του είναι να τις απεγκαταστήσετε, κάνοντας κλικ στα περιεχόμενα της λίστας.</string>
-    <string name="adware_scanning">Σάρωση&#8230;</string>
+    <string name="adware_scanning">Σάρωση…</string>
     <string name="adware_empty">Δεν βρέθηκαν Adware!</string>
 
     <!--Other-->
@@ -208,11 +206,8 @@
     <string name="tcpdump_disable_monitoring">Απενεργοποίηση παρακολούθησης</string>
     <string name="tcpdump_enable_monitoring">Ενεργοποίηση παρακολούθησης</string>
     <string name="tcpdump_show_results">Εμφάνιση αποτελεσμάτων</string>
-    <string name="tcpdump_redirect_dialog_title">Τομέας ανακατεύθυνσης</string>
     <string name="tcpdump_menu_sort">Ταξινόμηση τομέω</string>
     <string name="tcpdump_menu_clear">Εκκαθάριση αρχείου καταγραφής</string>
-    <string name="tcpdump_sort_alphabetical">Ταξινόμηση αλφαβητικά</string>
-    <string name="tcpdump_sort_top_level_domain">Ταξινόμηση κατά τομέα ανώτατου επιπέδου</string>
     <string name="tcpdump_entry_add_blacklist">Προσθήκη καταχώρησης στη μαύρη λίστα</string>
     <string name="tcpdump_entry_add_whitelist">Προσθήκη καταχώρησης στη λευκή λίστα</string>
     <string name="tcpdump_entry_add_redirection_list">Προσθήκη καταχώρησης στη λίστα ανακατεύθυνσης</string>

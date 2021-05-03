@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Sair</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Mostrar mais ajuda</string>
     <string name="icon_update_status">Estado da atualização</string>
     <string name="text_update">Todos os ficheiros hosts das fontes definidas foram transferidos, unidos com as suas próprias listas e instalados como um único ficheiro hosts no seu sistema.</string>
-    <string name="button_check_update_hosts">Procurar atualizações</string>
-    <string name="button_update_hosts">Atualizar hosts</string>
     <string name="button_enable_hosts">Ativar bloqueio de anúncios</string>
     <string name="button_disable_hosts">Desativar bloqueio de anúncios</string>
     <string name="header_webserver">Servidor web</string>
@@ -162,11 +160,8 @@
     <string name="tcpdump_disable_monitoring">Desativar monitorização</string>
     <string name="tcpdump_enable_monitoring">Ativar monitorização</string>
     <string name="tcpdump_show_results">Mostrar resultados</string>
-    <string name="tcpdump_redirect_dialog_title">Domínio de redirecionamento</string>
     <string name="tcpdump_menu_sort">Ordenar domínios</string>
     <string name="tcpdump_menu_clear">Limpar registo</string>
-    <string name="tcpdump_sort_alphabetical">Ordenar alfabeticamente</string>
-    <string name="tcpdump_sort_top_level_domain">Ordenação do domínio de nível superior</string>
     <string name="tcpdump_entry_add_blacklist">Adicionar entrada à lista negra</string>
     <string name="tcpdump_entry_add_whitelist">Adicionar entrada à lista branca</string>
     <string name="tcpdump_entry_add_redirection_list">Adicionar entrada à lista de redirecionamentos</string>
