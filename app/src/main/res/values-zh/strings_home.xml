@@ -13,9 +13,14 @@
     <plurals name="outdated_source_label">
         <item quantity="other">%d 个需更新来源</item>
     </plurals>
+    <string name="check_hosts_update_description">检查主机文件更新</string>
+    <string name="update_hosts_description">更新 hosts</string>
+
+    <!-- Log card -->
+    <string name="log_label">显示 DNS 请求记录</string>
 
     <!-- Help card -->
-    <string name="help_label">显示帮助</string>
+    <string name="help_label">显示帮助\n和提示</string>
 
     <!-- Project card -->
     <string name="project_label">打开 GitHub 页面</string>
@@ -24,6 +29,7 @@
     <string name="support_label">支持本项目</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Github 项目</string>
     <string name="preferences_drawer_item">首选项</string>
 
     <!-- App bar buttons -->
