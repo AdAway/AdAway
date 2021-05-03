@@ -15,9 +15,14 @@
         <item quantity="one">%d sorgente obsoleta</item>
         <item quantity="other">%d sorgenti obsolete</item>
     </plurals>
+    <string name="check_hosts_update_description">Controlla aggiornamenti host</string>
+    <string name="update_hosts_description">Aggiorna gli hosts</string>
+
+    <!-- Log card -->
+    <string name="log_label">Mostra registro richieste DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Aiuto</string>
+    <string name="help_label">Mostra aiuto\suggerimenti</string>
 
     <!-- Project card -->
     <string name="project_label">GitHub</string>
@@ -26,6 +31,7 @@
     <string name="support_label">Supporto</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Progetto GitHub</string>
     <string name="preferences_drawer_item">Impostazioni</string>
 
     <!-- App bar buttons -->
