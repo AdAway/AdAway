@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">יציאה</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">הצג עזרה נוספת</string>
     <string name="icon_update_status">מצב העדכון</string>
     <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ מארחים יחיד במערכת..</string>
-    <string name="button_check_update_hosts">בדיקת עדכונים</string>
-    <string name="button_update_hosts">עדכן מארחים</string>
     <string name="button_enable_hosts">הפעל חסימת פרסומות</string>
     <string name="button_disable_hosts">בטל חסימת פרסומות</string>
     <string name="header_webserver">שרת Web</string>
@@ -149,7 +147,7 @@
 
     <!--Adware-->
     <string name="adware_header">תוכנת פירסום</string>
-    <string name="adware_scanning">סורק&#8230;</string>
+    <string name="adware_scanning">סורק…</string>
     <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
 
     <!--Other-->
@@ -165,11 +163,8 @@
     <string name="tcpdump_disable_monitoring">בטל ניטור</string>
     <string name="tcpdump_enable_monitoring">הפעל ניטור</string>
     <string name="tcpdump_show_results">הצג תוצאות</string>
-    <string name="tcpdump_redirect_dialog_title">הפניית דומיין</string>
     <string name="tcpdump_menu_sort">מיין דומיין</string>
     <string name="tcpdump_menu_clear">נקה לוג</string>
-    <string name="tcpdump_sort_alphabetical">מיון אלפביתי</string>
-    <string name="tcpdump_sort_top_level_domain">מיון דומיין ברמה העליונה</string>
     <string name="tcpdump_entry_add_blacklist">הוסף לרשימה שחורה</string>
     <string name="tcpdump_entry_add_whitelist">הוסף לרשימה לבנה</string>
     <string name="tcpdump_entry_add_redirection_list">הוסף לרשימת הפניות</string>

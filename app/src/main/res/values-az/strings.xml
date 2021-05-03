@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Çıxış</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Daha çox kömək göstər</string>
     <string name="icon_update_status">Yeniləmə vəziyəti</string>
     <string name="text_update">Bütün mənbə faylları yüklənmiş, şəxsi siyahınız ilə birləşdirilmiş və sisteminizdə tam bir host faylı kimi qurulmuşdur.</string>
-    <string name="button_check_update_hosts">Yeniləmələri yoxla</string>
-    <string name="button_update_hosts">Hostları yenilə</string>
     <string name="button_enable_hosts">Reklam-bloklamanı aç</string>
     <string name="button_disable_hosts">Reklam-bloklamanı bağla</string>
     <string name="header_webserver">Web serveri</string>

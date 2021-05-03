@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">وتون</string>
@@ -14,8 +14,6 @@
     <string name="header_help">ښه راغلاست!</string>
     <string name="text_help">اډاوې د ازادې سرچينې یو وړیا ساوتری دی کوم چې انګروزي تړي. دا د انګروزي شبکو پتې اخلي ترڅو ستاسې په وزله يې وتړي.n\نور معلومات غواړئ؟ د مرستې لپاره لاندې وګورئ!</string>
     <string name="button_show_help">د نورې مرستې ښودل</string>
-    <string name="button_check_update_hosts">اوسمهالیزو لپاره وګورئ</string>
-    <string name="button_update_hosts">hosts اوسمهالول</string>
     <string name="button_enable_hosts">د انګروزيو تړل سالول</string>
     <string name="button_disable_hosts">د انګروزيو تړل بندول</string>
     <string name="header_webserver">ګورت پالنګر</string>
@@ -96,7 +94,7 @@
     <string name="apply_symlink_successful_title">د symlink پنځونه بريالۍ شوه</string>
     <string name="apply_symlink_fail_title">د symlink پنځونه نابريالۍ شوه</string>
     <string name="apply_help">مهرباني وکړئ، د لا نورو معلوماتو لپاره مرسته ولولئ.</string>
-    <string name="apply_apn_proxy">يو رسي ټکي نوم APN ګوډاګى ستاسې پر انډروېډ باندې امستل شوی دی!n/اډاوې به پر ګرځند شبکه لکه، 3جي، باندې باوري کار و نه کړي. تاسې کولای شئ چې هغه ګوډاګی ناچارند کړئ د خپل ټاکلي رسي ټکي نوم ته په تګ سره (د امستنو کاريال نه: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) او بیا د ګوډاګي ډګر نه ارزښت لېرې کړئ.</string>
+    <string name="apply_apn_proxy">يو رسي ټکي نوم APN ګوډاګى ستاسې پر انډروېډ باندې امستل شوی دی!n/اډاوې به پر ګرځند شبکه لکه، 3جي، باندې باوري کار و نه کړي. تاسې کولای شئ چې هغه ګوډاګی ناچارند کړئ د خپل ټاکلي رسي ټکي نوم ته په تګ سره (د امستنو کاريال نه: Network &amp; Internet -&gt; Mobile network -&gt; Advanced -&gt; Access Point Names) او بیا د ګوډاګي ډګر نه ارزښت لېرې کړئ.</string>
     <string name="apply_apn_proxy_title">رسي ټکي نوم ګوډاګی امستل شو!</string>
     <string name="no_connection">انټرنېټ پيوستون کار نه کوي.</string>
     <string name="no_connection_title">پیوستون نشته</string>
@@ -159,7 +157,6 @@
     <string name="tcpdump_show_results">پایلو ښودل</string>
     <string name="tcpdump_menu_sort">شپولو اڼل </string>
     <string name="tcpdump_menu_clear">خبرال پاکول</string>
-    <string name="tcpdump_sort_alphabetical">آبڅیز اڼل</string>
     <string name="tcpdump_entry_add_blacklist">تور لړ کښې د ننوت زیاتول</string>
     <string name="tcpdump_entry_add_whitelist">سپين لړ کښې د ننوت زیاتول</string>
     <string name="drawer_open">غورنۍ پرانيځئ</string>

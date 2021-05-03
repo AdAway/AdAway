@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Salir</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Mostrar más ayuda</string>
     <string name="icon_update_status">Actualizar estado</string>
     <string name="text_update">Se descargarán todos los archivos hosts de las fuentes definidas, se combinarán con las listas propias y se instalarán como un solo archivo hosts en el sistema.</string>
-    <string name="button_check_update_hosts">Comprobar actualizaciones</string>
-    <string name="button_update_hosts">Actualizar hosts</string>
     <string name="button_enable_hosts">Habilitar bloqueo de anuncios</string>
     <string name="button_disable_hosts">Inhabilitar bloqueo de anuncios</string>
     <string name="header_webserver">Servidor web</string>
@@ -104,7 +102,7 @@
     <string name="apply_symlink_fail">Android no pudo crear el vínculo simbólico.\nEs probable que se deba a una función llamada S-ON de los teléfonos HTC.\n\nPara solucionar este problema, puedes iniciar el teléfono en modo de recuperación y crear el vínculo simbólico desde allí con el comando “ln -s /data/data/hosts /system/etc/hosts”.\n\nSi esta solución no funciona, busca en Internet cómo inhabilitar S-ON en el teléfono.</string>
     <string name="apply_symlink_fail_title">No se pudo crear el vínculo simbólico</string>
     <string name="apply_help">Para obtener más información, consulta la ayuda.</string>
-    <string name="apply_apn_proxy">El dispositivo Android tiene configurado un proxy de APN.\nAdAway no funcionará de manera confiable en redes móviles como 3G. Puedes desactivar el proxy desde el APN seleccionado. Para ello, ve a la app de Configuración > Internet y red > Red móvil > Avanzada > Nombres de puntos de acceso y quita el valor del campo Proxy.</string>
+    <string name="apply_apn_proxy">El dispositivo Android tiene configurado un proxy de APN.\nAdAway no funcionará de manera confiable en redes móviles como 3G. Puedes desactivar el proxy desde el APN seleccionado. Para ello, ve a la app de Configuración &gt; Internet y red &gt; Red móvil &gt; Avanzada &gt; Nombres de puntos de acceso y quita el valor del campo Proxy.</string>
     <string name="apply_apn_proxy_title">Se detectó un proxy de APN</string>
     <string name="no_connection">La conexión a Internet no funciona.</string>
     <string name="no_connection_title">No hay conexión</string>
@@ -179,11 +177,8 @@
     <string name="tcpdump_disable_monitoring">Inhabilitar supervisión</string>
     <string name="tcpdump_enable_monitoring">Habilitar supervisión</string>
     <string name="tcpdump_show_results">Mostrar resultados</string>
-    <string name="tcpdump_redirect_dialog_title">Redirigir dominio</string>
     <string name="tcpdump_menu_sort">Ordenar dominios</string>
     <string name="tcpdump_menu_clear">Limpiar registro</string>
-    <string name="tcpdump_sort_alphabetical">Orden alfabético</string>
-    <string name="tcpdump_sort_top_level_domain">Orden por dominio de nivel superior</string>
     <string name="tcpdump_entry_add_blacklist">Agregar entrada a la lista negra</string>
     <string name="tcpdump_entry_add_whitelist">Agregar entrada a la lista blanca</string>
     <string name="tcpdump_entry_add_redirection_list">Agregar entrada a la lista de redirección</string>

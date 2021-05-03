@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Thoát</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Hiện thêm trợ giúp</string>
     <string name="icon_update_status">Cập nhật tình trạng</string>
     <string name="text_update">Tất cả các tập tin miền từ nguồn xác định sẽ được tải về, ghép với danh sách của bạn và cài đặt thành một tập tin miền duy nhất trên hệ thống.</string>
-    <string name="button_check_update_hosts">Kiểm tra cập nhật</string>
-    <string name="button_update_hosts">Cập nhật file hosts</string>
     <string name="button_enable_hosts">Bật chặn quảng cáo</string>
     <string name="button_disable_hosts">Tắt chặn quảng cáo</string>
     <string name="header_webserver">Máy chủ web</string>
@@ -111,7 +109,7 @@
     <string name="apply_symlink_fail">Liên kết biểu tượng không thể được tạo bởi Android.\nViệc này thất bại phần lớn vì một \'tính năng\' gọi là S-ON trên các điện thoại HTC!\n\nMột giải pháp là khởi động điện thoại của bạn vào chế độ phục hồi và tạo liên kết biểu tượng ở đó bằng lệnh \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu việc này không được thì hãy tìm kiếm S-OFF và điện thoại của bạn trên Internet.</string>
     <string name="apply_symlink_fail_title">Tạo liên kết biểu trưng thất bại</string>
     <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
-    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) and remove the value in the proxy field. </string>
+    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -&gt; Mobile network -&gt; Advanced -&gt; Access Point Names) and remove the value in the proxy field. </string>
     <string name="apply_apn_proxy_title">Đã tạo proxy APN!</string>
     <string name="no_connection">Kết nối mạng không hoạt động.</string>
     <string name="no_connection_title">Không có kết nối</string>
@@ -170,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Ở đây bạn có thể tìm thấy ứng dụng quảng cáo, đó là những ứng dụng xấu không thể bị chặn bởi AdAway. Các ứng dụng này sử dụng, ví dụ là các thông báo Airpush hiện lên kể cả khi ứng dụng đó không chạy hoặc kể cả là thay đổi nhạc chuông của bạn. Biện pháp phản lại duy nhất có sẵn là gỡ cài đặt các ứng dụng đó bằng cách nhấn vào các mục trong danh sách.</string>
-    <string name="adware_scanning">Đang quét&#8320;</string>
+    <string name="adware_scanning">Đang quét₀</string>
     <string name="adware_empty">Không tìm thấy Adware!</string>
 
     <!--Other-->
@@ -186,11 +184,8 @@
     <string name="tcpdump_disable_monitoring">Tắt giám sát</string>
     <string name="tcpdump_enable_monitoring">Bật giám sát</string>
     <string name="tcpdump_show_results">Hiện kết quả</string>
-    <string name="tcpdump_redirect_dialog_title">Chuyển hướng miền</string>
     <string name="tcpdump_menu_sort">Sắp xếp theo tên miền</string>
     <string name="tcpdump_menu_clear">Xoá log</string>
-    <string name="tcpdump_sort_alphabetical">Sắp xếp theo thứ tự chữ cái</string>
-    <string name="tcpdump_sort_top_level_domain">Sắp xếp miền cấp trên cùng</string>
     <string name="tcpdump_entry_add_blacklist">Thêm mục vào danh sách đen</string>
     <string name="tcpdump_entry_add_whitelist">Thêm mục vào danh sách trắng</string>
     <string name="tcpdump_entry_add_redirection_list">Thêm mục vào danh sách chuyển hướng</string>
