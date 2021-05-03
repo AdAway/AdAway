@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">종료</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">도움말 더보기</string>
     <string name="icon_update_status">업데이트 상태</string>
     <string name="text_update">지정한 소스의 모든 호스트 파일이 사용자 목록과 다운로드 및 병합되었고 시스템에 하나의 호스트 파일로 설치되었습니다.</string>
-    <string name="button_check_update_hosts">업데이트 확인</string>
-    <string name="button_update_hosts">호스트 업데이트</string>
     <string name="button_enable_hosts">광고차단 활성화</string>
     <string name="button_disable_hosts">광고차단 비활성화</string>
     <string name="header_webserver">웹 서버</string>
@@ -107,7 +105,7 @@
     <string name="apply_symlink_fail">안드로이드가 심링크를 생성하지 못하였습니다.\n이것은 대부분 HTC 전화기의 S-ON이라 불리는 \'기능\'이 원인입니다!\n\n해결을 위해 전화기를 복구 모드로 부팅한 후 \'ln -s /data/data/hosts /system/etc/hosts\'에서 심링크를 생성하십시오.\n\n이 방법이 작동하지 않을 경우 인터넷에서 S-OFF 및 전화기 기종을 검색하십시오.</string>
     <string name="apply_symlink_fail_title">심링크 생성 실패</string>
     <string name="apply_help">더 많은 정보는 도움말을 참조해주십시오.</string>
-    <string name="apply_apn_proxy">안드로이드에 APN 프록시가 설정되어 있습니다!\nAdAway는 3G와 같은 모바일 네트워크 상에서 안정적으로 작동하지 않습니다. 선택한 APN (설정 앱에서: 네트워크 및 인터넷 -> 모바일 네트워크 -> 고급 -> 액세스 포인트 이름)으로 이동하여 해당 프록시를 비활성화하고 프록시 입력란에 값을 제거할 수 있습니다.</string>
+    <string name="apply_apn_proxy">안드로이드에 APN 프록시가 설정되어 있습니다!\nAdAway는 3G와 같은 모바일 네트워크 상에서 안정적으로 작동하지 않습니다. 선택한 APN (설정 앱에서: 네트워크 및 인터넷 -&gt; 모바일 네트워크 -&gt; 고급 -&gt; 액세스 포인트 이름)으로 이동하여 해당 프록시를 비활성화하고 프록시 입력란에 값을 제거할 수 있습니다.</string>
     <string name="apply_apn_proxy_title">APN 프록시가 설정됨!</string>
     <string name="no_connection">인터넷에 연결되지않아 작동하지않습니다</string>
     <string name="no_connection_title">연결 끊김</string>
@@ -166,7 +164,7 @@
     <!--Adware-->
     <string name="adware_header">애드웨어</string>
     <string name="adware_description">여기서 AdAway로 차단되지 않는 불량 애드웨어 앱을 검색할 수 있습니다. 이 앱들은 앱이 실행 중이지 않을 때나 벨소리를 변경할 때도 팝업 형식으로 나타나는 Alrpush 같은 알림을 사용합니다. 사용 가능한 유일한 대책은 목록 아이템을 클릭하여 제거하는 것입니다.</string>
-    <string name="adware_scanning">스캔중&#8230;</string>
+    <string name="adware_scanning">스캔중…</string>
     <string name="adware_empty">애드웨어가 없습니다!</string>
 
     <!--Other-->
@@ -182,11 +180,8 @@
     <string name="tcpdump_disable_monitoring">감시 비활성화</string>
     <string name="tcpdump_enable_monitoring">감시 활성화</string>
     <string name="tcpdump_show_results">결과 보기</string>
-    <string name="tcpdump_redirect_dialog_title">도메인 리다이렉트</string>
     <string name="tcpdump_menu_sort">도메인 정렬</string>
     <string name="tcpdump_menu_clear">로그 지우기</string>
-    <string name="tcpdump_sort_alphabetical">알파벳순 정렬</string>
-    <string name="tcpdump_sort_top_level_domain">레벨순 정렬</string>
     <string name="tcpdump_entry_add_blacklist">블랙리스트에 추가</string>
     <string name="tcpdump_entry_add_whitelist">화이트리스트에 추가</string>
     <string name="tcpdump_entry_add_redirection_list">리다이렉트 리스트에 추가</string>

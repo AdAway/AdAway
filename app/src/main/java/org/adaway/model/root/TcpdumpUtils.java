@@ -48,7 +48,7 @@ class TcpdumpUtils {
     private static final String TAG = "TCPDUMP";
     private static final String TCPDUMP_EXECUTABLE = "tcpdump";
     private static final String TCPDUMP_LOG = "dns_log.txt";
-    private static final String TCPDUMP_HOSTNAME_REGEX = ".*(A\\?|AAAA\\?)\\s(\\S+)\\.\\s.*";
+    private static final String TCPDUMP_HOSTNAME_REGEX = "(?:A\\?|AAAA\\?)\\s(\\S+)\\.\\s";
     private static final Pattern TCPDUMP_HOSTNAME_PATTERN = Pattern.compile(TCPDUMP_HOSTNAME_REGEX);
 
     /**
@@ -193,8 +193,8 @@ class TcpdumpUtils {
      */
     private static String getTcpdumpHostname(String input) {
         Matcher tcpdumpHostnameMatcher = TCPDUMP_HOSTNAME_PATTERN.matcher(input);
-        if (tcpdumpHostnameMatcher.matches()) {
-            return tcpdumpHostnameMatcher.group(2);
+        if (tcpdumpHostnameMatcher.find()) {
+            return tcpdumpHostnameMatcher.group(1);
         } else {
             Log.d(TAG, "Does not find: " + input);
             return null;

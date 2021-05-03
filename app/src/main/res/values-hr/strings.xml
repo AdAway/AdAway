@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Zatvori</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Prikaži više pomoći</string>
     <string name="icon_update_status">Stanje ažuriranja</string>
     <string name="text_update">Sve datoteke poslužitelja su preuzete sa određenih izvora, spojene s vašim popisima i instalirane kao jedna datoteka na vašem sustavu.</string>
-    <string name="button_check_update_hosts">Provjeri ažuriranja</string>
-    <string name="button_update_hosts">Nadopuni poslužitelje</string>
     <string name="button_enable_hosts">Omogući blokiranje oglasa</string>
     <string name="button_disable_hosts">Onemogući blokiranje oglasa</string>
     <string name="header_webserver">Web poslužitelj</string>
@@ -99,12 +97,12 @@
     <string name="apply_symlink_fail">Simbolička poveznica se ne može stvoriti na Androidu.\nOvo uobičajeno ne uspijeva zbog \'značajke\' zvane S-ON na HTC telefonima!\n\nRješenje je u ponovnom pokretanju vašeg telefona u način oporavka i stvaranju simboličke poveznice sa naredbom \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nAko ovo ne radi potražite na internetu za S-OFF za vaš telefon.</string>
     <string name="apply_symlink_fail_title">Stvaranje simboličke poveznice je neuspješno</string>
     <string name="apply_help">Pročitajte pomoć za više informacija.</string>
-    <string name="apply_apn_proxy">APN proxy je postavljen na vašem Androidu!\nAdAway neće pouzdano raditi na mobilnim 3G mrežama. Taj proxy možete deaktivirati odlaskom na vaš odabrani APN (Iz aplikacije Postavke: Sim kartice -> Sim postavke -> Pristupne točke -> Uredi pristupnu točku) i obrišite podatak u proxy polju.</string>
+    <string name="apply_apn_proxy">APN proxy je postavljen na vašem Androidu!\nAdAway neće pouzdano raditi na mobilnim 3G mrežama. Taj proxy možete deaktivirati odlaskom na vaš odabrani APN (Iz aplikacije Postavke: Sim kartice -&gt; Sim postavke -&gt; Pristupne točke -&gt; Uredi pristupnu točku) i obrišite podatak u proxy polju.</string>
     <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
     <string name="no_connection">Povezivanje s internetom ne radi.</string>
     <string name="no_connection_title">Internet nedostupan</string>
-    <string name="download_dialog">Preuzimanje...</string>
-    <string name="apply_dialog">Primijenjivanje...</string>
+    <string name="download_dialog">Preuzimanje…</string>
+    <string name="apply_dialog">Primijenjivanje…</string>
     <string name="apply_dialog_lists">Primijenjivanje vaših blokiranih i neblokiranih popisa</string>
     <string name="apply_dialog_hostnames">Obrada i spajanje datoteka poslužitelja</string>
     <string name="apply_dialog_hosts">Izgradnja datoteke poslužitelja</string>
@@ -158,7 +156,7 @@
     <!--Adware-->
     <string name="adware_header">Zlonamjerne aplikacije</string>
     <string name="adware_description">Ovdje možete potražiti zlonamjerne aplikacije, loše aplikacije koje AdAway ne može blokirati. Te aplikacije koriste, na primjer, Airpush obavijesti koje se pojavljuju čak i ako aplikacija nije pokrenuta, a mogu čak promijeniti i melodiju vašeg zvona. Jedina moguća mjera koju možete poduzeti protiv takvih aplikacija je uklanjanje klikom na stavke popisa.</string>
-    <string name="adware_scanning">Pretraživanje&#8230;</string>
+    <string name="adware_scanning">Pretraživanje…</string>
     <string name="adware_empty">Nema pronađenih zlonamjernih aplikacija!</string>
 
     <!--Other-->
@@ -174,11 +172,8 @@
     <string name="tcpdump_disable_monitoring">Onemogći nadgledanje</string>
     <string name="tcpdump_enable_monitoring">Omogući nadgledanje</string>
     <string name="tcpdump_show_results">Prikaži rezultate</string>
-    <string name="tcpdump_redirect_dialog_title">Preusmjeri domenu</string>
     <string name="tcpdump_menu_sort">Razvrstaj domene</string>
     <string name="tcpdump_menu_clear">Obriši zapis</string>
-    <string name="tcpdump_sort_alphabetical">Abecedno razvrstavanje</string>
-    <string name="tcpdump_sort_top_level_domain">Ravrstavanje najviše razine</string>
     <string name="tcpdump_entry_add_blacklist">Dodaj unos u popis nedopuštenih</string>
     <string name="tcpdump_entry_add_whitelist">Dodaj unos u popis dopuštenih</string>
     <string name="tcpdump_entry_add_redirection_list">Dodaj unos u popis preusmjernih</string>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Välju</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Kuva rohkem abi</string>
     <string name="icon_update_status">Uuenduse olek</string>
     <string name="text_update">Kõik hosts-failid laetakse määratud allikatest, ühendatakse sinu loenditega ning paigaldatakse süsteemi ühe failina.</string>
-    <string name="button_check_update_hosts">Kontrolli uuendusi</string>
-    <string name="button_update_hosts">Uuenda hoste</string>
     <string name="button_enable_hosts">Luba reklaamiblokeering</string>
     <string name="button_disable_hosts">Keela reklaamiblokeering</string>
     <string name="header_webserver">Veebiserver</string>
@@ -117,11 +115,8 @@
     <string name="tcpdump_disable_monitoring">Keela monitoorimine</string>
     <string name="tcpdump_enable_monitoring">Luba monitoorimine</string>
     <string name="tcpdump_show_results">Kuva tulemused</string>
-    <string name="tcpdump_redirect_dialog_title">Suuna domeen</string>
     <string name="tcpdump_menu_sort">Sorteeri domeene</string>
     <string name="tcpdump_menu_clear">Tühjenda logi</string>
-    <string name="tcpdump_sort_alphabetical">Tähestikuline järjekord</string>
-    <string name="tcpdump_sort_top_level_domain">TLD järjekord</string>
     <string name="tcpdump_entry_add_blacklist">Lisa üksus musta loendisse</string>
     <string name="tcpdump_entry_add_whitelist">Lisa üksus valgesse loendisse</string>
     <string name="tcpdump_entry_add_redirection_list">Lisa üksus suunamisloendisse</string>

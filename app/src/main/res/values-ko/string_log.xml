@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">알파벳순 정렬</string>
+    <string name="log_sort_top_level_domain">레벨순 정렬</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">도메인 리다이렉트</string>
+</resources>

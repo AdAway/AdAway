@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
 
     <!-- Hosts card -->
@@ -30,7 +30,6 @@
     <string name="support_label">תמיכה בפרוייקט</string>
 
     <!-- App bar drawer -->
-    <string name="dns_log_drawer_item">לוג DNS</string>
     <string name="preferences_drawer_item">העדפות</string>
 
     <!-- App bar buttons -->

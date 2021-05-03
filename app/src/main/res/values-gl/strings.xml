@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Saír</string>
@@ -14,8 +14,6 @@
     <string name="header_help">Benvido!</string>
     <string name="button_show_help">Amosar máis axuda</string>
     <string name="icon_update_status">Estado da actualización</string>
-    <string name="button_check_update_hosts">Comprobar actualizacións</string>
-    <string name="button_update_hosts">Actualizar hosts</string>
     <string name="button_enable_hosts">Habilitar bloqueo de publicidade</string>
     <string name="button_disable_hosts">Deshabilitar bloqueo de publicidade</string>
     <string name="header_webserver">Servidor web</string>

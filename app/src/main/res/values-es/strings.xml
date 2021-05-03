@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Salir</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Mostrar más ayuda</string>
     <string name="icon_update_status">Estado de la actualización</string>
     <string name="text_update">Todos los archivos hosts de las fuentes especificadas se han descargado, se fusionan con tus propias listas y se instala como un archivo hosts en tu sistema.</string>
-    <string name="button_check_update_hosts">Buscar actualizaciones</string>
-    <string name="button_update_hosts">Actualizar hosts</string>
     <string name="button_enable_hosts">Habilitar bloqueo de anuncios</string>
     <string name="button_disable_hosts">Deshabilitar bloqueo de anuncios</string>
     <string name="header_webserver">Servidor web</string>
@@ -170,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aquí se puedes encontrar adware instalado, aplicaciones defectuosas que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no se está funcionando o incluso cambiar el tono de llamada. La única contramedida disponible es desinstalar esas aplicaciones haciendo clic en los elementos de la lista.</string>
-    <string name="adware_scanning">Escaneando&#8230;</string>
+    <string name="adware_scanning">Escaneando…</string>
     <string name="adware_empty">¡No se ha encontrado Adware!</string>
 
     <!--Other-->
@@ -186,11 +184,8 @@
     <string name="tcpdump_disable_monitoring">Deshabilitar la monitorización</string>
     <string name="tcpdump_enable_monitoring">Habilitar el monitorización</string>
     <string name="tcpdump_show_results">Mostrar resultados</string>
-    <string name="tcpdump_redirect_dialog_title">Redireccionar dominio</string>
     <string name="tcpdump_menu_sort">Dominios cortos</string>
     <string name="tcpdump_menu_clear">Borrar registro</string>
-    <string name="tcpdump_sort_alphabetical">Orden alfabético</string>
-    <string name="tcpdump_sort_top_level_domain">Clasificación de dominios de nivel superior</string>
     <string name="tcpdump_entry_add_blacklist">Añadir una entrada a la lista negra</string>
     <string name="tcpdump_entry_add_whitelist">Añadir una entrada a la lista blanca</string>
     <string name="tcpdump_entry_add_redirection_list">Añadir una entrada a la lista de redirección</string>

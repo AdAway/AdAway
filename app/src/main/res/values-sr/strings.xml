@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Izlaz</string>
@@ -11,7 +11,6 @@
     <string name="button_help">Pomoć</string>
 
     <string name="text_update">Sve host-ove datoteke sa određenih izvora su preuzete, spojene sa vašom listom i instalirane kao datoteke jednog host-a na vašem sistemu.</string>
-    <string name="button_check_update_hosts">Proveri nove verzije</string>
     <string name="button_enable_hosts">Omogući Ad Blocking</string>
     <string name="button_disable_hosts">Onemogući Ad Blocking</string>
     <string name="button_enable_webserver">Omogući webserver</string>
