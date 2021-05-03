@@ -10,7 +10,7 @@ public enum ListType {
     ALLOWED(1),
     REDIRECTED(2);
 
-    private int value;
+    private final int value;
 
     ListType(int value) {
         this.value = value;

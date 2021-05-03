@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Chiqish</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Qo\'shimcha yordamni ko\'rish</string>
     <string name="icon_update_status">Holatni yangilash</string>
     <string name="text_update">Hamma xost fayllar belgilangan manbadan yuklab olinib, sizning bor ro\'yxatingiz bilan birlashitrilib, sizning sistemangizda bitta xost fayl qilib o\'rnatildi.</string>
-    <string name="button_check_update_hosts">Yangilanishlarni tekshirish</string>
-    <string name="button_update_hosts">Xostni yangilash</string>
     <string name="button_enable_hosts">Reklama blokirovkasini yoqish</string>
     <string name="button_disable_hosts">Reklama blokirovkasini o\'chirish</string>
     <string name="header_webserver">Veb-server</string>

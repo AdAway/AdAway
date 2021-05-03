@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Выйсці</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Паказаць дадатковую дапамогу</string>
     <string name="icon_update_status">Статус абнаўленняў</string>
     <string name="text_update">Усе файлы hosts, спампаваных з пэўных крыніц, зліваюцца з вашым уласным спісам і ўсталёўваюцца ў вашай сістэме ў выглядзе аднаго файла host</string>
-    <string name="button_check_update_hosts">Праверка абнаўленняў</string>
-    <string name="button_update_hosts">Абнаўленне hosts</string>
     <string name="button_enable_hosts">Уключыць блакаванне рэкламы</string>
     <string name="button_disable_hosts">Адключыць блакаванне рэкламы</string>
     <string name="header_webserver">Вэб-сервер</string>
@@ -180,11 +178,8 @@
     <string name="tcpdump_disable_monitoring">Адключыць маніторынг</string>
     <string name="tcpdump_enable_monitoring">Уключыць маніторынг</string>
     <string name="tcpdump_show_results">Паказаць вынікі</string>
-    <string name="tcpdump_redirect_dialog_title">Перанакіраваць дамен</string>
     <string name="tcpdump_menu_sort">Сартаваць дамены</string>
     <string name="tcpdump_menu_clear">Ачысціць журнал</string>
-    <string name="tcpdump_sort_alphabetical">Сартаваць па алфавіту</string>
-    <string name="tcpdump_sort_top_level_domain">Сартаванне па найвышэйшаму ўзроўню дамена</string>
     <string name="tcpdump_entry_add_blacklist">Дадаць запіс у Чорны спіс</string>
     <string name="tcpdump_entry_add_whitelist">Дадаць запіс у Белы спіс</string>
     <string name="tcpdump_entry_add_redirection_list">Дадаць запіс у спіс перанакіраванняў</string>

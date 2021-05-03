@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Beenden</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Hilfe anzeigen</string>
     <string name="icon_update_status">Status der Aktualisierung</string>
     <string name="text_update">Alle Hosts-Dateien aus den hinterlegten Quellen werden heruntergeladen. Anschließend diese zur ihrer eigenen Liste hinzugefügt und als eine Hosts-Datei im System installiert.</string>
-    <string name="button_check_update_hosts">Aktualisierungen suchen</string>
-    <string name="button_update_hosts">Hosts aktualisieren</string>
     <string name="button_enable_hosts">Werbeblocker aktivieren</string>
     <string name="button_disable_hosts">Werbeblocker deaktivieren</string>
     <string name="header_webserver">Webserver</string>
@@ -170,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Hier sind schlechte Werbesoftware Anwendungen aufgelistet, die nicht von AdAway blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen die selbst dann erscheinen, wenn die App gar nicht läuft oder es wird sogar Ihr Klingelton umgestellt. Die einzige Gegenmaßnahme ist solche Apps zu deinstalieren, indem Sie auf die Listeneinträge klicken.</string>
-    <string name="adware_scanning">Durchsuchen &#8230;</string>
+    <string name="adware_scanning">Durchsuchen …</string>
     <string name="adware_empty">Keine Adware gefunden!</string>
 
     <!--Other-->
@@ -186,11 +184,8 @@
     <string name="tcpdump_disable_monitoring">Aufzeichnung deaktivieren</string>
     <string name="tcpdump_enable_monitoring">Aufzeichnung aktivieren</string>
     <string name="tcpdump_show_results">Ergebnisse anzeigen</string>
-    <string name="tcpdump_redirect_dialog_title">Domäne umleiten</string>
     <string name="tcpdump_menu_sort">Domänen sortieren</string>
     <string name="tcpdump_menu_clear">Protokoll leeren</string>
-    <string name="tcpdump_sort_alphabetical">Alphabetische Sortierung</string>
-    <string name="tcpdump_sort_top_level_domain">Nach Top-Level-Domänen sortieren</string>
     <string name="tcpdump_entry_add_blacklist">Eintrag zur Negativliste hinzufügen</string>
     <string name="tcpdump_entry_add_whitelist">Eintrag zur Positivliste hinzufügen</string>
     <string name="tcpdump_entry_add_redirection_list">Eintrag zur Umleitungsliste hinzufügen </string>

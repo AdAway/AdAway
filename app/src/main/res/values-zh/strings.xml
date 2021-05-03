@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">退出</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">显示更多帮助</string>
     <string name="icon_update_status">更新状态</string>
     <string name="text_update">已从指定的 hosts 来源下载 hosts 文件，与自定义列表合并，并安装到了您的系统中。</string>
-    <string name="button_check_update_hosts">检查更新</string>
-    <string name="button_update_hosts">更新 hosts</string>
     <string name="button_enable_hosts">启用广告拦截</string>
     <string name="button_disable_hosts">禁用广告拦截</string>
     <string name="header_webserver">网络服务器</string>
@@ -171,7 +169,7 @@
     <!--Adware-->
     <string name="adware_header">广告软件</string>
     <string name="adware_description">在这里，你可以找到已安装的广告软件，AdAway 无法对其进行有效的广告屏蔽。比如说，这些应用程序可能会在没有运行的时候弹出 Airpush 通知，甚至改变通知铃声。唯一可行的对策是，通过点击下面的列表项，卸载这些应用程序。</string>
-    <string name="adware_scanning">正在扫描&#8230;</string>
+    <string name="adware_scanning">正在扫描…</string>
     <string name="adware_empty">没有已知的广告软件！</string>
 
     <!--Other-->
@@ -187,11 +185,8 @@
     <string name="tcpdump_disable_monitoring">禁用监控</string>
     <string name="tcpdump_enable_monitoring">启用监控</string>
     <string name="tcpdump_show_results">显示结果</string>
-    <string name="tcpdump_redirect_dialog_title">重定向域名</string>
     <string name="tcpdump_menu_sort">排序域名</string>
     <string name="tcpdump_menu_clear">清除日志</string>
-    <string name="tcpdump_sort_alphabetical">按字母排序</string>
-    <string name="tcpdump_sort_top_level_domain">按顶级域名排序</string>
     <string name="tcpdump_entry_add_blacklist">添加条目到黑名单</string>
     <string name="tcpdump_entry_add_whitelist">添加条目到白名单</string>
     <string name="tcpdump_entry_add_redirection_list">添加条目到重定向</string>

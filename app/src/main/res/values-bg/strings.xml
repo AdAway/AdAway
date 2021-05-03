@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Изход</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Показване на още помощ</string>
     <string name="icon_update_status">Състояние на актуализирането</string>
     <string name="text_update">Всички Hosts файлове от зададените източници се изтеглят, сливат се с вашите собствени списъци и се инсталират като един Hosts файл във вашата система.</string>
-    <string name="button_check_update_hosts">Проверка за актуализации</string>
-    <string name="button_update_hosts">Актуализиране на хостовете</string>
     <string name="button_enable_hosts">Включване блокирането на реклами</string>
     <string name="button_disable_hosts">Изключване блокирането на реклами</string>
     <string name="header_webserver">Уеб сървър</string>
@@ -186,11 +184,8 @@
     <string name="tcpdump_disable_monitoring">Изключване на мониторинг</string>
     <string name="tcpdump_enable_monitoring">Включване на мониторинг</string>
     <string name="tcpdump_show_results">Показване на резултатите</string>
-    <string name="tcpdump_redirect_dialog_title">Пренасочване на домейн</string>
     <string name="tcpdump_menu_sort">Сортиране на домейните</string>
     <string name="tcpdump_menu_clear">Изчистване на дневника</string>
-    <string name="tcpdump_sort_alphabetical">Азбучно сортиране</string>
-    <string name="tcpdump_sort_top_level_domain">Сортиране на домейн от първо ниво</string>
     <string name="tcpdump_entry_add_blacklist">Добавяне на запис в черния списък</string>
     <string name="tcpdump_entry_add_whitelist">Добавяне на запис в белия списък</string>
     <string name="tcpdump_entry_add_redirection_list">Добавяне на запис в списъка за пренасочване</string>

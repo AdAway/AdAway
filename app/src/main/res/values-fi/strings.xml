@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Sulje</string>
@@ -15,8 +15,6 @@
     <string name="button_show_help">Näytä enemmän ohjeita</string>
     <string name="icon_update_status">Päivityksen tila</string>
     <string name="text_update">Kaikki hosts-tiedostot määritellyistä lähteistä ovat ladattu, yhdistyi luetteloihin ja asenettu yhdeksi hosts-tiedostoksi.</string>
-    <string name="button_check_update_hosts">Tarkista päivitykset</string>
-    <string name="button_update_hosts">Päivitä hosts-tiedosto</string>
     <string name="header_webserver">Web-palvelin</string>
     <string name="webserver_status_running">Käynnissä</string>
     <string name="webserver_status_stopped">Pysäytetty</string>

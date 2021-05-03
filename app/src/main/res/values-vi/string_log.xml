@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Sắp xếp theo thứ tự chữ cái</string>
+    <string name="log_sort_top_level_domain">Sắp xếp miền cấp trên cùng</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Chuyển hướng miền</string>
+</resources>

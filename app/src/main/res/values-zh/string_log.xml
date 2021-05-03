@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">按字母排序</string>
+    <string name="log_sort_top_level_domain">按顶级域名排序</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">重定向域名</string>
+</resources>

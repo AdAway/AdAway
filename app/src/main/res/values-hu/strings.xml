@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Kilépés</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">További információ megjelenítése</string>
     <string name="icon_update_status">Státusz frissítése</string>
     <string name="text_update">A kijelölt hosts fájlok letöltése, összefűzése a saját listákkal, majd aktiválás a rendszeren közös hosts fájlként.</string>
-    <string name="button_check_update_hosts">Frissítések ellenőrzése</string>
-    <string name="button_update_hosts">Hosztok frissítése</string>
     <string name="button_enable_hosts">Hirdetésblokkolás engedélyezése</string>
     <string name="button_disable_hosts">Hirdetésblokkolás letiltása</string>
     <string name="header_webserver">Webszerver</string>
@@ -172,7 +170,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Itt megtalálhatja a telepített adware-eket, a rossz alkalmazásokat, amelyeket az AdAway nem blokkolhat. Ezek az alkalmazások például Airpush értesítéseket használnak, amelyek akkor is megjelennek, ha az alkalmazás nem fut, vagy akár csengőhangot is megváltoztathatnak. Az egyetlen használható megoldás az, hogy ezeket az alkalmazásokat a listaelemekre kattintva eltávolítja.</string>
-    <string name="adware_scanning">Vizsgálat&#8230;</string>
+    <string name="adware_scanning">Vizsgálat…</string>
     <string name="adware_empty">Nem található adware!</string>
 
     <!--Other-->
@@ -188,11 +186,8 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="tcpdump_disable_monitoring">Monitorozás tiltása</string>
     <string name="tcpdump_enable_monitoring">Monitorozás engedélyezése</string>
     <string name="tcpdump_show_results">Eredmények megjelenítése</string>
-    <string name="tcpdump_redirect_dialog_title">Domain átirányítása</string>
     <string name="tcpdump_menu_sort">Domainek rendezése</string>
     <string name="tcpdump_menu_clear">Napló törlése</string>
-    <string name="tcpdump_sort_alphabetical">Rendezés ABC sorrendben</string>
-    <string name="tcpdump_sort_top_level_domain">Rendezés TLD szerint</string>
     <string name="tcpdump_entry_add_blacklist">Elem hozzáadása feketelistához</string>
     <string name="tcpdump_entry_add_whitelist">Elem hozzáadása fehérlistához</string>
     <string name="tcpdump_entry_add_redirection_list">Elem hozzáadása az átirányítási listához</string>

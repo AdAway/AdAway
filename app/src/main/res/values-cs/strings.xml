@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Ukončit</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Zobrazit další nápovědu</string>
     <string name="icon_update_status">Aktualizovat status</string>
     <string name="text_update">Všechny soubory hostitelů z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a aplikovány do vašeho systému jako jeden soubor hostitelů.</string>
-    <string name="button_check_update_hosts">Zkontrolovat aktualizace</string>
-    <string name="button_update_hosts">Aktualizovat hostitele</string>
     <string name="button_enable_hosts">Zapnout blokování reklamy</string>
     <string name="button_disable_hosts">Vypnout blokování reklamy</string>
     <string name="header_webserver">Webový server</string>
@@ -170,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Zde můžete vyhledat nainstalovaný Adware, špatné aplikace, které nemohou být aplikací AdAway zablokovány. Tyto aplikace používají například oznámení Airpush, které se objevují i v případě, že aplikace není spuštěna, nebo dokonce změní vaše vyzvánění. Jediné protiopatření je odinstalování těchto aplikací klepnutím na položky seznamu!</string>
-    <string name="adware_scanning">Skenování&#8230;</string>
+    <string name="adware_scanning">Skenování…</string>
     <string name="adware_empty">Žádný Adware nebyly nalezen!</string>
 
     <!--Other-->
@@ -186,11 +184,8 @@
     <string name="tcpdump_disable_monitoring">Zakázat monitorování</string>
     <string name="tcpdump_enable_monitoring">Povolit monitorování</string>
     <string name="tcpdump_show_results">Zobrazit výsledky</string>
-    <string name="tcpdump_redirect_dialog_title">Doména pro přesměrování</string>
     <string name="tcpdump_menu_sort">Řazení domén</string>
     <string name="tcpdump_menu_clear">Vymazat záznam</string>
-    <string name="tcpdump_sort_alphabetical">Řazení podle abecedy</string>
-    <string name="tcpdump_sort_top_level_domain">Řazení podle nejvyšší úrovně domény</string>
     <string name="tcpdump_entry_add_blacklist">Přidat položku na černou listinu</string>
     <string name="tcpdump_entry_add_whitelist">Přidat položku na bílou listinu</string>
     <string name="tcpdump_entry_add_redirection_list">Přidat položku na listinu přesměrování</string>

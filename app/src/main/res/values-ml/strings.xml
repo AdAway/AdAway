@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">പുറത്തേക് ഉള്ള വഴി </string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">കൂടുതൽ സഹായം കാണിക്കുക</string>
     <string name="icon_update_status">നില മെച്ചപ്പെടുത്തുക </string>
     <string name="text_update">നിർവചിക്കപ്പെട്ട ഉറവിടങ്ങളിൽ നിന്നുള്ള എല്ലാ ഹോസ്റ്റ് ഫയലുകളും ഡൗൺലോഡ്‌ ചെയ്‌തു,നിങ്ങളുടെ സ്വന്തം ലിസ്റ്റുകളുമായി ലയിപ്പിച്ച് നിങ്ങളുടെ സിസ്റ്റത്തിൽ ഒരു ഹോസ്റ്റ് ഫയലായി ഇൻസ്റ്റാൾ ചെയ്തു</string>
-    <string name="button_check_update_hosts">അപ്‌ഡേറ്റുകൾക്കായി പരിശോധിക്കുക</string>
-    <string name="button_update_hosts">ഹോസ്റ്റ് അപ്‌ഡേറ്റുചെയ്യുക</string>
     <string name="button_enable_hosts">പരസ്യ-തടയൽ പ്രാപ്തമാക്കുക</string>
     <string name="button_disable_hosts">പരസ്യ-തടയൽ അപ്രാപ്തമാക്കുക</string>
     <string name="header_webserver">വെബ് സെർവർ</string>
@@ -146,11 +144,8 @@
     <string name="tcpdump_disable_monitoring">നിരീക്ഷണം അപ്രാപ്‌തമാക്കുക</string>
     <string name="tcpdump_enable_monitoring">നിരീക്ഷണം പ്രാപ്തമാക്കുക</string>
     <string name="tcpdump_show_results">ഫലങ്ങൾ കാണിക്കുക</string>
-    <string name="tcpdump_redirect_dialog_title">ഡൊമെയ്ൻ റീഡയറക്ട് ചെയ്യുക</string>
     <string name="tcpdump_menu_sort">ഡൊമെയ്‌നുകൾ അടുക്കുക</string>
     <string name="tcpdump_menu_clear">ലോഗ് മായ്‌ക്കുക</string>
-    <string name="tcpdump_sort_alphabetical">അക്ഷരമാലാക്രമത്തിൽ</string>
-    <string name="tcpdump_sort_top_level_domain">ടോപ്പ് ലെവൽ ഡൊമെയ്ൻ അടുക്കൽ</string>
     <string name="tcpdump_entry_add_blacklist">ബ്ലാക്ക് ലിസ്റ്റിലേക് എൻട്രി ചേർക്കുക</string>
     <string name="tcpdump_entry_add_whitelist">വൈറ്റ് ലിസ്റ്റിലേക്ക് എൻ‌ട്രി ചേർക്കുക</string>
     <string name="tcpdump_entry_add_redirection_list">റീഡയറക്‌ട് ലിസ്റ്റിലേക്ക് എൻട്രി ചേർക്കുക</string>
