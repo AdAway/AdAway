@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Izhod</string>
@@ -11,7 +11,6 @@
     <string name="button_help">Pomoč</string>
 
     <string name="text_update">Vse hosts datoteke danih virov so prenešene, združene z vašimi osebnimi seznami in nameščene kot ena hosts datoteka na vašem sistemu.</string>
-    <string name="button_check_update_hosts">Preveri za posodobitve</string>
     <!--Checkbox List-->
     <string name="checkbox_list_context_title">Uredi vnos</string>
     <string name="checkbox_list_context_edit">Uredi</string>

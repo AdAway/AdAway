@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">依照字母順序排序</string>
+    <string name="log_sort_top_level_domain">頂級網域排序</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">重新導向網域</string>
+</resources>

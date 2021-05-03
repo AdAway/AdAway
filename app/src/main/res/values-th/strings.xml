@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">ออก</string>
@@ -15,8 +15,6 @@
     <string name="button_show_help">แสดงความช่วยเหลือเพิ่มเติม</string>
     <string name="icon_update_status">อัพเดทสถานะ</string>
     <string name="text_update">ไฟล์โฮสต์ทั้งหมดจากแหล่งที่กำหนดไว้ถูกดาวน์โหลดและติดตั้งเป็นไฟล์โฮสต์บนระบบของคุณแล้ว</string>
-    <string name="button_check_update_hosts">ตรวจสอบอัพเดท</string>
-    <string name="button_update_hosts">อัพเดทโฮสต์</string>
     <string name="button_enable_hosts">เปิดใช้งานบล็อคโฆษณา</string>
     <string name="button_disable_hosts">ปิดใช้งานบล็อคโฆษณา</string>
     <string name="header_webserver">เว็บเซิร์ฟเวอร์</string>
@@ -132,7 +130,7 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_scanning">กำลังสแกน&#8230;</string>
+    <string name="adware_scanning">กำลังสแกน…</string>
     <string name="adware_empty">ไม่พบ Adware</string>
 
     <!--Other-->
@@ -148,11 +146,8 @@
     <string name="tcpdump_disable_monitoring">ปิดใช้งานการตรวจสอบ</string>
     <string name="tcpdump_enable_monitoring">เปิดใช้งานการตรวจสอบ</string>
     <string name="tcpdump_show_results">แสดงผลลัพธ์</string>
-    <string name="tcpdump_redirect_dialog_title">เปลี่ยนเส้นทางโดเมน</string>
     <string name="tcpdump_menu_sort">จัดเรียงโดเมน</string>
     <string name="tcpdump_menu_clear">ล้างบันทึก</string>
-    <string name="tcpdump_sort_alphabetical">จัดเรียงตามตัวอักษร</string>
-    <string name="tcpdump_sort_top_level_domain">จัดเรียงโดเมนยอดนิยม</string>
     <string name="tcpdump_entry_add_blacklist">เพิ่มรายการลงในบัญชีดำ</string>
     <string name="tcpdump_entry_add_whitelist">เพิ่มรายการไปยังบัญชีขาว</string>
     <string name="tcpdump_entry_add_redirection_list">เพิ่มรายการไปยังรายการเปลี่ยนเส้นทาง</string>

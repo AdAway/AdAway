@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Ukončiť</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Zobraziť ďalšiu pomoc</string>
     <string name="icon_update_status">Aktualizovať status</string>
     <string name="text_update">Všetky hosts súbory z vybraných zdrojov budú stiahnuté, zlúčené s vašimi zoznamami a nainštalované ako jeden hosts súbor do vášho systému.</string>
-    <string name="button_check_update_hosts">Skontrolovať aktualizácie</string>
-    <string name="button_update_hosts">Aktualizovať hosts súbor</string>
     <string name="button_enable_hosts">Povoliť blokovanie reklám</string>
     <string name="button_disable_hosts">Zakázať blokovanie reklám</string>
     <string name="header_webserver">Web server</string>
@@ -186,11 +184,8 @@
     <string name="tcpdump_disable_monitoring">Zakázať monitorovanie</string>
     <string name="tcpdump_enable_monitoring">Povoliť monitorovanie</string>
     <string name="tcpdump_show_results">Zobraziť výsledky</string>
-    <string name="tcpdump_redirect_dialog_title">Presmerovať doménu</string>
     <string name="tcpdump_menu_sort">Zoradiť domény</string>
     <string name="tcpdump_menu_clear">Vymazať záznam</string>
-    <string name="tcpdump_sort_alphabetical">Zoradenie podľa abecedy</string>
-    <string name="tcpdump_sort_top_level_domain">Zoradenie podľa domény najvyššej úrovne</string>
     <string name="tcpdump_entry_add_blacklist">Pridať položku do čiernej listiny</string>
     <string name="tcpdump_entry_add_whitelist">Pridať položku do bielej listiny</string>
     <string name="tcpdump_entry_add_redirection_list">Pridať položku do zoznamu presmerovaných</string>

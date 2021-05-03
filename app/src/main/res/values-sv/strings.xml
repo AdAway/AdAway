@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Avsluta</string>
@@ -16,8 +16,6 @@
     <string name="button_show_help">Visa mer hjälp</string>
     <string name="icon_update_status">Uppdateringsstatus</string>
     <string name="text_update">Alla värdfiler från de förinställda källorna är hämtade, ihopslagna med dina egna listor och tillämpade som en värdfil på ditt system.</string>
-    <string name="button_check_update_hosts">Sök efter uppdateringar</string>
-    <string name="button_update_hosts">Uppdatera värdar</string>
     <string name="button_enable_hosts">Aktivera annonsblockering</string>
     <string name="button_disable_hosts">Inaktivera annonsblockering</string>
     <string name="header_webserver">Webbserver</string>
@@ -166,7 +164,7 @@
     <!--Adware-->
     <string name="adware_header">Annonsappar</string>
     <string name="adware_description">Här hittar du installerade annonsappar, stygga applikationer som inte kan blockeras med AdAway. Dessa appar använder till exempel Airpush-aviseringar som kan visa sig även om appen inte körs och den kan även ändra din ringsignal. Den enda tillgängliga lösningen är att avinstallera dessa appar genom att trycka i listan.</string>
-    <string name="adware_scanning">Söker&#8230;</string>
+    <string name="adware_scanning">Söker…</string>
     <string name="adware_empty">Hittade inga annonsappar!</string>
 
     <!--Other-->
@@ -182,11 +180,8 @@
     <string name="tcpdump_disable_monitoring">Inaktivera övervakning</string>
     <string name="tcpdump_enable_monitoring">Aktivera övervakning</string>
     <string name="tcpdump_show_results">Visa resultatet</string>
-    <string name="tcpdump_redirect_dialog_title">Omdirigera domän</string>
     <string name="tcpdump_menu_sort">Sortera domänerna</string>
     <string name="tcpdump_menu_clear">Rensa loggen</string>
-    <string name="tcpdump_sort_alphabetical">Alfabetisk sortering</string>
-    <string name="tcpdump_sort_top_level_domain">Toppleveldomän</string>
     <string name="tcpdump_entry_add_blacklist">Lägg till post till svartlistan</string>
     <string name="tcpdump_entry_add_whitelist">Lägg till post till vitlistan</string>
     <string name="tcpdump_entry_add_redirection_list">Lägg till post till omdirigeringslista</string>
