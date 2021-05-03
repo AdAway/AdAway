@@ -19,9 +19,14 @@
         <item quantity="many">%d застарілих джерел</item>
         <item quantity="other">%d застарілих джерел</item>
     </plurals>
+    <string name="check_hosts_update_description">Перевірити оновлення хостів</string>
+    <string name="update_hosts_description">Оновити хости</string>
+
+    <!-- Log card -->
+    <string name="log_label">Показати журнал DNS запитів</string>
 
     <!-- Help card -->
-    <string name="help_label">Допомога</string>
+    <string name="help_label">Показати підказки</string>
 
     <!-- Project card -->
     <string name="project_label">Відкрити сторінку GitHub</string>
@@ -30,6 +35,7 @@
     <string name="support_label">Підтримати проєкт</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Проєкт на GitHub</string>
     <string name="preferences_drawer_item">Налаштування</string>
 
     <!-- App bar buttons -->
