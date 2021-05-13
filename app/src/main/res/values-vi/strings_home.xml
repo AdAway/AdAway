@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -13,9 +13,14 @@
     <plurals name="outdated_source_label">
         <item quantity="other">%dsố nguồn chưa được cập nhật</item>
     </plurals>
+    <string name="check_hosts_update_description">Kiểm tra cập nhật tệp miền</string>
+    <string name="update_hosts_description">Cập nhật file hosts</string>
+
+    <!-- Log card -->
+    <string name="log_label">Hiện nhật ký yêu cầu DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Hiện trợ giúp</string>
+    <string name="help_label">Hiện các mẹo trợ giúp/nand</string>
 
     <!-- Project card -->
     <string name="project_label">Mở GitHub</string>
@@ -24,6 +29,7 @@
     <string name="support_label">Ủng hộ dự án</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Dự án GitHub</string>
     <string name="preferences_drawer_item">Tuỳ chỉnh</string>
 
     <!-- App bar buttons -->
