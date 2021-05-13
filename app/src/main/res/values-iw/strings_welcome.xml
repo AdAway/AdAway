@@ -22,6 +22,8 @@
     <string name="welcome_vpn_method_text3">מותאם</string>
 
     <string name="welcome_root_missing_title">גישת שורש אנדרואיד נדרשת</string>
+    <string name="welcome_root_missile_description">לא אפשרת הרשאת Root ל־AdAway.\n\nזה יכול לקרות כאשר המכשיר שלך אינו בעל גישת Root. תוכל למצוא מידע על אופן ביצוע Root במכשיר שלך ב־wiki.lineageos.org או באתרי דומים.</string>
+
     <string name="welcome_method_pro_logo">מקצועי</string>
     <string name="welcome_method_con_logo">עם</string>
 
@@ -31,6 +33,10 @@
 
     <string name="welcome_sync_header">מסנכרן</string>
     <string name="welcome_synced_header">סונכרן!</string>
+    <string name="welcome_sync_summary">AdAway מוריד רשתות של מודעות כדי לחסום אותן ממקורותיהן המקוונים. אתה יכול להתאים אותן מאוחר יותר בהגדרות.</string>
+    <string name="welcome_sync_retry_logo">נסה לסנכרן בשנית</string>
+    <string name="welcome_sync_error">נכשל בסנכרון:\n%s.\n לנסות בשנית כעת?</string>
+
     <!-- Support -->
     <string name="welcome_support_logo">תמיכה</string>
     <string name="welcome_support_header">תמוך בי!</string>
