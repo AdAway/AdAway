@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">אין חיבור לאינטרנט</string>
-    <string name="error_not_enough_space_message">אין מספיק זיכרון</string>
-    </resources>
+    <string name="error_no_connection_details">לא ניתן ליצור חיבור לאינטרנט. אנא בדוק את קישוריות המכשיר שלך.</string>
+    <string name="error_download_failed_message">הורדת מקור קובץ המארחים נכשלה</string>
+    <string name="error_download_failed_details">לא ניתן להגיע לאף אחד ממקורות המארחים המופעלים שלך. אנא בדוק שאתה מחובר כראוי לאינטרנט.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">יצירת קובץ פרטי נכשלה</string>
+    <string name="error_private_file_failed_details">לא ניתן היה ליצור קובץ פרטי לבניית מקור מארחים חדש. אנא בדוק את שטח האחסון הפנוי הזמין במכשיר שלך.</string>
+    <string name="error_not_enough_space_message">אין מספיק מקום אחסון</string>
+    <string name="error_not_enough_space_details">לא ניתן להעתיק את קובץ המארחים למחיצת המערכת שלך. אנא בדוק שהמודול ללא מערכת ב־Magisk מופעל ואז אתחל מחדש.</string>
+    <string name="error_copy_failed_message">התקנת קובץ מארחים חדש נכשלה</string>
+    <string name="error_copy_failed_details">לא ניתן להעתיק את קובץ המארח אל מחיצת המערכת. אנא בדוק שהמודול ללא מערכת ב־Magisk מופעל ואז הפעל מחדש.</string>
+    <string name="error_revert_failed_message">ביטול קובץ המארחים נכשל</string>
+    <string name="error_revert_failed_details">לא ניתן היה לשחזר את תצורת הקבצים המוגדרת כברירת מחדל.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">הפעלת חסימת מודעות באמצעות VPN נכשלה.</string>
+    <string name="error_enable_vpn_failed_details">אנא בדוק את הגדרות ה־VPN שלך כדי לאשר ליישום את הפעלת ה־VPN.</string>
+    <string name="error_disable_vpn_failed_message">השבתת חסימת מודעות באמצעות VPN נכשלה.</string>
+    <string name="error_disable_vpn_failed_details">נא בדוק את הגדרות ה־VPN שלך כדי להשבית אותו ידנית.</string>
+</resources>
