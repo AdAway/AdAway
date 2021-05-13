@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">יציאה</string>
@@ -12,22 +12,24 @@
 
     <!--Home-->
     <string name="header_help">ברוך הבא!</string>
-    <string name="text_help">AdAway היא תוכנה בחינם וקוד פתוח לחסימת פרסומות. התוכנה שולפת כתובות רשת של מפרסמים כדי לחסום אותן במכשיר שלך.\n רוצה לדעת עוד? בדוק את העזרה למטה!</string>
+    <string name="text_help">AdAway היא תוכנת קוד פתוח חינמית לחסימת פרסומות. התוכנה שולפת כתובות רשת של מפרסמים כדי לחסום אותן במכשיר שלך.\nרוצה לדעת עוד? היעזר בעזרה למטה!</string>
     <string name="button_show_help">הצג עזרה נוספת</string>
     <string name="icon_update_status">מצב העדכון</string>
-    <string name="text_update">כל הקבצים מהמקור שהוגדר הורדו בהצלחה, והוכנסו לרשימות האישיות שלך והותקנו כקובץ מארחים יחיד במערכת..</string>
+    <string name="text_update">כל קבצי המארחים מהמקורות המוגדרים הורדו, מוזגו עם הרשימות שלך והותקנו כקובץ מארח יחיד במערכת שלך.</string>
     <string name="button_enable_hosts">הפעל חסימת פרסומות</string>
     <string name="button_disable_hosts">בטל חסימת פרסומות</string>
-    <string name="header_webserver">שרת Web</string>
+    <string name="header_webserver">שרת אינטרנט</string>
     <string name="webserver_status_running">פעיל</string>
     <string name="webserver_status_stopped">כבוי</string>
-    <string name="button_enable_webserver">הפעל שרת Web</string>
-    <string name="button_disable_webserver">בטל שרת Web</string>
+    <string name="webserver_toggle_text">הפעל או עצור את השרת המקומי כדי לענות על בקשות לשמות מארח חסומים.</string>
+    <string name="button_enable_webserver">הפעל שרת אינטרנט</string>
+    <string name="button_disable_webserver">בטל שרת אינטרנט</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">פעיל</string>
     <string name="vpn_status_stopped">כבוי</string>
+    <string name="vpn_toggle_text">הפעל או הפסק VPN כדי לסנן בקשות.</string>
     <string name="button_enable_vpn">VPN פעיל</string>
-    <string name="button_disable_vpn">VPN לא פעיל</string>
+    <string name="button_disable_vpn">VPN מושבת</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_title">ערוך רשומה</string>
@@ -40,9 +42,14 @@
     <string name="import_success">גיבוי יובא בהצלחה מהאחסון החיצוני</string>
     <string name="import_failed">ייבוא הגיבוי נכשל. האם פורמט הגיבוי נכון? בדוק את logcat לפרטים נוספים.</string>
     <string name="export_dialog">מייצא…</string>
+    <string name="export_success">הגיבוי יוצא בהצלחה לקובץ \'%s\' באחסון החיצוני שלך.</string>
+    <string name="export_failed">ייצוא קובץ הגיבוי \'%s\' נכשל.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">קובץ מארחים</string>
-    <string name="hosts_description">קובץ המארחים הוא קובץ מערכת הממפה שמות מארחים לכתובות IP. זהו קובץ טקסט רגיל אשר התצורה מטופלת על ידי AdAway. להלן כמה שורות ראשונות:</string>
+    <string name="hosts_description">קובץ המארחים הוא קובץ מערכת הממפה שמות מארחים לכתובות IP. זהו קובץ טקסט רגיל שנוצר ומתוחזק על־ידי AdAway. להלן כמה שורות ראשונות:
+
+</string>
     <string name="hosts_content">טוען תוכן קובץ מארחים…</string>
     <string name="hosts_open_button">פתח קובץ מארחים</string>
 
@@ -77,7 +84,14 @@
     <string name="status_copy_new_hosts">העתקת קובץ מארחים חדש</string>
     <string name="status_check_copy">בדיקת העתק קובץ מארחים </string>
     <string name="status_hosts_updated">קובץ מארחים עודכן בהצלחה</string>
+    <string name="status_vpn_configuration_updated">תצורת ה־VPN עודכנה בהצלחה</string>
+    <string name="notification_configuration_changed">התצורה שלך השתנתה. עליך להחיל אותה.</string>
     <string name="notification_configuration_changed_action">החל</string>
+    <string name="notification_configuration_installing">מחיל תצורה חדשה...</string>
+    <string name="notification_configuration_failed">החלת התצורה החדשה נכשלה.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">ההפניה ליעד של קובץ המארחים חסרה.</string>
     <string name="apply_symlink_missing">קישור המערכת שלך אל /system/etc/hosts אינו קיים או אינו נכון! AdAway לא יפעל אם לא תבחר את הקובץ הנכון.\n\nהאם ברצונך לנסות ליצור קישור מערכת?</string>
     <string name="apply_symlink_missing_title">קישור סימבולי לא קיים</string>
     <string name="apply_not_enough_space">אין מספיק שטח איחסון בדיכרון!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
@@ -111,6 +125,7 @@
     <string name="apply_fail">החלת קובץ מארחים במערכת נכשלה!\nנסה לשנות בהעדפות התוכנה את הגדרת היעד ל /data/data/hosts.</string>
     <string name="apply_fail_title">החלת הגדרות נכשלה</string>
     <string name="root_access_fail">אנא בדוק את אפליקציית ניהול ה-root שלך כדי לוודא שניתנה גישה ל-root.</string>
+    <string name="revert_successful">חזרת לקובץ המארחים המוגדר כברירת מחדל.\nייתכן שיהיה צורך לאתחל את המכשיר כדי שהשינויים ייכנסו לתוקף. \n\nהאם ברצונך לאתחל מחדש?\n(כדי למנוע אובדן נתונים, ודא שאף אפליקציה לא משתמשת כרגע בכרטיס ה‏־SD!)</string>
     <string name="revert_successful_title">החזרת ההגדרות הושלמה בהצלחה</string>
     <string name="revert_failed_status">לא ניתן להחזיר את קובץ המארחים</string>
     <string name="revert_problem">שיחזור נכשל מסיבות לא ידועות.</string>
@@ -120,10 +135,17 @@
     <string name="no_private_file_status">כישלון בכתיבת קובץ מארחים פרטי חדש</string>
     <string name="no_private_file">לא ניתן ליצור קובץ פרטי.</string>
     <string name="no_private_file_title">יצירת קובץ פרטי נכשלה</string>
+    <string name="enable_systemless_successful">הפעלת מצב ללא מערכת.\nיתכן שיהיה צורך לאתחל את המכשיר כדי שהשינויים ייכנסו לתוקף.\n\nהאם ברצונך לאתחל מחדש?\n(כדי למנוע אובדן נתונים, ודא שאף אפליקציה לא משתמשת בכרטיס ה־SD כרגע!)</string>
     <string name="enable_systemless_successful_title">הופעל בהצלחה</string>
+    <string name="disable_systemless_successful">השבתת את מצב ללא מערכת.\nייתכן שיהיה צורך לאתחל את המכשיר כדי שהשינויים ייכנסו לתוקף.\n\nהאם ברצונך לאתחל מחדש?\n(כדי למנוע אובדן נתונים, ודא שאף אפליקציה לא משתמשת בכרטיס ה־SD כרגע!)</string>
     <string name="disable_systemless_successful_title">כובה בהצלחה</string>
+    <string name="enable_vpn_fail">הפעלת חסימת מודעות באמצעות VPN נכשלה.</string>
+    <string name="disable_vpn_fail">השבתת חסימת מודעות באמצעות VPN נכשלה.</string>
     <string name="enable_systemless_magisk_title">הפעלת מודול מארחים Magisk</string>
+    <string name="enable_systemless_magisk">אפשר תכונת מארחים ללא מערכת מ־Magisk manager. מהגדרות האפליקציה, הפעל את האפשרות <cite>Systemless hosts</cite> ואז אתחל את המכשיר שלך.</string>
     <string name="disable_systemless_magisk_title">כיבוי מודול מארחים Magisk</string>
+    <string name="disable_systemless_magisk">השבת תכונת מארחים ללא מערכת מ־Magisk manager. מרשימת המודולים, הסר את המודול <cite>Systemless hosts</cite> ואז אתחל את המכשיר שלך.</string>
+
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">הכנס כתובת לקובץ מארחים:</string>
     <string name="no_hostname">שם השרת אינו חוקי!</string>
@@ -147,7 +169,8 @@
 
     <!--Adware-->
     <string name="adware_header">תוכנת פירסום</string>
-    <string name="adware_scanning">סורק…</string>
+    <string name="adware_description">כאן תוכלו למצוא תוכנות פרסום מותקנות ויישומים שלא ניתן לחסום בהם על־ידי AdAway. אפליקציות אלה משתמשות למשל בהתראות דחיפה שצצות גם כאשר האפליקציה אינה פועלת וביכולתן אפילו לשנות את הצלצול שלכם. אמצעי הנגד היחידי הזמין הוא הסרת התקנה של יישומים אלה על־ידי לחיצה על רשימת הפריטים הללו.</string>
+    <string name="adware_scanning">סורק&#8230;</string>
     <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
 
     <!--Other-->
