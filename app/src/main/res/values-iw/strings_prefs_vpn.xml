@@ -3,6 +3,8 @@
     <string name="pref_vpn_title">חוסם פרסומות מבוסס VPN</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">הפעלת בעת הפעלת המכשיר</string>
+    <string name="pref_vpn_service_monitor">צג חיבור</string>
+    <string name="pref_vpn_service_monitor_description">בדוק מעת לעת את מצב הרשת כדי להפעיל מחדש את ה־VPN בעת ניתוקו.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">התעלם מיישומים</string>
     <string name="pref_vpn_excluded_apps_description">הגדר אילו יישומים לא יוכלו להשתמש ב-VPN כדי שלא יתנתקו חיבורים</string>
