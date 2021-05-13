@@ -16,13 +16,22 @@
     <string name="pref_never_reboot">הסתרת תיבת דו שיח אודות אתחול לאחר הגדרה</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">הפניה</string>
+    <string name="pref_hosts_redirection_summary">הגדר לאן להפנות מארחים חסומים</string>
     <string name="pref_redirection_ipv4">הפניית IPv4</string>
     <string name="pref_redirection_ipv6">הפניית IPv6</string>
+    <string name="pref_redirection_invalid">ניתוב מחדש לא חוקי</string>
     <!-- Web server category -->
     <string name="pref_webserver">שרת מקומי</string>
+    <string name="pref_webserver_summary">שרת האינטרנט המקומי מקשיב לכתובות IP מקומיות כדי לענות לבקשות של שם מארח חסום. זה עשוי לעזור בהקפאת אפליקציות בחיבור חסום.</string>
     <string name="pref_webserver_enabled">הפעלת שרת Web</string>
     <string name="pref_webserver_test">בדיקת שרת Web</string>
+    <string name="pref_webserver_certificate">התקן אישור בחתימה עצמית</string>
+    <string name="pref_webserver_certificate_dialog_title">התקנה ידנית של האישור</string>
+    <string name="pref_webserver_certificate_dialog_content">החל מ־Android 11 (R), היישום לא יכול להתקין יותר אוטומטית את רשות האישורים (CA).\n\nעבור אל הגדרות \"אבטחה\", \"הצפנה ואישורים\" ואז \"התקן אישור\". משם, בחר \"אישור CA\" ובחר את קובץ האישור החדש שיוצא.</string>
     <string name="pref_webserver_certificate_dialog_action">פתיחת הגדרות \"אבטחה\"</string>
     <string name="pref_webserver_state_checking">בודק…</string>
     <string name="pref_webserver_state_not_running">לא פעיל</string>
-    </resources>
+    <string name="pref_webserver_state_running_not_installed">פועל אך האישור לא הותקן</string>
+    <string name="pref_webserver_state_running_and_installed">פועל והאישור הותקן</string>
+    <string name="pref_webserver_icon">החלף שטח ריק של מודעות שנחסמו בסמל האפליקציה</string>
+</resources>
