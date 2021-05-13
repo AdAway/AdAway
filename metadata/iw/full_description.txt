@@ -1,9 +1,9 @@
-A Free and Open Source ad blocker for Android.
+חוסם פרסומות חינמי ובקוד פתוח לאנדרואיד
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+זמין למכשירים בעלי הרשאות Root וגם ללא הרשאות.
+במכשיר בעל הרשאות Root, היישום מעדכן את קובץ המארחים המובנה שלך שמכיל רשימה של מיפויים בין שמות מארחים וכתובות IP.
+במכשיר שאינו בעל הרשאות Root, היישום משתמש בתכונת ה־VPN לצורך חסימת חיבורים יוצאים למודעות ולמעקבים.
+לכן כאשר אפליקציה מבקשת מודעה או מעקב ממארח ​​בקובץ הזה, בקשה זו מופנית אל ה־IP המקומי – 127.0.0.1, שאינו עושה דבר.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+באפשרותכם להוריד מודעות מוגדרות מראש ורשימות חסימה כקבצי מארח מתוך האפליקציה לשם שילובם. תוכלו אף להשתמש בקבצים משלכם ולהוסיף מארחים מסוימים לרשימות השונות.
 There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
