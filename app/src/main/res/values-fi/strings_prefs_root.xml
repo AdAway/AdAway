@@ -16,6 +16,6 @@
     <string name="pref_webserver_enabled">Ota web-palvelin käyttöön</string>
     <string name="pref_webserver_test">Testaa web-palvelinta</string>
     <string name="pref_webserver_certificate_dialog_action">Avaa \"Turvallisuus\'\" -asetukset</string>
-    <string name="pref_webserver_state_checking">Tarkistetaan... </string>
+    <string name="pref_webserver_state_checking">Tarkistetaan… </string>
     <string name="pref_webserver_state_not_running">Ei käynnissä</string>
     </resources>

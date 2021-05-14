@@ -29,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Ручне встановлення сертифікату</string>
     <string name="pref_webserver_certificate_dialog_content">Починаючи з Android 11 (R), застосунки більше не можуть автоматично встановлювати сертифікати (CA).\n\nЩоб це зробити вручну, зайдіть в налаштування, розділ «Безпека» далі «Шифрування й облікові дані», потім «Установити сертифікат». У вікні, що з’явиться виберіть щойно створений файл сертифікату.</string>
     <string name="pref_webserver_certificate_dialog_action">Відкрити налаштування «Безпека»</string>
-    <string name="pref_webserver_state_checking">Перевірка...</string>
+    <string name="pref_webserver_state_checking">Перевірка…</string>
     <string name="pref_webserver_state_not_running">Не запущено</string>
     <string name="pref_webserver_state_running_not_installed">Запущено, але сертифікат не встановлено</string>
     <string name="pref_webserver_state_running_and_installed">Запущено, сертифікат встановлено</string>

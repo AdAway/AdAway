@@ -83,7 +83,7 @@
     <string name="status_vpn_configuration_updated">تم تحديث تكوين في بي إن بنجاح</string>
     <string name="notification_configuration_changed">تم تغيير التكوين الخاص بك. تحتاج إلى تطبيقه.</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
-    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف...</string>
+    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف…</string>
     <string name="notification_configuration_failed">فشل في تثبيت ملف المضيفات</string>
 
     <!--Apply and Revert Dialogs-->

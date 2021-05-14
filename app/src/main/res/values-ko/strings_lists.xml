@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">리다이렉트 됨</string>
     <!-- Menu -->
     <string name="lists_menu_filter">호스트 필터</string>
-    <string name="lists_menu_filter_hint">호스트 이름 검색...</string>
+    <string name="lists_menu_filter_hint">호스트 이름 검색…</string>
     <string name="lists_menu_toggle_sources">소스 전환</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">블랙리스트에 호스트 추가</string>

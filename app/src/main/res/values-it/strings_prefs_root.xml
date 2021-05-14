@@ -29,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Installazione manuale del certificato</string>
     <string name="pref_webserver_certificate_dialog_content">A partire da Android 11 (R), le app non possono più installare automaticamente un\'autorità di certificazione (CA). \n\nVai alle impostazioni di Sicurezza, \"Crittografia e Credenziali\" e a \"Installa un certificato\". Quindi scegli \"Certificato CA\" e seleziona il file del certificato appena esportato.</string>
     <string name="pref_webserver_certificate_dialog_action">Apri impostazioni di Sicurezza</string>
-    <string name="pref_webserver_state_checking">Verifica in corso...</string>
+    <string name="pref_webserver_state_checking">Verifica in corso…</string>
     <string name="pref_webserver_state_not_running">Non in esecuzione</string>
     <string name="pref_webserver_state_running_not_installed">In esecuzione. ma certificato non installato</string>
     <string name="pref_webserver_state_running_and_installed">In esecuzione con certificato installato</string>

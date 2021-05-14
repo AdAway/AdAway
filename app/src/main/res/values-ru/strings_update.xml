@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Список изменений:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Скачивание последней версии AdAway...</string>
+    <string name="update_notification_description">Скачивание последней версии AdAway…</string>
 </resources>

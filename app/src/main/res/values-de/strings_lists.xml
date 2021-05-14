@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">Umgeleitet</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Host filtern</string>
-    <string name="lists_menu_filter_hint">Suche Hostname...</string>
+    <string name="lists_menu_filter_hint">Suche Hostname…</string>
     <string name="lists_menu_toggle_sources">Quellen wechseln</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Host zur Negativliste hinzufügen</string>

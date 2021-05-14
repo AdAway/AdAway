@@ -29,7 +29,7 @@
     <string name="export_dialog">Esportando…</string>
     <!--Hosts content-->
     <string name="hosts_header">El ficheru hosts</string>
-    <string name="hosts_content">Cargando\'l conteníu del ficheru hosts...</string>
+    <string name="hosts_content">Cargando\'l conteníu del ficheru hosts…</string>
     <string name="hosts_open_button">Abrir el ficheru hosts</string>
 
     <string name="status_reverting_subtitle">Creando ficheru hosts estándar</string>

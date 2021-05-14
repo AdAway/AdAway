@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Modificări:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Se descarcă ultima versiune a AdAway...</string>
+    <string name="update_notification_description">Se descarcă ultima versiune a AdAway…</string>
 </resources>

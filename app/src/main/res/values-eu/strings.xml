@@ -45,7 +45,7 @@
     <!--Hosts content-->
     <string name="hosts_header">Hostalari fitxategia</string>
     <string name="hosts_description">Hosts fitxategia IP helbideei host izenak ematen dizkien sistemaren fitxategi bat da. Formaturik gabeko testu-fitxategia da, AdAwayk konfiguratzen du. Hauek dira bere lehenengo lerroak:</string>
-    <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen...</string>
+    <string name="hosts_content">Hostalari fitxategiaren edukia kargatzen…</string>
     <string name="hosts_open_button">Ireki hostalari fitxategia</string>
 
     <!--Status Notification-->
@@ -78,7 +78,7 @@
     <string name="status_vpn_configuration_updated">VPN konfigurazioa eguneratuta</string>
     <string name="notification_configuration_changed">Zure konfigurazioa aldatuta. Aplikatzea behar da.</string>
     <string name="notification_configuration_changed_action">Aplikatu</string>
-    <string name="notification_configuration_installing">Konfigurazio berria aplikatzen...</string>
+    <string name="notification_configuration_installing">Konfigurazio berria aplikatzen…</string>
     <string name="notification_configuration_failed">Errorea konfigurazio berria aplikatzen.</string>
 
     <!--Apply and Revert Dialogs-->

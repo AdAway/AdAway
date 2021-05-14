@@ -37,7 +37,7 @@
     <string name="export_dialog">Estase a exportar…</string>
     <!--Hosts content-->
     <string name="hosts_header">O arquivo hosts</string>
-    <string name="hosts_content">Cargando contido do arquivo hosts...</string>
+    <string name="hosts_content">Cargando contido do arquivo hosts…</string>
     <string name="hosts_open_button">Abrir o arquivo hosts</string>
 
     <string name="status_download_source">Descargando fonte %s</string>

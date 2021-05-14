@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">VPN konfiguráció sikeresen frissítve</string>
     <string name="notification_configuration_changed">A konfiguráció megváltozott. Alkalmaznod kell.</string>
     <string name="notification_configuration_changed_action">Alkalmaz</string>
-    <string name="notification_configuration_installing">Új konfiguráció alkalmazása...</string>
+    <string name="notification_configuration_installing">Új konfiguráció alkalmazása…</string>
     <string name="notification_configuration_failed">Nem sikerült alkalmazni az új konfigurációt.</string>
 
     <!--Apply and Revert Dialogs-->

@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Változási napló:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Legutóbbi AdAway verzió letöltése...</string>
+    <string name="update_notification_description">Legutóbbi AdAway verzió letöltése…</string>
 </resources>

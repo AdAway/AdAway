@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Aktualisierungsprotokoll:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Herunterladen der neuesten AdAway Version...</string>
+    <string name="update_notification_description">Herunterladen der neuesten AdAway Version…</string>
 </resources>

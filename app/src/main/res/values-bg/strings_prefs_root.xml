@@ -25,7 +25,7 @@
     <string name="pref_webserver_enabled">Включване на уеб сървър</string>
     <string name="pref_webserver_test">Тестване на уеб сървър</string>
     <string name="pref_webserver_certificate">Инсталиране на самоподписан сертификат</string>
-    <string name="pref_webserver_state_checking">Проверка...</string>
+    <string name="pref_webserver_state_checking">Проверка…</string>
     <string name="pref_webserver_state_not_running">Не работи</string>
     <string name="pref_webserver_state_running_not_installed">Работи, но не е инсталиран сертификат</string>
     <string name="pref_webserver_state_running_and_installed">Работи и е инсталиран сертификат</string>

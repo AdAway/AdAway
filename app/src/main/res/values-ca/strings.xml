@@ -67,7 +67,7 @@
     <string name="status_disabled">Desactivat</string>
     <string name="status_disabled_subtitle">S\'han instal·lat els fitxers d\'amfitrions per defecte</string>
     <string name="notification_configuration_changed_action">Aplica</string>
-    <string name="notification_configuration_installing">Aplicant nova configuració...</string>
+    <string name="notification_configuration_installing">Aplicant nova configuració…</string>
     <string name="apply_symlink_missing">L\'enllaç simbòlic cap a /system/etc/hosts no existeix o no és correcte! L\'AdAway no funcionarà si no apunta al fitxer correcte.\n\nVoleu intentar crear un enllaç simbòlic?</string>
     <string name="apply_symlink_missing_title">Falta l\'enllaç simbòlic</string>
     <string name="apply_not_enough_space">No hi ha prou espai a la partició!\nProveu canviant el fitxer a les preferències a /data/data/hosts.</string>

@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">Redireccionado</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrar hosts</string>
-    <string name="lists_menu_filter_hint">Buscar nombre de host...</string>
+    <string name="lists_menu_filter_hint">Buscar nombre de host…</string>
     <string name="lists_menu_toggle_sources">Alternar fuentes</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Añadir host a la lista negra</string>

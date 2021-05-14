@@ -66,7 +66,7 @@
     <string name="status_hosts_updated">Ficheiro hosts atualizado com sucesso</string>
     <string name="status_vpn_configuration_updated">Configuração da VPN atualizada com sucesso</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">A aplicar nova configuração...</string>
+    <string name="notification_configuration_installing">A aplicar nova configuração…</string>
     <string name="notification_configuration_failed">Falha ao aplicar nova configuração</string>
 
     <string name="apply_symlink_missing">Uma ligação simbólica do seu destino para /system/etc/hosts não existe ou está incorreta! O AdAway não funcionará se não estiver a apontar para o ficheiro correto.\n\nPretende tentar criar uma ligação simbólica?</string>

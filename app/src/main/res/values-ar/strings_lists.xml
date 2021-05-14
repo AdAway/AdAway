@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">معاد توجيهه</string>
     <!-- Menu -->
     <string name="lists_menu_filter">تصفية المضيفين</string>
-    <string name="lists_menu_filter_hint">البحث عن اسم المضيف...</string>
+    <string name="lists_menu_filter_hint">البحث عن اسم المضيف…</string>
     <string name="lists_menu_toggle_sources">تبديل المصادر</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">إضافة المضيف للقائمة السوداء </string>

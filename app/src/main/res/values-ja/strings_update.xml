@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">変更履歴:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">最新のAdAwayをダウンロードしています...</string>
+    <string name="update_notification_description">最新のAdAwayをダウンロードしています…</string>
 </resources>

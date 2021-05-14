@@ -38,17 +38,17 @@
     <string name="checkbox_list_context_delete">Excluir</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importando...</string>
+    <string name="import_dialog">Importando…</string>
     <string name="import_success">Backup importado com sucesso do seu armazenamento externo.</string>
     <string name="import_failed">Falha ao importar backup. Seu formato está correto? Verifique o logcat para mais detalhes.</string>
-    <string name="export_dialog">Exportando...</string>
+    <string name="export_dialog">Exportando…</string>
     <string name="export_success"> Backup exportado com sucesso para o arquivo \'%s\' em seu armazenamento externo.</string>
     <string name="export_failed">Falha ao exportar arquivo de backup \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">O arquivo de hosts</string>
     <string name="hosts_description">O arquivo hosts é um arquivo de sistema que mapeia nomes de host para endereços IP. É um arquivo de texto simples cuja configuração é gerenciada pela AdAway. Aqui estão suas poucas primeiras linhas:</string>
-    <string name="hosts_content">Carregando o conteúdo do arquivo hosts...</string>
+    <string name="hosts_content">Carregando o conteúdo do arquivo hosts…</string>
     <string name="hosts_open_button">Abrir arquivo hosts</string>
 
     <!--Status Notification-->
@@ -151,7 +151,7 @@
     <string name="no_ip">Este não é um IP válido!</string>
     <string name="no_ip_title">IP incorretamente formatado</string>
     <string name="reboot_never_reboot">Nunca reinicie e não mostre esta pergunta na próxima vez!</string>
-    <string name="loading">Carregando...</string>
+    <string name="loading">Carregando…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Atualizar</string>

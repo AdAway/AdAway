@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">VPN конфигурацията се актуализира успешно</string>
     <string name="notification_configuration_changed">Вашата конфигурация се промени. Трябва да я приложите.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
-    <string name="notification_configuration_installing">Прилагане на нова конфигурация...</string>
+    <string name="notification_configuration_installing">Прилагане на нова конфигурация…</string>
     <string name="notification_configuration_failed">Прилагането на нова конфигурация се провали.</string>
 
     <!--Apply and Revert Dialogs-->

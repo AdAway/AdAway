@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Pakeitimų įrašai:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Atsisunčiame naujausią AdAway versiją...</string>
+    <string name="update_notification_description">Atsisunčiame naujausią AdAway versiją…</string>
 </resources>

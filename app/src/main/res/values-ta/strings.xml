@@ -24,7 +24,7 @@
     <string name="checkbox_list_context_delete">அழி</string>
 
     <!--Your lists-->
-    <string name="import_dialog">இறக்குமதி செய்கிறது...</string>
+    <string name="import_dialog">இறக்குமதி செய்கிறது…</string>
     <string name="notification_configuration_changed_action">விண்ணப்பி</string>
     <string name="apply_help">மேலும் தகவலுக்கு உதவியைப் படிக்கவும்</string>
     <string name="menu_add">சேர்</string>

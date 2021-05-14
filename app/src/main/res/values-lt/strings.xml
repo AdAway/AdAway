@@ -45,7 +45,7 @@
     <!--Hosts content-->
     <string name="hosts_header">Hosts failas</string>
     <string name="hosts_description">Hosts failas yra sistemos failas kuris pritaiko domenus prie IP adresų. Tai yra paprastas teksto failas kurio konfiguraciją tvarko ir naudoja AdAway. Čia yra jos pirmos eilutės:</string>
-    <string name="hosts_content">Kraunama hosts failo duomenys...</string>
+    <string name="hosts_content">Kraunama hosts failo duomenys…</string>
     <string name="hosts_open_button">Atverti hosts failą</string>
 
     <!--Status Notification-->
@@ -81,7 +81,7 @@
     <string name="status_vpn_configuration_updated">VPN konfigūracija sėkmingai atnaujinta</string>
     <string name="notification_configuration_changed">Jūsų konfiguracija išsaugota. Jums reikia ją pritaikyti.</string>
     <string name="notification_configuration_changed_action">Pritaikyti</string>
-    <string name="notification_configuration_installing">Pritaikoma nauja konfigūracija...</string>
+    <string name="notification_configuration_installing">Pritaikoma nauja konfigūracija…</string>
     <string name="notification_configuration_failed">Nepavyko pritaikyti naujos konfigūracijos.</string>
 
     <!--Apply and Revert Dialogs-->

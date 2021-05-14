@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Ändringslogg:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Laddar ner den senaste AdAway-versionen...</string>
+    <string name="update_notification_description">Laddar ner den senaste AdAway-versionen…</string>
 </resources>
