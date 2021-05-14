@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -15,9 +15,14 @@
         <item quantity="one">%d outdated source</item>
         <item quantity="other">%d ξεπερασμένες πηγές</item>
     </plurals>
+    <string name="check_hosts_update_description">Έλεγχος για ενημερώσεις αρχείου hosts</string>
+    <string name="update_hosts_description">Ενημέρωση του αρχείου hosts</string>
+
+    <!-- Log card -->
+    <string name="log_label">Εμφάνιση αρχείου καταγραφής αιτήσεων DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Δείξτε βοήθεια</string>
+    <string name="help_label">Εμφάνιση βοήθειας\nκαι συμβουλών</string>
 
     <!-- Project card -->
     <string name="project_label">Ανοίξτε τη σελίδα GitHub </string>
@@ -26,6 +31,7 @@
     <string name="support_label">Υποστήριξη project</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">GitHub project</string>
     <string name="preferences_drawer_item">Προτιμήσεις</string>
 
     <!-- App bar buttons -->
