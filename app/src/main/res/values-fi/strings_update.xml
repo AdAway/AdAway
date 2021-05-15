@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway päivitys</string>
     <!-- Home screen -->
     <string name="update_available">Päivitys saatavilla!</string>
 
     <!-- Update activity -->
     <string name="update_up_to_date_header">Olet ajan tasalla</string>
     <string name="update_update_available_header">Päivitys saatavilla</string>
+    <string name="update_updating_header">Päivitetään AdAwaytä</string>
     <string name="update_update_button">Päivitä nyt</string>
-    </resources>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Viimeiset muutokset:</string>
+    <string name="update_new_changelog_title">Muutosloki:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Ladataan uusinta versiota AdAwaystä... </string>
+</resources>
