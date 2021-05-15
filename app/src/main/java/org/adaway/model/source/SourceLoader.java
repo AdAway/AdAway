@@ -89,12 +89,17 @@ class SourceLoader {
 
         @Override
         public void run() {
-            new BufferedReader(this.reader)
-                    .lines()
-                    .forEach(this.queue::add);
-            // Send end of queue marker to parsers
-            for (int i = 0; i < this.parserCount; i++) {
-                this.queue.add(END_OF_QUEUE_MARKER);
+            try {
+                new BufferedReader(this.reader)
+                        .lines()
+                        .forEach(this.queue::add);
+            } catch (Throwable t) {
+                Log.w(TAG, "Failed to read hosts source.", t);
+            } finally {
+                // Send end of queue marker to parsers
+                for (int i = 0; i < this.parserCount; i++) {
+                    this.queue.add(END_OF_QUEUE_MARKER);
+                }
             }
         }
     }
