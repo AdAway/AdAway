@@ -1,21 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
-    <string name="blocked_hosts_label">Torjuttu</string>
-    <string name="allowed_hosts_label">Hyväksytty </string>
+    <string name="blocked_hosts_label">Torjuttuja</string>
+    <string name="allowed_hosts_label">Hyväksyttyjä</string>
+    <string name="redirect_hosts_label">Siirrettyjä</string>
+
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d up-to-date sources</item>
+        <item quantity="other">%d ajantasalla olevaa lähdettä</item>
     </plurals>
     <plurals name="outdated_source_label">
         <item quantity="one">%d outdated source</item>
-        <item quantity="other">%d outdated sources</item>
+        <item quantity="other">%d vanhentunutta lähdettä</item>
     </plurals>
+    <string name="check_hosts_update_description">Tarkista hosts-päivityksiä</string>
+    <string name="update_hosts_description">Päivitä hosts-tiedosto</string>
+
+    <!-- Log card -->
+    <string name="log_label">Näytä DNS-pyyntöjen loki</string>
 
     <!-- Help card -->
-    <string name="help_label">Näytä ohje</string>
+    <string name="help_label">Näytä ohje\nja vinkit</string>
 
     <!-- Project card -->
     <string name="project_label">Avaa GitHub-sivu</string>
@@ -24,7 +31,14 @@
     <string name="support_label">Tue projektia</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">GitHub-projekti</string>
     <string name="preferences_drawer_item">Asetukset</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Avaa navigointipalkki</string>
+    <string name="adblock_pause_button_description">Pysäytä/jatka mainostenestämistä</string>
+    <string name="update_button">Päivitä torjutut palvelimet</string>
+    <string name="show_log_button">Näytä pyydetyt palvelimet</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Lue ohjeet, jos haluat lisätietoja.</string>
