@@ -1,9 +1,9 @@
-A Free and Open Source ad blocker for Android.
+Un Ad Blocker gratuito e open source per Android.
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+L'applicazione è disponibile sia per i dispositivi con e senza root.
+Utilizzando un dispositivo con root, l'applicazione aggiorna il file host del tuo sistema che contiene un elenco relazioni tra i nomi host e gli indirizzi IP.
+Utilizzando un dispositivo senza root, l'applicazione utilizza una connessione VPN per bloccare le connessioni verso annunci e trackers.
+Così quando un'applicazione richiede un annuncio o un tracker da un host, la richiesta viene reindirizzata all'indirizzo IP locale 127.0.0.1, che non fornisce risposta.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Puoi scaricare liste predefinite di annunci o tracker come file host da utilizzare, direttamente dall'applicazione. È anche possibile utilizzare i propri file e aggiungere specifici host ai quali si vuole bloccare o permettere l'accesso.
 Ci sono opzioni che consentono di avviare un web server locale per rispondere ai nomi di host bloccati e per inoltrare le relative richieste all'indirizzo IP di tua preferenza
