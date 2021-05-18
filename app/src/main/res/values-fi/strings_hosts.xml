@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Hosts-lähteet</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Käyttäjälista</string>
+    <string name="hosts_adaway_source">AdAwayn virallinen hosts-lähde</string>
+    <string name="hosts_stevenblack_source">StevenBlackin yhtenäinen hosts-lähde</string>
+    <string name="hosts_peterlowe_source">Pete Lowen estolista hosts-lähde</string>
     <!-- List -->
     <string name="hosts_not_available">ei saatavilla</string>
+    <string name="hosts_count">%shostia</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Lisää lähde</string>
     <string name="hosts_edit_dialog_title">Muokkaa lähdettä</string>
