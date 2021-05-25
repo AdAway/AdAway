@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -15,9 +15,14 @@
         <item quantity="one">%d outdated source</item>
         <item quantity="other">%d fontes desatualizadas</item>
     </plurals>
+    <string name="check_hosts_update_description">Checar por atualizações de hosts</string>
+    <string name="update_hosts_description">Atualizar hosts</string>
+
+    <!-- Log card -->
+    <string name="log_label">Mostrar registro de solicitação de DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Mostrar ajuda</string>
+    <string name="help_label">Mostrar ajuda\ne dicas</string>
 
     <!-- Project card -->
     <string name="project_label">Abrir página do GitHub</string>
@@ -26,6 +31,7 @@
     <string name="support_label">Apoie o projeto</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Projeto GitHub</string>
     <string name="preferences_drawer_item">Preferências</string>
 
     <!-- App bar buttons -->
