@@ -1,3 +1,11 @@
+## [5.7.0] - Unreleased
+
+- Add quick settings tile to toggle ad-blocking
+- Fix crash on TLS and timeout issue during source update
+- Update translations
+
+Special thanks to gwolf2u and opusforlife2 for their bug reports.
+
 ## [5.6.0] - 2021-04-30
 
 - Improve navigation by moving DNS logs to home screen
