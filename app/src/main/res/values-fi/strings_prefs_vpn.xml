@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_vpn_title">VPN pohjainen mainos esto</string>
+    <string name="pref_vpn_title">VPN pohjainen mainostenesto</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Aktivoi käynnistyksessä</string>
+    <string name="pref_vpn_service_monitor">Valvo yhteyttä</string>
+    <string name="pref_vpn_service_monitor_description">Tarkista säännöllisesti verkon tilaa uudelleen käynnistääkseen VPN yhteyden katkettua. </string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Pois jätetyt sovellukset</string>
     <string name="pref_vpn_excluded_apps_description">Valitse mitkä sovellukset eivät saa käyttää VPNää jotta mitään yhteyksiä ei estetä.</string>
