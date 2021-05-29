@@ -6,21 +6,21 @@
 
 AdAway is an open source ad blocker for Android using the hosts file and local vpn.
 
-[<img src="metadata/en-rUS/phoneScreenshots/screenshot1.png"
+[<img src="metadata/en-US/phoneScreenshots/screenshot1.png"
     alt="Home screen"
-    height="256">](metadata/en-rUS/phoneScreenshots/screenshot1.png)
-[<img src="metadata/en-rUS/phoneScreenshots/screenshot2.png"
+    height="256">](metadata/en-US/phoneScreenshots/screenshot1.png)
+[<img src="metadata/en-US/phoneScreenshots/screenshot2.png"
     alt="Preferences screen"
-    height="256">](metadata/en-rUS/phoneScreenshots/screenshot2.png)
-[<img src="metadata/en-rUS/phoneScreenshots/screenshot3.png"
+    height="256">](metadata/en-US/phoneScreenshots/screenshot2.png)
+[<img src="metadata/en-US/phoneScreenshots/screenshot3.png"
     alt="Root based ad blocker screen"
-    height="256">](metadata/en-rUS/phoneScreenshots/screenshot3.png)
-[<img src="metadata/en-rUS/phoneScreenshots/screenshot4.png"
+    height="256">](metadata/en-US/phoneScreenshots/screenshot3.png)
+[<img src="metadata/en-US/phoneScreenshots/screenshot4.png"
     alt="Backup and restore screen"
-    height="256">](metadata/en-rUS/phoneScreenshots/screenshot4.png)
-[<img src="metadata/en-rUS/phoneScreenshots/screenshot5.png"
+    height="256">](metadata/en-US/phoneScreenshots/screenshot4.png)
+[<img src="metadata/en-US/phoneScreenshots/screenshot5.png"
     alt="Help screen"
-    height="256">](metadata/en-rUS/phoneScreenshots/screenshot5.png)
+    height="256">](metadata/en-US/phoneScreenshots/screenshot5.png)
 
 For more information visit https://adaway.org
 
