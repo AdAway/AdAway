@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AdAway</string>
-    </resources>
+    <string name="app_description">Ad blocker Open Source</string>
+    <string name="app_logo">logo AdAway</string>
+</resources>
