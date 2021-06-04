@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">定義重新導向被阻止的 hosts 位置</string>
     <string name="pref_redirection_ipv4">IPv4 重新導向</string>
     <string name="pref_redirection_ipv6">IPv6 重新導向</string>
+    <string name="pref_redirection_invalid">無效的重新導向</string>
     <!-- Web server category -->
     <string name="pref_webserver">本地網頁伺服器</string>
     <string name="pref_webserver_summary">本地網頁伺服器偵聽本地 IP 位址以響應阻止的主機名請求。它可以幫助你在被封鎖的連線上凍結應用程式。</string>
