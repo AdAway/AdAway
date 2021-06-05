@@ -2,7 +2,9 @@ package org.adaway.ui.prefs;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.webkit.MimeTypeMap;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts.CreateDocument;
@@ -104,7 +106,15 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
         Preference backupPreference = findPreference(getString(R.string.pref_restore_key));
         assert backupPreference != null : "preference not found";
         backupPreference.setOnPreferenceClickListener(preference -> {
-            this.importActivityLauncher.launch(new String[]{JSON_MIME_TYPE});
+            String[] mimeTypes;
+            if (Build.VERSION.SDK_INT < 28) {
+                mimeTypes = new String[]{"*/*"};
+            } else if (Build.VERSION.SDK_INT < 29) {
+                mimeTypes = new String[]{JSON_MIME_TYPE, "application/octet-stream"};
+            } else {
+                mimeTypes = new String[] {JSON_MIME_TYPE};
+            }
+            this.importActivityLauncher.launch(mimeTypes);
             return true;
         });
     }

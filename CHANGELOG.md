@@ -2,9 +2,10 @@
 
 - Add quick settings tile to toggle ad-blocking
 - Fix crash on TLS and timeout issue during source update
+- Fix backup not listed for restoration on older devices
 - Update translations
 
-Special thanks to gwolf2u and opusforlife2 for their bug reports.
+Special thanks to gwolf2u, opusforlife2, Vstory for their bug reports.
 
 ## [5.6.0] - 2021-04-30
 
