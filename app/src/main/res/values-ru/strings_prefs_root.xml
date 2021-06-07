@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">Определить куда переадресовывать заблокированные хосты</string>
     <string name="pref_redirection_ipv4">Перенаправление IPv4</string>
     <string name="pref_redirection_ipv6">Перенаправление IPv6</string>
+    <string name="pref_redirection_invalid">Неверное перенаправление</string>
     <!-- Web server category -->
     <string name="pref_webserver">Локальный веб-сервер</string>
     <string name="pref_webserver_summary">Локальный веб-сервер прослушивает локальные IP адреса и отвечает на запросы к заблокированным хостам.  Это поможет избегать зависаний при блокировке подключений.</string>
@@ -28,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Установка сертификата вручную</string>
     <string name="pref_webserver_certificate_dialog_content">Начиная с 11 версии Андроид (R), приложение больше не может автоматически устанавливать главный сертификат (CA)\n\nИдите в \"Настройки безопасности\", \"Шифрование личных данных\", затем \"Установить сертификат\". Оттуда выберите \"CA сертификат\" и выберите только что экспортированный файл сертификата.</string>
     <string name="pref_webserver_certificate_dialog_action">Откройте настройки безопасности</string>
-    <string name="pref_webserver_state_checking">Проверка…</string>
+    <string name="pref_webserver_state_checking">Проверка...</string>
     <string name="pref_webserver_state_not_running">Не запущен</string>
     <string name="pref_webserver_state_running_not_installed">Запущен, но сертификат не установлен</string>
     <string name="pref_webserver_state_running_and_installed">Запущен, сертификат установлен</string>
