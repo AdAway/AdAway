@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -19,9 +19,14 @@
         <item quantity="many">%d устаревших источников</item>
         <item quantity="other">%d устаревших источников</item>
     </plurals>
+    <string name="check_hosts_update_description">Проверить обновления хостов</string>
+    <string name="update_hosts_description">Обновить хосты</string>
+
+    <!-- Log card -->
+    <string name="log_label">Показать журнал запросов DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Показать справку</string>
+    <string name="help_label">Показать справку\nи советы</string>
 
     <!-- Project card -->
     <string name="project_label">Открыть страницу GitHub</string>
@@ -30,6 +35,7 @@
     <string name="support_label">Поддержать проект</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Проект на GitHub</string>
     <string name="preferences_drawer_item">Настройки</string>
 
     <!-- App bar buttons -->
