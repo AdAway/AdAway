@@ -11,6 +11,8 @@ import org.adaway.model.error.HostErrorException;
 import org.adaway.util.AppExecutors;
 import org.adaway.util.Log;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import static android.service.quicksettings.Tile.STATE_ACTIVE;
 import static android.service.quicksettings.Tile.STATE_INACTIVE;
 
@@ -21,6 +23,7 @@ import static android.service.quicksettings.Tile.STATE_INACTIVE;
  */
 public class AdBlockingTileService extends TileService {
     private static final String TAG = "TileService";
+    private final AtomicBoolean toggling = new AtomicBoolean(false);
 
     @Override
     public void onTileAdded() {
@@ -54,15 +57,23 @@ public class AdBlockingTileService extends TileService {
     }
 
     private void toggleAdBlocking() {
+        if (this.toggling.get()) {
+            return;
+        }
         AdBlockModel model = getModel();
         try {
+            this.toggling.set(true);
             if (model.isApplied().getValue() == Boolean.TRUE) {
+                Log.w(TAG, "---> REVERT");
                 model.revert();
             } else {
+                Log.w(TAG, "---> APPLY");
                 model.apply();
             }
         } catch (HostErrorException e) {
             Log.w(TAG, "Failed to toggle ad-blocking.", e);
+        } finally {
+            this.toggling.set(false);
         }
     }
 
