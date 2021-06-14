@@ -133,7 +133,8 @@
             android:layout_height="32dp"
             android:contentDescription="@string/blocked_hosts_label"
             android:elevation="15dp"
-            app:srcCompat="@drawable/baseline_block_24" />
+            app:srcCompat="@drawable/baseline_block_24"
+            app:tint="@color/blocked_icon" />
     </androidx.cardview.widget.CardView>
 
     <Space
@@ -204,7 +205,8 @@
             android:layout_height="32dp"
             android:contentDescription="@string/allowed_hosts_label"
             android:elevation="15dp"
-            app:srcCompat="@drawable/baseline_check_24" />
+            app:srcCompat="@drawable/baseline_check_24"
+            app:tint="@color/allowed_icon" />
     </androidx.cardview.widget.CardView>
 
     <Space
@@ -277,7 +279,8 @@
             android:layout_height="32dp"
             android:contentDescription="@string/redirect_hosts_label"
             android:elevation="15dp"
-            app:srcCompat="@drawable/baseline_compare_arrows_24" />
+            app:srcCompat="@drawable/baseline_compare_arrows_24"
+            app:tint="@color/redirected_icon" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
