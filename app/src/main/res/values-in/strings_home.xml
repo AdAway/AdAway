@@ -1,7 +1,42 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
+    <!-- Hosts card -->
+    <string name="blocked_hosts_label">Diblokir</string>
+    <string name="allowed_hosts_label">Diizinkan</string>
+    <string name="redirect_hosts_label">Dialihkan</string>
+
+    <!-- Source card -->
+    <plurals name="up_to_date_source_label">
+        <item quantity="other">%dsumber terbaru</item>
+    </plurals>
+    <plurals name="outdated_source_label">
+        <item quantity="other">%dsumber usang</item>
+    </plurals>
+    <string name="check_hosts_update_description">Mengecek pembaruan host</string>
+    <string name="update_hosts_description">Perbaharui daftar</string>
+
+    <!-- Log card -->
+    <string name="log_label">Perlihatkan log DNS requests</string>
+
+    <!-- Help card -->
+    <string name="help_label">Tampilkan bantuan\ndan tips</string>
+
+    <!-- Project card -->
+    <string name="project_label">Buka GitHub Page</string>
+
+    <!-- Support card -->
+    <string name="support_label">Dukung proyek</string>
+
+    <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Proyek GitHub</string>
     <string name="preferences_drawer_item">Pengaturan</string>
+
+    <!-- App bar buttons -->
+    <string name="open_drawer_button_description">Buka laci navigasi</string>
+    <string name="adblock_pause_button_description">Jeda / lanjutkan pemblokiran iklan</string>
+    <string name="update_button">Perbarui domain yang diblokir</string>
+    <string name="show_log_button">Tampilkan domain yang diminta</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Silahkan baca Help untuk informasi lebih lanjut.</string>
