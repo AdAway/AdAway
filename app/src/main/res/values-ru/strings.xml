@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Выход</string>
@@ -42,6 +42,9 @@
     <string name="import_success">Резервная копия успешно импортирована из вашего внешнего хранилища.</string>
     <string name="import_failed">Не удалось импортировать резервную копию. Возможно её формат не верен? Проверьте logcat для подробностей.</string>
     <string name="export_dialog">Экспорт…</string>
+    <string name="export_success">Резервная копия успешно экспортирована в файл \'%s\' в внешнее хранилище.</string>
+    <string name="export_failed">Не удалось экспортировать файл резервной копии \'%s\'.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts — это системный файл, сопоставляющий имена узлов с IP-адресами. Это обычный текстовый файл, содержимое которого обрабатывает AdAway. Вот его первые строки:</string>
@@ -82,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Конфигурация VPN успешно обновлена</string>
     <string name="notification_configuration_changed">Конфигурация изменена. Вам нужно применить её.</string>
     <string name="notification_configuration_changed_action">Применить</string>
-    <string name="notification_configuration_installing">Применение новой конфигурации…</string>
+    <string name="notification_configuration_installing">Применение новой конфигурации...</string>
     <string name="notification_configuration_failed">Не удалось применить новую конфигурацию.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -114,7 +117,7 @@
     <string name="apply_symlink_fail">Android не смог создать символическую ссылку.\nВозможно, это из-за \'функции\' телефонов HTC, называемой S-ON!\n\nРешение состоит в том, чтобы загрузить телефон в режим восстановления и создать там символическую ссылку при помощи \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nЕсли это не поможет, то надо искать информацию в интернете по S-OFF и вашему телефону.</string>
     <string name="apply_symlink_fail_title">Не удалось создать символическую ссылку</string>
     <string name="apply_help">Пожалуйста, прочите Справку, чтобы узнать больше.</string>
-    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать надежно в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настройки: Сеть и Интернет -&gt; Мобильная сеть -&gt; Дополнительно -&gt; Точки доступа APN) и удалить значение в поле прокси.</string>
+    <string name="apply_apn_proxy">В настройках APN вашего Android указан прокси-сервер!\nAdAway не будет работать надежно в мобильных сетях, таких как 3G. Вы можете отключить этот сервер прокси в настройках используемой APN (из приложения Настройки: Сеть и Интернет -> Мобильная сеть -> Дополнительно -> Точки доступа APN) и удалить значение в поле прокси.</string>
     <string name="apply_apn_proxy_title">Используемая точка доступа работает через прокси-сервер!</string>
     <string name="no_connection">Отсутствует подключение к интернет.</string>
     <string name="no_connection_title">Нет соединения</string>
@@ -185,7 +188,7 @@
     <!--Adware-->
     <string name="adware_header">Приложения с рекламой</string>
     <string name="adware_description">Поиск приложений с рекламой, называемые Adware, и которые AdAway не может заблокировать. Эти приложения используют, например, систему уведомлений Airpush, которая показывает рекламу даже тогда, когда приложение не работает, или даже может изменить мелодию вашего звонка. Избавиться от такой рекламы можно только удалив приложения, указанные в результатах сканирования, путём нажатия на элементы списка.</string>
-    <string name="adware_scanning">Сканирование…</string>
+    <string name="adware_scanning">Сканирование&#8230;</string>
     <string name="adware_empty">Приложения с рекламой не найдены!</string>
 
     <!--Other-->
