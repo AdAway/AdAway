@@ -3,6 +3,7 @@
 - Add quick settings tile to toggle ad-blocking
 - Fix crash on TLS and timeout issue during source update
 - Fix backup not listed for restoration on older devices
+- Update dependencies
 - Update translations
 
 Special thanks to gwolf2u, opusforlife2, Vstory for their bug reports.
