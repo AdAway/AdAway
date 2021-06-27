@@ -1,4 +1,4 @@
-## [5.7.0] - Unreleased
+## [5.7.0] - 2021-06-27
 
 - Add quick settings tile to toggle ad-blocking
 - Fix crash on TLS and timeout issue during source update
