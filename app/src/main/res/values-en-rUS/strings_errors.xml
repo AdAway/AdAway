@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Not enough space</string>
     <string name="error_not_enough_space_details">Unable to copy hosts file to your system partition. Please check Magisk systemless module is enabled then reboot.</string>
     <string name="error_copy_failed_message">Failed to install new hosts file</string>
-    <string name="error_copy_failed_details">Unable to copy hosts file to /system partition. Please check Magisk systemless module is enabled the reboot.</string>
+    <string name="error_copy_failed_details">Unable to copy hosts file to /system partition. Please check Magisk systemless module is enabled then reboot.</string>
     <string name="error_revert_failed_message">Failed to revert hosts file</string>
     <string name="error_revert_failed_details">Unable to restore default hosts file configuration.</string>
     <!-- VPN model error -->
