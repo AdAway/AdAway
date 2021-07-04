@@ -28,7 +28,7 @@
             app:icon="@drawable/ic_vpn_key_24dp"
             app:key="@string/pref_vpn_ad_block_method_key"
             app:title="@string/pref_vpn_ad_blocker_configuration" />
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_enable_ipv6_def"
             app:icon="@drawable/ic_ipv6_24dp"
             app:key="@string/pref_enable_ipv6_key"
@@ -40,13 +40,13 @@
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/pref_debug_category">
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_enable_telemetry_def"
             app:icon="@drawable/outline_cloud_upload_24"
             app:key="@string/pref_enable_telemetry_key"
             app:summary="@string/pref_enable_telemetry_summary"
             app:title="@string/pref_enable_telemetry" />
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_enable_debug_def"
             app:icon="@drawable/ic_bug_report_24dp"
             app:key="@string/pref_enable_debug_key"

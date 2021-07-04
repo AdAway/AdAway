@@ -19,6 +19,8 @@ import org.adaway.helper.ThemeHelper;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class PrefsActivity extends AppCompatActivity implements PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+    static final String PREFERENCE_NOT_FOUND = "preference not found";
+
     static void setAppBarTitle(PreferenceFragmentCompat fragment, @StringRes int title) {
         FragmentActivity activity = fragment.getActivity();
         if (!(activity instanceof PrefsActivity)) {

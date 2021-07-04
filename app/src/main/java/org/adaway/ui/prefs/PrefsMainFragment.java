@@ -14,6 +14,7 @@ import org.adaway.util.SentryLog;
 
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
+import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
 import static org.adaway.util.Constants.PREFS_NAME;
 
 /**
@@ -47,6 +48,7 @@ public class PrefsMainFragment extends PreferenceFragmentCompat {
 
     private void bindThemePrefAction() {
         Preference darkThemePref = findPreference(getString(R.string.pref_dark_theme_mode_key));
+        assert darkThemePref != null : PREFERENCE_NOT_FOUND;
         darkThemePref.setOnPreferenceChangeListener((preference, newValue) -> {
             requireActivity().recreate();
             // Allow preference change
@@ -56,14 +58,17 @@ public class PrefsMainFragment extends PreferenceFragmentCompat {
 
     private void bindAdBlockMethod() {
         Preference rootPreference = findPreference(getString(R.string.pref_root_ad_block_method_key));
+        assert rootPreference != null : PREFERENCE_NOT_FOUND;
         Preference vpnPreference = findPreference(getString(R.string.pref_vpn_ad_block_method_key));
-        AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(getContext());
+        assert vpnPreference != null : PREFERENCE_NOT_FOUND;
+        AdBlockMethod adBlockMethod = PreferenceHelper.getAdBlockMethod(requireContext());
         rootPreference.setEnabled(adBlockMethod == ROOT);
         vpnPreference.setEnabled(adBlockMethod == VPN);
     }
 
     private void bindTelemetryPrefAction() {
         Preference enableTelemetryPref = findPreference(getString(R.string.pref_enable_telemetry_key));
+        assert enableTelemetryPref != null : PREFERENCE_NOT_FOUND;
         enableTelemetryPref.setOnPreferenceChangeListener((preference, newValue) -> {
             SentryLog.setEnabled(getContext(), (boolean) newValue);
             return true;

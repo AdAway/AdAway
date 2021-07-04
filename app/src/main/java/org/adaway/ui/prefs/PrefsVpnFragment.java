@@ -15,6 +15,7 @@ import org.adaway.R;
 import org.adaway.ui.prefs.exclusion.PrefsVpnExcludedAppsActivity;
 import org.adaway.vpn.VpnService;
 
+import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
 import static org.adaway.util.Constants.PREFS_NAME;
 
 /**
@@ -52,7 +53,7 @@ public class PrefsVpnFragment extends PreferenceFragmentCompat {
 
     private void bindExcludedSystemApps() {
         ListPreference excludeUserAppsPreferences = findPreference(getString(R.string.pref_vpn_excluded_system_apps_key));
-        assert excludeUserAppsPreferences != null : "preference not found";
+        assert excludeUserAppsPreferences != null : PREFERENCE_NOT_FOUND;
         excludeUserAppsPreferences.setOnPreferenceChangeListener((preference, newValue) -> {
             restartVpn();
             return true;
@@ -62,7 +63,7 @@ public class PrefsVpnFragment extends PreferenceFragmentCompat {
     private void bindExcludedUserApps() {
         Context context = requireContext();
         Preference excludeUserAppsPreferences = findPreference(getString(R.string.pref_vpn_excluded_user_apps_key));
-        assert excludeUserAppsPreferences != null : "preference not found";
+        assert excludeUserAppsPreferences != null : PREFERENCE_NOT_FOUND;
         excludeUserAppsPreferences.setOnPreferenceClickListener(preference -> {
             Intent intent = new Intent(context, PrefsVpnExcludedAppsActivity.class);
             this.startActivityLauncher.launch(intent);
