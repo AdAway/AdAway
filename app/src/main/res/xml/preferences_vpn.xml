@@ -3,12 +3,12 @@
     app:title="@string/pref_root_title">
 
     <PreferenceCategory app:title="@string/pref_general_category">
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_vpn_service_on_boot_def"
             app:key="@string/pref_vpn_service_on_boot_key"
             app:title="@string/pref_vpn_service_on_boot" />
 
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_vpn_watchdog_enabled_def"
             app:key="@string/pref_vpn_watchdog_enabled_key"
             app:title="@string/pref_vpn_service_monitor"

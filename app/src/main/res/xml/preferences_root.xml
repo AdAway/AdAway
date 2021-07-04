@@ -7,7 +7,7 @@
             app:key="@string/pref_open_hosts_key"
             app:persistent="false"
             app:title="@string/pref_root_open_hosts" />
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_never_reboot_def"
             app:key="@string/pref_never_reboot_key"
             app:title="@string/pref_never_reboot" />
@@ -34,7 +34,7 @@
             app:persistent="false"
             app:selectable="false"
             app:summary="@string/pref_webserver_summary" />
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_webserver_enabled_def"
             app:key="@string/pref_webserver_enabled_key"
             app:title="@string/pref_webserver_enabled" />
@@ -49,7 +49,7 @@
             app:key="@string/pref_webserver_certificate_key"
             app:persistent="false"
             app:title="@string/pref_webserver_certificate" />
-        <CheckBoxPreference
+        <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_webserver_icon_def"
             app:dependency="@string/pref_webserver_enabled_key"
             app:key="@string/pref_webserver_icon_key"

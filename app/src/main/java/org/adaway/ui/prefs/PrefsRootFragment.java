@@ -13,9 +13,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.annotation.NonNull;
-import androidx.preference.CheckBoxPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreferenceCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.net.InetAddresses;
@@ -34,6 +34,7 @@ import static android.content.Intent.CATEGORY_OPENABLE;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.provider.Settings.ACTION_SECURITY_SETTINGS;
 import static android.widget.Toast.LENGTH_SHORT;
+import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
 import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
 import static org.adaway.util.Constants.PREFS_NAME;
 import static org.adaway.util.MountType.READ_ONLY;
@@ -56,7 +57,6 @@ import timber.log.Timber;
  */
 public class PrefsRootFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String TAG = "PrefsRoot";
-    private static final String PREFERENCE_NOT_FOUND = "preference not found";
     /**
      * The launcher to start open hosts file activity.
      */
@@ -196,7 +196,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
     private void bindWebServerPrefAction() {
         Context context = requireContext();
         // Start web server when preference is enabled
-        CheckBoxPreference webServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
+        SwitchPreferenceCompat webServerEnabledPref = findPreference(getString(R.string.pref_webserver_enabled_key));
         assert webServerEnabledPref != null : PREFERENCE_NOT_FOUND;
         webServerEnabledPref.setOnPreferenceChangeListener((preference, newValue) -> {
             if (newValue.equals(true)) {
