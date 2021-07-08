@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -15,9 +15,14 @@
         <item quantity="one">%d inaktuell källa</item>
         <item quantity="other">%d inaktuella källor</item>
     </plurals>
+    <string name="check_hosts_update_description">Check for hosts updates</string>
+    <string name="update_hosts_description">Uppdatera värdar</string>
+
+    <!-- Log card -->
+    <string name="log_label">Show DNS request log</string>
 
     <!-- Help card -->
-    <string name="help_label">Visa hjälp</string>
+    <string name="help_label">Show help\nand tips</string>
 
     <!-- Project card -->
     <string name="project_label">Öppna GitHub-sidan</string>
@@ -26,6 +31,7 @@
     <string name="support_label">Stöd projektet</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">GitHub project</string>
     <string name="preferences_drawer_item">Inställningar</string>
 
     <!-- App bar buttons -->
