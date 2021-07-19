@@ -6,9 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Transformations;
-import androidx.paging.LivePagedListBuilder;
-import androidx.paging.PagedList;
+import androidx.paging.Pager;
+import androidx.paging.PagingConfig;
+import androidx.paging.PagingData;
 
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
@@ -20,6 +20,8 @@ import org.adaway.util.AppExecutors;
 import java.util.Optional;
 import java.util.concurrent.Executor;
 
+import static androidx.lifecycle.Transformations.switchMap;
+import static androidx.paging.PagingLiveData.getLiveData;
 import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
@@ -35,44 +37,46 @@ public class ListsViewModel extends AndroidViewModel {
     private static final Executor EXECUTOR = AppExecutors.getInstance().diskIO();
     private final HostListItemDao hostListItemDao;
     private final MutableLiveData<ListsFilter> filter;
-    private final LiveData<PagedList<HostListItem>> blockedListItems;
-    private final LiveData<PagedList<HostListItem>> allowedListItems;
-    private final LiveData<PagedList<HostListItem>> redirectedListItems;
+    private final LiveData<PagingData<HostListItem>> blockedListItems;
+    private final LiveData<PagingData<HostListItem>> allowedListItems;
+    private final LiveData<PagingData<HostListItem>> redirectedListItems;
     private final MutableLiveData<Boolean> modelChanged;
 
     public ListsViewModel(@NonNull Application application) {
         super(application);
         this.hostListItemDao = AppDatabase.getInstance(application).hostsListItemDao();
         this.filter = new MutableLiveData<>(ALL);
-        PagedList.Config pagingConfig = new PagedList.Config.Builder()
-                .setPageSize(50)
-                .setPrefetchDistance(150)
-                .setEnablePlaceholders(true)
-                .build();
-        this.blockedListItems = Transformations.switchMap(
+        PagingConfig pagingConfig = new PagingConfig(50, 150, true);
+        this.blockedListItems = switchMap(
                 this.filter,
-                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(BLOCKED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
+                filter -> getLiveData(new Pager<>(pagingConfig, () ->
+                        this.hostListItemDao.loadList(BLOCKED.getValue(), filter.sourcesIncluded, filter.sqlQuery)
+                ))
         );
-        this.allowedListItems = Transformations.switchMap(
+        this.allowedListItems = switchMap(
                 this.filter,
-                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(ALLOWED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
+                filter -> getLiveData(new Pager<>(pagingConfig, () ->
+                        this.hostListItemDao.loadList(ALLOWED.getValue(), filter.sourcesIncluded, filter.sqlQuery)
+                ))
         );
-        this.redirectedListItems = Transformations.switchMap(
+        this.redirectedListItems = switchMap(
                 this.filter,
-                filter -> new LivePagedListBuilder<>(this.hostListItemDao.loadList(REDIRECTED.getValue(), filter.sourcesIncluded, filter.sqlQuery), pagingConfig).build()
+                filter -> getLiveData(new Pager<>(pagingConfig, () ->
+                        this.hostListItemDao.loadList(REDIRECTED.getValue(), filter.sourcesIncluded, filter.sqlQuery)
+                ))
         );
         this.modelChanged = new MutableLiveData<>(false);
     }
 
-    public LiveData<PagedList<HostListItem>> getBlockedListItems() {
+    public LiveData<PagingData<HostListItem>> getBlockedListItems() {
         return this.blockedListItems;
     }
 
-    public LiveData<PagedList<HostListItem>> getAllowedListItems() {
+    public LiveData<PagingData<HostListItem>> getAllowedListItems() {
         return this.allowedListItems;
     }
 
-    public LiveData<PagedList<HostListItem>> getRedirectedListItems() {
+    public LiveData<PagingData<HostListItem>> getRedirectedListItems() {
         return this.redirectedListItems;
     }
 

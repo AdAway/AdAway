@@ -1,7 +1,7 @@
 package org.adaway.db.dao;
 
 import androidx.lifecycle.LiveData;
-import androidx.paging.DataSource;
+import androidx.paging.PagingSource;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -38,7 +38,7 @@ public interface HostListItemDao {
     void deleteUserFromHost(String host);
 
     @Query("SELECT * FROM hosts_lists WHERE type = :type AND host LIKE :query AND ((:includeSources == 0 AND source_id == 1) || (:includeSources == 1)) GROUP BY host ORDER BY host ASC")
-    DataSource.Factory<Integer, HostListItem> loadList(int type, boolean includeSources, String query);
+    PagingSource<Integer, HostListItem> loadList(int type, boolean includeSources, String query);
 
     @Query("SELECT * FROM hosts_lists ORDER BY host ASC")
     List<HostListItem> getAll();

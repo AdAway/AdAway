@@ -7,7 +7,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.paging.PagedListAdapter;
+import androidx.paging.PagingDataAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +22,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class ListsAdapter extends PagedListAdapter<HostListItem, ListsAdapter.ViewHolder> {
+class ListsAdapter extends PagingDataAdapter<HostListItem, ListsAdapter.ViewHolder> {
     /**
      * This callback is use to compare hosts sources.
      */

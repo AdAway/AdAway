@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.paging.PagedList;
+import androidx.paging.PagingData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -139,7 +139,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
          */
         // Get view model and bind it to the list view
         this.mViewModel = new ViewModelProvider(this.mActivity).get(ListsViewModel.class);
-        getData().observe(getViewLifecycleOwner(), adapter::submitList);
+        getData().observe(getViewLifecycleOwner(), data -> adapter.submitData(getLifecycle(), data));
         // Return created view
         return view;
     }
@@ -172,7 +172,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         }
     }
 
-    protected abstract LiveData<PagedList<HostListItem>> getData();
+    protected abstract LiveData<PagingData<HostListItem>> getData();
 
     protected boolean isTwoRowsItem() {
         return false;

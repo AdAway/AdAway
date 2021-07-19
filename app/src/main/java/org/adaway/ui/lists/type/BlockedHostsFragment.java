@@ -28,7 +28,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
-import androidx.paging.PagedList;
+import androidx.paging.PagingData;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -46,7 +46,7 @@ import static org.adaway.db.entity.ListType.BLOCKED;
  */
 public class BlockedHostsFragment extends AbstractListFragment {
     @Override
-    protected LiveData<PagedList<HostListItem>> getData() {
+    protected LiveData<PagingData<HostListItem>> getData() {
         return this.mViewModel.getBlockedListItems();
     }
 
