@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Dobrodošli</string>
+    <string name="welcome_first_step">Prvi korak instalacije</string>
+    <string name="welcome_second_step">Drugi korak instalacije</string>
+    <string name="welcome_last_step">Posljednji korak instalacije</string>
+
     <!-- Method UI -->
     <string name="welcome_method_header">Dobrodošli u AdAway!</string>
     <string name="welcome_method_summary">AdAway omogućuje dva načina blokiranja oglasa. Odaberite poželjni način:</string>
@@ -19,6 +23,9 @@
 
     <string name="welcome_root_missing_title">Potreban je rootani Android</string>
     <string name="welcome_root_missile_description">Nemoguće je pronaći su izvršnu datoteku ili AdAway nema root dozvole.\n\nOvo se može dogoditi kada vaš uređaj nije rootan. \n Možete pronaći informacije o rootanju vašeg uređaja na wiki.lineageos.org ili na drugim Android web stranicama.</string>
+
+    <string name="welcome_method_pro_logo">Prednosti</string>
+    <string name="welcome_method_con_logo">Mane</string>
 
     <!-- Sync UI -->
     <string name="welcome_sync_done_logo">Usklađivanje završeno</string>
