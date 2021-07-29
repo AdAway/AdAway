@@ -1,9 +1,9 @@
 Безплатна и с отворен код програма за блокиране на реклами за Android.
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+Програмата е налична за устройства със и без роот достъп.
+Чрез използването на руутнато устройство, приложението актуализира вашият хост файл, който задържа списък с връзки между имена на хостове и IP адреси.
+Чрез използване на устройство без руут, приложението използва VPN фукцията за да блокира изходящи връзки до рекламите и тракерите.
+Когато приложение поиска реклама от тракера от хост в този файл, искането е пренасочено до локалното IP 127.0.0.1, което не прави нищо.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Може да сваляте дефинирани хост файлове от приложението, за да ги включите в системния хост файл. Също така е възможно да използвате собствени файлове и да добавяте определени хостове в бели и черни списъци.
 Има опции за стартиране на локален уеб сървър, който да отговаря на блокирани имена на хостове и да препраща заявки към IP адреси по Ваше желание.
