@@ -3,6 +3,8 @@
     <string name="pref_vpn_title">VPN базиран блокер на реклами</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Разрешаване при стартиране</string>
+    <string name="pref_vpn_service_monitor">Набюдаване на връзката</string>
+    <string name="pref_vpn_service_monitor_description">Периодично проверяване на състоянието на мрежата за рестартиране на VPN връзката при откачане.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Изключени приложения</string>
     <string name="pref_vpn_excluded_apps_description">Конфигурирайте кои приложения не трябва да използват VPN, така че няма да бъдат блокирани връзки.</string>
