@@ -9,7 +9,7 @@ android:
     - platform-tools
 
     # The Build Tools version used by your project
-    - build-tools-30.0.3
+    - build-tools-31.0.0
 
     # The SDK version used to compile your project
     - android-30
