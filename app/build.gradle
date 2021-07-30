@@ -67,6 +67,12 @@ android {
         viewBinding true
     }
 
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
     buildTypes {
 //        debug {
 //            shrinkResources false
