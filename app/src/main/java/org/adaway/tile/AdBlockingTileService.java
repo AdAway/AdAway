@@ -64,10 +64,8 @@ public class AdBlockingTileService extends TileService {
         try {
             this.toggling.set(true);
             if (model.isApplied().getValue() == Boolean.TRUE) {
-                Log.w(TAG, "---> REVERT");
                 model.revert();
             } else {
-                Log.w(TAG, "---> APPLY");
                 model.apply();
             }
         } catch (HostErrorException e) {
