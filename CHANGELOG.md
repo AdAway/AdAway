@@ -1,6 +1,7 @@
 ## [5.7.0] - 2021-06-27
 
 - Add quick settings tile to toggle ad-blocking
+- Improve command receiver for task automation
 - Fix crash on TLS and timeout issue during source update
 - Fix backup not listed for restoration on older devices
 - Update mongoose web server
