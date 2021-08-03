@@ -14,6 +14,26 @@
  */
 package org.adaway.vpn;
 
+import static android.app.NotificationManager.IMPORTANCE_LOW;
+import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
+import static android.net.ConnectivityManager.EXTRA_NETWORK_TYPE;
+import static android.net.ConnectivityManager.TYPE_VPN;
+import static android.net.NetworkCapabilities.TRANSPORT_VPN;
+import static android.os.Build.VERSION.SDK_INT;
+import static org.adaway.broadcast.Command.START;
+import static org.adaway.broadcast.Command.STOP;
+import static org.adaway.broadcast.CommandReceiver.STATUS_COMMAND_ACTION;
+import static org.adaway.helper.NotificationHelper.VPN_RESUME_SERVICE_NOTIFICATION_ID;
+import static org.adaway.helper.NotificationHelper.VPN_RUNNING_SERVICE_NOTIFICATION_ID;
+import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
+import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_NETWORK_CHANGED;
+import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_STATUS_UPDATE;
+import static org.adaway.vpn.VpnStatus.RECONNECTING;
+import static org.adaway.vpn.VpnStatus.RUNNING;
+import static org.adaway.vpn.VpnStatus.STARTING;
+import static org.adaway.vpn.VpnStatus.STOPPED;
+import static org.adaway.vpn.VpnStatus.WAITING_FOR_NETWORK;
+
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -33,34 +53,15 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.adaway.R;
-import org.adaway.broadcast.StatusCommandReceiver;
+import org.adaway.broadcast.Command;
+import org.adaway.broadcast.CommandReceiver;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.adblocking.AdBlockCommand;
 import org.adaway.ui.home.HomeActivity;
 import org.adaway.vpn.VpnWorker.VpnStatusNotifier;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Objects;
-
-import static android.app.NotificationManager.IMPORTANCE_LOW;
-import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
-import static android.net.ConnectivityManager.EXTRA_NETWORK_TYPE;
-import static android.net.ConnectivityManager.TYPE_VPN;
-import static android.net.NetworkCapabilities.TRANSPORT_VPN;
-import static android.os.Build.VERSION.SDK_INT;
-import static org.adaway.helper.NotificationHelper.VPN_RESUME_SERVICE_NOTIFICATION_ID;
-import static org.adaway.helper.NotificationHelper.VPN_RUNNING_SERVICE_NOTIFICATION_ID;
-import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
-import static org.adaway.model.adblocking.AdBlockCommand.START;
-import static org.adaway.model.adblocking.AdBlockCommand.STOP;
-import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_NETWORK_CHANGED;
-import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_STATUS_UPDATE;
-import static org.adaway.vpn.VpnStatus.RECONNECTING;
-import static org.adaway.vpn.VpnStatus.RUNNING;
-import static org.adaway.vpn.VpnStatus.STARTING;
-import static org.adaway.vpn.VpnStatus.STOPPED;
-import static org.adaway.vpn.VpnStatus.WAITING_FOR_NETWORK;
 
 public class VpnService extends android.net.VpnService {
     public static final int REQUEST_CODE_START = 43;
@@ -154,7 +155,7 @@ public class VpnService extends android.net.VpnService {
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
         Log.i(TAG, "onStartCommand" + intent);
-        switch (AdBlockCommand.readFromIntent(intent)) {
+        switch (Command.readFromIntent(intent)) {
             case START:
                 startVpn();
                 break;
@@ -245,8 +246,8 @@ public class VpnService extends android.net.VpnService {
                 .setContentTitle(title);
         switch (status) {
             case RUNNING:
-                Intent stopIntent = new Intent(this, StatusCommandReceiver.class)
-                        .setAction(StatusCommandReceiver.STATUS_COMMAND_ACTION);
+                Intent stopIntent = new Intent(this, CommandReceiver.class)
+                        .setAction(STATUS_COMMAND_ACTION);
                 STOP.appendToIntent(stopIntent);
                 PendingIntent stopActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_PAUSE, stopIntent, 0);
                 builder.addAction(
@@ -256,8 +257,8 @@ public class VpnService extends android.net.VpnService {
                 );
                 break;
             case STOPPED:
-                Intent startIntent = new Intent(this, StatusCommandReceiver.class)
-                        .setAction(StatusCommandReceiver.STATUS_COMMAND_ACTION);
+                Intent startIntent = new Intent(this, CommandReceiver.class)
+                        .setAction(STATUS_COMMAND_ACTION);
                 START.appendToIntent(startIntent);
                 PendingIntent startActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_START, startIntent, 0);
                 builder.setContentText(getString(R.string.vpn_notification_paused_text));
