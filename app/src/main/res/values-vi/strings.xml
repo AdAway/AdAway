@@ -246,6 +246,6 @@
     <string name="vpn_notification_paused_text">Chạm để tiếp tục</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Kích hoạt và vô hiệu hoá chặn quảng cáo hệ thống</string>
+    <string name="permission_send_command_label">Kích hoạt và vô hiệu hoá chặn quảng cáo hệ thống</string>
 
 </resources>

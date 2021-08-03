@@ -206,6 +206,6 @@
     <string name="vpn_notification_paused_text">بیاروانولو لپاره ووهئ</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">د غونډال انګروزي تړل سالول او بندول</string>
+    <string name="permission_send_command_label">د غونډال انګروزي تړل سالول او بندول</string>
 
 </resources>

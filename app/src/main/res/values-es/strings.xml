@@ -250,6 +250,6 @@
     <string name="vpn_notification_paused_text">Toca para continuar</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Habilitar o deshabilitar el bloqueo de anuncios en el sistema</string>
+    <string name="permission_send_command_label">Habilitar o deshabilitar el bloqueo de anuncios en el sistema</string>
 
 </resources>

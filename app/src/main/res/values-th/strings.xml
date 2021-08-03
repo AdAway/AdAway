@@ -208,6 +208,6 @@
     <string name="vpn_notification_paused_text">แตะเพื่อดำเนินการต่อ</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">เปิดใช้งานหรือปิดใช้งานระบบบล็อคโฆษณา</string>
+    <string name="permission_send_command_label">เปิดใช้งานหรือปิดใช้งานระบบบล็อคโฆษณา</string>
 
 </resources>

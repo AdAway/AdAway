@@ -246,6 +246,6 @@
     <string name="vpn_notification_paused_text">點選繼續</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">啟用和停用系統廣告阻擋</string>
+    <string name="permission_send_command_label">啟用和停用系統廣告阻擋</string>
 
 </resources>

@@ -250,6 +250,9 @@
     <string name="vpn_notification_paused_text">Tap to resume</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Enable and disable system ad-blocking</string>
+    <string name="permission_group_api_label">AdAway permissions</string>
+    <string name="permission_group_api_description">Allow to interact with AdAway</string>
+    <string name="permission_send_command_label">Send commands to AdAway</string>
+    <string name="permission_send_command_description">Allow to send commands to AdAway like enabling or disabling the system ad-blocking</string>
 
 </resources>

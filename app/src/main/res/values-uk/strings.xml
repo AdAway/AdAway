@@ -258,6 +258,6 @@
     <string name="vpn_notification_paused_text">Натисніть, щоб продовжити</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Увімкніть та відключіть систему блокування реклами</string>
+    <string name="permission_send_command_label">Увімкніть та відключіть систему блокування реклами</string>
 
 </resources>

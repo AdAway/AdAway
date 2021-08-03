@@ -250,6 +250,6 @@
     <string name="vpn_notification_paused_text">Докоснете, за да продължите</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Включване и изключване на системния блокер на реклами</string>
+    <string name="permission_send_command_label">Включване и изключване на системния блокер на реклами</string>
 
 </resources>

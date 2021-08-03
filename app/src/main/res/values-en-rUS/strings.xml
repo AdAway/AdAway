@@ -247,6 +247,6 @@
     <string name="vpn_notification_paused_text">Tap to resume</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Enable and disable system ad-blocking</string>
+    <string name="permission_send_command_label">Enable and disable system ad-blocking</string>
 
 </resources>

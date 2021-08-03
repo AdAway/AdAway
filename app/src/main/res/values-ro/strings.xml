@@ -251,6 +251,6 @@
     <string name="vpn_notification_paused_text">Atingeți pentru continuare</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Activare sau dezactivare sistem de blocare al reclamelor</string>
+    <string name="permission_send_command_label">Activare sau dezactivare sistem de blocare al reclamelor</string>
 
 </resources>

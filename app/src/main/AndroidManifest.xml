@@ -10,10 +10,16 @@
         android:name="android.hardware.telephony"
         android:required="false" />
 
+    <permission-group
+        android:name="org.adaway.permission-group.API"
+        android:description="@string/permission_group_api_description"
+        android:label="@string/permission_group_api_label" />
+
     <permission
-        android:name="org.adaway.permission.STATUS_COMMAND"
-        android:icon="@mipmap/icon"
-        android:label="permission_status_command_label"
+        android:name="org.adaway.permission.SEND_COMMAND"
+        android:description="@string/permission_send_command_description"
+        android:label="@string/permission_send_command_label"
+        android:permissionGroup="org.adaway.permission-group.API"
         android:protectionLevel="dangerous" />
 
     <supports-screens
@@ -141,8 +147,9 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".broadcast.StatusCommandReceiver"
-            android:permission="org.adaway.permission.STATUS_COMMAND">
+            android:name=".broadcast.CommandReceiver"
+            android:exported="true"
+            android:permission="org.adaway.permission.SEND_COMMAND">
             <intent-filter>
                 <action android:name="org.adaway.AD_BLOCK_STATUS" />
             </intent-filter>

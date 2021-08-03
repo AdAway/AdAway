@@ -250,6 +250,6 @@
     <string name="vpn_notification_paused_text">Zur Wiederaufnahme antippen</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Ein/Aus-schalten des Werbebanners</string>
+    <string name="permission_send_command_label">Ein/Aus-schalten des Werbebanners</string>
 
 </resources>

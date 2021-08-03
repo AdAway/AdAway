@@ -246,6 +246,6 @@
     <string name="vpn_notification_paused_text">Tryck för att återuppta</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Aktivera och inaktivera systemets annonsblockering</string>
+    <string name="permission_send_command_label">Aktivera och inaktivera systemets annonsblockering</string>
 
 </resources>

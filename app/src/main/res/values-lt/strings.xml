@@ -254,6 +254,6 @@
     <string name="vpn_notification_paused_text">Paspauskite kad tęsti</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Įjungti ir išjungti sistemos reklamų blokavimą</string>
+    <string name="permission_send_command_label">Įjungti ir išjungti sistemos reklamų blokavimą</string>
 
 </resources>

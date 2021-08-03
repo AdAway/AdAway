@@ -259,6 +259,6 @@ Wilt u herstarten?
     <string name="vpn_notification_paused_text">Druk om te hervatten</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Schakel systeembrede advertentieblokkering in of uit</string>
+    <string name="permission_send_command_label">Schakel systeembrede advertentieblokkering in of uit</string>
 
 </resources>

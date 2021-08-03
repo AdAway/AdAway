@@ -200,6 +200,6 @@
     <string name="vpn_notification_paused_text">Prem per reprendre</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Activa i desactiva el bloqueig d\'anuncis de sistema</string>
+    <string name="permission_send_command_label">Activa i desactiva el bloqueig d\'anuncis de sistema</string>
 
 </resources>

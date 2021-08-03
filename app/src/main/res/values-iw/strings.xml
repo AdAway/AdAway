@@ -260,6 +260,6 @@
     <string name="vpn_notification_paused_text">הקשה כדי להמשיך</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">הפעלה וכיבוי מערכת חוסם הפרסומות</string>
+    <string name="permission_send_command_label">הפעלה וכיבוי מערכת חוסם הפרסומות</string>
 
 </resources>

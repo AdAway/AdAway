@@ -247,6 +247,6 @@
     <string name="vpn_notification_paused_text">点按恢复</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">启用和禁用系统广告拦截</string>
+    <string name="permission_send_command_label">启用和禁用系统广告拦截</string>
 
 </resources>

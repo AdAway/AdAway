@@ -258,6 +258,6 @@
     <string name="vpn_notification_paused_text">Stiskněte pro pokračování</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Povolit a zakázat systémové blokování reklamy</string>
+    <string name="permission_send_command_label">Povolit a zakázat systémové blokování reklamy</string>
 
 </resources>

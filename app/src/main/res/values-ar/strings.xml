@@ -264,6 +264,6 @@
     <string name="vpn_notification_paused_text">اضغط للاستمرار</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">تمكين وتعطيل نظام حظر الإعلانات</string>
+    <string name="permission_send_command_label">تمكين وتعطيل نظام حظر الإعلانات</string>
 
 </resources>

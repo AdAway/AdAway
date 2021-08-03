@@ -241,6 +241,6 @@
     <string name="vpn_notification_paused_text">Dodirni za nastavak</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Omogući ili onemogući blokiranje oglasa sustava</string>
+    <string name="permission_send_command_label">Omogući ili onemogući blokiranje oglasa sustava</string>
 
 </resources>

@@ -275,6 +275,6 @@
     <string name="vpn_notification_paused_text">Нажмите для продолжения</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Включить и отключить системную блокировку рекламы</string>
+    <string name="permission_send_command_label">Включить и отключить системную блокировку рекламы</string>
 
 </resources>

@@ -242,6 +242,6 @@
     <string name="vpn_notification_paused_text">Tekan untuk melanjutkan</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Hidupkan atau matikan ad-blocking sistem</string>
+    <string name="permission_send_command_label">Hidupkan atau matikan ad-blocking sistem</string>
 
 </resources>

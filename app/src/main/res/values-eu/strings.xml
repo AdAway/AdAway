@@ -231,6 +231,6 @@
     <string name="vpn_notification_paused_text">Ukitu berrekiteko </string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Gaitu eta desgaitu sitemako ad-blocking-a</string>
+    <string name="permission_send_command_label">Gaitu eta desgaitu sitemako ad-blocking-a</string>
 
 </resources>

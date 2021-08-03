@@ -272,6 +272,6 @@
     <string name="vpn_notification_paused_text">Πατήστε για συνέχιση</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Ενεργοποίηση και απενεργοποίηση αποκλεισμού διαφημίσεων συστήματος</string>
+    <string name="permission_send_command_label">Ενεργοποίηση και απενεργοποίηση αποκλεισμού διαφημίσεων συστήματος</string>
 
 </resources>

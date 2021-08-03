@@ -250,6 +250,6 @@
     <string name="vpn_notification_paused_text">Toucher pour reprendre</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Activer et désactiver le blocage système des publicités</string>
+    <string name="permission_send_command_label">Activer et désactiver le blocage système des publicités</string>
 
 </resources>

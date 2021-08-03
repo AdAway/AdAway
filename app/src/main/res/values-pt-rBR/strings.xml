@@ -250,6 +250,6 @@
     <string name="vpn_notification_paused_text">Toque para retomar</string>
 
     <!-- Permission -->
-    <string name="permission_status_command_label">Ativar e desativar o bloqueio de anúncios do sistema</string>
+    <string name="permission_send_command_label">Ativar e desativar o bloqueio de anúncios do sistema</string>
 
 </resources>
