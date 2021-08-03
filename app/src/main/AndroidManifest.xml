@@ -51,6 +51,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.home.HomeActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/Theme.AdAway.NoActionBar">
@@ -124,6 +125,7 @@
 
         <service
             android:name=".vpn.VpnService"
+            android:exported="true"
             android:permission="android.permission.BIND_VPN_SERVICE">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
@@ -132,16 +134,18 @@
 
         <service
             android:name=".tile.AdBlockingTileService"
+            android:exported="true"
             android:icon="@drawable/logo"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
         </service>
 
-        <receiver android:name=".broadcast.BootReceiver">
+        <receiver
+            android:name=".broadcast.BootReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -154,14 +158,20 @@
                 <action android:name="org.adaway.AD_BLOCK_STATUS" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".broadcast.UpdateReceiver">
+        <receiver
+            android:name=".broadcast.UpdateReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
 
-        <meta-data android:name="io.sentry.auto-init" android:value="false" />
-        <meta-data android:name="io.sentry.dsn" android:value="https://8dac17b798fb45e492278a678c5ab028@o209266.ingest.sentry.io/1331667" />
+        <meta-data
+            android:name="io.sentry.auto-init"
+            android:value="false" />
+        <meta-data
+            android:name="io.sentry.dsn"
+            android:value="https://8dac17b798fb45e492278a678c5ab028@o209266.ingest.sentry.io/1331667" />
     </application>
 
 </manifest>
