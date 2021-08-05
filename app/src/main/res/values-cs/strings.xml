@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Ukončit</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Zde můžete vyhledat nainstalovaný Adware, špatné aplikace, které nemohou být aplikací AdAway zablokovány. Tyto aplikace používají například oznámení Airpush, které se objevují i v případě, že aplikace není spuštěna, nebo dokonce změní vaše vyzvánění. Jediné protiopatření je odinstalování těchto aplikací klepnutím na položky seznamu!</string>
-    <string name="adware_scanning">Skenování…</string>
+    <string name="adware_scanning">Skenování&#8230;</string>
     <string name="adware_empty">Žádný Adware nebyly nalezen!</string>
 
     <!--Other-->
@@ -258,6 +258,9 @@
     <string name="vpn_notification_action_resume">Stiskněte pro pokračování</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Povolit a zakázat systémové blokování reklamy</string>
+    <string name="permission_group_api_label">Oprávnění AdAway</string>
+    <string name="permission_group_api_description">Dovoluje interakci s AdAway</string>
+    <string name="permission_send_command_label">Odesílání příkazů do AdAway</string>
+    <string name="permission_send_command_description">Dovoluje odesílání příkazů do AdAway jako například povolení nebo zakázání systémového blokování reklam</string>
 
 </resources>
