@@ -19,16 +19,16 @@ public class CommandReceiver extends BroadcastReceiver {
     /**
      * This action allows to send commands to the application. See {@link Command} for extra values.
      */
-    public static final String STATUS_COMMAND_ACTION = "org.adaway.AD_BLOCK_STATUS";
+    public static final String SEND_COMMAND_ACTION = "org.adaway.action.SEND_COMMAND";
     private static final String TAG = "StatusReceiver";
     private static final AppExecutors EXECUTORS = AppExecutors.getInstance();
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if (STATUS_COMMAND_ACTION.equals(intent.getAction())) {
-            Log.i(TAG, "CommandReceiver invoked for status command");
+        if (SEND_COMMAND_ACTION.equals(intent.getAction())) {
             AdBlockModel adBlockModel = ((AdAwayApplication) context.getApplicationContext()).getAdBlockModel();
             Command command = Command.readFromIntent(intent);
+            Log.i(TAG, "CommandReceiver invoked with command "+command);
             EXECUTORS.diskIO().execute(() -> executeCommand(adBlockModel, command));
         }
     }

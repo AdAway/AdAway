@@ -155,7 +155,7 @@
             android:exported="true"
             android:permission="org.adaway.permission.SEND_COMMAND">
             <intent-filter>
-                <action android:name="org.adaway.AD_BLOCK_STATUS" />
+                <action android:name="org.adaway.action.SEND_COMMAND" />
             </intent-filter>
         </receiver>
         <receiver
