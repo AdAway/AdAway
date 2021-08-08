@@ -14,5 +14,5 @@
     <string name="update_new_changelog_title">Muutosloki:</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Ladataan uusinta versiota AdAwaystä... </string>
+    <string name="update_notification_description">Ladataan uusinta versiota AdAwaystä… </string>
 </resources>
