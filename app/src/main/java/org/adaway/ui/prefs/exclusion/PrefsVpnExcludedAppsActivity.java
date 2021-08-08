@@ -74,11 +74,11 @@ public class PrefsVpnExcludedAppsActivity extends AppCompatActivity implements E
             return true;
         } else if (item.getItemId() == R.id.select_all) {
             excludeApplications(this.userApplications);
-            this.adapter.notifyDataSetChanged();
+            this.adapter.notifyItemRangeChanged(0, this.adapter.getItemCount());
             return true;
         } else if (item.getItemId() == R.id.deselect_all) {
             includeApplications(this.userApplications);
-            this.adapter.notifyDataSetChanged();
+            this.adapter.notifyItemRangeChanged(0, this.adapter.getItemCount());
             return true;
         }
         return super.onOptionsItemSelected(item);
