@@ -14,6 +14,16 @@
  */
 package org.adaway.vpn;
 
+import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
+import static android.app.PendingIntent.FLAG_IMMUTABLE;
+import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
+import static android.os.Build.VERSION.SDK_INT;
+import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
+import static org.adaway.vpn.VpnStatus.RUNNING;
+import static org.adaway.vpn.VpnStatus.STARTING;
+import static org.adaway.vpn.VpnStatus.STOPPED;
+import static org.adaway.vpn.VpnStatus.STOPPING;
+
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -51,14 +61,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.function.Consumer;
-
-import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
-import static android.os.Build.VERSION.*;
-import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
-import static org.adaway.vpn.VpnStatus.RUNNING;
-import static org.adaway.vpn.VpnStatus.STARTING;
-import static org.adaway.vpn.VpnStatus.STOPPED;
-import static org.adaway.vpn.VpnStatus.STOPPING;
 
 class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final String TAG = "VpnWorker";
@@ -447,7 +449,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
                         vpnService,
                         1,
                         new Intent(vpnService, HomeActivity.class),
-                        PendingIntent.FLAG_CANCEL_CURRENT
+                        FLAG_CANCEL_CURRENT | FLAG_IMMUTABLE
                 ))
                 .establish();
         Log.i(TAG, "Configured");
