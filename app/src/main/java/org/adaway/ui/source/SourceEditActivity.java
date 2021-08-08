@@ -26,6 +26,7 @@ import org.adaway.util.AppExecutors;
 import java.util.Optional;
 import java.util.concurrent.Executor;
 
+import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static java.util.Objects.requireNonNull;
@@ -92,8 +93,7 @@ public class SourceEditActivity extends AppCompatActivity {
                     && data != null
                     && (uri = data.getData()) != null) {
                 // Persist read permission
-                int takeFlags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
-                getContentResolver().takePersistableUriPermission(uri, takeFlags);
+                getContentResolver().takePersistableUriPermission(uri, FLAG_GRANT_READ_URI_PERMISSION);
                 // Update file location
                 this.binding.fileLocationTextView.setText(uri.toString());
                 this.binding.fileLocationTextView.setError(null);
