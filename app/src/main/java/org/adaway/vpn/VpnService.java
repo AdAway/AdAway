@@ -15,11 +15,11 @@
 package org.adaway.vpn;
 
 import static android.app.NotificationManager.IMPORTANCE_LOW;
+import static android.app.PendingIntent.FLAG_IMMUTABLE;
 import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
 import static android.net.ConnectivityManager.EXTRA_NETWORK_TYPE;
 import static android.net.ConnectivityManager.TYPE_VPN;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
-import static android.os.Build.VERSION.SDK_INT;
 import static org.adaway.broadcast.Command.START;
 import static org.adaway.broadcast.Command.STOP;
 import static org.adaway.broadcast.CommandReceiver.SEND_COMMAND_ACTION;
@@ -41,7 +41,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
-import android.os.Build.VERSION_CODES;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -123,11 +122,7 @@ public class VpnService extends android.net.VpnService {
         // Start the VPN service
         Intent intent = new Intent(context, VpnService.class);
         START.appendToIntent(intent);
-        if (SDK_INT >= VERSION_CODES.O) {
-            return context.startForegroundService(intent) != null;
-        } else {
-            return context.startService(intent) != null;
-        }
+        return context.startForegroundService(intent) != null;
     }
 
     /**
@@ -235,7 +230,7 @@ public class VpnService extends android.net.VpnService {
 
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+        PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
                 .setPriority(IMPORTANCE_LOW)
@@ -249,7 +244,7 @@ public class VpnService extends android.net.VpnService {
                 Intent stopIntent = new Intent(this, CommandReceiver.class)
                         .setAction(SEND_COMMAND_ACTION);
                 STOP.appendToIntent(stopIntent);
-                PendingIntent stopActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_PAUSE, stopIntent, 0);
+                PendingIntent stopActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_PAUSE, stopIntent, FLAG_IMMUTABLE);
                 builder.addAction(
                         R.drawable.ic_pause_24dp,
                         getString(R.string.vpn_notification_action_pause),
@@ -260,9 +255,12 @@ public class VpnService extends android.net.VpnService {
                 Intent startIntent = new Intent(this, CommandReceiver.class)
                         .setAction(SEND_COMMAND_ACTION);
                 START.appendToIntent(startIntent);
-                PendingIntent startActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_START, startIntent, 0);
-                builder.setContentText(getString(R.string.vpn_notification_paused_text));
-                builder.setContentIntent(startActionIntent);
+                PendingIntent startActionIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_START, startIntent, FLAG_IMMUTABLE);
+                builder.addAction(
+                        0,
+                        getString(R.string.vpn_notification_action_resume),
+                        startActionIntent
+                );
                 break;
         }
         return builder.build();
