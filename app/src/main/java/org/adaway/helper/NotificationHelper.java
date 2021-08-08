@@ -1,22 +1,22 @@
 package org.adaway.helper;
 
+import static android.app.PendingIntent.FLAG_IMMUTABLE;
+import static android.app.PendingIntent.getActivity;
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static androidx.core.app.NotificationCompat.PRIORITY_LOW;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
 import org.adaway.R;
 import org.adaway.ui.home.HomeActivity;
-
-import static android.app.PendingIntent.getActivity;
-import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
-import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
-import static androidx.core.app.NotificationCompat.PRIORITY_LOW;
 
 /**
  * This class is an helper class to deals with notifications.
@@ -62,28 +62,25 @@ public final class NotificationHelper {
      * @param context The application context.
      */
     public static void createNotificationChannels(@NonNull Context context) {
-        // Create the NotificationChannel, but only on API 26+ because the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Create update notification channel
-            NotificationChannel updateChannel = new NotificationChannel(
-                    UPDATE_NOTIFICATION_CHANNEL,
-                    context.getString(R.string.notification_update_channel_name),
-                    NotificationManager.IMPORTANCE_LOW
-            );
-            updateChannel.setDescription(context.getString(R.string.notification_update_channel_description));
-            // Create VPN service notification channel
-            NotificationChannel vpnServiceChannel = new NotificationChannel(
-                    VPN_SERVICE_NOTIFICATION_CHANNEL,
-                    context.getString(R.string.notification_vpn_channel_name),
-                    NotificationManager.IMPORTANCE_LOW
-            );
-            updateChannel.setDescription(context.getString(R.string.notification_vpn_channel_description));
-            // Register the channels with the system; you can't change the importance or other notification behaviors after this
-            NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-            if (notificationManager != null) {
-                notificationManager.createNotificationChannel(updateChannel);
-                notificationManager.createNotificationChannel(vpnServiceChannel);
-            }
+        // Create update notification channel
+        NotificationChannel updateChannel = new NotificationChannel(
+                UPDATE_NOTIFICATION_CHANNEL,
+                context.getString(R.string.notification_update_channel_name),
+                NotificationManager.IMPORTANCE_LOW
+        );
+        updateChannel.setDescription(context.getString(R.string.notification_update_channel_description));
+        // Create VPN service notification channel
+        NotificationChannel vpnServiceChannel = new NotificationChannel(
+                VPN_SERVICE_NOTIFICATION_CHANNEL,
+                context.getString(R.string.notification_vpn_channel_name),
+                NotificationManager.IMPORTANCE_LOW
+        );
+        updateChannel.setDescription(context.getString(R.string.notification_vpn_channel_description));
+        // Register the channels with the system; you can't change the importance or other notification behaviors after this
+        NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+        if (notificationManager != null) {
+            notificationManager.createNotificationChannel(updateChannel);
+            notificationManager.createNotificationChannel(vpnServiceChannel);
         }
     }
 
@@ -104,7 +101,7 @@ public final class NotificationHelper {
         String text = context.getString(R.string.notification_update_host_available_text);
         Intent intent = new Intent(context, HomeActivity.class);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = getActivity(context, 0, intent, 0);
+        PendingIntent pendingIntent = getActivity(context, 0, intent, FLAG_IMMUTABLE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, UPDATE_NOTIFICATION_CHANNEL)
                 .setSmallIcon(R.drawable.logo)
                 .setColorized(true)
@@ -136,7 +133,7 @@ public final class NotificationHelper {
         String text = context.getString(R.string.notification_update_app_available_text);
         Intent intent = new Intent(context, HomeActivity.class);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = getActivity(context, 0, intent, 0);
+        PendingIntent pendingIntent = getActivity(context, 0, intent, FLAG_IMMUTABLE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, UPDATE_NOTIFICATION_CHANNEL)
                 .setSmallIcon(R.drawable.logo)
                 .setColorized(true)
