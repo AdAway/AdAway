@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Išeiti</string>
@@ -42,10 +42,13 @@
     <string name="import_success">Atsarginė kopija sėkmingai importuota iš jūsų išorinės atminties.</string>
     <string name="import_failed">Nepavyko importuoti atsarginės kopijos. Ar jos formatas teisingas? Patikrinkite logcat failą dėl išsamesnių detalių.</string>
     <string name="export_dialog">Eksportuojama…</string>
+    <string name="export_success">Atsarginė kopija sėkmingai eksportuota į failą \'%s\' jūsų išorinėje saugykloje.</string>
+    <string name="export_failed">Nepavyko eksportuoti atsarginės kopijos failą%s</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Hosts failas</string>
     <string name="hosts_description">Hosts failas yra sistemos failas kuris pritaiko domenus prie IP adresų. Tai yra paprastas teksto failas kurio konfiguraciją tvarko ir naudoja AdAway. Čia yra jos pirmos eilutės:</string>
-    <string name="hosts_content">Kraunama hosts failo duomenys…</string>
+    <string name="hosts_content">Kraunama hosts failo duomenys...</string>
     <string name="hosts_open_button">Atverti hosts failą</string>
 
     <!--Status Notification-->
@@ -55,6 +58,7 @@
     <string name="status_download_source">Atsisiunčiama šaltinį %s</string>
     <string name="status_read_source">Skaitoma šaltinį %s</string>
     <string name="status_parse_source">Nagrinėjamas %s šaltinis</string>
+    <string name="status_sync_database">Sinchronizuojamų taisyklių duomenų bazė</string>
     <string name="status_revert">Atstatomas originalus hosts failas</string>
     <string name="status_revert_done">Originalus hosts failas atkurtas</string>
     <string name="status_reverting_subtitle">Kuriu standartinį hosts failą</string>
@@ -81,7 +85,7 @@
     <string name="status_vpn_configuration_updated">VPN konfigūracija sėkmingai atnaujinta</string>
     <string name="notification_configuration_changed">Jūsų konfiguracija išsaugota. Jums reikia ją pritaikyti.</string>
     <string name="notification_configuration_changed_action">Pritaikyti</string>
-    <string name="notification_configuration_installing">Pritaikoma nauja konfigūracija…</string>
+    <string name="notification_configuration_installing">Pritaikoma nauja konfigūracija...</string>
     <string name="notification_configuration_failed">Nepavyko pritaikyti naujos konfigūracijos.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -105,7 +109,7 @@
     <string name="apply_symlink_fail">Symlink nuoroda jūsų įrenginyje negalėjo būti sukurta.\nTaip įvyksta dėl \'funkcijos\' pavadinimu S-ON HTC telefonuose!\n\nA Sprendimas yra įjungti jūsų įrenginį į atsarginių kopijų rėžimą recovery mode ir sukurti nuorodą symlink, ten, naudojant \'In -s /data/data/hosts /system/etc/hosts\'.\n\n Jei nesuveiks jums reikės internete surasti S-OFF jūsų įrenginiui.</string>
     <string name="apply_symlink_fail_title">Nepavyko sukurti symlink</string>
     <string name="apply_help">Detalesnę informaciją rasite skiltyje Pagalba</string>
-    <string name="apply_apn_proxy">APN proxy serveris yra įjungtas jūsų įrenginyje!\nAdAway neveiks patikimai kai naujomi mobilieji tinklai kaip 3G. Jūs galite deaktyvuoti jūsų proxy pasirenkant jūsų pasirinktą APN (Nustatymuose: Tinklas  &amp; Internetas -&gt; Mobilusis tinklas -&gt; Sudėtingiau -&gt; Prieigų Taškų Pavadinimai) ir ištrinti adresą iš proxy laukelio.</string>
+    <string name="apply_apn_proxy">APN proxy serveris yra įjungtas jūsų įrenginyje!\nAdAway neveiks patikimai kai naujomi mobilieji tinklai kaip 3G. Jūs galite deaktyvuoti jūsų proxy pasirenkant jūsų pasirinktą APN (Nustatymuose: Tinklas  &amp; Internetas -> Mobilusis tinklas -> Sudėtingiau -> Prieigų Taškų Pavadinimai) ir ištrinti adresą iš proxy laukelio.</string>
     <string name="apply_apn_proxy_title">APN proxy nustatytas!</string>
     <string name="no_connection">Prisijungti pire interneto nepavyko.</string>
     <string name="no_connection_title">Nėra Interneto</string>
@@ -164,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware Reklamų virusas</string>
     <string name="adware_description">Čia jūs galite rasti blogas programas kurios negali būti užblokuotos AdAway programoje. Šios programos naudoja Airpush pranėšimus, kurie iššoka net jei ir programa išjungta, gali net pakeisti skambučio toną. Vienintelis būdas to išvengti - Ištrinti šias programas paspaudžiant ant programų sarašo.</string>
-    <string name="adware_scanning">Skanuojama…</string>
+    <string name="adware_scanning">Skanuojama&#8230;</string>
     <string name="adware_empty">Nerasta Adware Reklamų virusų.</string>
 
     <!--Other-->
@@ -251,9 +255,12 @@
     <string name="vpn_notification_stopped">sustabdyta</string>
     <string name="vpn_notification_title">Reklamų-blokavimo VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pauzė</string>
-    <string name="vpn_notification_action_resume">Paspauskite kad tęsti</string>
+    <string name="vpn_notification_action_resume">Tęsti</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Įjungti ir išjungti sistemos reklamų blokavimą</string>
+    <string name="permission_group_api_label">AdAway leidimai</string>
+    <string name="permission_group_api_description">Leisti bendrauti su AdAway</string>
+    <string name="permission_send_command_label">Siųsti komandas AdAway</string>
+    <string name="permission_send_command_description">Leisti siųsti komandas AdAway, pvz., Įjungti arba išjungti sistemos reklamų blokavimą</string>
 
 </resources>
