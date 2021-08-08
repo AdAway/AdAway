@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Salir</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aquí se puedes encontrar adware instalado, aplicaciones defectuosas que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no se está funcionando o incluso cambiar el tono de llamada. La única contramedida disponible es desinstalar esas aplicaciones haciendo clic en los elementos de la lista.</string>
-    <string name="adware_scanning">Escaneando…</string>
+    <string name="adware_scanning">Escaneando&#8230;</string>
     <string name="adware_empty">¡No se ha encontrado Adware!</string>
 
     <!--Other-->
@@ -247,9 +247,12 @@
     <string name="vpn_notification_stopped">detenido</string>
     <string name="vpn_notification_title">Bloqueador de anuncios VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pausar</string>
-    <string name="vpn_notification_action_resume">Toca para continuar</string>
+    <string name="vpn_notification_action_resume">Reanudar</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Habilitar o deshabilitar el bloqueo de anuncios en el sistema</string>
+    <string name="permission_group_api_label">Permisos de AdAway</string>
+    <string name="permission_group_api_description">Permitir interactuar con AdAway</string>
+    <string name="permission_send_command_label">Enviar comandos a AdAway</string>
+    <string name="permission_send_command_description">Permite enviar comandos a AdAway como habilitar o deshabilitar el bloqueo de anuncios a nivel de sistema</string>
 
 </resources>
