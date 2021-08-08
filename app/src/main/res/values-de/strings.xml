@@ -247,7 +247,7 @@
     <string name="vpn_notification_stopped">angehalten</string>
     <string name="vpn_notification_title">Ad-blocker-VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pause</string>
-    <string name="vpn_notification_paused_text">Zur Wiederaufnahme antippen</string>
+    <string name="vpn_notification_action_resume">Zur Wiederaufnahme antippen</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Ein/Aus-schalten des Werbebanners</string>

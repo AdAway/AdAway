@@ -256,7 +256,7 @@ Wilt u herstarten?
     <string name="vpn_notification_stopped">gestopt</string>
     <string name="vpn_notification_title">Advertentieblokkering-VPN %1$s</string>
     <string name="vpn_notification_action_pause">Onderbreken</string>
-    <string name="vpn_notification_paused_text">Druk om te hervatten</string>
+    <string name="vpn_notification_action_resume">Druk om te hervatten</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Schakel systeembrede advertentieblokkering in of uit</string>

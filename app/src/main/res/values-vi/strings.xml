@@ -243,7 +243,7 @@
     <string name="vpn_notification_stopped">đã dừng lại</string>
     <string name="vpn_notification_title">VPN chặn quảng cáo %1$s</string>
     <string name="vpn_notification_action_pause">Tạm dừng</string>
-    <string name="vpn_notification_paused_text">Chạm để tiếp tục</string>
+    <string name="vpn_notification_action_resume">Chạm để tiếp tục</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Kích hoạt và vô hiệu hoá chặn quảng cáo hệ thống</string>

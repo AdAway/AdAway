@@ -228,7 +228,7 @@
     <string name="vpn_notification_stopped">geldituta</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">Eten</string>
-    <string name="vpn_notification_paused_text">Ukitu berrekiteko </string>
+    <string name="vpn_notification_action_resume">Ukitu berrekiteko </string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Gaitu eta desgaitu sitemako ad-blocking-a</string>

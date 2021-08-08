@@ -240,7 +240,7 @@
     <string name="vpn_notification_stopped">detenido</string>
     <string name="vpn_notification_title">Bloqueador de anuncios por VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pausar</string>
-    <string name="vpn_notification_paused_text">Presiona para continuar</string>
+    <string name="vpn_notification_action_resume">Presiona para continuar</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Habilitar e inhabilitar el bloqueo de anuncios del sistema</string>

@@ -239,7 +239,7 @@
     <string name="vpn_notification_stopped">중단됨</string>
     <string name="vpn_notification_title">광고 차단 VPN %1$s</string>
     <string name="vpn_notification_action_pause">일시정지</string>
-    <string name="vpn_notification_paused_text">탭하여 재개</string>
+    <string name="vpn_notification_action_resume">탭하여 재개</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">시스템 광고 차단을 활성화하거나 비활성화</string>

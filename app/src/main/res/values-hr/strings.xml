@@ -238,7 +238,7 @@
     <string name="vpn_notification_stopped">zaustavljeno</string>
     <string name="vpn_notification_title">VPN blokator oglasa %1$s</string>
     <string name="vpn_notification_action_pause">Pauziraj</string>
-    <string name="vpn_notification_paused_text">Dodirni za nastavak</string>
+    <string name="vpn_notification_action_resume">Dodirni za nastavak</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Omogući ili onemogući blokiranje oglasa sustava</string>

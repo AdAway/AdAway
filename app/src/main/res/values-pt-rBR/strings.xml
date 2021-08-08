@@ -247,7 +247,7 @@
     <string name="vpn_notification_stopped">parado</string>
     <string name="vpn_notification_title">VPN bloqueador de anúncios %1$s</string>
     <string name="vpn_notification_action_pause">Pausar</string>
-    <string name="vpn_notification_paused_text">Toque para retomar</string>
+    <string name="vpn_notification_action_resume">Toque para retomar</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Ativar e desativar o bloqueio de anúncios do sistema</string>

@@ -249,7 +249,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="vpn_notification_stopped">megállítva</string>
     <string name="vpn_notification_title">Hirdetésblokkoló VPN %1$s</string>
     <string name="vpn_notification_action_pause">Szüneteltetés</string>
-    <string name="vpn_notification_paused_text">Koppintson a folytatáshoz</string>
+    <string name="vpn_notification_action_resume">Koppintson a folytatáshoz</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Rendszer-szintű hirdezésblokkolás engedélyezése vagy letiltása</string>

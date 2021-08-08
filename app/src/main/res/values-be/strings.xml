@@ -248,7 +248,7 @@
     <string name="vpn_notification_stopped">спынена</string>
     <string name="vpn_notification_title">VPN блакіроўшчыка %1$s</string>
     <string name="vpn_notification_action_pause">Паўза</string>
-    <string name="vpn_notification_paused_text">Націсніце для працягу</string>
+    <string name="vpn_notification_action_resume">Націсніце для працягу</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Уключыць і адключыць сістэмнае блакаванне рэкламы</string>

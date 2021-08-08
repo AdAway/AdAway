@@ -255,7 +255,7 @@
     <string name="vpn_notification_stopped">zastavené</string>
     <string name="vpn_notification_title">Blokovanie reklamy pomocou VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pozastaviť</string>
-    <string name="vpn_notification_paused_text">Klepnutím pokračovať</string>
+    <string name="vpn_notification_action_resume">Klepnutím pokračovať</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Povoliť a zakázať systémové blokovanie reklamy</string>

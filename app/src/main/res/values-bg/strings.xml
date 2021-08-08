@@ -247,7 +247,7 @@
     <string name="vpn_notification_stopped">спрян</string>
     <string name="vpn_notification_title">VPN блокер на реклами %1$s</string>
     <string name="vpn_notification_action_pause">Пауза</string>
-    <string name="vpn_notification_paused_text">Докоснете, за да продължите</string>
+    <string name="vpn_notification_action_resume">Докоснете, за да продължите</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Включване и изключване на системния блокер на реклами</string>

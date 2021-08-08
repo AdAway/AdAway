@@ -243,7 +243,7 @@
     <string name="vpn_notification_stopped">stoppad</string>
     <string name="vpn_notification_title">Annonsblockerare VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pausa</string>
-    <string name="vpn_notification_paused_text">Tryck för att återuppta</string>
+    <string name="vpn_notification_action_resume">Tryck för att återuppta</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Aktivera och inaktivera systemets annonsblockering</string>

@@ -251,7 +251,7 @@
     <string name="vpn_notification_stopped">sustabdyta</string>
     <string name="vpn_notification_title">Reklamų-blokavimo VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pauzė</string>
-    <string name="vpn_notification_paused_text">Paspauskite kad tęsti</string>
+    <string name="vpn_notification_action_resume">Paspauskite kad tęsti</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Įjungti ir išjungti sistemos reklamų blokavimą</string>

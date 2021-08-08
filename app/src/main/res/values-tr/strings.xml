@@ -247,7 +247,7 @@
     <string name="vpn_notification_stopped">durduruldu</string>
     <string name="vpn_notification_title">Reklam engelleyici VPN %1$s</string>
     <string name="vpn_notification_action_pause">Duraklat</string>
-    <string name="vpn_notification_paused_text">Devam etmek için donunun</string>
+    <string name="vpn_notification_action_resume">Devam etmek için donunun</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Sistem reklam engellemesini etkinleştir ve devre dışı bırak</string>

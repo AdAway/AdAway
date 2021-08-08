@@ -197,7 +197,7 @@
     <string name="vpn_notification_stopped">aturat</string>
     <string name="vpn_notification_title">VPN bloquejadora d\'anuncis %1$s</string>
     <string name="vpn_notification_action_pause">Pausa</string>
-    <string name="vpn_notification_paused_text">Prem per reprendre</string>
+    <string name="vpn_notification_action_resume">Prem per reprendre</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Activa i desactiva el bloqueig d\'anuncis de sistema</string>

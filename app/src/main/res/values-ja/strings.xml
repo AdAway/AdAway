@@ -243,7 +243,7 @@
     <string name="vpn_notification_stopped">停止</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">一時停止</string>
-    <string name="vpn_notification_paused_text">タップして復帰</string>
+    <string name="vpn_notification_action_resume">タップして復帰</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">広告ブロックシステムの有効化と無効化</string>

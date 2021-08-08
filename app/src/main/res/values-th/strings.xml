@@ -205,7 +205,7 @@
     <string name="vpn_notification_stopped">หยุด</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">หยุด</string>
-    <string name="vpn_notification_paused_text">แตะเพื่อดำเนินการต่อ</string>
+    <string name="vpn_notification_action_resume">แตะเพื่อดำเนินการต่อ</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">เปิดใช้งานหรือปิดใช้งานระบบบล็อคโฆษณา</string>

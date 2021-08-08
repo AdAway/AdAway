@@ -177,6 +177,6 @@
     <string name="vpn_notification_paused">tauotettu</string>
     <string name="vpn_notification_stopped">pysäytetty</string>
     <string name="vpn_notification_action_pause">Tauko</string>
-    <string name="vpn_notification_paused_text">Paina jatkaakseen</string>
+    <string name="vpn_notification_action_resume">Paina jatkaakseen</string>
 
     </resources>

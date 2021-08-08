@@ -244,7 +244,7 @@
     <string name="vpn_notification_stopped">stopped</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pause</string>
-    <string name="vpn_notification_paused_text">Tap to resume</string>
+    <string name="vpn_notification_action_resume">Tap to resume</string>
 
     <!-- Permission -->
     <string name="permission_send_command_label">Enable and disable system ad-blocking</string>
