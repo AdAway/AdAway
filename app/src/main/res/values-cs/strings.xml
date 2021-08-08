@@ -255,7 +255,7 @@
     <string name="vpn_notification_stopped">vypnuto</string>
     <string name="vpn_notification_title">Blokování reklam pomocí VPN: %1$s</string>
     <string name="vpn_notification_action_pause">Pozastavit</string>
-    <string name="vpn_notification_action_resume">Stiskněte pro pokračování</string>
+    <string name="vpn_notification_action_resume">Obnovit</string>
 
     <!-- Permission -->
     <string name="permission_group_api_label">Oprávnění AdAway</string>
