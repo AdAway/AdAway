@@ -244,7 +244,7 @@
     <string name="vpn_notification_stopped">已停止</string>
     <string name="vpn_notification_title">VPN 广告拦截器 %1$s</string>
     <string name="vpn_notification_action_pause">暂停</string>
-    <string name="vpn_notification_action_resume">点按恢复</string>
+    <string name="vpn_notification_action_resume">恢复</string>
 
     <!-- Permission -->
     <string name="permission_group_api_label">AdAway 权限</string>
