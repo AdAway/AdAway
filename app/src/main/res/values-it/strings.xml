@@ -248,12 +248,12 @@ Vuoi installare OI File Manager?</string>
     <string name="vpn_notification_stopped">Interrotto</string>
     <string name="vpn_notification_title">VPN Ad-blocker %1$s</string>
     <string name="vpn_notification_action_pause">Pausa</string>
-    <string name="vpn_notification_action_resume">Tocca per riprendere</string>
+    <string name="vpn_notification_action_resume">Riprendi</string>
 
     <!-- Permission -->
     <string name="permission_group_api_label">Permessi di AdAway</string>
     <string name="permission_group_api_description">Permetti di interagire con AdAway</string>
     <string name="permission_send_command_label">Manda comandi a AdAway</string>
-    <string name="permission_send_command_description">Permetti di mandare comandi a AdAway come attivare o disattivare il blocco pubblicità</string>
+    <string name="permission_send_command_description">Permetti l\'invio di comandi a AdAway come attivare o disattivare il blocco pubblicità</string>
 
 </resources>
