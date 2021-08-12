@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Surt</string>
@@ -21,6 +21,7 @@
     <string name="header_webserver">Servidor web</string>
     <string name="webserver_status_running">En execució</string>
     <string name="webserver_status_stopped">Aturat</string>
+    <string name="webserver_toggle_text">Atura o inicia el servidor web local per respondre les peticions de les direccions blocades.</string>
     <string name="button_enable_webserver">Activa el servidor web</string>
     <string name="button_disable_webserver">Desactiva el servidor web</string>
     <string name="header_vpn">VPN</string>
@@ -41,6 +42,9 @@
     <string name="import_success">S\'ha importat correctament la còpia de l\'emmagatzematge extern.</string>
     <string name="import_failed">Ha fallat en importar la còpia. El format és correcte? Mireu l\'informe del logcat per a més informació.</string>
     <string name="export_dialog">S\'està exportant…</string>
+    <string name="export_success">S\'ha exportat correctament l\'arxiu \'%s\' a  l\'emmagatzematge extern.</string>
+    <string name="export_failed">Error al exportar la còpia de seguretat \'%s\' </string>
+
     <!--Hosts content-->
     <string name="hosts_header">El fitxer d\'amfitrions</string>
     <string name="hosts_description">El fitxer d\'amfitrions és un fitxer del sistema on s\'associen  noms d\'amfitrió a les corresponents adreces IP. És un fitxer en text pla on la seva configuració és administrada per l\'AdAway. Aquí podeu veure les primeres línies:</string>
@@ -49,11 +53,18 @@
 
     <!--Status Notification-->
     <string name="status_check">S\'estan comprovant les actualitzacions</string>
+    <string name="status_check_source">Comprovant a %s si hi han actualitzacions</string>
     <string name="status_retrieve">Recuperant recursos</string>
     <string name="status_download_source">Descarregant recurs %s</string>
+    <string name="status_read_source">Llegint font %s</string>
+    <string name="status_parse_source">Analitzant font %s</string>
+    <string name="status_sync_database">Sincronització de les regles de la base de dades </string>
+    <string name="status_revert">Retornant al fitxer hosts per defecte</string>
+    <string name="status_revert_done">Fitxer hosts per defecte restaurat </string>
     <string name="status_reverting_subtitle">Creació del fitxer estàndard de servidors</string>
     <string name="status_update_available">Actualització disponible</string>
     <string name="status_update_available_subtitle">Amfitrions nous disponibles</string>
+    <string name="status_no_update_found">No s\'han trobat actualitzacions de la font</string>
     <string name="status_no_connection">No hi ha connexió a internet</string>
     <string name="status_no_connection_subtitle">No hi ha connexió a internet disponible</string>
     <string name="status_download_fail">Fonts no disponibles</string>
@@ -66,8 +77,19 @@
     <string name="status_enabled_subtitle">S\'han activat els fitxers d\'amfitrions més recents</string>
     <string name="status_disabled">Desactivat</string>
     <string name="status_disabled_subtitle">S\'han instal·lat els fitxers d\'amfitrions per defecte</string>
+    <string name="status_apply_sources">Aplicar ultimes fonts </string>
+    <string name="status_create_new_hosts">Creant un nou fitxer hosts</string>
+    <string name="status_copy_new_hosts">Copiant un nou fitxer hosts</string>
+    <string name="status_check_copy">Comprovant còpia del fitxer hosts </string>
+    <string name="status_hosts_updated">Fitxer hosts actualitzat correctament </string>
+    <string name="status_vpn_configuration_updated">Configuració de la VPN actualitzada correctament </string>
+    <string name="notification_configuration_changed">Ha canviat la configuració. Heu d\'aplicar els canvis.</string>
     <string name="notification_configuration_changed_action">Aplica</string>
-    <string name="notification_configuration_installing">Aplicant nova configuració…</string>
+    <string name="notification_configuration_installing">Aplicant nova configuració...</string>
+    <string name="notification_configuration_failed">Error al aplicar la nova configuració </string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">No es troba l\'enllaç simbolic al fitxer hosts escollit</string>
     <string name="apply_symlink_missing">L\'enllaç simbòlic cap a /system/etc/hosts no existeix o no és correcte! L\'AdAway no funcionarà si no apunta al fitxer correcte.\n\nVoleu intentar crear un enllaç simbòlic?</string>
     <string name="apply_symlink_missing_title">Falta l\'enllaç simbòlic</string>
     <string name="apply_not_enough_space">No hi ha prou espai a la partició!\nProveu canviant el fitxer a les preferències a /data/data/hosts.</string>
@@ -111,20 +133,33 @@
     <string name="no_private_file_status">Error al escriure el nou arxiu de hosts privat</string>
     <string name="no_private_file">No s\'ha pogut crear el fitxer privat.</string>
     <string name="no_private_file_title">Error en la creació del fitxer privat</string>
+    <string name="enable_systemless_successful">Heu activat el mode systemless.\nÉs necessari reiniciar Android per aplicar els canvis.\n\nVoleu reiniciar ara?\n(Per evitar cap pèrdua a la targeta SD, assegureu-vos que cap altra aplicació l\'està utilitzant en aquest moment!) </string>
     <string name="enable_systemless_successful_title">S\'ha habilitat correctament</string>
+    <string name="disable_systemless_successful">Heu desactivat el mode systemless.\nÉs necessari reiniciar Android per aplicar els canvis.\n\nVoleu reiniciar ara?\n(Per evitar cap pèrdua a la targeta SD, assegureu-vos que cap altra aplicació l\'està utilitzant en aquest moment!) </string>
     <string name="disable_systemless_successful_title">S\'ha inhabilitat correctament</string>
+    <string name="enable_vpn_fail">Error al activar el blocatge d\'anuncis per VPN</string>
+    <string name="disable_vpn_fail">Error al desactivar el blocatge d\'anuncis per VPN</string>
+    <string name="enable_systemless_magisk_title">Activant mòdul Magisk de hosts</string>
+    <string name="enable_systemless_magisk">Activar funció \"systemless hosts\" del Magisk manager. Des de la configuració del Magisk, activar l\'opció <cite>Systemless hosts</cite>i reiniciar el dispositiu. </string>
+    <string name="disable_systemless_magisk_title">Desactivant mòdul Magisk de hosts</string>
+    <string name="disable_systemless_magisk">Desactivar funció \"systemless hosts\" del Magisk manager. Des del llistat de mòduls del Magisk,  desinstalar el modul<cite>Systemless hosts</cite>i reiniciar el dispositiu. </string>
+
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Introduïu l\'adreça URL cap el fitxer hosts:</string>
     <string name="no_hostname">Aquest no és un nom de servidor vàlid!</string>
     <string name="no_hostname_title">Nom de màquina incorrecte</string>
     <string name="no_ip">Aquesta no és una IP vàlida!</string>
     <string name="no_ip_title">Format IP incorrecte</string>
+    <string name="reboot_never_reboot">No reiniciïs mai i no mostris més aquest missatge.</string>
     <string name="loading">Carregant..</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Refresca</string>
     <string name="menu_add">Afegiu</string>
     <string name="menu_help">Ajuda</string>
+    <string name="menu_import">Importar còpia de seguretat </string>
+    <string name="menu_export">Exportar còpia de seguretat </string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">PMF (FAQ)</string>
@@ -132,6 +167,10 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
+    <string name="adware_description">Aquí podeu trobar aplicacions Adware malignes que no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, entre altres, notificacions Airpush que poden apareixer inclús quan l\'aplicació no està funcionant o poden inclús canviar el vostre to de trucada. La única defensa possible és desinstalar-les clicant en la llista de elements</string>
+    <string name="adware_scanning">Escanejant&#8230;</string>
+    <string name="adware_empty">No s\'ha trobat Adware! </string>
+
     <!--Other-->
     <string name="app_subtitle">Bloquejador d\'anuncis</string>
     <string name="no_text_editor_title">No hi ha cap editor de text instal·lat</string>
@@ -173,10 +212,21 @@
     <string name="shortcut_your_lists">Les vostre llistes</string>
     <string name="shortcut_preferences">Preferències</string>
 
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Instal·lat fa %1$s</string>
     <string name="hosts_source_up_to_date">Actualitzat per %1$s</string>
     <string name="hosts_source_need_update">Actualització necessària per %1$s</string>
     <string name="hosts_source_last_update">Darrera actualització fa %1$s</string>
     <string name="hosts_source_unknown_status">Estat d\'actualització desconegut</string>
+    <string name="hosts_source_few_minutes">pocs minuts</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one">%dminut</item>
+        <item quantity="other">%dminuts</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d hora</item>
+        <item quantity="other">%d hores</item>
+    </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d dia</item>
         <item quantity="other">%d dies</item>
@@ -197,9 +247,12 @@
     <string name="vpn_notification_stopped">aturat</string>
     <string name="vpn_notification_title">VPN bloquejadora d\'anuncis %1$s</string>
     <string name="vpn_notification_action_pause">Pausa</string>
-    <string name="vpn_notification_action_resume">Prem per reprendre</string>
+    <string name="vpn_notification_action_resume">Seguir</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Activa i desactiva el bloqueig d\'anuncis de sistema</string>
+    <string name="permission_group_api_label">Permisos del AdAway </string>
+    <string name="permission_group_api_description">Permetre la interacció amb l\'AdAway</string>
+    <string name="permission_send_command_label">Enviar ordres a l\'AdAway</string>
+    <string name="permission_send_command_description">Permet enviar ordres al AdAway com activar/desactivar el sistema de bloqueig d\'anuncis</string>
 
 </resources>
