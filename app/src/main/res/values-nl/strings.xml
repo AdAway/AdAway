@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Afsluiten</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">VPN configuratie succesvol bijgewerkt</string>
     <string name="notification_configuration_changed">Je configuratie is gewijzigd. Je moet het toepassen.</string>
     <string name="notification_configuration_changed_action">Toepassen</string>
-    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie…</string>
+    <string name="notification_configuration_installing">Toepassen van nieuwe configuratie...</string>
     <string name="notification_configuration_failed">Toepassen van nieuwe configuratie is mislukt.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -256,9 +256,12 @@ Wilt u herstarten?
     <string name="vpn_notification_stopped">gestopt</string>
     <string name="vpn_notification_title">Advertentieblokkering-VPN %1$s</string>
     <string name="vpn_notification_action_pause">Onderbreken</string>
-    <string name="vpn_notification_action_resume">Druk om te hervatten</string>
+    <string name="vpn_notification_action_resume">Hervat</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Schakel systeembrede advertentieblokkering in of uit</string>
+    <string name="permission_group_api_label">AdAway rechten</string>
+    <string name="permission_group_api_description">Toestaan om samen te werken met AdAway</string>
+    <string name="permission_send_command_label">Zend opdrachten naar AdAway</string>
+    <string name="permission_send_command_description">Toestaan om opdrachten te verzenden naar AdAway zoals het aan- of uitzetten van de advertentieblokkering</string>
 
 </resources>
