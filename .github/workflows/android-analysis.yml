@@ -51,7 +51,7 @@ jobs:
     # Build from command line as Autobuild fails
     - run: |  
        echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;31.0.0" --sdk_root=${ANDROID_SDK_ROOT}
-       echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;22.1.7171670" --sdk_root=${ANDROID_SDK_ROOT}
+       echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;23.0.7599858" --sdk_root=${ANDROID_SDK_ROOT}
        ./gradlew assembleRelease
 
     - name: Perform CodeQL Analysis
