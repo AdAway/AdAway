@@ -1,3 +1,9 @@
+## [5.9.0] - Unreleased
+
+- Update web server certificate to comply with maximum validity time
+
+Special thanks to rany2 for its bug report.
+
 ## [5.8.0] - 2021-08-08
 
 - Improve command receiver for task automation

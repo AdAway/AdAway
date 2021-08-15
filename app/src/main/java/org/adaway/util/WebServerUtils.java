@@ -62,6 +62,8 @@ public class WebServerUtils {
     public static final String TEST_URL = "https://localhost/internal-test";
     private static final String TAG = "WebServer";
     private static final String WEB_SERVER_EXECUTABLE = "webserver";
+    private static final String LOCALHOST_CERTIFICATE = "localhost-2108.crt";
+    private static final String LOCALHOST_CERTIFICATE_KEY = "localhost-2108.key";
 
     /**
      * Start the web server in new thread with RootTools
@@ -128,7 +130,7 @@ public class WebServerUtils {
      */
     public static void installCertificate(Context context) {
         AssetManager assetManager = context.getAssets();
-        try (InputStream inputStream = assetManager.open("localhost.crt");
+        try (InputStream inputStream = assetManager.open(LOCALHOST_CERTIFICATE);
              ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
             byte[] buffer = new byte[1024];
             int read;
@@ -151,7 +153,7 @@ public class WebServerUtils {
     public static void copyCertificate(ContextThemeWrapper wrapper, Uri uri) {
         ContentResolver contentResolver = wrapper.getContentResolver();
         AssetManager assetManager = wrapper.getAssets();
-        try (InputStream inputStream = assetManager.open("localhost.crt");
+        try (InputStream inputStream = assetManager.open(LOCALHOST_CERTIFICATE);
              OutputStream outputStream = contentResolver.openOutputStream(uri)) {
             if (outputStream == null) {
                 throw new IOException("Failed to open "+uri);
@@ -169,8 +171,8 @@ public class WebServerUtils {
     private static void inflateResources(Context context, Path target) {
         AssetManager assetManager = context.getAssets();
         try {
-            inflateResource(assetManager, "localhost.crt", target);
-            inflateResource(assetManager, "localhost.key", target);
+            inflateResource(assetManager, LOCALHOST_CERTIFICATE, target);
+            inflateResource(assetManager, LOCALHOST_CERTIFICATE_KEY, target);
             inflateResource(assetManager, "icon.svg", target);
             inflateResource(assetManager, "test.html", target);
         } catch (IOException e) {
