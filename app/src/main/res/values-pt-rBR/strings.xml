@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Sair</string>
@@ -38,17 +38,17 @@
     <string name="checkbox_list_context_delete">Excluir</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importando…</string>
+    <string name="import_dialog">Importando...</string>
     <string name="import_success">Backup importado com sucesso do seu armazenamento externo.</string>
     <string name="import_failed">Falha ao importar backup. Seu formato está correto? Verifique o logcat para mais detalhes.</string>
-    <string name="export_dialog">Exportando…</string>
+    <string name="export_dialog">Exportando...</string>
     <string name="export_success"> Backup exportado com sucesso para o arquivo \'%s\' em seu armazenamento externo.</string>
     <string name="export_failed">Falha ao exportar arquivo de backup \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">O arquivo de hosts</string>
     <string name="hosts_description">O arquivo hosts é um arquivo de sistema que mapeia nomes de host para endereços IP. É um arquivo de texto simples cuja configuração é gerenciada pela AdAway. Aqui estão suas poucas primeiras linhas:</string>
-    <string name="hosts_content">Carregando o conteúdo do arquivo hosts…</string>
+    <string name="hosts_content">Carregando o conteúdo do arquivo hosts...</string>
     <string name="hosts_open_button">Abrir arquivo hosts</string>
 
     <!--Status Notification-->
@@ -65,11 +65,11 @@
     <string name="status_update_available">Atualização da fonte disponível</string>
     <string name="status_update_available_subtitle">Hosts mais recentes disponíveis</string>
     <string name="status_no_update_found">Nenhuma atualização de fonte encontrada</string>
-    <string name="status_no_connection">Sem conexão com a Internet</string>
-    <string name="status_no_connection_subtitle">Nenhuma conexão com a Internet disponível</string>
+    <string name="status_no_connection">Sem conexão à Internet</string>
+    <string name="status_no_connection_subtitle">Nenhuma conexão à Internet disponível</string>
     <string name="status_download_fail">Fontes indisponíveis</string>
     <string name="status_download_fail_subtitle_new">Nenhuma fonte de host está acessível!</string>
-    <string name="status_root_access_denied">Acesso Root negado</string>
+    <string name="status_root_access_denied">Acesso root negado</string>
     <string name="status_root_access_denied_subtitle">Permitir acesso root do seu aplicativo de root</string>
     <string name="status_failure">Algo deu errado</string>
     <string name="status_failure_subtitle">Verifique o logcat para mais detalhes</string>
@@ -109,12 +109,12 @@
     <string name="apply_symlink_fail">O link simbólico não pôde ser criado pelo Android.\nIsso falha principalmente devido a um \'recurso\' chamado S-ON nos telefones HTC!\n\nUma solução é inicializar seu telefone no modo de recuperação e criar o link simbólico com \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe isso não funcionar, procure na Internet por S-OFF e seu telefone.</string>
     <string name="apply_symlink_fail_title">Falha ao criar link simbólico</string>
     <string name="apply_help">Consulte a Ajuda para mais informações.</string>
-    <string name="apply_apn_proxy">Um proxy APN está definido no seu Android!\nO AdAway não funcionará de forma confiável quando estiver em redes móveis como o 3G. Você pode desativar esse proxy acessando o APN selecionado (no aplicativo Configurações: Rede &amp; Internet -&gt; Rede móvel -&gt; Avançado -&gt; Nomes de pontos de acesso) e remova o valor no campo de proxy.</string>
+    <string name="apply_apn_proxy">Um proxy APN está definido no seu Android!\nO AdAway não funcionará de forma confiável quando estiver em redes móveis como o 3G. Você pode desativar esse proxy acessando o APN selecionado (no aplicativo Configurações: Rede &amp; Internet -> Rede móvel -> Avançado -> Nomes de pontos de acesso) e remova o valor no campo de proxy.</string>
     <string name="apply_apn_proxy_title">APN proxy definida!</string>
-    <string name="no_connection">A conexão com a Internet não está funcionando.</string>
+    <string name="no_connection">A conexão à Internet não está funcionando.</string>
     <string name="no_connection_title">Sem Conexão</string>
-    <string name="download_dialog">Baixando…</string>
-    <string name="apply_dialog">Aplicando…</string>
+    <string name="download_dialog">Baixando...</string>
+    <string name="apply_dialog">Aplicando...</string>
     <string name="apply_dialog_lists">Aplicando Lista Negra e Lista Branca</string>
     <string name="apply_dialog_hostnames">Analisando e mesclando arquivos hosts</string>
     <string name="apply_dialog_hosts">Compilando arquivo hosts</string>
@@ -128,7 +128,7 @@
     <string name="revert_failed_status">Não foi possível reverter o arquivo hosts</string>
     <string name="revert_problem">Falha ao reverter devido a razões desconhecidas.</string>
     <string name="revert_problem_title">Falha ao reverter!</string>
-    <string name="download_fail_dialog">Nenhuma de suas fontes de hosts ativadas está acessível! Você está conectado devidamente a Internet?</string>
+    <string name="download_fail_dialog">Nenhuma de suas fontes de hosts ativadas está acessível! Você está conectado devidamente à Internet?</string>
     <string name="download_fail_title">Falha ao baixar</string>
     <string name="no_private_file_status">Falha ao gravar o novo arquivo de hosts privados</string>
     <string name="no_private_file">O arquivo privado não pode ser criado.</string>
@@ -139,9 +139,9 @@
     <string name="disable_systemless_successful_title">Desativado com sucesso</string>
     <string name="enable_vpn_fail">Falha ao ativar o bloqueio de anúncios VPN.</string>
     <string name="disable_vpn_fail">Falha ao desativar o bloqueio de anúncios VPN.</string>
-    <string name="enable_systemless_magisk_title">Ativando hosts Módulo Magisk</string>
+    <string name="enable_systemless_magisk_title">Ativando módulo Magisk de hosts</string>
     <string name="enable_systemless_magisk">Habilite o recurso hosts sem sistema do gerenciador Magisk. Nas configurações, ative a opção <cite>Hosts sem sistema</cite> e reinicie o dispositivo.</string>
-    <string name="disable_systemless_magisk_title">Desativando hosts Módulo Magisk</string>
+    <string name="disable_systemless_magisk_title">Desativando módulo Magisk de hosts</string>
     <string name="disable_systemless_magisk">Desative o recurso de hosts sem sistema do gerenciador Magisk. Na lista de módulos, desinstale o módulo <cite>Hosts sem sistema</cite> e reinicie o dispositivo.</string>
 
     <!--Other Dialogs-->
@@ -151,7 +151,7 @@
     <string name="no_ip">Este não é um IP válido!</string>
     <string name="no_ip_title">IP incorretamente formatado</string>
     <string name="reboot_never_reboot">Nunca reinicie e não mostre esta pergunta na próxima vez!</string>
-    <string name="loading">Carregando…</string>
+    <string name="loading">Carregando...</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Atualizar</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aqui você pode encontrar adwares instalados, aplicativos ruins que não podem ser bloqueados pelo AdAway. Esses aplicativos usam, por exemplo, notificações do Airpush que aparecem mesmo quando o aplicativo não está em execução ou até mesmo mudam seu toque. A única contramedida disponível é desinstalar esses aplicativos clicando nos itens da lista.</string>
-    <string name="adware_scanning">Escaneando…</string>
+    <string name="adware_scanning">Escaneando&#8230;</string>
     <string name="adware_empty">Nenhum Adware foi encontrado!</string>
 
     <!--Other-->
@@ -213,10 +213,10 @@
     <string name="shortcut_preferences">Preferências</string>
 
     <!--Hosts source status-->
-    <string name="hosts_source_installed">Instalado %1$s atrás</string>
-    <string name="hosts_source_up_to_date">Atualizado a %1$s</string>
+    <string name="hosts_source_installed">Instalado há %1$s</string>
+    <string name="hosts_source_up_to_date">Atualizado há %1$s</string>
     <string name="hosts_source_need_update">Atualização necessária para %1$s</string>
-    <string name="hosts_source_last_update">Última atualização %1$s atrás</string>
+    <string name="hosts_source_last_update">Última atualização há %1$s</string>
     <string name="hosts_source_unknown_status">Status de atualização desconhecido</string>
     <string name="hosts_source_few_minutes">poucos minutos</string>
     <plurals name="hosts_source_minutes">
@@ -247,9 +247,12 @@
     <string name="vpn_notification_stopped">parado</string>
     <string name="vpn_notification_title">VPN bloqueador de anúncios %1$s</string>
     <string name="vpn_notification_action_pause">Pausar</string>
-    <string name="vpn_notification_action_resume">Toque para retomar</string>
+    <string name="vpn_notification_action_resume">Retomar</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Ativar e desativar o bloqueio de anúncios do sistema</string>
+    <string name="permission_group_api_label">Permissões do AdAway</string>
+    <string name="permission_group_api_description">Permitir a interação com o AdAway</string>
+    <string name="permission_send_command_label">Mandar comandos ao AdAway</string>
+    <string name="permission_send_command_description">Permitir mandar comandos ao AdAway, como ativar ou desativar o bloqueamento de anúncios do sistema</string>
 
 </resources>
