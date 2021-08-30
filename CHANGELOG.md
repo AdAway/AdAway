@@ -1,6 +1,7 @@
 ## [5.9.0] - Unreleased
 
 - Update web server certificate to comply with maximum validity time
+- Update Android gradle plugin
 
 Special thanks to rany2 for its bug report.
 
