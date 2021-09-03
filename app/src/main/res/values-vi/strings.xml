@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Thoát</string>
@@ -83,10 +83,10 @@
     <string name="status_check_copy">Kiểm tra bản sao tập tin máy chủ</string>
     <string name="status_hosts_updated">Tập tin máy chủ được cập nhật thành công</string>
     <string name="status_vpn_configuration_updated">Cấu hình VPN được cập nhật thành công</string>
-    <string name="notification_configuration_changed">Tùy chỉnh Cấu hình đã thay đổi. </string>
+    <string name="notification_configuration_changed">Thiết lập của bạn đã thay đổi. Bạn cần áp dụng nó.</string>
     <string name="notification_configuration_changed_action">Áp dụng</string>
-    <string name="notification_configuration_installing">Đang áp dụng thiết lập mới…</string>
-    <string name="notification_configuration_failed">Không thể áp dụng tùy chỉnh mới</string>
+    <string name="notification_configuration_installing">Đang áp dụng thiết lập mới...</string>
+    <string name="notification_configuration_failed">Áp dụng thiết lập mới thất bại.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Thiếu liên kết đến mục tiêu tệp máy chủ</string>
@@ -98,7 +98,7 @@
     <string name="apply_private_file_fail_title">Tập tin riêng tư thất bại</string>
     <string name="apply_remount_fail">Thất bại khi gắn phân vùng thành đọc/ghi!</string>
     <string name="apply_remount_fail_title">Gắn thất bại</string>
-    <string name="apply_copy_fail_status">Không thể sao chép tập tin máy chủ</string>
+    <string name="apply_copy_fail_status">Sao chép tệp miền thất bại</string>
     <string name="apply_copy_fail">Thất bại khi sao chép tập tin miền!</string>
     <string name="apply_copy_fail_title">Sao chép thất bại</string>
     <string name="apply_success_subtitle">Đã áp dụng các nguồn tên miền</string>
@@ -109,7 +109,7 @@
     <string name="apply_symlink_fail">Liên kết biểu tượng không thể được tạo bởi Android.\nViệc này thất bại phần lớn vì một \'tính năng\' gọi là S-ON trên các điện thoại HTC!\n\nMột giải pháp là khởi động điện thoại của bạn vào chế độ phục hồi và tạo liên kết biểu tượng ở đó bằng lệnh \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nNếu việc này không được thì hãy tìm kiếm S-OFF và điện thoại của bạn trên Internet.</string>
     <string name="apply_symlink_fail_title">Tạo liên kết biểu trưng thất bại</string>
     <string name="apply_help">Hãy đọc Trợ giúp để biết thêm thông tin.</string>
-    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -&gt; Mobile network -&gt; Advanced -&gt; Access Point Names) and remove the value in the proxy field. </string>
+    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) and remove the value in the proxy field. </string>
     <string name="apply_apn_proxy_title">Đã tạo proxy APN!</string>
     <string name="no_connection">Kết nối mạng không hoạt động.</string>
     <string name="no_connection_title">Không có kết nối</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Ở đây bạn có thể tìm thấy ứng dụng quảng cáo, đó là những ứng dụng xấu không thể bị chặn bởi AdAway. Các ứng dụng này sử dụng, ví dụ là các thông báo Airpush hiện lên kể cả khi ứng dụng đó không chạy hoặc kể cả là thay đổi nhạc chuông của bạn. Biện pháp phản lại duy nhất có sẵn là gỡ cài đặt các ứng dụng đó bằng cách nhấn vào các mục trong danh sách.</string>
-    <string name="adware_scanning">Đang quét₀</string>
+    <string name="adware_scanning">Đang quét&#8320;</string>
     <string name="adware_empty">Không tìm thấy Adware!</string>
 
     <!--Other-->
@@ -243,9 +243,12 @@
     <string name="vpn_notification_stopped">đã dừng lại</string>
     <string name="vpn_notification_title">VPN chặn quảng cáo %1$s</string>
     <string name="vpn_notification_action_pause">Tạm dừng</string>
-    <string name="vpn_notification_action_resume">Chạm để tiếp tục</string>
+    <string name="vpn_notification_action_resume">Tiếp tục</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Kích hoạt và vô hiệu hoá chặn quảng cáo hệ thống</string>
+    <string name="permission_group_api_label">Quyền truy cập của AdAway</string>
+    <string name="permission_group_api_description">Cho phép tương tác với AdAway</string>
+    <string name="permission_send_command_label">Gửi lệnh đến AdAway</string>
+    <string name="permission_send_command_description">Cho phép gửi lệnh như bật hoặc tắt ad-block đến AdAway</string>
 
 </resources>
