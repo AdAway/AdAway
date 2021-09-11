@@ -8,15 +8,15 @@
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
-        <item quantity="few">%d up-to-date sources</item>
-        <item quantity="many">%d up-to-date sources</item>
+        <item quantity="one">%d aktualne źródło</item>
+        <item quantity="few">%d aktualne źródła</item>
+        <item quantity="many">%d aktualnych źródeł</item>
         <item quantity="other">%d aktualne źródła</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
-        <item quantity="few">%d outdated sources</item>
-        <item quantity="many">%d outdated sources</item>
+        <item quantity="one">%d nieaktualne źródło</item>
+        <item quantity="few">%d nieaktualne źródła</item>
+        <item quantity="many">%d nieaktualnych źródeł</item>
         <item quantity="other">%d nieaktualnych źródeł</item>
     </plurals>
     <string name="check_hosts_update_description">Sprawdź aktualizacje hostów</string>
