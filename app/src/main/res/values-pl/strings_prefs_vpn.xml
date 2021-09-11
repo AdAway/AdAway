@@ -10,9 +10,9 @@
     <string name="pref_vpn_excluded_apps_description">Skonfiguruj, które aplikacje nie powinny korzystać z VPN, aby żadne połączenia nie były blokowane.</string>
     <string name="pref_vpn_exclude_system_apps">Wyklucz aplikacje systemowe</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Żadne</item>
+        <item>Wszystkie oprócz przeglądarek</item>
+        <item>Wszystkie</item>
     </string-array>
     <string name="pref_vpn_exclude_user_apps">Wyklucz aplikacje użytkownika</string>
 
