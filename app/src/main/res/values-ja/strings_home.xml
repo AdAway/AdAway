@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <!-- Hosts card -->
@@ -13,6 +13,11 @@
     <plurals name="outdated_source_label">
         <item quantity="other">%d 古いソース</item>
     </plurals>
+    <string name="check_hosts_update_description">hostsの更新を確認</string>
+    <string name="update_hosts_description">hostsを更新</string>
+
+    <!-- Log card -->
+    <string name="log_label">DNSリクエストログを表示</string>
 
     <!-- Help card -->
     <string name="help_label">ヘルプを表示</string>
@@ -24,6 +29,7 @@
     <string name="support_label">プロジェクト サポート</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">GitHub プロジェクト</string>
     <string name="preferences_drawer_item">設定</string>
 
     <!-- App bar buttons -->
