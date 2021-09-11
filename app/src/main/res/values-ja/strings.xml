@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">終了</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">アドウェア</string>
     <string name="adware_description">ここではAdAway によってブロックできない、インストール済みの有害アプリ (アドウェア) を一覧化しています。 これらのアプリは例えば、プッシュ通知を使用してアプリが実行されていないときにもポップアップしたり、着信音を無断で変更したりします。 対策はリスト項目をタップして、アプリをアンインストールすることだけです。</string>
-    <string name="adware_scanning">スキャン中…</string>
+    <string name="adware_scanning">スキャン中&#8230;</string>
     <string name="adware_empty">アドウェアは検出されませんでした！</string>
 
     <!--Other-->
@@ -243,9 +243,12 @@
     <string name="vpn_notification_stopped">停止</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">一時停止</string>
-    <string name="vpn_notification_action_resume">タップして復帰</string>
+    <string name="vpn_notification_action_resume">復帰</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">広告ブロックシステムの有効化と無効化</string>
+    <string name="permission_group_api_label">AdAway 権限</string>
+    <string name="permission_group_api_description">AdAwayとの連携を許可する</string>
+    <string name="permission_send_command_label">AdAwayにコマンドを送信</string>
+    <string name="permission_send_command_description">システムの広告ブロックを切り替える等のコマンドをAdAwayへ送信することを許可します。</string>
 
 </resources>
