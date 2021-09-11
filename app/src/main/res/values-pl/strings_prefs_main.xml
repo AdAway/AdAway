@@ -3,7 +3,7 @@
     <string name="pref_main_title">Ustawienia</string>
     <!-- General category -->
     <string name="pref_general_category">Ogólne</string>
-    <string name="pref_dark_theme">Wygląd Ciemny</string>
+    <string name="pref_dark_theme">Wygląd motywu</string>
     <string-array name="pref_dark_theme_modes">
         <item>Jasny</item>
         <item>Ciemny</item>
