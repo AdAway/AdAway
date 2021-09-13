@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Quitter</string>
@@ -247,9 +247,12 @@
     <string name="vpn_notification_stopped">arrêté</string>
     <string name="vpn_notification_title">RPV bloqueur de publicités %1$s</string>
     <string name="vpn_notification_action_pause">Pause</string>
-    <string name="vpn_notification_action_resume">Toucher pour reprendre</string>
+    <string name="vpn_notification_action_resume">Reprendre</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Activer et désactiver le blocage système des publicités</string>
+    <string name="permission_group_api_label">Permissions AdAway</string>
+    <string name="permission_group_api_description">Autoriser à intéragir avec AdAway</string>
+    <string name="permission_send_command_label">Envoyer des commandes à AdAway</string>
+    <string name="permission_send_command_description">Autoriser à envoyer des commandes à AdAway, tel qu\'activer ou désactiver le blocage système des publicités</string>
 
 </resources>
