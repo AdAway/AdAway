@@ -35,11 +35,11 @@
     <string name="welcome_synced_header">Синхронизирано!</string>
     <string name="welcome_sync_summary">AdAway изтегля рекламни мрежи, за да блокира от онлайн източници. Можете да ги персонализирате по-късно в настройките.</string>
     <string name="welcome_sync_retry_logo">Синхронизиране отново</string>
-    <string name="welcome_sync_error">Синхронизирането се провали:\n%s.\nОпитване отново?</string>
+    <string name="welcome_sync_error">Грешка при синхронизация:\n%s.\nПовторен опит?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Поддръжка</string>
-    <string name="welcome_support_header">Подкрепи ме!</string>
+    <string name="welcome_support_header">Подкрепете ме!</string>
     <string name="welcome_support_summary">Това приложение е безплатно и с отворен код. Разработвам го в свободното ми време. Така че, ако ви хареса, не се колебайте да покажете вашата подкрепа:</string>
     <string name="welcome_support_button">Даряване в PayPal</string>
     <string name="welcome_support_telemetry_summary">Харесвате ли бъгове? Нито пък аз.</string>
