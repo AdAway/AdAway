@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Wyjście</string>
@@ -64,7 +64,7 @@
     <string name="status_reverting_subtitle">Tworzenie standardowego pliku hosts</string>
     <string name="status_update_available">Aktualizacja jest dostępna</string>
     <string name="status_update_available_subtitle">Nowe pliki hostów są dostępne</string>
-    <string name="status_no_update_found">Nie znaleziono aktualizacji źródła</string>
+    <string name="status_no_update_found">Nie znaleziono aktualizacji źródeł</string>
     <string name="status_no_connection">Brak połączenia z Internetem</string>
     <string name="status_no_connection_subtitle">Połączenie z Internetem niedostępne</string>
     <string name="status_download_fail">Źródła niedostępne</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Konfiguracja VPN została zaktualizowana</string>
     <string name="notification_configuration_changed">Twoja konfiguracja została zmieniona. Musisz ją zastosować.</string>
     <string name="notification_configuration_changed_action">Zastosuj</string>
-    <string name="notification_configuration_installing">Zastosowanie nowej konfiguracji…</string>
+    <string name="notification_configuration_installing">Zastosowanie nowej konfiguracji...</string>
     <string name="notification_configuration_failed">Nie można zastosować nowej konfiguracji.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Tutaj możesz znaleźć zainstalowane adware, złe aplikacje, które nie mogą być blokowane przez AdAway. Te aplikacje używają na przykład powiadomień Airpush, które pojawiają się nawet wtedy, gdy aplikacja nie działa lub nawet zmienia dzwonek. Jedynym dostępnym środkiem zaradczym jest odinstalowanie tych aplikacji, klikając elementy listy.</string>
-    <string name="adware_scanning">Skanowanie…</string>
+    <string name="adware_scanning">Skanowanie...</string>
     <string name="adware_empty">Nie znaleziono adware!</string>
 
     <!--Other-->
@@ -255,9 +255,12 @@
     <string name="vpn_notification_stopped">Zatrzymany</string>
     <string name="vpn_notification_title">Blokowanie reklam VPN %1$s</string>
     <string name="vpn_notification_action_pause">Wstrzymaj</string>
-    <string name="vpn_notification_action_resume">Stuknij, aby wznowić</string>
+    <string name="vpn_notification_action_resume">Wznów</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Włącz i wyłącz blokowanie reklam w systemie</string>
+    <string name="permission_group_api_label">AdAway uprawnienia</string>
+    <string name="permission_group_api_description">Pozwól na interakcję z AdAway</string>
+    <string name="permission_send_command_label">Wyślij polecenia do AdAway</string>
+    <string name="permission_send_command_description">Zezwalaj na wysyłanie poleceń do AdAway takich jak włączanie lub wyłączanie systemowego blokowania reklam</string>
 
 </resources>
