@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">離開</string>
@@ -77,16 +77,16 @@
     <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
     <string name="status_disabled">停用</string>
     <string name="status_disabled_subtitle">預設 hosts 檔案已安裝</string>
-    <string name="status_apply_sources">應用最新來源</string>
+    <string name="status_apply_sources">套用最新來源</string>
     <string name="status_create_new_hosts">建立一個新的 hosts 檔案</string>
     <string name="status_copy_new_hosts">複製一個新的 hosts 檔案</string>
     <string name="status_check_copy">正在檢查 hosts 檔案副本</string>
     <string name="status_hosts_updated">hosts 檔案已更新成功</string>
     <string name="status_vpn_configuration_updated">VPN 配置更新成功</string>
-    <string name="notification_configuration_changed">您的配置已更改，你需要應用它。</string>
+    <string name="notification_configuration_changed">您的配置已更改，你需要套用它。</string>
     <string name="notification_configuration_changed_action">套用</string>
-    <string name="notification_configuration_installing">正在應用新配置……</string>
-    <string name="notification_configuration_failed">無法應用新配置。</string>
+    <string name="notification_configuration_installing">正在套用新配置……</string>
+    <string name="notification_configuration_failed">無法套用新配置。</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">hosts 檔案目標的符號連結遺失</string>
@@ -119,7 +119,7 @@
     <string name="apply_dialog_hostnames">解析及合併 hosts 檔案</string>
     <string name="apply_dialog_hosts">建立 hosts 檔案</string>
     <string name="apply_dialog_apply">合併 hosts 檔案</string>
-    <string name="apply_fail_status">無法應用新的 hosts 檔案。</string>
+    <string name="apply_fail_status">無法套用新的 hosts 檔案。</string>
     <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
     <string name="apply_fail_title">建立失敗</string>
     <string name="root_access_fail">請檢查您的 root 管理應用程式以確保已授予 root 權限。</string>
@@ -243,9 +243,12 @@
     <string name="vpn_notification_stopped">已停止</string>
     <string name="vpn_notification_title">廣告攔截器 VPN %1$s</string>
     <string name="vpn_notification_action_pause">暫停</string>
-    <string name="vpn_notification_action_resume">點選繼續</string>
+    <string name="vpn_notification_action_resume">恢復</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">啟用和停用系統廣告阻擋</string>
+    <string name="permission_group_api_label">AdAway 權限</string>
+    <string name="permission_group_api_description">允許與 AdAway 互動</string>
+    <string name="permission_send_command_label">傳送指令到 AdAway</string>
+    <string name="permission_send_command_description">允許傳送指令到 AdAway，例如啟用或停用系統廣告阻擋</string>
 
 </resources>
