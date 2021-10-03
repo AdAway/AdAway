@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
-    <string name="button_exit">Exit</string>
-    <string name="button_close">Close</string>
-    <string name="button_yes">Yes</string>
-    <string name="button_no">No</string>
-    <string name="button_add">Add</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="button_save">Save</string>
-    <string name="button_help">Help</string>
+    <string name="button_exit">יציאה</string>
+    <string name="button_close">סגירה</string>
+    <string name="button_yes">כן</string>
+    <string name="button_no">לא</string>
+    <string name="button_add">הוספה</string>
+    <string name="button_cancel">ביטול</string>
+    <string name="button_save">שמירה</string>
+    <string name="button_help">עזרה</string>
 
     <!--Home-->
-    <string name="header_help">Welcome!</string>
+    <string name="header_help">ברוכים הבאים</string>
     <string name="text_help">AdAway is a free and open-source software design to block advertising. It fetches advertising network addresses to block them on your device.\nWant to know more? Check the help below!</string>
     <string name="button_show_help">Show more help</string>
     <string name="icon_update_status">Update status</string>
@@ -42,6 +42,9 @@
     <string name="import_success">Backup successfully imported from your external storage.</string>
     <string name="import_failed">Failed to import backup. Is its format correct? Check logcat for more details.</string>
     <string name="export_dialog">Exporting…</string>
+    <string name="export_success">Backup successfully exported to file \'%s\' on your external storage.</string>
+    <string name="export_failed">Failed to export backup file \'%s\'.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">The hosts file</string>
     <string name="hosts_description">The hosts file is a system file that maps hostnames to IP addresses. It is a plain text file which configuration is handled by AdAway. Here are its few first lines:</string>
@@ -106,7 +109,7 @@
     <string name="apply_symlink_fail">Symlink could not be created by Android.\nThis fails mostly due to a \'feature\' called S-ON on HTC phones!\n\nA solution is to boot your phone into recovery mode and create the symlink there with \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nIf this does not work search the Internet for S-OFF and your phone.</string>
     <string name="apply_symlink_fail_title">Symlink creation failed</string>
     <string name="apply_help">Please read Help for more information.</string>
-    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -&gt; Mobile network -&gt; Advanced -&gt; Access Point Names) and remove the value in the proxy field.</string>
+    <string name="apply_apn_proxy">An APN proxy is set on your Android!\nAdAway will not work reliably when on Mobile Networks like 3G. You can deactivate that proxy by going to your selected APN (From the Settings app: Network &amp; Internet -> Mobile network -> Advanced -> Access Point Names) and remove the value in the proxy field.</string>
     <string name="apply_apn_proxy_title">APN proxy set!</string>
     <string name="no_connection">The connection to the Internet is not working.</string>
     <string name="no_connection_title">No Connection</string>
@@ -165,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Here you can find installed adware, bad applications which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to uninstall those apps by clicking on the list items.</string>
-    <string name="adware_scanning">Scanning…</string>
+    <string name="adware_scanning">Scanning&#8230;</string>
     <string name="adware_empty">No Adware were found!</string>
 
     <!--Other-->
@@ -244,9 +247,12 @@
     <string name="vpn_notification_stopped">stopped</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">Pause</string>
-    <string name="vpn_notification_action_resume">Tap to resume</string>
+    <string name="vpn_notification_action_resume">Resume</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Enable and disable system ad-blocking</string>
+    <string name="permission_group_api_label">AdAway permissions</string>
+    <string name="permission_group_api_description">Allow to interact with AdAway</string>
+    <string name="permission_send_command_label">Send commands to AdAway</string>
+    <string name="permission_send_command_description">Allow to send commands to AdAway like enabling or disabling the systemwide ad-blocking</string>
 
 </resources>
