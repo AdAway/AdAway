@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway ažuriranje</string>
     <!-- Home screen -->
     <string name="update_available">Dostupno ažuriranje!</string>
 
     <!-- Update activity -->
     <string name="update_up_to_date_header">Ažurirano</string>
-    <string name="update_update_available_header">Ažuriranje je dostupno</string>
+    <string name="update_update_available_header">Dostupno ažuriranje</string>
+    <string name="update_updating_header">Ažuriranje AdAwaya</string>
     <string name="update_update_button">Ažuriraj odmah</string>
-    </resources>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Posljednje promjene:</string>
+    <string name="update_new_changelog_title">Popis promjena:</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Preuzimanje posljednje AdAway inačice…</string>
+</resources>
