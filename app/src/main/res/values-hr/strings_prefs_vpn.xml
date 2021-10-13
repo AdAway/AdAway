@@ -3,6 +3,8 @@
     <string name="pref_vpn_title">VPN temeljen blokator oglasa</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Omogući pri pokretanju</string>
+    <string name="pref_vpn_service_monitor">Nadgledaj povezivanje</string>
+    <string name="pref_vpn_service_monitor_description">Povremeno provjeri stanje mreže za ponovno pokretanje VPN-a pri prekidanju povezivanja.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Izuzete aplikacije</string>
     <string name="pref_vpn_excluded_apps_description">Postavite koja aplikacija neće koristiti VPN tako da se povezivanja ne blokiraju</string>
