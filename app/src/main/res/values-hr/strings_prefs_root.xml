@@ -19,8 +19,19 @@
     <string name="pref_hosts_redirection_summary">Odredite gdje će se preusmjeravati blokirani poslužitelji</string>
     <string name="pref_redirection_ipv4">IPv4 preusmjeravanja</string>
     <string name="pref_redirection_ipv6">IPv6 preusmjeravanja</string>
+    <string name="pref_redirection_invalid">Nevaljano preusmjeravanje</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokalni web poslužitelj</string>
     <string name="pref_webserver_summary">Lokalni web poslužitelj osluškuje lokalne IP adrese u svrhu odgovora na blokirane nazive poslužitelja. Može pomoći pri smrzavanju aplikacija kod blokiranih povezivanja.</string>
     <string name="pref_webserver_enabled">Omogući web poslužitelj</string>
-    </resources>
+    <string name="pref_webserver_test">Testiraj web poslužitelj</string>
+    <string name="pref_webserver_certificate">Instaliraj samopotpisanu vjerodajnicu</string>
+    <string name="pref_webserver_certificate_dialog_title">Ručna instalacija vjerodajnice</string>
+    <string name="pref_webserver_certificate_dialog_content">Počevši od Androida 11 (R), aplikacije više ne mogu automatski instalirati izdavatelja vjerodajnice (CA).\n\nIdite u \"Sigurnost\" postavke, \"Šifriranje i vjerodajnice\" zatim \" Instaliraj vjerodajnicu\". Tada, odaberite \"CA vjerodajnica\" i odaberite novo izvezvenu datoteku vjerodajnice.</string>
+    <string name="pref_webserver_certificate_dialog_action">Otvori \"Sigurnost\" postavke</string>
+    <string name="pref_webserver_state_checking">Provjeravanje…</string>
+    <string name="pref_webserver_state_not_running">Nije pokrenuto</string>
+    <string name="pref_webserver_state_running_not_installed">Pokrenuto ali vjerodajnica nije instalirana</string>
+    <string name="pref_webserver_state_running_and_installed">Pokrenuto i vjerodajnica je instalirana</string>
+    <string name="pref_webserver_icon">Zamijeni prazan prostor s ikonom aplikacije</string>
+</resources>
