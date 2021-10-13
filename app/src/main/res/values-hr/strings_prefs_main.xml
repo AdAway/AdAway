@@ -4,6 +4,11 @@
     <!-- General category -->
     <string name="pref_general_category">Općenito</string>
     <string name="pref_dark_theme">Tamna tema</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Svjetla</item>
+        <item>Tamna</item>
+        <item>Zadano sustavom</item>
+    </string-array>
     <string name="pref_update_configuration">Automatska ažuriranja</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Blokiranje oglasa</string>
