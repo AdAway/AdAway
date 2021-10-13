@@ -1,9 +1,9 @@
-A Free and Open Source ad blocker for Android.
+Besplatan i otvorenog kôda blokator oglasa za Android.
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+Aplikacija je dostupna za rootane i ne-rootane uređaje.
+Korištenje na rootanim uređajima, aplikacija ažurira vašu datoteku poslužitelja sustava koja sadrži popis mapiranja između naziva poslužitelja i IP adresa.
+Korištenje na ne-rootanim uređajima, aplikacija koristi VPN značajku za blokiranje oglasa i praćenja na odlaznim povezivanjima.
+Stoga kada aplikacija zahtijeva oglas ili pratitelja iz poslužitelja s te datoteke, taj zahtjev je preusmjeren na lokalnu IP adresu 127.0.0.1, što nema daljneg učinka.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Možete preuzeti preddefinirane popise oglasa i blokatora kao datoteke poslužitelja iz aplikacije. Možete koristiti i vlastite datoteke i dodati određene poslužitelje na popis dopuštenih i blokiranih.
 Postoje mogućnosti pokretanja lokalnog web poslužitelja kao odgovor na blokirane nazive poslužitelja i izravan zahtjev na vaše odabrane IP adrese.
