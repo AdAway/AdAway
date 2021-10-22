@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">خروج</string>
@@ -43,6 +43,9 @@
     <string name="import_failed">فشل ادخال النسخة الاحتياطية,هل هي بالصيغة الصحيحة؟
 تفقد السجل لمزيد من المعلومات.</string>
     <string name="export_dialog">تصدير…</string>
+    <string name="export_success">تم أخذ النسخة الإحتياطية بنجاح وتصديرها للملف %sعلى وسيط التخزين الخارجي الخاص بك</string>
+    <string name="export_failed">تعذر تصدير ملف نسخة إحتياطية %s</string>
+
     <!--Hosts content-->
     <string name="hosts_header">ملف المضيف</string>
     <string name="hosts_description">ملف المضيف هو ملف نظام يقوم بربط أسماء المضيف مع عناوين الإنترنت بروتوكول .إنه عبارة عن ملف نصّي ويهتم AdAway به ويقوم بإعداده. تبدو بعض الخطوط الأولى فيه كما يلي:</string>
@@ -83,7 +86,7 @@
     <string name="status_vpn_configuration_updated">تم تحديث تكوين في بي إن بنجاح</string>
     <string name="notification_configuration_changed">تم تغيير التكوين الخاص بك. تحتاج إلى تطبيقه.</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
-    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف…</string>
+    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف...</string>
     <string name="notification_configuration_failed">فشل في تثبيت ملف المضيفات</string>
 
     <!--Apply and Revert Dialogs-->
@@ -261,9 +264,12 @@
     <string name="vpn_notification_stopped">متوقف</string>
     <string name="vpn_notification_title">إيقاف إعلانات VPN %1$s</string>
     <string name="vpn_notification_action_pause">إيقاف مؤقت</string>
-    <string name="vpn_notification_action_resume">اضغط للاستمرار</string>
+    <string name="vpn_notification_action_resume">إستئناف</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">تمكين وتعطيل نظام حظر الإعلانات</string>
+    <string name="permission_group_api_label">صلاحيات AdAway</string>
+    <string name="permission_group_api_description">السماح لـ AdAway بالوصول لـ</string>
+    <string name="permission_send_command_label">أرسل الأوامر لـ AdAway</string>
+    <string name="permission_send_command_description">السماح بإرسال الأوامر لـ AdAway مثل تفعيل أو إبطال نظام مانع الإعلانات</string>
 
 </resources>
