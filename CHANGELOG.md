@@ -3,6 +3,7 @@
 - Update web server certificate to comply with maximum validity time
 - Update dependencies
 - Update Android gradle plugin
+- Update NDK
 
 Special thanks to rany2 for its bug report.
 
