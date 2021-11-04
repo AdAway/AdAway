@@ -11,8 +11,11 @@
     <string name="update_update_button">Aggiorna ora</string>
     <string name="update_progress_label">%1$s/%2$s</string>
     <string name="update_last_changelog_title">Le ultime novità:</string>
-    <string name="update_new_changelog_title">Changelog:</string>
+    <string name="update_new_changelog_title">Registro modifiche</string>
+    <string name="update_support_title">Supporta lo sviluppo</string>
+    <string name="update_donate_button">Fai una donazione</string>
+    <string name="update_sponsor_button">Sponsor</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Download in corso dell\'ultima versione di AdAway…</string>
+    <string name="update_notification_description">Download in corso dell\'ultima versione di AdAway...</string>
 </resources>
