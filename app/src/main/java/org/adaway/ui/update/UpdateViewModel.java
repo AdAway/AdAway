@@ -1,5 +1,8 @@
 package org.adaway.ui.update;
 
+import static android.app.DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR;
+import static android.app.DownloadManager.COLUMN_TOTAL_SIZE_BYTES;
+
 import android.app.Application;
 import android.app.DownloadManager;
 import android.database.Cursor;
@@ -17,9 +20,6 @@ import org.adaway.util.AppExecutors;
 import org.adaway.util.Log;
 
 import java.util.concurrent.Executor;
-
-import static android.app.DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR;
-import static android.app.DownloadManager.COLUMN_TOTAL_SIZE_BYTES;
 
 /**
  * This class is an {@link AndroidViewModel} for the {@link UpdateActivity} cards.
@@ -44,7 +44,7 @@ public class UpdateViewModel extends AdwareViewModel {
 
     public void update() {
         long downloadId = this.updateModel.update();
-        NETWORK_IO.execute(() -> this.trackProgress(downloadId));
+        NETWORK_IO.execute(() -> trackProgress(downloadId));
     }
 
     public MutableLiveData<DownloadStatus> getDownloadProgress() {

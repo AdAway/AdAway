@@ -17,6 +17,7 @@ import androidx.core.app.NotificationCompat;
 
 import org.adaway.R;
 import org.adaway.ui.home.HomeActivity;
+import org.adaway.ui.update.UpdateActivity;
 
 /**
  * This class is an helper class to deals with notifications.
@@ -131,7 +132,7 @@ public final class NotificationHelper {
         int color = context.getColor(R.color.notification);
         String title = context.getString(R.string.notification_update_app_available_title);
         String text = context.getString(R.string.notification_update_app_available_text);
-        Intent intent = new Intent(context, HomeActivity.class);
+        Intent intent = new Intent(context, UpdateActivity.class);
         intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = getActivity(context, 0, intent, FLAG_IMMUTABLE);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, UPDATE_NOTIFICATION_CHANNEL)

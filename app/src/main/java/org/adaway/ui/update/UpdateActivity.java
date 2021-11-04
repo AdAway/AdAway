@@ -1,5 +1,12 @@
 package org.adaway.ui.update;
 
+import static android.view.View.GONE;
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+import static org.adaway.ui.support.SupportActivity.SPONSORSHIP_LINK;
+import static org.adaway.ui.support.SupportActivity.SUPPORT_LINK;
+import static org.adaway.ui.support.SupportActivity.bindLink;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,9 +18,6 @@ import org.adaway.R;
 import org.adaway.databinding.UpdateActityBinding;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.model.update.Manifest;
-
-import static android.view.View.INVISIBLE;
-import static android.view.View.VISIBLE;
 
 /**
  * This class is the application main activity.
@@ -32,13 +36,15 @@ public class UpdateActivity extends AppCompatActivity {
         setContentView(this.binding.getRoot());
 
         this.updateViewModel = new ViewModelProvider(this).get(UpdateViewModel.class);
-        bindListener();
+        bindListeners();
         bindManifest();
         bindProgress();
     }
 
-    private void bindListener() {
+    private void bindListeners() {
         this.binding.updateButton.setOnClickListener(this::startUpdate);
+        bindLink(this, this.binding.updateDonateButton, SUPPORT_LINK);
+        bindLink(this, this.binding.updateSponsorButton, SPONSORSHIP_LINK);
     }
 
     private void bindManifest() {
@@ -62,7 +68,7 @@ public class UpdateActivity extends AppCompatActivity {
 
     private void markUpToDate(Manifest manifest) {
         this.binding.headerTextView.setText(R.string.update_up_to_date_header);
-        this.binding.updateButton.setVisibility(INVISIBLE);
+        this.binding.updateButton.setVisibility(GONE);
         this.binding.changelogTextView.setText(manifest.changelog);
     }
 

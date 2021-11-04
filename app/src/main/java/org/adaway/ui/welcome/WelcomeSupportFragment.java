@@ -1,7 +1,11 @@
 package org.adaway.ui.welcome;
 
-import android.content.Intent;
-import android.net.Uri;
+import static android.view.View.INVISIBLE;
+import static org.adaway.ui.support.SupportActivity.SUPPORT_LINK;
+import static org.adaway.ui.support.SupportActivity.animateHeart;
+import static org.adaway.ui.support.SupportActivity.bindLink;
+
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +17,6 @@ import androidx.annotation.Nullable;
 import org.adaway.databinding.WelcomeSupportLayoutBinding;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.SentryLog;
-
-import static android.content.Intent.ACTION_VIEW;
-import static android.view.View.INVISIBLE;
-import static org.adaway.ui.support.SupportActivity.SUPPORT_LINK;
-import static org.adaway.ui.support.SupportActivity.animateHeart;
 
 /**
  * This class is a fragment to inform user how to support the application development.
@@ -45,13 +44,10 @@ public class WelcomeSupportFragment extends WelcomeFragment {
     }
 
     private void bindSupport() {
-        View.OnClickListener listener = v -> {
-            Intent browserIntent = new Intent(ACTION_VIEW, Uri.parse(SUPPORT_LINK));
-            startActivity(browserIntent);
-        };
-        this.binding.headerImageView.setOnClickListener(listener);
-        this.binding.headerTextView.setOnClickListener(listener);
-        this.binding.paypalCardView.setOnClickListener(listener);
+        Context context = requireContext();
+        bindLink(context, this.binding.headerImageView, SUPPORT_LINK);
+        bindLink(context, this.binding.headerTextView, SUPPORT_LINK);
+        bindLink(context, this.binding.paypalCardView, SUPPORT_LINK);
     }
 
     private void bindTelemetry() {
