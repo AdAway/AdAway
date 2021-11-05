@@ -1,4 +1,4 @@
-## [5.9.0] - Unreleased
+## [5.9.0] - 2021-11-05
 
 - Improve update activity to add support links and open from notification
 - Update web server certificate to comply with maximum validity time
