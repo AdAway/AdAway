@@ -4,6 +4,7 @@
 [![Build Status]( https://github.com/cesanta/mongoose/workflows/build/badge.svg)](https://github.com/cesanta/mongoose/actions)
 [![Code Coverage](https://codecov.io/gh/cesanta/mongoose/branch/master/graph/badge.svg)](https://codecov.io/gh/cesanta/mongoose)
 [![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/mongoose.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
+[![Gitter Chat](https://badges.gitter.im/cesanta/mongoose.png)](https://gitter.im/cesanta/mongoose)
 
 Mongoose is a networking library for C/C++. It implements event-driven
 non-blocking APIs for TCP, UDP, HTTP, WebSocket, MQTT.  It is designed for
@@ -21,7 +22,8 @@ robust, and easy. Features include:
 - Source code is both ISO C and ISO C++ compliant
 - Works with any network stack with socket API, like LwIP or FreeRTOS-Plus-TCP
 - Very easy to integrate: just copy `mongoose.c` and `mongoose.h` files to your build tree
-- Detailed [documentation](https://cesanta.com/docs/)
+- Detailed [documentation](https://mongoose.ws/documentation/) and
+  [tutorials](https://mongoose.ws/tutorials/)
 
 
 # Commercial use
@@ -70,20 +72,27 @@ We take security seriously:
 # Supplement software
 
 This software is often used together with Mongoose:
-- [mjson](https://github.com/cesanta/mjson) - a JSON parser. Used to implement
+- [mjson](https://github.com/cesanta/mjson) - a JSON parser, emitter and
+  JSON-RPC engine. Used to implement
   RESTful APIs that use JSON, or implement data exchange (e.g. over MQTT
   or Websocket) that use JSON for data encapsulation
-- [elk](https://github.com/cesanta/elk) - a tiny JavaScript interpreter.
-  Used to implement scripting support for customers
+- [elk](https://github.com/cesanta/elk) - a tiny JavaScript engine.
+  Used to implement scripting support
 
 
 # Precompiled web server binary
 
-We have built a ready-to-go, precompiled web server binary for Windows
-and Mac. It is a great tool for sharing your files or website. It has
-a unique feature - an ability to share your local files via a global URL.
+We have built a ready-to-go, precompiled web server executable application for
+Windows and Mac. It requires no installation and no configuration to start.
+Simply copy `mongoose.exe` to any directory you want to serve, and double-click
+on `mongoose.exe` to start it.  Mongoose will iconify to a system tray and
+start serving your directory to a local network. 
 
-Interested? Go to [download](https://mongoose.ws/)
+It is a great tool for sharing your files, or for local web or game
+development. It has a unique feature - an ability to share your local files via
+a global URL.
+
+Visit [download page](https://mongoose.ws/) to try it out.
 
 # Contributions
 

@@ -6,7 +6,7 @@
 #include <errno.h>
 #include "mongoose/mongoose.h"
 
-#define THIS_FILE "AdAway"
+#define THIS_FILE "WebServer"
 
 // TODO Test difference between 127.0.0.1 + [::1] and localhost
 #define HTTP_URL "http://localhost:80"
@@ -32,9 +32,13 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
         struct mg_http_message *hm = (struct mg_http_message *) ev_data;
         struct settings *s = (struct settings *) fn_data;
         if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
-            mg_http_serve_file(c, hm, s->test_path, "text/html", NULL);
+            struct mg_http_serve_opts opts;
+            memset(&opts, 0, sizeof(opts));
+            mg_http_serve_file(c, hm, s->test_path, &opts);
         } else if (s->icon) {
-            mg_http_serve_file(c, hm, s->icon_path, "image/svg+xml", NULL);
+            struct mg_http_serve_opts opts;
+            memset(&opts, 0, sizeof(opts));
+            mg_http_serve_file(c, hm, s->icon_path, &opts);
         } else {
             mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
         }
@@ -67,13 +71,16 @@ void oom_adjust_setup(void) {
     int oom_score = INT_MIN;
     if ((fp = fopen(OOM_ADJ_PATH, "r+")) != NULL) {
         if (fscanf(fp, "%d", &oom_score) != 1)
-            __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error reading %s: %s", OOM_ADJ_PATH, strerror(errno));
+            __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error reading %s: %s", OOM_ADJ_PATH,
+                                strerror(errno));
         else {
             rewind(fp);
             if (fprintf(fp, "%d\n", OOM_ADJ_NOKILL) <= 0)
-                __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error writing %s: %s", OOM_ADJ_PATH, strerror(errno));
+                __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error writing %s: %s",
+                                    OOM_ADJ_PATH, strerror(errno));
             else
-                __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "Set %s from %d to %d", OOM_ADJ_PATH, oom_score, OOM_ADJ_NOKILL);
+                __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "Set %s from %d to %d",
+                                    OOM_ADJ_PATH, oom_score, OOM_ADJ_NOKILL);
         }
         fclose(fp);
     }
