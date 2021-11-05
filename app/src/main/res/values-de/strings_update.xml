@@ -10,9 +10,12 @@
     <string name="update_updating_header">Aktualisierung AdAway</string>
     <string name="update_update_button">Jetzt Aktualisieren</string>
     <string name="update_progress_label">%1$s / %2$s</string>
-    <string name="update_last_changelog_title">Letzte Änderungen:</string>
-    <string name="update_new_changelog_title">Aktualisierungsprotokoll:</string>
+    <string name="update_last_changelog_title">Letzte Änderungen</string>
+    <string name="update_new_changelog_title">Änderungen</string>
+    <string name="update_support_title">Weiterentwicklung fördern</string>
+    <string name="update_donate_button">Spenden</string>
+    <string name="update_sponsor_button">Sponsor</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Herunterladen der neuesten AdAway Version…</string>
+    <string name="update_notification_description">Herunterladen der neuesten AdAway Version...</string>
 </resources>
