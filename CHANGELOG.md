@@ -1,6 +1,6 @@
 ## [5.9.0] - Unreleased
 
-- Improve update activity to add support links
+- Improve update activity to add support links and open from notification
 - Update web server certificate to comply with maximum validity time
 - Update dependencies
 - Update Android gradle plugin
