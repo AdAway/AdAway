@@ -1,6 +1,8 @@
 ## [5.10.0] - Unreleased
 
 - Update mongoose web server
+- Update target SDK to Android 11
+- Update dependencies
 
 ## [5.9.0] - 2021-11-05
 
