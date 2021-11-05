@@ -10,8 +10,11 @@
     <string name="update_updating_header">正在更新AdAway</string>
     <string name="update_update_button">立即更新</string>
     <string name="update_progress_label">%1$s/%2$s</string>
-    <string name="update_last_changelog_title">上次更改:</string>
-    <string name="update_new_changelog_title">变更记录:</string>
+    <string name="update_last_changelog_title">最近更改</string>
+    <string name="update_new_changelog_title">更新日志</string>
+    <string name="update_support_title">支持开发</string>
+    <string name="update_donate_button">捐赠</string>
+    <string name="update_sponsor_button">赞助者</string>
 
     <!-- Notification -->
     <string name="update_notification_description">正在下载最新AdAway版本…</string>
