@@ -10,9 +10,12 @@
     <string name="update_updating_header">Оновлення AdAway</string>
     <string name="update_update_button">Оновити зараз</string>
     <string name="update_progress_label">%1$s / %2$s</string>
-    <string name="update_last_changelog_title">Останні зміни:</string>
-    <string name="update_new_changelog_title">Список змін:</string>
+    <string name="update_last_changelog_title">Останні зміни</string>
+    <string name="update_new_changelog_title">Журанал змін</string>
+    <string name="update_support_title">Підтримати розробку</string>
+    <string name="update_donate_button">Пожертвувати</string>
+    <string name="update_sponsor_button">Спонсор</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Завантаження останньої версії AdAway…</string>
+    <string name="update_notification_description">Завантаження останньої версії AdAway...</string>
 </resources>
