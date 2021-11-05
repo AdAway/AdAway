@@ -14,13 +14,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.3'
+    compileSdkVersion 31
+    buildToolsVersion '31.0.0'
     ndkVersion '23.1.7779620'
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 50900   // Read x.yy.zz to match version name
         versionName '5.9.0'
 
