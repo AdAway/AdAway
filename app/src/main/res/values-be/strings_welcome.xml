@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Сардэчна запрашаем</string>
+    <string name="welcome_first_step">Першы крок</string>
+    <string name="welcome_second_step">Другі крок</string>
+    <string name="welcome_last_step">Апошні крок</string>
+
     <!-- Method UI -->
     <string name="welcome_method_header">Сардэчна запрашаем у AdAway!</string>
     <string name="welcome_method_summary">AdAway падае два метаду блакавання рэкламы.  Выберыце той, які вам пасуе:</string>
