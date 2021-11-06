@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Крыніцы hosts</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Спіс карыстальнікаў</string>
+    <string name="hosts_adaway_source">AdAway афіцыйны hosts</string>
+    <string name="hosts_stevenblack_source">StevenBlack уніфікаваны hosts</string>
+    <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
     <!-- List -->
     <string name="hosts_not_available">недаступны</string>
+    <string name="hosts_count">%s hosts</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Дадаць крыніцу</string>
     <string name="hosts_edit_dialog_title">Рэдагаваць крыніцу</string>
