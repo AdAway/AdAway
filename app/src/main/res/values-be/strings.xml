@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Выйсці</string>
@@ -42,6 +42,9 @@
     <string name="import_success">Рэзервовая копія паспяхова імпартавана з вашага знешняга сховішча.</string>
     <string name="import_failed">Не ўдалося імпартаваць рэзервовую копію. Магчыма яе фармат не дакладны? Праверце logcat для падрабязнасцяў.</string>
     <string name="export_dialog">Экспарт…</string>
+    <string name="export_success">Рэзервовае капіраванне паспяхова экспартавана ў файл \'%s\' на вашым знешнім сховішчы.</string>
+    <string name="export_failed">Не атрымалася экспартаваць файл рэзервовай копіі \'%s\'.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
     <string name="hosts_description">Файл hosts - гэта сістэмны файл, супастаўляючы імёны вузлоў з IP-адрасамі. Гэта звычайны тэкставы файл, змесціва якога апрацоўвае AdAway. Вось яго першыя радкі:</string>
@@ -50,8 +53,12 @@
 
     <!--Status Notification-->
     <string name="status_check">Праверка абнаўленняў</string>
+    <string name="status_check_source">Праверка%s на абнаўленне</string>
     <string name="status_retrieve">Атрыманне крыніц</string>
     <string name="status_download_source">Спампоўка крыніцы %s</string>
+    <string name="status_read_source">Чытанне крыніцы%s</string>
+    <string name="status_parse_source">Разбор крыніцы %s</string>
+    <string name="status_sync_database">Сінхранізацыя базы дадзеных з правіламі</string>
     <string name="status_revert">Аднаўленне стандартнага файла hosts</string>
     <string name="status_revert_done">Стандартны файл hosts адноўлены</string>
     <string name="status_reverting_subtitle">Стварэнне стандартнага файла hosts</string>
@@ -212,6 +219,7 @@
     <string name="hosts_source_need_update">Патрабуецца абнаўленне %1$s</string>
     <string name="hosts_source_last_update">Апошняе абнаўленне %1$s таму</string>
     <string name="hosts_source_unknown_status">Невядомы статус абнаўлення</string>
+    <string name="hosts_source_few_minutes">некалькі хвілін</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d хвіліна</item>
         <item quantity="few">%d хвіліны</item>
@@ -248,9 +256,12 @@
     <string name="vpn_notification_stopped">спынена</string>
     <string name="vpn_notification_title">VPN блакіроўшчыка %1$s</string>
     <string name="vpn_notification_action_pause">Паўза</string>
-    <string name="vpn_notification_action_resume">Націсніце для працягу</string>
+    <string name="vpn_notification_action_resume">Аднавіць</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Уключыць і адключыць сістэмнае блакаванне рэкламы</string>
+    <string name="permission_group_api_label">Дазволы AdAway</string>
+    <string name="permission_group_api_description">Дазволіць узаемадзеянне з AdAway</string>
+    <string name="permission_send_command_label">Адпраўляць каманды на AdAway</string>
+    <string name="permission_send_command_description">Дазволіць адпраўку каманд у AdAway, напрыклад, уключэнне або адключэнне сістэмнай блакіроўкі рэкламы</string>
 
 </resources>
