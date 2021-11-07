@@ -19,10 +19,10 @@
     <string name="update_hosts_description">Aggiorna gli hosts</string>
 
     <!-- Log card -->
-    <string name="log_label">Mostra registro richieste DNS</string>
+    <string name="log_label">Registro richieste DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Mostra aiuto\suggerimenti</string>
+    <string name="help_label">Aiuto</string>
 
     <!-- Project card -->
     <string name="project_label">GitHub</string>
