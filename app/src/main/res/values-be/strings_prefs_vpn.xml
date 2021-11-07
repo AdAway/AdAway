@@ -3,6 +3,8 @@
     <string name="pref_vpn_title">Блакавальнік рэкламы на аснове VPN</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Уключыць пры запуску</string>
+    <string name="pref_vpn_service_monitor">Праверка злучэнне</string>
+    <string name="pref_vpn_service_monitor_description">Перыядычна правярайце стан сеткі, каб перазапусціць VPN пры адключэнні.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Выключаныя праграмы</string>
     <string name="pref_vpn_excluded_apps_description">Наладзьце, якія праграмы не павінны выкарыстоўваць VPN, каб злучэнні не былі заблакаваныя.</string>
