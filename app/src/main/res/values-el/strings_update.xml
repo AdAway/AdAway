@@ -10,8 +10,11 @@
     <string name="update_updating_header">Το AdAway ενημερώνεται</string>
     <string name="update_update_button">Ενημέρωση τώρα</string>
     <string name="update_progress_label">%1$s / %2$s</string>
-    <string name="update_last_changelog_title">Τελευταίες αλλαγές:</string>
-    <string name="update_new_changelog_title">Αρχείο καταγραφής αλλαγών:</string>
+    <string name="update_last_changelog_title">Τελευταίες αλλαγές</string>
+    <string name="update_new_changelog_title">Καταγραφή αλλαγών</string>
+    <string name="update_support_title">Υποστήριξη ανάπτυξης</string>
+    <string name="update_donate_button">Δωρίστε</string>
+    <string name="update_sponsor_button">Sponsor</string>
 
     <!-- Notification -->
     <string name="update_notification_description">Λήψη της τελευταίας έκδοσης AdAway…</string>
