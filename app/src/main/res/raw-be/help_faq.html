@@ -9,8 +9,8 @@ And don't add newlines before or after p tags because of transifex -->
 <p>Існуе часты зман, што калі карыстальнік не націскае на рэкламу, то, заблакаваўшы яе, не нанясе шкоды сайту або праграме ў фінансавым плане. Гэта няправільна: распрацоўшчыкі зарабляюць грошы проста за паказ рэкламы. Блакаваць рэкламу ці не, залежыць толькі ад вас. Асабіста я не стаў бы выкарыстоўваць праграму з рэкламай, бо яна вельмі раздражняе, так што без блакавальнікі рэкламы я б не стаў ўсталёўваць такія праграмы.</p>
 
 <h2>Як працуе AdAway?</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
-If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
+<p>AdAway выкарыстоўвае<a href="http://en.wikipedia.org/wiki/Hosts_file">файл hosts</a>, каб блакаваць імёны hosts, якія прадастаўляюць рэкламу. hosts - гэта файл, які знаходзіцца ў <code>/system/etc/hosts</code>, які адлюстроўвае імёны hosts у якасці IP-адрасоў. Гэта звычайны спосаб вызначэння імя hosts для пар IP-адрасоў, не абапіраючыся на сістэму даменных імёнаў (DNS). Усе непажаданыя імёны hosts будуць перанакіраваны на<code> 127.0.0.1</code>, гэта азначае, што яны будуць адпраўленыя на вашу прыладу.<br>
+Калі файл hosts немагчыма адрэдагаваць, іншым рашэннем з'яўляецца выкарыстанне ўбудаванай службы VPN. Ён будзе фільтраваць злучэнні з непажаданымі імёнамі hosts і прапускаць іншыя.</p>
 
 <h2>Чаму трэба перазагружаць прыладу, каб змены ўступілі ў сілу?</h2>
 <p>Java у Android мае свой унутраны кэш DNS. Аперацыйная сістэма будзе выкарыстоўваць абноўлены файл hosts адразу ж (можаце ў гэтым пераканацца з дапамогай каманды PING ў камандным радку), але вы павінны перазагрузіць прылада, каб перастварыць кэш DNS ў Java.</p>
@@ -21,7 +21,7 @@ If the hosts file is not writable, a fallback solution is to use the builtin VPN
 <br>Пэўныя праграмы адмаўляюцца працаваць, калі не маюць доступу да host з рэкламай. Гэты метад дазволіць запускаць такія праграмы, але замест рэкламы будзе падстаўляцца пустое месца і адсутнічаць выява рэкламы..</p>
 
 <h2>Як я магу заблакаваць/разблакаваць канкрэтныя імёны host?</h2>
-<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
+<p>Назву hosts, якія вы хочаце заблакаваць, патрэбна дадаць у <cite>Чорны спіс</cite>, які знаходзіцца на галоўным экране. Таксама, назву hosts, які не хочаце блакавць, патрэбна дадаць у <cite>Белы спіс</cite>, а назву hosts, які патрэбна перанакіраваць на пэўны IP-адрас, трэба ўнесці ў <cite>Спіс перанакіраванняў</cite>.</p>
 
 <h2>Дзе я магу знайсці больш крыніц спісаў host?</h2>
 <p>Глядзіце <a href="https://github.com/AdAway/AdAway/wiki/HostsSources"> спіс дадатковых крыніц host AdAway</a>.</p>
