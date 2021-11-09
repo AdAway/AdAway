@@ -1,4 +1,6 @@
-package org.adaway.vpn;
+package org.adaway.vpn.dns;
+
+import static android.content.Context.CONNECTIVITY_SERVICE;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -7,6 +9,7 @@ import android.net.VpnService;
 import android.util.Log;
 
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.vpn.VpnNetworkException;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -17,24 +20,27 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import static android.content.Context.CONNECTIVITY_SERVICE;
-
-class DnsServerMapper {
+public class DnsServerMapper {
     private static final String TAG = "DnsMapper";
 
     private final Context context;
     private final List<InetAddress> upstreamDnsServers;
 
-    DnsServerMapper(Context context) {
+    /**
+     * Constructor.
+     *
+     * @param context The application contexte.
+     */
+    public DnsServerMapper(Context context) {
         this.context = context;
         this.upstreamDnsServers = new ArrayList<>();
     }
 
-    InetAddress configure(VpnService.Builder builder) throws VpnWorker.VpnNetworkException {
+    public InetAddress configure(VpnService.Builder builder) throws VpnNetworkException {
         // Get the current DNS servers before starting the VPN
         List<InetAddress> dnsServers = getNetworkDnsServers();
         if (dnsServers.isEmpty()) {
-            throw new VpnWorker.VpnNetworkException("No DNS Server");
+            throw new VpnNetworkException("No DNS Server");
         }
         Log.i(TAG, "Got DNS servers = " + dnsServers);
 

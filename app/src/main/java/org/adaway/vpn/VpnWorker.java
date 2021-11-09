@@ -39,12 +39,15 @@ import android.system.OsConstants;
 import android.system.StructPollfd;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
+import org.adaway.vpn.dns.DnsPacketProxy;
+import org.adaway.vpn.dns.DnsQuery;
+import org.adaway.vpn.dns.DnsQueryQueue;
+import org.adaway.vpn.dns.DnsServerMapper;
 import org.pcap4j.packet.IpPacket;
 
+import java.io.Closeable;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -74,15 +77,12 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final int MAX_RETRY_TIME = 2 * 60;
     /* If we had a successful connection for that long, reset retry timeout */
     private static final long RETRY_RESET_SEC = 60;
-    /* Maximum number of responses we want to wait for */
-    private static final int DNS_MAXIMUM_WAITING = 1024;
-    private static final long DNS_TIMEOUT_SEC = 10;
     private final android.net.VpnService vpnService;
     private final VpnStatusNotifier statusNotifier;
     /* Data to be written to the device */
     private final Queue<byte[]> deviceWrites = new LinkedList<>();
     // HashMap that keeps an upper limit of packets
-    private final WospList dnsIn = new WospList();
+    private final DnsQueryQueue dnsIn = new DnsQueryQueue();
     // The mapping between fake and real dns addresses
     private final DnsServerMapper dnsServerMapper;
     // The object where we actually handle packets.
@@ -125,7 +125,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         }
         this.thread.interrupt();
 
-        mInterruptFd = FileHelper.closeOrWarn(mInterruptFd, TAG, "stop: Could not close interruptFd");
+        mInterruptFd = closeOrWarn(mInterruptFd, TAG, "stop: Could not close interruptFd");
         try {
             this.thread.join(2000);
         } catch (InterruptedException e) {
@@ -217,8 +217,8 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
             while (doOne(inputStream, outputStream, packet)) {
             }
         } finally {
-            this.mBlockFd = FileHelper.closeOrWarn(mBlockFd, TAG, "runVpn: Could not close blockFd");
-            this.mInterruptFd = FileHelper.closeOrWarn(mInterruptFd, TAG, "runVpn: Could not close interruptFd");
+            this.mBlockFd = closeOrWarn(mBlockFd, TAG, "runVpn: Could not close blockFd");
+            this.mInterruptFd = closeOrWarn(mInterruptFd, TAG, "runVpn: Could not close interruptFd");
         }
     }
 
@@ -241,7 +241,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         polls[1] = blockFd;
         {
             int i = 2;
-            for (WaitingOnSocketPacket wosp : this.dnsIn) {
+            for (DnsQuery wosp : this.dnsIn) {
                 StructPollfd pollFd = new StructPollfd();
                 pollFd.fd = ParcelFileDescriptor.fromDatagramSocket(wosp.socket).getFileDescriptor();
                 pollFd.events = (short) OsConstants.POLLIN;
@@ -279,9 +279,9 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 
     private void checkForDnsResponse(StructPollfd[] polls) {
         int i = 2;
-        Iterator<WaitingOnSocketPacket> iterator = dnsIn.iterator();
+        Iterator<DnsQuery> iterator = dnsIn.iterator();
         while (iterator.hasNext()) {
-            WaitingOnSocketPacket wosp = iterator.next();
+            DnsQuery wosp = iterator.next();
             if ((polls[i].revents & OsConstants.POLLIN) != 0) {
                 Log.d(TAG, "Read from DNS socket" + wosp.socket);
                 iterator.remove();
@@ -336,11 +336,11 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
             dnsSocket.send(outPacket);
 
             if (parsedPacket != null)
-                dnsIn.add(new WaitingOnSocketPacket(dnsSocket, parsedPacket));
+                dnsIn.add(new DnsQuery(dnsSocket, parsedPacket));
             else
-                FileHelper.closeOrWarn(dnsSocket, TAG, "handleDnsRequest: Cannot close socket in error");
+                closeOrWarn(dnsSocket, TAG, "handleDnsRequest: Cannot close socket in error");
         } catch (IOException e) {
-            FileHelper.closeOrWarn(dnsSocket, TAG, "handleDnsRequest: Cannot close socket in error");
+            closeOrWarn(dnsSocket, TAG, "handleDnsRequest: Cannot close socket in error");
             if (e.getCause() instanceof ErrnoException) {
                 ErrnoException errnoExc = (ErrnoException) e.getCause();
                 if ((errnoExc.errno == OsConstants.ENETUNREACH) || (errnoExc.errno == OsConstants.EPERM)) {
@@ -351,7 +351,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         }
     }
 
-    private void handleRawDnsResponse(WaitingOnSocketPacket wosp) throws IOException {
+    private void handleRawDnsResponse(DnsQuery wosp) throws IOException {
         byte[] datagramData = new byte[1024];
         DatagramPacket replyPacket = new DatagramPacket(datagramData, datagramData.length);
         wosp.socket.receive(replyPacket);
@@ -439,7 +439,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 
         configurePackages(builder);
 
-        // Explictly allow both families, so we do not block
+        // Explicitly allow both families, so we do not block
         // traffic for ones without DNS servers (issue 129).
         builder.allowFamily(OsConstants.AF_INET);
         builder.allowFamily(OsConstants.AF_INET6);
@@ -462,65 +462,25 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     interface VpnStatusNotifier extends Consumer<VpnStatus> {
     }
 
-    static class VpnNetworkException extends Exception {
-        VpnNetworkException(String s) {
-            super(s);
-        }
 
-        VpnNetworkException(String s, Throwable t) {
-            super(s, t);
+    static FileDescriptor closeOrWarn(FileDescriptor fd, String tag, String message) {
+        try {
+            if (fd != null)
+                Os.close(fd);
+        } catch (ErrnoException e) {
+            Log.e(tag, "closeOrWarn: " + message, e);
         }
-
+        return null;
     }
 
-    /**
-     * Helper class holding a socket, the packet we are waiting the answer for, and a time
-     */
-    private static class WaitingOnSocketPacket {
-        final DatagramSocket socket;
-        final IpPacket packet;
-        private final long time;
-
-        WaitingOnSocketPacket(DatagramSocket socket, IpPacket packet) {
-            this.socket = socket;
-            this.packet = packet;
-            this.time = System.currentTimeMillis();
+    static <T extends Closeable> T closeOrWarn(T fd, String tag, String message) {
+        try {
+            if (fd != null)
+                fd.close();
+        } catch (Exception e) {
+            Log.e(tag, "closeOrWarn: " + message, e);
         }
-
-        long ageSeconds() {
-            return (System.currentTimeMillis() - time) / 1000;
-        }
-    }
-
-    /**
-     * Queue of WaitingOnSocketPacket, bound on time and space.
-     */
-    private static class WospList implements Iterable<WaitingOnSocketPacket> {
-        private final LinkedList<WaitingOnSocketPacket> list = new LinkedList<>();
-
-        void add(WaitingOnSocketPacket wosp) {
-            if (list.size() > DNS_MAXIMUM_WAITING) {
-                Log.d(TAG, "Dropping socket due to space constraints: " + list.element().socket);
-                list.element().socket.close();
-                list.remove();
-            }
-            while (!list.isEmpty() && list.element().ageSeconds() > DNS_TIMEOUT_SEC) {
-                Log.d(TAG, "Timeout on socket " + list.element().socket);
-                list.element().socket.close();
-                list.remove();
-            }
-            list.add(wosp);
-        }
-
-        @NonNull
-        public Iterator<WaitingOnSocketPacket> iterator() {
-            return list.iterator();
-        }
-
-        int size() {
-            return list.size();
-        }
-
+        return null;
     }
 
 }

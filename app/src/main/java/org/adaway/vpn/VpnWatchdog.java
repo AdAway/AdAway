@@ -121,9 +121,9 @@ class VpnWatchdog {
     /**
      * Handles a timeout of poll()
      *
-     * @throws VpnWorker.VpnNetworkException When the watchdog timed out
+     * @throws VpnNetworkException When the watchdog timed out
      */
-    void handleTimeout() throws VpnWorker.VpnNetworkException {
+    void handleTimeout() throws VpnNetworkException {
         if (!this.enabled) {
             return;
         }
@@ -135,7 +135,7 @@ class VpnWatchdog {
             if (this.initPenalty > INIT_PENALTY_END) {
                 this.initPenalty = INIT_PENALTY_END;
             }
-            throw new VpnWorker.VpnNetworkException("Watchdog timed out");
+            throw new VpnNetworkException("Watchdog timed out");
         }
         // We received a packet after sending it, so we can be more confident and grow our wait time
         this.pollTimeout *= POLL_TIMEOUT_GROW;
@@ -162,9 +162,9 @@ class VpnWatchdog {
     /**
      * Sends an empty check-alive packet to the configured target address.
      *
-     * @throws VpnWorker.VpnNetworkException If sending failed and we should restart
+     * @throws VpnNetworkException If sending failed and we should restart
      */
-    void sendPacket() throws VpnWorker.VpnNetworkException {
+    void sendPacket() throws VpnNetworkException {
         if (!this.enabled || this.checkAlivePacket == null) {
             return;
         }
@@ -174,7 +174,7 @@ class VpnWatchdog {
             socket.send(this.checkAlivePacket);
             this.lastPacketSent = System.currentTimeMillis();
         } catch (IOException e) {
-            throw new VpnWorker.VpnNetworkException("Failed to send check-alive packet.", e);
+            throw new VpnNetworkException("Failed to send check-alive packet.", e);
         }
     }
 
