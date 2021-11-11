@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Конфигурация VPN успешно обновлена</string>
     <string name="notification_configuration_changed">Конфигурация изменена. Вам нужно применить её.</string>
     <string name="notification_configuration_changed_action">Применить</string>
-    <string name="notification_configuration_installing">Применение новой конфигурации…</string>
+    <string name="notification_configuration_installing">Применение новой конфигурации...</string>
     <string name="notification_configuration_failed">Не удалось применить новую конфигурацию.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -275,9 +275,12 @@
     <string name="vpn_notification_stopped">остановлено</string>
     <string name="vpn_notification_title">Блокировщик рекламы VPN %1$s</string>
     <string name="vpn_notification_action_pause">Приостановить</string>
-    <string name="vpn_notification_action_resume">Нажмите для продолжения</string>
+    <string name="vpn_notification_action_resume">Продолжить</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Включить и отключить системную блокировку рекламы</string>
+    <string name="permission_group_api_label">Разрешения AdAway</string>
+    <string name="permission_group_api_description">Разрешить взаимодействие с AdAway</string>
+    <string name="permission_send_command_label">Отправить команды в AdAway</string>
+    <string name="permission_send_command_description">Разрешить отправлять команды в AdAway как включение или отключение системной блокировки рекламы</string>
 
 </resources>
