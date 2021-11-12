@@ -62,7 +62,7 @@ import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class VpnService extends android.net.VpnService {
+public class VpnService extends android.net.VpnService implements Handler.Callback {
     public static final int REQUEST_CODE_START = 43;
     public static final int REQUEST_CODE_PAUSE = 42;
     public static final String VPN_UPDATE_STATUS_INTENT = "org.jak_linux.dns66.VPN_UPDATE_STATUS";
@@ -77,7 +77,7 @@ public class VpnService extends android.net.VpnService {
      * Constructor.
      */
     public VpnService() {
-        this.handler = new MyHandler(this::handleMessage);
+        this.handler = new MyHandler(this);
         this.connectivityChangedReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -167,7 +167,7 @@ public class VpnService extends android.net.VpnService {
         stopVpn();
     }
 
-    private boolean handleMessage(Message message) {
+    public boolean handleMessage(Message message) {
         if (message == null) {
             return true;
         }
