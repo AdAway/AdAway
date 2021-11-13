@@ -118,7 +118,7 @@ dependencies {
     // Collections related
     implementation 'com.google.guava:guava:31.0.1-android'
     // Network related
-    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
     // Logging related
     implementation 'com.jakewharton.timber:timber:5.0.1'
     if (keyStoreDefined) {
@@ -136,6 +136,7 @@ dependencies {
     implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
     implementation 'dnsjava:dnsjava:3.4.3'
     implementation 'org.slf4j:slf4j-android:1.7.32'
+    implementation 'com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.2'
 
     // Test related
     testImplementation 'junit:junit:4.13.2'

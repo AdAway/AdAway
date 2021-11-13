@@ -18,6 +18,8 @@ import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
 import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
 import static android.os.Build.VERSION.SDK_INT;
+import static android.system.OsConstants.AF_INET;
+import static android.system.OsConstants.AF_INET6;
 import static android.system.OsConstants.POLLERR;
 import static android.system.OsConstants.POLLHUP;
 import static android.system.OsConstants.POLLIN;
@@ -35,7 +37,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
-import android.os.Build;
+import android.os.Build.VERSION_CODES;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
@@ -46,6 +48,7 @@ import android.util.Log;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
 import org.adaway.vpn.dns.DnsPacketProxy;
+import org.adaway.vpn.dns.DnsPacketProxy2;
 import org.adaway.vpn.dns.DnsQuery;
 import org.adaway.vpn.dns.DnsQueryQueue;
 import org.adaway.vpn.dns.DnsServerMapper;
@@ -90,7 +93,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     // The mapping between fake and real dns addresses
     private final DnsServerMapper dnsServerMapper;
     // The object where we actually handle packets.
-    private final DnsPacketProxy dnsPacketProxy;
+    private final DnsPacketProxy2 dnsPacketProxy;
     // Watch dog that checks our connection is alive.
     private final VpnWatchdog vpnWatchDog;
 
@@ -111,7 +114,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         this.vpnService = vpnService;
         this.statusNotifier = statusNotifier;
         this.dnsServerMapper = new DnsServerMapper(this.vpnService);
-        this.dnsPacketProxy = new DnsPacketProxy(this, this.dnsServerMapper);
+        this.dnsPacketProxy = new DnsPacketProxy2(this, this.dnsServerMapper);
         this.vpnWatchDog = new VpnWatchdog();
     }
 
@@ -253,6 +256,8 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 
         Log.d(TAG, "doOne: Polling " + polls.length + " file descriptors");
         int numberOfEvents = Os.poll(polls, this.vpnWatchDog.getPollTimeout());
+        // TODO BUG - There is a bug where the watchdog keeps doing timeout if there is no network activity
+        // TODO BUG - 0 Might be a valid value if no current DNS query and everything was already sent back to device
         if (numberOfEvents == 0) {
             this.vpnWatchDog.handleTimeout();
             return true;
@@ -421,7 +426,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 //        Configuration config = FileHelper.loadCurrentSettings(vpnService);
 
         // Configure a builder while parsing the parameters.
-        android.net.VpnService.Builder builder = this.vpnService.new Builder();
+        VpnService.Builder builder = this.vpnService.new Builder();
 
         InetAddress address = this.dnsServerMapper.configure(builder);
         this.vpnWatchDog.setTarget(address);
@@ -432,7 +437,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         builder.allowBypass();
 
         // Set the VPN to unmetered
-        if (SDK_INT >= Build.VERSION_CODES.Q) {
+        if (SDK_INT >= VERSION_CODES.Q) {
             builder.setMetered(false);
         }
 
@@ -440,8 +445,8 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 
         // Explicitly allow both families, so we do not block
         // traffic for ones without DNS servers (issue 129).
-        builder.allowFamily(OsConstants.AF_INET);
-        builder.allowFamily(OsConstants.AF_INET6);
+        builder.allowFamily(AF_INET);
+        builder.allowFamily(AF_INET6);
 
         // Create a new interface using the builder and save the parameters.
         ParcelFileDescriptor pfd = builder
