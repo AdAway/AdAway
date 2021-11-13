@@ -67,7 +67,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     public static final String VPN_UPDATE_STATUS_EXTRA = "VPN_STATUS";
     private static final String TAG = "VpnService";
 
-    private final Handler handler;
+    private final MyHandler handler;
     private final NetworkCallback networkCallback;
     private final VpnWorker vpnWorker;
 
@@ -76,12 +76,8 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
      */
     public VpnService() {
         this.handler = new MyHandler(this::handleMessage);
-        VpnStatusNotifier statusNotifier = status -> {
-            Message statusMessage = this.handler.obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
-            this.handler.sendMessage(statusMessage);
-        };
         this.networkCallback = new MyNetworkCallback();
-        this.vpnWorker = new VpnWorker(this, statusNotifier);
+        this.vpnWorker = new VpnWorker(this, this.handler::sendVpnStatusMessage);
     }
 
     @Override
@@ -257,6 +253,11 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         MyHandler(Callback callback) {
             super(requireNonNull(Looper.myLooper()));
             this.callback = new WeakReference<>(callback);
+        }
+
+        void sendVpnStatusMessage(VpnStatus status) {
+            Message statusMessage = obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
+            sendMessage(statusMessage);
         }
 
         @Override
