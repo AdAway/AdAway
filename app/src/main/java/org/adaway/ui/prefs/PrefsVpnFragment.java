@@ -13,7 +13,7 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
 import org.adaway.ui.prefs.exclusion.PrefsVpnExcludedAppsActivity;
-import org.adaway.vpn.VpnService;
+import org.adaway.vpn.VpnServiceControls;
 
 import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
 import static org.adaway.util.Constants.PREFS_NAME;
@@ -73,9 +73,9 @@ public class PrefsVpnFragment extends PreferenceFragmentCompat {
 
     private void restartVpn() {
         Context context = requireContext();
-        if (VpnService.isStarted(context)) {
-            VpnService.stop(context);
-            VpnService.start(context);
+        if (VpnServiceControls.isStarted(context)) {
+            VpnServiceControls.stop(context);
+            VpnServiceControls.start(context);
         }
     }
 }

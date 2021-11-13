@@ -19,7 +19,6 @@ import static android.app.PendingIntent.FLAG_IMMUTABLE;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
-import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 import static org.adaway.broadcast.Command.START;
 import static org.adaway.broadcast.Command.STOP;
 import static org.adaway.broadcast.CommandReceiver.SEND_COMMAND_ACTION;
@@ -36,7 +35,6 @@ import static java.util.Objects.requireNonNull;
 
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.ConnectivityManager.NetworkCallback;
@@ -59,11 +57,8 @@ import org.adaway.broadcast.Command;
 import org.adaway.broadcast.CommandReceiver;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
-import org.adaway.vpn.VpnWorker.VpnStatusNotifier;
 
 import java.lang.ref.WeakReference;
-import java.util.Arrays;
-import java.util.Objects;
 
 public class VpnService extends android.net.VpnService implements Handler.Callback {
     public static final int REQUEST_CODE_START = 43;
@@ -87,58 +82,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         };
         this.networkCallback = new MyNetworkCallback();
         this.vpnWorker = new VpnWorker(this, statusNotifier);
-    }
-
-    /**
-     * Check if the VPN service is started.
-     *
-     * @param context The application context.
-     * @return {@code true} if the VPN service is started, {@code false} otherwise.
-     */
-    public static boolean isStarted(Context context) {
-        boolean networkVpnCapability = checkAnyNetworkVpnCapability(context);
-        VpnStatus status = PreferenceHelper.getVpnServiceStatus(context);
-        if (status.isStarted() && !networkVpnCapability) {
-            status = STOPPED;
-            PreferenceHelper.setVpnServiceStatus(context, status);
-        }
-        return status.isStarted();
-    }
-
-    /**
-     * Start the VPN service.
-     *
-     * @param context The application context.
-     * @return {@code true} if the service is started, {@code false} otherwise.
-     */
-    public static boolean start(Context context) {
-        // Check if VPN is already running
-        if (isStarted(context)) {
-            return true;
-        }
-        // Start the VPN service
-        Intent intent = new Intent(context, VpnService.class);
-        START.appendToIntent(intent);
-        return context.startForegroundService(intent) != null;
-    }
-
-    /**
-     * Stop the VPN service.
-     *
-     * @param context The application context.
-     */
-    public static void stop(Context context) {
-        Intent intent = new Intent(context, VpnService.class);
-        STOP.appendToIntent(intent);
-        context.startService(intent);
-    }
-
-    private static boolean checkAnyNetworkVpnCapability(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
-        return Arrays.stream(connectivityManager.getAllNetworks())
-                .map(connectivityManager::getNetworkCapabilities)
-                .filter(Objects::nonNull)
-                .anyMatch(networkCapabilities -> networkCapabilities.hasTransport(TRANSPORT_VPN));
     }
 
     @Override

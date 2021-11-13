@@ -1,5 +1,8 @@
 package org.adaway.model.vpn;
 
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
+import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
+
 import android.content.Context;
 import android.util.LruCache;
 
@@ -10,14 +13,11 @@ import org.adaway.db.entity.HostEntry;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.vpn.VpnService;
+import org.adaway.vpn.VpnServiceControls;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
-
-import static org.adaway.model.adblocking.AdBlockMethod.VPN;
-import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
 
 import timber.log.Timber;
 
@@ -27,7 +27,6 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class VpnModel extends AdBlockModel {
-    private static final String TAG = "VpnModel";
     private final HostEntryDao hostEntryDao;
     private final LruCache<String, HostEntry> blockCache;
     private final LinkedHashSet<String> logs;
@@ -52,7 +51,7 @@ public class VpnModel extends AdBlockModel {
         this.logs = new LinkedHashSet<>();
         this.recordingLogs = false;
         this.requestCount = 0;
-        this.applied.postValue(VpnService.isStarted(context));
+        this.applied.postValue(VpnServiceControls.isStarted(context));
     }
 
     @Override
@@ -65,7 +64,7 @@ public class VpnModel extends AdBlockModel {
         // Clear cache
         this.blockCache.evictAll();
         // Start VPN
-        boolean started = VpnService.start(this.context);
+        boolean started = VpnServiceControls.start(this.context);
         this.applied.postValue(started);
         if (!started) {
             throw new HostErrorException(ENABLE_VPN_FAIL);
@@ -75,7 +74,7 @@ public class VpnModel extends AdBlockModel {
 
     @Override
     public void revert() {
-        VpnService.stop(this.context);
+        VpnServiceControls.stop(this.context);
         this.applied.postValue(false);
     }
 
