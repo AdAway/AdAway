@@ -16,9 +16,9 @@ package org.adaway.vpn;
 
 import static android.app.NotificationManager.IMPORTANCE_LOW;
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
-import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
-import static android.net.ConnectivityManager.EXTRA_NETWORK_TYPE;
-import static android.net.ConnectivityManager.TYPE_VPN;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
+import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 import static org.adaway.broadcast.Command.START;
 import static org.adaway.broadcast.Command.STOP;
@@ -26,22 +26,25 @@ import static org.adaway.broadcast.CommandReceiver.SEND_COMMAND_ACTION;
 import static org.adaway.helper.NotificationHelper.VPN_RESUME_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_RUNNING_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
-import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_NETWORK_CHANGED;
 import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_STATUS_UPDATE;
 import static org.adaway.vpn.VpnStatus.RECONNECTING;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STARTING;
 import static org.adaway.vpn.VpnStatus.STOPPED;
 import static org.adaway.vpn.VpnStatus.WAITING_FOR_NETWORK;
+import static java.util.Objects.requireNonNull;
 
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.ConnectivityManager.NetworkCallback;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
@@ -70,25 +73,19 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private static final String TAG = "VpnService";
 
     private final Handler handler;
-    private final BroadcastReceiver connectivityChangedReceiver;
+    private final NetworkCallback networkCallback;
     private final VpnWorker vpnWorker;
 
     /**
      * Constructor.
      */
     public VpnService() {
-        this.handler = new MyHandler(this);
-        this.connectivityChangedReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                Message networkMessage = handler.obtainMessage(VPN_MSG_NETWORK_CHANGED, intent);
-                handler.sendMessage(networkMessage);
-            }
-        };
+        this.handler = new MyHandler(this::handleMessage);
         VpnStatusNotifier statusNotifier = status -> {
             Message statusMessage = this.handler.obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
             this.handler.sendMessage(statusMessage);
         };
+        this.networkCallback = new MyNetworkCallback();
         this.vpnWorker = new VpnWorker(this, statusNotifier);
     }
 
@@ -137,14 +134,16 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     }
 
     private static boolean checkAnyNetworkVpnCapability(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager == null) {
-            return false;
-        }
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
         return Arrays.stream(connectivityManager.getAllNetworks())
                 .map(connectivityManager::getNetworkCapabilities)
                 .filter(Objects::nonNull)
                 .anyMatch(networkCapabilities -> networkCapabilities.hasTransport(TRANSPORT_VPN));
+    }
+
+    @Override
+    public void onCreate() {
+        registerNetworkCallback();
     }
 
     @Override
@@ -165,22 +164,15 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     public void onDestroy() {
         Log.i(TAG, "Destroyed, shutting down");
         stopVpn();
+        unregisterNetworkCallback();
     }
 
     public boolean handleMessage(Message message) {
         if (message == null) {
             return true;
         }
-
-        switch (message.what) {
-            case VPN_MSG_STATUS_UPDATE:
-                updateVpnStatus(VpnStatus.fromCode(message.arg1));
-                break;
-            case VPN_MSG_NETWORK_CHANGED:
-                connectivityChanged((Intent) message.obj);
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid message with what = " + message.what);
+        if (message.what == VPN_MSG_STATUS_UPDATE) {
+            updateVpnStatus(VpnStatus.fromCode(message.arg1));
         }
         return true;
     }
@@ -188,23 +180,28 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private void startVpn() {
         PreferenceHelper.setVpnServiceStatus(this, RUNNING);
         updateVpnStatus(STARTING);
-        registerReceiver(this.connectivityChangedReceiver, new IntentFilter(CONNECTIVITY_ACTION));
         restartWorker();
     }
 
     private void stopVpn() {
         Log.i(TAG, "Stopping Service");
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
-//        if (vpnWorker != null)
         stopVpnWorker();
-//        vpnWorker = null;
-        try {
-            unregisterReceiver(this.connectivityChangedReceiver);
-        } catch (IllegalArgumentException e) {
-            Log.i(TAG, "Ignoring exception on unregistering receiver");
-        }
         updateVpnStatus(STOPPED);
         stopSelf();
+    }
+
+    private void registerNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkRequest networkRequest = new NetworkRequest.Builder()
+                .addCapability(NET_CAPABILITY_NOT_VPN)
+                .build();
+        connectivityManager.registerNetworkCallback(networkRequest, this.networkCallback, this.handler);
+    }
+
+    private void unregisterNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        connectivityManager.unregisterNetworkCallback(this.networkCallback);
     }
 
     private void updateVpnStatus(VpnStatus status) {
@@ -285,31 +282,37 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         restartWorker();
     }
 
-    private void connectivityChanged(Intent intent) {
-        if (intent.getIntExtra(EXTRA_NETWORK_TYPE, 0) == TYPE_VPN) {
-            Log.i(TAG, "Ignoring connectivity changed for our own network");
-            return;
-        }
-        if (!CONNECTIVITY_ACTION.equals(intent.getAction())) {
-            Log.e(TAG, "Got bad intent on connectivity changed " + intent.getAction());
-        }
-        if (intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false)) {
-            Log.i(TAG, "Connectivity changed to no connectivity, wait for a network");
-            waitForNetVpn();
-        } else {
-            Log.i(TAG, "Network changed, try to reconnect");
+    class MyNetworkCallback extends NetworkCallback {
+        @Override
+        public void onAvailable(@NonNull Network network) {
+            Log.i(TAG, "Network changed to " + network + ", reconnecting...");
             reconnect();
+        }
+
+        @Override
+        public void onLost(@NonNull Network network) {
+            Log.i(TAG, "Connectivity changed to no connectivity, wait for network connection");
+            waitForNetVpn();
+        }
+
+        @Override
+        public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
+            Log.d(TAG, "Network " + network + " capabilities changed :\n" +
+                    "- VPN: " + !networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN) + "\n" +
+                    "- INTERNET: " + networkCapabilities.hasCapability(NET_CAPABILITY_INTERNET) + "\n" +
+                    "- VALIDATED: " + networkCapabilities.hasCapability(NET_CAPABILITY_VALIDATED));
+
         }
     }
 
     /* The handler may only keep a weak reference around, otherwise it leaks */
     static class MyHandler extends Handler {
         static final int VPN_MSG_STATUS_UPDATE = 0;
-        static final int VPN_MSG_NETWORK_CHANGED = 1;
 
         private final WeakReference<Callback> callback;
 
         MyHandler(Callback callback) {
+            super(requireNonNull(Looper.myLooper()));
             this.callback = new WeakReference<>(callback);
         }
 
