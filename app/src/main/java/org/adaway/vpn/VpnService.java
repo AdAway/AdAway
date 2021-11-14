@@ -93,6 +93,7 @@ public class VpnService extends android.net.VpnService {
 
     @Override
     public void onCreate() {
+        Log.i(TAG, "Creating VPN service.");
         registerNetworkCallback();
     }
 
@@ -102,19 +103,22 @@ public class VpnService extends android.net.VpnService {
         switch (Command.readFromIntent(intent)) {
             case START:
                 startVpn();
-                break;
+                return START_STICKY;
             case STOP:
                 stopVpn();
-                break;
+                return START_NOT_STICKY;
+            default:
+                Log.w(TAG, "Unknown command: " + intent);
+                return START_NOT_STICKY;
         }
-        return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "Destroyed, shutting down");
-        stopVpn();
+        Log.i(TAG, "Destroying VPN service.");
         unregisterNetworkCallback();
+        stopVpn();
+        Log.i(TAG, "Destroyed VPN service.");
     }
 
     public boolean handleMessage(Message message) {
