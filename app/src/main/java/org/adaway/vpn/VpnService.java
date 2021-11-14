@@ -71,7 +71,7 @@ import java.lang.ref.WeakReference;
  * <li>Reacting to network connectivity changes.</li>
  * </ul>
  */
-public class VpnService extends android.net.VpnService {
+public class VpnService extends android.net.VpnService implements Handler.Callback {
     public static final int REQUEST_CODE_START = 43;
     public static final int REQUEST_CODE_PAUSE = 42;
     public static final String VPN_UPDATE_STATUS_INTENT = "org.jak_linux.dns66.VPN_UPDATE_STATUS";
@@ -86,7 +86,7 @@ public class VpnService extends android.net.VpnService {
      * Constructor.
      */
     public VpnService() {
-        this.handler = new MyHandler(this::handleMessage);
+        this.handler = new MyHandler(this);
         this.networkCallback = new MyNetworkCallback();
         this.vpnWorker = new VpnWorker(this, this.handler::sendVpnStatusMessage);
     }
@@ -121,10 +121,8 @@ public class VpnService extends android.net.VpnService {
         Log.i(TAG, "Destroyed VPN service.");
     }
 
-    public boolean handleMessage(Message message) {
-        if (message == null) {
-            return true;
-        }
+    @Override
+    public boolean handleMessage(@NonNull Message message) {
         if (message.what == VPN_MSG_STATUS_UPDATE) {
             updateVpnStatus(VpnStatus.fromCode(message.arg1));
         }
