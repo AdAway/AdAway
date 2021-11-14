@@ -45,6 +45,8 @@ import android.system.OsConstants;
 import android.system.StructPollfd;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
 import org.adaway.vpn.dns.DnsPacketProxy;
@@ -70,10 +72,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
 import timber.log.Timber;
 
+// TODO Write document
+// TODO It is thread safe
 class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final String TAG = "VpnWorker";
     /**
@@ -109,9 +114,10 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     private final VpnWatchdog vpnWatchDog;
 
     /**
-     * The VPN worker thread ({@code null} if not running.
+     * The VPN worker thread reference, ({@code null} if not running.
      */
-    private Thread thread;
+    private final AtomicReference<Thread> thread;
+
     /**
      * File descriptor to read end of OS pipe to poll to check VPN worker stop request.
      */
@@ -135,34 +141,41 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         this.dnsServerMapper = new DnsServerMapper(this.vpnService);
         this.dnsPacketProxy = new DnsPacketProxy2(this, this.dnsServerMapper);
         this.vpnWatchDog = new VpnWatchdog();
+        this.thread = new AtomicReference<>(null);
     }
 
+    /**
+     * Start the VPN worker.
+     */
     public void start() {
-        Log.i(TAG, "Starting VPN thread");
-        this.thread = new Thread(this::work, "VpnWorker");
-        this.thread.start();
-        Log.i(TAG, "VPN thread started");
+        Log.i(TAG, "Starting VPN thread.");
+        Thread workerThread = new Thread(this::work, "VpnWorker");
+        setWorkerThread(workerThread);
+        workerThread.start();
+        Log.i(TAG, "VPN thread started.");
     }
 
+    /**
+     * Stop the VPN worker.
+     */
     public void stop() {
-        Log.i(TAG, "Stopping VPN thread");
-        if (this.thread == null) {
-            return;
-        }
-        this.thread.interrupt();
-
+        Log.i(TAG, "Stopping VPN thread.");
+        setWorkerThread(null);
+        // TODO Remove at some point
         mInterruptFd = closeOrWarn(mInterruptFd, TAG, "stop: Could not close interruptFd");
-        try {
-            this.thread.join(2000);
-        } catch (InterruptedException e) {
-            Log.w(TAG, "stop: Interrupted while joining thread", e);
-            Thread.currentThread().interrupt();
-        }
-        if (this.thread.isAlive()) {
-            Log.w(TAG, "stop: Could not kill VPN thread, it is still alive");
-        } else {
-            this.thread = null;
-            Log.i(TAG, "Vpn Thread stopped");
+        Log.i(TAG, "VPN Thread stopped.");
+    }
+
+    /**
+     * Keep track of the worker thread.<br>
+     * Interrupt the previous one if exists.
+     *
+     * @param workerThread The new worker thread, {@code null} if no worker thread any more.
+     */
+    private void setWorkerThread(@Nullable Thread workerThread) {
+        Thread oldWorkerThread = this.thread.getAndSet(workerThread);
+        if (oldWorkerThread != null) {
+            oldWorkerThread.interrupt();
         }
     }
 
