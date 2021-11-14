@@ -84,12 +84,23 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final int MAX_RETRY_TIME = 2 * 60;
     /* If we had a successful connection for that long, reset retry timeout */
     private static final long RETRY_RESET_SEC = 60;
+
+    /**
+     * The Android VPN service, also used as {@link android.content.Context}.
+     */
     private final android.net.VpnService vpnService;
-    private final VpnStatusNotifier statusNotifier;
-    /* Data to be written to the device */
-    private final Queue<byte[]> deviceWrites = new LinkedList<>();
-    // HashMap that keeps an upper limit of packets
-    private final DnsQueryQueue dnsQueryQueue = new DnsQueryQueue();
+    /**
+     * The callback to notify of VPN status update.
+     */
+    private final VpnStatusNotifier vpnStatusNotifier;
+    /**
+     * The queue of packets to send to the device.
+     */
+    private final Queue<byte[]> deviceWrites;
+    /**
+     * The queue of DNS queries.
+     */
+    private final DnsQueryQueue dnsQueryQueue;
     // The mapping between fake and real dns addresses
     private final DnsServerMapper dnsServerMapper;
     // The object where we actually handle packets.
@@ -110,9 +121,17 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
      */
     private FileDescriptor mInterruptFd;
 
-    VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier statusNotifier) {
+    /**
+     * Constructor.
+     *
+     * @param vpnService        The Android VPN service, also used as {@link android.content.Context}.
+     * @param vpnStatusNotifier The callback to notify of VPN status update.
+     */
+    VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier vpnStatusNotifier) {
         this.vpnService = vpnService;
-        this.statusNotifier = statusNotifier;
+        this.vpnStatusNotifier = vpnStatusNotifier;
+        this.deviceWrites = new LinkedList<>();
+        this.dnsQueryQueue = new DnsQueryQueue();
         this.dnsServerMapper = new DnsServerMapper(this.vpnService);
         this.dnsPacketProxy = new DnsPacketProxy2(this, this.dnsServerMapper);
         this.vpnWatchDog = new VpnWatchdog();
@@ -154,7 +173,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         // Initialize the watchdog
         this.vpnWatchDog.initialize(PreferenceHelper.getVpnWatchdogEnabled(this.vpnService));
 
-        this.statusNotifier.accept(STARTING);
+        this.vpnStatusNotifier.accept(STARTING);
 
         int retryTimeout = MIN_RETRY_TIME;
         // Try connecting the vpn continuously
@@ -166,18 +185,18 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
                 runVpn();
 
                 Log.i(TAG, "Told to stop");
-                this.statusNotifier.accept(STOPPING);
+                this.vpnStatusNotifier.accept(STOPPING);
                 break;
             } catch (VpnNetworkException e) {
                 // We want to filter out VpnNetworkException from out crash analytics as these
                 // are exceptions that we expect to happen from network errors
                 Log.w(TAG, "Network exception in vpn thread, ignoring and reconnecting", e);
                 // If an exception was thrown, show to the user and try again
-                this.statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
+                this.vpnStatusNotifier.accept(RECONNECTING_NETWORK_ERROR);
             } catch (Exception e) {
                 Log.e(TAG, "Network exception in vpn thread, reconnecting", e);
                 //ExceptionHandler.saveException(e, Thread.currentThread(), null);
-                this.statusNotifier.accept(RECONNECTING_NETWORK_ERROR);
+                this.vpnStatusNotifier.accept(RECONNECTING_NETWORK_ERROR);
             }
 
             if (System.currentTimeMillis() - connectTimeMillis >= RETRY_RESET_SEC * 1000) {
@@ -198,7 +217,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
                 retryTimeout *= 2;
         }
 
-        this.statusNotifier.accept(STOPPED);
+        this.vpnStatusNotifier.accept(STOPPED);
         Log.i(TAG, "Exiting");
     }
 
@@ -218,7 +237,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
              FileOutputStream outputStream = new FileOutputStream(pfd.getFileDescriptor())) {
 
             // Now we are connected. Set the flag and show the message.
-            this.statusNotifier.accept(RUNNING);
+            this.vpnStatusNotifier.accept(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
             while (doOne(inputStream, outputStream, packet)) {

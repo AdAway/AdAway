@@ -29,7 +29,7 @@ public class DnsServerMapper {
     /**
      * Constructor.
      *
-     * @param context The application contexte.
+     * @param context The application context.
      */
     public DnsServerMapper(Context context) {
         this.context = context;

@@ -91,6 +91,10 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         this.vpnWorker = new VpnWorker(this, this.handler::sendVpnStatusMessage);
     }
 
+    /*
+     * VPN Service.
+     */
+
     @Override
     public void onCreate() {
         Log.i(TAG, "Creating VPN service.");
@@ -121,6 +125,10 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         Log.i(TAG, "Destroyed VPN service.");
     }
 
+    /*
+     * Handler callback.
+     */
+
     @Override
     public boolean handleMessage(@NonNull Message message) {
         if (message.what == VPN_MSG_STATUS_UPDATE) {
@@ -141,19 +149,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         stopVpnWorker();
         updateVpnStatus(STOPPED);
         stopSelf();
-    }
-
-    private void registerNetworkCallback() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkRequest networkRequest = new NetworkRequest.Builder()
-                .addCapability(NET_CAPABILITY_NOT_VPN)
-                .build();
-        connectivityManager.registerNetworkCallback(networkRequest, this.networkCallback, this.handler);
-    }
-
-    private void unregisterNetworkCallback() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        connectivityManager.unregisterNetworkCallback(this.networkCallback);
     }
 
     private void updateVpnStatus(VpnStatus status) {
@@ -236,6 +231,19 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         restartWorker();
     }
 
+    private void registerNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkRequest networkRequest = new NetworkRequest.Builder()
+                .addCapability(NET_CAPABILITY_NOT_VPN)
+                .build();
+        connectivityManager.registerNetworkCallback(networkRequest, this.networkCallback, this.handler);
+    }
+
+    private void unregisterNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        connectivityManager.unregisterNetworkCallback(this.networkCallback);
+    }
+
     class MyNetworkCallback extends NetworkCallback {
         @Override
         public void onAvailable(@NonNull Network network) {
@@ -255,7 +263,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                     "- VPN: " + !networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN) + "\n" +
                     "- INTERNET: " + networkCapabilities.hasCapability(NET_CAPABILITY_INTERNET) + "\n" +
                     "- VALIDATED: " + networkCapabilities.hasCapability(NET_CAPABILITY_VALIDATED));
-
         }
     }
 
