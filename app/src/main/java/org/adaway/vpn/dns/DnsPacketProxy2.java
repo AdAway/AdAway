@@ -68,6 +68,8 @@ public class DnsPacketProxy2 {
     private static final int NEGATIVE_CACHE_TTL_SECONDS = 5;
     private static final SOARecord NEGATIVE_CACHE_SOA_RECORD;
 
+    private static final Executor EXECUTOR = AppExecutors.getInstance().networkIO();
+
     static {
         try {
             // Let's use a guaranteed invalid hostname here, clients are not supposed to use
@@ -84,7 +86,6 @@ public class DnsPacketProxy2 {
     private final DnsServerMapper dnsServerMapper;
     private VpnModel vpnModel;
     private DnsOverHttps dnsOverHttps;
-    private Executor executor;
 
     public DnsPacketProxy2(EventLoop eventLoop, DnsServerMapper dnsServerMapper) {
         this.eventLoop = eventLoop;
@@ -107,16 +108,19 @@ public class DnsPacketProxy2 {
      */
     public void initialize(Context context) {
         this.vpnModel = (VpnModel) ((AdAwayApplication) context.getApplicationContext()).getAdBlockModel();
+        this.dnsOverHttps = createDnsOverHttps(context);
+    }
+
+    private DnsOverHttps createDnsOverHttps(Context context) {
         Cache dnsClientCache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
         OkHttpClient dnsClient = new OkHttpClient.Builder().cache(dnsClientCache).build();
-        this.dnsOverHttps = new DnsOverHttps.Builder()
+        return new DnsOverHttps.Builder()
                 .client(dnsClient)
                 .url(HttpUrl.get("https://cloudflare-dns.com/dns-query"))
                 .bootstrapDnsHosts(getByIp("1.1.1.1"), getByIp("1.0.0.1"))
                 .includeIPv6(false)
                 .post(true)
                 .build();
-        this.executor = AppExecutors.getInstance().networkIO();
     }
 
     /**
@@ -234,7 +238,7 @@ public class DnsPacketProxy2 {
                 break;
             case ALLOWED:
                 Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + dnsAddress);
-                this.executor.execute(() -> queryDohServer(ipPacket, dnsMsg, name));
+                EXECUTOR.execute(() -> queryDohServer(ipPacket, dnsMsg, name));
                 break;
             case REDIRECTED:
                 Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " redirected to " + entry.getRedirection() + ".");
