@@ -20,8 +20,6 @@ import static android.content.pm.ApplicationInfo.FLAG_SYSTEM;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.system.OsConstants.AF_INET;
 import static android.system.OsConstants.AF_INET6;
-import static android.system.OsConstants.POLLERR;
-import static android.system.OsConstants.POLLHUP;
 import static android.system.OsConstants.POLLIN;
 import static android.system.OsConstants.POLLOUT;
 import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
@@ -117,15 +115,6 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
      * The VPN worker thread reference, ({@code null} if not running.
      */
     private final AtomicReference<Thread> thread;
-
-    /**
-     * File descriptor to read end of OS pipe to poll to check VPN worker stop request.
-     */
-    private FileDescriptor mBlockFd;
-    /**
-     * File descriptor to write end of OS pipe to close stop VPN worker thread.
-     */
-    private FileDescriptor mInterruptFd;
 
     /**
      * Constructor.
@@ -236,11 +225,6 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         // Allocate the buffer for a single packet.
         byte[] packet = new byte[MAX_PACKET_SIZE];
 
-        // A pipe we can interrupt the poll() call with by closing the interruptFd end
-        FileDescriptor[] pipes = Os.pipe();
-        this.mInterruptFd = pipes[0];
-        this.mBlockFd = pipes[1];
-
         // Authenticate and configure the virtual network interface.
         try (ParcelFileDescriptor pfd = configure();
              // Read and write views of the tunnel device
@@ -253,9 +237,6 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
             // We keep forwarding packets till something goes wrong.
             while (doOne(inputStream, outputStream, packet)) {
             }
-        } finally {
-            this.mBlockFd = closeOrWarn(mBlockFd, TAG, "runVpn: Could not close blockFd");
-            this.mInterruptFd = closeOrWarn(mInterruptFd, TAG, "runVpn: Could not close interruptFd");
         }
     }
 
@@ -268,16 +249,11 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         if (!deviceWrites.isEmpty()) {
             deviceFd.events |= (short) POLLOUT;
         }
-        // Create poll FD on OS pipe for interruption on VPN worker stop
-        StructPollfd blockFd = new StructPollfd();
-        blockFd.fd = mBlockFd;
-        blockFd.events = (short) (POLLHUP | POLLERR);
         // Create poll FD on each DNS query socket
-        StructPollfd[] polls = new StructPollfd[2 + this.dnsQueryQueue.size()];
+        StructPollfd[] polls = new StructPollfd[1 + this.dnsQueryQueue.size()];
         polls[0] = deviceFd;
-        polls[1] = blockFd;
         {
-            int i = 2;
+            int i = 1;
             for (DnsQuery query : this.dnsQueryQueue) {
                 polls[i] = query.pollfd;
                 i++;
@@ -291,10 +267,6 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         if (numberOfEvents == 0) {
             this.vpnWatchDog.handleTimeout();
             return true;
-        }
-        if (blockFd.revents != 0) {
-            Log.i(TAG, "Told to stop VPN");
-            return false;
         }
 
         // Need to do this before reading from the device, otherwise a new insertion there could
