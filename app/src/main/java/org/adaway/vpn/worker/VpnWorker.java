@@ -48,7 +48,6 @@ import androidx.annotation.Nullable;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
 import org.adaway.vpn.VpnService;
-import org.adaway.vpn.VpnStatus;
 import org.adaway.vpn.dns.DnsPacketProxy;
 import org.adaway.vpn.dns.DnsPacketProxy2;
 import org.adaway.vpn.dns.DnsQuery;
@@ -72,7 +71,6 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Consumer;
 
 import timber.log.Timber;
 
@@ -231,12 +229,13 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             this.vpnService.notifyVpnStatus(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
-            while (doOne(inputStream, outputStream, packet)) {
+            while (true) {
+                doOne(inputStream, outputStream, packet);
             }
         }
     }
 
-    private boolean doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
+    private void doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
             throws IOException, VpnNetworkException {
         // Create poll FD on tunnel
         StructPollfd deviceFd = new StructPollfd();
@@ -256,6 +255,8 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             }
         }
 
+        boolean deviceReadyToWrite;
+        boolean deviceReadyToRead;
         try {
             Log.d(TAG, "doOne: Polling " + polls.length + " file descriptors");
             int numberOfEvents = Os.poll(polls, this.vpnWatchDog.getPollTimeout());
@@ -263,8 +264,10 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             // TODO BUG - 0 Might be a valid value if no current DNS query and everything was already sent back to device
             if (numberOfEvents == 0) {
                 this.vpnWatchDog.handleTimeout();
-                return true;
+                return;
             }
+            deviceReadyToWrite = (deviceFd.revents & POLLOUT) != 0;
+            deviceReadyToRead = (deviceFd.revents & POLLIN) != 0;
         } catch (ErrnoException e) {
             throw new IOException("Failed to wait for event on file descriptors. Error number: "+e.errno, e);
         }
@@ -273,16 +276,12 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         // invalidate one of the sockets we want to read from either due to size or time out
         // constraints
         checkForDnsResponse();
-        if ((deviceFd.revents & POLLOUT) != 0) {
-            Log.d(TAG, "Write to device " + this.deviceWrites.size() + " packets");
+        if (deviceReadyToWrite) {
             writeToDevice(fileOutputStream);
         }
-        if ((deviceFd.revents & POLLIN) != 0) {
-            Log.d(TAG, "Read from device");
+        if (deviceReadyToRead) {
             readPacketFromDevice(inputStream, packet);
         }
-
-        return true;
     }
 
     private void checkForDnsResponse() {
@@ -290,18 +289,27 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         while (iterator.hasNext()) {
             DnsQuery query = iterator.next();
             if (query.isAnswered()) {
-                Log.d(TAG, "Read from DNS socket" + query.socket);
                 iterator.remove();
                 try {
+                    Log.d(TAG, "Read from DNS socket" + query.socket);
                     handleRawDnsResponse(query);
                 } catch (IOException e) {
-                    Log.w(TAG, "checkForDnsResponse: Could not handle DNS response", e);
+                    Log.w(TAG, "Could not handle DNS response.", e);
                 }
             }
         }
     }
 
+    private void handleRawDnsResponse(DnsQuery query) throws IOException {
+        byte[] responseData = new byte[1024];
+        DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length);
+        query.socket.receive(responsePacket);
+        query.socket.close();
+        this.dnsPacketProxy.handleDnsResponse(query.packet, responseData);
+    }
+
     private void writeToDevice(FileOutputStream fileOutputStream) throws VpnNetworkException {
+        Log.d(TAG, "Write to device " + this.deviceWrites.size() + " packets.");
         try {
             while (!this.deviceWrites.isEmpty()) {
                 byte[] ipPacketData = this.deviceWrites.poll();
@@ -314,6 +322,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
     private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws VpnNetworkException {
+        Log.d(TAG, "Read a packet from device.");
         try {
             // Read the outgoing packet from the input stream.
             int length = inputStream.read(packet);
@@ -355,14 +364,6 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             }
             Log.w(TAG, "handleDnsRequest: Could not send packet to upstream", e);
         }
-    }
-
-    private void handleRawDnsResponse(DnsQuery query) throws IOException {
-        byte[] datagramData = new byte[1024];
-        DatagramPacket replyPacket = new DatagramPacket(datagramData, datagramData.length);
-        query.socket.receive(replyPacket);
-        query.socket.close();
-        this.dnsPacketProxy.handleDnsResponse(query.packet, datagramData);
     }
 
     public void queueDeviceWrite(IpPacket ipOutPacket) {
@@ -462,10 +463,6 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
                 .establish();
         Log.i(TAG, "Configured");
         return pfd;
-    }
-
-    @FunctionalInterface
-    interface VpnStatusNotifier extends Consumer<VpnStatus> {
     }
 
     static <T extends Closeable> T closeOrWarn(T fd, String tag, String message) {
