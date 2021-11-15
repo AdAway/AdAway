@@ -133,7 +133,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
      * Kill the current worker and restart it if already running.
      */
     public void start() {
-        Log.i(TAG, "Starting VPN thread…");
+        Log.d(TAG, "Starting VPN thread…");
         Thread workerThread = new Thread(this::work, "VpnWorker");
         setWorkerThread(workerThread);
         workerThread.start();
@@ -144,7 +144,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
      * Stop the VPN worker.
      */
     public void stop() {
-        Log.i(TAG, "Stopping VPN thread.");
+        Log.d(TAG, "Stopping VPN thread.");
         setWorkerThread(null);
         Log.i(TAG, "VPN thread stopped.");
     }
@@ -163,7 +163,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
     private void work() {
-        Log.i(TAG, "Starting");
+        Log.d(TAG, "Starting work…");
         // Initialize context
         this.dnsPacketProxy.initialize(this.vpnService);
         // Initialize the watchdog
@@ -214,7 +214,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         }
 
         this.vpnService.notifyVpnStatus(STOPPED);
-        Log.i(TAG, "Exiting");
+        Log.d(TAG, "Exiting work.");
     }
 
     private void runVpn() throws IOException, ErrnoException, VpnNetworkException {
@@ -418,7 +418,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
     private ParcelFileDescriptor configure() throws VpnNetworkException {
-        Log.i(TAG, "Configuring" + this);
+        Log.d(TAG, "Configuring" + this);
 
         // TODO User configuration
 //        Configuration config = FileHelper.loadCurrentSettings(vpnService);

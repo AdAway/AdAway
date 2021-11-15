@@ -98,13 +98,13 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public void onCreate() {
-        Log.i(TAG, "Creating VPN service…");
+        Log.d(TAG, "Creating VPN service…");
         registerNetworkCallback();
     }
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        Log.i(TAG, "onStartCommand" + intent);
+        Log.d(TAG, "onStartCommand" + intent);
         switch (Command.readFromIntent(intent)) {
             case START:
                 startVpn();
@@ -120,10 +120,10 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "Destroying VPN service…");
+        Log.d(TAG, "Destroying VPN service…");
         unregisterNetworkCallback();
         stopVpn();
-        Log.i(TAG, "Destroyed VPN service.");
+        Log.d(TAG, "Destroyed VPN service.");
     }
 
     /*
@@ -138,24 +138,31 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         return true;
     }
 
+    /**
+     * Notify a of the new VPN status.
+     *
+     * @param status The new VPN status.
+     */
     public void notifyVpnStatus(VpnStatus status) {
         Message statusMessage = this.handler.obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
         this.handler.sendMessage(statusMessage);
     }
 
     private void startVpn() {
+        Log.d(TAG, "Starting VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, RUNNING);
         updateVpnStatus(STARTING);
         this.vpnWorker.start();
+        Log.i(TAG, "VPN service started.");
     }
 
     private void stopVpn() {
-        Log.i(TAG, "Stopping VPN service…");
+        Log.d(TAG, "Stopping VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
         this.vpnWorker.stop();
-        updateVpnStatus(STOPPED);
         stopForeground(true);
         stopSelf();
+        updateVpnStatus(STOPPED);
         Log.i(TAG, "VPN service stopped.");
     }
 
@@ -246,13 +253,13 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     class MyNetworkCallback extends NetworkCallback {
         @Override
         public void onAvailable(@NonNull Network network) {
-            Log.i(TAG, "Network changed to " + network + ", reconnecting…");
+            Log.d(TAG, "Network changed to " + network + ", reconnecting…");
             reconnect();
         }
 
         @Override
         public void onLost(@NonNull Network network) {
-            Log.i(TAG, "Connectivity changed to no connectivity, wait for network connection.");
+            Log.d(TAG, "Connectivity changed to no connectivity, wait for network connection.");
             waitForNetVpn();
         }
 
