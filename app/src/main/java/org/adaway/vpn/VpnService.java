@@ -148,6 +148,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
         stopVpnWorker();
         updateVpnStatus(STOPPED);
+        stopForeground(true);
         stopSelf();
         Log.i(TAG, "VPN service stopped.");
     }
