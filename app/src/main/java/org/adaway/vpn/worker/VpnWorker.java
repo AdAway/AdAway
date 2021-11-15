@@ -217,7 +217,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         Log.d(TAG, "Exiting work.");
     }
 
-    private void runVpn() throws IOException, ErrnoException, VpnNetworkException {
+    private void runVpn() throws IOException, VpnNetworkException {
         // Allocate the buffer for a single packet.
         byte[] packet = new byte[MAX_PACKET_SIZE];
 
@@ -237,12 +237,12 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
     private boolean doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
-            throws IOException, ErrnoException, VpnNetworkException {
+            throws IOException, VpnNetworkException {
         // Create poll FD on tunnel
         StructPollfd deviceFd = new StructPollfd();
         deviceFd.fd = inputStream.getFD();
         deviceFd.events = (short) POLLIN;
-        if (!deviceWrites.isEmpty()) {
+        if (!this.deviceWrites.isEmpty()) {
             deviceFd.events |= (short) POLLOUT;
         }
         // Create poll FD on each DNS query socket
@@ -256,13 +256,17 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             }
         }
 
-        Log.d(TAG, "doOne: Polling " + polls.length + " file descriptors");
-        int numberOfEvents = Os.poll(polls, this.vpnWatchDog.getPollTimeout());
-        // TODO BUG - There is a bug where the watchdog keeps doing timeout if there is no network activity
-        // TODO BUG - 0 Might be a valid value if no current DNS query and everything was already sent back to device
-        if (numberOfEvents == 0) {
-            this.vpnWatchDog.handleTimeout();
-            return true;
+        try {
+            Log.d(TAG, "doOne: Polling " + polls.length + " file descriptors");
+            int numberOfEvents = Os.poll(polls, this.vpnWatchDog.getPollTimeout());
+            // TODO BUG - There is a bug where the watchdog keeps doing timeout if there is no network activity
+            // TODO BUG - 0 Might be a valid value if no current DNS query and everything was already sent back to device
+            if (numberOfEvents == 0) {
+                this.vpnWatchDog.handleTimeout();
+                return true;
+            }
+        } catch (ErrnoException e) {
+            throw new IOException("Failed to wait for event on file descriptors. Error number: "+e.errno, e);
         }
 
         // Need to do this before reading from the device, otherwise a new insertion there could
