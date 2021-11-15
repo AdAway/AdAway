@@ -61,8 +61,8 @@ import org.adaway.ui.home.HomeActivity;
 import java.lang.ref.WeakReference;
 
 /**
- * This class is the VPN platform service implementation.<br>
- *
+ * This class is the VPN platform service implementation.
+ * <p>
  * it is in charge of:
  * <ul>
  * <li>Accepting service commands,</li>
@@ -97,7 +97,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public void onCreate() {
-        Log.i(TAG, "Creating VPN service.");
+        Log.i(TAG, "Creating VPN service…");
         registerNetworkCallback();
     }
 
@@ -119,7 +119,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "Destroying VPN service.");
+        Log.i(TAG, "Destroying VPN service…");
         unregisterNetworkCallback();
         stopVpn();
         Log.i(TAG, "Destroyed VPN service.");
@@ -144,11 +144,12 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     }
 
     private void stopVpn() {
-        Log.i(TAG, "Stopping Service");
+        Log.i(TAG, "Stopping VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
         stopVpnWorker();
         updateVpnStatus(STOPPED);
         stopSelf();
+        Log.i(TAG, "VPN service stopped.");
     }
 
     private void updateVpnStatus(VpnStatus status) {
@@ -247,22 +248,22 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     class MyNetworkCallback extends NetworkCallback {
         @Override
         public void onAvailable(@NonNull Network network) {
-            Log.i(TAG, "Network changed to " + network + ", reconnecting...");
+            Log.i(TAG, "Network changed to " + network + ", reconnecting…");
             reconnect();
         }
 
         @Override
         public void onLost(@NonNull Network network) {
-            Log.i(TAG, "Connectivity changed to no connectivity, wait for network connection");
+            Log.i(TAG, "Connectivity changed to no connectivity, wait for network connection.");
             waitForNetVpn();
         }
 
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
-            Log.d(TAG, "Network " + network + " capabilities changed :\n" +
-                    "- VPN: " + !networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN) + "\n" +
-                    "- INTERNET: " + networkCapabilities.hasCapability(NET_CAPABILITY_INTERNET) + "\n" +
-                    "- VALIDATED: " + networkCapabilities.hasCapability(NET_CAPABILITY_VALIDATED));
+            Log.d(TAG, "Network " + network + " capabilities changed :" +
+                    "\n- VPN: " + !networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN) +
+                    "\n- INTERNET: " + networkCapabilities.hasCapability(NET_CAPABILITY_INTERNET) +
+                    "\n- VALIDATED: " + networkCapabilities.hasCapability(NET_CAPABILITY_VALIDATED));
         }
     }
 

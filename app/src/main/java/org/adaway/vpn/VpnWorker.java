@@ -148,7 +148,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
      * Start the VPN worker.
      */
     public void start() {
-        Log.i(TAG, "Starting VPN thread.");
+        Log.i(TAG, "Starting VPN thread…");
         Thread workerThread = new Thread(this::work, "VpnWorker");
         setWorkerThread(workerThread);
         workerThread.start();
@@ -161,9 +161,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     public void stop() {
         Log.i(TAG, "Stopping VPN thread.");
         setWorkerThread(null);
-        // TODO Remove at some point
-        mInterruptFd = closeOrWarn(mInterruptFd, TAG, "stop: Could not close interruptFd");
-        Log.i(TAG, "VPN Thread stopped.");
+        Log.i(TAG, "VPN thread stopped.");
     }
 
     /**
