@@ -140,13 +140,13 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private void startVpn() {
         PreferenceHelper.setVpnServiceStatus(this, RUNNING);
         updateVpnStatus(STARTING);
-        restartWorker();
+        this.vpnWorker.start();
     }
 
     private void stopVpn() {
         Log.i(TAG, "Stopping VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
-        stopVpnWorker();
+        this.vpnWorker.stop();
         updateVpnStatus(STOPPED);
         stopForeground(true);
         stopSelf();
@@ -214,23 +214,14 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         return builder.build();
     }
 
-    private void restartWorker() {
-        this.vpnWorker.stop();
-        this.vpnWorker.start();
-    }
-
-    private void stopVpnWorker() {
-        this.vpnWorker.stop();
-    }
-
     private void waitForNetVpn() {
-        stopVpnWorker();
+        this.vpnWorker.stop();
         updateVpnStatus(WAITING_FOR_NETWORK);
     }
 
     private void reconnect() {
         updateVpnStatus(RECONNECTING);
-        restartWorker();
+        this.vpnWorker.start();
     }
 
     private void registerNetworkCallback() {
