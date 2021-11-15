@@ -12,7 +12,7 @@
  * Contributions shall also be provided under any later versions of the
  * GPL.
  */
-package org.adaway.vpn;
+package org.adaway.vpn.worker;
 
 import static android.app.PendingIntent.FLAG_CANCEL_CURRENT;
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
@@ -47,6 +47,8 @@ import androidx.annotation.Nullable;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
+import org.adaway.vpn.VpnService;
+import org.adaway.vpn.VpnStatus;
 import org.adaway.vpn.dns.DnsPacketProxy;
 import org.adaway.vpn.dns.DnsPacketProxy2;
 import org.adaway.vpn.dns.DnsQuery;
@@ -55,7 +57,6 @@ import org.adaway.vpn.dns.DnsServerMapper;
 import org.pcap4j.packet.IpPacket;
 
 import java.io.Closeable;
-import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -77,7 +78,7 @@ import timber.log.Timber;
 
 // TODO Write document
 // TODO It is thread safe
-class VpnWorker implements DnsPacketProxy.EventLoop {
+public class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final String TAG = "VpnWorker";
     /**
      * Maximum packet size is constrained by the MTU, which is given as a signed short.
@@ -89,13 +90,9 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final long RETRY_RESET_SEC = 60;
 
     /**
-     * The Android VPN service, also used as {@link android.content.Context}.
+     * The VPN service, also used as {@link android.content.Context}.
      */
-    private final android.net.VpnService vpnService;
-    /**
-     * The callback to notify of VPN status update.
-     */
-    private final VpnStatusNotifier vpnStatusNotifier;
+    private final VpnService vpnService;
     /**
      * The queue of packets to send to the device.
      */
@@ -112,19 +109,17 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
     private final VpnWatchdog vpnWatchDog;
 
     /**
-     * The VPN worker thread reference, ({@code null} if not running.
+     * The VPN worker thread reference, (<code>null</code> if not running).
      */
     private final AtomicReference<Thread> thread;
 
     /**
      * Constructor.
      *
-     * @param vpnService        The Android VPN service, also used as {@link android.content.Context}.
-     * @param vpnStatusNotifier The callback to notify of VPN status update.
+     * @param vpnService        The VPN service, also used as {@link android.content.Context}.
      */
-    VpnWorker(android.net.VpnService vpnService, VpnStatusNotifier vpnStatusNotifier) {
+    public VpnWorker(VpnService vpnService) {
         this.vpnService = vpnService;
-        this.vpnStatusNotifier = vpnStatusNotifier;
         this.deviceWrites = new LinkedList<>();
         this.dnsQueryQueue = new DnsQueryQueue();
         this.dnsServerMapper = new DnsServerMapper(this.vpnService);
@@ -158,7 +153,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
      * Keep track of the worker thread.<br>
      * Interrupt the previous one if exists.
      *
-     * @param workerThread The new worker thread, {@code null} if no worker thread any more.
+     * @param workerThread The new worker thread, <code>null</code> if no worker thread any more.
      */
     private void setWorkerThread(@Nullable Thread workerThread) {
         Thread oldWorkerThread = this.thread.getAndSet(workerThread);
@@ -174,7 +169,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
         // Initialize the watchdog
         this.vpnWatchDog.initialize(PreferenceHelper.getVpnWatchdogEnabled(this.vpnService));
 
-        this.vpnStatusNotifier.accept(STARTING);
+        this.vpnService.notifyVpnStatus(STARTING);
 
         int retryTimeout = MIN_RETRY_TIME;
         // Try connecting the vpn continuously
@@ -186,18 +181,18 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
                 runVpn();
 
                 Log.i(TAG, "Told to stop");
-                this.vpnStatusNotifier.accept(STOPPING);
+                this.vpnService.notifyVpnStatus(STOPPING);
                 break;
             } catch (VpnNetworkException e) {
                 // We want to filter out VpnNetworkException from out crash analytics as these
                 // are exceptions that we expect to happen from network errors
                 Log.w(TAG, "Network exception in vpn thread, ignoring and reconnecting", e);
                 // If an exception was thrown, show to the user and try again
-                this.vpnStatusNotifier.accept(RECONNECTING_NETWORK_ERROR);
+                this.vpnService.notifyVpnStatus(RECONNECTING_NETWORK_ERROR);
             } catch (Exception e) {
                 Log.e(TAG, "Network exception in vpn thread, reconnecting", e);
                 //ExceptionHandler.saveException(e, Thread.currentThread(), null);
-                this.vpnStatusNotifier.accept(RECONNECTING_NETWORK_ERROR);
+                this.vpnService.notifyVpnStatus(RECONNECTING_NETWORK_ERROR);
             }
 
             if (System.currentTimeMillis() - connectTimeMillis >= RETRY_RESET_SEC * 1000) {
@@ -218,7 +213,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
                 retryTimeout *= 2;
         }
 
-        this.vpnStatusNotifier.accept(STOPPED);
+        this.vpnService.notifyVpnStatus(STOPPED);
         Log.i(TAG, "Exiting");
     }
 
@@ -233,7 +228,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
              FileOutputStream outputStream = new FileOutputStream(pfd.getFileDescriptor())) {
 
             // Now we are connected. Set the flag and show the message.
-            this.vpnStatusNotifier.accept(RUNNING);
+            this.vpnService.notifyVpnStatus(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
             while (doOne(inputStream, outputStream, packet)) {
@@ -429,7 +424,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 //        Configuration config = FileHelper.loadCurrentSettings(vpnService);
 
         // Configure a builder while parsing the parameters.
-        VpnService.Builder builder = this.vpnService.new Builder();
+        org.adaway.vpn.VpnService.Builder builder = this.vpnService.new Builder();
 
         InetAddress address = this.dnsServerMapper.configure(builder);
         this.vpnWatchDog.setTarget(address);
@@ -467,16 +462,6 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
 
     @FunctionalInterface
     interface VpnStatusNotifier extends Consumer<VpnStatus> {
-    }
-
-    static FileDescriptor closeOrWarn(FileDescriptor fd, String tag, String message) {
-        try {
-            if (fd != null)
-                Os.close(fd);
-        } catch (ErrnoException e) {
-            Log.e(tag, "closeOrWarn: " + message, e);
-        }
-        return null;
     }
 
     static <T extends Closeable> T closeOrWarn(T fd, String tag, String message) {

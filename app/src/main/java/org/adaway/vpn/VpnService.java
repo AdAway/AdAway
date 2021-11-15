@@ -57,6 +57,7 @@ import org.adaway.broadcast.Command;
 import org.adaway.broadcast.CommandReceiver;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
+import org.adaway.vpn.worker.VpnWorker;
 
 import java.lang.ref.WeakReference;
 
@@ -88,7 +89,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     public VpnService() {
         this.handler = new MyHandler(this);
         this.networkCallback = new MyNetworkCallback();
-        this.vpnWorker = new VpnWorker(this, this.handler::sendVpnStatusMessage);
+        this.vpnWorker = new VpnWorker(this);
     }
 
     /*
@@ -135,6 +136,11 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
             updateVpnStatus(VpnStatus.fromCode(message.arg1));
         }
         return true;
+    }
+
+    public void notifyVpnStatus(VpnStatus status) {
+        Message statusMessage = this.handler.obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
+        this.handler.sendMessage(statusMessage);
     }
 
     private void startVpn() {
@@ -268,11 +274,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         MyHandler(Callback callback) {
             super(requireNonNull(Looper.myLooper()));
             this.callback = new WeakReference<>(callback);
-        }
-
-        void sendVpnStatusMessage(VpnStatus status) {
-            Message statusMessage = obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
-            sendMessage(statusMessage);
         }
 
         @Override

@@ -1,4 +1,4 @@
-package org.adaway.vpn;
+package org.adaway.vpn.worker;
 
 public class VpnNetworkException extends Exception {
     public VpnNetworkException(String s) {

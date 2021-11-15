@@ -9,7 +9,7 @@ import android.net.VpnService;
 import android.util.Log;
 
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.vpn.VpnNetworkException;
+import org.adaway.vpn.worker.VpnNetworkException;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;

@@ -21,7 +21,7 @@ import org.adaway.AdAwayApplication;
 import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.ListType;
 import org.adaway.model.vpn.VpnModel;
-import org.adaway.vpn.VpnNetworkException;
+import org.adaway.vpn.worker.VpnNetworkException;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
 import org.pcap4j.packet.IpV4Packet;

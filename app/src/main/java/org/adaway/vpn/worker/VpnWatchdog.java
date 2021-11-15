@@ -12,7 +12,7 @@
  * Contributions shall also be provided under any later versions of the
  * GPL.
  */
-package org.adaway.vpn;
+package org.adaway.vpn.worker;
 
 import android.util.Log;
 
