@@ -5,174 +5,167 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
+import android.net.Network;
 import android.net.VpnService;
 import android.util.Log;
 
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.vpn.worker.VpnNetworkException;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
+/**
+ * This class is in charge of mapping DNS server addresses between network DNS and fake DNS.
+ * <p>
+ * Fake DNS addresses are registered as VPN interface DNS to capture DNS traffic.
+ * Each original DNS server is directly mapped to one fake address.
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class DnsServerMapper {
-    private static final String TAG = "DnsMapper";
-
-    private final Context context;
-    private final List<InetAddress> upstreamDnsServers;
+    private static final String TAG = "DnsServerMapper";
+    /**
+     * The TEST NET addresses blocks, defined in RFC5735.
+     */
+    private static final String[] TEST_NET_ADDRESS_BLOCKS = {
+            "192.0.2.0/24", // TEST-NET-1
+            "198.51.100.0/24", // TEST-NET-2
+            "203.0.113.0/24" // TEST-NET-3
+    };
+    /**
+     * This IPv6 address prefix for documentation, defined in RFC3849.
+     */
+    private static final String IPV6_ADDRESS_PREFIX_RESERVED_FOR_DOCUMENTATION = "2001:db8::/32";
+    /**
+     * VPN network IPv6 interface prefix length.
+     */
+    private static final int IPV6_PREFIX_LENGTH = 120;
+    /**
+     * The original DNS servers.
+     */
+    private final List<InetAddress> dnsServers;
 
     /**
      * Constructor.
+     */
+    public DnsServerMapper() {
+        this.dnsServers = new ArrayList<>();
+    }
+
+    /**
+     * Configure the VPN.
+     * <p>
+     * Add interface address per IP family and fake DNS server per system DNS server.
      *
      * @param context The application context.
+     * @param builder The builder of the VPN to configure.
      */
-    public DnsServerMapper(Context context) {
-        this.context = context;
-        this.upstreamDnsServers = new ArrayList<>();
-    }
-
-    public InetAddress configure(VpnService.Builder builder) throws VpnNetworkException {
-        // Get the current DNS servers before starting the VPN
-        List<InetAddress> dnsServers = getNetworkDnsServers();
-        if (dnsServers.isEmpty()) {
-            throw new VpnNetworkException("No DNS Server");
-        }
-        Log.i(TAG, "Got DNS servers = " + dnsServers);
-
-        String ipv4Format = getIpv4Format(builder);
-        byte[] ipv6Template = hasIpV6Servers(dnsServers) ? getIpv6Format(builder) : null;
-
-        if (ipv4Format == null) {
-            Log.w(TAG, "configure: Could not find a prefix to use, directly using DNS servers");
-            builder.addAddress("192.168.50.1", 24);
-        }
-
-        // Add configured DNS servers
-        this.upstreamDnsServers.clear();
-        // TODO Custom DNS servers
-//        if (config.dnsServers.enabled) {
-//            for (Configuration.Item item : config.dnsServers.items) {
-//                if (item.state == item.STATE_ALLOW) {
-//                    try {
-//                        newDNSServer(builder, ipv4Format, ipv6Template, InetAddress.getByName(item.location));
-//                    } catch (Exception e) {
-//                        Log.e(TAG, "configure: Cannot add custom DNS server", e);
-//                    }
-//                }
-//            }
-//        }
-        // Add all knows DNS servers
-        for (InetAddress addr : dnsServers) {
-            try {
-                if (addr instanceof Inet4Address && ipv4Format != null) {
-                    addIpv4DnsServer(builder, ipv4Format, addr);
-                } else if (addr instanceof Inet6Address && ipv6Template != null) {
-                    addIpv6DnsServer(builder, ipv6Template, addr);
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "configure: Cannot add server:", e);
+    public void configureVpn(Context context, VpnService.Builder builder) {
+        // Get DNS servers
+        List<InetAddress> dnsServers = getActiveNetworkDnsServers(context);
+        // Configure tunnel network address
+        Subnet ipv4Subnet = addIpv4Address(builder);
+        Subnet ipv6Subnet = hasIpV6DnsServers(context, dnsServers) ? addIpv6Address(builder) : null;
+        // Configure DNS mapping
+        this.dnsServers.clear();
+        for (InetAddress dnsServer : dnsServers) {
+            Subnet subnetForDnsServer = dnsServer instanceof Inet4Address ? ipv4Subnet : ipv6Subnet;
+            if (subnetForDnsServer == null) {
+                continue;
+            }
+            this.dnsServers.add(dnsServer);
+            int serverIndex = this.dnsServers.size();
+            InetAddress dnsAddressAlias = subnetForDnsServer.getAddress(serverIndex);
+            Log.i(TAG, "Mapping DNS server " + dnsServer + " as " + dnsAddressAlias);
+            builder.addDnsServer(dnsAddressAlias);
+            if (dnsServer instanceof Inet4Address) {
+                builder.addRoute(dnsAddressAlias, 32);
             }
         }
+    }
 
+    public InetAddress getDefaultDnsServerAddress() {
         // Return last DNS server added
-        return this.upstreamDnsServers.get(this.upstreamDnsServers.size() - 1);
+        return this.dnsServers.get(this.dnsServers.size() - 1);
     }
 
-    InetAddress translate(InetAddress fakeDnsAddress) {
-        byte[] addr = fakeDnsAddress.getAddress();
-        int index = addr[addr.length - 1] - 2;
-
-        if (index >= this.upstreamDnsServers.size()) {
-            Log.e(TAG, "handleDnsRequest: Cannot handle packets to " + fakeDnsAddress.getHostAddress() + " - not a valid address for this network");
-            return null;
+    /**
+     * Get the original DNS server address from fake DNS server address.
+     *
+     * @param fakeDnsAddress The fake DNS address to get the original DNS server address.
+     * @return The original DNS server address, wrapped into an {@link Optional} or {@link Optional#empty()} if it does not exists.
+     */
+    Optional<InetAddress> getDnsServerFromFakeAddress(InetAddress fakeDnsAddress) {
+        byte[] address = fakeDnsAddress.getAddress();
+        int index = address[address.length - 1] - 2;
+        if (index < 0 || index >= this.dnsServers.size()) {
+            return Optional.empty();
         }
-
-        InetAddress dnsAddress = this.upstreamDnsServers.get(index);
+        InetAddress dnsAddress = this.dnsServers.get(index);
         Log.d(TAG, String.format("handleDnsRequest: Incoming packet to %s AKA %d AKA %s", fakeDnsAddress.getHostAddress(), index, dnsAddress.getHostAddress()));
-        return dnsAddress;
+        return Optional.of(dnsAddress);
     }
 
-    private List<InetAddress> getNetworkDnsServers() {
-        ConnectivityManager cm = (ConnectivityManager) this.context.getSystemService(CONNECTIVITY_SERVICE);
-        if (cm == null) {
-            return Collections.emptyList();
-        }
-        LinkProperties linkProperties = cm.getLinkProperties(cm.getActiveNetwork());
+    /**
+     * Get the DNS server addresses of the active network.
+     *
+     * @param context The application context.
+     * @return The DNS server addresses.
+     */
+    private List<InetAddress> getActiveNetworkDnsServers(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
+        Network activeNetwork = connectivityManager.getActiveNetwork();
+        LinkProperties linkProperties = connectivityManager.getLinkProperties(activeNetwork);
         if (linkProperties == null) {
-            return Collections.emptyList();
+            throw new IllegalStateException("Active network was unknown.");
         }
         return linkProperties.getDnsServers();
     }
 
-    private String getIpv4Format(VpnService.Builder builder) {
-        // Determine a prefix we can use. These are all reserved prefixes for example
-        // use, so it's possible they might be blocked.
-        for (String prefix : new String[]{"192.0.2", "198.51.100", "203.0.113"}) {
+    /**
+     * Add IPv4 network address to the VPN.
+     *
+     * @param builder The build of the VPN to configure.
+     * @return The IPv4 address of the VPN network.
+     */
+    private Subnet addIpv4Address(VpnService.Builder builder) {
+        for (String addressBlock : TEST_NET_ADDRESS_BLOCKS) {
             try {
-                builder.addAddress(prefix + ".1", 24);
+                Subnet subnet = Subnet.parse(addressBlock);
+                InetAddress address = subnet.getAddress(0);
+                builder.addAddress(address, subnet.prefixLength);
+                Log.d(TAG, "Set " + address + " as network address to tunnel interface.");
+                return subnet;
             } catch (IllegalArgumentException e) {
-                continue;
+                Log.w(TAG, "Failed to add " + addressBlock + " network address to tunnel interface.", e);
             }
-
-            return prefix + ".%d";
         }
-        return null;
+        throw new IllegalStateException("Failed to add any IPv4 address for TEST-NET to tunnel interface.");
     }
 
-    private byte[] getIpv6Format(VpnService.Builder builder) {
-        // For fancy reasons, this is the 2001:db8::/120 subnet of the /32 subnet reserved for
-        // documentation purposes. We should do this differently. Anyone have a free /120 subnet
-        // for us to use?
-        try {
-            byte[] ipv6Template = new byte[]{32, 1, 13, (byte) (184 & 0xFF), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-            InetAddress addr = Inet6Address.getByAddress(ipv6Template);
-            Log.d(TAG, "configure: Adding IPv6 address" + addr);
-            builder.addAddress(addr, 120);
-            return ipv6Template;
-        } catch (Exception e) {
-            Log.d(TAG, "Failed to add IPv6 address to the VPN interface.", e);
-            return null;
-        }
+    /**
+     * Add IPv6 network address to the VPN.
+     *
+     * @param builder The build of the VPN to configure.
+     * @return The IPv4 address of the VPN network.
+     */
+    private Subnet addIpv6Address(VpnService.Builder builder) {
+        Subnet subnet = Subnet.parse(IPV6_ADDRESS_PREFIX_RESERVED_FOR_DOCUMENTATION);
+        builder.addAddress(subnet.address, IPV6_PREFIX_LENGTH);
+        return subnet;
     }
 
-    private boolean hasIpV6Servers(Collection<InetAddress> dnsServers) {
+
+    private boolean hasIpV6DnsServers(Context context, Collection<InetAddress> dnsServers) {
         boolean hasIpv6Server = dnsServers.stream()
                 .anyMatch(server -> server instanceof Inet6Address);
         boolean hasOnlyOnServer = dnsServers.size() == 1;
-        boolean isIpv6Enabled = PreferenceHelper.getEnableIpv6(this.context);
+        boolean isIpv6Enabled = PreferenceHelper.getEnableIpv6(context);
         return (isIpv6Enabled || hasOnlyOnServer) && hasIpv6Server;
-
-        // TODO Custom DNS servers
-//        if (config.dnsServers.enabled) {
-//            for (Configuration.Item item : config.dnsServers.items) {
-//                if (item.state == Configuration.Item.STATE_ALLOW && item.location.contains(":"))
-//                    return true;
-//            }
-//        }
-    }
-
-    private void addIpv4DnsServer(android.net.VpnService.Builder builder, String format, InetAddress addr) {
-        // Optimally we'd allow either one, but the forwarder checks if upstream size is empty, so
-        // we really need to acquire both an ipv6 and an ipv4 subnet.
-        this.upstreamDnsServers.add(addr);
-        String alias = String.format(format, this.upstreamDnsServers.size() + 1);
-        Log.i(TAG, "configure: Adding DNS Server " + addr + " as " + alias);
-        builder.addDnsServer(alias);
-        builder.addRoute(alias, 32);
-    }
-
-    private void addIpv6DnsServer(android.net.VpnService.Builder builder, byte[] ipv6Template, InetAddress addr) throws UnknownHostException {
-        // Optimally we'd allow either one, but the forwarder checks if upstream size is empty, so
-        // we really need to acquire both an ipv6 and an ipv4 subnet.
-        this.upstreamDnsServers.add(addr);
-        ipv6Template[ipv6Template.length - 1] = (byte) (this.upstreamDnsServers.size() + 1);
-        InetAddress i6addr = Inet6Address.getByAddress(ipv6Template);
-        Log.i(TAG, "configure: Adding DNS Server " + addr + " as " + i6addr);
-        builder.addDnsServer(i6addr);
     }
 }

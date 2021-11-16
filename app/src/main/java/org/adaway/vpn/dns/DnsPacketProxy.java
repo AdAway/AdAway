@@ -49,6 +49,7 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Locale;
+import java.util.Optional;
 
 import timber.log.Timber;
 
@@ -165,10 +166,12 @@ public class DnsPacketProxy {
 
         InetAddress packetAddress = ipPacket.getHeader().getDstAddr();
         int packetPort = updPacket.getHeader().getDstPort().valueAsInt();
-        InetAddress dnsAddress = this.dnsServerMapper.translate(packetAddress);
-        if (dnsAddress == null) {
+        Optional<InetAddress> dnsAddressOptional = this.dnsServerMapper.getDnsServerFromFakeAddress(packetAddress);
+        if (!dnsAddressOptional.isPresent()) {
+            Log.w(TAG, "Cannot find mapped DNS for " + packetAddress.getHostAddress() + ".");
             return;
         }
+        InetAddress dnsAddress = dnsAddressOptional.get();
 
         if (udpPayload == null) {
             Log.i(TAG, "handleDnsRequest: Sending UDP packet without payload: " + updPacket);

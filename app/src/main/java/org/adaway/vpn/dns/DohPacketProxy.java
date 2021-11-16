@@ -1,17 +1,4 @@
-/*
- * Derived from dns66:
- * Copyright (C) 2016-2019 Julian Andres Klode <jak@jak-linux.org>
- *
- * Derived from AdBuster:
- * Copyright (C) 2016 Daniel Brodie <dbrodie@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, version 3.
- *
- * Contributions shall also be provided under any later versions of the
- * GPL.
- */
+
 package org.adaway.vpn.dns;
 
 import android.content.Context;
@@ -52,6 +39,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.concurrent.Executor;
 
 import okhttp3.Cache;
@@ -62,8 +50,8 @@ import okhttp3.dnsoverhttps.DnsOverHttps;
 /**
  * Creates and parses packets, and sends packets to a remote socket or the device using VpnWorker.
  */
-public class DnsPacketProxy2 {
-    private static final String TAG = "DnsPacketProxy";
+public class DohPacketProxy {
+    private static final String TAG = "DohPacketProxy";
     // Choose a value that is smaller than the time needed to unblock a host.
     private static final int NEGATIVE_CACHE_TTL_SECONDS = 5;
     private static final SOARecord NEGATIVE_CACHE_SOA_RECORD;
@@ -87,7 +75,7 @@ public class DnsPacketProxy2 {
     private VpnModel vpnModel;
     private DnsOverHttps dnsOverHttps;
 
-    public DnsPacketProxy2(EventLoop eventLoop, DnsServerMapper dnsServerMapper) {
+    public DohPacketProxy(EventLoop eventLoop, DnsServerMapper dnsServerMapper) {
         this.eventLoop = eventLoop;
         this.dnsServerMapper = dnsServerMapper;
     }
@@ -197,10 +185,12 @@ public class DnsPacketProxy2 {
 
         InetAddress packetAddress = ipPacket.getHeader().getDstAddr();
         int packetPort = updPacket.getHeader().getDstPort().valueAsInt();
-        InetAddress dnsAddress = this.dnsServerMapper.translate(packetAddress);
-        if (dnsAddress == null) {
+        Optional<InetAddress> dnsAddressOptional = this.dnsServerMapper.getDnsServerFromFakeAddress(packetAddress);
+        if (!dnsAddressOptional.isPresent()) {
+            Log.w(TAG, "Cannot find mapped DNS for " + packetAddress.getHostAddress() + ".");
             return;
         }
+        InetAddress dnsAddress = dnsAddressOptional.get();
 
         if (udpPayload == null) {
             Log.i(TAG, "handleDnsRequest: Sending UDP packet without payload: " + updPacket);
