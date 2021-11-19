@@ -1,6 +1,7 @@
 package org.adaway.vpn.dns;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
+import static java.util.Collections.emptyList;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -14,6 +15,7 @@ import org.adaway.helper.PreferenceHelper;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -90,6 +92,13 @@ public class DnsServerMapper {
     }
 
     public InetAddress getDefaultDnsServerAddress() {
+        if (this.dnsServers.isEmpty()) {
+            try {
+                return InetAddress.getByName("1.1.1.1");
+            } catch (UnknownHostException e) {
+                throw new IllegalStateException("Failed to parse hardcoded DNS IP address.", e);
+            }
+        }
         // Return last DNS server added
         return this.dnsServers.get(this.dnsServers.size() - 1);
     }
@@ -115,14 +124,14 @@ public class DnsServerMapper {
      * Get the DNS server addresses of the active network.
      *
      * @param context The application context.
-     * @return The DNS server addresses.
+     * @return The DNS server addresses, an empty collection if no active network.
      */
     private List<InetAddress> getActiveNetworkDnsServers(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
         Network activeNetwork = connectivityManager.getActiveNetwork();
         LinkProperties linkProperties = connectivityManager.getLinkProperties(activeNetwork);
         if (linkProperties == null) {
-            throw new IllegalStateException("Active network was unknown.");
+            return emptyList();
         }
         return linkProperties.getDnsServers();
     }
