@@ -40,7 +40,6 @@ import android.net.ConnectivityManager;
 import android.net.ConnectivityManager.NetworkCallback;
 import android.net.Network;
 import android.net.NetworkCapabilities;
-import android.net.NetworkRequest;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -166,6 +165,16 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         Log.i(TAG, "VPN service stopped.");
     }
 
+    private void waitForNetVpn() {
+        this.vpnWorker.stop();
+        updateVpnStatus(WAITING_FOR_NETWORK);
+    }
+
+    private void reconnect() {
+        updateVpnStatus(RECONNECTING);
+        this.vpnWorker.start();
+    }
+
     private void updateVpnStatus(VpnStatus status) {
         Notification notification = getNotification(status);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
@@ -225,16 +234,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 break;
         }
         return builder.build();
-    }
-
-    private void waitForNetVpn() {
-        this.vpnWorker.stop();
-        updateVpnStatus(WAITING_FOR_NETWORK);
-    }
-
-    private void reconnect() {
-        updateVpnStatus(RECONNECTING);
-        this.vpnWorker.start();
     }
 
     private void registerNetworkCallback() {

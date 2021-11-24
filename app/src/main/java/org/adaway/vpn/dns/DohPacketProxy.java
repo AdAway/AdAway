@@ -9,7 +9,6 @@ import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.ListType;
 import org.adaway.model.vpn.VpnModel;
 import org.adaway.util.AppExecutors;
-import org.adaway.vpn.worker.VpnNetworkException;
 import org.adaway.vpn.dns.DnsPacketProxy.EventLoop;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
@@ -156,9 +155,9 @@ public class DohPacketProxy {
      * Handles a DNS request, by either blocking it or forwarding it to the remote location.
      *
      * @param packetData The packet data to read
-     * @throws VpnNetworkException If some network error occurred
+     * @throws IOException If some network error occurred
      */
-    public void handleDnsRequest(byte[] packetData) throws VpnNetworkException {
+    public void handleDnsRequest(byte[] packetData) throws IOException {
         IpPacket ipPacket;
         try {
             ipPacket = (IpPacket) IpSelector.newPacket(packetData, 0, packetData.length);

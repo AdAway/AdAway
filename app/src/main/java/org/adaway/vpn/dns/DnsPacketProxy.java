@@ -21,7 +21,6 @@ import org.adaway.AdAwayApplication;
 import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.ListType;
 import org.adaway.model.vpn.VpnModel;
-import org.adaway.vpn.worker.VpnNetworkException;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
 import org.pcap4j.packet.IpV4Packet;
@@ -137,9 +136,9 @@ public class DnsPacketProxy {
      * Handles a DNS request, by either blocking it or forwarding it to the remote location.
      *
      * @param packetData The packet data to read
-     * @throws VpnNetworkException If some network error occurred
+     * @throws IOException If some network error occurred
      */
-    public void handleDnsRequest(byte[] packetData) throws VpnNetworkException {
+    public void handleDnsRequest(byte[] packetData) throws IOException {
         IpPacket ipPacket;
         try {
             ipPacket = (IpPacket) IpSelector.newPacket(packetData, 0, packetData.length);
@@ -261,7 +260,7 @@ public class DnsPacketProxy {
          *                      call {@link #handleDnsResponse(IpPacket, byte[])} for the data
          *                      of the response, with this packet as the first argument.
          */
-        void forwardPacket(DatagramPacket packet, IpPacket requestPacket) throws VpnNetworkException;
+        void forwardPacket(DatagramPacket packet, IpPacket requestPacket) throws IOException;
 
         /**
          * Write an IP packet to the local TUN device

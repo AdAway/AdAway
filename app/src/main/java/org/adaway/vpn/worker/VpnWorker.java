@@ -35,10 +35,10 @@ import androidx.annotation.Nullable;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.vpn.VpnService;
 import org.adaway.vpn.dns.DnsPacketProxy;
-import org.adaway.vpn.dns.DohPacketProxy;
 import org.adaway.vpn.dns.DnsQuery;
 import org.adaway.vpn.dns.DnsQueryQueue;
 import org.adaway.vpn.dns.DnsServerMapper;
+import org.adaway.vpn.dns.DohPacketProxy;
 import org.pcap4j.packet.IpPacket;
 
 import java.io.Closeable;
@@ -57,16 +57,14 @@ import timber.log.Timber;
 
 // TODO Write document
 // TODO It is thread safe
+// TODO Rework status notification
+// TODO Improve exception handling in work()
 public class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final String TAG = "VpnWorker";
     /**
      * Maximum packet size is constrained by the MTU, which is given as a signed short.
      */
     private static final int MAX_PACKET_SIZE = Short.MAX_VALUE;
-    private static final int MIN_RETRY_TIME = 5;
-    private static final int MAX_RETRY_TIME = 2 * 60;
-    /* If we had a successful connection for that long, reset retry timeout */
-    private static final long RETRY_RESET_SEC = 60;
 
     /**
      * The VPN service, also used as {@link android.content.Context}.
@@ -84,6 +82,11 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     private final DnsServerMapper dnsServerMapper;
     // The object where we actually handle packets.
     private final DohPacketProxy dnsPacketProxy;
+
+    // TODO Comment
+    private final VpnConnexionThrottler connexionThrottler;
+
+
     // Watch dog that checks our connection is alive.
     private final VpnWatchdog vpnWatchDog;
 
@@ -107,6 +110,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         this.dnsQueryQueue = new DnsQueryQueue();
         this.dnsServerMapper = new DnsServerMapper();
         this.dnsPacketProxy = new DohPacketProxy(this, this.dnsServerMapper);
+        this.connexionThrottler = new VpnConnexionThrottler();
         this.vpnWatchDog = new VpnWatchdog();
         this.thread = new AtomicReference<>(null);
         this.vpnNetworkInterface = new AtomicReference<>(null);
@@ -169,51 +173,25 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         this.dnsPacketProxy.initialize(this.vpnService);
         // Initialize the watchdog
         this.vpnWatchDog.initialize(PreferenceHelper.getVpnWatchdogEnabled(this.vpnService));
-
-        this.vpnService.notifyVpnStatus(STARTING);
-
-        int retryTimeout = MIN_RETRY_TIME;
         // Try connecting the vpn continuously
         while (true) {
-            long connectTimeMillis = 0;
             try {
-                connectTimeMillis = System.currentTimeMillis();
-                // If the function returns, that means it was interrupted
+                this.connexionThrottler.throttle();
+                this.vpnService.notifyVpnStatus(STARTING);
                 runVpn();
-
                 Log.i(TAG, "Told to stop");
                 this.vpnService.notifyVpnStatus(STOPPING);
                 break;
-            } catch (VpnNetworkException e) {
-                // We want to filter out VpnNetworkException from out crash analytics as these
-                // are exceptions that we expect to happen from network errors
-                Log.w(TAG, "Network exception in vpn thread, ignoring and reconnecting", e);
-                // If an exception was thrown, show to the user and try again
-                this.vpnService.notifyVpnStatus(RECONNECTING_NETWORK_ERROR);
-            } catch (Exception e) {
-                Log.e(TAG, "Network exception in vpn thread, reconnecting", e);
-                //ExceptionHandler.saveException(e, Thread.currentThread(), null);
-                this.vpnService.notifyVpnStatus(RECONNECTING_NETWORK_ERROR);
-            }
-
-            if (System.currentTimeMillis() - connectTimeMillis >= RETRY_RESET_SEC * 1000) {
-                Log.i(TAG, "Resetting timeout");
-                retryTimeout = MIN_RETRY_TIME;
-            }
-
-            // ...wait and try again
-            Log.i(TAG, "Retrying to connect in " + retryTimeout + "seconds...");
-            try {
-                Thread.sleep((long) retryTimeout * 1000);
             } catch (InterruptedException e) {
+                Log.d(TAG, "Failed to wait for connexion throttling.", e);
                 Thread.currentThread().interrupt();
                 break;
+            } catch (VpnNetworkException | IOException e) {
+                Log.w(TAG, "Network exception in vpn thread, reconnecting", e);
+                // If an exception was thrown, show to the user and try again
+                this.vpnService.notifyVpnStatus(RECONNECTING_NETWORK_ERROR);
             }
-
-            if (retryTimeout < MAX_RETRY_TIME)
-                retryTimeout *= 2;
         }
-
         this.vpnService.notifyVpnStatus(STOPPED);
         Log.d(TAG, "Exiting work.");
     }
@@ -329,26 +307,22 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         }
     }
 
-    private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws VpnNetworkException {
+    private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws IOException {
         Log.d(TAG, "Read a packet from device.");
-        try {
-            // Read the outgoing packet from the input stream.
-            int length = inputStream.read(packet);
-            if (length == 0) {
-                // TODO: Possibly change to exception
-                Log.w(TAG, "Got empty packet!");
-                return;
-            }
-            final byte[] readPacket = Arrays.copyOfRange(packet, 0, length);
-
-            vpnWatchDog.handlePacket(readPacket);
-            dnsPacketProxy.handleDnsRequest(readPacket);
-        } catch (IOException e) {
-            throw new VpnNetworkException("Cannot read from device", e);
+        // Read the outgoing packet from the input stream.
+        int length = inputStream.read(packet);
+        if (length == 0) {
+            // TODO: Possibly change to exception
+            Log.w(TAG, "Got empty packet!");
+            return;
         }
+        final byte[] readPacket = Arrays.copyOfRange(packet, 0, length);
+
+        vpnWatchDog.handlePacket(readPacket);
+        dnsPacketProxy.handleDnsRequest(readPacket);
     }
 
-    public void forwardPacket(DatagramPacket outPacket, IpPacket parsedPacket) throws VpnNetworkException {
+    public void forwardPacket(DatagramPacket outPacket, IpPacket parsedPacket) throws IOException {
         DatagramSocket dnsSocket = null;
         try {
             // Packets to be sent to the real DNS server will need to be protected from the VPN
@@ -367,7 +341,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             if (e.getCause() instanceof ErrnoException) {
                 ErrnoException errnoExc = (ErrnoException) e.getCause();
                 if ((errnoExc.errno == OsConstants.ENETUNREACH) || (errnoExc.errno == OsConstants.EPERM)) {
-                    throw new VpnNetworkException("Cannot send message:", e);
+                    throw new IOException("Cannot send message:", e);
                 }
             }
             Log.w(TAG, "handleDnsRequest: Could not send packet to upstream", e);
