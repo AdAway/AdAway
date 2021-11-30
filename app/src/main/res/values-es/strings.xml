@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aquí se puedes encontrar adware instalado, aplicaciones defectuosas que no pueden ser bloqueados por AdAway. Estas aplicaciones utilizan, por ejemplo, notificaciones Airpush que aparecen incluso cuando la aplicación no se está funcionando o incluso cambiar el tono de llamada. La única contramedida disponible es desinstalar esas aplicaciones haciendo clic en los elementos de la lista.</string>
-    <string name="adware_scanning">Escaneando…</string>
+    <string name="adware_scanning">Escaneando...</string>
     <string name="adware_empty">¡No se ha encontrado Adware!</string>
 
     <!--Other-->
