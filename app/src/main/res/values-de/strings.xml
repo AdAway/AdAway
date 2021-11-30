@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Beenden</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">VPN-Konfiguration erfolgreich aktualisiert</string>
     <string name="notification_configuration_changed">Ihre Konfiguration hat sich geändert. Zum Anwenden \'übernehmen\' betätigen.</string>
     <string name="notification_configuration_changed_action">Übernehmen</string>
-    <string name="notification_configuration_installing">Neue Konfiguration wird übernommen ...</string>
+    <string name="notification_configuration_installing">Neue Konfiguration wird übernommen …</string>
     <string name="notification_configuration_failed">Anwendung der neuen Konfiguration ist fehlgeschlagen.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Hier sind schlechte Werbesoftware Anwendungen aufgelistet, die nicht von AdAway blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen die selbst dann erscheinen, wenn die App gar nicht läuft oder es wird sogar Ihr Klingelton umgestellt. Die einzige Gegenmaßnahme ist solche Apps zu deinstalieren, indem Sie auf die Listeneinträge klicken.</string>
-    <string name="adware_scanning">Durchsuchen &#8230;</string>
+    <string name="adware_scanning">Durchsuchen …</string>
     <string name="adware_empty">Keine Adware gefunden!</string>
 
     <!--Other-->

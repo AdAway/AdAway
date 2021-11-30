@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Surt</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Configuració de la VPN actualitzada correctament </string>
     <string name="notification_configuration_changed">Ha canviat la configuració. Heu d\'aplicar els canvis.</string>
     <string name="notification_configuration_changed_action">Aplica</string>
-    <string name="notification_configuration_installing">Aplicant nova configuració...</string>
+    <string name="notification_configuration_installing">Aplicant nova configuració…</string>
     <string name="notification_configuration_failed">Error al aplicar la nova configuració </string>
 
     <!--Apply and Revert Dialogs-->
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aquí podeu trobar aplicacions Adware malignes que no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, entre altres, notificacions Airpush que poden apareixer inclús quan l\'aplicació no està funcionant o poden inclús canviar el vostre to de trucada. La única defensa possible és desinstalar-les clicant en la llista de elements</string>
-    <string name="adware_scanning">Escanejant&#8230;</string>
+    <string name="adware_scanning">Escanejant…</string>
     <string name="adware_empty">No s\'ha trobat Adware! </string>
 
     <!--Other-->

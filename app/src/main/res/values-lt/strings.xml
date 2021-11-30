@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Išeiti</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware Reklamų virusas</string>
     <string name="adware_description">Čia jūs galite rasti blogas programas kurios negali būti užblokuotos AdAway programoje. Šios programos naudoja Airpush pranėšimus, kurie iššoka net jei ir programa išjungta, gali net pakeisti skambučio toną. Vienintelis būdas to išvengti - Ištrinti šias programas paspaudžiant ant programų sarašo.</string>
-    <string name="adware_scanning">Skanuojama&#8230;</string>
+    <string name="adware_scanning">Skanuojama…</string>
     <string name="adware_empty">Nerasta Adware Reklamų virusų.</string>
 
     <!--Other-->

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Sair</string>
@@ -38,17 +38,17 @@
     <string name="checkbox_list_context_delete">Excluir</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importando...</string>
+    <string name="import_dialog">Importando…</string>
     <string name="import_success">Backup importado com sucesso do seu armazenamento externo.</string>
     <string name="import_failed">Falha ao importar backup. Seu formato está correto? Verifique o logcat para mais detalhes.</string>
-    <string name="export_dialog">Exportando...</string>
+    <string name="export_dialog">Exportando…</string>
     <string name="export_success"> Backup exportado com sucesso para o arquivo \'%s\' em seu armazenamento externo.</string>
     <string name="export_failed">Falha ao exportar arquivo de backup \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">O arquivo de hosts</string>
     <string name="hosts_description">O arquivo hosts é um arquivo de sistema que mapeia nomes de host para endereços IP. É um arquivo de texto simples cuja configuração é gerenciada pela AdAway. Aqui estão suas poucas primeiras linhas:</string>
-    <string name="hosts_content">Carregando o conteúdo do arquivo hosts...</string>
+    <string name="hosts_content">Carregando o conteúdo do arquivo hosts…</string>
     <string name="hosts_open_button">Abrir arquivo hosts</string>
 
     <!--Status Notification-->
@@ -113,8 +113,8 @@
     <string name="apply_apn_proxy_title">APN proxy definida!</string>
     <string name="no_connection">A conexão à Internet não está funcionando.</string>
     <string name="no_connection_title">Sem Conexão</string>
-    <string name="download_dialog">Baixando...</string>
-    <string name="apply_dialog">Aplicando...</string>
+    <string name="download_dialog">Baixando…</string>
+    <string name="apply_dialog">Aplicando…</string>
     <string name="apply_dialog_lists">Aplicando Lista Negra e Lista Branca</string>
     <string name="apply_dialog_hostnames">Analisando e mesclando arquivos hosts</string>
     <string name="apply_dialog_hosts">Compilando arquivo hosts</string>
@@ -151,7 +151,7 @@
     <string name="no_ip">Este não é um IP válido!</string>
     <string name="no_ip_title">IP incorretamente formatado</string>
     <string name="reboot_never_reboot">Nunca reinicie e não mostre esta pergunta na próxima vez!</string>
-    <string name="loading">Carregando...</string>
+    <string name="loading">Carregando…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Atualizar</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aqui você pode encontrar adwares instalados, aplicativos ruins que não podem ser bloqueados pelo AdAway. Esses aplicativos usam, por exemplo, notificações do Airpush que aparecem mesmo quando o aplicativo não está em execução ou até mesmo mudam seu toque. A única contramedida disponível é desinstalar esses aplicativos clicando nos itens da lista.</string>
-    <string name="adware_scanning">Escaneando&#8230;</string>
+    <string name="adware_scanning">Escaneando…</string>
     <string name="adware_empty">Nenhum Adware foi encontrado!</string>
 
     <!--Other-->

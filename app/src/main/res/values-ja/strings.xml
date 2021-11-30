@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">終了</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">アドウェア</string>
     <string name="adware_description">ここではAdAway によってブロックできない、インストール済みの有害アプリ (アドウェア) を一覧化しています。 これらのアプリは例えば、プッシュ通知を使用してアプリが実行されていないときにもポップアップしたり、着信音を無断で変更したりします。 対策はリスト項目をタップして、アプリをアンインストールすることだけです。</string>
-    <string name="adware_scanning">スキャン中&#8230;</string>
+    <string name="adware_scanning">スキャン中…</string>
     <string name="adware_empty">アドウェアは検出されませんでした！</string>
 
     <!--Other-->

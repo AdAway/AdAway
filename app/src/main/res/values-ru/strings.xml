@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Выход</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Конфигурация VPN успешно обновлена</string>
     <string name="notification_configuration_changed">Конфигурация изменена. Вам нужно применить её.</string>
     <string name="notification_configuration_changed_action">Применить</string>
-    <string name="notification_configuration_installing">Применение новой конфигурации...</string>
+    <string name="notification_configuration_installing">Применение новой конфигурации…</string>
     <string name="notification_configuration_failed">Не удалось применить новую конфигурацию.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -188,7 +188,7 @@
     <!--Adware-->
     <string name="adware_header">Приложения с рекламой</string>
     <string name="adware_description">Поиск приложений с рекламой, называемые Adware, и которые AdAway не может заблокировать. Эти приложения используют, например, систему уведомлений Airpush, которая показывает рекламу даже тогда, когда приложение не работает, или даже может изменить мелодию вашего звонка. Избавиться от такой рекламы можно только удалив приложения, указанные в результатах сканирования, путём нажатия на элементы списка.</string>
-    <string name="adware_scanning">Сканирование&#8230;</string>
+    <string name="adware_scanning">Сканирование…</string>
     <string name="adware_empty">Приложения с рекламой не найдены!</string>
 
     <!--Other-->

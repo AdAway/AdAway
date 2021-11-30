@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Kilépés</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">VPN konfiguráció sikeresen frissítve</string>
     <string name="notification_configuration_changed">A konfiguráció megváltozott. Alkalmaznod kell.</string>
     <string name="notification_configuration_changed_action">Alkalmaz</string>
-    <string name="notification_configuration_installing">Új konfiguráció alkalmazása...</string>
+    <string name="notification_configuration_installing">Új konfiguráció alkalmazása…</string>
     <string name="notification_configuration_failed">Nem sikerült alkalmazni az új konfigurációt.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -170,7 +170,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Itt megtalálhatja a telepített adware-eket, a rossz alkalmazásokat, amelyeket az AdAway nem blokkolhat. Ezek az alkalmazások például Airpush értesítéseket használnak, amelyek akkor is megjelennek, ha az alkalmazás nem fut, vagy akár csengőhangot is megváltoztathatnak. Az egyetlen használható megoldás az, hogy ezeket az alkalmazásokat a listaelemekre kattintva eltávolítja.</string>
-    <string name="adware_scanning">Vizsgálat&#8230;</string>
+    <string name="adware_scanning">Vizsgálat…</string>
     <string name="adware_empty">Nem található adware!</string>
 
     <!--Other-->

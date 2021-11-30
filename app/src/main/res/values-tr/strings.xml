@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Çıkış</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">AdAway tarafından engellenemeyen, adware yüklü kötü uygulamaları burada bulabilirsiniz. Bu uygulamalar, örneğin uygulama çalışmıyorken bile ortaya çıkan Airpush bildirimlerini kullanır ve hatta zil sesini değiştirir. Kullanılabilir tek önlem, listedeki öğeleri tıklatarak bu uygulamaları kaldırmaktır.</string>
-    <string name="adware_scanning">Taranıyor&#8230;</string>
+    <string name="adware_scanning">Taranıyor…</string>
     <string name="adware_empty">Adware bulunamadı!</string>
 
     <!--Other-->

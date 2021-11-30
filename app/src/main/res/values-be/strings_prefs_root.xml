@@ -29,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Ручная ўсталёўка сертыфіката</string>
     <string name="pref_webserver_certificate_dialog_content">Пачынаючы з Android 11 (R), праграма больш не можа аўтаматычна ўсталёўваць цэнтр сертыфікацыі (CA).\n\nПерайдзіце ў налады «Бяспека», «Шыфраванне і ўліковыя даныя», затым «Усталяваць сертыфікат». Адтуль выберыце «Сертыфікат ЦС» і абярыце новы экспартаваны файл сертыфіката.</string>
     <string name="pref_webserver_certificate_dialog_action">Адкрыйце налады «Бяспека».</string>
-    <string name="pref_webserver_state_checking">Праверка...</string>
+    <string name="pref_webserver_state_checking">Праверка…</string>
     <string name="pref_webserver_state_not_running">Не запушчана</string>
     <string name="pref_webserver_state_running_not_installed">Запушчаны, але сертыфікат не ўсталяваны</string>
     <string name="pref_webserver_state_running_and_installed">Запушчаны, сертыфікат усталяваны</string>

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">יציאה</string>
@@ -170,7 +170,7 @@
     <!--Adware-->
     <string name="adware_header">תוכנת פירסום</string>
     <string name="adware_description">כאן תוכלו למצוא תוכנות פרסום מותקנות ויישומים שלא ניתן לחסום בהם על־ידי AdAway. אפליקציות אלה משתמשות למשל בהתראות דחיפה שצצות גם כאשר האפליקציה אינה פועלת וביכולתן אפילו לשנות את הצלצול שלכם. אמצעי הנגד היחידי הזמין הוא הסרת התקנה של יישומים אלה על־ידי לחיצה על רשימת הפריטים הללו.</string>
-    <string name="adware_scanning">סורק&#8230;</string>
+    <string name="adware_scanning">סורק…</string>
     <string name="adware_empty">לא נמצאו תוכנות פרסום!</string>
 
     <!--Other-->
