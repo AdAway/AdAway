@@ -38,7 +38,6 @@ import org.adaway.vpn.dns.DnsPacketProxy;
 import org.adaway.vpn.dns.DnsQuery;
 import org.adaway.vpn.dns.DnsQueryQueue;
 import org.adaway.vpn.dns.DnsServerMapper;
-import org.adaway.vpn.dns.DohPacketProxy;
 import org.pcap4j.packet.IpPacket;
 
 import java.io.Closeable;
@@ -51,6 +50,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
 import timber.log.Timber;
@@ -81,19 +82,19 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     // The mapping between fake and real dns addresses
     private final DnsServerMapper dnsServerMapper;
     // The object where we actually handle packets.
-    private final DohPacketProxy dnsPacketProxy;
+    private final DnsPacketProxy dnsPacketProxy;
 
     // TODO Comment
-    private final VpnConnexionThrottler connexionThrottler;
-
+    private final VpnConnectionThrottler connectionThrottler;
+    private final VpnConnectionMonitor connectionMonitor;
 
     // Watch dog that checks our connection is alive.
     private final VpnWatchdog vpnWatchDog;
 
     /**
-     * The VPN worker thread reference, (<code>null</code> if not running).
+     * The VPN worker executor (<code>null</code> if not started).
      */
-    private final AtomicReference<Thread> thread;
+    private final AtomicReference<ExecutorService> executor;
     /**
      * The VPN network interface, (<code>null</code> if not established).
      */
@@ -109,10 +110,11 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         this.deviceWrites = new LinkedList<>();
         this.dnsQueryQueue = new DnsQueryQueue();
         this.dnsServerMapper = new DnsServerMapper();
-        this.dnsPacketProxy = new DohPacketProxy(this, this.dnsServerMapper);
-        this.connexionThrottler = new VpnConnexionThrottler();
+        this.dnsPacketProxy = new DnsPacketProxy(this, this.dnsServerMapper);
+        this.connectionThrottler = new VpnConnectionThrottler();
+        this.connectionMonitor = new VpnConnectionMonitor(this.vpnService);
         this.vpnWatchDog = new VpnWatchdog();
-        this.thread = new AtomicReference<>(null);
+        this.executor = new AtomicReference<>(null);
         this.vpnNetworkInterface = new AtomicReference<>(null);
     }
 
@@ -122,9 +124,10 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
      */
     public void start() {
         Log.d(TAG, "Starting VPN thread…");
-        Thread workerThread = new Thread(this::work, "VpnWorker");
-        setWorkerThread(workerThread);
-        workerThread.start();
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+        executor.submit(this::work);
+        executor.submit(this.connectionMonitor::monitor);
+        setExecutor(executor);
         Log.i(TAG, "VPN thread started.");
     }
 
@@ -133,23 +136,24 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
      */
     public void stop() {
         Log.d(TAG, "Stopping VPN thread.");
-        setWorkerThread(null);
+        this.connectionMonitor.reset();
         forceCloseTunnel();
+        setExecutor(null);
         Log.i(TAG, "VPN thread stopped.");
     }
 
     /**
-     * Keep track of the worker thread.<br>
-     * Interrupt the previous one if exists.
+     * Keep track of the worker executor.<br>
+     * Shut the previous one down in exists.
      *
-     * @param workerThread The new worker thread, <code>null</code> if no worker thread any more.
+     * @param executor The new worker executor, <code>null</code> if no executor any more.
      */
-    private void setWorkerThread(@Nullable Thread workerThread) {
-        Thread oldWorkerThread = this.thread.getAndSet(workerThread);
-        if (oldWorkerThread != null) {
-            Log.d(TAG, "Interrupting VPN thread…");
-            oldWorkerThread.interrupt();
-            Log.d(TAG, "VPN thread interrupted.");
+    private void setExecutor(ExecutorService executor) {
+        ExecutorService oldExecutor = this.executor.getAndSet(executor);
+        if (oldExecutor != null) {
+            Log.d(TAG, "Shutting down VPN executor…");
+            oldExecutor.shutdownNow();
+            Log.d(TAG, "VPN executor shutdown.");
         }
     }
 
@@ -176,7 +180,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         // Try connecting the vpn continuously
         while (true) {
             try {
-                this.connexionThrottler.throttle();
+                this.connectionThrottler.throttle();
                 this.vpnService.notifyVpnStatus(STARTING);
                 runVpn();
                 Log.i(TAG, "Told to stop");
@@ -207,6 +211,8 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
              FileOutputStream outputStream = new FileOutputStream(pfd.getFileDescriptor())) {
             // Store reference to network interface to close it externally on demand
             this.vpnNetworkInterface.set(pfd);
+            // Initialize connection monitor
+            this.connectionMonitor.initialize();
 
             // Update address to ping with default DNS server
             this.vpnWatchDog.setTarget(this.dnsServerMapper.getDefaultDnsServerAddress());
