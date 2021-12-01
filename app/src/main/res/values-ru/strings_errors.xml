@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Не хватает места</string>
     <string name="error_not_enough_space_details">Невозможно скопировать файл hosts в системный раздел. Убедитесь, что бессистемный модуль Magisk включен, затем перезагрузите смартфон.</string>
     <string name="error_copy_failed_message">Не удалось установить новый файл hosts</string>
-    <string name="error_copy_failed_details">Невозможно скопировать файл hosts в раздел /system. Пожалуйста, проверьте, включен ли бессистемный модуль Magisk после перезагрузки.</string>
+    <string name="error_copy_failed_details">Не удалось скопировать файл hosts в раздел /system. Пожалуйста, проверьте включен ли бессистемный модуль Magisk, а затем перезагрузитесь.</string>
     <string name="error_revert_failed_message">Не удалось восстановить файл hosts</string>
     <string name="error_revert_failed_details">Невозможно восстановить конфигурацию файла host по умолчанию.</string>
     <!-- VPN model error -->
