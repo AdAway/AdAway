@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
-    <string name="button_exit">יציאה</string>
-    <string name="button_close">סגירה</string>
-    <string name="button_yes">כן</string>
-    <string name="button_no">לא</string>
-    <string name="button_add">הוספה</string>
-    <string name="button_cancel">ביטול</string>
-    <string name="button_save">שמירה</string>
-    <string name="button_help">עזרה</string>
+    <string name="button_exit">Exit</string>
+    <string name="button_close">Close</string>
+    <string name="button_yes">Yes</string>
+    <string name="button_no">No</string>
+    <string name="button_add">Add</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="button_help">Help</string>
 
     <!--Home-->
-    <string name="header_help">ברוכים הבאים</string>
+    <string name="header_help">Welcome!</string>
     <string name="text_help">AdAway is a free and open-source software design to block advertising. It fetches advertising network addresses to block them on your device.\nWant to know more? Check the help below!</string>
     <string name="button_show_help">Show more help</string>
     <string name="icon_update_status">Update status</string>
