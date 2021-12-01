@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Qui puoi troverai l\'adware installato, applicazioni malevole che non possono essere bloccate da AdAway. Queste applicazioni utilizzano, ad esempio, notifiche Airpush che appaiono anche quando l\'app non è in esecuzione o che modificano la tua suoneria. L\'unica contromisura disponibile è quella di disinstallare queste applicazioni cliccando sugli elementi dell\'elenco</string>
-    <string name="adware_scanning">Scansione in corso…</string>
+    <string name="adware_scanning">Scansione in corso...</string>
     <string name="adware_empty">Nessun Adware trovato!</string>
 
     <!--Other-->
@@ -254,6 +254,6 @@ Vuoi installare OI File Manager?</string>
     <string name="permission_group_api_label">Permessi di AdAway</string>
     <string name="permission_group_api_description">Permetti di interagire con AdAway</string>
     <string name="permission_send_command_label">Manda comandi a AdAway</string>
-    <string name="permission_send_command_description">Permetti l\'invio di comandi a AdAway come attivare o disattivare il blocco pubblicità</string>
+    <string name="permission_send_command_description">Permetti l\'invio di comandi a AdAway come attivare o disattivare il blocco pubblicità a livello di sistema</string>
 
 </resources>
