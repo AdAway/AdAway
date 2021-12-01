@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
-    <string name="button_exit">Выход</string>
+    <string name="button_exit">Выйти</string>
     <string name="button_close">Закрыть</string>
     <string name="button_yes">Да</string>
     <string name="button_no">Нет</string>
@@ -21,7 +21,7 @@
     <string name="header_webserver">Веб-сервер</string>
     <string name="webserver_status_running">Работает</string>
     <string name="webserver_status_stopped">Остановлено</string>
-    <string name="webserver_toggle_text">Запуск или остановка веб-сервера в локальной системе для ответов на запросы заблокированных хостов.</string>
+    <string name="webserver_toggle_text">Запуск или остановка веб-сервера в локальной системе для ответов на запросы на заблокированные хосты.</string>
     <string name="button_enable_webserver">Включить веб-сервер</string>
     <string name="button_disable_webserver">Отключить веб-сервер</string>
     <string name="header_vpn">VPN</string>
@@ -40,14 +40,14 @@
     <!--Your lists-->
     <string name="import_dialog">Импорт…</string>
     <string name="import_success">Резервная копия успешно импортирована из вашего внешнего хранилища.</string>
-    <string name="import_failed">Не удалось импортировать резервную копию. Возможно её формат не верен? Проверьте logcat для подробностей.</string>
+    <string name="import_failed">Не удалось импортировать резервную копию. Возможно, её формат не верен? Проверьте logcat для подробностей.</string>
     <string name="export_dialog">Экспорт…</string>
-    <string name="export_success">Резервная копия успешно экспортирована в файл \'%s\' в внешнее хранилище.</string>
+    <string name="export_success">Резервная копия успешно экспортирована в файл \'%s\' в вашем внешнем хранилище.</string>
     <string name="export_failed">Не удалось экспортировать файл резервной копии \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файл hosts</string>
-    <string name="hosts_description">Файл hosts — это системный файл, сопоставляющий имена узлов с IP-адресами. Это обычный текстовый файл, содержимое которого обрабатывает AdAway. Вот его первые строки:</string>
+    <string name="hosts_description">Файл hosts — это системный файл, сопоставляющий имена узлов с IP-адресами. Это обычный текстовый файл, содержимое которого обрабатывается в AdAway. Вот несколько его первых строк:</string>
     <string name="hosts_content">Загружается содержимое файла hosts…</string>
     <string name="hosts_open_button">Открыть файл hosts</string>
 
@@ -56,7 +56,7 @@
     <string name="status_check_source">Проверяем %s на наличие обновлений</string>
     <string name="status_retrieve">Получение источников</string>
     <string name="status_download_source">Загрузка источника %s</string>
-    <string name="status_read_source">Проверяем источник %s</string>
+    <string name="status_read_source">Чтение источник %s</string>
     <string name="status_parse_source">Обработка источника %s</string>
     <string name="status_sync_database">Синхронизация правил базы данных</string>
     <string name="status_revert">Восстановление стандартного файла hosts</string>
@@ -67,7 +67,7 @@
     <string name="status_no_update_found">Обновления источников не найдены</string>
     <string name="status_no_connection">Нет соединения с интернетом</string>
     <string name="status_no_connection_subtitle">Нет доступного подключения к интернету</string>
-    <string name="status_download_fail">Недоступный источник</string>
+    <string name="status_download_fail">Недоступные источники</string>
     <string name="status_download_fail_subtitle_new">Нет доступных источников хостов!</string>
     <string name="status_root_access_denied">Доступ root был отклонён</string>
     <string name="status_root_access_denied_subtitle">Разрешите root-доступ из вашего приложения для root</string>
@@ -85,14 +85,14 @@
     <string name="status_vpn_configuration_updated">Конфигурация VPN успешно обновлена</string>
     <string name="notification_configuration_changed">Конфигурация изменена. Вам нужно применить её.</string>
     <string name="notification_configuration_changed_action">Применить</string>
-    <string name="notification_configuration_installing">Применение новой конфигурации…</string>
+    <string name="notification_configuration_installing">Применение новой конфигурации...</string>
     <string name="notification_configuration_failed">Не удалось применить новую конфигурацию.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Символическая ссылка на целевой файл hosts отсутствует</string>
     <string name="apply_symlink_missing">Символическая ссылка на ваш /system/etc/hosts не существует или неверна! AdAway не будет работать, если не указать правильный файл.\n\nВы хотите попробовать создать символическую ссылку?</string>
     <string name="apply_symlink_missing_title">Символическая ссылка отсутствует</string>
-    <string name="apply_not_enough_space">Не хватает места на дисковом разделе!\nПопробуйте заменить путь к файлу в настройках на /data/data/hosts.</string>
+    <string name="apply_not_enough_space">Не хватает места на дисковом разделе!\nПопробуйте заменить путь к файлу hosts в настройках на /data/data/hosts.</string>
     <string name="apply_not_enough_space_title">Не хватает места</string>
     <string name="apply_private_file_fail">Загруженный файл не может быть прочитан.</string>
     <string name="apply_private_file_fail_title">Сбой личного файла</string>
@@ -281,6 +281,6 @@
     <string name="permission_group_api_label">Разрешения AdAway</string>
     <string name="permission_group_api_description">Разрешить взаимодействие с AdAway</string>
     <string name="permission_send_command_label">Отправить команды в AdAway</string>
-    <string name="permission_send_command_description">Разрешить отправлять команды в AdAway как включение или отключение системной блокировки рекламы</string>
+    <string name="permission_send_command_description">Разрешить AdAway отправлять такие команды, как включение или отключение общесистемной блокировки рекламы.</string>
 
 </resources>
