@@ -250,9 +250,9 @@
     <string name="vpn_notification_action_resume">Reprendre</string>
 
     <!-- Permission -->
-    <string name="permission_group_api_label">Permissions AdAway</string>
-    <string name="permission_group_api_description">Autoriser à intéragir avec AdAway</string>
+    <string name="permission_group_api_label">Autorisations d’AdAway</string>
+    <string name="permission_group_api_description">Permettre d’interagir avec AdAway</string>
     <string name="permission_send_command_label">Envoyer des commandes à AdAway</string>
-    <string name="permission_send_command_description">Autoriser à envoyer des commandes à AdAway, tel qu\'activer ou désactiver le blocage système des publicités</string>
+    <string name="permission_send_command_description">Permettre d’envoyer des commandes à AdAway telles qu’activer ou désactiver le blocage des publicités pour le système entier</string>
 
 </resources>
