@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Nedostatek místa</string>
     <string name="error_not_enough_space_details">Není možné zkopírovat soubor hostitelů na váš systémový oddíl. Zkontrolujte, prosím, zda je funkce nesystémoví hostitelé v Magisk Manageru povolena a poté restartujte zařízení.</string>
     <string name="error_copy_failed_message">Aplikování nového souboru hostitelů selhalo</string>
-    <string name="error_copy_failed_details">Není možné zkopírovat soubor hostitelů na oddíl /system. Zkontrolujte, prosím, zda je funkce nesystémoví hostitelé v Magisk Manageru povolena a poté restartujte zařízení.</string>
+    <string name="error_copy_failed_details">Není možné zkopírovat soubor hostitelů na oddíl /system. Zkontrolujte, prosím, zda je v Magisk Manageru přidán modul pro podporu nesystémových hostitelů a poté restartujte zařízení.</string>
     <string name="error_revert_failed_message">Obnovení souboru hostitelů selhalo</string>
     <string name="error_revert_failed_details">Výchozí soubor hostitelů nelze obnovit.</string>
     <!-- VPN model error -->
