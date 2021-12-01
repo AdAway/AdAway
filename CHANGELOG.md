@@ -2,7 +2,7 @@
 
 - Fix connectivity change detection in VPN mode
 - Update mongoose web server
-- Update target SDK to Android 11
+- Update target SDK to Android 12
 - Update dependencies
 - Update translations
 
