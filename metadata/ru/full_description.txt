@@ -1,9 +1,9 @@
-A Free and Open Source ad blocker for Android.
+Бесплатный блокировщик рекламы с открытым исходным кодом для Android.
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+Приложение доступно для рутированных и нерутированных устройств.
+Используя рутированное устройство, приложение обновляет файл hosts, который содержит список сопоставлений между именами хостов и IP-адресами.
+Используя нерутированное устройство, приложение использует функцию VPN для блокировки исходящих соединений с сервисами рекламы и трекерами.
+Поэтому, когда приложение запрашивает рекламу или трекер с хоста в данный файл, запрос приложения перенаправляется на локальный IP-адрес 127.0.0.1, который ничего не делает.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Вы можете загрузить предопределенную рекламу и списки блокировки в виде файлов hosts изнутри приложения для объединения. Также возможно использовать ваши собственные файлы и добавлять определенные хосты в списки разрешения и блокировки.
 Имеется возможность запуска локального веб-сервера для перенаправления запросов к заблокированным адресам на выбранный вами IP-адрес.
