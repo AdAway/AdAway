@@ -1,11 +1,11 @@
-## [5.10.0] - Unreleased
+## [5.10.0] - 2021-12-01
 
 - Fix connectivity change detection in VPN mode
 - Update mongoose web server
 - Update target SDK to Android 11
 - Update dependencies
 - Update translations
-  
+
 Special thanks to 8asuj6m2 for its contribution.
 
 ## [5.9.0] - 2021-11-05
