@@ -19,6 +19,7 @@
     <string name="pref_hosts_redirection_summary">حدد مكان إعادة توجيه المضيفين المحظورين</string>
     <string name="pref_redirection_ipv4">عنوان إعادة التوجيه IPv4</string>
     <string name="pref_redirection_ipv6">عنوان إعادة التوجيه IPv6</string>
+    <string name="pref_redirection_invalid">إعادة توجيه غير صالحة</string>
     <!-- Web server category -->
     <string name="pref_webserver">خادم الويب المحلي</string>
     <string name="pref_webserver_summary">يستمع خادم الويب المحلي إلى عناوين IP المحلية للرد على طلبات اسم المضيف المحظورة. قد يساعد في حالة تجمد التطبيق عند الاتصالات المحظورة.</string>
