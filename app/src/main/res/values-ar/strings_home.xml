@@ -23,9 +23,14 @@
         <item quantity="many">%d المصادر بحاجة لتحديث</item>
         <item quantity="other">%d المصادر بحاجة لتحديث</item>
     </plurals>
+    <string name="check_hosts_update_description">تحقق من وجود تحديثات المضيفين</string>
+    <string name="update_hosts_description">تحديث ملفات المضيف</string>
+
+    <!-- Log card -->
+    <string name="log_label">إظهار سجل طلب DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">أظهر المساعدة</string>
+    <string name="help_label">إظهار التعليمات n والنصائح</string>
 
     <!-- Project card -->
     <string name="project_label">إفتح صفحة GitHub</string>
@@ -34,6 +39,7 @@
     <string name="support_label">إدعم المشروع</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">مشروع جيثب</string>
     <string name="preferences_drawer_item">الخيارات</string>
 
     <!-- App bar buttons -->
