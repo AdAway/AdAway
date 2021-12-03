@@ -86,7 +86,7 @@
     <string name="status_vpn_configuration_updated">تم تحديث تكوين في بي إن بنجاح</string>
     <string name="notification_configuration_changed">تم تغيير التكوين الخاص بك. تحتاج إلى تطبيقه.</string>
     <string name="notification_configuration_changed_action">تنفيذ</string>
-    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف…</string>
+    <string name="notification_configuration_installing">جارِ تثبيت ملف المضيف...</string>
     <string name="notification_configuration_failed">فشل في تثبيت ملف المضيفات</string>
 
     <!--Apply and Revert Dialogs-->
@@ -169,7 +169,7 @@
     <!--Adware-->
     <string name="adware_header">الإعلانات المُتسلّلة</string>
     <string name="adware_description">هنا يمكنك العثور على تطبيقات Adware مثبّتة ، وهي تطبيقات سيئة لا يمكن منعها من قِبَل AdAway . على سبيل المثال تستخدم هذه التطبيقات إشعارات Airpush التي تظهر حتى عند عدم تشغيل التطبيق وتستطيع حتى تغيير نغمة الرنين لجهازك . الحل الوحيد هو حذف هذه التطبيقات التي عُثِرَ عليها من خلال النقر على أسماء التطبيقات في الأسفل .</string>
-    <string name="adware_scanning">جار الفحص…</string>
+    <string name="adware_scanning">جارٍ الفحص</string>
     <string name="adware_empty">لم يتم العثور على إعلانات مُتسلّلة!</string>
 
     <!--Other-->
@@ -270,6 +270,6 @@
     <string name="permission_group_api_label">صلاحيات AdAway</string>
     <string name="permission_group_api_description">السماح لـ AdAway بالوصول لـ</string>
     <string name="permission_send_command_label">أرسل الأوامر لـ AdAway</string>
-    <string name="permission_send_command_description">السماح بإرسال الأوامر لـ AdAway مثل تفعيل أو إبطال نظام مانع الإعلانات</string>
+    <string name="permission_send_command_description">السماح بإرسال أوامر إلى AdAway مثل تمكين أو تعطيل حظر الإعلانات على مستوى النظام</string>
 
 </resources>
