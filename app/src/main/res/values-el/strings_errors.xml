@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Δεν υπάρχει διαθέσιμος χώρος</string>
     <string name="error_not_enough_space_details">Δεν είναι δυνατή η αντιγραφή του αρχείου hosts στο partition του συστήματός σας. Ελέγξτε ότι το Magisk systemless module είναι ενεργοποιημένο και στη συνέχεια κάντε επανεκκίνηση.</string>
     <string name="error_copy_failed_message">Αποτυχία εγκατάστασης νέου αρχείου hosts</string>
-    <string name="error_copy_failed_details">Δεν είναι δυνατή η αντιγραφή του αρχείου hosts στο /system partition. Ελέγξτε ότι το Magisk systemless module είναι ενεργοποιημένο και στη συνέχεια κάντε επανεκκίνηση. </string>
+    <string name="error_copy_failed_details">Δεν είναι δυνατή η αντιγραφή του αρχείου hosts στο διαμέρισμα /system. Ελέγξτε ότι το Magisk systemless module είναι ενεργοποιημένο και, στη συνέχεια, κάντε επανεκκίνηση.</string>
     <string name="error_revert_failed_message">Αποτυχία επαναφοράς αρχείου hosts</string>
     <string name="error_revert_failed_details">Δεν είναι δυνατή η επαναφορά της προεπιλεγμένης διαμόρφωσης αρχείου hosts.</string>
     <!-- VPN model error -->
