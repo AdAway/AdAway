@@ -58,7 +58,12 @@ public final class VpnServiceControls {
         // Start the VPN service
         Intent intent = new Intent(context, VpnService.class);
         START.appendToIntent(intent);
-        return context.startForegroundService(intent) != null;
+        boolean started = context.startForegroundService(intent) != null;
+        if (started) {
+            // Start the heartbeat
+            VpnServiceHeartbeat.start(context);
+        }
+        return started;
     }
 
     /**
@@ -67,6 +72,9 @@ public final class VpnServiceControls {
      * @param context The application context.
      */
     public static void stop(Context context) {
+        // Stop the heartbeat
+        VpnServiceHeartbeat.start(context);
+        // Stop the service
         Intent intent = new Intent(context, VpnService.class);
         STOP.appendToIntent(intent);
         context.startService(intent);
