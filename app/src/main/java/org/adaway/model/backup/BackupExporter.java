@@ -13,7 +13,6 @@ import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,7 +35,8 @@ import static org.adaway.model.backup.BackupFormat.REDIRECTED_KEY;
 import static org.adaway.model.backup.BackupFormat.SOURCES_KEY;
 import static org.adaway.model.backup.BackupFormat.hostToJson;
 import static org.adaway.model.backup.BackupFormat.sourceToJson;
-import static org.adaway.util.Constants.TAG;
+
+import timber.log.Timber;
 
 /**
  * This class is a helper class to export user lists and hosts sources to a backup file.
@@ -62,7 +62,7 @@ public class BackupExporter {
             try {
                 exportBackup(context, backupUri);
             } catch (IOException e) {
-                Log.e(TAG, "Failed to import backup", e);
+                Timber.e(e, "Failed to import backup.");
                 imported = false;
             }
             boolean successful = imported;

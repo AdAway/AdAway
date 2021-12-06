@@ -116,9 +116,12 @@ dependencies {
     implementation 'androidx.work:work-runtime:2.7.0'
     implementation 'com.google.android.material:material:1.4.0'
 
-    // Miscellaneous
+    // Collections related
     implementation 'com.google.guava:guava:30.1-android'
+    // Network related
     implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    // Logging related
+    implementation 'com.jakewharton.timber:timber:5.0.1'
     if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {

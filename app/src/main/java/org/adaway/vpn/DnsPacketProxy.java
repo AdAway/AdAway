@@ -49,6 +49,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Locale;
 
+import timber.log.Timber;
+
 /**
  * Creates and parses packets, and sends packets to a remote socket or the device using
  * {@link VpnWorker}.
@@ -224,7 +226,7 @@ public class DnsPacketProxy {
                     }
                     dnsMsg.addRecord(record, Section.ANSWER);
                 } catch (UnknownHostException e) {
-                    org.adaway.util.Log.w(TAG, "Failed to get inet address for host " + dnsQueryName + ".", e);
+                    Timber.w(e, "Failed to get inet address for host " + dnsQueryName + ".");
                 }
                 handleDnsResponse(ipPacket, dnsMsg.toWire());
                 break;

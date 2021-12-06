@@ -10,7 +10,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
-import org.adaway.util.SentryLog;
+import org.adaway.util.log.SentryLog;
 
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;

@@ -17,9 +17,10 @@ import org.adaway.model.update.Manifest;
 import org.adaway.model.update.UpdateModel;
 import org.adaway.ui.adware.AdwareViewModel;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Log;
 
 import java.util.concurrent.Executor;
+
+import timber.log.Timber;
 
 /**
  * This class is an {@link AndroidViewModel} for the {@link UpdateActivity} cards.
@@ -61,13 +62,13 @@ public class UpdateViewModel extends AdwareViewModel {
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
-                Log.d(TAG, "Failed to wait before querying download manager.", e);
+                Timber.d(e, "Failed to wait before querying download manager.");
                 Thread.currentThread().interrupt();
             }
             // Query download manager
             Cursor cursor = downloadManager.query(query);
             if (!cursor.moveToFirst()) {
-                Log.d(TAG, "Download item was not found");
+                Timber.d("Download item was not found");
                 continue;
             }
             // Check download status

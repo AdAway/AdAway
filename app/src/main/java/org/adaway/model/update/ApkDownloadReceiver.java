@@ -6,10 +6,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-import org.adaway.util.Log;
-
 import static android.content.Intent.ACTION_INSTALL_PACKAGE;
-import static org.adaway.model.update.UpdateModel.TAG;
+
+import timber.log.Timber;
 
 /**
  * This class is a {@link BroadcastReceiver} to install downloaded application updates.
@@ -32,7 +31,7 @@ public class ApkDownloadReceiver extends BroadcastReceiver {
             DownloadManager downloadManager = context.getSystemService(DownloadManager.class);
             Uri apkUri = downloadManager.getUriForDownloadedFile(id);
             if (apkUri == null) {
-                Log.w(TAG, "Failed to download id: " + id);
+                Timber.w("Failed to download id: %s.", id);
             } else {
                 installApk(context, apkUri);
             }

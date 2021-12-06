@@ -10,7 +10,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.Log;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -20,6 +19,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import timber.log.Timber;
 
 import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
 import static android.os.Build.VERSION.SDK_INT;
@@ -38,7 +38,6 @@ public class UpdateModel {
     private final Context context;
     private final OkHttpClient client;
     private final MutableLiveData<Manifest> manifest;
-    static final String TAG = "UpdateModel";
     private ApkDownloadReceiver receiver;
 
     /**
@@ -131,7 +130,7 @@ public class UpdateModel {
                 return null;
             }
         } catch (IOException | JSONException exception) {
-            Log.e(TAG, "Unable to download manifest.", exception);
+            Timber.e(exception, "Unable to download manifest.");
             // Return failed
             return null;
         }
@@ -162,7 +161,7 @@ public class UpdateModel {
     }
 
     private long download(Manifest manifest) {
-        Log.i(TAG, "Downloading " + manifest.version + ".");
+        Timber.i("Downloading " + manifest.version + ".");
         Uri uri = Uri.parse(DOWNLOAD_URL + manifest.versionCode);
         DownloadManager.Request request = new DownloadManager.Request(uri)
                 .setTitle("AdAway " + manifest.version)

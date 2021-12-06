@@ -12,13 +12,13 @@ import androidx.work.WorkerParameters;
 import org.adaway.AdAwayApplication;
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.Log;
 
 import static androidx.work.ExistingPeriodicWorkPolicy.KEEP;
 import static androidx.work.ExistingPeriodicWorkPolicy.REPLACE;
 import static androidx.work.ListenableWorker.Result.success;
 import static java.util.concurrent.TimeUnit.DAYS;
-import static org.adaway.model.update.UpdateModel.TAG;
+
+import timber.log.Timber;
 
 /**
  * This class is a service to check for application update.<br/>
@@ -94,7 +94,7 @@ public final class ApkUpdateService {
         @NonNull
         @Override
         public Result doWork() {
-            Log.i(TAG, "Starting update worker");
+            Timber.i("Starting update worker");
             // Create model
             AdAwayApplication application = (AdAwayApplication) getApplicationContext();
             UpdateModel model = application.getUpdateModel();

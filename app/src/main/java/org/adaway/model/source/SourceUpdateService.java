@@ -16,7 +16,6 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.util.Log;
 
 import static androidx.work.ExistingPeriodicWorkPolicy.KEEP;
 import static androidx.work.ExistingPeriodicWorkPolicy.REPLACE;
@@ -24,6 +23,8 @@ import static androidx.work.ListenableWorker.Result.failure;
 import static androidx.work.ListenableWorker.Result.retry;
 import static androidx.work.ListenableWorker.Result.success;
 import static java.util.concurrent.TimeUnit.HOURS;
+
+import timber.log.Timber;
 
 /**
  * This class is a service to check for hosts sources update.<br/>
@@ -33,7 +34,6 @@ import static java.util.concurrent.TimeUnit.HOURS;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public final class SourceUpdateService {
-    private static final String TAG = "SourceUpdateService";
     /**
      * The name of the periodic work.
      */
@@ -125,7 +125,7 @@ public final class SourceUpdateService {
         @NonNull
         @Override
         public Result doWork() {
-            Log.i(TAG, "Starting update worker");
+            Timber.i("Starting update worker");
             // Create model
             AdAwayApplication application = (AdAwayApplication) getApplicationContext();
             SourceModel model = application.getSourceModel();
@@ -135,7 +135,7 @@ public final class SourceUpdateService {
                 hasUpdate = model.checkForUpdate();
             } catch (HostErrorException exception) {
                 // An error occurred, check will be retried
-                Log.e(TAG, "Failed to check for update. Will retry later.", exception);
+                Timber.e(exception, "Failed to check for update. Will retry later.");
                 return retry();
             }
             if (hasUpdate) {
@@ -144,7 +144,7 @@ public final class SourceUpdateService {
                     doUpdate(application);
                 } catch (HostErrorException exception) {
                     // Installation failed. Worker failed.
-                    Log.e(TAG, "Failed to apply hosts file during background update.", exception);
+                    Timber.e(exception, "Failed to apply hosts file during background update.");
                     return failure();
                 }
             }

@@ -4,7 +4,6 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.db.entity.ListType;
-import org.adaway.util.Log;
 import org.adaway.util.RegexUtils;
 
 import java.io.BufferedReader;
@@ -26,6 +25,8 @@ import static org.adaway.util.Constants.BOGUS_IPv4;
 import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
 import static org.adaway.util.Constants.LOCALHOST_IPv4;
 import static org.adaway.util.Constants.LOCALHOST_IPv6;
+
+import timber.log.Timber;
 
 /**
  * This class is an {@link HostsSource} loader.<br>
@@ -66,11 +67,11 @@ class SourceLoader {
         Future<Integer> inserterFuture = executorService.submit(inserter);
         try {
             Integer inserted = inserterFuture.get();
-            Log.i(TAG, inserted + " host list items inserted.");
+            Timber.i("%s host list items inserted.", inserted);
         } catch (ExecutionException e) {
-            Log.w(TAG, "Failed to parse hosts sources.", e);
+            Timber.w(e, "Failed to parse hosts sources.");
         } catch (InterruptedException e) {
-            Log.w(TAG, "Interrupted while parsing sources.", e);
+            Timber.w(e, "Interrupted while parsing sources.");
             Thread.currentThread().interrupt();
         }
         executorService.shutdown();
@@ -94,7 +95,7 @@ class SourceLoader {
                         .lines()
                         .forEach(this.queue::add);
             } catch (Throwable t) {
-                Log.w(TAG, "Failed to read hosts source.", t);
+                Timber.w(t, "Failed to read hosts source.");
             } finally {
                 // Send end of queue marker to parsers
                 for (int i = 0; i < this.parserCount; i++) {
@@ -137,7 +138,7 @@ class SourceLoader {
                         }
                     }
                 } catch (InterruptedException e) {
-                    Log.w(TAG, "Interrupted while parsing hosts list item.", e);
+                    Timber.w(e, "Interrupted while parsing hosts list item.");
                     endOfSource = true;
                     Thread.currentThread().interrupt();
                 }
@@ -147,7 +148,7 @@ class SourceLoader {
         private HostListItem parseHostListItem(String line) {
             Matcher matcher = HOSTS_PARSER_PATTERN.matcher(line);
             if (!matcher.matches()) {
-                Log.d(TAG, "Does not match: " + line);
+                Timber.d("Does not match: %s.", line);
                 return null;
             }
             // Check IP address validity or while list entry (if allowed)
@@ -249,7 +250,7 @@ class SourceLoader {
                         }
                     }
                 } catch (InterruptedException e) {
-                    Log.w(TAG, "Interrupted while inserted hosts list item.", e);
+                    Timber.w(e, "Interrupted while inserted hosts list item.");
                     queueEmptied = true;
                     Thread.currentThread().interrupt();
                 }

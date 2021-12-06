@@ -1,14 +1,20 @@
-package org.adaway.util;
+package org.adaway.util.log;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.adaway.helper.PreferenceHelper;
+import org.jetbrains.annotations.Nullable;
 
 import io.sentry.Breadcrumb;
 import io.sentry.Sentry;
+import io.sentry.SentryLevel;
 import io.sentry.android.core.SentryAndroid;
+import timber.log.Timber;
 
 import static io.sentry.SentryLevel.INFO;
+
+import androidx.annotation.NonNull;
 
 /**
  * This class is a helper to initialize and configuration Sentry.
@@ -70,6 +76,17 @@ public final class SentryLog {
             return true;
         } catch (NoSuchFieldException exception) {
             return false;
+        }
+    }
+
+    static class SentryTree extends Timber.Tree {
+        @Override
+        protected void log(int priority, @Nullable String tag, @NonNull String message, @Nullable Throwable throwable) {
+            if (priority == Log.WARN) {
+                Sentry.captureMessage(message, SentryLevel.WARNING);
+            } else if (priority == Log.ERROR) {
+                Sentry.captureMessage(message, SentryLevel.ERROR);
+            }
         }
     }
 }

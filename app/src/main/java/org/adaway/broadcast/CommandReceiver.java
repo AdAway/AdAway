@@ -8,7 +8,8 @@ import org.adaway.AdAwayApplication;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Log;
+
+import timber.log.Timber;
 
 /**
  * This broadcast receiver listens to commands from broadcast.
@@ -20,7 +21,6 @@ public class CommandReceiver extends BroadcastReceiver {
      * This action allows to send commands to the application. See {@link Command} for extra values.
      */
     public static final String SEND_COMMAND_ACTION = "org.adaway.action.SEND_COMMAND";
-    private static final String TAG = "StatusReceiver";
     private static final AppExecutors EXECUTORS = AppExecutors.getInstance();
 
     @Override
@@ -28,7 +28,7 @@ public class CommandReceiver extends BroadcastReceiver {
         if (SEND_COMMAND_ACTION.equals(intent.getAction())) {
             AdBlockModel adBlockModel = ((AdAwayApplication) context.getApplicationContext()).getAdBlockModel();
             Command command = Command.readFromIntent(intent);
-            Log.i(TAG, "CommandReceiver invoked with command "+command);
+            Timber.i("CommandReceiver invoked with command %s.", command);
             EXECUTORS.diskIO().execute(() -> executeCommand(adBlockModel, command));
         }
     }
@@ -43,11 +43,11 @@ public class CommandReceiver extends BroadcastReceiver {
                     adBlockModel.revert();
                     break;
                 case UNKNOWN:
-                    Log.i(TAG, "Failed to run an unsupported command.");
+                    Timber.i("Failed to run an unsupported command.");
                     break;
             }
         } catch (HostErrorException e) {
-            Log.w(TAG, "Failed to apply ad block command " + command + ".", e);
+            Timber.w(e, "Failed to apply ad block command " + command + ".");
         }
     }
 }

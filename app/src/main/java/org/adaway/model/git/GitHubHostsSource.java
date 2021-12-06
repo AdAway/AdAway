@@ -2,8 +2,6 @@ package org.adaway.model.git;
 
 import androidx.annotation.Nullable;
 
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,6 +17,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import timber.log.Timber;
 
 import static java.util.stream.Collectors.joining;
 
@@ -75,7 +74,7 @@ class GitHubHostsSource extends GitHostsSource {
              ResponseBody body = execute.body()) {
             return parseJsonBody(body.string());
         } catch (IOException | JSONException exception) {
-            Log.e(Constants.TAG, "Unable to get commits from API.", exception);
+            Timber.e(exception, "Unable to get commits from API.");
             // Return failed
             return null;
         }
@@ -94,7 +93,7 @@ class GitHubHostsSource extends GitHostsSource {
             try {
                 date = ZonedDateTime.parse(dateString);
             } catch (DateTimeParseException exception) {
-                Log.w(Constants.TAG, "Failed to parse commit date: " + dateString + ".", exception);
+                Timber.w(exception, "Failed to parse commit date: " + dateString + ".");
             }
         }
         return date;

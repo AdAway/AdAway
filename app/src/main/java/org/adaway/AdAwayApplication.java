@@ -2,17 +2,13 @@ package org.adaway;
 
 import android.app.Application;
 
-import com.topjohnwu.superuser.Shell;
-
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.source.SourceModel;
 import org.adaway.model.update.UpdateModel;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
-import org.adaway.util.SentryLog;
+import org.adaway.util.log.ApplicationLog;
 
 /**
  * This class is a custom {@link Application} for AdAway app.
@@ -37,17 +33,8 @@ public class AdAwayApplication extends Application {
     public void onCreate() {
         // Delegate application creation
         super.onCreate();
-        // Initialize sentry
-        SentryLog.init(this);
-        // Set Debug level based on preference
-        if (PreferenceHelper.getDebugEnabled(this)) {
-            Log.d(Constants.TAG, "Debug set to true by preference!");
-            Constants.enableDebug();
-            Shell.enableVerboseLogging = true;
-        } else {
-            Constants.disableDebug();
-            Shell.enableVerboseLogging = false;
-        }
+        // Initialize logging
+        ApplicationLog.init(this);
         // Create notification channels
         NotificationHelper.createNotificationChannels(this);
         // Create models

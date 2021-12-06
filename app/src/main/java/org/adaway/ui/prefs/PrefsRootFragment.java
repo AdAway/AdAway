@@ -25,7 +25,6 @@ import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Log;
 
 import java.net.Inet4Address;
 import java.net.Inet6Address;
@@ -47,6 +46,8 @@ import static org.adaway.util.WebServerUtils.installCertificate;
 import static org.adaway.util.WebServerUtils.isWebServerRunning;
 import static org.adaway.util.WebServerUtils.startWebServer;
 import static org.adaway.util.WebServerUtils.stopWebServer;
+
+import timber.log.Timber;
 
 /**
  * This fragment is the preferences fragment for root ad blocker.
@@ -240,7 +241,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
         if (uri == null) {
             return;
         }
-        Log.d(TAG, "Certificate URI: " + uri.toString());
+        Timber.d("Certificate URI: " + uri.toString());
         copyCertificate(requireActivity(), uri);
         new MaterialAlertDialogBuilder(requireContext())
                 .setCancelable(true)
