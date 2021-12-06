@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Додатки з рекламою</string>
     <string name="adware_description">Тут ви можете знайти встановлені додатки з рекламою, так звані Adware – погані додатки, які AdAway не може заблокувати. Вони використовують систему сповіщень Airpush, яка показує рекламу навіть тоді, коли застосунок не працює і навіть можуть змінити мелодію вашого дзвінка. Позбутися такої реклами можливо лише видаливши такі застосунки, натиснувши на них в цьому списку.</string>
-    <string name="adware_scanning">Сканування…</string>
+    <string name="adware_scanning">Сканування...</string>
     <string name="adware_empty">Додатків з рекламою не знайдено!</string>
 
     <!--Other-->
@@ -255,9 +255,12 @@
     <string name="vpn_notification_stopped">зупинено</string>
     <string name="vpn_notification_title">Ad-blocker VPN%1$s</string>
     <string name="vpn_notification_action_pause">Пауза</string>
-    <string name="vpn_notification_action_resume">Натисніть, щоб продовжити</string>
+    <string name="vpn_notification_action_resume">Відновити</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Увімкніть та відключіть систему блокування реклами</string>
+    <string name="permission_group_api_label">Дозволи AdAway</string>
+    <string name="permission_group_api_description">Дозволити взаємодію з AdAway</string>
+    <string name="permission_send_command_label">Надіслати команди в AdAway</string>
+    <string name="permission_send_command_description">Дозволити надсилати команди AdAway, наприклад увімкнути або вимкнути загальносистемне блокування реклами</string>
 
 </resources>
