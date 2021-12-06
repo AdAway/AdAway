@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
 import android.net.VpnService;
-import android.util.Log;
 
 import org.adaway.helper.PreferenceHelper;
 
@@ -21,6 +20,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
+import timber.log.Timber;
+
 /**
  * This class is in charge of mapping DNS server addresses between network DNS and fake DNS.
  * <p>
@@ -30,7 +31,6 @@ import java.util.Optional;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class DnsServerMapper {
-    private static final String TAG = "DnsServerMapper";
     /**
      * The TEST NET addresses blocks, defined in RFC5735.
      */
@@ -83,7 +83,7 @@ public class DnsServerMapper {
             this.dnsServers.add(dnsServer);
             int serverIndex = this.dnsServers.size();
             InetAddress dnsAddressAlias = subnetForDnsServer.getAddress(serverIndex);
-            Log.i(TAG, "Mapping DNS server " + dnsServer + " as " + dnsAddressAlias);
+            Timber.i("Mapping DNS server %s as %s.", dnsServer, dnsAddressAlias);
             builder.addDnsServer(dnsAddressAlias);
             if (dnsServer instanceof Inet4Address) {
                 builder.addRoute(dnsAddressAlias, 32);
@@ -116,7 +116,7 @@ public class DnsServerMapper {
             return Optional.empty();
         }
         InetAddress dnsAddress = this.dnsServers.get(index);
-        Log.d(TAG, String.format("handleDnsRequest: Incoming packet to %s AKA %d AKA %s", fakeDnsAddress.getHostAddress(), index, dnsAddress.getHostAddress()));
+        Timber.d("handleDnsRequest: Incoming packet to %s AKA %d AKA %s", fakeDnsAddress.getHostAddress(), index, dnsAddress.getHostAddress());
         return Optional.of(dnsAddress);
     }
 
@@ -148,10 +148,10 @@ public class DnsServerMapper {
                 Subnet subnet = Subnet.parse(addressBlock);
                 InetAddress address = subnet.getAddress(0);
                 builder.addAddress(address, subnet.prefixLength);
-                Log.d(TAG, "Set " + address + " as network address to tunnel interface.");
+                Timber.d("Set %s as network address to tunnel interface.", address);
                 return subnet;
             } catch (IllegalArgumentException e) {
-                Log.w(TAG, "Failed to add " + addressBlock + " network address to tunnel interface.", e);
+                Timber.w(e, "Failed to add %s network address to tunnel interface.", addressBlock);
             }
         }
         throw new IllegalStateException("Failed to add any IPv4 address for TEST-NET to tunnel interface.");

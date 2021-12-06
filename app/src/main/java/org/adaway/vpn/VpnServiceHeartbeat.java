@@ -8,7 +8,6 @@ import static java.util.concurrent.TimeUnit.MINUTES;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.work.Constraints;
@@ -18,13 +17,14 @@ import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
+import timber.log.Timber;
+
 /**
  * This class is a worker to monitor the {@link VpnService} is still running.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class VpnServiceHeartbeat extends Worker {
-    private static final String TAG = "VpnServiceHeartbeat";
     /**
      * The VPN service heartbeat unique worker name.
      */
@@ -44,9 +44,9 @@ public class VpnServiceHeartbeat extends Worker {
     @Override
     public Result doWork() {
         if (!isVpnServiceRunning()) {
-            Log.i(TAG, "VPN service is not running. Starting VPN service…");
+            Timber.i("VPN service is not running. Starting VPN service…");
             VpnServiceControls.start(getApplicationContext());
-            Log.i(TAG, "VPN service started.");
+            Timber.i("VPN service started.");
         }
         return success();
     }

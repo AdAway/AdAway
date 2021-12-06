@@ -1,7 +1,6 @@
 package org.adaway.vpn.worker;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.adaway.vpn.VpnServiceControls;
 
@@ -10,13 +9,14 @@ import java.net.SocketException;
 import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import timber.log.Timber;
+
 /**
  * This class monitors the VPN network interface is still up while the VPN is running.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 class VpnConnectionMonitor {
-    private static final String TAG = "VpnConnectionMonitor";
     private static final int CONNECTION_CHECK_DELAY_MS = 10_000;
     /**
      * The application context.
@@ -61,9 +61,9 @@ class VpnConnectionMonitor {
      * Initialize the monitor once the VPN connection is up.
      */
     void initialize() {
-        Log.d(TAG, "Initializing connection monitor…");
+        Timber.d("Initializing connection monitor…");
         this.networkInterface = findVpnNetworkInterface();
-        Log.d(TAG, "Connection monitor initialized to watch interface " + this.networkInterface.getName() + ".");
+        Timber.d("Connection monitor initialized to watch interface %s.", this.networkInterface.getName());
     }
 
     /**
@@ -74,18 +74,18 @@ class VpnConnectionMonitor {
             while (this.running.get()) {
                 if (!this.networkInterface.isUp()) {
                     stop();
-                    Log.i(TAG, "VPN network interface is down. Starting VPN service…");
+                    Timber.i("VPN network interface is down. Starting VPN service…");
                     VpnServiceControls.start(this.context);
                 }
                 try {
                     Thread.sleep(CONNECTION_CHECK_DELAY_MS);
                 } catch (InterruptedException e) {
-                    Log.d(TAG, "Stop monitoring.", e);
+                    Timber.d(e, "Stop monitoring.");
                     break;
                 }
             }
         } catch (SocketException e) {
-            Log.w(TAG, "Failed to test VPN network interface. Starting VPN service…", e);
+            Timber.w(e, "Failed to test VPN network interface. Starting VPN service…");
             VpnServiceControls.start(this.context);
         }
     }

@@ -15,7 +15,6 @@
 package org.adaway.vpn.dns;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.adaway.AdAwayApplication;
 import org.adaway.db.entity.HostEntry;
@@ -56,7 +55,6 @@ import timber.log.Timber;
  * Creates and parses packets, and sends packets to a remote socket or the device using VpnWorker.
  */
 public class DnsPacketProxy {
-    private static final String TAG = "DnsPacketProxy";
     // Choose a value that is smaller than the time needed to unblock a host.
     private static final int NEGATIVE_CACHE_TTL_SECONDS = 5;
     private static final SOARecord NEGATIVE_CACHE_SOA_RECORD;
@@ -143,7 +141,7 @@ public class DnsPacketProxy {
         try {
             ipPacket = (IpPacket) IpSelector.newPacket(packetData, 0, packetData.length);
         } catch (Exception e) {
-            Log.i(TAG, "handleDnsRequest: Discarding invalid IP packet", e);
+            Timber.i(e, "handleDnsRequest: Discarding invalid IP packet");
             return;
         }
 
@@ -159,7 +157,7 @@ public class DnsPacketProxy {
             updPacket = (UdpPacket) ipPacket.getPayload();
             udpPayload = updPacket.getPayload();
         } catch (Exception e) {
-            Log.i(TAG, "handleDnsRequest: Discarding unknown packet type " + ipPacket.getHeader(), e);
+            Timber.i(e, "handleDnsRequest: Discarding unknown packet type %s", ipPacket.getHeader());
             return;
         }
 
@@ -167,13 +165,13 @@ public class DnsPacketProxy {
         int packetPort = updPacket.getHeader().getDstPort().valueAsInt();
         Optional<InetAddress> dnsAddressOptional = this.dnsServerMapper.getDnsServerFromFakeAddress(packetAddress);
         if (!dnsAddressOptional.isPresent()) {
-            Log.w(TAG, "Cannot find mapped DNS for " + packetAddress.getHostAddress() + ".");
+            Timber.w("Cannot find mapped DNS for %s.", packetAddress.getHostAddress());
             return;
         }
         InetAddress dnsAddress = dnsAddressOptional.get();
 
         if (udpPayload == null) {
-            Log.i(TAG, "handleDnsRequest: Sending UDP packet without payload: " + updPacket);
+            Timber.i("handleDnsRequest: Sending UDP packet without payload: %s", updPacket);
 
             // Let's be nice to Firefox. Firefox uses an empty UDP packet to
             // the gateway to reduce the RTT. For further details, please see
@@ -188,11 +186,11 @@ public class DnsPacketProxy {
         try {
             dnsMsg = new Message(dnsRawData);
         } catch (IOException e) {
-            Log.i(TAG, "handleDnsRequest: Discarding non-DNS or invalid packet", e);
+            Timber.i(e, "handleDnsRequest: Discarding non-DNS or invalid packet");
             return;
         }
         if (dnsMsg.getQuestion() == null) {
-            Log.i(TAG, "handleDnsRequest: Discarding DNS packet with no query " + dnsMsg);
+            Timber.i("handleDnsRequest: Discarding DNS packet with no query %s", dnsMsg);
             return;
         }
         Name name = dnsMsg.getQuestion().getName();
@@ -200,19 +198,19 @@ public class DnsPacketProxy {
         HostEntry entry = getHostEntry(dnsQueryName);
         switch (entry.getType()) {
             case BLOCKED:
-                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " blocked!");
+                Timber.i("handleDnsRequest: DNS Name %s blocked!", dnsQueryName);
                 dnsMsg.getHeader().setFlag(Flags.QR);
                 dnsMsg.getHeader().setRcode(Rcode.NOERROR);
                 dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
                 handleDnsResponse(ipPacket, dnsMsg.toWire());
                 break;
             case ALLOWED:
-                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + dnsAddress);
+                Timber.i("handleDnsRequest: DNS Name %s allowed, sending to %s.", dnsQueryName, dnsAddress);
                 DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
                 eventLoop.forwardPacket(outPacket, ipPacket);
                 break;
             case REDIRECTED:
-                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " redirected to " + entry.getRedirection() + ".");
+                Timber.i("handleDnsRequest: DNS Name %s redirected to %s.", dnsQueryName, entry.getRedirection());
                 dnsMsg.getHeader().setFlag(Flags.QR);
                 dnsMsg.getHeader().setFlag(Flags.AA);
                 dnsMsg.getHeader().unsetFlag(Flags.RD);
@@ -227,7 +225,7 @@ public class DnsPacketProxy {
                     }
                     dnsMsg.addRecord(record, Section.ANSWER);
                 } catch (UnknownHostException e) {
-                    Timber.w(e, "Failed to get inet address for host " + dnsQueryName + ".");
+                    Timber.w(e, "Failed to get inet address for host %s.", dnsQueryName);
                 }
                 handleDnsResponse(ipPacket, dnsMsg.toWire());
                 break;

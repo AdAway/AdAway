@@ -3,7 +3,7 @@ package org.adaway.vpn.worker;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
-import android.util.Log;
+import timber.log.Timber;
 
 /**
  * This class limits how often the VPN connection is established.
@@ -11,7 +11,6 @@ import android.util.Log;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 class VpnConnectionThrottler {
-    private static final String TAG = "VpnConnexionThrottler";
     private static final long INITAl_TIMEOUT_MS = 1_000;
     private static final long MAXIMUM_TIMEOUT_MS = 128_000;
     /**
@@ -51,7 +50,7 @@ class VpnConnectionThrottler {
             // Increase timeout and wait the remaining time to limit connexion
             increaseTimeout();
             long remainingTime = this.timeout - elapsedTimeBetweenCall;
-            Log.d(TAG, "Limiting the connexion by wait for " + remainingTime / 1000 + "s.");
+            Timber.d("Limiting the connexion by wait for %ds.", remainingTime / 1000);
             Thread.sleep(remainingTime);
         }
         // If the call happens after the timeout
@@ -59,17 +58,17 @@ class VpnConnectionThrottler {
             this.time = now;
             // Decrease the time out (up to restoring it) and do no limit connexion
             decreaseTimeout(elapsedTimeBetweenCall > MAXIMUM_TIMEOUT_MS);
-            Log.d(TAG, "Allowing the connexion right now.");
+            Timber.d("Allowing the connexion right now.");
         }
     }
 
     private void increaseTimeout() {
         this.timeout = min(this.timeout * 2, MAXIMUM_TIMEOUT_MS);
-        Log.d(TAG, "Increasing timeout to " + this.timeout / 1000 + "s.");
+        Timber.d("Increasing timeout to %ds", this.timeout / 1000);
     }
 
     private void decreaseTimeout(boolean reset) {
         this.timeout = reset ? INITAl_TIMEOUT_MS : max(this.timeout / 4, INITAl_TIMEOUT_MS);
-        Log.d(TAG, "Decreasing timeout to " + this.timeout / 1000 + "s.");
+        Timber.d("Decreasing timeout to %ds.", this.timeout / 1000);
     }
 }

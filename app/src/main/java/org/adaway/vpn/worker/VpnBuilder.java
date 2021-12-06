@@ -18,7 +18,6 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.net.VpnService;
 import android.os.ParcelFileDescriptor;
-import android.util.Log;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
@@ -28,14 +27,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import timber.log.Timber;
+
 /**
  * This utility class is in charge of establishing a new VPN interface.
  *
  * @author Bruce BUJON
  */
 public final class VpnBuilder {
-    private static final String TAG = "VpnBuilder";
-
     /**
      * Private constructor.
      */
@@ -51,7 +50,7 @@ public final class VpnBuilder {
      * @return The VPN interface.
      */
     public static ParcelFileDescriptor establish(VpnService service, DnsServerMapper dnsServerMapper) {
-        Log.d(TAG, "Establishing VPN…");
+        Timber.d("Establishing VPN…");
         VpnService.Builder builder = service.new Builder();
         // Configure VPN address and DNS servers
         dnsServerMapper.configureVpn(service, builder);
@@ -78,7 +77,7 @@ public final class VpnBuilder {
                         FLAG_CANCEL_CURRENT | FLAG_IMMUTABLE
                 ))
                 .establish();
-        Log.i(TAG, "VPN established.");
+        Timber.i("VPN established.");
         return pfd;
     }
 
@@ -112,7 +111,7 @@ public final class VpnBuilder {
                 try {
                     builder.addDisallowedApplication(applicationInfo.packageName);
                 } catch (PackageManager.NameNotFoundException e) {
-                    org.adaway.util.Log.w(TAG, "Failed to exclude application " + applicationInfo.packageName + " from VPN", e);
+                    Timber.w(e, "Failed to exclude application %s from VPN.", applicationInfo.packageName);
                 }
             }
         }

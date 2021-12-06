@@ -14,8 +14,6 @@
  */
 package org.adaway.vpn.worker;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import java.io.IOException;
@@ -23,6 +21,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+
+import timber.log.Timber;
 
 /**
  * Ensures that the connection is alive and sets various timeouts and delays in response.
@@ -38,8 +38,6 @@ import java.net.SocketException;
  */
 
 class VpnWatchdog {
-    private static final String TAG = "VpnWatchDog";
-
     // Polling is quadrupled on every success, and values range from 4s to 1h8m.
     private static final int POLL_TIMEOUT_START = 1000;
     private static final int POLL_TIMEOUT_END = 4096000;
@@ -96,23 +94,23 @@ class VpnWatchdog {
      * @param enabled If the watchdog should be enabled.
      */
     void initialize(boolean enabled) {
-        Log.d(TAG, "initialize: Initializing watchdog");
+        Timber.d("initialize: Initializing watchdog");
 
         this.pollTimeout = POLL_TIMEOUT_START;
         this.lastPacketSent = 0;
         this.enabled = enabled;
 
         if (!this.enabled) {
-            Log.d(TAG, "initialize: Disabled.");
+            Timber.d("initialize: Disabled.");
             return;
         }
 
         if (this.initPenalty > 0) {
-            Log.d(TAG, "init penalty: Sleeping for " + this.initPenalty + "ms");
+            Timber.d("init penalty: Sleeping for %dms…", this.initPenalty);
             try {
                 Thread.sleep(this.initPenalty);
             } catch (InterruptedException exception) {
-                Log.d(TAG, "Failed to wait the initial penalty");
+                Timber.d("Failed to wait the initial penalty.");
                 Thread.currentThread().interrupt();
             }
         }
@@ -127,8 +125,7 @@ class VpnWatchdog {
         if (!this.enabled) {
             return;
         }
-        Log.d(TAG, "handleTimeout: Milliseconds elapsed between last receive and sent: "
-                + (this.lastPacketReceived - this.lastPacketSent));
+        Timber.d("handleTimeout: Milliseconds elapsed between last receive and sent: %dms", (this.lastPacketReceived - this.lastPacketSent));
         // Receive really timed out
         if (this.lastPacketReceived < this.lastPacketSent && this.lastPacketSent != 0) {
             this.initPenalty += INIT_PENALTY_INC;
@@ -155,7 +152,7 @@ class VpnWatchdog {
         if (!this.enabled) {
             return;
         }
-        Log.d(TAG, "handlePacket: Received packet of length " + packetData.length);
+        Timber.d("handlePacket: Received packet of length %s", packetData.length);
         this.lastPacketReceived = System.currentTimeMillis();
     }
 
@@ -168,7 +165,7 @@ class VpnWatchdog {
         if (!this.enabled || this.checkAlivePacket == null) {
             return;
         }
-        Log.d(TAG, "sendPacket: Sending packet, poll timeout is " + this.pollTimeout + ".");
+        Timber.d("sendPacket: Sending packet, poll timeout is %d.", this.pollTimeout);
 
         try (DatagramSocket socket = newDatagramSocket()) {
             socket.send(this.checkAlivePacket);

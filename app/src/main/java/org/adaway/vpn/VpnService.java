@@ -40,10 +40,10 @@ import android.net.ConnectivityManager;
 import android.net.ConnectivityManager.NetworkCallback;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -59,6 +59,8 @@ import org.adaway.ui.home.HomeActivity;
 import org.adaway.vpn.worker.VpnWorker;
 
 import java.lang.ref.WeakReference;
+
+import timber.log.Timber;
 
 /**
  * This class is the VPN platform service implementation.
@@ -76,7 +78,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     public static final int REQUEST_CODE_PAUSE = 42;
     public static final String VPN_UPDATE_STATUS_INTENT = "org.jak_linux.dns66.VPN_UPDATE_STATUS";
     public static final String VPN_UPDATE_STATUS_EXTRA = "VPN_STATUS";
-    private static final String TAG = "VpnService";
 
     private final MyHandler handler;
     private final NetworkCallback networkCallback;
@@ -97,13 +98,13 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public void onCreate() {
-        Log.d(TAG, "Creating VPN service…");
+        Timber.d("Creating VPN service…");
         registerNetworkCallback();
     }
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        Log.d(TAG, "onStartCommand" + intent);
+        Timber.d("onStartCommand %s", intent);
         switch (Command.readFromIntent(intent)) {
             case START:
                 startVpn();
@@ -112,17 +113,17 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 stopVpn();
                 return START_NOT_STICKY;
             default:
-                Log.w(TAG, "Unknown command: " + intent);
+                Timber.w("Unknown command: %s", intent);
                 return START_NOT_STICKY;
         }
     }
 
     @Override
     public void onDestroy() {
-        Log.d(TAG, "Destroying VPN service…");
+        Timber.d("Destroying VPN service…");
         unregisterNetworkCallback();
         stopVpn();
-        Log.d(TAG, "Destroyed VPN service.");
+        Timber.d("Destroyed VPN service.");
     }
 
     /*
@@ -148,21 +149,21 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     }
 
     private void startVpn() {
-        Log.d(TAG, "Starting VPN service…");
+        Timber.d("Starting VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, RUNNING);
         updateVpnStatus(STARTING);
         this.vpnWorker.start();
-        Log.i(TAG, "VPN service started.");
+        Timber.i("VPN service started.");
     }
 
     private void stopVpn() {
-        Log.d(TAG, "Stopping VPN service…");
+        Timber.d("Stopping VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
         this.vpnWorker.stop();
         stopForeground(true);
         stopSelf();
         updateVpnStatus(STOPPED);
-        Log.i(TAG, "VPN service stopped.");
+        Timber.i("VPN service stopped.");
     }
 
     private void waitForNetVpn() {
@@ -252,19 +253,19 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     class MyNetworkCallback extends NetworkCallback {
         @Override
         public void onAvailable(@NonNull Network network) {
-            Log.d(TAG, "Network changed to " + network + ", reconnecting…");
+            Timber.d("Network changed to %s, reconnecting…", network);
             reconnect();
         }
 
         @Override
         public void onLost(@NonNull Network network) {
-            Log.d(TAG, "Connectivity changed to no connectivity, wait for network connection.");
+            Timber.d("Connectivity changed to no connectivity, wait for network connection.");
             waitForNetVpn();
         }
 
         @Override
         public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
-            Log.d(TAG, "Network " + network + " capabilities changed :" +
+            Timber.d("Network " + network + " capabilities changed :" +
                     "\n- VPN: " + !networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN) +
                     "\n- INTERNET: " + networkCapabilities.hasCapability(NET_CAPABILITY_INTERNET) +
                     "\n- VALIDATED: " + networkCapabilities.hasCapability(NET_CAPABILITY_VALIDATED));

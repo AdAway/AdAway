@@ -1,12 +1,12 @@
 package org.adaway.vpn.dns;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+
+import timber.log.Timber;
 
 /**
  * This class represents the running DNS queries queue.<br>
@@ -15,7 +15,6 @@ import java.util.Queue;
  * @author Bruce BUJON
  */
 public class DnsQueryQueue implements Iterable<DnsQuery> {
-    private static final String TAG = "DnsQueryQueue";
     /**
      * The maximum number of responses to wait for.
      */
@@ -38,6 +37,7 @@ public class DnsQueryQueue implements Iterable<DnsQuery> {
 
     /**
      * Add query to queue.
+     *
      * @param query The query to add.
      */
     public void add(DnsQuery query) {
@@ -46,7 +46,7 @@ public class DnsQueryQueue implements Iterable<DnsQuery> {
         // Apply space constraint by removing older packet if queue is full
         if (this.queries.size() > DNS_MAXIMUM_WAITING) {
             DnsQuery oldestQuery = this.queries.remove();
-            Log.d(TAG, "Dropping query due to space constraints: " + query.socket);
+            Timber.d("Dropping query due to space constraints: %s.", query.socket);
             oldestQuery.socket.close();
         }
         // Add query to queue
@@ -57,7 +57,7 @@ public class DnsQueryQueue implements Iterable<DnsQuery> {
         long now = System.currentTimeMillis() / 1000;
         while (!this.queries.isEmpty() && (now - queries.element().time) > DNS_TIMEOUT_SEC) {
             DnsQuery wosPacket = queries.remove();
-            Log.d(TAG, "Timeout on socket " + wosPacket.socket);
+            Timber.d("Timeout on socket %s.", wosPacket.socket);
             wosPacket.socket.close();
         }
     }
@@ -69,6 +69,7 @@ public class DnsQueryQueue implements Iterable<DnsQuery> {
 
     /**
      * Get the number of pending DNS queries.
+     *
      * @return The number of pending DNS queries.
      */
     public int size() {

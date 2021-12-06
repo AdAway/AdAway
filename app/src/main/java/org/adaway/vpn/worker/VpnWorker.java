@@ -28,9 +28,6 @@ import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
 import android.system.StructPollfd;
-import android.util.Log;
-
-import androidx.annotation.Nullable;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.vpn.VpnService;
@@ -61,7 +58,6 @@ import timber.log.Timber;
 // TODO Rework status notification
 // TODO Improve exception handling in work()
 public class VpnWorker implements DnsPacketProxy.EventLoop {
-    private static final String TAG = "VpnWorker";
     /**
      * Maximum packet size is constrained by the MTU, which is given as a signed short.
      */
@@ -123,23 +119,23 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
      * Kill the current worker and restart it if already running.
      */
     public void start() {
-        Log.d(TAG, "Starting VPN thread…");
+        Timber.d("Starting VPN thread…");
         ExecutorService executor = Executors.newFixedThreadPool(2);
         executor.submit(this::work);
         executor.submit(this.connectionMonitor::monitor);
         setExecutor(executor);
-        Log.i(TAG, "VPN thread started.");
+        Timber.i("VPN thread started.");
     }
 
     /**
      * Stop the VPN worker.
      */
     public void stop() {
-        Log.d(TAG, "Stopping VPN thread.");
+        Timber.d("Stopping VPN thread.");
         this.connectionMonitor.reset();
         forceCloseTunnel();
         setExecutor(null);
-        Log.i(TAG, "VPN thread stopped.");
+        Timber.i("VPN thread stopped.");
     }
 
     /**
@@ -151,9 +147,9 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     private void setExecutor(ExecutorService executor) {
         ExecutorService oldExecutor = this.executor.getAndSet(executor);
         if (oldExecutor != null) {
-            Log.d(TAG, "Shutting down VPN executor…");
+            Timber.d("Shutting down VPN executor…");
             oldExecutor.shutdownNow();
-            Log.d(TAG, "VPN executor shutdown.");
+            Timber.d("VPN executor shutdown.");
         }
     }
 
@@ -166,13 +162,13 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             try {
                 networkInterface.close();
             } catch (IOException e) {
-                Log.w("Failed to close VPN network interface.", e);
+                Timber.tag("Failed to close VPN network interface.").w(e);
             }
         }
     }
 
     private void work() {
-        Log.d(TAG, "Starting work…");
+        Timber.d("Starting work…");
         // Initialize context
         this.dnsPacketProxy.initialize(this.vpnService);
         // Initialize the watchdog
@@ -183,21 +179,21 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
                 this.connectionThrottler.throttle();
                 this.vpnService.notifyVpnStatus(STARTING);
                 runVpn();
-                Log.i(TAG, "Told to stop");
+                Timber.i("Told to stop");
                 this.vpnService.notifyVpnStatus(STOPPING);
                 break;
             } catch (InterruptedException e) {
-                Log.d(TAG, "Failed to wait for connexion throttling.", e);
+                Timber.d(e, "Failed to wait for connexion throttling.");
                 Thread.currentThread().interrupt();
                 break;
             } catch (VpnNetworkException | IOException e) {
-                Log.w(TAG, "Network exception in vpn thread, reconnecting", e);
+                Timber.w(e, "Network exception in vpn thread, reconnecting…");
                 // If an exception was thrown, show to the user and try again
                 this.vpnService.notifyVpnStatus(RECONNECTING_NETWORK_ERROR);
             }
         }
         this.vpnService.notifyVpnStatus(STOPPED);
-        Log.d(TAG, "Exiting work.");
+        Timber.d("Exiting work.");
     }
 
     private void runVpn() throws IOException, VpnNetworkException {
@@ -250,7 +246,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         boolean deviceReadyToWrite;
         boolean deviceReadyToRead;
         try {
-            Log.d(TAG, "doOne: Polling " + polls.length + " file descriptors");
+            Timber.d("doOne: Polling %d file descriptors.", polls.length);
             int numberOfEvents = Os.poll(polls, this.vpnWatchDog.getPollTimeout());
             // TODO BUG - There is a bug where the watchdog keeps doing timeout if there is no network activity
             // TODO BUG - 0 Might be a valid value if no current DNS query and everything was already sent back to device
@@ -283,10 +279,10 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             if (query.isAnswered()) {
                 iterator.remove();
                 try {
-                    Log.d(TAG, "Read from DNS socket" + query.socket);
+                    Timber.d("Read from DNS socket%s", query.socket);
                     handleRawDnsResponse(query);
                 } catch (IOException e) {
-                    Log.w(TAG, "Could not handle DNS response.", e);
+                    Timber.w(e, "Could not handle DNS response.");
                 }
             }
         }
@@ -301,7 +297,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
     private void writeToDevice(FileOutputStream fileOutputStream) throws VpnNetworkException {
-        Log.d(TAG, "Write to device " + this.deviceWrites.size() + " packets.");
+        Timber.d("Write to device %d packets.", this.deviceWrites.size());
         try {
             while (!this.deviceWrites.isEmpty()) {
                 byte[] ipPacketData = this.deviceWrites.poll();
@@ -314,12 +310,12 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
     private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws IOException {
-        Log.d(TAG, "Read a packet from device.");
+        Timber.d("Read a packet from device.");
         // Read the outgoing packet from the input stream.
         int length = inputStream.read(packet);
         if (length == 0) {
             // TODO: Possibly change to exception
-            Log.w(TAG, "Got empty packet!");
+            Timber.w("Got empty packet!");
             return;
         }
         final byte[] readPacket = Arrays.copyOfRange(packet, 0, length);
@@ -341,16 +337,16 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             if (parsedPacket != null)
                 dnsQueryQueue.add(new DnsQuery(dnsSocket, parsedPacket));
             else
-                closeOrWarn(dnsSocket, TAG, "handleDnsRequest: Cannot close socket in error");
+                closeOrWarn(dnsSocket, "handleDnsRequest: Cannot close socket in error");
         } catch (IOException e) {
-            closeOrWarn(dnsSocket, TAG, "handleDnsRequest: Cannot close socket in error");
+            closeOrWarn(dnsSocket, "handleDnsRequest: Cannot close socket in error");
             if (e.getCause() instanceof ErrnoException) {
                 ErrnoException errnoExc = (ErrnoException) e.getCause();
                 if ((errnoExc.errno == OsConstants.ENETUNREACH) || (errnoExc.errno == OsConstants.EPERM)) {
                     throw new IOException("Cannot send message:", e);
                 }
             }
-            Log.w(TAG, "handleDnsRequest: Could not send packet to upstream", e);
+            Timber.w(e, "handleDnsRequest: Could not send packet to upstream");
         }
     }
 
@@ -363,12 +359,12 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
 
-    static <T extends Closeable> T closeOrWarn(T fd, String tag, String message) {
+    static <T extends Closeable> T closeOrWarn(T fd, String message) {
         try {
             if (fd != null)
                 fd.close();
         } catch (Exception e) {
-            Log.e(tag, "closeOrWarn: " + message, e);
+            Timber.e(e, "closeOrWarn: %s", message);
         }
         return null;
     }
