@@ -1,3 +1,7 @@
+## [5.11.0] - Unreleased
+
+- Improve logs with Timber
+
 ## [5.10.0] - 2021-12-01
 
 - Fix connectivity change detection in VPN mode
