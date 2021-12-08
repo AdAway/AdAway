@@ -105,7 +105,12 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
         Timber.d("onStartCommand %s", intent);
-        switch (Command.readFromIntent(intent)) {
+        // Check null intent that happens when system restart the service
+        // https://developer.android.com/reference/android/app/Service#START_STICKY
+        Command command = intent == null ?
+                START :
+                Command.readFromIntent(intent);
+        switch (command) {
             case START:
                 startVpn();
                 return START_STICKY;
