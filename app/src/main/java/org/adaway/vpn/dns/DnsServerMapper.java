@@ -7,6 +7,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.LinkProperties;
 import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.VpnService;
 
 import org.adaway.helper.PreferenceHelper;
@@ -69,7 +70,7 @@ public class DnsServerMapper {
      */
     public void configureVpn(Context context, VpnService.Builder builder) {
         // Get DNS servers
-        List<InetAddress> dnsServers = getActiveNetworkDnsServers(context);
+        List<InetAddress> dnsServers = getNetworkDnsServers(context);
         // Configure tunnel network address
         Subnet ipv4Subnet = addIpv4Address(builder);
         Subnet ipv6Subnet = hasIpV6DnsServers(context, dnsServers) ? addIpv6Address(builder) : null;
@@ -121,19 +122,54 @@ public class DnsServerMapper {
     }
 
     /**
-     * Get the DNS server addresses of the active network.
+     * Get the DNS server addresses from the device networks.
      *
      * @param context The application context.
-     * @return The DNS server addresses, an empty collection if no active network.
+     * @return The DNS server addresses, an empty collection if no network.
      */
-    private List<InetAddress> getActiveNetworkDnsServers(Context context) {
+    private List<InetAddress> getNetworkDnsServers(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
         Network activeNetwork = connectivityManager.getActiveNetwork();
-        LinkProperties linkProperties = connectivityManager.getLinkProperties(activeNetwork);
+        if (isNotVpnNetwork(connectivityManager, activeNetwork)) {
+            return getNetworkDnsServers(connectivityManager, activeNetwork);
+        } else {
+            for (Network network : connectivityManager.getAllNetworks()) {
+                List<InetAddress> dnsServers = getNetworkDnsServers(connectivityManager, network);
+                if (!dnsServers.isEmpty()) {
+                    return dnsServers;
+                }
+            }
+        }
+        return emptyList();
+    }
+
+    /**
+     * Get the DNS server addresses of a network.
+     *
+     * @param connectivityManager The connectivity manager.
+     * @param network             The network to get DNS server addresses.
+     * @return The DNS server addresses, an empty collection if no network.
+     */
+    private List<InetAddress> getNetworkDnsServers(ConnectivityManager connectivityManager, Network network) {
+        LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
         if (linkProperties == null) {
             return emptyList();
         }
         return linkProperties.getDnsServers();
+    }
+
+    /**
+     * Check a network does not have VPN transport.
+     * @param connectivityManager The connectivity manager.
+     * @param network The network to check.
+     * @return <code>true</code> if a network is not a VPN, <code>false</code> otherwise.
+     */
+    private boolean isNotVpnNetwork(ConnectivityManager connectivityManager, Network network) {
+        if (network == null) {
+            return false;
+        }
+        NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
+        return networkCapabilities != null && !networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN);
     }
 
     /**
