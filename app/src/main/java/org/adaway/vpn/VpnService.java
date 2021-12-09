@@ -16,6 +16,8 @@ package org.adaway.vpn;
 
 import static android.app.NotificationManager.IMPORTANCE_LOW;
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
 import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
@@ -205,7 +207,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         String title = getString(R.string.vpn_notification_title, getString(status.getTextResource()));
 
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
