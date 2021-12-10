@@ -27,7 +27,6 @@ import static org.adaway.broadcast.CommandReceiver.SEND_COMMAND_ACTION;
 import static org.adaway.helper.NotificationHelper.VPN_RESUME_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_RUNNING_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
-import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_STATUS_UPDATE;
 import static org.adaway.vpn.VpnStatus.RECONNECTING;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STARTING;
@@ -42,7 +41,6 @@ import android.net.ConnectivityManager;
 import android.net.ConnectivityManager.NetworkCallback;
 import android.net.Network;
 import android.net.NetworkCapabilities;
-import android.net.NetworkRequest;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -74,15 +72,24 @@ import timber.log.Timber;
  * <li>Publishing notifications and intent about the VPN state,</li>
  * <li>Reacting to network connectivity changes.</li>
  * </ul>
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class VpnService extends android.net.VpnService implements Handler.Callback {
-    public static final int REQUEST_CODE_START = 43;
-    public static final int REQUEST_CODE_PAUSE = 42;
     public static final String VPN_UPDATE_STATUS_INTENT = "org.jak_linux.dns66.VPN_UPDATE_STATUS";
     public static final String VPN_UPDATE_STATUS_EXTRA = "VPN_STATUS";
+    /*
+     * Notification intent related.
+     */
+    private static final int REQUEST_CODE_START = 43;
+    private static final int REQUEST_CODE_PAUSE = 42;
+    /*
+     * Handler related.
+     */
+    private static final int VPN_STATUS_UPDATE_MESSAGE_TYPE = 0;
 
     private final MyHandler handler;
-    private final NetworkCallback networkCallback;
+    private final MyNetworkCallback networkCallback;
     private final VpnWorker vpnWorker;
 
     /**
@@ -139,7 +146,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public boolean handleMessage(@NonNull Message message) {
-        if (message.what == VPN_MSG_STATUS_UPDATE) {
+        if (message.what == VPN_STATUS_UPDATE_MESSAGE_TYPE) {
             updateVpnStatus(VpnStatus.fromCode(message.arg1));
         }
         return true;
@@ -151,7 +158,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
      * @param status The new VPN status.
      */
     public void notifyVpnStatus(VpnStatus status) {
-        Message statusMessage = this.handler.obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
+        Message statusMessage = this.handler.obtainMessage(VPN_STATUS_UPDATE_MESSAGE_TYPE, status.toCode(), 0);
         this.handler.sendMessage(statusMessage);
     }
 
@@ -245,11 +252,13 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     }
 
     private void registerNetworkCallback() {
+        this.networkCallback.reset();
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkRequest networkRequest = new NetworkRequest.Builder()
-                .addCapability(NET_CAPABILITY_NOT_VPN)
-                .build();
-        connectivityManager.registerNetworkCallback(networkRequest, this.networkCallback, this.handler);
+//        NetworkRequest networkRequest = new NetworkRequest.Builder()
+//                .addCapability(NET_CAPABILITY_NOT_VPN)
+//                .build();
+//        connectivityManager.registerNetworkCallback(networkRequest, this.networkCallback, this.handler);
+        connectivityManager.registerDefaultNetworkCallback(this.networkCallback, this.handler);
     }
 
     private void unregisterNetworkCallback() {
@@ -257,11 +266,51 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         connectivityManager.unregisterNetworkCallback(this.networkCallback);
     }
 
+    /**
+     * This class receives network change events to find when restart the VPN service.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     * @see <a href="https://developer.android.com/training/basics/network-ops/reading-network-state#listening-events">Android Developer Documentation</a>
+     */
     class MyNetworkCallback extends NetworkCallback {
+        private boolean initialStateNotified;
+        private boolean wasVpnTransport;
+
+        MyNetworkCallback() {
+            reset();
+        }
+
+        void reset() {
+            this.initialStateNotified = false;
+            this.wasVpnTransport = false;
+        }
+
         @Override
         public void onAvailable(@NonNull Network network) {
-            Timber.d("Network changed to %s, reconnecting…", network);
+            boolean initialNotification = !this.initialStateNotified;
+            boolean isVpnTransport = doesNetworkHaveVpnTransport(network);
+            boolean isVpnTransportJustEnabled = !this.wasVpnTransport && isVpnTransport;
+            // Apply changes
+            this.initialStateNotified = true;
+            this.wasVpnTransport = isVpnTransport;
+            // Skip initial state notification
+            if (initialNotification) {
+                Timber.d("Skip initial network notification.");
+                return;
+            }
+            // Skip VPN transport activation notification
+            if (isVpnTransportJustEnabled) {
+                Timber.d("Skip VPN transport activation notification.");
+                return;
+            }
+            Timber.i("Network changed to %s, reconnecting…", network);
             reconnect();
+        }
+
+        private boolean doesNetworkHaveVpnTransport(Network network) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) VpnService.this.getSystemService(CONNECTIVITY_SERVICE);
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
+            return networkCapabilities != null && networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN);
         }
 
         @Override
@@ -281,7 +330,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     /* The handler may only keep a weak reference around, otherwise it leaks */
     static class MyHandler extends Handler {
-        static final int VPN_MSG_STATUS_UPDATE = 0;
 
         private final WeakReference<Callback> callback;
 

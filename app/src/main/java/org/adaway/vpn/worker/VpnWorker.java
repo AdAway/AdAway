@@ -149,7 +149,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         if (oldExecutor != null) {
             Timber.d("Shutting down VPN executor…");
             oldExecutor.shutdownNow();
-            Timber.d("VPN executor shutdown.");
+            Timber.d("VPN executor shut down.");
         }
     }
 
