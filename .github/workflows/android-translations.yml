@@ -1,7 +1,7 @@
 name: Android translation validation
 
 on:
-  push:
+  pull_request:
     branches:
       - master
       - feature/i18n-checker
