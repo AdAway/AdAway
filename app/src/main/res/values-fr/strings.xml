@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
     <string name="button_exit">Test4</string>
@@ -38,7 +38,7 @@
     <string name="checkbox_list_context_delete">Supprimer</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importation…</string>
+    <string name="import_dialog">Importation...</string>
     <string name="import_success">La sauvegarde a été importée avec succès de votre mémoire externe.</string>
     <string name="import_failed">Échec d’importation de la sauvegarde. Le format est-il correct ? Consultez logcat pour plus de précisions.</string>
     <string name="export_dialog">Exportation…</string>
