@@ -1,6 +1,8 @@
 ## [5.11.0] - Unreleased
 
 - Improve logs with Timber
+- Update Android gradle plugin
+- Update translations
 
 ## [5.10.0] - 2021-12-01
 
