@@ -1,9 +1,6 @@
-name: Android translation validation
+name: Android locale validation
 
 on:
-  # push: # Only for test
-    # paths:
-    #   - 'app/src/main/res/values*/string*.xml'
   pull_request:
     branches:
       - master
@@ -12,15 +9,14 @@ on:
 
 jobs:
   build:
-    name: Validate translations
+    name: Validate locales
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        # with: # Remove for PR
-        #   fetch-depth: 0 
+      - name: Checkout project
+        uses: actions/checkout@v2
 
-      - name: set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
@@ -39,3 +35,5 @@ jobs:
       - name: Commit patch
         uses: stefanzweifel/git-auto-commit-action@v4
         if: steps.validation.outputs.patch_applied == 'true'
+        with:
+          message: 'chore: Fix contribution'
