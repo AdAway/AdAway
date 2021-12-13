@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!--Buttons-->
-    <string name="button_exit">Quitter</string>
+    <string name="button_exit">Test4</string>
     <string name="button_close">Fermer</string>
     <string name="button_yes">Oui</string>
     <string name="button_no">Non</string>
