@@ -1,16 +1,14 @@
 name: Android translation validation
 
 on:
-  push: # Only for test
-    branches:
-      - 'feature/i18n-checker'
-  #  paths:
-  #    - 'app/src/res/values*/string*.xml'
+  # push: # Only for test
+    # paths:
+    #   - 'app/src/main/res/values*/string*.xml'
   pull_request:
     branches:
       - master
     paths:
-      - 'app/src/res/values*/string*.xml'
+      - 'app/src/main/res/values*/string*.xml'
 
 jobs:
   build:
@@ -19,23 +17,25 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with: # Remove for PR
-          fetch-depth: 0 
+        # with: # Remove for PR
+        #   fetch-depth: 0 
 
       - name: set up JDK 11
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
-          java-version: 11
+          java-version: 17
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v11.9
-        with:
-          files: 'app/src/res/values*/string*.xml'
+        uses: tj-actions/changed-files@v11.9 
 
-      - name: List all modified files
+      - name: Validate locale files
+        id: validation
         run: |
-          for file in ${{ steps.changed-files.outputs.all_modified_files }}; do
-            echo "$file was modified"
-          done
+          cd ${GITHUB_WORKSPACE}
+          java .github/workflows/AndroidLocaleChecker.java ${{ steps.changed-files.outputs.all_modified_files }}
+
+      - name: Commit patch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        if: steps.validation.outputs.patch_applied == 'true'
