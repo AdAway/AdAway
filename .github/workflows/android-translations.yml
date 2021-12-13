@@ -4,8 +4,8 @@ on:
   push: # Only for test
     branches:
       - feature/i18n-checker
-    paths:
-      - 'app/src/res/values*/string*.xml'
+  #  paths:
+  #    - 'app/src/res/values*/string*.xml'
   pull_request:
     branches:
       - master
