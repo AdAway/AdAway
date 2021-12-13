@@ -40,11 +40,11 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleRelease --stacktrace
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: AdAway-dev
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
+      # - name: Upload APK
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: AdAway-dev
+      #     path: app/build/outputs/apk/release/app-release-unsigned.apk
 
       - name: Analyze project
         env:
