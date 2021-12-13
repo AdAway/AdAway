@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">廣告軟體</string>
     <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單項目來移除它們。</string>
-    <string name="adware_scanning">掃描中...</string>
+    <string name="adware_scanning">掃描中…</string>
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 
     <!--Other-->
