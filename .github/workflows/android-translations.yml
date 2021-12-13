@@ -2,8 +2,8 @@ name: Android translation validation
 
 on:
   push: # Only for test
-  #  branches:
-  #    - feature/i18n-checker
+    branches:
+      - 'feature/i18n-checker'
   #  paths:
   #    - 'app/src/res/values*/string*.xml'
   pull_request:
