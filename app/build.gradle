@@ -117,7 +117,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
 
     // Collections related
-    implementation 'com.google.guava:guava:30.1-android'
+    implementation 'com.google.guava:guava:31.0.1-android'
     // Network related
     implementation 'com.squareup.okhttp3:okhttp:3.14.9'
     // Logging related
