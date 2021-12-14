@@ -135,8 +135,8 @@ dependencies {
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.8.2'
     implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
-    implementation 'dnsjava:dnsjava:3.3.1'
-    implementation 'org.slf4j:slf4j-android:1.7.30'
+    implementation 'dnsjava:dnsjava:3.4.3'
+    implementation 'org.slf4j:slf4j-android:1.7.32'
 
     // Test related
     testImplementation 'junit:junit:4.13.2'
