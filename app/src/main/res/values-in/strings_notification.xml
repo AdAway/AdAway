@@ -2,7 +2,12 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">Pembaruan</string>
+    <string name="notification_update_channel_description">Notifikasi pembaruan</string>
     <string name="notification_update_host_available_title">Sumber pembaruan tersedia</string>
+    <string name="notification_update_host_available_text">File host terbaru tersedia untuk di unduh</string>
+    <string name="notification_update_app_available_title">Pembaruan app tersedia</string>
+    <string name="notification_update_app_available_text">AdAway versi terbaru tersedia untuk di unduh. </string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
-    </resources>
+    <string name="notification_vpn_channel_description">Notifikasi VPN berjalan</string>
+</resources>
