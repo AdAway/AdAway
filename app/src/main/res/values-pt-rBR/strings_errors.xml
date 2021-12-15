@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Espaço insuficiente</string>
     <string name="error_not_enough_space_details">Não foi possível copiar o arquivo hosts para partição do sistema. Por favor, verifique se o módulo sem sistema Magisk está ativado e reinicie.</string>
     <string name="error_copy_failed_message">Falha ao instalar o novo arquivo de hosts</string>
-    <string name="error_copy_failed_details">Não foi possível copiar o arquivo hosts para a partição /system. Por favor, verifique se o módulo sem sistema Magisk está ativado na reinicialização.</string>
+    <string name="error_copy_failed_details">Não foi possível copiar o arquivo hosts para a partição do sistema. Verifique se o módulo systemless do Magisk está habilitado e reinicie.</string>
     <string name="error_revert_failed_message">Falha ao reverter o arquivo hosts</string>
     <string name="error_revert_failed_details">Não foi possível restaurar a configuração do arquivo de hosts padrão.</string>
     <!-- VPN model error -->
