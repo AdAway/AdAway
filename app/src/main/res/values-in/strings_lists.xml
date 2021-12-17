@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="lists_title">Daftar pribadi</string>
     <!-- Tab -->
@@ -7,7 +7,7 @@
     <string name="lists_tab_redirected">Dialihkan</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filter host</string>
-    <string name="lists_menu_filter_hint">Cari hostname... </string>
+    <string name="lists_menu_filter_hint">Cari hostname… </string>
     <string name="lists_menu_toggle_sources">Beralih sumber</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Tambahkan pada daftar hitam</string>
