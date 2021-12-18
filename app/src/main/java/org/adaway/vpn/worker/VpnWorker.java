@@ -14,6 +14,8 @@
  */
 package org.adaway.vpn.worker;
 
+import static android.system.OsConstants.ENETUNREACH;
+import static android.system.OsConstants.EPERM;
 import static android.system.OsConstants.POLLIN;
 import static android.system.OsConstants.POLLOUT;
 import static org.adaway.vpn.VpnStatus.RECONNECTING_NETWORK_ERROR;
@@ -26,30 +28,27 @@ import static org.adaway.vpn.worker.VpnBuilder.establish;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
-import android.system.OsConstants;
 import android.system.StructPollfd;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.vpn.VpnService;
 import org.adaway.vpn.dns.DnsPacketProxy;
-import org.adaway.vpn.dns.DnsQuery;
 import org.adaway.vpn.dns.DnsQueryQueue;
 import org.adaway.vpn.dns.DnsServerMapper;
 import org.pcap4j.packet.IpPacket;
 
-import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
 
 import timber.log.Timber;
 
@@ -233,16 +232,10 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             deviceFd.events |= (short) POLLOUT;
         }
         // Create poll FD on each DNS query socket
-        StructPollfd[] polls = new StructPollfd[1 + this.dnsQueryQueue.size()];
+        StructPollfd[] queryFds = this.dnsQueryQueue.getQueryFds();
+        StructPollfd[] polls = new StructPollfd[1 + queryFds.length];
         polls[0] = deviceFd;
-        {
-            int i = 1;
-            for (DnsQuery query : this.dnsQueryQueue) {
-                polls[i] = query.pollfd;
-                i++;
-            }
-        }
-
+        System.arraycopy(queryFds, 0, polls, 1, queryFds.length);
         boolean deviceReadyToWrite;
         boolean deviceReadyToRead;
         try {
@@ -263,7 +256,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         // Need to do this before reading from the device, otherwise a new insertion there could
         // invalidate one of the sockets we want to read from either due to size or time out
         // constraints
-        checkForDnsResponse();
+        this.dnsQueryQueue.handleResponses();
         if (deviceReadyToWrite) {
             writeToDevice(fileOutputStream);
         }
@@ -272,31 +265,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         }
     }
 
-    private void checkForDnsResponse() {
-        Iterator<DnsQuery> iterator = this.dnsQueryQueue.iterator();
-        while (iterator.hasNext()) {
-            DnsQuery query = iterator.next();
-            if (query.isAnswered()) {
-                iterator.remove();
-                try {
-                    Timber.d("Read from DNS socket%s", query.socket);
-                    handleRawDnsResponse(query);
-                } catch (IOException e) {
-                    Timber.w(e, "Could not handle DNS response.");
-                }
-            }
-        }
-    }
-
-    private void handleRawDnsResponse(DnsQuery query) throws IOException {
-        byte[] responseData = new byte[1024];
-        DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length);
-        query.socket.receive(responsePacket);
-        query.socket.close();
-        this.dnsPacketProxy.handleDnsResponse(query.packet, responseData);
-    }
-
-    private void writeToDevice(FileOutputStream fileOutputStream) throws VpnNetworkException {
+    private void writeToDevice(FileOutputStream fileOutputStream) throws IOException {
         Timber.d("Write to device %d packets.", this.deviceWrites.size());
         try {
             while (!this.deviceWrites.isEmpty()) {
@@ -304,8 +273,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
                 fileOutputStream.write(ipPacketData);
             }
         } catch (IOException e) {
-            // TODO: Make this more specific, only for: "File descriptor closed"
-            throw new VpnNetworkException("Outgoing VPN output stream closed", e);
+            throw new IOException("Failed to write to tunnel output stream.", e);
         }
     }
 
@@ -313,36 +281,45 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         Timber.d("Read a packet from device.");
         // Read the outgoing packet from the input stream.
         int length = inputStream.read(packet);
-        if (length == 0) {
-            // TODO: Possibly change to exception
-            Timber.w("Got empty packet!");
-            return;
+        if (length < 0) {
+            // TODO Stream closed. Is there anything else to do?
+            Timber.d("Tunnel input stream closed.");
+        } else if (length == 0) {
+            Timber.d("Read empty packet from tunnel.");
+        } else {
+            byte[] readPacket = Arrays.copyOf(packet, length);
+            vpnWatchDog.handlePacket(readPacket);
+            dnsPacketProxy.handleDnsRequest(readPacket);
         }
-        final byte[] readPacket = Arrays.copyOfRange(packet, 0, length);
-
-        vpnWatchDog.handlePacket(readPacket);
-        dnsPacketProxy.handleDnsRequest(readPacket);
     }
 
-    public void forwardPacket(DatagramPacket outPacket, IpPacket parsedPacket) throws IOException {
+    @Override
+    public void forwardPacket(DatagramPacket packet) throws IOException {
+        try (DatagramSocket dnsSocket = new DatagramSocket()) {
+            this.vpnService.protect(dnsSocket);
+            dnsSocket.send(packet);
+        } catch (IOException e) {
+            throw new IOException("Failed to forward packet.", e);
+        }
+    }
+
+    @Override
+    public void forwardPacket(DatagramPacket outPacket, Consumer<byte[]> callback) throws IOException {
         DatagramSocket dnsSocket = null;
         try {
-            // Packets to be sent to the real DNS server will need to be protected from the VPN
             dnsSocket = new DatagramSocket();
-
-            vpnService.protect(dnsSocket);
-
+            // Packets to be sent to the real DNS server will need to be protected from the VPN
+            this.vpnService.protect(dnsSocket);
             dnsSocket.send(outPacket);
-
-            if (parsedPacket != null)
-                dnsQueryQueue.add(new DnsQuery(dnsSocket, parsedPacket));
-            else
-                closeOrWarn(dnsSocket, "handleDnsRequest: Cannot close socket in error");
+            // Enqueue DNS query
+            this.dnsQueryQueue.addQuery(dnsSocket, callback);
         } catch (IOException e) {
-            closeOrWarn(dnsSocket, "handleDnsRequest: Cannot close socket in error");
+            if (dnsSocket != null) {
+                dnsSocket.close();
+            }
             if (e.getCause() instanceof ErrnoException) {
                 ErrnoException errnoExc = (ErrnoException) e.getCause();
-                if ((errnoExc.errno == OsConstants.ENETUNREACH) || (errnoExc.errno == OsConstants.EPERM)) {
+                if ((errnoExc.errno == ENETUNREACH) || (errnoExc.errno == EPERM)) {
                     throw new IOException("Cannot send message:", e);
                 }
             }
@@ -350,22 +327,12 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         }
     }
 
+    @Override
     public void queueDeviceWrite(IpPacket ipOutPacket) {
         byte[] rawData = ipOutPacket.getRawData();
         // TODO Check why data could be null
         if (rawData != null) {
-            deviceWrites.add(rawData);
+            this.deviceWrites.add(rawData);
         }
-    }
-
-
-    static <T extends Closeable> T closeOrWarn(T fd, String message) {
-        try {
-            if (fd != null)
-                fd.close();
-        } catch (Exception e) {
-            Timber.e(e, "closeOrWarn: %s", message);
-        }
-        return null;
     }
 }

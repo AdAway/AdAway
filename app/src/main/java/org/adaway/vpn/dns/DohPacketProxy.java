@@ -197,7 +197,7 @@ public class DohPacketProxy {
             // the gateway to reduce the RTT. For further details, please see
             // https://bugzilla.mozilla.org/show_bug.cgi?id=888268
             DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, dnsAddress, packetPort);
-            eventLoop.forwardPacket(outPacket, null);
+            eventLoop.forwardPacket(outPacket);
             return;
         }
 

@@ -48,6 +48,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.function.Consumer;
 
 import timber.log.Timber;
 
@@ -176,8 +177,8 @@ public class DnsPacketProxy {
             // Let's be nice to Firefox. Firefox uses an empty UDP packet to
             // the gateway to reduce the RTT. For further details, please see
             // https://bugzilla.mozilla.org/show_bug.cgi?id=888268
-            DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, dnsAddress, packetPort);
-            eventLoop.forwardPacket(outPacket, null);
+            DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, dnsAddress, packetPort);
+            eventLoop.forwardPacket(outPacket);
             return;
         }
 
@@ -207,7 +208,7 @@ public class DnsPacketProxy {
             case ALLOWED:
                 Timber.i("handleDnsRequest: DNS Name %s allowed, sending to %s.", dnsQueryName, dnsAddress);
                 DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
-                eventLoop.forwardPacket(outPacket, ipPacket);
+                this.eventLoop.forwardPacket(outPacket, data -> handleDnsResponse(ipPacket, data));
                 break;
             case REDIRECTED:
                 Timber.i("handleDnsRequest: DNS Name %s redirected to %s.", dnsQueryName, entry.getRedirection());
@@ -251,14 +252,21 @@ public class DnsPacketProxy {
      */
     public interface EventLoop {
         /**
-         * Called to send a packet to a remote location
+         * Forward a packet to the VPN underlying network.
          *
-         * @param packet        The packet to send
-         * @param requestPacket If specified, the event loop must wait for a response, and then
-         *                      call {@link #handleDnsResponse(IpPacket, byte[])} for the data
-         *                      of the response, with this packet as the first argument.
+         * @param packet The packet to forward.
+         * @throws IOException If the packet could not be forwarded.
          */
-        void forwardPacket(DatagramPacket packet, IpPacket requestPacket) throws IOException;
+        void forwardPacket(DatagramPacket packet) throws IOException;
+
+        /**
+         * Forward a packet to the VPN underlying network.
+         *
+         * @param packet   The packet to forward.
+         * @param callback The callback to call with the packet response data.
+         * @throws IOException If the packet could not be forwarded.
+         */
+        void forwardPacket(DatagramPacket packet, Consumer<byte[]> callback) throws IOException;
 
         /**
          * Write an IP packet to the local TUN device

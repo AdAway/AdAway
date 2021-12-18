@@ -1,10 +1,12 @@
 package org.adaway.vpn.dns;
 
-import androidx.annotation.NonNull;
+import android.system.StructPollfd;
 
+import java.net.DatagramSocket;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.function.Consumer;
 
 import timber.log.Timber;
 
@@ -14,7 +16,7 @@ import timber.log.Timber;
  *
  * @author Bruce BUJON
  */
-public class DnsQueryQueue implements Iterable<DnsQuery> {
+public class DnsQueryQueue {
     /**
      * The maximum number of responses to wait for.
      */
@@ -36,35 +38,36 @@ public class DnsQueryQueue implements Iterable<DnsQuery> {
     }
 
     /**
-     * Add query to queue.
+     * Add DNS query to the queue.
      *
-     * @param query The query to add.
+     * @param socket   The socket used to query DNS server.
+     * @param callback The callback to call with the query response data.
      */
-    public void add(DnsQuery query) {
+    public void addQuery(DatagramSocket socket, Consumer<byte[]> callback) {
         // Apply time constraint by removing timed out queries
         clearTimedOutQueries();
         // Apply space constraint by removing older packet if queue is full
+        ensureFreeSpace();
+        // Add query to the queue
+        DnsQuery query = new DnsQuery(socket, callback);
+        this.queries.add(query);
+    }
+
+    private void ensureFreeSpace() {
         if (this.queries.size() > DNS_MAXIMUM_WAITING) {
             DnsQuery oldestQuery = this.queries.remove();
-            Timber.d("Dropping query due to space constraints: %s.", query.socket);
-            oldestQuery.socket.close();
+            Timber.d("Dropping query due to space constraints: %s.", oldestQuery);
+            oldestQuery.close();
         }
-        // Add query to queue
-        this.queries.add(query);
     }
 
     private void clearTimedOutQueries() {
         long now = System.currentTimeMillis() / 1000;
-        while (!this.queries.isEmpty() && (now - queries.element().time) > DNS_TIMEOUT_SEC) {
-            DnsQuery wosPacket = queries.remove();
-            Timber.d("Timeout on socket %s.", wosPacket.socket);
-            wosPacket.socket.close();
+        while (!this.queries.isEmpty() && this.queries.element().isOlderThan(now - DNS_TIMEOUT_SEC)) {
+            DnsQuery timedOutQuery = this.queries.remove();
+            Timber.d("Query %s timed out.", timedOutQuery);
+            timedOutQuery.close();
         }
-    }
-
-    @NonNull
-    public Iterator<DnsQuery> iterator() {
-        return queries.iterator();
     }
 
     /**
@@ -74,5 +77,30 @@ public class DnsQueryQueue implements Iterable<DnsQuery> {
      */
     public int size() {
         return this.queries.size();
+    }
+
+    /**
+     * Get the query pollfds.
+     *
+     * @return The query pollfds.
+     */
+    public StructPollfd[] getQueryFds() {
+        return this.queries.stream()
+                .map(DnsQuery::getPollfd)
+                .toArray(StructPollfd[]::new);
+    }
+
+    /**
+     * Handle any responded query.
+     */
+    public void handleResponses() {
+        Iterator<DnsQuery> iterator = this.queries.iterator();
+        while (iterator.hasNext()) {
+            DnsQuery query = iterator.next();
+            if (query.isAnswered()) {
+                iterator.remove();
+                query.handleResponse();
+            }
+        }
     }
 }
