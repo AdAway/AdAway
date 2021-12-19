@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Cấu hình VPN được cập nhật thành công</string>
     <string name="notification_configuration_changed">Thiết lập của bạn đã thay đổi. Bạn cần áp dụng nó.</string>
     <string name="notification_configuration_changed_action">Áp dụng</string>
-    <string name="notification_configuration_installing">Đang áp dụng thiết lập mới...</string>
+    <string name="notification_configuration_installing">Đang áp dụng thiết lập mới…</string>
     <string name="notification_configuration_failed">Áp dụng thiết lập mới thất bại.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Ở đây bạn có thể tìm thấy ứng dụng quảng cáo, đó là những ứng dụng xấu không thể bị chặn bởi AdAway. Các ứng dụng này sử dụng, ví dụ là các thông báo Airpush hiện lên kể cả khi ứng dụng đó không chạy hoặc kể cả là thay đổi nhạc chuông của bạn. Biện pháp phản lại duy nhất có sẵn là gỡ cài đặt các ứng dụng đó bằng cách nhấn vào các mục trong danh sách.</string>
-    <string name="adware_scanning">Đang quét...</string>
+    <string name="adware_scanning">Đang quét…</string>
     <string name="adware_empty">Không tìm thấy Adware!</string>
 
     <!--Other-->
