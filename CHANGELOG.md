@@ -4,6 +4,7 @@
 - Update Android gradle plugin
 - Update AndroidX libraries 
 - Update third party libraries
+- Update mongoose web server
 - Update translations
 
 ## [5.10.0] - 2021-12-01
