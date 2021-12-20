@@ -3,6 +3,7 @@
 - Improve home screen with icon color and decoration
 - Improve settings UI elements
 - Improve logs with Timber
+- Improve button descriptions
 - Update Android gradle plugin
 - Update AndroidX libraries 
 - Update third party libraries
