@@ -27,7 +27,7 @@ public class ListsFilter {
     }
 
     private static String convertToLikeQuery(String query) {
-        return "%" + query.replaceAll("\\*", "%")
-                .replaceAll("\\?", "_") + "%";
+        return "%" + query.replace("*", "%")
+                .replace("?", "_") + "%";
     }
 }
