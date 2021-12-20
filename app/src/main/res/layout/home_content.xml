@@ -119,18 +119,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="10dp"
+        android:shape="ring"
+        app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/blockedHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/blockedHostCardView"
         app:layout_constraintStart_toStartOf="@+id/blockedHostCardView"
-        app:layout_constraintTop_toTopOf="@+id/blockedHostCardView"
-        android:layout_centerInParent="true"
-        android:shape="ring"
-        app:cardCornerRadius="75dp">
+        app:layout_constraintTop_toTopOf="@+id/blockedHostCardView">
+
         <ImageView
-            android:layout_margin="5dp"
             android:id="@+id/blockedHostImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_margin="5dp"
             android:contentDescription="@string/blocked_hosts_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_block_24"
@@ -188,21 +190,24 @@
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="10dp"
+        android:shape="ring"
+        app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/allowedHostCardView"
         app:layout_constraintStart_toStartOf="@+id/allowedHostCardView"
-        app:layout_constraintTop_toTopOf="@+id/allowedHostCardView"
-        android:layout_centerInParent="true"
-        android:shape="ring"
-        app:cardCornerRadius="75dp">
+        app:layout_constraintTop_toTopOf="@+id/allowedHostCardView">
+
         <ImageView
-            android:layout_margin="5dp"
             android:id="@+id/allowedHostImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_margin="5dp"
             android:contentDescription="@string/allowed_hosts_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_check_24"
@@ -265,18 +270,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="10dp"
+        android:shape="ring"
+        app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/redirectHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/redirectHostCardView"
         app:layout_constraintStart_toStartOf="@+id/redirectHostCardView"
-        app:layout_constraintTop_toTopOf="@+id/redirectHostCardView"
-        android:layout_centerInParent="true"
-        android:shape="ring"
-        app:cardCornerRadius="75dp">
+        app:layout_constraintTop_toTopOf="@+id/redirectHostCardView">
+
         <ImageView
-            android:layout_margin="5dp"
             android:id="@+id/redirectHostImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_margin="5dp"
             android:contentDescription="@string/redirect_hosts_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_compare_arrows_24"
@@ -421,18 +428,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="10dp"
+        android:shape="ring"
+        app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/logCardView"
         app:layout_constraintEnd_toEndOf="@+id/logCardView"
         app:layout_constraintStart_toStartOf="@+id/logCardView"
-        app:layout_constraintTop_toTopOf="@+id/logCardView"
-        android:layout_centerInParent="true"
-        android:shape="ring"
-        app:cardCornerRadius="75dp">
+        app:layout_constraintTop_toTopOf="@+id/logCardView">
+
         <ImageView
-            android:layout_margin="5dp"
             android:id="@+id/helpImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_margin="5dp"
             android:contentDescription="@string/log_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/ic_outline_rule_24" />
@@ -469,18 +478,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="10dp"
+        android:shape="ring"
+        app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/helpCardView"
         app:layout_constraintEnd_toEndOf="@+id/helpCardView"
         app:layout_constraintStart_toStartOf="@+id/helpCardView"
-        app:layout_constraintTop_toTopOf="@+id/helpCardView"
-        android:layout_centerInParent="true"
-        android:shape="ring"
-        app:cardCornerRadius="75dp">
+        app:layout_constraintTop_toTopOf="@+id/helpCardView">
+
         <ImageView
-            android:layout_margin="5dp"
             android:id="@+id/projectImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_margin="5dp"
             android:contentDescription="@string/help_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/ic_help_24dp" />
@@ -517,18 +528,20 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="10dp"
+        android:shape="ring"
+        app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/supportCardView"
         app:layout_constraintEnd_toEndOf="@+id/supportCardView"
         app:layout_constraintStart_toStartOf="@+id/supportCardView"
-        app:layout_constraintTop_toTopOf="@+id/supportCardView"
-        android:layout_centerInParent="true"
-        android:shape="ring"
-        app:cardCornerRadius="75dp">
+        app:layout_constraintTop_toTopOf="@+id/supportCardView">
+
         <ImageView
-            android:layout_margin="5dp"
             android:id="@+id/supportImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:layout_margin="5dp"
             android:contentDescription="@string/support_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_favorite_24" />
