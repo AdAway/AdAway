@@ -35,7 +35,6 @@ import androidx.annotation.RawRes;
 import androidx.fragment.app.Fragment;
 
 import org.adaway.R;
-import org.adaway.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,6 +42,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import static android.text.Html.FROM_HTML_MODE_LEGACY;
+
+import timber.log.Timber;
 
 public class HelpFragmentHtml extends Fragment {
     private static final String TAG = "Help";
@@ -70,7 +71,7 @@ public class HelpFragmentHtml extends Fragment {
             try {
                 spanned = Html.fromHtml(readHtmlRawFile(htmlFile), FROM_HTML_MODE_LEGACY);
             } catch (IOException e) {
-                Log.w(TAG, "Failed to read help file.");
+                Timber.w("Failed to read help file.");
             }
         }
 

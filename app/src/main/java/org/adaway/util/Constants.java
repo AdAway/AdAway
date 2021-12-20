@@ -21,19 +21,12 @@
 package org.adaway.util;
 
 public class Constants {
-    /* DEBUG enables Log.d outputs, wrapped in org.adaway.util.Log and RootTools Debug Mode */
-    // DEBUG must be set by a preference
-    private static boolean debug = false;
-    public static final boolean DEBUG_UPDATE_CHECK_SERVICE = false;
-    public static final boolean DEBUG_DISABLE_ROOT_CHECK = false;
-
     public static final String TAG = "AdAway";
 
     public static final String PREFS_NAME = "preferences";
 
     public static final String LOCALHOST_IPv4 = "127.0.0.1";
     public static final String LOCALHOST_IPv6 = "::1";
-    public static final String WHITELIST_ENTRY = "white";
     public static final String BOGUS_IPv4 = "0.0.0.0";
     public static final String LOCALHOST_HOSTNAME = "localhost";
 
@@ -48,27 +41,4 @@ public class Constants {
     public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
     public static final String ANDROID_SYSTEM_ETC_HOSTS = ANDROID_SYSTEM_PATH + FILE_SEPARATOR
             + "etc" + FILE_SEPARATOR + HOSTS_FILENAME;
-
-    /**
-     * Check if debug mode is enabled.
-     *
-     * @return <code>true</code> if debug moode is enabled, <code>false</code> otherwise.
-     */
-    public static boolean isDebugEnabled() {
-        return debug;
-    }
-
-    /**
-     * Enable application debug mode.
-     */
-    public static void enableDebug() {
-        debug = true;
-    }
-
-    /**
-     * Disable application debug mode.
-     */
-    public static void disableDebug() {
-        debug = false;
-    }
 }

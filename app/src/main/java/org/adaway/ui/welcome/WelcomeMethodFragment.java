@@ -20,7 +20,7 @@ import com.topjohnwu.superuser.Shell;
 import org.adaway.R;
 import org.adaway.databinding.WelcomeMethodLayoutBinding;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.SentryLog;
+import org.adaway.util.log.SentryLog;
 
 import static android.app.Activity.RESULT_OK;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;

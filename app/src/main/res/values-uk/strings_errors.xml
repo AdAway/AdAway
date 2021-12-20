@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Не достатньо місця</string>
     <string name="error_not_enough_space_details">Не вдалося скопіювати файл hosts на системний розділ. Перевірте в застосунку Magisk Manager, чи увімкнено модуль позасистемних хостів, і потім перезавантажте пристрій.</string>
     <string name="error_copy_failed_message">Не вдалося встановити файл hosts</string>
-    <string name="error_copy_failed_details">Не вдалося скопіювати файл hosts в розділ /system. Перевірте в застосунку Magisk Manager, чи увімкнено модуль позасистемних хостів, і потім перезавантажте пристрій.</string>
+    <string name="error_copy_failed_details">Неможливо скопіювати файл hosts в розділ /system. Перевірте, чи ввімкнено systemless модуль Magisk, а потім перезавантажте.</string>
     <string name="error_revert_failed_message">Не вдалося відновити файл hosts</string>
     <string name="error_revert_failed_details">Не вдалося відновити усталену конфігурацію файла hosts.</string>
     <!-- VPN model error -->

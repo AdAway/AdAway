@@ -39,7 +39,6 @@ import org.adaway.ui.support.SupportActivity;
 import org.adaway.ui.log.LogActivity;
 import org.adaway.ui.update.UpdateActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
-import org.adaway.util.Log;
 
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED;
 import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN;
@@ -51,6 +50,8 @@ import static org.adaway.ui.lists.ListsActivity.ALLOWED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.BLOCKED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.REDIRECTED_HOSTS_TAB;
 import static org.adaway.ui.lists.ListsActivity.TAB;
+
+import timber.log.Timber;
 
 /**
  * This class is the application main activity.
@@ -74,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ThemeHelper.applyTheme(this);
         NotificationHelper.clearUpdateNotifications(this);
-        Log.i(TAG, "Starting main activity");
+        Timber.i("Starting main activity");
         this.binding = HomeActivityBinding.inflate(getLayoutInflater());
         setContentView(this.binding.getRoot());
 

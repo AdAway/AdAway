@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">لا توجد مساحة كافية</string>
     <string name="error_not_enough_space_details">تعذر نسخ ملف المضيفين إلى قسم النظام لديك. يرجى التحقق من تمكين Magisk systemless module ثم إعادة التشغيل.</string>
     <string name="error_copy_failed_message">فشل تثبيت ملف المضيفين الجديد</string>
-    <string name="error_copy_failed_details">تعذر نسخ ملف المضيفين إلى مجلد النظام. يرجى التحقق من تمكين Magisk systemless module لإعادة التشغيل.</string>
+    <string name="error_copy_failed_details">تعذر نسخ ملف المضيفين إلى / قسم النظام. يرجى التحقق من تمكين Magisk systemless module ثم إعادة التشغيل.</string>
     <string name="error_revert_failed_message">فشلت إعادة ملف المضيفين</string>
     <string name="error_revert_failed_details">غير قادر على استعادة الإعداد الافتراضي لملف المضيفين.</string>
     <!-- VPN model error -->

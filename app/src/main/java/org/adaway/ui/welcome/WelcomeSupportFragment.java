@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 
 import org.adaway.databinding.WelcomeSupportLayoutBinding;
 import org.adaway.helper.PreferenceHelper;
-import org.adaway.util.SentryLog;
+import org.adaway.util.log.SentryLog;
 
 /**
  * This class is a fragment to inform user how to support the application development.

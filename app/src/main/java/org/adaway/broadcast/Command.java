@@ -2,7 +2,7 @@ package org.adaway.broadcast;
 
 import android.content.Intent;
 
-import org.adaway.util.Log;
+import timber.log.Timber;
 
 /**
  * This enumerate lists the commands of {@link CommandReceiver}.
@@ -23,7 +23,6 @@ public enum Command {
      */
     UNKNOWN;
 
-    private static final String TAG = "COMMAND";
     private static final String INTENT_EXTRA_COMMAND = "COMMAND";
 
     /**
@@ -40,7 +39,7 @@ public enum Command {
                 try {
                     command = Command.valueOf(commandName);
                 } catch (IllegalArgumentException e) {
-                    Log.w(TAG, "Failed to read command named " + commandName);
+                    Timber.w("Failed to read command named %s.", commandName);
                 }
             }
         }

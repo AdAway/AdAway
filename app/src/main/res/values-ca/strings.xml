@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Aquí podeu trobar aplicacions Adware malignes que no es poden bloquejar amb AdAway. Aquestes aplicacions utilitzen, entre altres, notificacions Airpush que poden apareixer inclús quan l\'aplicació no està funcionant o poden inclús canviar el vostre to de trucada. La única defensa possible és desinstalar-les clicant en la llista de elements</string>
-    <string name="adware_scanning">Escanejant…</string>
+    <string name="adware_scanning">S\'està escanejant…</string>
     <string name="adware_empty">No s\'ha trobat Adware! </string>
 
     <!--Other-->
@@ -247,7 +247,7 @@
     <string name="vpn_notification_stopped">aturat</string>
     <string name="vpn_notification_title">VPN bloquejadora d\'anuncis %1$s</string>
     <string name="vpn_notification_action_pause">Pausa</string>
-    <string name="vpn_notification_action_resume">Seguir</string>
+    <string name="vpn_notification_action_resume">Reprèn </string>
 
     <!-- Permission -->
     <string name="permission_group_api_label">Permisos del AdAway </string>

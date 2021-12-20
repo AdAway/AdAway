@@ -10,13 +10,13 @@ import androidx.annotation.WorkerThread;
 import androidx.lifecycle.LiveData;
 
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+
+import timber.log.Timber;
 
 /**
  * This class is {@link LiveData} to represents installed adware on device.
@@ -91,7 +91,7 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
                     adPackages.add(packageInfo);
                 }
             } catch (Exception exception) {
-                Log.e(Constants.TAG, "An error occurred while scanning applications for adware", exception);
+                Timber.e(exception, "An error occurred while scanning applications for adware");
             }
         }
         return adPackages;
@@ -106,7 +106,7 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
     private boolean isAdware(PackageInfo info) {
         // Get package name
         String packageName = info.packageName;
-        Log.v(Constants.TAG, "Scanning package " + packageName);
+        Timber.v("Scanning package " + packageName);
         // Check package components
         boolean matchActivity = info.activities != null && checkComponent(packageName, "activity", info.activities);
         boolean matchReceiver = info.receivers != null && checkComponent(packageName, "receiver", info.receivers);
@@ -126,10 +126,10 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
     private boolean checkComponent(String packageName, String type, ComponentInfo[] info) {
         for (ComponentInfo componentInfo : info) {
             String componentName = componentInfo.name;
-            Log.v(Constants.TAG, "[" + type + "] " + componentName);
+            Timber.v("[" + type + "] " + componentName);
             for (String adPackagePrefix : AD_PACKAGE_PREFIXES) {
                 if (componentName.startsWith(adPackagePrefix)) {
-                    Log.i(Constants.TAG, String.format("Detected ad framework prefix %s in package %s as %s %s", adPackagePrefix, packageName, type, componentName));
+                    Timber.i(String.format("Detected ad framework prefix %s in package %s as %s %s", adPackagePrefix, packageName, type, componentName));
                     return true;
                 }
             }

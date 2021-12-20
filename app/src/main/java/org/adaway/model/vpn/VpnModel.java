@@ -10,7 +10,6 @@ import org.adaway.db.entity.HostEntry;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
-import org.adaway.util.Log;
 import org.adaway.vpn.VpnService;
 
 import java.util.ArrayList;
@@ -19,6 +18,8 @@ import java.util.List;
 
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
+
+import timber.log.Timber;
 
 /**
  * This class is the model to represent VPN service configuration.
@@ -111,7 +112,7 @@ public class VpnModel extends AdBlockModel {
             int hits = this.blockCache.hitCount();
             int misses = this.blockCache.missCount();
             double missRate = 100D * (hits + misses) / misses;
-            Log.d(TAG, "Host cache miss rate: " + missRate);
+            Timber.d("Host cache miss rate: %s.", missRate);
             this.requestCount = 0;
         }
         // Add host to logs

@@ -4,11 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import org.adaway.util.Log;
-
 import static android.content.Intent.ACTION_MY_PACKAGE_REPLACED;
 import static org.adaway.BuildConfig.VERSION_NAME;
-import static org.adaway.util.Constants.TAG;
+
+import timber.log.Timber;
 
 /**
  * This broadcast receiver is executed at application update.
@@ -19,8 +18,8 @@ public class UpdateReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (ACTION_MY_PACKAGE_REPLACED.equals(intent.getAction())) {
-            Log.d(TAG, "UpdateReceiver invoked");
-            Log.i(TAG, "Application update to version " + VERSION_NAME);
+            Timber.d("UpdateReceiver invoked");
+            Timber.i("Application update to version %s", VERSION_NAME);
         }
     }
 }

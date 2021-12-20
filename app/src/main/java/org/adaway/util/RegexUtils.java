@@ -26,7 +26,7 @@ import com.google.common.net.InternetDomainName;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.adaway.util.Constants.TAG;
+import timber.log.Timber;
 
 public class RegexUtils {
     private static final Pattern WILDCARD_PATTERN = Pattern.compile("[*?]");
@@ -78,7 +78,7 @@ public class RegexUtils {
             InetAddresses.forString(ip);
             return true;
         } catch (IllegalArgumentException exception) {
-            Log.d(TAG, "Invalid IP address: " + ip, exception);
+            Timber.d(exception, "Invalid IP address: %s.", ip);
             return false;
         }
     }

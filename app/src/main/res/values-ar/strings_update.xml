@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="update_title">تحديث AdAway</string>
+    <string name="update_title">تحديث آدواي AdAway</string>
     <!-- Home screen -->
     <string name="update_available">تحديث متوفر!</string>
 
     <!-- Update activity -->
     <string name="update_up_to_date_header">أنت لديك آخر إصدار</string>
     <string name="update_update_available_header">يوجد تحديث متوفر</string>
-    <string name="update_updating_header">جاري تحديث AdAway</string>
+    <string name="update_updating_header">جاري تحديث آدواي AdAway</string>
     <string name="update_update_button">حدث الآن</string>
     <string name="update_progress_label">%1$s/%2$s</string>
-    <string name="update_last_changelog_title">التغييرات الأخيرة:</string>
-    <string name="update_new_changelog_title">سجل التغيير:</string>
+    <string name="update_last_changelog_title">التغييرات الأخيرة</string>
+    <string name="update_new_changelog_title">سجل التغييرات</string>
+    <string name="update_support_title">دعم المشروع</string>
+    <string name="update_donate_button">التبرع</string>
+    <string name="update_sponsor_button">راعي</string>
 
     <!-- Notification -->
     <string name="update_notification_description">جاري تنزيل أحدث إصدار من AdAway…</string>

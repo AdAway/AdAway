@@ -19,7 +19,8 @@ import org.adaway.model.source.SourceModel;
 import org.adaway.model.update.Manifest;
 import org.adaway.model.update.UpdateModel;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Log;
+
+import timber.log.Timber;
 
 /**
  * This class is an {@link AndroidViewModel} for the {@link HomeActivity} cards.
@@ -129,7 +130,7 @@ public class HomeViewModel extends AndroidViewModel {
                     this.adBlockModel.apply();
                 }
             } catch (HostErrorException exception) {
-                Log.w(TAG, "Failed to toggle ad blocking.", exception);
+                Timber.w(exception, "Failed to toggle ad blocking.");
                 this.error.postValue(exception.getError());
             } finally {
                 this.pending.postValue(false);
@@ -146,7 +147,7 @@ public class HomeViewModel extends AndroidViewModel {
                 this.pending.postValue(true);
                 this.sourceModel.checkForUpdate();
             } catch (HostErrorException exception) {
-                Log.w(TAG, "Failed to update.", exception);
+                Timber.w(exception, "Failed to update.");
                 this.error.postValue(exception.getError());
             } finally {
                 this.pending.postValue(false);
@@ -164,7 +165,7 @@ public class HomeViewModel extends AndroidViewModel {
                 this.sourceModel.retrieveHostsSources();
                 this.adBlockModel.apply();
             } catch (HostErrorException exception) {
-                Log.w(TAG, "Failed to sync.", exception);
+                Timber.w(exception, "Failed to sync.");
                 this.error.postValue(exception.getError());
             } finally {
                 this.pending.postValue(false);

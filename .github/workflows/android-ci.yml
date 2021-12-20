@@ -14,19 +14,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: set up JDK 11
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
+          distribution: 'temurin'
           java-version: 11
-    
-      - name: Restore gradle cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          cache: 'gradle'
 
       - name: Restore SonarCloud packages cache
         uses: actions/cache@v2
@@ -46,15 +38,13 @@ jobs:
         run: ./gradlew test --stacktrace
 
       - name: Build with Gradle
-        #      env:
-        #        key: value
         run: ./gradlew assembleRelease --stacktrace
 
-      - name: Upload APK
-        uses: actions/upload-artifact@v2
-        with:
-          name: AdAway-dev
-          path: app/build/outputs/apk/release/app-release-unsigned.apk
+      # - name: Upload APK
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: AdAway-dev
+      #     path: app/build/outputs/apk/release/app-release-unsigned.apk
 
       - name: Analyze project
         env:

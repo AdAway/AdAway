@@ -48,6 +48,7 @@ import javax.security.cert.X509Certificate;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import timber.log.Timber;
 
 import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
 import static org.adaway.util.ShellUtils.killBundledExecutable;
@@ -60,7 +61,6 @@ import static org.adaway.util.ShellUtils.runBundledExecutable;
  */
 public class WebServerUtils {
     public static final String TEST_URL = "https://localhost/internal-test";
-    private static final String TAG = "WebServer";
     private static final String WEB_SERVER_EXECUTABLE = "webserver";
     private static final String LOCALHOST_CERTIFICATE = "localhost-2108.crt";
     private static final String LOCALHOST_CERTIFICATE_KEY = "localhost-2108.key";
@@ -71,7 +71,7 @@ public class WebServerUtils {
      * @param context The application context.
      */
     public static void startWebServer(Context context) {
-        Log.d(TAG, "Starting web server...");
+        Timber.d("Starting web server…");
 
         Path resourcePath = context.getFilesDir().toPath().resolve("webserver");
         inflateResources(context, resourcePath);
@@ -118,7 +118,7 @@ public class WebServerUtils {
         } catch (ConnectException e) {
             return R.string.pref_webserver_state_not_running;
         } catch (IOException e) {
-            Log.w(TAG, "Failed to test web server.", e);
+            Timber.w(e, "Failed to test web server.");
             return R.string.pref_webserver_state_not_running;
         }
     }
@@ -144,9 +144,9 @@ public class WebServerUtils {
             intent.putExtra(KeyChain.EXTRA_NAME, "AdAway");
             context.startActivity(intent);
         } catch (IOException e) {
-            Log.w(TAG, "Failed to read certificate.", e);
+            Timber.w(e, "Failed to read certificate.");
         } catch (CertificateException e) {
-            Log.w(TAG, "Failed to parse certificate.", e);
+            Timber.w(e, "Failed to parse certificate.");
         }
     }
 
@@ -164,7 +164,7 @@ public class WebServerUtils {
                 outputStream.write(buffer, 0, read);
             }
         } catch (IOException e) {
-            Log.w(TAG, "Failed to copy certificate.", e);
+            Timber.w(e, "Failed to copy certificate.");
         }
     }
 
@@ -176,7 +176,7 @@ public class WebServerUtils {
             inflateResource(assetManager, "icon.svg", target);
             inflateResource(assetManager, "test.html", target);
         } catch (IOException e) {
-            Log.w(TAG, "Failed to inflate web server resources.", e);
+            Timber.w(e, "Failed to inflate web server resources.");
         }
     }
 

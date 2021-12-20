@@ -24,8 +24,6 @@ import android.content.Context;
 
 import com.topjohnwu.superuser.Shell;
 
-import org.adaway.util.Log;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -44,8 +42,9 @@ import static org.adaway.util.ShellUtils.killBundledExecutable;
 import static org.adaway.util.ShellUtils.mergeAllLines;
 import static org.adaway.util.ShellUtils.runBundledExecutable;
 
+import timber.log.Timber;
+
 class TcpdumpUtils {
-    private static final String TAG = "TCPDUMP";
     private static final String TCPDUMP_EXECUTABLE = "tcpdump";
     private static final String TCPDUMP_LOG = "dns_log.txt";
     private static final String TCPDUMP_HOSTNAME_REGEX = "(?:A\\?|AAAA\\?)\\s(\\S+)\\.\\s";
@@ -74,7 +73,7 @@ class TcpdumpUtils {
      * @return returns true if starting worked
      */
     static boolean startTcpdump(Context context) {
-        Log.d(TAG, "Starting tcpdump...");
+        Timber.d("Starting tcpdump...");
         checkSystemTcpdump();
 
         File file = getLogFile(context);
@@ -84,7 +83,7 @@ class TcpdumpUtils {
                 return false;
             }
         } catch (IOException e) {
-            Log.e(TAG, "Problem while getting cache directory!", e);
+            Timber.e(e, "Problem while getting cache directory!");
             return false;
         }
 
@@ -115,14 +114,14 @@ class TcpdumpUtils {
             Shell.Result result = Shell.su("tcpdump --version").exec();
             int exitCode = result.getCode();
             String output = mergeAllLines(result.getOut());
-            Log.i(TAG, "Tcpdump " + (
+            String msg = "Tcpdump " + (
                             exitCode == 0 ?
                                     "present" :
                                     "missing (" + exitCode + ")"
-                    ) + "\n" + output
-            );
+                    ) + "\n" + output;
+            Timber.i(msg);
         } catch (Exception exception) {
-            Log.w(TAG, "Failed to check system tcpdump binary.", exception);
+            Timber.w(exception, "Failed to check system tcpdump binary.");
         }
     }
 
@@ -155,7 +154,7 @@ class TcpdumpUtils {
                     .distinct()
                     .collect(Collectors.toList());
         } catch (IOException exception) {
-            Log.e(TAG, "Can not get cache directory.", exception);
+            Timber.e(exception, "Can not get cache directory.");
             return emptyList();
         }
     }
@@ -177,7 +176,7 @@ class TcpdumpUtils {
             // Only truncate the file
             outputStream.close();   // Useless but help lint
         } catch (IOException exception) {
-            Log.e(TAG, "Error while truncating the tcpdump file!", exception);
+            Timber.e(exception, "Error while truncating the tcpdump file!");
             // Return failed to clear the log file
             return false;
         }
@@ -196,7 +195,7 @@ class TcpdumpUtils {
         if (tcpdumpHostnameMatcher.find()) {
             return tcpdumpHostnameMatcher.group(1);
         } else {
-            Log.d(TAG, "Does not find: " + input);
+            Timber.d("Does not find: %s.", input);
             return null;
         }
     }

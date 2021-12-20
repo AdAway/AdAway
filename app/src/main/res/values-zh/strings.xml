@@ -250,6 +250,6 @@
     <string name="permission_group_api_label">AdAway 权限</string>
     <string name="permission_group_api_description">允许与 AdAway 互动</string>
     <string name="permission_send_command_label">向 AdAway 发送命令</string>
-    <string name="permission_send_command_description">允许发送命令到 AdAway，如启用或禁用系统广告拦截</string>
+    <string name="permission_send_command_description">允许向 AdAway 发送命令，如启用或禁用系统级广告拦截</string>
 
 </resources>

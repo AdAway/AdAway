@@ -24,7 +24,6 @@ import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.git.GitHostsSource;
-import org.adaway.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,6 +43,7 @@ import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import timber.log.Timber;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
 import static android.provider.DocumentsContract.Document.COLUMN_LAST_MODIFIED;
@@ -59,10 +59,6 @@ import static org.adaway.model.error.HostError.NO_CONNECTION;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class SourceModel {
-    /**
-     * The log tag.
-     */
-    private static final String TAG = "SourceModel";
     /**
      * The HTTP client cache size (100Mo).
      */
@@ -161,8 +157,8 @@ public class SourceModel {
             // Get hosts source last update
             ZonedDateTime lastModifiedOnline = getHostsSourceLastUpdate(source);
             // Some help with debug here
-            Log.d(TAG, "lastModifiedLocal: " + dateToString(lastModifiedLocal));
-            Log.d(TAG, "lastModifiedOnline: " + dateToString(lastModifiedOnline));
+            Timber.d("lastModifiedLocal: %s", dateToString(lastModifiedLocal));
+            Timber.d("lastModifiedOnline: %s", dateToString(lastModifiedOnline));
             // Save last modified online
             this.hostsSourceDao.updateOnlineModificationDate(source.getId(), lastModifiedOnline);
             // Check if last modified online retrieved
@@ -180,7 +176,7 @@ public class SourceModel {
             }
         }
         // Check if update is available
-        Log.d(TAG, "Update check result: " + updateAvailable);
+        Timber.d("Update check result: %s.", updateAvailable);
         if (updateAvailable) {
             setState(R.string.status_update_available);
         } else {
@@ -245,13 +241,13 @@ public class SourceModel {
      * @return The last online date, {@code null} if the date could not be retrieved.
      */
     private ZonedDateTime getUrlLastUpdate(String url) {
-        Log.v(TAG, "Checking hosts file: " + url);
+        Timber.v("Checking hosts file: %s.", url);
         // Check Git hosting
         if (GitHostsSource.isHostedOnGit(url)) {
             try {
                 return GitHostsSource.getSource(url).getLastUpdate();
             } catch (MalformedURLException e) {
-                Log.w(TAG, "Failed to get GitHub last update for url " + url + ".", e);
+                Timber.w(e, "Failed to get GitHub last update for url " + url + ".");
                 return null;
             }
         }
@@ -269,7 +265,7 @@ public class SourceModel {
             }
             return ZonedDateTime.of(LocalDateTime.ofEpochSecond(lastModified, 0, UTC), UTC);
         } catch (Exception e) {
-            Log.e(TAG, "Exception while downloading from " + url, e);
+            Timber.e(e, "Exception while downloading from %s.", url);
             return null;
         } finally {
             if (connection instanceof HttpURLConnection) {
@@ -288,21 +284,21 @@ public class SourceModel {
         ContentResolver contentResolver = this.context.getContentResolver();
         try (Cursor cursor = contentResolver.query(fileUri, null, null, null, null)) {
             if (cursor == null) {
-                Log.w(TAG, "The content resolver could not find " + fileUri);
+                Timber.w("The content resolver could not find %s.", fileUri);
                 return null;
             }
             if (!cursor.moveToFirst()) {
-                Log.w(TAG, "The content resolver could not find " + fileUri);
+                Timber.w("The content resolver could not find %s.", fileUri);
                 return null;
             }
             int columnIndex = cursor.getColumnIndex(COLUMN_LAST_MODIFIED);
             if (columnIndex == -1) {
-                Log.w(TAG, "The content resolver does not support last modified column " + fileUri);
+                Timber.w("The content resolver does not support last modified column %s.", fileUri);
                 return null;
             }
             return ZonedDateTimeConverter.fromTimestamp(cursor.getLong(columnIndex));
         } catch (SecurityException e) {
-            Log.i(TAG, "The SAF permission was removed.", e);
+            Timber.i(e, "The SAF permission was removed.");
             return null;
         }
     }
@@ -342,7 +338,7 @@ public class SourceModel {
             // Check if update available
             ZonedDateTime localModificationDate = source.getLocalModificationDate();
             if (localModificationDate != null && localModificationDate.isAfter(onlineModificationDate)) {
-                Log.i(TAG, "Skip source " + source.getUrl() + ": no update.");
+                Timber.i("Skip source " + source.getUrl() + ": no update.");
                 continue;
             }
             // Increment number of copy
@@ -357,7 +353,7 @@ public class SourceModel {
                         readSourceFile(source);
                         break;
                     default:
-                        Log.w(TAG, "Hosts source type  is not supported.");
+                        Timber.w("Hosts source type  is not supported.");
                 }
                 // Update local and online modification dates to now
                 localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
@@ -365,7 +361,7 @@ public class SourceModel {
                 // Update size
                 this.hostsSourceDao.updateSize(sourceId);
             } catch (IOException e) {
-                Log.w(TAG, "Failed to retrieve host source " + url + ".", e);
+                Timber.w(e, "Failed to retrieve host source " + url + ".");
                 // Increment number of failed copy
                 numberOfFailedCopies++;
             }
@@ -412,7 +408,7 @@ public class SourceModel {
     private void downloadHostSource(HostsSource source) throws IOException {
         // Get hosts file URL
         String hostsFileUrl = source.getUrl();
-        Log.v(TAG, "Downloading hosts file: " + hostsFileUrl);
+        Timber.v("Downloading hosts file: %s.", hostsFileUrl);
         // Set state to downloading hosts source
         setState(R.string.status_download_source, hostsFileUrl);
         // Get HTTP client
@@ -440,7 +436,7 @@ public class SourceModel {
         // Get hosts file URI
         String hostsFileUrl = hostsSource.getUrl();
         Uri fileUri = Uri.parse(hostsFileUrl);
-        Log.v(TAG, "Reading hosts source file: " + hostsFileUrl);
+        Timber.v("Reading hosts source file: %s.", hostsFileUrl);
         // Set state to copying hosts source
         setState(R.string.status_read_source, hostsFileUrl);
         try (InputStream inputStream = this.context.getContentResolver().openInputStream(fileUri);
@@ -462,7 +458,7 @@ public class SourceModel {
         long startTime = System.currentTimeMillis();
         new SourceLoader(hostsSource).parse(reader, this.hostListItemDao);
         long endTime = System.currentTimeMillis();
-        Log.i(TAG, "Parsed " + hostsSource.getUrl() + " in " + (endTime - startTime) / 1000 + "s");
+        Timber.i("Parsed " + hostsSource.getUrl() + " in " + (endTime - startTime) / 1000 + "s");
     }
 
     /**
@@ -483,7 +479,7 @@ public class SourceModel {
 
     private void setState(@StringRes int stateResId, Object... details) {
         String state = this.context.getString(stateResId, details);
-        Log.d(TAG, state);
+        Timber.d(state);
         this.state.postValue(state);
     }
 }

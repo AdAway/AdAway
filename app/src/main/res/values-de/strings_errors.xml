@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Nicht genügend Speicherplatz</string>
     <string name="error_not_enough_space_details">Es ist nicht möglich, die Hosts-Datei in Ihre Systempartition zu kopieren. Prüfen Sie bitte, ob das systemlose Magisk-Modul aktiviert ist, und starten Sie dann das Gerät neu.</string>
     <string name="error_copy_failed_message">Installation der neuen Hosts-Datei fehlgeschlagen</string>
-    <string name="error_copy_failed_details">Es ist nicht möglich, die Hosts-Datei in die Partition »/system« zu kopieren. Prüfen Sie bitte, ob das systemlose Magisk-Modul aktiviert ist, und starten Sie dann das Gerät neu.</string>
+    <string name="error_copy_failed_details">Kopieren der Hosts Datei zur /System Partition nicht möglich. Bitte überprüfe ob das Magisk Systemless Modul aktiv ist, dann Gerät neu starten</string>
     <string name="error_revert_failed_message">Zurücksetzen der Hosts-Datei fehlgeschlagen</string>
     <string name="error_revert_failed_details">Es ist nicht möglich, die Standardkonfiguration der Hosts-Datei wiederherzustellen.</string>
     <!-- VPN model error -->

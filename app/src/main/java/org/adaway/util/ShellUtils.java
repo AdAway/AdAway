@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Optional;
 
-import static org.adaway.util.Constants.TAG;
+import timber.log.Timber;
 
 /**
  * This class is an utility class to help with shell commands.
@@ -59,7 +59,7 @@ public final class ShellUtils {
         Shell.Result result = Shell.su("mount -o " + type.getOption() + ",remount " + partition).exec();
         boolean success = result.isSuccess();
         if (!success) {
-            Log.w(TAG, "Failed to remount partition " + partition + " as " + type.getOption() + ": " + mergeAllLines(result.getErr()));
+            Timber.w("Failed to remount partition %s as %s: %s.", partition, type.getOption(), mergeAllLines(result.getErr()));
         }
         return success;
     }

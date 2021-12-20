@@ -62,6 +62,8 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.function.Consumer;
 
+import timber.log.Timber;
+
 class VpnWorker implements DnsPacketProxy.EventLoop {
     private static final String TAG = "VpnWorker";
     /**
@@ -389,7 +391,7 @@ class VpnWorker implements DnsPacketProxy.EventLoop {
                 try {
                     builder.addDisallowedApplication(applicationInfo.packageName);
                 } catch (NameNotFoundException e) {
-                    org.adaway.util.Log.w(TAG, "Failed to exclude application " + applicationInfo.packageName + " from VPN", e);
+                    Timber.w(e, "Failed to exclude application " + applicationInfo.packageName + " from VPN");
                 }
             }
         }

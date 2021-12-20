@@ -16,7 +16,6 @@ import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Log;
 import org.adaway.util.ShellUtils;
 import org.adaway.util.WebServerUtils;
 
@@ -51,10 +50,11 @@ import static org.adaway.util.Constants.LINE_SEPARATOR;
 import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
 import static org.adaway.util.Constants.LOCALHOST_IPv4;
 import static org.adaway.util.Constants.LOCALHOST_IPv6;
-import static org.adaway.util.Constants.TAG;
 import static org.adaway.util.MountType.READ_ONLY;
 import static org.adaway.util.MountType.READ_WRITE;
 import static org.adaway.util.ShellUtils.mergeAllLines;
+
+import timber.log.Timber;
 
 /**
  * This class is the model to represent hosts file installation.
@@ -153,14 +153,14 @@ public class RootModel extends AdBlockModel {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
             String firstLine = reader.readLine();
 
-            Log.d(TAG, "First line of " + file.getName() + ": " + firstLine);
+            Timber.d("First line of " + file.getName() + ": " + firstLine);
 
             applied = firstLine.startsWith(HEADER1);
         } catch (FileNotFoundException e) {
-            Log.e(TAG, "FileNotFoundException", e);
+            Timber.e(e, "FileNotFoundException");
             applied = true; // workaround for: http://code.google.com/p/ad-away/issues/detail?id=137
         } catch (Exception e) {
-            Log.e(TAG, "Exception: ", e);
+            Timber.e(e, "Exception: ");
             applied = false;
         }
 
@@ -287,7 +287,7 @@ public class RootModel extends AdBlockModel {
 
         /* check for space on partition */
         long size = new File(privateFile).length();
-        Log.i(TAG, "Size of hosts file: " + size);
+        Timber.i("Size of hosts file: %s.", size);
         if (!hasEnoughSpaceOnPartition(targetFile, size)) {
             throw new HostErrorException(NOT_ENOUGH_SPACE);
         }
@@ -297,7 +297,7 @@ public class RootModel extends AdBlockModel {
         try {
             if (!writable) {
                 // remount for write access
-                Log.i(TAG, "Remounting for RW...");
+                Timber.i("Remounting for RW…");
                 if (!ShellUtils.remountPartition(targetFile, READ_WRITE)) {
                     throw new CommandException("Failed to remount hosts file partition as read-write.");
                 }

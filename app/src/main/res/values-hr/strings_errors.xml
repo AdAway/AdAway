@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Nedovoljno prostora</string>
     <string name="error_not_enough_space_details">Neuspjelo kopiranje datoteke poslužitelja na vašu particiju sustava. Provjerite je li Magisk systemless modul omogućen a zatim ponovno pokrenite uređaj.</string>
     <string name="error_copy_failed_message">Neuspjela instalacija nove datoteke poslužitelja.</string>
-    <string name="error_copy_failed_details">Neuspjelo kopiranje datoteke poslužitelja na /system particiju. Provjerite je li Magisk systemless modul omogućen a zatim ponovno pokrenite uređaj.</string>
+    <string name="error_copy_failed_details">Neuspjelo kopiranje datoteka poslužitelja na /system particiju. Provjerite da li je Magisk systemless mogul uključen te zatim ponovno pokrenite uređaj.</string>
     <string name="error_revert_failed_message">Neuspjelo vraćanje datoteke poslužitelja</string>
     <string name="error_revert_failed_details">Neuspjelo vraćanje izvorne datoteke podešavanja poslužitelja.</string>
     <!-- VPN model error -->

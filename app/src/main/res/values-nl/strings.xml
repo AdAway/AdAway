@@ -159,7 +159,7 @@ Wilt u herstarten?
     <string name="no_hostname_title">Hostnaam is verkeerd opgemaakt</string>
     <string name="no_ip">Dit is geen correct IP-adres!</string>
     <string name="no_ip_title">IP-adres is verkeerd opgemaakt</string>
-    <string name="reboot_never_reboot">Herstart nooit en laat deze vraag nooit meer zien!</string>
+    <string name="reboot_never_reboot">Herstart nooit en laat deze vraag niet meer zien.</string>
     <string name="loading">Bezig met laden…</string>
 
     <!--Menu entries-->

@@ -269,12 +269,12 @@
     <string name="vpn_notification_stopped">σταμάτησε</string>
     <string name="vpn_notification_title">Ad-blocker VPN %1$s</string>
     <string name="vpn_notification_action_pause">Παύση</string>
-    <string name="vpn_notification_action_resume">Ανακεφαλαίωση</string>
+    <string name="vpn_notification_action_resume">Συνέχεια</string>
 
     <!-- Permission -->
     <string name="permission_group_api_label">Δικαιώματα AdAway</string>
     <string name="permission_group_api_description">Επιτρέπει την αλληλεπίδραση με το AdAway</string>
     <string name="permission_send_command_label">Αποστολή εντολών στο AdAway</string>
-    <string name="permission_send_command_description">Επιτρέπει την αποστολή εντολών στο AdAway όπως ενεργοποίηση ή απενεργοποίηση του αποκλεισμού διαφημίσεων συστήματος</string>
+    <string name="permission_send_command_description">Να επιτρέπεται η αποστολή εντολών στο AdAway όπως η ενεργοποίηση ή η απενεργοποίηση του αποκλεισμού διαφημίσεων σε όλο το σύστημα</string>
 
 </resources>

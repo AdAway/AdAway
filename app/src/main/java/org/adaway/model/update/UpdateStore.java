@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 
-import org.adaway.util.Log;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -13,7 +11,8 @@ import static android.content.pm.PackageManager.GET_SIGNATURES;
 import static android.content.pm.PackageManager.GET_SIGNING_CERTIFICATES;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.os.Build.VERSION_CODES.P;
-import static org.adaway.model.update.UpdateModel.TAG;
+
+import timber.log.Timber;
 
 /**
  * This enumerates represents the stores to get AdAway updates.
@@ -70,7 +69,7 @@ public enum UpdateStore {
                 ).signatures;
             }
         } catch (PackageManager.NameNotFoundException e) {
-            Log.w(TAG, "Failed to get application package info.", e);
+            Timber.w(e, "Failed to get application package info.");
             return UpdateStore.UNKNOWN;
         }
         return UpdateStore.getFromSigns(signatures);
@@ -89,7 +88,7 @@ public enum UpdateStore {
                 }
             }
         } catch (NoSuchAlgorithmException e) {
-            Log.w(TAG, "SHA-256 algorithm is no supported.", e);
+            Timber.w(e, "SHA-256 algorithm is no supported.");
         }
         return UpdateStore.UNKNOWN;
     }

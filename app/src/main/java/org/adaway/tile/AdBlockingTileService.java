@@ -9,12 +9,13 @@ import org.adaway.AdAwayApplication;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.util.AppExecutors;
-import org.adaway.util.Log;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static android.service.quicksettings.Tile.STATE_ACTIVE;
 import static android.service.quicksettings.Tile.STATE_INACTIVE;
+
+import timber.log.Timber;
 
 /**
  * This class is a {@link TileService} to toggle ad-blocking.
@@ -22,7 +23,6 @@ import static android.service.quicksettings.Tile.STATE_INACTIVE;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class AdBlockingTileService extends TileService {
-    private static final String TAG = "TileService";
     private final AtomicBoolean toggling = new AtomicBoolean(false);
 
     @Override
@@ -69,7 +69,7 @@ public class AdBlockingTileService extends TileService {
                 model.apply();
             }
         } catch (HostErrorException e) {
-            Log.w(TAG, "Failed to toggle ad-blocking.", e);
+            Timber.w(e, "Failed to toggle ad-blocking.");
         } finally {
             this.toggling.set(false);
         }

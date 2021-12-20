@@ -5,7 +5,7 @@
 // This software is dual-licensed: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License version 2 as
 // published by the Free Software Foundation. For the terms of this
-// license, see <http://www.gnu.org/licenses/>.
+// license, see http://www.gnu.org/licenses/
 //
 // You are free to use this software under the terms of the GNU General
 // Public License, but WITHOUT ANY WARRANTY; without even the implied
@@ -13,12 +13,12 @@
 // See the GNU General Public License for more details.
 //
 // Alternatively, you can license this software under a commercial
-// license, as set out in <https://www.cesanta.com/license>.
+// license, as set out in https://www.mongoose.ws/licensing/
 
 #ifndef MONGOOSE_H
 #define MONGOOSE_H
 
-#define MG_VERSION "7.4"
+#define MG_VERSION "7.5"
 
 #ifdef __cplusplus
 extern "C" {
@@ -35,6 +35,10 @@ extern "C" {
 
 #ifndef MG_ENABLE_OPENSSL
 #define MG_ENABLE_OPENSSL 0
+#endif
+
+#ifndef MG_ENABLE_CUSTOM_TLS
+#define MG_ENABLE_CUSTOM_TLS 0
 #endif
 
 #ifndef MG_ENABLE_SSI
@@ -82,6 +86,10 @@ extern "C" {
 
 #ifndef MG_MAX_HTTP_HEADERS
 #define MG_MAX_HTTP_HEADERS 40
+#endif
+
+#ifndef MG_HTTP_INDEX
+#define MG_HTTP_INDEX "index.html"
 #endif
 
 #ifndef MG_PATH_MAX
@@ -197,12 +205,12 @@ static __inline struct tm *localtime_r(time_t *t, struct tm *tm) {
 #include <sys/types.h>
 #include <time.h>
 
+#undef MG_PATH_MAX
+#undef MG_ENABLE_DIRLIST
+
 #define MG_DIRSEP '/'
 #define MG_INT64_FMT "%lld"
-#ifndef MG_PATH_MAX
 #define MG_PATH_MAX 128
-#endif
-#undef MG_ENABLE_DIRLIST
 #define MG_ENABLE_DIRLIST 1
 
 #endif
@@ -229,8 +237,13 @@ static __inline struct tm *localtime_r(time_t *t, struct tm *tm) {
 
 #include <esp_system.h>
 
+#undef MG_PATH_MAX
+#undef MG_ENABLE_DIRLIST
+
 #define MG_DIRSEP '/'
 #define MG_INT64_FMT "%lld"
+#define MG_PATH_MAX 128
+#define MG_ENABLE_DIRLIST 1
 
 #endif
 
@@ -241,6 +254,7 @@ static __inline struct tm *localtime_r(time_t *t, struct tm *tm) {
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 
 #if defined(__GNUC__)
 #include <sys/stat.h>
@@ -559,22 +573,21 @@ void mg_log_set_callback(void (*fn)(const void *, size_t, void *), void *param);
 
 struct mg_timer {
   unsigned long period_ms;  // Timer period in milliseconds
-  unsigned flags;           // Possible flags values below
-  void (*fn)(void *);       // Function to call
-  void *arg;                // Function argument
   unsigned long expire;     // Expiration timestamp in milliseconds
-  struct mg_timer *next;    // Linkage in g_timers list
-};
-
+  unsigned flags;           // Possible flags values below
 #define MG_TIMER_REPEAT 1   // Call function periodically, otherwise run once
 #define MG_TIMER_RUN_NOW 2  // Call immediately when timer is set
+  void (*fn)(void *);       // Function to call
+  void *arg;                // Function argument
+  struct mg_timer *next;    // Linkage in g_timers list
+};
 
 extern struct mg_timer *g_timers;  // Global list of timers
 
 void mg_timer_init(struct mg_timer *, unsigned long ms, unsigned,
                    void (*fn)(void *), void *);
 void mg_timer_free(struct mg_timer *);
-void mg_timer_poll(unsigned long uptime_ms);
+void mg_timer_poll(unsigned long current_time_ms);
 
 
 
@@ -603,6 +616,14 @@ void mg_usleep(unsigned long usecs);
 
 #define mg_htons(x) mg_ntohs(x)
 #define mg_htonl(x) mg_ntohl(x)
+
+#ifndef EXTERN_C
+#ifdef __cplusplus
+#define EXTERN_C extern "C"
+#else
+#define EXTERN_C
+#endif
+#endif
 
 // Expands to a string representation of its argument: e.g.
 // MG_STRINGIFY_LITERAL(5) expands to "5"
@@ -731,6 +752,7 @@ void mg_error(struct mg_connection *c, const char *fmt, ...);
 
 enum {
   MG_EV_ERROR,       // Error                        char *error_message
+  MG_EV_OPEN,        // Connection created           NULL
   MG_EV_POLL,        // mg_mgr_poll iteration        unsigned long *millis
   MG_EV_RESOLVE,     // Host name is resolved        NULL
   MG_EV_CONNECT,     // Connection established       NULL
@@ -818,6 +840,7 @@ struct mg_connection *mg_listen(struct mg_mgr *, const char *url,
                                 mg_event_handler_t fn, void *fn_data);
 struct mg_connection *mg_connect(struct mg_mgr *, const char *url,
                                  mg_event_handler_t fn, void *fn_data);
+void mg_connect_resolved(struct mg_connection *);
 bool mg_send(struct mg_connection *, const void *, size_t);
 int mg_printf(struct mg_connection *, const char *fmt, ...);
 int mg_vprintf(struct mg_connection *, const char *fmt, va_list ap);
@@ -897,8 +920,12 @@ void mg_http_serve_ssi(struct mg_connection *c, const char *root,
 
 
 
+
+
+
 struct mg_tls_opts {
   const char *ca;         // CA certificate file. For both listeners and clients
+  const char *crl;        // Certificate Revocation List. For clients
   const char *cert;       // Certificate
   const char *certkey;    // Certificate key
   const char *ciphers;    // Cipher list
@@ -910,6 +937,48 @@ void mg_tls_free(struct mg_connection *);
 long mg_tls_send(struct mg_connection *, const void *buf, size_t len);
 long mg_tls_recv(struct mg_connection *, void *buf, size_t len);
 void mg_tls_handshake(struct mg_connection *);
+
+
+#if MG_ENABLE_MBEDTLS
+
+
+
+
+#include <mbedtls/debug.h>
+#include <mbedtls/ssl.h>
+
+#if defined(MBEDTLS_VERSION_NUMBER) && MBEDTLS_VERSION_NUMBER >= 0x03000000
+#define RNG , rng_get, NULL
+#else
+#define RNG
+#endif
+
+// Different versions have those in different files, so declare here
+EXTERN_C int mbedtls_net_recv(void *, unsigned char *, size_t);
+EXTERN_C int mbedtls_net_send(void *, const unsigned char *, size_t);
+
+struct mg_tls {
+  char *cafile;             // CA certificate path
+  mbedtls_x509_crt ca;      // Parsed CA certificate
+  mbedtls_x509_crl crl;     // Parsed Certificate Revocation List
+  mbedtls_x509_crt cert;    // Parsed certificate
+  mbedtls_ssl_context ssl;  // SSL/TLS context
+  mbedtls_ssl_config conf;  // SSL-TLS config
+  mbedtls_pk_context pk;    // Private key context
+};
+#endif
+
+
+#if MG_ENABLE_OPENSSL
+
+#include <openssl/err.h>
+#include <openssl/ssl.h>
+
+struct mg_tls {
+  SSL_CTX *ctx;
+  SSL *ssl;
+};
+#endif
 
 
 #define WEBSOCKET_OP_CONTINUE 0
@@ -961,11 +1030,9 @@ int mg_sntp_parse(const unsigned char *buf, size_t len, struct timeval *tv);
 #define MQTT_CMD_PINGRESP 13
 #define MQTT_CMD_DISCONNECT 14
 
-#define MQTT_QOS(qos) ((qos) << 1)
-#define MQTT_GET_QOS(flags) (((flags) &0x6) >> 1)
-#define MQTT_SET_QOS(flags, qos) (flags) = ((flags) & ~0x6) | ((qos) << 1)
-
 struct mg_mqtt_opts {
+  struct mg_str user;          // Username, can be empty
+  struct mg_str pass;          // Password, can be empty
   struct mg_str client_id;     // Client ID
   struct mg_str will_topic;    // Will topic
   struct mg_str will_message;  // Will message
@@ -990,8 +1057,7 @@ struct mg_connection *mg_mqtt_connect(struct mg_mgr *, const char *url,
                                       mg_event_handler_t fn, void *fn_data);
 struct mg_connection *mg_mqtt_listen(struct mg_mgr *mgr, const char *url,
                                      mg_event_handler_t fn, void *fn_data);
-void mg_mqtt_login(struct mg_connection *c, const char *url,
-                   struct mg_mqtt_opts *opts);
+void mg_mqtt_login(struct mg_connection *c, struct mg_mqtt_opts *opts);
 void mg_mqtt_pub(struct mg_connection *c, struct mg_str *topic,
                  struct mg_str *data, int qos, bool retain);
 void mg_mqtt_sub(struct mg_connection *, struct mg_str *topic, int qos);

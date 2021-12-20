@@ -32,8 +32,8 @@ import androidx.annotation.StringRes;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
-import org.adaway.util.Constants;
-import org.adaway.util.Log;
+
+import timber.log.Timber;
 
 /**
  * This class is an utility class to help install missing applications.
@@ -89,7 +89,7 @@ public class MissingAppDialog {
                     try {
                         context.startActivity(intentGooglePlay);
                     } catch (ActivityNotFoundException e) {
-                        Log.e(Constants.TAG, "No Google Play Store installed!, Trying FDroid...", e);
+                        Timber.e(e, "No Google Play Store installed!, Trying FDroid...");
 
                         Intent intentFDroid = new Intent(Intent.ACTION_SEARCH);
                         intentFDroid.setComponent(new ComponentName("org.fdroid.fdroid",
@@ -99,7 +99,7 @@ public class MissingAppDialog {
                         try {
                             context.startActivity(intentFDroid);
                         } catch (ActivityNotFoundException e2) {
-                            Log.e(Constants.TAG, "No FDroid installed!", e2);
+                            Timber.e(e2, "No FDroid installed!");
                         }
                     }
                 })
