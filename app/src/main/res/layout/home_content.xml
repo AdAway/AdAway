@@ -312,12 +312,12 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginBottom="16dp"
+                android:contentDescription="@string/icon_update_status"
                 app:layout_constraintBottom_toTopOf="@id/stateTextView"
                 app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintWidth_percent="0.25"
-                android:contentDescription="@string/icon_update_status"
                 app:srcCompat="@drawable/ic_collections_bookmark_24dp">
 
             </ImageView>
@@ -365,10 +365,10 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_marginTop="16dp"
+                android:contentDescription="@string/update_hosts_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/checkForUpdateImageView"
-                app:srcCompat="@drawable/ic_get_app_24dp"
-                android:contentDescription="@string/update_hosts_description" />
+                app:srcCompat="@drawable/ic_get_app_24dp" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/sourcesProgressBar"
