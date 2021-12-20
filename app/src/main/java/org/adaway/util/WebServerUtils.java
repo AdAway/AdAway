@@ -73,7 +73,7 @@ public class WebServerUtils {
     public static void startWebServer(Context context) {
         Timber.d("Starting web server…");
 
-        Path resourcePath = context.getFilesDir().toPath().resolve("webserver");
+        Path resourcePath = context.getFilesDir().toPath().resolve(WEB_SERVER_EXECUTABLE);
         inflateResources(context, resourcePath);
 
         String parameters = "--resources " + resourcePath.toAbsolutePath() +
