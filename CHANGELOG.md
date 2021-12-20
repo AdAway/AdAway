@@ -1,11 +1,15 @@
-## [5.11.0] - Unreleased
+## [5.11.0] - 2021-12-20
 
+- Improve home screen with icon color and decoration
+- Improve settings UI elements
 - Improve logs with Timber
 - Update Android gradle plugin
 - Update AndroidX libraries 
 - Update third party libraries
 - Update mongoose web server
 - Update translations
+
+Special thanks to brijrajparmar27 for its contribution.
 
 ## [5.10.0] - 2021-12-01
 
