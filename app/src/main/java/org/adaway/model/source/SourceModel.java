@@ -1,5 +1,14 @@
 package org.adaway.model.source;
 
+import static android.content.Context.CONNECTIVITY_SERVICE;
+import static android.provider.DocumentsContract.Document.COLUMN_LAST_MODIFIED;
+import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
+import static org.adaway.model.error.HostError.NO_CONNECTION;
+import static java.time.ZoneOffset.UTC;
+import static java.time.format.FormatStyle.MEDIUM;
+import static java.time.temporal.ChronoUnit.WEEKS;
+import static java.util.Objects.requireNonNull;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
@@ -25,6 +34,7 @@ import org.adaway.db.entity.HostsSource;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.git.GitHostsSource;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -37,21 +47,12 @@ import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Objects;
 
 import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import timber.log.Timber;
-
-import static android.content.Context.CONNECTIVITY_SERVICE;
-import static android.provider.DocumentsContract.Document.COLUMN_LAST_MODIFIED;
-import static java.time.ZoneOffset.UTC;
-import static java.time.format.FormatStyle.MEDIUM;
-import static java.time.temporal.ChronoUnit.WEEKS;
-import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
-import static org.adaway.model.error.HostError.NO_CONNECTION;
 
 /**
  * This class is the model to represent hosts source management.
@@ -419,8 +420,9 @@ public class SourceModel {
                 .build();
         // Request hosts file and open byte stream
         try (Response response = httpClient.newCall(request).execute();
-             Reader reader = Objects.requireNonNull(response.body()).charStream()) {
-            parseSourceInputStream(source, reader);
+             Reader reader = requireNonNull(response.body()).charStream();
+             BufferedReader bufferedReader = new BufferedReader(reader)) {
+            parseSourceInputStream(source, bufferedReader);
         } catch (IOException e) {
             throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", e);
         }
@@ -440,8 +442,9 @@ public class SourceModel {
         // Set state to copying hosts source
         setState(R.string.status_read_source, hostsFileUrl);
         try (InputStream inputStream = this.context.getContentResolver().openInputStream(fileUri);
-             InputStreamReader reader = new InputStreamReader(inputStream)) {
-            parseSourceInputStream(hostsSource, reader);
+             InputStreamReader reader = new InputStreamReader(inputStream);
+             BufferedReader bufferedReader = new BufferedReader(reader)) {
+            parseSourceInputStream(hostsSource, bufferedReader);
         } catch (IOException e) {
             throw new IOException("Error while reading hosts file from " + hostsFileUrl + ".", e);
         }
@@ -451,9 +454,9 @@ public class SourceModel {
      * Parse a source from its input stream to store it into database.
      *
      * @param hostsSource The host source to parse.
-     * @param reader The host source reader.
+     * @param reader      The host source reader.
      */
-    private void parseSourceInputStream(HostsSource hostsSource, Reader reader) {
+    private void parseSourceInputStream(HostsSource hostsSource, BufferedReader reader) {
         setState(R.string.status_parse_source, hostsSource.getLabel());
         long startTime = System.currentTimeMillis();
         new SourceLoader(hostsSource).parse(reader, this.hostListItemDao);

@@ -1,5 +1,13 @@
 package org.adaway.model.source;
 
+import static org.adaway.db.entity.ListType.ALLOWED;
+import static org.adaway.db.entity.ListType.BLOCKED;
+import static org.adaway.db.entity.ListType.REDIRECTED;
+import static org.adaway.util.Constants.BOGUS_IPv4;
+import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
+import static org.adaway.util.Constants.LOCALHOST_IPv4;
+import static org.adaway.util.Constants.LOCALHOST_IPv6;
+
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
@@ -7,7 +15,6 @@ import org.adaway.db.entity.ListType;
 import org.adaway.util.RegexUtils;
 
 import java.io.BufferedReader;
-import java.io.Reader;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -17,14 +24,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.adaway.db.entity.ListType.ALLOWED;
-import static org.adaway.db.entity.ListType.BLOCKED;
-import static org.adaway.db.entity.ListType.REDIRECTED;
-import static org.adaway.util.Constants.BOGUS_IPv4;
-import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
-import static org.adaway.util.Constants.LOCALHOST_IPv4;
-import static org.adaway.util.Constants.LOCALHOST_IPv6;
 
 import timber.log.Timber;
 
@@ -47,7 +46,7 @@ class SourceLoader {
         this.source = hostsSource;
     }
 
-    void parse(Reader reader, HostListItemDao hostListItemDao) {
+    void parse(BufferedReader reader, HostListItemDao hostListItemDao) {
         // Clear current hosts
         hostListItemDao.clearSourceHosts(this.source.getId());
         // Create batch
@@ -78,11 +77,11 @@ class SourceLoader {
     }
 
     private static class SourceReader implements Runnable {
-        private final Reader reader;
+        private final BufferedReader reader;
         private final BlockingQueue<String> queue;
         private final int parserCount;
 
-        private SourceReader(Reader reader, BlockingQueue<String> queue, int parserCount) {
+        private SourceReader(BufferedReader reader, BlockingQueue<String> queue, int parserCount) {
             this.reader = reader;
             this.queue = queue;
             this.parserCount = parserCount;
@@ -91,9 +90,7 @@ class SourceLoader {
         @Override
         public void run() {
             try {
-                new BufferedReader(this.reader)
-                        .lines()
-                        .forEach(this.queue::add);
+                this.reader.lines().forEach(this.queue::add);
             } catch (Throwable t) {
                 Timber.w(t, "Failed to read hosts source.");
             } finally {
