@@ -56,7 +56,6 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class PrefsRootFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private static final String TAG = "PrefsRoot";
     /**
      * The launcher to start open hosts file activity.
      */
@@ -241,7 +240,7 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
         if (uri == null) {
             return;
         }
-        Timber.d("Certificate URI: " + uri.toString());
+        Timber.d("Certificate URI: %s", uri);
         copyCertificate(requireActivity(), uri);
         new MaterialAlertDialogBuilder(requireContext())
                 .setCancelable(true)

@@ -106,7 +106,7 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
     private boolean isAdware(PackageInfo info) {
         // Get package name
         String packageName = info.packageName;
-        Timber.v("Scanning package " + packageName);
+        Timber.v("Scanning package %s", packageName);
         // Check package components
         boolean matchActivity = info.activities != null && checkComponent(packageName, "activity", info.activities);
         boolean matchReceiver = info.receivers != null && checkComponent(packageName, "receiver", info.receivers);
@@ -126,10 +126,10 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
     private boolean checkComponent(String packageName, String type, ComponentInfo[] info) {
         for (ComponentInfo componentInfo : info) {
             String componentName = componentInfo.name;
-            Timber.v("[" + type + "] " + componentName);
+            Timber.v("[%s] %s", type, componentName);
             for (String adPackagePrefix : AD_PACKAGE_PREFIXES) {
                 if (componentName.startsWith(adPackagePrefix)) {
-                    Timber.i(String.format("Detected ad framework prefix %s in package %s as %s %s", adPackagePrefix, packageName, type, componentName));
+                    Timber.i("Detected ad framework prefix %s in package %s as %s %s", adPackagePrefix, packageName, type, componentName);
                     return true;
                 }
             }
