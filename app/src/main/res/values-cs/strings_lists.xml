@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Vaše seznamy</string>
+    <string name="lists_add">Přidat hostitele</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">Zablokované</string>
     <string name="lists_tab_allowed">Povolené</string>
