@@ -2,6 +2,8 @@
 
 - Improve home screen with icon color and decoration
 - Improve settings UI elements
+- Improve search filter performance in hosts list
+- Improve resource clean up after parsing hosts source
 - Improve logs with Timber
 - Improve button descriptions
 - Update Android gradle plugin
