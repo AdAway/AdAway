@@ -3,10 +3,10 @@ package org.adaway.model.source;
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
-import static org.adaway.util.Constants.BOGUS_IPv4;
+import static org.adaway.util.Constants.BOGUS_IPV4;
 import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
-import static org.adaway.util.Constants.LOCALHOST_IPv4;
-import static org.adaway.util.Constants.LOCALHOST_IPv6;
+import static org.adaway.util.Constants.LOCALHOST_IPV4;
+import static org.adaway.util.Constants.LOCALHOST_IPV6;
 
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.entity.HostListItem;
@@ -158,9 +158,9 @@ class SourceLoader {
             }
             // check if ip is 127.0.0.1 or 0.0.0.0
             ListType type;
-            if (LOCALHOST_IPv4.equals(ip)
-                    || BOGUS_IPv4.equals(ip)
-                    || LOCALHOST_IPv6.equals(ip)) {
+            if (LOCALHOST_IPV4.equals(ip)
+                    || BOGUS_IPV4.equals(ip)
+                    || LOCALHOST_IPV6.equals(ip)) {
                 type = BLOCKED;
             } else if (this.source.isRedirectEnabled()) {
                 type = REDIRECTED;

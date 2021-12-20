@@ -48,8 +48,8 @@ import static org.adaway.util.Constants.DEFAULT_HOSTS_FILENAME;
 import static org.adaway.util.Constants.HOSTS_FILENAME;
 import static org.adaway.util.Constants.LINE_SEPARATOR;
 import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
-import static org.adaway.util.Constants.LOCALHOST_IPv4;
-import static org.adaway.util.Constants.LOCALHOST_IPv6;
+import static org.adaway.util.Constants.LOCALHOST_IPV4;
+import static org.adaway.util.Constants.LOCALHOST_IPV6;
 import static org.adaway.util.MountType.READ_ONLY;
 import static org.adaway.util.MountType.READ_WRITE;
 import static org.adaway.util.ShellUtils.mergeAllLines;
@@ -225,9 +225,9 @@ public class RootModel extends AdBlockModel {
     }
 
     private void writeLoopbackToHosts(BufferedWriter writer) throws IOException {
-        writer.write(LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME);
+        writer.write(LOCALHOST_IPV4 + " " + LOCALHOST_HOSTNAME);
         writer.newLine();
-        writer.write(LOCALHOST_IPv6 + " " + LOCALHOST_HOSTNAME);
+        writer.write(LOCALHOST_IPV6 + " " + LOCALHOST_HOSTNAME);
         writer.newLine();
     }
 
@@ -262,8 +262,8 @@ public class RootModel extends AdBlockModel {
         // Create private file
         try (FileOutputStream fos = this.context.openFileOutput(DEFAULT_HOSTS_FILENAME, MODE_PRIVATE)) {
             // Write default localhost as hosts file
-            String localhost = LOCALHOST_IPv4 + " " + LOCALHOST_HOSTNAME + LINE_SEPARATOR +
-                    LOCALHOST_IPv6 + " " + LOCALHOST_HOSTNAME + LINE_SEPARATOR;
+            String localhost = LOCALHOST_IPV4 + " " + LOCALHOST_HOSTNAME + LINE_SEPARATOR +
+                    LOCALHOST_IPV6 + " " + LOCALHOST_HOSTNAME + LINE_SEPARATOR;
             fos.write(localhost.getBytes());
             // Copy generated hosts file to target location
             copyHostsFile(DEFAULT_HOSTS_FILENAME);
