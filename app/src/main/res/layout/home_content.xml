@@ -134,7 +134,7 @@
             android:contentDescription="@string/blocked_hosts_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_block_24"
-            app:tint="@color/blocked_icon" />
+            app:tint="@color/blocked" />
     </androidx.cardview.widget.CardView>
 
     <Space
@@ -206,7 +206,7 @@
             android:contentDescription="@string/allowed_hosts_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_check_24"
-            app:tint="@color/allowed_icon" />
+            app:tint="@color/allowed" />
     </androidx.cardview.widget.CardView>
 
     <Space
@@ -280,7 +280,7 @@
             android:contentDescription="@string/redirect_hosts_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_compare_arrows_24"
-            app:tint="@color/redirected_icon" />
+            app:tint="@color/redirected" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView

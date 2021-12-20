@@ -4,4 +4,7 @@
     <color name="primary">#B71C1C</color>
     <color name="primaryVariant">#e53935</color>
     <color name="onPrimary">#ffffff</color>
+    <color name="blocked">#EF9A9A</color>
+    <color name="allowed">#80CBC4</color>
+    <color name="redirected">#9FA8DA</color>
 </resources>
