@@ -28,7 +28,6 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class UpdateViewModel extends AdwareViewModel {
-    private static final String TAG = "UpdateViewModel";
     private static final Executor NETWORK_IO = AppExecutors.getInstance().networkIO();
     private final UpdateModel updateModel;
     private final MutableLiveData<DownloadStatus> downloadProgress;
@@ -72,16 +71,19 @@ public class UpdateViewModel extends AdwareViewModel {
                 continue;
             }
             // Check download status
-            int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+            int statusColumnIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
+            int status = cursor.getInt(statusColumnIndex);
             switch (status) {
                 case DownloadManager.STATUS_FAILED:
                     finishDownload = true;
                     this.downloadProgress.postValue(null);
                     break;
                 case DownloadManager.STATUS_RUNNING:
-                    total = cursor.getLong(cursor.getColumnIndex(COLUMN_TOTAL_SIZE_BYTES));
+                    int totalSizeColumnIndex = cursor.getColumnIndex(COLUMN_TOTAL_SIZE_BYTES);
+                    total = cursor.getLong(totalSizeColumnIndex);
                     if (total >= 0) {
-                        long downloaded = cursor.getLong(cursor.getColumnIndex(COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                        int bytesDownloadedColumnIndex = cursor.getColumnIndex(COLUMN_BYTES_DOWNLOADED_SO_FAR);
+                        long downloaded = cursor.getLong(bytesDownloadedColumnIndex);
                         this.downloadProgress.postValue(new DownloadStatus(downloaded, total));
                     }
                     break;
