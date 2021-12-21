@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Ваші списки</string>
+    <string name="lists_add">Додати хост</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">Заблоковано</string>
     <string name="lists_tab_allowed">Дозволено</string>
     <string name="lists_tab_redirected">Перенаправлено</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Фільтрувати хости</string>
-    <string name="lists_menu_filter_hint">Пошук ім\'я сервера…</string>
+    <string name="lists_menu_filter_hint">Пошук ім\'я сервера...</string>
     <string name="lists_menu_toggle_sources">Переключити джерела</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Додати хост в Чорний список</string>
