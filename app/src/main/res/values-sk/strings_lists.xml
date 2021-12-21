@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="lists_title">Vaše zoznamy</string>
     <string name="lists_add">Pridať hostiteľa</string>
@@ -8,7 +8,7 @@
     <string name="lists_tab_redirected">Presmerované</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrovať hostiteľov</string>
-    <string name="lists_menu_filter_hint">Nájsť hostiteľa...</string>
+    <string name="lists_menu_filter_hint">Nájsť hostiteľa…</string>
     <string name="lists_menu_toggle_sources">Prepnúť zdroje</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Pridať host do čiernej listiny</string>
