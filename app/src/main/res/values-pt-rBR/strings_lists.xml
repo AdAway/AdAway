@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Suas listas</string>
+    <string name="lists_add">Adicionar host</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">Bloqueado</string>
     <string name="lists_tab_allowed">Permitido</string>
