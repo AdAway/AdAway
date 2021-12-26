@@ -1,6 +1,7 @@
 package org.adaway.vpn.dns;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
+import static android.net.NetworkCapabilities.TRANSPORT_VPN;
 import static java.util.Collections.emptyList;
 
 import android.content.Context;
@@ -134,9 +135,11 @@ public class DnsServerMapper {
             return getNetworkDnsServers(connectivityManager, activeNetwork);
         } else {
             for (Network network : connectivityManager.getAllNetworks()) {
-                List<InetAddress> dnsServers = getNetworkDnsServers(connectivityManager, network);
-                if (!dnsServers.isEmpty()) {
-                    return dnsServers;
+                if (isNotVpnNetwork(connectivityManager, network)) {
+                    List<InetAddress> dnsServers = getNetworkDnsServers(connectivityManager, network);
+                    if (!dnsServers.isEmpty()) {
+                        return dnsServers;
+                    }
                 }
             }
         }
@@ -169,7 +172,7 @@ public class DnsServerMapper {
             return false;
         }
         NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
-        return networkCapabilities != null && !networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN);
+        return networkCapabilities != null && !networkCapabilities.hasTransport(TRANSPORT_VPN);
     }
 
     /**
