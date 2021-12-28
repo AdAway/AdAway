@@ -1,6 +1,8 @@
 ## [5.12.0] - Unreleased
 
-- Update gradle version
+- Update AndroidX libraries
+- Update gradle
+- Update build tools
 
 ## [5.11.0] - 2021-12-20
 
