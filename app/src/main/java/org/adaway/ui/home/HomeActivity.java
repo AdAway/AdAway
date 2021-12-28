@@ -59,7 +59,6 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HomeActivity extends AppCompatActivity {
-    private static final String TAG = "Home";
     /**
      * The project link.
      */
