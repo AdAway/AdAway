@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Không đủ dung lượng</string>
     <string name="error_not_enough_space_details">Không thể sao chép tập tin vào phân vùng hệ thống. </string>
     <string name="error_copy_failed_message">Không thể cải đặt tập tin nguồn.</string>
-    <string name="error_copy_failed_details">Không thể sao chép tập tin vào phân vùng hệ thống. </string>
+    <string name="error_copy_failed_details">Không thể sao chép tập tin nguồn vào phân vùng hệ thông. Hãy bật chế độ systemless host của Magisk rồi khởi động lại</string>
     <string name="error_revert_failed_message">Không thể đảo ngược tập tin nguồn </string>
     <string name="error_revert_failed_details">Không thể khôi phục cài đặt tập tin nguồn mặc định</string>
     <!-- VPN model error -->
