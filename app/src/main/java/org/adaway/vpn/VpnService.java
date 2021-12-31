@@ -136,7 +136,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     public void onDestroy() {
         Timber.d("Destroying VPN service…");
         unregisterNetworkCallback();
-        stopVpn();
         Timber.d("Destroyed VPN service.");
     }
 
