@@ -302,6 +302,11 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 Timber.d("Skip VPN transport activation notification.");
                 return;
             }
+            // Skip notification if VPN is paused
+            if (!PreferenceHelper.getVpnServiceStatus(VpnService.this).isStarted()) {
+                Timber.d("Skip network notification while VPN pause.");
+                return;
+            }
             Timber.i("Network changed to %s, reconnecting…", network);
             reconnect();
         }
@@ -314,6 +319,11 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
         @Override
         public void onLost(@NonNull Network network) {
+            // Skip notification if VPN is paused
+            if (!PreferenceHelper.getVpnServiceStatus(VpnService.this).isStarted()) {
+                Timber.d("Skip no network notification while VPN pause.");
+                return;
+            }
             Timber.d("Connectivity changed to no connectivity, wait for network connection.");
             waitForNetVpn();
         }
