@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Danh sách của bạn</string>
+    <string name="lists_add">Thêm nguồn</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">Đã bị chặn</string>
     <string name="lists_tab_allowed">Đã cho phép</string>
