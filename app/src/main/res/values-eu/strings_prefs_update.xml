@@ -3,6 +3,13 @@
     <string name="pref_update_title">Eguneraketak</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Aplikazioaren eguneraketak</string>
+    <string name="pref_update_check_app_startup">Egiaztatu eguneraketak abiatzean</string>
     <string name="pref_update_check_app_daily">Egiaztatu eguneraketak egunero</string>
+    <string name="pref_update_include_beta_releases">Barne hartu beta bertsioak</string>
+    <!-- Application hosts -->
+    <string name="pref_update_hosts_category">Hostalarien eguneraketak</string>
+    <string name="pref_update_check">Egiaztatu eguneraketak abiatzean</string>
     <string name="pref_update_check_hosts_daily">Egiaztatu eguneraketak egunero</string>
-    </resources>
+    <string name="pref_update_sync_on_update">Sinkronizatu eguneratzean</string>
+    <string name="pref_update_sync_unmetered_only">Sinkronizatu nehurtu gabeko sareetan soilik</string>
+</resources>
