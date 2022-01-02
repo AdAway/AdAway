@@ -85,7 +85,7 @@ public class BackupExporter {
         ).show();
     }
 
-    private static void exportBackup(Context context, Uri backupUri) throws IOException {
+    static void exportBackup(Context context, Uri backupUri) throws IOException {
         // Open writer on the export file
         try (OutputStream outputStream = context.getContentResolver().openOutputStream(backupUri);
              BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream))) {

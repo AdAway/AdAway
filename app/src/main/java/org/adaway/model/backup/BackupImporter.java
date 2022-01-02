@@ -82,8 +82,7 @@ public final class BackupImporter {
         ).show();
     }
 
-
-    private static void importBackup(Context context, Uri backupUri) throws IOException {
+    static void importBackup(Context context, Uri backupUri) throws IOException {
         try (InputStream inputStream = context.getContentResolver().openInputStream(backupUri);
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             StringBuilder contentBuilder = new StringBuilder();
