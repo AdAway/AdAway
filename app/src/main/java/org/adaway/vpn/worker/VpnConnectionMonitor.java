@@ -1,5 +1,8 @@
 package org.adaway.vpn.worker;
 
+import static java.lang.Integer.parseInt;
+import static java.util.Objects.requireNonNull;
+
 import android.content.Context;
 
 import org.adaway.vpn.VpnServiceControls;
@@ -8,6 +11,8 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import timber.log.Timber;
 
@@ -16,8 +21,9 @@ import timber.log.Timber;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class VpnConnectionMonitor {
+public class VpnConnectionMonitor {
     private static final int CONNECTION_CHECK_DELAY_MS = 10_000;
+    private static final Pattern TUNNEL_PATTERN = Pattern.compile("tun([0-9]+)");
     /**
      * The application context.
      */
@@ -42,18 +48,36 @@ class VpnConnectionMonitor {
         this.networkInterface = null;
     }
 
-    private NetworkInterface findVpnNetworkInterface() {
+    private static NetworkInterface findVpnNetworkInterface() {
         try {
+            NetworkInterface vpnNetworkInterface = null;
             Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
             while (networkInterfaces.hasMoreElements()) {
                 NetworkInterface networkInterface = networkInterfaces.nextElement();
-                if (networkInterface.getName().contains("tun")) {
-                    return networkInterface;
-                }
+                vpnNetworkInterface = pickLastVpnNetworkInterface(vpnNetworkInterface, networkInterface);
             }
-            throw new IllegalStateException("Failed to find a network interface.");
+            if (vpnNetworkInterface == null) {
+                throw new IllegalStateException("Failed to find a network interface.");
+            }
+            return vpnNetworkInterface;
         } catch (SocketException e) {
             throw new IllegalStateException("Failed to find VPN network interface.", e);
+        }
+    }
+
+    private static NetworkInterface pickLastVpnNetworkInterface(NetworkInterface current, NetworkInterface other) {
+        Matcher otherMatcher = TUNNEL_PATTERN.matcher(other.getName());
+        if (otherMatcher.matches()) {
+            if (current == null) {
+                return other;
+            } else {
+                Matcher currentMatcher = TUNNEL_PATTERN.matcher(current.getName());
+                int currentTunnelNumber = parseInt(requireNonNull(currentMatcher.group(1)));
+                int otherTunnelNumber = parseInt(requireNonNull(otherMatcher.group(1)));
+                return otherTunnelNumber > currentTunnelNumber ? other : current;
+            }
+        } else {
+            return current;
         }
     }
 
