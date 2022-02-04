@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Vaši popisi</string>
+    <string name="lists_add">Dodaj poslužitelja</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">Blokirano</string>
     <string name="lists_tab_allowed">Dopušteno</string>
