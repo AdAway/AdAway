@@ -18,12 +18,443 @@
 #ifndef MONGOOSE_H
 #define MONGOOSE_H
 
-#define MG_VERSION "7.5"
+#define MG_VERSION "7.6"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+
+#define MG_ARCH_CUSTOM 0
+#define MG_ARCH_UNIX 1
+#define MG_ARCH_WIN32 2
+#define MG_ARCH_ESP32 3
+#define MG_ARCH_ESP8266 4
+#define MG_ARCH_FREERTOS_TCP 5
+#define MG_ARCH_FREERTOS_LWIP 6
+#define MG_ARCH_AZURERTOS 7
+
+#if !defined(MG_ARCH)
+#if defined(__unix__) || defined(__APPLE__)
+#define MG_ARCH MG_ARCH_UNIX
+#elif defined(_WIN32)
+#define MG_ARCH MG_ARCH_WIN32
+#elif defined(ICACHE_FLASH) || defined(ICACHE_RAM_ATTR)
+#define MG_ARCH MG_ARCH_ESP8266
+#elif defined(ESP_PLATFORM)
+#define MG_ARCH MG_ARCH_ESP32
+#elif defined(FREERTOS_IP_H)
+#define MG_ARCH MG_ARCH_FREERTOS_TCP
+#elif defined(AZURE_RTOS_THREADX)
+#define MG_ARCH MG_ARCH_AZURERTOS
+#endif
+
+#if !defined(MG_ARCH)
+#error "MG_ARCH is not specified and we couldn't guess it."
+#endif
+#endif  // !defined(MG_ARCH)
+
+#if !defined(PRINTF_LIKE)
+#if defined(__GNUC__) || defined(__clang__) || defined(__TI_COMPILER_VERSION__)
+#define PRINTF_LIKE(f, a) __attribute__((format(printf, f, a)))
+#else
+#define PRINTF_LIKE(f, a)
+#endif
+#endif
+
+#if MG_ARCH == MG_ARCH_CUSTOM
+#include <mongoose_custom.h>
+#endif
+
+
+
+
+
+
+
+
+
+#if MG_ARCH == MG_ARCH_AZURERTOS
+
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <time.h>
+
+#include <fx_api.h>
+#include <tx_api.h>
+
+#include <nx_api.h>
+#include <nx_bsd.h>
+#include <nx_port.h>
+#include <tx_port.h>
+
+#ifdef __REDLIB__
+#define va_copy(d, s) __builtin_va_copy(d, s)
+#endif
+
+#define PATH_MAX FX_MAXIMUM_PATH
+#define MG_DIRSEP '\\'
+
+#define socklen_t int
+#define closesocket(x) soc_close(x)
+#define gmtime_r(a, b) gmtime(a)
+#define MG_INT64_FMT "%lld"
+
+static __inline struct tm *localtime_r(const time_t *t, struct tm *tm) {
+  struct tm *x = localtime(t);
+  *tm = *x;
+  return tm;
+}
+
+#undef FOPEN_MAX
+
+#endif
+
+
+#if MG_ARCH == MG_ARCH_ESP32
+
+#include <ctype.h>
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <limits.h>
+#include <netdb.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <time.h>
+
+#define MG_PATH_MAX 128
+#define MG_ENABLE_DIRLIST 1
+
+#endif
+
+
+#if MG_ARCH == MG_ARCH_ESP8266
+
+#include <ctype.h>
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <limits.h>
+#include <netdb.h>
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <time.h>
+
+#include <esp_system.h>
+
+#define MG_PATH_MAX 128
+#define MG_ENABLE_DIRLIST 1
+
+#endif
+
+
+#if MG_ARCH == MG_ARCH_FREERTOS_LWIP
+
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+
+#if defined(__GNUC__)
+#include <sys/stat.h>
+#include <sys/time.h>
+#else
+struct timeval {
+  time_t tv_sec;
+  long tv_usec;
+};
+#endif
+
+#include <FreeRTOS.h>
+#include <task.h>
+
+#include <lwip/sockets.h>
+
+#if LWIP_SOCKET != 1
+// Sockets support disabled in LWIP by default
+#error Set LWIP_SOCKET variable to 1 (in lwipopts.h)
+#endif
+
+#if LWIP_POSIX_SOCKETS_IO_NAMES != 0
+// LWIP_POSIX_SOCKETS_IO_NAMES must be disabled in posix-compatible OS
+// enviroment (freertos mimics to one) otherwise names like `read` and `write`
+// conflict
+#error LWIP_POSIX_SOCKETS_IO_NAMES must be set to 0 (in lwipopts.h) for FreeRTOS
+#endif
+
+#define MG_INT64_FMT "%lld"
+#define MG_DIRSEP '/'
+
+// Re-route calloc/free to the FreeRTOS's functions, don't use stdlib
+static inline void *mg_calloc(int cnt, size_t size) {
+  void *p = pvPortMalloc(cnt * size);
+  if (p != NULL) memset(p, 0, size);
+  return p;
+}
+#define calloc(a, b) mg_calloc((a), (b))
+#define free(a) vPortFree(a)
+#define malloc(a) pvPortMalloc(a)
+#define gmtime_r(a, b) gmtime(a)
+#define mkdir(a, b) (-1)
+
+#endif  // MG_ARCH == MG_ARCH_FREERTOS_LWIP
+
+
+#if MG_ARCH == MG_ARCH_FREERTOS_TCP
+
+#include <ctype.h>
+#include <errno.h>
+#include <limits.h>
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <time.h>
+
+#include <FreeRTOS.h>
+#include <FreeRTOS_IP.h>
+#include <FreeRTOS_Sockets.h>
+#include <task.h>
+
+// Why FreeRTOS-TCP did not implement a clean BSD API, but its own thing
+// with FreeRTOS_ prefix, is beyond me
+#define IPPROTO_TCP FREERTOS_IPPROTO_TCP
+#define IPPROTO_UDP FREERTOS_IPPROTO_UDP
+#define AF_INET FREERTOS_AF_INET
+#define SOCK_STREAM FREERTOS_SOCK_STREAM
+#define SOCK_DGRAM FREERTOS_SOCK_DGRAM
+#define SO_BROADCAST 0
+#define SO_ERROR 0
+#define SOL_SOCKET 0
+#define SO_REUSEADDR 0
+#define sockaddr_in freertos_sockaddr
+#define sockaddr freertos_sockaddr
+#define accept(a, b, c) FreeRTOS_accept((a), (b), (c))
+#define connect(a, b, c) FreeRTOS_connect((a), (b), (c))
+#define bind(a, b, c) FreeRTOS_bind((a), (b), (c))
+#define listen(a, b) FreeRTOS_listen((a), (b))
+#define socket(a, b, c) FreeRTOS_socket((a), (b), (c))
+#define send(a, b, c, d) FreeRTOS_send((a), (b), (c), (d))
+#define recv(a, b, c, d) FreeRTOS_recv((a), (b), (c), (d))
+#define setsockopt(a, b, c, d, e) FreeRTOS_setsockopt((a), (b), (c), (d), (e))
+#define sendto(a, b, c, d, e, f) FreeRTOS_sendto((a), (b), (c), (d), (e), (f))
+#define recvfrom(a, b, c, d, e, f) \
+  FreeRTOS_recvfrom((a), (b), (c), (d), (e), (f))
+#define closesocket(x) FreeRTOS_closesocket(x)
+#define gethostbyname(x) FreeRTOS_gethostbyname(x)
+#define getsockname(a, b, c) (-1)
+
+// Re-route calloc/free to the FreeRTOS's functions, don't use stdlib
+static inline void *mg_calloc(int cnt, size_t size) {
+  void *p = pvPortMalloc(cnt * size);
+  if (p != NULL) memset(p, 0, size);
+  return p;
+}
+#define calloc(a, b) mg_calloc((a), (b))
+#define free(a) vPortFree(a)
+#define malloc(a) pvPortMalloc(a)
+#define mkdir(a, b) (-1)
+
+#define gmtime_r(a, b) gmtime(a)
+
+#if !defined(__GNUC__)
+// copied from GCC on ARM; for some reason useconds are signed
+struct timeval {
+  time_t tv_sec;
+  long tv_usec;
+};
+#endif
+
+#ifndef EINPROGRESS
+#define EINPROGRESS pdFREERTOS_ERRNO_EINPROGRESS
+#endif
+#ifndef EWOULDBLOCK
+#define EWOULDBLOCK pdFREERTOS_ERRNO_EWOULDBLOCK
+#endif
+#ifndef EAGAIN
+#define EAGAIN pdFREERTOS_ERRNO_EAGAIN
+#endif
+#ifndef EINTR
+#define EINTR pdFREERTOS_ERRNO_EINTR
+#endif
+
+#endif  // MG_ARCH == MG_ARCH_FREERTOS_TCP
+
+
+#if MG_ARCH == MG_ARCH_UNIX
+
+#define _DARWIN_UNLIMITED_SELECT 1  // No limit on file descriptors
+
+#include <arpa/inet.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <inttypes.h>
+#include <limits.h>
+#include <netdb.h>
+#include <netinet/tcp.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/select.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <time.h>
+#include <unistd.h>
+
+#define MG_INT64_FMT "%" PRId64
+
+#ifndef MG_ENABLE_DIRLIST
+#define MG_ENABLE_DIRLIST 1
+#endif
+
+#endif
+
+
+#if MG_ARCH == MG_ARCH_WIN32
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
+#ifndef _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
+#ifndef _WINSOCK_DEPRECATED_NO_WARNINGS
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#endif
+
+#include <ctype.h>
+#include <direct.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <limits.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <time.h>
+
+#if defined(_MSC_VER) && _MSC_VER < 1700
+#define __func__ ""
+typedef __int64 int64_t;
+typedef unsigned __int64 uint64_t;
+typedef unsigned char uint8_t;
+typedef char int8_t;
+typedef unsigned short uint16_t;
+typedef short int16_t;
+typedef unsigned int uint32_t;
+typedef int int32_t;
+typedef enum { false = 0, true = 1 } bool;
+#else
+#include <stdbool.h>
+#include <stdint.h>
+#include <ws2tcpip.h>
+#endif
+
+#include <winsock2.h>
+
+// Protect from calls like std::snprintf in app code
+// See https://github.com/cesanta/mongoose/issues/1047
+#ifndef __cplusplus
+#define snprintf _snprintf
+#define vsnprintf _vsnprintf
+#ifndef strdup  // For MSVC with _DEBUG, see #1359
+#define strdup(x) _strdup(x)
+#endif
+#endif
+
+typedef int socklen_t;
+#define MG_DIRSEP '\\'
+#ifndef PATH_MAX
+#define PATH_MAX MAX_PATH
+#endif
+#ifndef EINPROGRESS
+#define EINPROGRESS WSAEINPROGRESS
+#endif
+#ifndef EWOULDBLOCK
+#define EWOULDBLOCK WSAEWOULDBLOCK
+#endif
+
+#define realpath(a, b) _fullpath((b), (a), MG_PATH_MAX)
+#define sleep(x) Sleep(x)
+#define mkdir(a, b) _mkdir(a)
+
+#ifndef va_copy
+#ifdef __va_copy
+#define va_copy __va_copy
+#else
+#define va_copy(x, y) (x) = (y)
+#endif
+#endif
+#ifndef S_ISDIR
+#define S_ISDIR(x) (((x) &_S_IFMT) == _S_IFDIR)
+#endif
+
+#define MG_INT64_FMT "%I64d"
+
+#ifndef MG_ENABLE_DIRLIST
+#define MG_ENABLE_DIRLIST 1
+#endif
+
+// https://lgtm.com/rules/2154840805/ -gmtime, localtime, ctime and asctime
+static __inline struct tm *gmtime_r(const time_t *t, struct tm *tm) {
+  struct tm *x = gmtime(t);
+  *tm = *x;
+  return tm;
+}
+
+static __inline struct tm *localtime_r(const time_t *t, struct tm *tm) {
+  struct tm *x = localtime(t);
+  *tm = *x;
+  return tm;
+}
+
+#endif
+
+
+#ifndef MG_ENABLE_FATFS
+#define MG_ENABLE_FATFS 0
+#endif
+
+#ifndef MG_FATFS_ROOT
+#define MG_FATFS_ROOT "/"
+#endif
+
+#ifndef MG_FATFS_BSIZE
+#define MG_FATFS_BSIZE 64
+#endif
 
 #ifndef MG_ENABLE_SOCKET
 #define MG_ENABLE_SOCKET 1
@@ -93,440 +524,35 @@ extern "C" {
 #endif
 
 #ifndef MG_PATH_MAX
+#ifdef PATH_MAX
 #define MG_PATH_MAX PATH_MAX
+#else
+#define MG_PATH_MAX 128
+#endif
 #endif
 
 #ifndef MG_SOCK_LISTEN_BACKLOG_SIZE
 #define MG_SOCK_LISTEN_BACKLOG_SIZE 128
 #endif
 
-
-#define MG_ARCH_CUSTOM 0
-#define MG_ARCH_UNIX 1
-#define MG_ARCH_WIN32 2
-#define MG_ARCH_ESP32 3
-#define MG_ARCH_ESP8266 4
-#define MG_ARCH_FREERTOS_TCP 5
-#define MG_ARCH_FREERTOS_LWIP 6
-#define MG_ARCH_AZURERTOS 7
-
-#if !defined(MG_ARCH)
-#if defined(__unix__) || defined(__APPLE__)
-#define MG_ARCH MG_ARCH_UNIX
-#elif defined(_WIN32)
-#define MG_ARCH MG_ARCH_WIN32
-#elif defined(ICACHE_FLASH) || defined(ICACHE_RAM_ATTR)
-#define MG_ARCH MG_ARCH_ESP8266
-#elif defined(ESP_PLATFORM)
-#define MG_ARCH MG_ARCH_ESP32
-#elif defined(FREERTOS_IP_H)
-#define MG_ARCH MG_ARCH_FREERTOS_TCP
-#elif defined(AZURE_RTOS_THREADX)
-#define MG_ARCH MG_ARCH_AZURERTOS
+#ifndef MG_DIRSEP
+#define MG_DIRSEP '/'
 #endif
 
-#if !defined(MG_ARCH)
-#error "MG_ARCH is not specified and we couldn't guess it."
+#ifndef MG_INT64_FMT
+#define MG_INT64_FMT "%lld"
 #endif
-#endif  // !defined(MG_ARCH)
 
-#if !defined(PRINTF_LIKE)
-#if defined(__GNUC__) || defined(__clang__) || defined(__TI_COMPILER_VERSION__)
-#define PRINTF_LIKE(f, a) __attribute__((format(printf, f, a)))
+#ifndef MG_ENABLE_FILE
+#if defined(FOPEN_MAX)
+#define MG_ENABLE_FILE 1
 #else
-#define PRINTF_LIKE(f, a)
+#define MG_ENABLE_FILE 0
 #endif
 #endif
 
-#if MG_ARCH == MG_ARCH_CUSTOM
-#include <mongoose_custom.h>
-#endif
 
 
-
-
-
-
-
-
-
-#if MG_ARCH == MG_ARCH_AZURERTOS
-
-#include <stdarg.h>
-#include <stdint.h>
-#include <stdbool.h>
-#include <time.h>
-#include <stdio.h>
- 
-#include <tx_api.h>
-#include <fx_api.h>
-
-#include <tx_port.h>
-#include <nx_port.h>
-#include <nx_api.h>
-#include <nx_bsd.h>
-
-#ifdef __REDLIB__
-#define va_copy(d,s)__builtin_va_copy(d,s)
-#endif
-
-#define PATH_MAX FX_MAXIMUM_PATH
-#define MG_DIRSEP '\\'
-
-#define socklen_t int
-#define closesocket(x) soc_close(x)
-#define gmtime_r(a, b) gmtime(a)
-#define MG_INT64_FMT "%lld"
-
-static __inline struct tm *localtime_r(time_t *t, struct tm *tm) {
-  (void) tm;
-  return localtime(t);
-}
-
-#undef FOPEN_MAX
-
-#endif
-
-
-#if MG_ARCH == MG_ARCH_ESP32
-
-#include <ctype.h>
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <limits.h>
-#include <netdb.h>
-#include <stdarg.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <time.h>
-
-#undef MG_PATH_MAX
-#undef MG_ENABLE_DIRLIST
-
-#define MG_DIRSEP '/'
-#define MG_INT64_FMT "%lld"
-#define MG_PATH_MAX 128
-#define MG_ENABLE_DIRLIST 1
-
-#endif
-
-
-#if MG_ARCH == MG_ARCH_ESP8266
-
-#include <ctype.h>
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <limits.h>
-#include <netdb.h>
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/time.h>
-#include <sys/types.h>
-#include <time.h>
-
-#include <esp_system.h>
-
-#undef MG_PATH_MAX
-#undef MG_ENABLE_DIRLIST
-
-#define MG_DIRSEP '/'
-#define MG_INT64_FMT "%lld"
-#define MG_PATH_MAX 128
-#define MG_ENABLE_DIRLIST 1
-
-#endif
-
-
-#if MG_ARCH == MG_ARCH_FREERTOS_LWIP
-
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <string.h>
-#include <stdio.h>
-
-#if defined(__GNUC__)
-#include <sys/stat.h>
-#include <sys/time.h>
-#else
-typedef long suseconds_t;
-struct timeval {
-  time_t tv_sec;
-  suseconds_t tv_usec;
-};
-#endif
-
-#include <FreeRTOS.h>
-#include <task.h>
-
-#include <lwip/sockets.h>
-
-#if LWIP_SOCKET != 1
-// Sockets support disabled in LWIP by default
-#error Set LWIP_SOCKET variable to 1 (in lwipopts.h)
-#endif
-
-#if LWIP_POSIX_SOCKETS_IO_NAMES != 0
-// LWIP_POSIX_SOCKETS_IO_NAMES must be disabled in posix-compatible OS
-// enviroment (freertos mimics to one) otherwise names like `read` and `write`
-// conflict
-#error LWIP_POSIX_SOCKETS_IO_NAMES must be set to 0 (in lwipopts.h) for FreeRTOS
-#endif
-
-#define MG_INT64_FMT "%lld"
-#define MG_DIRSEP '/'
-
-// Re-route calloc/free to the FreeRTOS's functions, don't use stdlib
-static inline void *mg_calloc(int cnt, size_t size) {
-  void *p = pvPortMalloc(cnt * size);
-  if (p != NULL) memset(p, 0, size);
-  return p;
-}
-#define calloc(a, b) mg_calloc((a), (b))
-#define free(a) vPortFree(a)
-#define malloc(a) pvPortMalloc(a)
-
-#define gmtime_r(a, b) gmtime(a)
-
-#endif  // MG_ARCH == MG_ARCH_FREERTOS_LWIP
-
-
-#if MG_ARCH == MG_ARCH_FREERTOS_TCP
-
-#include <ctype.h>
-#include <errno.h>
-#include <limits.h>
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <time.h>
-
-#include <FreeRTOS.h>
-#include <FreeRTOS_IP.h>
-#include <FreeRTOS_Sockets.h>
-#include <task.h>
-
-#define MG_INT64_FMT "%lld"
-#define MG_DIRSEP '/'
-
-// Why FreeRTOS-TCP did not implement a clean BSD API, but its own thing
-// with FreeRTOS_ prefix, is beyond me
-#define IPPROTO_TCP FREERTOS_IPPROTO_TCP
-#define IPPROTO_UDP FREERTOS_IPPROTO_UDP
-#define AF_INET FREERTOS_AF_INET
-#define SOCK_STREAM FREERTOS_SOCK_STREAM
-#define SOCK_DGRAM FREERTOS_SOCK_DGRAM
-#define SO_BROADCAST 0
-#define SO_ERROR 0
-#define SOL_SOCKET 0
-#define SO_REUSEADDR 0
-#define sockaddr_in freertos_sockaddr
-#define sockaddr freertos_sockaddr
-#define accept(a, b, c) FreeRTOS_accept((a), (b), (c))
-#define connect(a, b, c) FreeRTOS_connect((a), (b), (c))
-#define bind(a, b, c) FreeRTOS_bind((a), (b), (c))
-#define listen(a, b) FreeRTOS_listen((a), (b))
-#define socket(a, b, c) FreeRTOS_socket((a), (b), (c))
-#define send(a, b, c, d) FreeRTOS_send((a), (b), (c), (d))
-#define recv(a, b, c, d) FreeRTOS_recv((a), (b), (c), (d))
-#define setsockopt(a, b, c, d, e) FreeRTOS_setsockopt((a), (b), (c), (d), (e))
-#define sendto(a, b, c, d, e, f) FreeRTOS_sendto((a), (b), (c), (d), (e), (f))
-#define recvfrom(a, b, c, d, e, f) \
-  FreeRTOS_recvfrom((a), (b), (c), (d), (e), (f))
-#define closesocket(x) FreeRTOS_closesocket(x)
-#define gethostbyname(x) FreeRTOS_gethostbyname(x)
-#define getsockname(a, b, c) (-1)
-
-// Re-route calloc/free to the FreeRTOS's functions, don't use stdlib
-static inline void *mg_calloc(int cnt, size_t size) {
-  void *p = pvPortMalloc(cnt * size);
-  if (p != NULL) memset(p, 0, size);
-  return p;
-}
-#define calloc(a, b) mg_calloc((a), (b))
-#define free(a) vPortFree(a)
-#define malloc(a) pvPortMalloc(a)
-
-#define gmtime_r(a, b) gmtime(a)
-
-#if !defined(__GNUC__)
-// copied from GCC on ARM; for some reason useconds are signed
-typedef long suseconds_t;
-struct timeval {
-  time_t tv_sec;
-  suseconds_t tv_usec;
-};
-#endif
-
-#ifndef EINPROGRESS
-#define EINPROGRESS pdFREERTOS_ERRNO_EINPROGRESS
-#endif
-#ifndef EWOULDBLOCK
-#define EWOULDBLOCK pdFREERTOS_ERRNO_EWOULDBLOCK
-#endif
-#ifndef EAGAIN
-#define EAGAIN pdFREERTOS_ERRNO_EAGAIN
-#endif
-#ifndef EINTR
-#define EINTR pdFREERTOS_ERRNO_EINTR
-#endif
-
-#endif  // MG_ARCH == MG_ARCH_FREERTOS_TCP
-
-
-#if MG_ARCH == MG_ARCH_UNIX
-
-#define _DARWIN_UNLIMITED_SELECT 1  // No limit on file descriptors
-
-#include <arpa/inet.h>
-#include <ctype.h>
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <inttypes.h>
-#include <limits.h>
-#include <netdb.h>
-#include <netinet/tcp.h>
-#include <signal.h>
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/select.h>
-#include <sys/socket.h>
-#include <sys/stat.h>
-#include <sys/time.h>
-#include <sys/types.h>
-#include <time.h>
-#include <unistd.h>
-
-#define MG_DIRSEP '/'
-#define MG_INT64_FMT "%" PRId64
-#undef MG_ENABLE_DIRLIST
-#define MG_ENABLE_DIRLIST 1
-
-#endif
-
-
-#if MG_ARCH == MG_ARCH_WIN32
-
-#ifndef WIN32_LEAN_AND_MEAN
-#define WIN32_LEAN_AND_MEAN
-#endif
-
-#ifndef _CRT_SECURE_NO_WARNINGS
-#define _CRT_SECURE_NO_WARNINGS
-#endif
-
-#ifndef _WINSOCK_DEPRECATED_NO_WARNINGS
-#define _WINSOCK_DEPRECATED_NO_WARNINGS
-#endif
-
-#include <ctype.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <limits.h>
-#include <stdarg.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <time.h>
-
-#if defined(_MSC_VER) && _MSC_VER < 1700
-#define __func__ ""
-typedef __int64 int64_t;
-typedef unsigned __int64 uint64_t;
-typedef unsigned char uint8_t;
-typedef char int8_t;
-typedef unsigned short uint16_t;
-typedef short int16_t;
-typedef unsigned int uint32_t;
-typedef int int32_t;
-typedef enum { false = 0, true = 1 } bool;
-#else
-#include <stdbool.h>
-#include <stdint.h>
-#include <ws2tcpip.h>
-#endif
-
-#include <winsock2.h>
-
-// Protect from calls like std::snprintf in app code
-// See https://github.com/cesanta/mongoose/issues/1047
-#ifndef __cplusplus
-#define snprintf _snprintf
-#define vsnprintf _vsnprintf
-#ifndef strdup  // For MSVC with _DEBUG, see #1359
-#define strdup(x) _strdup(x)
-#endif
-#endif
-
-typedef unsigned suseconds_t;
-typedef int socklen_t;
-#define MG_DIRSEP '\\'
-#ifndef PATH_MAX
-#define PATH_MAX MAX_PATH
-#endif
-#ifndef EINPROGRESS
-#define EINPROGRESS WSAEINPROGRESS
-#endif
-#ifndef EWOULDBLOCK
-#define EWOULDBLOCK WSAEWOULDBLOCK
-#endif
-
-#ifndef va_copy
-#ifdef __va_copy
-#define va_copy __va_copy
-#else
-#define va_copy(x, y) (x) = (y)
-#endif
-#endif
-#ifndef S_ISDIR
-#define S_ISDIR(x) (((x) &_S_IFMT) == _S_IFDIR)
-#endif
-
-#define MG_INT64_FMT "%I64d"
-
-#undef MG_ENABLE_DIRLIST
-#define MG_ENABLE_DIRLIST 1
-
-// https://lgtm.com/rules/2154840805/ -gmtime, localtime, ctime and asctime
-static __inline struct tm *gmtime_r(time_t *t, struct tm *tm) {
-  (void) tm;
-  return gmtime(t);
-}
-
-static __inline struct tm *localtime_r(time_t *t, struct tm *tm) {
-  (void) tm;
-  return localtime(t);
-}
-
-#endif
-
-
-#include <ctype.h>
-#include <string.h>
 
 struct mg_str {
   const char *ptr;  // Pointer to string data
@@ -571,9 +597,11 @@ void mg_log_set_callback(void (*fn)(const void *, size_t, void *), void *param);
 #endif
 
 
+
+
 struct mg_timer {
-  unsigned long period_ms;  // Timer period in milliseconds
-  unsigned long expire;     // Expiration timestamp in milliseconds
+  int64_t period_ms;        // Timer period in milliseconds
+  int64_t expire;           // Expiration timestamp in milliseconds
   unsigned flags;           // Possible flags values below
 #define MG_TIMER_REPEAT 1   // Call function periodically, otherwise run once
 #define MG_TIMER_RUN_NOW 2  // Call immediately when timer is set
@@ -584,18 +612,54 @@ struct mg_timer {
 
 extern struct mg_timer *g_timers;  // Global list of timers
 
-void mg_timer_init(struct mg_timer *, unsigned long ms, unsigned,
-                   void (*fn)(void *), void *);
+void mg_timer_init(struct mg_timer *, int64_t, unsigned, void (*)(void *),
+                   void *);
 void mg_timer_free(struct mg_timer *);
-void mg_timer_poll(unsigned long current_time_ms);
+void mg_timer_poll(int64_t current_time_ms);
 
 
 
 
 
-char *mg_file_read(const char *path, size_t *size);
-bool mg_file_write(const char *path, const void *buf, size_t len);
-bool mg_file_printf(const char *path, const char *fmt, ...);
+enum { MG_FS_READ = 1, MG_FS_WRITE = 2, MG_FS_DIR = 4 };
+
+// Filesystem API functions
+// stat() returns MG_FS_* flags and populates file size and modification time
+// list() calls fn() for every directory entry, allowing to list a directory
+struct mg_fs {
+  int (*stat)(const char *path, size_t *size, time_t *mtime);
+  void (*list)(const char *path, void (*fn)(const char *, void *), void *);
+  void *(*open)(const char *path, int flags);              // Open file
+  void (*close)(void *fd);                                 // Close file
+  size_t (*read)(void *fd, void *buf, size_t len);         // Read file
+  size_t (*write)(void *fd, const void *buf, size_t len);  // Write file
+  size_t (*seek)(void *fd, size_t offset);                 // Set file position
+  bool (*rename)(const char *from, const char *to);        // Rename
+  bool (*remove)(const char *path);                        // Delete file
+  bool (*mkd)(const char *path);                           // Create directory
+};
+
+extern struct mg_fs mg_fs_posix;   // POSIX open/close/read/write/seek
+extern struct mg_fs mg_fs_packed;  // Packed FS, see examples/complete
+extern struct mg_fs mg_fs_fat;     // FAT FS
+
+// File descriptor
+struct mg_fd {
+  void *fd;
+  struct mg_fs *fs;
+};
+
+struct mg_fd *mg_fs_open(struct mg_fs *fs, const char *path, int flags);
+void mg_fs_close(struct mg_fd *fd);
+char *mg_file_read(struct mg_fs *fs, const char *path, size_t *size);
+bool mg_file_write(struct mg_fs *fs, const char *path, const void *, size_t);
+bool mg_file_printf(struct mg_fs *fs, const char *path, const char *fmt, ...);
+
+
+
+
+
+
 void mg_random(void *buf, size_t len);
 bool mg_globmatch(const char *pattern, size_t plen, const char *s, size_t n);
 bool mg_commalist(struct mg_str *s, struct mg_str *k, struct mg_str *v);
@@ -608,11 +672,9 @@ void mg_unhex(const char *buf, size_t len, unsigned char *to);
 unsigned long mg_unhexn(const char *s, size_t len);
 int mg_asprintf(char **buf, size_t size, const char *fmt, ...);
 int mg_vasprintf(char **buf, size_t size, const char *fmt, va_list ap);
-int64_t mg_to64(struct mg_str str);
 int mg_check_ip_acl(struct mg_str acl, uint32_t remote_ip);
-double mg_time(void);
-unsigned long mg_millis(void);
-void mg_usleep(unsigned long usecs);
+int64_t mg_to64(struct mg_str str);
+int64_t mg_millis(void);
 
 #define mg_htons(x) mg_ntohs(x)
 #define mg_htonl(x) mg_ntohl(x)
@@ -657,33 +719,6 @@ void mg_usleep(unsigned long usecs);
     while (*h != (elem_)) h = &(*h)->next; \
     *h = (elem_)->next;                    \
   } while (0)
-
-
-
-
-enum { MG_FS_READ = 1, MG_FS_WRITE = 2, MG_FS_DIR = 4 };
-
-// Filesystem API functions
-// stat() returns MG_FS_* flags and populates file size and modification time
-// list() calls fn() for every directory entry, allowing to list a directory
-struct mg_fs {
-  int (*stat)(const char *path, size_t *size, time_t *mtime);
-  void (*list)(const char *path, void (*fn)(const char *, void *), void *);
-  struct mg_fd *(*open)(const char *path, int flags);      // Open file
-  void (*close)(struct mg_fd *fd);                         // Close file
-  size_t (*read)(void *fd, void *buf, size_t len);         // Read file
-  size_t (*write)(void *fd, const void *buf, size_t len);  // Write file
-  size_t (*seek)(void *fd, size_t offset);                 // Set file position
-};
-
-// File descriptor
-struct mg_fd {
-  void *fd;
-  struct mg_fs *fs;
-};
-
-extern struct mg_fs mg_fs_posix;   // POSIX open/close/read/write/seek
-extern struct mg_fs mg_fs_packed;  // Packed FS, see examples/complete
 
 
 
@@ -753,7 +788,7 @@ void mg_error(struct mg_connection *c, const char *fmt, ...);
 enum {
   MG_EV_ERROR,       // Error                        char *error_message
   MG_EV_OPEN,        // Connection created           NULL
-  MG_EV_POLL,        // mg_mgr_poll iteration        unsigned long *millis
+  MG_EV_POLL,        // mg_mgr_poll iteration        int64_t *milliseconds
   MG_EV_RESOLVE,     // Host name is resolved        NULL
   MG_EV_CONNECT,     // Connection established       NULL
   MG_EV_ACCEPT,      // Connection accepted          NULL
@@ -768,7 +803,7 @@ enum {
   MG_EV_MQTT_CMD,    // MQTT low-level command       struct mg_mqtt_message *
   MG_EV_MQTT_MSG,    // MQTT PUBLISH received        struct mg_mqtt_message *
   MG_EV_MQTT_OPEN,   // MQTT CONNACK received        int *connack_status_code
-  MG_EV_SNTP_TIME,   // SNTP time received           struct timeval *
+  MG_EV_SNTP_TIME,   // SNTP time received           int64_t *milliseconds
   MG_EV_USER,        // Starting ID for user events
 };
 
@@ -844,12 +879,13 @@ void mg_connect_resolved(struct mg_connection *);
 bool mg_send(struct mg_connection *, const void *, size_t);
 int mg_printf(struct mg_connection *, const char *fmt, ...);
 int mg_vprintf(struct mg_connection *, const char *fmt, va_list ap);
-char *mg_straddr(struct mg_connection *, char *, size_t);
+char *mg_straddr(struct mg_addr *, char *, size_t);
 bool mg_aton(struct mg_str str, struct mg_addr *addr);
 char *mg_ntoa(const struct mg_addr *addr, char *buf, size_t len);
 
 struct mg_connection *mg_mkpipe(struct mg_mgr *, mg_event_handler_t, void *);
-void mg_mgr_wakeup(struct mg_connection *pipe);
+void mg_mgr_wakeup(struct mg_connection *pipe, const void *buf, size_t len);
+
 
 
 
@@ -909,7 +945,7 @@ size_t mg_url_encode(const char *s, size_t n, char *buf, size_t len);
 void mg_http_creds(struct mg_http_message *, char *, size_t, char *, size_t);
 bool mg_http_match_uri(const struct mg_http_message *, const char *glob);
 int mg_http_upload(struct mg_connection *, struct mg_http_message *hm,
-                   const char *dir);
+                   struct mg_fs *fs, const char *dir);
 void mg_http_bauth(struct mg_connection *, const char *user, const char *pass);
 struct mg_str mg_http_get_header_var(struct mg_str s, struct mg_str v);
 size_t mg_http_next_multipart(struct mg_str, size_t, struct mg_http_part *);
@@ -930,6 +966,7 @@ struct mg_tls_opts {
   const char *certkey;    // Certificate key
   const char *ciphers;    // Cipher list
   struct mg_str srvname;  // If not empty, enables server name verification
+  struct mg_fs *fs;       // FS API for reading certificate files
 };
 
 void mg_tls_init(struct mg_connection *, struct mg_tls_opts *);
@@ -945,17 +982,8 @@ void mg_tls_handshake(struct mg_connection *);
 
 
 #include <mbedtls/debug.h>
+#include <mbedtls/net_sockets.h>
 #include <mbedtls/ssl.h>
-
-#if defined(MBEDTLS_VERSION_NUMBER) && MBEDTLS_VERSION_NUMBER >= 0x03000000
-#define RNG , rng_get, NULL
-#else
-#define RNG
-#endif
-
-// Different versions have those in different files, so declare here
-EXTERN_C int mbedtls_net_recv(void *, unsigned char *, size_t);
-EXTERN_C int mbedtls_net_send(void *, const unsigned char *, size_t);
 
 struct mg_tls {
   char *cafile;             // CA certificate path
@@ -1009,7 +1037,7 @@ size_t mg_ws_wrap(struct mg_connection *, size_t len, int op);
 struct mg_connection *mg_sntp_connect(struct mg_mgr *mgr, const char *url,
                                       mg_event_handler_t fn, void *fn_data);
 void mg_sntp_send(struct mg_connection *c, unsigned long utc);
-int mg_sntp_parse(const unsigned char *buf, size_t len, struct timeval *tv);
+int64_t mg_sntp_parse(const unsigned char *buf, size_t len);
 
 
 
@@ -1036,7 +1064,7 @@ struct mg_mqtt_opts {
   struct mg_str client_id;     // Client ID
   struct mg_str will_topic;    // Will topic
   struct mg_str will_message;  // Will message
-  uint8_t qos;                 // Quality of service
+  uint8_t will_qos;            // Will message quality of service
   bool will_retain;            // Retain last will
   bool clean;                  // Use clean session, 0 or 1
   uint16_t keepalive;          // Keep-alive timer in seconds
@@ -1058,9 +1086,9 @@ struct mg_connection *mg_mqtt_connect(struct mg_mgr *, const char *url,
 struct mg_connection *mg_mqtt_listen(struct mg_mgr *mgr, const char *url,
                                      mg_event_handler_t fn, void *fn_data);
 void mg_mqtt_login(struct mg_connection *c, struct mg_mqtt_opts *opts);
-void mg_mqtt_pub(struct mg_connection *c, struct mg_str *topic,
-                 struct mg_str *data, int qos, bool retain);
-void mg_mqtt_sub(struct mg_connection *, struct mg_str *topic, int qos);
+void mg_mqtt_pub(struct mg_connection *c, struct mg_str topic,
+                 struct mg_str data, int qos, bool retain);
+void mg_mqtt_sub(struct mg_connection *, struct mg_str topic, int qos);
 int mg_mqtt_parse(const uint8_t *buf, size_t len, struct mg_mqtt_message *m);
 void mg_mqtt_send_header(struct mg_connection *, uint8_t cmd, uint8_t flags,
                          uint32_t len);
@@ -1104,7 +1132,7 @@ struct mg_dns_rr {
   uint16_t alen;    // Address length
 };
 
-void mg_resolve(struct mg_connection *, struct mg_str *, int);
+void mg_resolve(struct mg_connection *, const char *url);
 void mg_resolve_cancel(struct mg_connection *);
 bool mg_dns_parse(const uint8_t *buf, size_t len, struct mg_dns_message *);
 size_t mg_dns_parse_rr(const uint8_t *buf, size_t len, size_t ofs,

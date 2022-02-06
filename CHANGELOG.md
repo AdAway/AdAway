@@ -1,6 +1,7 @@
 ## [5.12.0] - Unreleased
 
 - Update AndroidX libraries
+- Update mongoose web server
 - Update gradle
 - Update build tools
 
