@@ -96,15 +96,15 @@ public class VpnConnectionMonitor {
     void monitor() {
         try {
             while (this.running.get()) {
-                if (!this.networkInterface.isUp()) {
+                if (this.networkInterface != null && !this.networkInterface.isUp()) {
                     stop();
-                    Timber.i("VPN network interface is down. Starting VPN service…");
+                    Timber.i("VPN network interface %s is down. Starting VPN service…", this.networkInterface);
                     VpnServiceControls.start(this.context);
                 }
                 try {
                     Thread.sleep(CONNECTION_CHECK_DELAY_MS);
                 } catch (InterruptedException e) {
-                    Timber.d(e, "Stop monitoring.");
+                    Timber.d("Stop monitoring.");
                     break;
                 }
             }
