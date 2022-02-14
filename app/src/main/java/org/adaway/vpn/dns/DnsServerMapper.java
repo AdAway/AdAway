@@ -132,12 +132,14 @@ public class DnsServerMapper {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
         Network activeNetwork = connectivityManager.getActiveNetwork();
         if (isNotVpnNetwork(connectivityManager, activeNetwork)) {
+            Timber.d("Get DNS servers from active network %s", activeNetwork);
             return getNetworkDnsServers(connectivityManager, activeNetwork);
         } else {
             for (Network network : connectivityManager.getAllNetworks()) {
                 if (isNotVpnNetwork(connectivityManager, network)) {
                     List<InetAddress> dnsServers = getNetworkDnsServers(connectivityManager, network);
                     if (!dnsServers.isEmpty()) {
+                        Timber.d("Get DNS servers from network %s", network);
                         return dnsServers;
                     }
                 }
@@ -187,7 +189,7 @@ public class DnsServerMapper {
                 Subnet subnet = Subnet.parse(addressBlock);
                 InetAddress address = subnet.getAddress(0);
                 builder.addAddress(address, subnet.prefixLength);
-                Timber.d("Set %s as network address to tunnel interface.", address);
+                Timber.d("Set %s as IPv4 network address to tunnel interface.", address);
                 return subnet;
             } catch (IllegalArgumentException e) {
                 Timber.w(e, "Failed to add %s network address to tunnel interface.", addressBlock);
@@ -205,6 +207,7 @@ public class DnsServerMapper {
     private Subnet addIpv6Address(VpnService.Builder builder) {
         Subnet subnet = Subnet.parse(IPV6_ADDRESS_PREFIX_RESERVED_FOR_DOCUMENTATION);
         builder.addAddress(subnet.address, IPV6_PREFIX_LENGTH);
+        Timber.d("Set %s as IPv6 network address to tunnel interface.", subnet.address);
         return subnet;
     }
 
