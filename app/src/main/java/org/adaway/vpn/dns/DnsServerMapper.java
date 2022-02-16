@@ -1,7 +1,9 @@
 package org.adaway.vpn.dns;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
+import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
+import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
 import static java.util.Collections.emptyList;
 
 import android.content.Context;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import timber.log.Timber;
 
@@ -130,18 +133,99 @@ public class DnsServerMapper {
      */
     private List<InetAddress> getNetworkDnsServers(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
+        dumpNetworkInfo(connectivityManager);
         Network activeNetwork = connectivityManager.getActiveNetwork();
-        if (isNotVpnNetwork(connectivityManager, activeNetwork)) {
+        if (activeNetwork == null) {
+            return getAnyNonVpnNetworkDns(connectivityManager);
+        } else if (isNotVpnNetwork(connectivityManager, activeNetwork)) {
             Timber.d("Get DNS servers from active network %s", activeNetwork);
             return getNetworkDnsServers(connectivityManager, activeNetwork);
         } else {
-            for (Network network : connectivityManager.getAllNetworks()) {
-                if (isNotVpnNetwork(connectivityManager, network)) {
-                    List<InetAddress> dnsServers = getNetworkDnsServers(connectivityManager, network);
-                    if (!dnsServers.isEmpty()) {
-                        Timber.d("Get DNS servers from network %s", network);
-                        return dnsServers;
-                    }
+            return getDnsFromNonVpnNetworkWithMatchingTransportType(connectivityManager, activeNetwork);
+        }
+    }
+
+    /**
+     * Dump all network properties to logs.
+     *
+     * @param connectivityManager The connectivity manager.
+     */
+    private void dumpNetworkInfo(ConnectivityManager connectivityManager) {
+        Network activeNetwork = connectivityManager.getActiveNetwork();
+        Timber.d("Dumping network and dns configuration:");
+        for (Network network : connectivityManager.getAllNetworks()) {
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
+            boolean cellular = networkCapabilities != null && networkCapabilities.hasTransport(TRANSPORT_CELLULAR);
+            boolean wifi = networkCapabilities != null && networkCapabilities.hasTransport(TRANSPORT_WIFI);
+            boolean vpn = networkCapabilities != null && networkCapabilities.hasTransport(TRANSPORT_VPN);
+            LinkProperties linkProperties = connectivityManager.getLinkProperties(network);
+            String dnsList = linkProperties == null ? "none" : linkProperties.getDnsServers()
+                    .stream()
+                    .map(InetAddress::toString)
+                    .collect(Collectors.joining(", "));
+            Timber.d(
+                    "Network %s %s: %s%s%s with dns %s",
+                    network,
+                    network.equals(activeNetwork) ? "[default]" : "[other]",
+                    cellular ? "cellular" : "",
+                    wifi ? "WiFi" : "",
+                    vpn ? " VPN" : "",
+                    dnsList);
+        }
+    }
+
+    /**
+     * Get the DNS server addresses of any network without VPN capability.
+     *
+     * @param connectivityManager The connectivity manager.
+     * @return The DNS server addresses, an empty collection if no applicable DNS server found.
+     */
+    private List<InetAddress> getAnyNonVpnNetworkDns(ConnectivityManager connectivityManager) {
+        for (Network network : connectivityManager.getAllNetworks()) {
+            if (isNotVpnNetwork(connectivityManager, network)) {
+                List<InetAddress> dnsServers = getNetworkDnsServers(connectivityManager, network);
+                if (!dnsServers.isEmpty()) {
+                    Timber.d("Get DNS servers from non VPN network %s", network);
+                    return dnsServers;
+                }
+            }
+        }
+        return emptyList();
+    }
+
+    /**
+     * Get the DNS server addresses of a network with the same transport type as the active network except VPN.
+     *
+     * @param connectivityManager The connectivity manager.
+     * @param activeNetwork       The active network to filter similar transport type.
+     * @return The DNS server addresses, an empty collection if no applicable DNS server found.
+     */
+    private List<InetAddress> getDnsFromNonVpnNetworkWithMatchingTransportType(
+            ConnectivityManager connectivityManager,
+            Network activeNetwork
+    ) {
+        // Get active network transport
+        NetworkCapabilities activeNetworkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
+        if (activeNetworkCapabilities == null) {
+            return emptyList();
+        }
+        int activeNetworkTransport = -1;
+        if (activeNetworkCapabilities.hasTransport(TRANSPORT_CELLULAR)) {
+            activeNetworkTransport = TRANSPORT_CELLULAR;
+        } else if (activeNetworkCapabilities.hasTransport(TRANSPORT_WIFI)) {
+            activeNetworkTransport = TRANSPORT_WIFI;
+        }
+        // Check all network to find one without VPN and matching transport
+        for (Network network : connectivityManager.getAllNetworks()) {
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
+            if (networkCapabilities == null) {
+                continue;
+            }
+            if (networkCapabilities.hasTransport(activeNetworkTransport) && !networkCapabilities.hasTransport(TRANSPORT_VPN)) {
+                List<InetAddress> dns = getNetworkDnsServers(connectivityManager, network);
+                if (!dns.isEmpty()) {
+                    Timber.d("Get DNS servers from non VPN matching type network %s", network);
+                    return dns;
                 }
             }
         }
@@ -165,8 +249,9 @@ public class DnsServerMapper {
 
     /**
      * Check a network does not have VPN transport.
+     *
      * @param connectivityManager The connectivity manager.
-     * @param network The network to check.
+     * @param network             The network to check.
      * @return <code>true</code> if a network is not a VPN, <code>false</code> otherwise.
      */
     private boolean isNotVpnNetwork(ConnectivityManager connectivityManager, Network network) {
