@@ -66,19 +66,25 @@ public class VpnConnectionMonitor {
     }
 
     private static NetworkInterface pickLastVpnNetworkInterface(NetworkInterface current, NetworkInterface other) {
+        // Ensure other is a tunnel interface, otherwise picks current
         Matcher otherMatcher = TUNNEL_PATTERN.matcher(other.getName());
-        if (otherMatcher.matches()) {
-            if (current == null) {
-                return other;
-            } else {
-                Matcher currentMatcher = TUNNEL_PATTERN.matcher(current.getName());
-                int currentTunnelNumber = parseInt(requireNonNull(currentMatcher.group(1)));
-                int otherTunnelNumber = parseInt(requireNonNull(otherMatcher.group(1)));
-                return otherTunnelNumber > currentTunnelNumber ? other : current;
-            }
-        } else {
+        if (!otherMatcher.matches()) {
             return current;
         }
+        // If other is a tunnel interface and no current interface, picks other.
+        if (current == null) {
+            return other;
+        }
+        // Ensure current is still a tunnel interface (it happens to change), otherwise picks other
+        Matcher currentMatcher = TUNNEL_PATTERN.matcher(current.getName());
+        if (!currentMatcher.matches()) {
+            Timber.e("Current interface %s is no more a tunnel interface.", current.getName());
+            return other;
+        }
+        // Compare current and ot then pick the last one
+        int currentTunnelNumber = parseInt(requireNonNull(currentMatcher.group(1)));
+        int otherTunnelNumber = parseInt(requireNonNull(otherMatcher.group(1)));
+        return otherTunnelNumber > currentTunnelNumber ? other : current;
     }
 
     /**
