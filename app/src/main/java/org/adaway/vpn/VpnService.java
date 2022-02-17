@@ -95,6 +95,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private final MyHandler handler;
     private final NetworkTypeCallback wifiNetworkCallback;
     private final NetworkTypeCallback cellularNetworkCallback;
+    private final Set<NetworkType> availableNetworkTypes;
     private final VpnWorker vpnWorker;
 
     /**
@@ -104,6 +105,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         this.handler = new MyHandler(this);
         this.wifiNetworkCallback = new NetworkTypeCallback(WIFI);
         this.cellularNetworkCallback = new NetworkTypeCallback(CELLULAR);
+        this.availableNetworkTypes = new HashSet<>();
         this.vpnWorker = new VpnWorker(this);
     }
 
@@ -264,8 +266,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         NetworkRequest cellularNetworkRequest = new NetworkRequest.Builder()
                 .addTransportType(TRANSPORT_CELLULAR)
                 .build();
-//        this.wifiNetworkCallback.reset();
-//        this.cellularNetworkCallback.reset();
         initializeNetworkTypes(connectivityManager);
         connectivityManager.registerNetworkCallback(wifiNetworkRequest, this.wifiNetworkCallback, this.handler);
         connectivityManager.registerNetworkCallback(cellularNetworkRequest, this.cellularNetworkCallback, this.handler);
@@ -292,62 +292,8 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 }
             }
         }
-        Timber.d("Initial network types: %s ",this.availableNetworkTypes);
+        Timber.d("Initial network types: %s ", this.availableNetworkTypes);
     }
-
-    class NetworkTypeCallback extends NetworkCallback {
-        private final NetworkType monitoredType;
-        private boolean initialStateNotified;
-
-        public NetworkTypeCallback(NetworkType monitoredType) {
-            this.monitoredType = monitoredType;
-//            this.initialStateNotified = false;
-        }
-
-//        public void reset() {
-//            this.initialStateNotified = false;
-//        }
-
-        @Override
-        public void onAvailable(@NonNull Network network) {
-//            if (!this.initialStateNotified) {
-//                Timber.d("Skip initial state %s", this.monitoredType);
-//                this.initialStateNotified = true;
-//                return;
-//            }
-            Timber.d("On available %s", this.monitoredType);
-            addNetworkType(this.monitoredType);
-
-        }
-
-        @Override
-        public void onLost(@NonNull Network network) {
-            Timber.d("No network %s", this.monitoredType);
-            removeNetworkType(this.monitoredType);
-        }
-    }
-
-    enum NetworkType {
-        CELLULAR,
-        WIFI,
-        NO_NETWORK
-    }
-
-//    static class NetworkInfo {
-//        @NonNull NetworkType currentType;
-//        @Nullable NetworkType previousType;
-//        long timestamp; // Milliseconds
-//
-//        public NetworkInfo(@NonNull NetworkType currentType, @Nullable NetworkInfo previousState) {
-//            this.currentType = currentType;
-//            if (previousState != null) {
-//                this.previousType = previousState.currentType;
-//            }
-//            this.timestamp = System.currentTimeMillis();
-//        }
-//    }
-
-    private final Set<NetworkType> availableNetworkTypes = new HashSet<>();
 
     private void addNetworkType(NetworkType type) {
         boolean noNetwork = this.availableNetworkTypes.isEmpty();
@@ -363,83 +309,44 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         if (this.availableNetworkTypes.isEmpty()) {
             Timber.d("Waiting for network…");
             waitForNetVpn();
+        } else {
+            reconnect();
         }
     }
 
-//    /**
-//     * This class receives network change events to find when restart the VPN service.
-//     *
-//     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
-//     * @see <a href="https://developer.android.com/training/basics/network-ops/reading-network-state#listening-events">Android Developer Documentation</a>
-//     */
-//    class MyNetworkCallback extends NetworkCallback {
-//        private boolean initialStateNotified;
-//        private boolean wasVpnTransport;
-//
-//        MyNetworkCallback() {
-//            reset();
-//        }
-//
-//        void reset() {
-//            this.initialStateNotified = false;
-//            this.wasVpnTransport = false;
-//        }
-//
-//        @Override
-//        public void onAvailable(@NonNull Network network) {
-//            boolean initialNotification = !this.initialStateNotified;
-//            boolean isVpnTransport = doesNetworkHaveVpnTransport(network);
-//            boolean isVpnTransportJustEnabled = !this.wasVpnTransport && isVpnTransport;
-//            // Apply changes
-//            this.initialStateNotified = true;
-//            this.wasVpnTransport = isVpnTransport;
-//            // Skip initial state notification
-//            if (initialNotification) {
-//                Timber.d("Skip initial network notification.");
-//                return;
-//            }
-//            // Skip VPN transport activation notification
-//            if (isVpnTransportJustEnabled) {
-//                Timber.d("Skip VPN transport activation notification.");
-//                return;
-//            }
-//            // Skip notification if VPN is paused
-//            if (!PreferenceHelper.getVpnServiceStatus(VpnService.this).isStarted()) {
-//                Timber.d("Skip network notification while VPN pause.");
-//                return;
-//            }
-//            Timber.i("Network changed to %s, reconnecting…", network);
-//            reconnect();
-//        }
-//
-//        private boolean doesNetworkHaveVpnTransport(Network network) {
-//            ConnectivityManager connectivityManager = (ConnectivityManager) VpnService.this.getSystemService(CONNECTIVITY_SERVICE);
-//            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(network);
-//            return networkCapabilities != null && networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN);
-//        }
-//
-//        @Override
-//        public void onLost(@NonNull Network network) {
-//            // Skip notification if VPN is paused
-//            if (!PreferenceHelper.getVpnServiceStatus(VpnService.this).isStarted()) {
-//                Timber.d("Skip no network notification while VPN pause.");
-//                return;
-//            }
-//            Timber.d("Connectivity changed to no connectivity, wait for network connection.");
-//            waitForNetVpn();
-//        }
-//
-//        @Override
-//        public void onCapabilitiesChanged(@NonNull Network network, @NonNull NetworkCapabilities networkCapabilities) {
-//            Timber.d("Network " + network + " capabilities changed :" +
-//                    "\n- VPN: " + !networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN) +
-//                    "\n- INTERNET: " + networkCapabilities.hasCapability(NET_CAPABILITY_INTERNET) +
-//                    "\n- VALIDATED: " + networkCapabilities.hasCapability(NET_CAPABILITY_VALIDATED));
-//        }
-//    }
+    /**
+     * This class receives network change events to monitor network type available.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     * @see <a href="https://developer.android.com/training/basics/network-ops/reading-network-state#listening-events">Android Developer Documentation</a>
+     */
+    private class NetworkTypeCallback extends NetworkCallback {
+        private final NetworkType monitoredType;
+
+        NetworkTypeCallback(NetworkType monitoredType) {
+            this.monitoredType = monitoredType;
+        }
+
+        @Override
+        public void onAvailable(@NonNull Network network) {
+            Timber.d("On available %s", this.monitoredType);
+            addNetworkType(this.monitoredType);
+        }
+
+        @Override
+        public void onLost(@NonNull Network network) {
+            Timber.d("On lost %s", this.monitoredType);
+            removeNetworkType(this.monitoredType);
+        }
+    }
+
+    enum NetworkType {
+        CELLULAR,
+        WIFI,
+    }
 
     /* The handler may only keep a weak reference around, otherwise it leaks */
-    static class MyHandler extends Handler {
+    private static class MyHandler extends Handler {
 
         private final WeakReference<Callback> callback;
 
