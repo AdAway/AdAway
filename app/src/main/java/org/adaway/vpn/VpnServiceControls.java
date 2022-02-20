@@ -73,7 +73,7 @@ public final class VpnServiceControls {
      */
     public static void stop(Context context) {
         // Stop the heartbeat
-        VpnServiceHeartbeat.start(context);
+        VpnServiceHeartbeat.stop(context);
         // Stop the service
         Intent intent = new Intent(context, VpnService.class);
         STOP.appendToIntent(intent);
