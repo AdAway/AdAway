@@ -29,12 +29,12 @@ public final class VpnServiceControls {
     }
 
     /**
-     * Check if the VPN service is started.
+     * Check if the VPN service is currently running.
      *
      * @param context The application context.
-     * @return {@code true} if the VPN service is started, {@code false} otherwise.
+     * @return {@code true} if the VPN service is currently running, {@code false} otherwise.
      */
-    public static boolean isStarted(Context context) {
+    public static boolean isRunning(Context context) {
         boolean networkVpnCapability = checkAnyNetworkVpnCapability(context);
         VpnStatus status = PreferenceHelper.getVpnServiceStatus(context);
         if (status.isStarted() && !networkVpnCapability) {
@@ -45,6 +45,16 @@ public final class VpnServiceControls {
     }
 
     /**
+     * Check if the VPN service is started.
+     *
+     * @param context The application context.
+     * @return {@code true} if the VPN service is started, {@code false} otherwise.
+     */
+    public static boolean isStarted(Context context) {
+        return PreferenceHelper.getVpnServiceStatus(context).isStarted();
+    }
+
+    /**
      * Start the VPN service.
      *
      * @param context The application context.
@@ -52,7 +62,7 @@ public final class VpnServiceControls {
      */
     public static boolean start(Context context) {
         // Check if VPN is already running
-        if (isStarted(context)) {
+        if (isRunning(context)) {
             return true;
         }
         // Start the VPN service

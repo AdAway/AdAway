@@ -51,7 +51,7 @@ public class VpnModel extends AdBlockModel {
         this.logs = new LinkedHashSet<>();
         this.recordingLogs = false;
         this.requestCount = 0;
-        this.applied.postValue(VpnServiceControls.isStarted(context));
+        this.applied.postValue(VpnServiceControls.isRunning(context));
     }
 
     @Override

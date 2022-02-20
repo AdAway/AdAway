@@ -73,7 +73,7 @@ public class PrefsVpnFragment extends PreferenceFragmentCompat {
 
     private void restartVpn() {
         Context context = requireContext();
-        if (VpnServiceControls.isStarted(context)) {
+        if (VpnServiceControls.isRunning(context)) {
             VpnServiceControls.stop(context);
             VpnServiceControls.start(context);
         }
