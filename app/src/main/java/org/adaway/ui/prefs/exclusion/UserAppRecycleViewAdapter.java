@@ -40,6 +40,9 @@ class UserAppRecycleViewAdapter extends RecyclerView.Adapter<UserAppRecycleViewA
             return;
         }
         UserApp application = applications[position];
+        holder.binding.rowLayout.setOnClickListener(
+                v -> holder.binding.excludedSwitch.setChecked(!holder.binding.excludedSwitch.isChecked())
+        );
         holder.binding.iconImageView.setImageDrawable(application.icon);
         holder.binding.nameTextView.setText(application.name);
         holder.binding.packageTextView.setText(application.packageName);
