@@ -2,6 +2,7 @@ package org.adaway.ui.prefs;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,13 +67,17 @@ public class PrefsActivity extends AppCompatActivity implements PreferenceFragme
     }
 
     @Override
-    public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference pref) {
-        // Instantiate the new Fragment
-        Bundle args = pref.getExtras();
+    public boolean onPreferenceStartFragment(@NonNull PreferenceFragmentCompat caller, Preference pref) {
+        // Instantiate the new fragment
+        String fragmentClassName = pref.getFragment();
+        if (fragmentClassName == null) {
+            return false;
+        }
         Fragment fragment = getSupportFragmentManager().getFragmentFactory().instantiate(
                 getClassLoader(),
-                pref.getFragment()
+                fragmentClassName
         );
+        Bundle args = pref.getExtras();
         fragment.setArguments(args);
         // See https://developer.android.com/guide/topics/ui/settings/organize-your-settings#java
         //noinspection deprecation
