@@ -18,7 +18,6 @@ import org.adaway.helper.PreferenceHelper;
 import org.adaway.helper.ThemeHelper;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -94,13 +93,13 @@ public class PrefsVpnExcludedAppsActivity extends AppCompatActivity implements E
             this.userApplications = packageManager.getInstalledApplications(0).stream()
                     .filter(applicationInfo -> (applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0)
                     .filter(applicationInfo -> !Objects.equals(applicationInfo.name, self.name))
-                    .sorted(Comparator.comparing(applicationInfo -> applicationInfo.packageName))
                     .map(applicationInfo -> new UserApp(
                             packageManager.getApplicationLabel(applicationInfo),
                             applicationInfo.packageName,
                             packageManager.getApplicationIcon(applicationInfo),
                             excludedApps.contains(applicationInfo.packageName)
                     ))
+                    .sorted()
                     .toArray(UserApp[]::new);
         }
         return this.userApplications;
