@@ -1,5 +1,6 @@
 ## [5.12.0] - Unreleased
 
+- Improve VPN application exclusion UI
 - Update AndroidX libraries
 - Update mongoose web server
 - Update gradle
