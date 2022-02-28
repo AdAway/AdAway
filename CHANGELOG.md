@@ -1,8 +1,10 @@
 ## [5.12.0] - Unreleased
 
+- Implement key-value pairs backup service support
 - Improve VPN application exclusion UI
 - Update AndroidX libraries
 - Update mongoose web server
+- Update translations
 - Update gradle
 - Update build tools
 
