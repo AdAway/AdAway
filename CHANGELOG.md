@@ -1,4 +1,4 @@
-## [5.12.0] - Unreleased
+## [5.12.0] - 2022-02-28
 
 - Implement key-value pairs backup service support
 - Improve VPN application exclusion UI
