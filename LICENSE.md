@@ -29,7 +29,7 @@ If not, see <https://www.gnu.org/licenses/>.
   https://github.com/google/guava  
   Apache License v2
 
-* libsu 
+* libsu  
   https://github.com/topjohnwu/libsu  
   Apache License v2
  
