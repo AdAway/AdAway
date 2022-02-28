@@ -53,7 +53,6 @@
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/Theme.AdAway.NoActionBar">
             <intent-filter>
