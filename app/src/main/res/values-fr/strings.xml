@@ -221,18 +221,22 @@
     <string name="hosts_source_few_minutes">quelques minutes</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minute</item>
+        <item quantity="many">%d minutes</item>
         <item quantity="other">%d minutes</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d heure</item>
+        <item quantity="many">%d minutes</item>
         <item quantity="other">%d heures</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d jour</item>
+        <item quantity="many">%d minutes</item>
         <item quantity="other">%d jours</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mois</item>
+        <item quantity="many">%d minutes</item>
         <item quantity="other">%d mois</item>
     </plurals>
 

@@ -9,10 +9,12 @@
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d source à jour</item>
+        <item quantity="many">%d sources à jour</item>
         <item quantity="other">%d sources à jour</item>
     </plurals>
     <plurals name="outdated_source_label">
         <item quantity="one">%d source périmée</item>
+        <item quantity="many">%d sources périmées</item>
         <item quantity="other">%d sources périmées</item>
     </plurals>
     <string name="check_hosts_update_description">Vérifier la présence de mises à jour des fichiers hosts</string>
