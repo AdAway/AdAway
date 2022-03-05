@@ -11,7 +11,7 @@
     <string name="error_not_enough_space_message">Nincs elég hely</string>
     <string name="error_not_enough_space_details">Nem lehet a hosts fájlt a rendszerpartícióra másolni. Ellenőrizze, hogy a Magisk systemless modul engedélyezve van-e, majd indítsa újra.</string>
     <string name="error_copy_failed_message">Nem sikerült az új hosts fájl telepítése</string>
-    <string name="error_copy_failed_details">Nem lehet a hosts fájlt másolni a /system partícióba. Ellenőrizze, hogy a Magisk systemless modul engedélyezett-e újraindításkor.</string>
+    <string name="error_copy_failed_details">A hosts fájl nem másolható a /system partícióra. Ellenőrizd, hogy a Magisk systemless modul engedélyezve van-e, majd indítsd újra.</string>
     <string name="error_revert_failed_message">A hosts fájl visszaállítása nem sikerült</string>
     <string name="error_revert_failed_details">Nem sikerült visszaállítani az alapért. hosts fájl konfigurációt.</string>
     <!-- VPN model error -->
