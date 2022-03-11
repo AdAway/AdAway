@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Here you can find installed adware, bad applications which can\'t be blocked by AdAway. These apps use for example Airpush notifications that pop up even when the app is not running or even change your ringtone. The only available countermeasure is to uninstall those apps by clicking on the list items.</string>
-    <string name="adware_scanning">Scanning…</string>
+    <string name="adware_scanning">Scanning...</string>
     <string name="adware_empty">No Adware were found!</string>
 
     <!--Other-->
@@ -253,6 +253,6 @@
     <string name="permission_group_api_label">AdAway permissions</string>
     <string name="permission_group_api_description">Allow to interact with AdAway</string>
     <string name="permission_send_command_label">Send commands to AdAway</string>
-    <string name="permission_send_command_description">Allow to send commands to AdAway like enabling or disabling the systemwide ad-blocking</string>
+    <string name="permission_send_command_description">Allow to send commands to AdAway like enabling or disabling the system-wide ad-blocking</string>
 
 </resources>
