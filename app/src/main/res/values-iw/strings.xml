@@ -87,7 +87,7 @@
     <string name="status_vpn_configuration_updated">תצורת ה־VPN עודכנה בהצלחה</string>
     <string name="notification_configuration_changed">התצורה שלך השתנתה. עליך להחיל אותה.</string>
     <string name="notification_configuration_changed_action">החל</string>
-    <string name="notification_configuration_installing">מחיל תצורה חדשה…</string>
+    <string name="notification_configuration_installing">מחיל תצורה חדשה...</string>
     <string name="notification_configuration_failed">החלת התצורה החדשה נכשלה.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -257,9 +257,12 @@
     <string name="vpn_notification_stopped">נעצר</string>
     <string name="vpn_notification_title">חוסם פרסומות VPN %1$s</string>
     <string name="vpn_notification_action_pause">השהה</string>
-    <string name="vpn_notification_action_resume">הקשה כדי להמשיך</string>
+    <string name="vpn_notification_action_resume">קורות חיים</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">הפעלה וכיבוי מערכת חוסם הפרסומות</string>
+    <string name="permission_group_api_label">הרשאות AdAway</string>
+    <string name="permission_group_api_description">אפשר אינטראקציה עם AdAway</string>
+    <string name="permission_send_command_label">שלח פקודות אל AdAway</string>
+    <string name="permission_send_command_description">אפשר לשלוח פקודות ל-AdAway כמו הפעלה או השבתה של חסימת מודעות בכל המערכת</string>
 
 </resources>
