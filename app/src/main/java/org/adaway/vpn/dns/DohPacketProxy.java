@@ -98,7 +98,7 @@ public class DohPacketProxy {
     }
 
     private DnsOverHttps createDnsOverHttps(Context context) {
-        Cache dnsClientCache = new Cache(context.getCacheDir(), 10 * 1024 * 1024);
+        Cache dnsClientCache = new Cache(context.getCacheDir(), 10 * 1024 * 1024L);
         OkHttpClient dnsClient = new OkHttpClient.Builder().cache(dnsClientCache).build();
         return new DnsOverHttps.Builder()
                 .client(dnsClient)
