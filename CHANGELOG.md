@@ -1,3 +1,10 @@
+## [6.0.0] - Unreleased
+
+*This version is a pre-release*
+
+- Update AndroidX libraries
+- Update NDK
+
 ## [5.12.0] - 2022-02-28
 
 - Implement key-value pairs backup service support
