@@ -94,7 +94,7 @@ class TcpdumpUtils {
         // "-v": verbose
         // "-t": don't print a timestamp
         // "-s 0": capture first 512 bit of packet to get DNS content
-        String parameters = "-i any -p -l -v -t -s 512 'udp dst port 53' >> " + file.toString() + " 2>&1";
+        String parameters = "-i any -p -l -v -t -s 512 'udp dst port 53' >> " + file + " 2>&1";
 
         return runBundledExecutable(context, TCPDUMP_EXECUTABLE, parameters);
     }
@@ -111,7 +111,7 @@ class TcpdumpUtils {
      */
     static void checkSystemTcpdump() {
         try {
-            Shell.Result result = Shell.su("tcpdump --version").exec();
+            Shell.Result result = Shell.cmd("tcpdump --version").exec();
             int exitCode = result.getCode();
             String output = mergeAllLines(result.getOut());
             String msg = "Tcpdump " + (

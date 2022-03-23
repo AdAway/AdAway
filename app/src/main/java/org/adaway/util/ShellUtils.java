@@ -26,16 +26,12 @@ public final class ShellUtils {
 
     }
 
-    public static String getFirstLine(List<String> lines) {
-        return lines.isEmpty() ? "" : lines.get(0);
-    }
-
     public static String mergeAllLines(List<String> lines) {
         return String.join("\n", lines);
     }
 
     public static boolean isBundledExecutableRunning(String executable) {
-        return Shell.su("ps -A | grep " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec().isSuccess();
+        return Shell.cmd("ps -A | grep " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec().isSuccess();
     }
 
     public static boolean runBundledExecutable(Context context, String executable, String parameters) {
@@ -43,11 +39,11 @@ public final class ShellUtils {
         String command = "LD_LIBRARY_PATH=" + nativeLibraryDir + " " +
                 nativeLibraryDir + File.separator + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX + " " +
                 parameters + " &";
-        return Shell.su(command).exec().isSuccess();
+        return Shell.cmd(command).exec().isSuccess();
     }
 
     public static void killBundledExecutable(String executable) {
-        Shell.su("killall " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec();
+        Shell.cmd("killall " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec();
     }
 
     public static boolean remountPartition(File file, MountType type) {
@@ -56,7 +52,7 @@ public final class ShellUtils {
             return false;
         }
         String partition = partitionOptional.get();
-        Shell.Result result = Shell.su("mount -o " + type.getOption() + ",remount " + partition).exec();
+        Shell.Result result = Shell.cmd("mount -o " + type.getOption() + ",remount " + partition).exec();
         boolean success = result.isSuccess();
         if (!success) {
             Timber.w("Failed to remount partition %s as %s: %s.", partition, type.getOption(), mergeAllLines(result.getErr()));
@@ -66,7 +62,7 @@ public final class ShellUtils {
 
     private static Optional<String> findPartition(File file) {
         // Get mount points
-        Shell.Result result = Shell.su("cat /proc/mounts | cut -d ' ' -f2").exec();
+        Shell.Result result = Shell.cmd("cat /proc/mounts | cut -d ' ' -f2").exec();
         List<String> out = result.getOut();
         // Check file and each parent against mount points
         while (file != null) {

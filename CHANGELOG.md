@@ -11,6 +11,7 @@
 - Fix VPN unwanted restart while paused
 - Improve VPN user control reliability
 - Update logging system
+- Update libsu
 - Update AndroidX libraries
 - Update NDK
 

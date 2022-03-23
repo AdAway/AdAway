@@ -1,39 +1,5 @@
 package org.adaway.model.root;
 
-import android.content.Context;
-
-import com.topjohnwu.superuser.Shell;
-import com.topjohnwu.superuser.io.SuFile;
-
-import org.adaway.R;
-import org.adaway.db.AppDatabase;
-import org.adaway.db.dao.HostEntryDao;
-import org.adaway.db.dao.HostsSourceDao;
-import org.adaway.db.entity.HostsSource;
-import org.adaway.db.entity.HostEntry;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.adblocking.AdBlockMethod;
-import org.adaway.model.adblocking.AdBlockModel;
-import org.adaway.model.error.HostErrorException;
-import org.adaway.util.AppExecutors;
-import org.adaway.util.ShellUtils;
-import org.adaway.util.WebServerUtils;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.Executor;
-
 import static android.content.Context.MODE_PRIVATE;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
@@ -53,6 +19,40 @@ import static org.adaway.util.Constants.LOCALHOST_IPV6;
 import static org.adaway.util.MountType.READ_ONLY;
 import static org.adaway.util.MountType.READ_WRITE;
 import static org.adaway.util.ShellUtils.mergeAllLines;
+
+import android.content.Context;
+
+import com.topjohnwu.superuser.Shell;
+import com.topjohnwu.superuser.io.SuFile;
+import com.topjohnwu.superuser.io.SuFileInputStream;
+
+import org.adaway.R;
+import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostEntryDao;
+import org.adaway.db.dao.HostsSourceDao;
+import org.adaway.db.entity.HostEntry;
+import org.adaway.db.entity.HostsSource;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.adblocking.AdBlockMethod;
+import org.adaway.model.adblocking.AdBlockModel;
+import org.adaway.model.error.HostErrorException;
+import org.adaway.util.AppExecutors;
+import org.adaway.util.ShellUtils;
+import org.adaway.util.WebServerUtils;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.Executor;
 
 import timber.log.Timber;
 
@@ -149,11 +149,10 @@ public class RootModel extends AdBlockModel {
         boolean applied;
 
         /* Check if first line in hosts file is AdAway comment */
-        SuFile file = new SuFile(ANDROID_SYSTEM_ETC_HOSTS);
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(SuFileInputStream.open(ANDROID_SYSTEM_ETC_HOSTS)))) {
             String firstLine = reader.readLine();
 
-            Timber.d("First line of " + file.getName() + ": " + firstLine);
+            Timber.d("First line of hosts file: %s", firstLine);
 
             applied = firstLine.startsWith(HEADER1);
         } catch (FileNotFoundException e) {
@@ -303,7 +302,7 @@ public class RootModel extends AdBlockModel {
                 }
             }
             // Copy hosts file then set owner and permissions
-            Shell.Result result = Shell.su(
+            Shell.Result result = Shell.cmd(
                     "dd if=" + privateFile + " of=" + target,
                     COMMAND_CHOWN + " " + target,
                     COMMAND_CHMOD_644 + " " + target
