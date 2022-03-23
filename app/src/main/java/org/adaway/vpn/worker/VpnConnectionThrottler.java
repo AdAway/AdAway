@@ -11,7 +11,7 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 class VpnConnectionThrottler {
-    private static final long INITAl_TIMEOUT_MS = 1_000;
+    private static final long INITIAL_TIMEOUT_MS = 1_000;
     private static final long MAXIMUM_TIMEOUT_MS = 128_000;
     /**
      * The current timeout before any new connection establishment (in ms).
@@ -27,7 +27,7 @@ class VpnConnectionThrottler {
      */
     VpnConnectionThrottler() {
         this.time = 0;
-        this.timeout = INITAl_TIMEOUT_MS;
+        this.timeout = INITIAL_TIMEOUT_MS;
     }
 
     /**
@@ -68,7 +68,7 @@ class VpnConnectionThrottler {
     }
 
     private void decreaseTimeout(boolean reset) {
-        this.timeout = reset ? INITAl_TIMEOUT_MS : max(this.timeout / 4, INITAl_TIMEOUT_MS);
+        this.timeout = reset ? INITIAL_TIMEOUT_MS : max(this.timeout / 4, INITIAL_TIMEOUT_MS);
         Timber.d("Decreasing timeout to %ds.", this.timeout / 1000);
     }
 }
