@@ -2,6 +2,15 @@
 
 *This version is a pre-release*
 
+- Add a new VPN ad-blocker implementation
+- Add initial DOH (DNS Over HTTPS) support
+- Add VPN connection monitor, heartbeat and throttler to improve reliability
+- Fix VPN state on network connectivity change and lost
+- Fix VPN restart when system kills it
+- Fix wrong DNS read on VPN restart
+- Fix VPN unwanted restart while paused
+- Improve VPN user control reliability
+- Update logging system
 - Update AndroidX libraries
 - Update NDK
 
