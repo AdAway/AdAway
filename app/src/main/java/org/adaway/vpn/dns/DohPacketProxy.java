@@ -236,13 +236,13 @@ public class DohPacketProxy {
                 dnsMsg.getHeader().setRcode(Rcode.NOERROR);
                 try {
                     InetAddress address = InetAddress.getByName(entry.getRedirection());
-                    Record record;
+                    Record dnsRecord;
                     if (address instanceof Inet6Address) {
-                        record = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+                        dnsRecord = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
                     } else {
-                        record = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+                        dnsRecord = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
                     }
-                    dnsMsg.addRecord(record, Section.ANSWER);
+                    dnsMsg.addRecord(dnsRecord, Section.ANSWER);
                 } catch (UnknownHostException e) {
                     Timber.w(e, "Failed to get inet address for host %s.", dnsQueryName);
                 }
@@ -273,13 +273,13 @@ public class DohPacketProxy {
         dnsMsg.getHeader().setFlag(Flags.AA);
         dnsMsg.getHeader().unsetFlag(Flags.RD);
         dnsMsg.getHeader().setRcode(Rcode.NOERROR);
-        Record record;
+        Record dnsRecord;
         if (address instanceof Inet6Address) {
-            record = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+            dnsRecord = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
         } else {
-            record = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+            dnsRecord = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
         }
-        dnsMsg.addRecord(record, Section.ANSWER);
+        dnsMsg.addRecord(dnsRecord, Section.ANSWER);
         handleDnsResponse(ipPacket, dnsMsg.toWire());
     }
 
