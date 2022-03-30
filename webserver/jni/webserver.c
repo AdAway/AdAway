@@ -32,7 +32,9 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
     if (ev == MG_EV_HTTP_MSG) {
         struct mg_http_message *hm = (struct mg_http_message *) ev_data;
         struct settings *s = (struct settings *) fn_data;
-        if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
+        if (redirects(c, hm)) {
+            ; // noop
+        } else if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
             struct mg_http_serve_opts opts;
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->test_path, &opts);
@@ -41,9 +43,8 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->icon_path, &opts);
         } else {
-            redirects(c, hm);
+            mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
         }
-        //c->is_draining = 1;
     }
 }
 
