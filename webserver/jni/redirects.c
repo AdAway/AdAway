@@ -29,7 +29,7 @@ void redirect(struct mg_connection *c, struct mg_http_message* hm, const char* p
 }
 
 void redirects(struct mg_connection *c, struct mg_http_message* hm) {
-    const int size = sizeof(param_names)/sizeof(param_names[0]);
+    static const int size = sizeof(param_names)/sizeof(param_names[0]);
     for (int i = 0 ; i < size; ++i) {
         const char* param_name = param_names[i];
         //MG_DEBUG((param_name));
