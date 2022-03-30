@@ -38,14 +38,12 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
             struct mg_http_serve_opts opts;
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->test_path, &opts);
-        } else if (mg_vcmp(&hm->uri, "/visit") == 0) {
-            redirect(c, hm, "url");
         } else if (s->icon) {
             struct mg_http_serve_opts opts;
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->icon_path, &opts);
         } else {
-            mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
+            redirects(c, hm);
         }
     }
 }
