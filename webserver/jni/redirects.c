@@ -1,8 +1,8 @@
 #include "mongoose/mongoose.h"
 
 static const char *param_names[] = {
-    "url",
-    "fallback"
+        "url",
+        "fallback"
 };
 
 static void zero_content_length(struct mg_connection *c) {
@@ -17,22 +17,27 @@ static void moved_permanently(struct mg_connection *c, const char* url) {
               "Content-Length: 0");
 }
 
-void redirect(struct mg_connection *c, struct mg_http_message* hm, const char* param_name) {
+bool redirect(struct mg_connection *c, struct mg_http_message* hm, const char* param_name) {
     const int size = 256;
     char url[size];
     int result = mg_http_get_var(&hm->query, param_name, url, size);
     if (result > 0) {
         moved_permanently(c, url);
-    } else {
-        zero_content_length(c);
+        return true;
     }
+    return false;
 }
 
 void redirects(struct mg_connection *c, struct mg_http_message* hm) {
     static const int size = sizeof(param_names)/sizeof(param_names[0]);
+    bool redirected = false;
     for (int i = 0 ; i < size; ++i) {
         const char* param_name = param_names[i];
         //MG_DEBUG((param_name));
-        redirect(c, hm, param_name);
+        redirected = redirect(c, hm, param_name);
+        if (redirected) break;
+    }
+    if (!redirected) {
+        zero_content_length(c);
     }
 }

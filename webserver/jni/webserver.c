@@ -43,6 +43,7 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
         } else {
             redirects(c, hm);
         }
+        //c->is_draining = 1;
     }
 }
 
