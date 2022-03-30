@@ -5,9 +5,9 @@ static const char *param_names[] = {
         "fallback"
 };
 
-static void zero_content_length(struct mg_connection *c) {
-    mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
-}
+//static void zero_content_length(struct mg_connection *c) {
+//    mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
+//}
 
 static void moved_permanently(struct mg_connection *c, const char* url) {
     //LOG(LL_DEBUG, "%s", url));
@@ -28,7 +28,7 @@ bool redirect(struct mg_connection *c, struct mg_http_message* hm, const char* p
     return false;
 }
 
-void redirects(struct mg_connection *c, struct mg_http_message* hm) {
+bool redirects(struct mg_connection *c, struct mg_http_message* hm) {
     static const int size = sizeof(param_names)/sizeof(param_names[0]);
     bool redirected = false;
     for (int i = 0 ; i < size; ++i) {
@@ -37,7 +37,5 @@ void redirects(struct mg_connection *c, struct mg_http_message* hm) {
         redirected = redirect(c, hm, param_name);
         if (redirected) break;
     }
-    if (!redirected) {
-        zero_content_length(c);
-    }
+    return redirected;
 }
