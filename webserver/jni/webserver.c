@@ -5,6 +5,7 @@
 #include <android/log.h>
 #include <errno.h>
 #include "mongoose/mongoose.h"
+#include "redirects.h"
 
 #define THIS_FILE "WebServer"
 
@@ -36,17 +37,7 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->test_path, &opts);
         } else if (mg_vcmp(&hm->uri, "/visit") == 0) {
-            int size = 256;
-            char url[size];
-            int result = mg_http_get_var(&hm->query, "url", url, sizeof(url));
-            if (result > 0) {
-                mg_printf(c, "%s\r\n%s: %s\r\n%s\r\n\r\n",
-                          "HTTP/1.1 301 Moved Permanently",
-                          "Location", url,
-                          "Content-Length: 0");
-            } else {
-                mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
-            }
+            redirect(c, hm, "url");
         } else if (s->icon) {
             struct mg_http_serve_opts opts;
             memset(&opts, 0, sizeof(opts));
