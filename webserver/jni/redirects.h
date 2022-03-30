@@ -8,7 +8,7 @@ extern "C" {
 #include "mongoose/mongoose.h"
 
 bool redirect(struct mg_connection *c, struct mg_http_message* hm, const char* param_name);
-void redirects(struct mg_connection *c, struct mg_http_message* hm);
+bool redirects(struct mg_connection *c, struct mg_http_message* hm);
 
 #ifdef __cplusplus
 }
