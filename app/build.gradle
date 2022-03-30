@@ -14,13 +14,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion '32.0.0'
+    compileSdkVersion 32
+    buildToolsVersion '32.1.0-rc1'
     ndkVersion '23.1.7779620'
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 31
+        targetSdkVersion 32
         versionCode 51200   // Read x.yy.zz to match version name
         versionName '5.12.0'
 
@@ -105,7 +105,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'androidx.fragment:fragment:1.4.1'
     implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
-    implementation 'androidx.paging:paging-runtime:3.1.0'
+    implementation 'androidx.paging:paging-runtime:3.1.1'
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.room:room-runtime:2.4.2'

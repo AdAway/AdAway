@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion '32.0.0'
+    compileSdkVersion 32
+    buildToolsVersion '32.1.0-rc1'
     ndkVersion '22.1.7171670'
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 31
+        targetSdkVersion 32
     }
 
     buildFeatures {
