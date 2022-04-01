@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="update_title">AdAway güncellemesi</string>
     <!-- Home screen -->
@@ -17,5 +17,5 @@
     <string name="update_sponsor_button">Sponsor</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">AdAway\'in en son sürümü indiriliyor...</string>
+    <string name="update_notification_description">AdAway\'in en son sürümü indiriliyor…</string>
 </resources>
