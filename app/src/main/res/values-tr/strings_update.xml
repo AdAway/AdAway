@@ -10,9 +10,12 @@
     <string name="update_updating_header">AdAway güncelleştiriliyor</string>
     <string name="update_update_button">Şimdi güncelle</string>
     <string name="update_progress_label">%1$s / %2$s</string>
-    <string name="update_last_changelog_title">Son değişiklikler:</string>
-    <string name="update_new_changelog_title">Değişim Kayıtları:</string>
+    <string name="update_last_changelog_title">Son değişiklikler</string>
+    <string name="update_new_changelog_title">Değişiklikler</string>
+    <string name="update_support_title">Geliştirmeyi destekleyin</string>
+    <string name="update_donate_button">Bağışta bulunun</string>
+    <string name="update_sponsor_button">Sponsor</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">AdAway\'in en son sürümü indiriliyor…</string>
+    <string name="update_notification_description">AdAway\'in en son sürümü indiriliyor...</string>
 </resources>
