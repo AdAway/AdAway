@@ -33,7 +33,11 @@ import org.adaway.vpn.VpnStatus;
 import java.util.Collections;
 import java.util.Set;
 
-public class PreferenceHelper {
+public final class PreferenceHelper {
+    private PreferenceHelper() {
+
+    }
+
     public static int getDarkThemeMode(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,
