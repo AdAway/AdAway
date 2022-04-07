@@ -32,9 +32,11 @@ import android.system.StructPollfd;
 
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.vpn.VpnService;
-import org.adaway.vpn.dns.DnsPacketProxy;
 import org.adaway.vpn.dns.DnsQueryQueue;
 import org.adaway.vpn.dns.DnsServerMapper;
+import org.adaway.vpn.dns.proxy.AbstractDnsPacketProxy;
+import org.adaway.vpn.dns.proxy.DnsPacketProxy;
+import org.adaway.vpn.dns.proxy.EventLoop;
 import org.pcap4j.packet.IpPacket;
 
 import java.io.FileInputStream;
@@ -56,7 +58,7 @@ import timber.log.Timber;
 // TODO It is thread safe
 // TODO Rework status notification
 // TODO Improve exception handling in work()
-public class VpnWorker implements DnsPacketProxy.EventLoop {
+public class VpnWorker implements EventLoop {
     /**
      * Maximum packet size is constrained by the MTU, which is given as a signed short.
      */
@@ -74,16 +76,24 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
      * The queue of DNS queries.
      */
     private final DnsQueryQueue dnsQueryQueue;
-    // The mapping between fake and real dns addresses
+    /**
+     * The mapper between network and fake DNS.
+     */
     private final DnsServerMapper dnsServerMapper;
     // The object where we actually handle packets.
-    private final DnsPacketProxy dnsPacketProxy;
+    private final AbstractDnsPacketProxy dnsPacketProxy;
 
-    // TODO Comment
+    /**
+     * The connection throttler.
+     */
     private final VpnConnectionThrottler connectionThrottler;
+    /**
+     * The connection monitor.
+     */
     private final VpnConnectionMonitor connectionMonitor;
 
     // Watch dog that checks our connection is alive.
+    // Comes from old implementation. Should be useless now.
     private final VpnWatchdog vpnWatchDog;
 
     /**

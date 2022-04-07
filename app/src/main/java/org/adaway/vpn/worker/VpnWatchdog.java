@@ -36,7 +36,7 @@ import timber.log.Timber;
  * If poll() times out and we have seen a packet after we last sent a ping, we increase the
  * poll() time out, causing the next check to run later, and send a ping packet.
  */
-
+@Deprecated
 class VpnWatchdog {
     // Polling is quadrupled on every success, and values range from 4s to 1h8m.
     private static final int POLL_TIMEOUT_START = 1000;

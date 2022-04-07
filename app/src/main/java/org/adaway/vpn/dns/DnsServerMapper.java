@@ -114,7 +114,7 @@ public class DnsServerMapper {
      * @param fakeDnsAddress The fake DNS address to get the original DNS server address.
      * @return The original DNS server address, wrapped into an {@link Optional} or {@link Optional#empty()} if it does not exists.
      */
-    Optional<InetAddress> getDnsServerFromFakeAddress(InetAddress fakeDnsAddress) {
+    public Optional<InetAddress> getDnsServerFromFakeAddress(InetAddress fakeDnsAddress) {
         byte[] address = fakeDnsAddress.getAddress();
         int index = address[address.length - 1] - 2;
         if (index < 0 || index >= this.dnsServers.size()) {
