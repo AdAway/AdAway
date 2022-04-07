@@ -116,25 +116,25 @@ public abstract class AbstractDnsPacketProxy implements PacketProxy {
     }
 
     protected void handleBlockedResponse(UdpPacketData data) {
-        requireNonNull(data.dns);
-        Timber.i("handleDnsRequest: DNS Name %s blocked!", data.dns.queryName);
-        data.dns.message.getHeader().setFlag(Flags.QR);
-        data.dns.message.getHeader().setRcode(Rcode.NOERROR);
-        data.dns.message.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
-        handleDnsResponse(data.ipPacket, data.dns.message.toWire());
+        DnsPacketData dnsData = requireNonNull(data.dns);
+        Timber.i("handleDnsRequest: DNS Name %s blocked!", dnsData.queryName);
+        dnsData.message.getHeader().setFlag(Flags.QR);
+        dnsData.message.getHeader().setRcode(Rcode.NOERROR);
+        dnsData.message.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
+        handleDnsResponse(data.ipPacket, dnsData.message.toWire());
     }
 
     protected abstract void handleAllowedResponse(UdpPacketData data, InetAddress dnsAddress) throws IOException;
 
     protected void handleRedirectedResponse(UdpPacketData data, String redirection) {
-        requireNonNull(data.dns);
-        Timber.i("handleDnsRequest: DNS Name %s redirected to %s.", data.dns.queryName, redirection);
-        data.dns.message.getHeader().setFlag(Flags.QR);
-        data.dns.message.getHeader().setFlag(Flags.AA);
-        data.dns.message.getHeader().unsetFlag(Flags.RD);
-        data.dns.message.getHeader().setRcode(Rcode.NOERROR);
+        DnsPacketData dnsData = requireNonNull(data.dns);
+        Timber.i("handleDnsRequest: DNS Name %s redirected to %s.", dnsData.queryName, redirection);
+        dnsData.message.getHeader().setFlag(Flags.QR);
+        dnsData.message.getHeader().setFlag(Flags.AA);
+        dnsData.message.getHeader().unsetFlag(Flags.RD);
+        dnsData.message.getHeader().setRcode(Rcode.NOERROR);
         try {
-            Name name = data.dns.message.getQuestion().getName();
+            Name name = dnsData.message.getQuestion().getName();
             InetAddress address = InetAddress.getByName(redirection);
             Record record;
             if (address instanceof Inet6Address) {
@@ -142,11 +142,11 @@ public abstract class AbstractDnsPacketProxy implements PacketProxy {
             } else {
                 record = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
             }
-            data.dns.message.addRecord(record, Section.ANSWER);
+            dnsData.message.addRecord(record, Section.ANSWER);
         } catch (UnknownHostException e) {
-            Timber.w(e, "Failed to get inet address for host %s.", data.dns.queryName);
+            Timber.w(e, "Failed to get inet address for host %s.", dnsData.queryName);
         }
-        handleDnsResponse(data.ipPacket, data.dns.message.toWire());
+        handleDnsResponse(data.ipPacket, dnsData.message.toWire());
     }
 
     /**

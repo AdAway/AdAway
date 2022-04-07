@@ -73,9 +73,9 @@ public class DohPacketProxy extends AbstractDnsPacketProxy {
 
     @Override
     protected void handleAllowedResponse(UdpPacketData data, InetAddress dnsAddress) {
-        requireNonNull(data.dns);
-        Timber.i("handleDnsRequest: DNS Name %s allowed, sending to %s.", data.dns.queryName, dnsAddress);
-        EXECUTOR.execute(() -> queryDohServer(data.ipPacket, data.dns.message, data.dns.name));
+        DnsPacketData dnsData = requireNonNull(data.dns);
+        Timber.i("handleDnsRequest: DNS Name %s allowed, sending to %s.", dnsData.queryName, dnsAddress);
+        EXECUTOR.execute(() -> queryDohServer(data.ipPacket, data.dns.message, dnsData.name));
     }
 
     private void queryDohServer(IpPacket ipPacket, Message dnsMsg, Name name) {

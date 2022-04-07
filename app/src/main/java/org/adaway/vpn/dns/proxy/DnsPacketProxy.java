@@ -23,9 +23,9 @@ public class DnsPacketProxy extends AbstractDnsPacketProxy {
 
     @Override
     protected void handleAllowedResponse(UdpPacketData data, InetAddress dnsAddress) throws IOException {
-        requireNonNull(data.dns);
-        Timber.i("handleDnsRequest: DNS Name %s allowed, sending to %s.", data.dns.queryName, dnsAddress);
-        DatagramPacket outPacket = new DatagramPacket(data.dns.rawData, 0, data.dns.rawData.length, dnsAddress, data.packetPort);
+        DnsPacketData dnsData = requireNonNull(data.dns);
+        Timber.i("handleDnsRequest: DNS Name %s allowed, sending to %s.", dnsData.queryName, dnsAddress);
+        DatagramPacket outPacket = new DatagramPacket(dnsData.rawData, 0, dnsData.rawData.length, dnsAddress, data.packetPort);
         this.eventLoop.forwardPacket(outPacket, responseData -> handleDnsResponse(data.ipPacket, responseData));
     }
 }
