@@ -29,7 +29,7 @@ import okhttp3.dnsoverhttps.DnsOverHttps;
 import timber.log.Timber;
 
 /**
- * This class is a DNS packet proxy based on a DNS over HTTPS client.
+ * This class is a {@link PacketProxy} based on a DNS over HTTPS client.
  * Experimental feature:
  * <ul>
  * <li>Comes with an hard-coded client (Cloud Flare).</li>
@@ -49,8 +49,7 @@ public class DohPacketProxy extends AbstractDnsPacketProxy {
         try {
             return InetAddress.getByName(host);
         } catch (UnknownHostException e) {
-            // unlikely
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException("Invalid host name: "+host, e);
         }
     }
 

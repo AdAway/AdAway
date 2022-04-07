@@ -48,17 +48,17 @@ class DnsPacketData {
     @Nullable // Do not use exception to save performance as it is expected to occasionally fail
     static DnsPacketData tryToParse(byte[] data) {
         try {
-            Message dnsMsg = new Message(data);
-            if (dnsMsg.getQuestion() == null) {
-                Timber.i("handleDnsRequest: Discarding DNS packet with no query %s", dnsMsg);
+            Message message = new Message(data);
+            if (message.getQuestion() == null) {
+                Timber.i("Discard DNS packet without query %s.", message);
                 return null;
             } else {
-                Name name = dnsMsg.getQuestion().getName();
-                String dnsQueryName = name.toString(true);
-                return new DnsPacketData(data, dnsMsg, name, dnsQueryName);
+                Name name = message.getQuestion().getName();
+                String queryName = name.toString(true);
+                return new DnsPacketData(data, message, name, queryName);
             }
         } catch (IOException e) {
-            Timber.i(e, "handleDnsRequest: Discarding non-DNS or invalid packet");
+            Timber.i(e, "Failed to parse DNS packet.");
             return null;
         }
     }
