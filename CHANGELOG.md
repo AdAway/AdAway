@@ -12,6 +12,7 @@
 - Improve VPN user control reliability
 - Update logging system
 - Update libsu
+- Update Android gradle plugin
 - Update AndroidX libraries
 - Update NDK
 
