@@ -187,7 +187,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
                 break;
             } catch (VpnNetworkException | IOException e) {
                 Timber.w(e, "Network exception in vpn thread, reconnecting…");
-                // If an exception was thrown, show to the user and try again
+                // If an exception was thrown, notify status and try again
                 this.vpnService.notifyVpnStatus(RECONNECTING_NETWORK_ERROR);
             }
         }
@@ -216,13 +216,14 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             this.vpnService.notifyVpnStatus(RUNNING);
 
             // We keep forwarding packets till something goes wrong.
-            while (true) {
-                doOne(inputStream, outputStream, packet);
+            boolean deviceOpened = true;
+            while (deviceOpened) {
+                deviceOpened = doOne(inputStream, outputStream, packet);
             }
         }
     }
 
-    private void doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
+    private boolean doOne(FileInputStream inputStream, FileOutputStream fileOutputStream, byte[] packet)
             throws IOException, VpnNetworkException {
         // Create poll FD on tunnel
         StructPollfd deviceFd = new StructPollfd();
@@ -245,7 +246,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             // TODO BUG - 0 Might be a valid value if no current DNS query and everything was already sent back to device
             if (numberOfEvents == 0) {
                 this.vpnWatchDog.handleTimeout();
-                return;
+                return true;
             }
             deviceReadyToWrite = (deviceFd.revents & POLLOUT) != 0;
             deviceReadyToRead = (deviceFd.revents & POLLIN) != 0;
@@ -261,8 +262,9 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             writeToDevice(fileOutputStream);
         }
         if (deviceReadyToRead) {
-            readPacketFromDevice(inputStream, packet);
+            return readPacketFromDevice(inputStream, packet) != -1;
         }
+        return true;
     }
 
     private void writeToDevice(FileOutputStream fileOutputStream) throws IOException {
@@ -277,7 +279,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
         }
     }
 
-    private void readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws IOException {
+    private int readPacketFromDevice(FileInputStream inputStream, byte[] packet) throws IOException {
         Timber.d("Read a packet from device.");
         // Read the outgoing packet from the input stream.
         int length = inputStream.read(packet);
@@ -291,6 +293,7 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
             vpnWatchDog.handlePacket(readPacket);
             dnsPacketProxy.handleDnsRequest(readPacket);
         }
+        return length;
     }
 
     @Override
