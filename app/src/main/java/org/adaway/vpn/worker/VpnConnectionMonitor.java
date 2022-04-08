@@ -111,6 +111,7 @@ public class VpnConnectionMonitor {
                     Thread.sleep(CONNECTION_CHECK_DELAY_MS);
                 } catch (InterruptedException e) {
                     Timber.d("Stop monitoring.");
+                    Thread.currentThread().interrupt();
                     break;
                 }
             }
