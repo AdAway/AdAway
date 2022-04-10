@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="update_title">AdAway-päivitys</string>
     <!-- Home screen -->
@@ -17,5 +17,5 @@
     <string name="update_sponsor_button">Sponsoroi</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">Ladataan uusinta versiota AdAwaystä... </string>
+    <string name="update_notification_description">Ladataan uusinta versiota AdAwaystä… </string>
 </resources>
