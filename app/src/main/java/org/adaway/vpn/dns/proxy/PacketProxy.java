@@ -11,9 +11,9 @@ import java.io.IOException;
  */
 public interface PacketProxy {
     /**
-     * Initializes the rules database and the list of upstream servers.
+     * Initialize the packet proxy with the current application context.
      *
-     * @param context The context we are operating in (for the database).
+     * @param context The application context.
      */
     void initialize(Context context);
 

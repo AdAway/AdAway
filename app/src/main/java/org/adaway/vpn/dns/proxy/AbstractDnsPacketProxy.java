@@ -43,8 +43,7 @@ public abstract class AbstractDnsPacketProxy implements PacketProxy {
     protected static final int NEGATIVE_CACHE_TTL_SECONDS = 5;
     protected static final SOARecord NEGATIVE_CACHE_SOA_RECORD;
 
-    protected static final Executor EXECUTOR = AppExecutors.getInstance().networkIO();
-
+    protected final Executor executor;
     protected final EventLoop eventLoop;
     protected final DnsServerMapper dnsServerMapper;
     private VpnModel vpnModel;
@@ -62,6 +61,7 @@ public abstract class AbstractDnsPacketProxy implements PacketProxy {
     }
 
     public AbstractDnsPacketProxy(EventLoop eventLoop, DnsServerMapper dnsServerMapper) {
+        this.executor = AppExecutors.getInstance().networkIO();
         this.eventLoop = eventLoop;
         this.dnsServerMapper = dnsServerMapper;
     }
@@ -73,25 +73,24 @@ public abstract class AbstractDnsPacketProxy implements PacketProxy {
 
     @Override
     public void handleDnsRequest(byte[] packetData) throws IOException {
+        // Parse packet
         UdpPacketData data = UdpPacketData.tryToParse(packetData);
         if (data == null) {
             return;
         }
-
-        InetAddress packetAddress = data.ipPacket.getHeader().getDstAddr();
-        Optional<InetAddress> dnsAddressOptional = this.dnsServerMapper.getDnsServerFromFakeAddress(packetAddress);
+        // Get original dns address
+        Optional<InetAddress> dnsAddressOptional = this.dnsServerMapper.getDnsServerFromFakeAddress(data.packetAddress);
         if (!dnsAddressOptional.isPresent()) {
-            Timber.w("Cannot find mapped DNS for %s.", packetAddress.getHostAddress());
+            Timber.w("Cannot find mapped DNS for %s.", data.packetAddress.getHostAddress());
             return;
         }
         InetAddress dnsAddress = dnsAddressOptional.get();
-
         // Firefox workaround
         if (data.dns == null) {
             handleEmptyUdpPacket(data, dnsAddress);
             return;
         }
-
+        // Handle request according to host entry
         HostEntry entry = getHostEntry(data.dns.queryName);
         switch (entry.getType()) {
             case BLOCKED:
