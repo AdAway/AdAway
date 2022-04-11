@@ -9,6 +9,7 @@
 - Fix VPN restart when system kills it
 - Fix wrong DNS read on VPN restart
 - Fix VPN unwanted restart while paused
+- Fix crash on application update unknown size
 - Improve VPN user control reliability
 - Update logging system
 - Update libsu
