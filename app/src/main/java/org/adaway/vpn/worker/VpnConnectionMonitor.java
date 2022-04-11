@@ -107,12 +107,14 @@ public class VpnConnectionMonitor {
                     Timber.i("VPN network interface %s is down. Starting VPN service…", this.networkInterface);
                     VpnServiceControls.start(this.context);
                 }
-                try {
-                    Thread.sleep(CONNECTION_CHECK_DELAY_MS);
-                } catch (InterruptedException e) {
-                    Timber.d("Stop monitoring.");
-                    Thread.currentThread().interrupt();
-                    break;
+                synchronized (this.running) {
+                    try {
+                        this.running.wait(CONNECTION_CHECK_DELAY_MS);
+                    } catch (InterruptedException e) {
+                        Timber.d("Stop monitoring.");
+                        Thread.currentThread().interrupt();
+                        break;
+                    }
                 }
             }
         } catch (SocketException e) {
@@ -133,5 +135,8 @@ public class VpnConnectionMonitor {
      */
     void stop() {
         this.running.set(false);
+        synchronized (this.running) {
+            this.running.notify();
+        }
     }
 }
