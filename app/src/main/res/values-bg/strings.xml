@@ -12,24 +12,24 @@
 
     <!--Home-->
     <string name="header_help">Добре дошли!</string>
-    <string name="text_help">AdAway е безплатен софтуер с отворен код, създаден да блокира реклами. Той извлича адресите на рекламната мрежа, за да ги блокира на вашето устройство.\nИскате да научите повече? Вижте помощта по-долу!</string>
-    <string name="button_show_help">Показване на още помощ</string>
-    <string name="icon_update_status">Състояние на актуализирането</string>
-    <string name="text_update">Всички Hosts файлове от зададените източници се изтеглят, сливат се с вашите собствени списъци и се инсталират като един Hosts файл във вашата система.</string>
+    <string name="text_help">AdAway е безплатно приложение с отворен код, създадено да спира рекламите. То изтегля адресите на рекламните мрежи и спира заявките от устройството към тях.\nИскате ли да научите повече? Потърсете помощ по-долу!</string>
+    <string name="button_show_help">Помощ</string>
+    <string name="icon_update_status">Състояние на обновяване</string>
+    <string name="text_update">Всички hosts файлове от зададените източници се изтеглят, сливат се с вашите списъци и се инсталират като един host файл във вашата система.</string>
     <string name="button_enable_hosts">Включване блокирането на реклами</string>
     <string name="button_disable_hosts">Изключване блокирането на реклами</string>
     <string name="header_webserver">Уеб сървър</string>
     <string name="webserver_status_running">Включен</string>
     <string name="webserver_status_stopped">Изключен</string>
-    <string name="webserver_toggle_text">Стартиране или спиране на уеб сървър, намиращ се на локален хост за отговаряне на заявки до блокирани имена на хостове.</string>
+    <string name="webserver_toggle_text">Включване или изключване на местен уеб сървър, отговарящ на заявки към блокирани хостове.</string>
     <string name="button_enable_webserver">Включване на уеб сървър</string>
     <string name="button_disable_webserver">Изключване на уеб сървър</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Работи</string>
     <string name="vpn_status_stopped">Спрян</string>
-    <string name="vpn_toggle_text">Стартиране или спиране на VPN за филтриране на заявки.</string>
+    <string name="vpn_toggle_text">Включване или изключване на VPN, който да филтрира на заявки.</string>
     <string name="button_enable_vpn">Включване на VPN</string>
-    <string name="button_disable_vpn">Спиране на VPN</string>
+    <string name="button_disable_vpn">Изключване на VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_title">Редактиране</string>
@@ -38,22 +38,22 @@
     <string name="checkbox_list_context_delete">Изтриване</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Импортиране…</string>
-    <string name="import_success">Архивът беше успешно внесен от Вашата карта памет.</string>
-    <string name="import_failed">Внасянето на архива се провали. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
-    <string name="export_dialog">Експортиране…</string>
+    <string name="import_dialog">Внасяне…</string>
+    <string name="import_success">Архивът е внесен успешно от външната памет.</string>
+    <string name="import_failed">Грешка при внасяне на архив. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
+    <string name="export_dialog">Изнасяне…</string>
     <string name="export_success">Архивът е успешно изнесен във файла „%s“ на външното ви хранилище.</string>
     <string name="export_failed">Грешка при изнасяне на архивен файл \'%s\'.</string>
 
     <!--Hosts content-->
-    <string name="hosts_header">Файлът Hosts</string>
-    <string name="hosts_description">Файлът Hosts е системен файл, който свързва имена на хостове към IP адреси. Той е обикновен текстови файл, конфигурацията на който се обработва от AdAway. Ето неговите първи няколко реда:</string>
-    <string name="hosts_content">Зареждане съдържанието на файла Hosts…</string>
-    <string name="hosts_open_button">Отваряне на файла Hosts</string>
+    <string name="hosts_header">Файлът hosts</string>
+    <string name="hosts_description">Файлът hosts е системен файл, който свързва имена на хостове с адреси по IP. Той е обикновен текстов файл, настройката на който се извършва от AdAway. Ето първите няколко реда:</string>
+    <string name="hosts_content">Зареждане съдържанието на файла hosts…</string>
+    <string name="hosts_open_button">Отваряне на файла hosts</string>
 
     <!--Status Notification-->
-    <string name="status_check">Проверка за актуализация</string>
-    <string name="status_check_source">Проверка за актуализации на %s </string>
+    <string name="status_check">Проверка за обновяване</string>
+    <string name="status_check_source">Проверка за обновяване на %s </string>
     <string name="status_retrieve">Извличане на източници</string>
     <string name="status_download_source">Изтегляне на източник%s</string>
     <string name="status_read_source">Прочитане на %s</string>
@@ -62,15 +62,15 @@
     <string name="status_revert">Връщане към файл с хостове по подразбиране</string>
     <string name="status_revert_done">Файлът с хостове по подразбиране е възстановен</string>
     <string name="status_reverting_subtitle">Създаване на стандартен файл Hosts</string>
-    <string name="status_update_available">Налице е актуализация</string>
-    <string name="status_update_available_subtitle">Налични са нови Hosts файлове</string>
-    <string name="status_no_update_found">Не е намерена актуализация на източник</string>
+    <string name="status_update_available">Налично е обновяване</string>
+    <string name="status_update_available_subtitle">Налични са нови файлове hosts</string>
+    <string name="status_no_update_found">Няма обновен източник</string>
     <string name="status_no_connection">Няма връзка с интернет</string>
-    <string name="status_no_connection_subtitle">Няма налична връзка с интернет</string>
-    <string name="status_download_fail">Не са налични източници</string>
-    <string name="status_download_fail_subtitle_new">Няма достъпни източници на Hosts!</string>
-    <string name="status_root_access_denied">Root правата са отказани</string>
-    <string name="status_root_access_denied_subtitle">Позволяване на root права от Вашето root приложение</string>
+    <string name="status_no_connection_subtitle">Няма връзка с интернет</string>
+    <string name="status_download_fail">Не са достипни източници</string>
+    <string name="status_download_fail_subtitle_new">Няма достъпни източници на файлове hosts!</string>
+    <string name="status_root_access_denied">Достъпът до суперпотребителя е отказан</string>
+    <string name="status_root_access_denied_subtitle">Дайте достъп до суперпотребителя от съответното приложение</string>
     <string name="status_failure">Нещо се обърка</string>
     <string name="status_failure_subtitle">Проверете дневника за повече подробности</string>
     <string name="status_enabled">Активиран</string>
@@ -81,17 +81,17 @@
     <string name="status_create_new_hosts">Създаване на нов хост файл</string>
     <string name="status_copy_new_hosts">Копиране на нов хост файл</string>
     <string name="status_check_copy">Проверяване на копието на хост файла</string>
-    <string name="status_hosts_updated">Хост файлът се актуализира успешно</string>
-    <string name="status_vpn_configuration_updated">VPN конфигурацията се актуализира успешно</string>
-    <string name="notification_configuration_changed">Вашата конфигурация се промени. Трябва да я приложите.</string>
+    <string name="status_hosts_updated">Файлът hosts е успешно обновен</string>
+    <string name="status_vpn_configuration_updated">Настройката на VPN е успешно обновена</string>
+    <string name="notification_configuration_changed">Настройките са променени. Трябва да бъдат приложени.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
-    <string name="notification_configuration_installing">Прилагане на нова конфигурация…</string>
-    <string name="notification_configuration_failed">Прилагането на нова конфигурация се провали.</string>
+    <string name="notification_configuration_installing">Прилагане на настройки...</string>
+    <string name="notification_configuration_failed">Грешка при прилагане на настройки.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Символната връзка целта на хост файла липсва</string>
-    <string name="apply_symlink_missing">Символичната връзка от вашата цел до /system/etc/hosts не съществува или е неправилна! AdAway няма да работи, ако не е насочен към правилния файл.\n\nИскате ли да опитате да създадете символична връзка?</string>
-    <string name="apply_symlink_missing_title">Липсва символична връзка</string>
+    <string name="apply_symlink_missing">Символната връзка от целевия файл към /system/etc/hosts не съществува или е недействителна! AdAway няма да работи ако тя не е правилна.\n\nЖелаете ли да бъде създадена символна връзка?</string>
+    <string name="apply_symlink_missing_title">Липсва символна връзка</string>
     <string name="apply_not_enough_space">Няма достатъчно място на дяла!\nОпитайте да промените целевия Hosts файл в настройките на /data/data/hosts.</string>
     <string name="apply_not_enough_space_title">Няма достатъчно място</string>
     <string name="apply_private_file_fail">Изтегленият файл не може да бъде прочетен.</string>
@@ -106,8 +106,8 @@
     <string name="apply_success_dialog">Успешно прилагане.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="apply_symlink_successful">Символичната връзка е създадена успешно.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="apply_symlink_successful_title">Успешно създаване на символична връзка</string>
-    <string name="apply_symlink_fail">Символичната връзка не може да бъде създадена от Android.\nТова се дължи най-вече на „функция“, наречена S-ON при телефоните HTC!\n\nЕдно възможно решение е да стартирате телефона си в режим на възстановяване и да създадете там символична връзка с „ln -s /data/data/hosts /system/etc/hosts“.\n\nАко това не работи, потърсете в Интернет за S-OFF и вашият телефон.</string>
-    <string name="apply_symlink_fail_title">Неуспешно създаване на символична връзка</string>
+    <string name="apply_symlink_fail">Символната връзка не може да бъде създадена от Android.\nТова се дължи най-вече на „функция“, наречена S-ON при телефоните на HTC!\n\nЕдно от възможните решения е да заредите телефона си в режим на възстановяване и там да създадете символна връзка с командата „ln -s /data/data/hosts /system/etc/hosts“.\n\nАко това и не работи, потърсете в интернет за S-OFF и вашия модел на телефона.</string>
+    <string name="apply_symlink_fail_title">Грешка при създаване на символна връзка</string>
     <string name="apply_help">Моля, прочетете Помощ за повече информация.</string>
     <string name="apply_apn_proxy">Зададено е APN прокси на вашия Android!\nAdAway няма да работи надеждно, когато сте на мобилни мрежи като 3G. Можете да деактивирате това прокси като отидете на вашия избран APN (От Настройки: Мрежа и интернет -&gt; Мобилна мрежа -&gt; Разширени -&gt; Имена на точки за достъп) и премахнете стойността в полето за прокси.</string>
     <string name="apply_apn_proxy_title">APN прокси е зададено!</string>
@@ -162,14 +162,14 @@
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">ЧЗВ</string>
+    <string name="help_tab_faq">Въпроси и отговори</string>
     <string name="help_tab_problems">Проблеми</string>
 
     <!--Adware-->
     <string name="adware_header">Рекламен софтуер</string>
     <string name="adware_description">Тук може на намерите инсталиран рекламен софтуер, лоши приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват например изскачащи известия, които се появяват дори когато приложението не работи. Могат дори да променят мелодията ви. Единственото налично противодействие е да деинсталирате тези приложения като натиснете върху елементите в списъка.</string>
-    <string name="adware_scanning">Сканиране…</string>
-    <string name="adware_empty">Не бяха открити рекламни приложения!</string>
+    <string name="adware_scanning">Сканиране...</string>
+    <string name="adware_empty">Не са открити рекламни приложения!</string>
 
     <!--Other-->
     <string name="app_subtitle">Спира рекламите</string>
@@ -214,10 +214,10 @@
 
     <!--Hosts source status-->
     <string name="hosts_source_installed">Инсталиран преди %1$s</string>
-    <string name="hosts_source_up_to_date">Актуални за %1$s</string>
+    <string name="hosts_source_up_to_date">Обновени към %1$s</string>
     <string name="hosts_source_need_update">Нужна актуализация за %1$s</string>
-    <string name="hosts_source_last_update">Последна актуализация преди %1$s</string>
-    <string name="hosts_source_unknown_status">Неизвестен статус на актуализация</string>
+    <string name="hosts_source_last_update">Последно обновяване преди %1$s</string>
+    <string name="hosts_source_unknown_status">Състоянието на обновяване е неизвестно</string>
     <string name="hosts_source_few_minutes">няколко минути</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d минута</item>
@@ -247,9 +247,12 @@
     <string name="vpn_notification_stopped">спрян</string>
     <string name="vpn_notification_title">VPN блокер на реклами %1$s</string>
     <string name="vpn_notification_action_pause">Пауза</string>
-    <string name="vpn_notification_action_resume">Докоснете, за да продължите</string>
+    <string name="vpn_notification_action_resume">Възстановяване</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Включване и изключване на системния блокер на реклами</string>
+    <string name="permission_group_api_label">Разрешения на AdAway</string>
+    <string name="permission_group_api_description">Разрешаване на взаимодействие с AdAway</string>
+    <string name="permission_send_command_label">Изпращане на команди към AdAway</string>
+    <string name="permission_send_command_description">Разрешете изпращането на команди към AdAway като включване или изключване на спирането на реклами на ниво система.</string>
 
 </resources>
