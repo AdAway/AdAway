@@ -1,7 +1,9 @@
 # ![AdAway logo](app/src/main/res/mipmap-mdpi/icon.png) AdAway
 
 [![Build Status](https://github.com/adaway/adaway/actions/workflows/android-ci.yml/badge.svg)](https://github.com/AdAway/AdAway/actions/workflows/android-ci.yml) 
-[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=org.adaway&metric=security_rating)](https://sonarcloud.io/dashboard?id=org.adaway) 
+[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=org.adaway&metric=security_rating)](https://sonarcloud.io/dashboard?id=org.adaway)
+[![GitHub Downloads](https://img.shields.io/github/downloads/adaway/adaway/total?logo=github)](https://github.com/AdAway/AdAway/releases)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/perfectslayer?logo=github)](https://github.com/sponsors/PerfectSlayer)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](/LICENSE)
 
 AdAway is an open source ad blocker for Android using the hosts file and local vpn.
