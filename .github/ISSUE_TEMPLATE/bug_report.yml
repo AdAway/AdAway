@@ -34,7 +34,7 @@ body:
     required: false
 - type: textarea
   attributes:
-    label: Your Device Configuration
+    label: Device Configuration
     description: |
       Describe your device configuration as precise as possible. For exemple:
         - **AdAway version**: 5.1.2
@@ -48,7 +48,6 @@ body:
         - Device: 
         - Android version: 
         - Root version: 
-    render: markdown
   validations:
     required: false
 - type: textarea
