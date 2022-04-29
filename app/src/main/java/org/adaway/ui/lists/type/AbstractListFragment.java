@@ -165,8 +165,8 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
     }
 
     @Override
-    public boolean copyHostToClipboard(HostListItem list) {
-        Clipboard.copyHostToClipboard(this.mActivity, list.getHost());
+    public boolean copyHostToClipboard(HostListItem item) {
+        Clipboard.copyHostToClipboard(this.mActivity, item.getHost());
         return true;
     }
 
@@ -197,7 +197,7 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
     }
 
     @Override
-    public void toggleItemEnabled(HostListItem list) {
-        this.mViewModel.toggleItemEnabled(list);
+    public void toggleItemEnabled(HostListItem item) {
+        this.mViewModel.toggleItemEnabled(item);
     }
 }

@@ -12,25 +12,25 @@ import org.adaway.ui.lists.type.AbstractListFragment;
  */
 public interface ListsViewCallback {
     /**
-     * Toggle list enable status.
+     * Toggle item enable status.
      *
-     * @param list The list to toggle status.
+     * @param item The list to toggle status.
      */
-    void toggleItemEnabled(HostListItem list);
+    void toggleItemEnabled(HostListItem item);
 
     /**
      * Start an action.
      *
-     * @param list       The list to start the action.
+     * @param item       The list to start the action.
      * @param sourceView The list related view.
      * @return <code>true</code> if the action was started, <code>false</code> otherwise.
      */
-    boolean startAction(HostListItem list, View sourceView);
+    boolean startAction(HostListItem item, View sourceView);
 
     /**
-     * Copy the hosts into clipboard.
+     * Copy an hosts into clipboard.
      *
-     * @param list The list to copy hosts.
+     * @param item The list to copy hosts.
      */
-    boolean copyHostToClipboard(HostListItem list);
+    boolean copyHostToClipboard(HostListItem item);
 }
