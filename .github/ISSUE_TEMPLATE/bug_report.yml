@@ -36,7 +36,7 @@ body:
   attributes:
     label: Your Device Configuration
     description: |
-      examples:
+      Describe your device configuration as precise as possible. For exemple:
         - **AdAway version**: 5.1.2
         - **Ad-blocker mode**: root or vpn
         - **Device**: Pixel 6a
