@@ -139,7 +139,7 @@ dependencies {
 
     // Test related
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.json:json:20201115'
+    testImplementation 'org.json:json:20211205'
     androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
     androidTestImplementation 'androidx.test:core:1.4.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

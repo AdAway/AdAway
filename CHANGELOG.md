@@ -16,6 +16,7 @@
 - Update Android gradle plugin
 - Update AndroidX libraries
 - Update NDK
+- Update third party libraries
 
 ## [5.12.0] - 2022-02-28
 
