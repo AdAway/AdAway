@@ -5,6 +5,7 @@
 - Add a new VPN ad-blocker implementation
 - Add initial DOH (DNS Over HTTPS) support
 - Add VPN connection monitor, heartbeat and throttler to improve reliability
+- Add long press action to copy hostname from user lists and DNS log to clipboard
 - Fix VPN state on network connectivity change and lost
 - Fix VPN restart when system kills it
 - Fix wrong DNS read on VPN restart
