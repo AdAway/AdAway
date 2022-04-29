@@ -24,6 +24,7 @@ import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.ui.lists.ListsViewCallback;
 import org.adaway.ui.lists.ListsViewModel;
+import org.adaway.util.Clipboard;
 
 /**
  * This class is a {@link Fragment} to display and manage lists of {@link org.adaway.ui.lists.ListsActivity}.
@@ -160,6 +161,12 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         // Start action mode and store it
         this.mActionMode = this.mActivity.startActionMode(this.mActionCallback);
         // Return event consumed
+        return true;
+    }
+
+    @Override
+    public boolean copyHostToClipboard(HostListItem list) {
+        Clipboard.copyHostToClipboard(this.mActivity, list.getHost());
         return true;
     }
 

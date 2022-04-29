@@ -26,4 +26,11 @@ public interface ListsViewCallback {
      * @return <code>true</code> if the action was started, <code>false</code> otherwise.
      */
     boolean startAction(HostListItem list, View sourceView);
+
+    /**
+     * Copy the hosts into clipboard.
+     *
+     * @param list The list to copy hosts.
+     */
+    boolean copyHostToClipboard(HostListItem list);
 }
