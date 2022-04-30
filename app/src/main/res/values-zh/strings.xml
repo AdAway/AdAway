@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">欢迎！</string>
-    <string name="text_help">AdAway 是一款自由、开源的广告拦截器，它能在线获取广告的域名，并通过系统的 hosts 文件本地屏蔽它们。\n想了解更多信息？请查看下面的帮助！</string>
+    <string name="text_help">AdAway 是一款免费、开源的广告拦截器，它能在线获取广告的域名，并通过系统的 hosts 文件本地屏蔽它们。\n想了解更多信息？请查看下面的帮助！</string>
     <string name="button_show_help">显示更多帮助</string>
     <string name="icon_update_status">更新状态</string>
     <string name="text_update">已从指定的 hosts 来源下载 hosts 文件，与自定义列表合并，并安装到了您的系统中。</string>
@@ -169,7 +169,7 @@
     <!--Adware-->
     <string name="adware_header">广告软件</string>
     <string name="adware_description">在这里，你可以找到已安装的广告软件，AdAway 无法对其进行有效的广告屏蔽。比如说，这些应用程序可能会在没有运行的时候弹出 Airpush 通知，甚至改变通知铃声。唯一可行的对策是，通过点击下面的列表项，卸载这些应用程序。</string>
-    <string name="adware_scanning">正在扫描…</string>
+    <string name="adware_scanning">正在扫描...</string>
     <string name="adware_empty">没有已知的广告软件！</string>
 
     <!--Other-->
@@ -232,6 +232,9 @@
     <plurals name="hosts_source_months">
         <item quantity="other">%d 个月</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Hosts 已复制到剪贴板</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">开始</string>
