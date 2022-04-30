@@ -169,7 +169,7 @@
     <!--Adware-->
     <string name="adware_header">广告软件</string>
     <string name="adware_description">在这里，你可以找到已安装的广告软件，AdAway 无法对其进行有效的广告屏蔽。比如说，这些应用程序可能会在没有运行的时候弹出 Airpush 通知，甚至改变通知铃声。唯一可行的对策是，通过点击下面的列表项，卸载这些应用程序。</string>
-    <string name="adware_scanning">正在扫描...</string>
+    <string name="adware_scanning">正在扫描…</string>
     <string name="adware_empty">没有已知的广告软件！</string>
 
     <!--Other-->
