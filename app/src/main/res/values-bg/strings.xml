@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Настройката на VPN е успешно обновена</string>
     <string name="notification_configuration_changed">Настройките са променени. Трябва да бъдат приложени.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
-    <string name="notification_configuration_installing">Прилагане на настройки...</string>
+    <string name="notification_configuration_installing">Прилагане на настройки…</string>
     <string name="notification_configuration_failed">Грешка при прилагане на настройки.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Рекламен софтуер</string>
     <string name="adware_description">Тук може на намерите инсталиран рекламен софтуер, лоши приложения, които не могат да бъдат блокирани от AdAway. Тези приложения използват например изскачащи известия, които се появяват дори когато приложението не работи. Могат дори да променят мелодията ви. Единственото налично противодействие е да деинсталирате тези приложения като натиснете върху елементите в списъка.</string>
-    <string name="adware_scanning">Сканиране...</string>
+    <string name="adware_scanning">Сканиране…</string>
     <string name="adware_empty">Не са открити рекламни приложения!</string>
 
     <!--Other-->
