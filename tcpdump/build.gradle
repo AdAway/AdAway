@@ -29,6 +29,7 @@ android {
     sonarqube {
         skipProject = true
     }
+    namespace 'org.adaway.libpcap'
 }
 
 /**

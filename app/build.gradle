@@ -17,6 +17,7 @@ android {
     compileSdkVersion 31
     buildToolsVersion '32.0.0'
     ndkVersion '24.0.8215888'
+    namespace 'org.adaway'
 
     defaultConfig {
         minSdkVersion 26

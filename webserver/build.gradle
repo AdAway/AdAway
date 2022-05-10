@@ -24,6 +24,7 @@ android {
     sonarqube {
         skipProject = true
     }
+    namespace 'org.adaway.webserver'
 }
 
 dependencies {
