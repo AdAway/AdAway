@@ -113,12 +113,12 @@ dependencies {
     annotationProcessor 'androidx.room:room-compiler:2.4.2'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.work:work-runtime:2.7.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.6.0'
 
     // Collections related
-    implementation 'com.google.guava:guava:31.0.1-android'
+    implementation 'com.google.guava:guava:31.1-android'
     // Network related
-    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     // Logging related
     implementation 'com.jakewharton.timber:timber:5.0.1'
     if (keyStoreDefined) {
@@ -134,13 +134,13 @@ dependencies {
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.8.2'
     implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
-    implementation 'dnsjava:dnsjava:3.4.3'
+    implementation 'dnsjava:dnsjava:3.5.0'
     implementation 'org.slf4j:slf4j-android:1.7.32'
-    implementation 'com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.2'
+    implementation 'com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.3'
 
     // Test related
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.json:json:20211205'
+    testImplementation 'org.json:json:20220320'
     androidTestImplementation 'androidx.arch.core:core-testing:2.1.0'
     androidTestImplementation 'androidx.test:core:1.4.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

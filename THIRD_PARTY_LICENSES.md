@@ -25,7 +25,7 @@ If not, see <https://www.gnu.org/licenses/>.
 
 * dnsjava  
   https://github.com/dnsjava/dnsjava  
-  BSD-2-Clause License
+  BSD-3-Clause License
 
 * Guava  
   https://github.com/google/guava  
