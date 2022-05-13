@@ -1,3 +1,9 @@
+## [5.12.1] - 2022-05-14
+
+- Fix hosts file install on Android 13
+
+Special thanks to AAGaming00 and KieronQuinn for their bug reports.
+
 ## [5.12.0] - 2022-02-28
 
 - Implement key-value pairs backup service support
