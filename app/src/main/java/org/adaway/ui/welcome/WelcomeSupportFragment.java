@@ -1,6 +1,8 @@
 package org.adaway.ui.welcome;
 
 import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+import static org.adaway.ui.support.SupportActivity.SPONSORSHIP_LINK;
 import static org.adaway.ui.support.SupportActivity.SUPPORT_LINK;
 import static org.adaway.ui.support.SupportActivity.animateHeart;
 import static org.adaway.ui.support.SupportActivity.bindLink;
@@ -33,7 +35,7 @@ public class WelcomeSupportFragment extends WelcomeFragment {
 
         animateHeart(this.binding.headerImageView);
         bindSupport();
-        bindTelemetry();
+        customizeSecondOption();
 
         return this.binding.getRoot();
     }
@@ -41,6 +43,14 @@ public class WelcomeSupportFragment extends WelcomeFragment {
     @Override
     protected boolean canGoNext() {
         return true;
+    }
+
+    private void customizeSecondOption() {
+        if (SentryLog.isStub()) {
+            showAndBindSponsorship();
+        } else {
+            bindTelemetry();
+        }
     }
 
     private void bindSupport() {
@@ -55,9 +65,12 @@ public class WelcomeSupportFragment extends WelcomeFragment {
             PreferenceHelper.setTelemetryEnabled(requireContext(), isChecked);
             SentryLog.setEnabled(getContext(), isChecked);
         });
-        if (SentryLog.isStub()) {
-            this.binding.telemetryTextView.setVisibility(INVISIBLE);
-            this.binding.telemetryCheckBox.setVisibility(INVISIBLE);
-        }
+    }
+
+    private void showAndBindSponsorship() {
+        this.binding.telemetryTextView.setVisibility(INVISIBLE);
+        this.binding.telemetryCheckBox.setVisibility(INVISIBLE);
+        this.binding.sponsorshipCardView.setVisibility(VISIBLE);
+        bindLink(requireContext(), this.binding.sponsorshipCardView, SPONSORSHIP_LINK);
     }
 }
