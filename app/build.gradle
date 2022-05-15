@@ -16,7 +16,6 @@ repositories {
 android {
     compileSdkVersion 32
     buildToolsVersion '32.0.0'
-    ndkVersion '24.0.8215888'
     namespace 'org.adaway'
 
     defaultConfig {
