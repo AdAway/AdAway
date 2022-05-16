@@ -38,17 +38,17 @@
     <string name="checkbox_list_context_delete">Hapus</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Mengimpor ...</string>
+    <string name="import_dialog">Mengimpor …</string>
     <string name="import_success">Cadangan sukses diimpor dari penyimpanan eksternal anda</string>
     <string name="import_failed">Cadangan gagal diimpor. Apakah formatnya benar? Lihat logcat untuk detail lebih.</string>
-    <string name="export_dialog">Mengekspor ...</string>
+    <string name="export_dialog">Mengekspor …</string>
     <string name="export_success">File backup \'%s\' berhasil di export ke penyimpanan eksternal</string>
     <string name="export_failed">Gagal untuk mengeksport file backup \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Daftar hosts</string>
     <string name="hosts_description">File host adalah File sistem yang memetakan antara nama host dengan alamat IP. Itu adalah file teks biasa yang konfigurasinya ditangani oleh Adaway. Berikut beberapa baris pertamanya:</string>
-    <string name="hosts_content">Membaca isi file host...</string>
+    <string name="hosts_content">Membaca isi file host…</string>
     <string name="hosts_open_button">Buka file host</string>
 
     <!--Status Notification-->
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">Berhasil memperbarui konfigurasi VPN</string>
     <string name="notification_configuration_changed">Konfigurasi anda berubah. Anda perlu menerapkannya.</string>
     <string name="notification_configuration_changed_action">Terapkan</string>
-    <string name="notification_configuration_installing">Menerapkan konfigurasi baru... </string>
+    <string name="notification_configuration_installing">Menerapkan konfigurasi baru… </string>
     <string name="notification_configuration_failed">Gagal menerapkan konfigurasi baru</string>
 
     <!--Apply and Revert Dialogs-->
@@ -113,8 +113,8 @@
     <string name="apply_apn_proxy_title">APN peladen pewali ditentukan!</string>
     <string name="no_connection">Koneksi internet tidak berfungsi.</string>
     <string name="no_connection_title">Tidak ada koneksi</string>
-    <string name="download_dialog">Sedang mendownload...</string>
-    <string name="apply_dialog">Menerapkan perubahan...</string>
+    <string name="download_dialog">Sedang mendownload…</string>
+    <string name="apply_dialog">Menerapkan perubahan…</string>
     <string name="apply_dialog_lists">Menerapkan daftar hitam dan putih</string>
     <string name="apply_dialog_hostnames">Mengakses dan menggabungkan file host</string>
     <string name="apply_dialog_hosts">Menyusun file hosts</string>
@@ -151,7 +151,7 @@
     <string name="no_ip">Ini bukan IP yang benar!</string>
     <string name="no_ip_title">IP tidak diformat dengan benar</string>
     <string name="reboot_never_reboot">Jangan pernah nyalakan ulang dan jangan tampilkan pertanyaan ini lain kali</string>
-    <string name="loading">Memuat...</string>
+    <string name="loading">Memuat…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Segarkan</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Adware</string>
     <string name="adware_description">Disini Anda dapat menemukan adware yang terpasang, aplikasi jelek yang tidak dapat diblok oleh AdAway. Aplikasi ini digunakan sebagai contoh, notifikasi Airpush yang muncul ketika aplikasi tidak berjalan ataupun mengganti ringtonemu. Satu-satunya penanggulangan yang tersedia adalah melepas aplikasi-aplikasi tersebut dengan mengklik pada daftar item.</string>
-    <string name="adware_scanning">Memindai...</string>
+    <string name="adware_scanning">Memindai…</string>
     <string name="adware_empty">Adware tidak ditemukan!</string>
 
     <!--Other-->
