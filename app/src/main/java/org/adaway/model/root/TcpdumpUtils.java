@@ -37,10 +37,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Collections.emptyList;
-import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
-import static org.adaway.util.ShellUtils.killBundledExecutable;
-import static org.adaway.util.ShellUtils.mergeAllLines;
-import static org.adaway.util.ShellUtils.runBundledExecutable;
+import static org.adaway.model.root.ShellUtils.isBundledExecutableRunning;
+import static org.adaway.model.root.ShellUtils.killBundledExecutable;
+import static org.adaway.model.root.ShellUtils.mergeAllLines;
+import static org.adaway.model.root.ShellUtils.runBundledExecutable;
 
 import timber.log.Timber;
 

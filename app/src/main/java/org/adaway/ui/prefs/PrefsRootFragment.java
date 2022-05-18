@@ -1,5 +1,24 @@
 package org.adaway.ui.prefs;
 
+import static android.content.Intent.CATEGORY_OPENABLE;
+import static android.os.Build.VERSION.SDK_INT;
+import static android.provider.Settings.ACTION_SECURITY_SETTINGS;
+import static android.widget.Toast.LENGTH_SHORT;
+import static org.adaway.model.root.ShellUtils.isWritable;
+import static org.adaway.model.root.ShellUtils.remountPartition;
+import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
+import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
+import static org.adaway.util.Constants.PREFS_NAME;
+import static org.adaway.model.root.MountType.READ_ONLY;
+import static org.adaway.model.root.MountType.READ_WRITE;
+import static org.adaway.util.WebServerUtils.TEST_URL;
+import static org.adaway.util.WebServerUtils.copyCertificate;
+import static org.adaway.util.WebServerUtils.getWebServerState;
+import static org.adaway.util.WebServerUtils.installCertificate;
+import static org.adaway.util.WebServerUtils.isWebServerRunning;
+import static org.adaway.util.WebServerUtils.startWebServer;
+import static org.adaway.util.WebServerUtils.stopWebServer;
+
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -19,34 +38,17 @@ import androidx.preference.SwitchPreferenceCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.common.net.InetAddresses;
-import com.topjohnwu.superuser.io.SuFile;
 
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.dialog.MissingAppDialog;
 import org.adaway.util.AppExecutors;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-
-import static android.content.Intent.CATEGORY_OPENABLE;
-import static android.os.Build.VERSION.SDK_INT;
-import static android.provider.Settings.ACTION_SECURITY_SETTINGS;
-import static android.widget.Toast.LENGTH_SHORT;
-import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
-import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
-import static org.adaway.util.Constants.PREFS_NAME;
-import static org.adaway.util.MountType.READ_ONLY;
-import static org.adaway.util.MountType.READ_WRITE;
-import static org.adaway.util.ShellUtils.remountPartition;
-import static org.adaway.util.WebServerUtils.TEST_URL;
-import static org.adaway.util.WebServerUtils.copyCertificate;
-import static org.adaway.util.WebServerUtils.getWebServerState;
-import static org.adaway.util.WebServerUtils.installCertificate;
-import static org.adaway.util.WebServerUtils.isWebServerRunning;
-import static org.adaway.util.WebServerUtils.startWebServer;
-import static org.adaway.util.WebServerUtils.stopWebServer;
 
 import timber.log.Timber;
 
@@ -118,8 +120,12 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void registerForOpenHostActivity() {
         this.openHostsFileLauncher = registerForActivityResult(new StartActivityForResult(), result -> {
-            SuFile hostFile = new SuFile(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
-            remountPartition(hostFile, READ_ONLY);
+            try {
+                File hostFile = new File(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
+                remountPartition(hostFile, READ_ONLY);
+            } catch (IOException e) {
+                Timber.e(e, "Failed to get hosts canonical file.");
+            }
         });
     }
 
@@ -144,9 +150,9 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
     }
 
     private boolean openHostsFile(Preference preference) {
-        SuFile hostFile = new SuFile(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
-        boolean remount = !hostFile.canWrite() && remountPartition(hostFile, READ_WRITE);
         try {
+            File hostFile = new File(ANDROID_SYSTEM_ETC_HOSTS).getCanonicalFile();
+            boolean remount = !isWritable(hostFile) && remountPartition(hostFile, READ_WRITE);
             Intent intent = new Intent()
                     .setAction(Intent.ACTION_VIEW)
                     .setDataAndType(Uri.parse("file://" + hostFile.getAbsolutePath()), "text/plain");
@@ -156,10 +162,13 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
                 startActivity(intent);
             }
             return true;
-        } catch (ActivityNotFoundException exception) {
+        } catch (IOException e) {
+            Timber.e(e, "Failed to get hosts canonical file.");
+        } catch (ActivityNotFoundException e) {
             MissingAppDialog.showTextEditorMissingDialog(getContext());
             return false;
         }
+        return false;
     }
 
     private void bindRedirection() {

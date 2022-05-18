@@ -1,4 +1,4 @@
-package org.adaway.util;
+package org.adaway.model.root;
 
 /**
  * This class is an enum to define mount type.

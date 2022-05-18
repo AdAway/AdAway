@@ -1,4 +1,6 @@
-package org.adaway.util;
+package org.adaway.model.root;
+
+import static com.topjohnwu.superuser.ShellUtils.escapedString;
 
 import android.content.Context;
 
@@ -44,6 +46,24 @@ public final class ShellUtils {
 
     public static void killBundledExecutable(String executable) {
         Shell.cmd("killall " + EXECUTABLE_PREFIX + executable + EXECUTABLE_SUFFIX).exec();
+    }
+
+
+
+    /**
+     * Check if a path is writable.
+     *
+     * @param file The file to check.
+     * @return <code>true</code> if the path is writable, <code>false</code> otherwise.
+     */
+    public static boolean isWritable(File file) {
+        // Check first if file can be written without privileges
+        if (file.canWrite()) {
+            return true;
+        }
+        return Shell.cmd("test -w " + escapedString(file.getAbsolutePath()))
+                .exec()
+                .isSuccess();
     }
 
     public static boolean remountPartition(File file, MountType type) {
