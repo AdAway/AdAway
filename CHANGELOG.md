@@ -1,4 +1,4 @@
-## [6.0.0] - Unreleased
+## [6.0.0] - 2022-05-18
 
 *This version is a pre-release*
 
