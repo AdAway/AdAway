@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">歡迎！</string>
-    <string name="text_help">AdAway 是一個自由及開放原始碼的軟體，設計來阻擋廣告。這個軟體會在您的裝置上獲取廣告網路位置來阻擋它們。\n想要了解更多嗎？看看下面的說明！</string>
+    <string name="text_help">AdAway 是一個免費和開源的軟體，設計來阻擋廣告。這個軟體會在您的裝置上獲取廣告網路位置來阻擋它們。\n想要了解更多嗎？看看下面的說明！</string>
     <string name="button_show_help">顯示更多說明</string>
     <string name="icon_update_status">更新狀態</string>
     <string name="text_update">所有來自已定義來源的 hosts 檔案已下載、與您的自訂清單整合，並以一個 hosts 檔案安裝至系統中。</string>
@@ -39,8 +39,8 @@
 
     <!--Your lists-->
     <string name="import_dialog">匯入中…</string>
-    <string name="import_success">備份成功從您的外部儲存空間匯入。</string>
-    <string name="import_failed">無法匯入備份。它的格式正確嗎？檢查 logcat 以獲得更多詳細資訊。</string>
+    <string name="import_success">備份已成功從您的外部儲存空間匯入。</string>
+    <string name="import_failed">無法匯入備份。它的格式是否正確嗎？檢查 logcat 以獲取更多詳細資訊。</string>
     <string name="export_dialog">匯出中…</string>
     <string name="export_success">備份成功匯出到外部儲存空間的「%s」檔案。</string>
     <string name="export_failed">無法匯出備份檔案「%s」。</string>
@@ -55,17 +55,17 @@
     <string name="status_check">檢查更新</string>
     <string name="status_check_source">正在檢查 %s 來源的更新</string>
     <string name="status_retrieve">搜尋來源中</string>
-    <string name="status_download_source">下載來源 %s</string>
-    <string name="status_read_source">讀取來源%s</string>
+    <string name="status_download_source">正在下載來源 %s</string>
+    <string name="status_read_source">正在讀取來源%s</string>
     <string name="status_parse_source">正在分析來源%s</string>
     <string name="status_sync_database">正在同步規則資料庫</string>
-    <string name="status_revert">恢復到預設 hosts 檔案</string>
+    <string name="status_revert">正在恢復至預設 hosts 檔案</string>
     <string name="status_revert_done">預設 hosts 檔案已恢復</string>
     <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
-    <string name="status_update_available">有更新</string>
-    <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
+    <string name="status_update_available">有可用的來源更新</string>
+    <string name="status_update_available_subtitle">有可用的新 hosts 檔案</string>
     <string name="status_no_update_found">找不到來源更新</string>
-    <string name="status_no_connection">沒有網路連線</string>
+    <string name="status_no_connection">沒有網絡連線</string>
     <string name="status_no_connection_subtitle">沒有可用的網路連線</string>
     <string name="status_download_fail">不可用的來源</string>
     <string name="status_download_fail_subtitle_new">無法連接遠端 hosts 來源伺服器！</string>
@@ -73,9 +73,9 @@
     <string name="status_root_access_denied_subtitle">從 root 應用程式允許 root 權限</string>
     <string name="status_failure">發生一些錯誤</string>
     <string name="status_failure_subtitle">檢視 logcat 以獲得更多詳細資料</string>
-    <string name="status_enabled">啟用</string>
+    <string name="status_enabled">已啟用</string>
     <string name="status_enabled_subtitle">已啟用最新的 hosts 檔案</string>
-    <string name="status_disabled">停用</string>
+    <string name="status_disabled">已停用</string>
     <string name="status_disabled_subtitle">預設 hosts 檔案已安裝</string>
     <string name="status_apply_sources">套用最新來源</string>
     <string name="status_create_new_hosts">建立一個新的 hosts 檔案</string>
@@ -131,7 +131,7 @@
     <string name="download_fail_dialog">所有啟用的 hosts 來源都無法連結！您是否正確連上網際網路？</string>
     <string name="download_fail_title">下載失敗</string>
     <string name="no_private_file_status">無法寫入新的私人 hosts 檔案</string>
-    <string name="no_private_file">不能建立私人檔案。</string>
+    <string name="no_private_file">無法建立私人檔案。</string>
     <string name="no_private_file_title">私人檔案建立失敗</string>
     <string name="enable_systemless_successful">您啟用了 systemless 模式。\n變更需要重新啟動才能生效。\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="enable_systemless_successful_title">啟用成功</string>
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">廣告軟體</string>
     <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單項目來移除它們。</string>
-    <string name="adware_scanning">掃描中…</string>
+    <string name="adware_scanning">掃描中...</string>
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 
     <!--Other-->
@@ -210,7 +210,7 @@
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 請求</string>
     <string name="shortcut_your_lists">你的清單</string>
-    <string name="shortcut_preferences">設定</string>
+    <string name="shortcut_preferences">偏好設定</string>
 
     <!--Hosts source status-->
     <string name="hosts_source_installed">%1$s 前安裝</string>
@@ -231,6 +231,9 @@
     <plurals name="hosts_source_months">
         <item quantity="other">%d 個月</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">主機已複製到剪貼簿</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">開始</string>
