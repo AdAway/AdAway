@@ -17,8 +17,8 @@
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Redirection</string>
     <string name="pref_hosts_redirection_summary">Define where to redirect blocked hosts</string>
-    <string name="pref_redirection_ipv4">IPv4 redirection</string>
-    <string name="pref_redirection_ipv6">IPv6 redirection</string>
+    <string name="pref_redirection_ipv4">Configure IPv4 redirection</string>
+    <string name="pref_redirection_ipv6">Configure IPv6 redirection</string>
     <string name="pref_redirection_invalid">Invalid redirection</string>
     <!-- Web server category -->
     <string name="pref_webserver">Local web server</string>
