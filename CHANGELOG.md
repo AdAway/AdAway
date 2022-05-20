@@ -1,3 +1,10 @@
+## [6.0.1] - Unreleased
+
+*This version is a pre-release*
+
+- Update libsu
+- Update translations
+
 ## [6.0.0] - 2022-05-18
 
 *This version is a pre-release*
