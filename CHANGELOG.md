@@ -3,6 +3,7 @@
 *This version is a pre-release*
 
 - Update libsu
+- Update mongoose web server
 - Update translations
 
 ## [6.0.0] - 2022-05-18
