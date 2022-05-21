@@ -245,6 +245,9 @@ Wilt u herstarten?
         <item quantity="other">%dmaanden</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host gekopieerd  naar het klembord.</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">bezig met starten</string>
     <string name="vpn_notification_running">actief</string>
