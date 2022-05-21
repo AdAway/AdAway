@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferències</string>
+    <!-- General category -->
+    <string name="pref_general_category">General</string>
+    <string name="pref_dark_theme">Tema fosc</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Clar</item>
+        <item>Fosc</item>
+        <item>Valor per defecte del sistema</item>
+    </string-array>
+    <string name="pref_update_configuration">Actualitzacions automàtiques</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Bloqueig d\'anuncis</string>
+    <string name="pref_root_ad_blocker_configuration">Bloquejador d\'anuncis basat en root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Bloquejador d\'anuncis basat en VPN</string>
+    <string name="pref_enable_ipv6">Activa el suport d\'IPv6</string>
+    <string name="pref_backup_restore">Copia/restaura les regles de bloqueig</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Depuració</string>
-    </resources>
+    <string name="pref_enable_telemetry">Envia informes d\'error</string>
+    <string name="pref_enable_telemetry_summary">Informa a Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">No s\'admet en aquesta compilació</string>
+    <string name="pref_enable_debug">Registre detallat</string>
+    <string name="pref_enable_debug_summary">Cal reiniciar l\'aplicació per aplicar</string>
+</resources>
