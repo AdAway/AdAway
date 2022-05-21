@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Hosts card -->
-    <string name="blocked_hosts_label">Torjuttuja</string>
+    <string name="blocked_hosts_label">Estettyjä</string>
     <string name="allowed_hosts_label">Hyväksyttyjä</string>
     <string name="redirect_hosts_label">Siirrettyjä</string>
 

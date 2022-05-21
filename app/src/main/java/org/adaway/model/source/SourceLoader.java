@@ -128,6 +128,9 @@ class SourceLoader {
                         HostListItem endItem = new HostListItem();
                         endItem.setHost(line);
                         this.itemQueue.add(endItem);
+                    } // Check comments
+                    else if (line.isEmpty() || line.charAt(0) == '#') {
+                        Timber.d("Skip comment: %s.", line);
                     } else {
                         HostListItem item = allowedList ? parseAllowListItem(line) : parseHostListItem(line);
                         if (item != null && isRedirectionValid(item) && isHostValid(item)) {

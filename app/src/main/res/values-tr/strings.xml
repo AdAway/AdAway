@@ -247,9 +247,12 @@
     <string name="vpn_notification_stopped">durduruldu</string>
     <string name="vpn_notification_title">Reklam engelleyici VPN %1$s</string>
     <string name="vpn_notification_action_pause">Duraklat</string>
-    <string name="vpn_notification_action_resume">Devam etmek için donunun</string>
+    <string name="vpn_notification_action_resume">Devam et</string>
 
     <!-- Permission -->
-    <string name="permission_send_command_label">Sistem reklam engellemesini etkinleştir ve devre dışı bırak</string>
+    <string name="permission_group_api_label">AdAway izinleri</string>
+    <string name="permission_group_api_description">AdAway ile etkileşime izin ver</string>
+    <string name="permission_send_command_label">AdAway\'e komutlar gönder</string>
+    <string name="permission_send_command_description">AdAway\'e sistem çapı reklam engellemeyi kapatma ve açma komutları göndermek için izin ver</string>
 
 </resources>

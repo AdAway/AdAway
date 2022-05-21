@@ -1,26 +1,14 @@
-/*
- * Derived from dns66:
- * Copyright (C) 2016-2019 Julian Andres Klode <jak@jak-linux.org>
- *
- * Derived from AdBuster:
- * Copyright (C) 2016 Daniel Brodie <dbrodie@gmail.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, version 3.
- *
- * Contributions shall also be provided under any later versions of the
- * GPL.
- */
-package org.adaway.vpn;
+
+package org.adaway.vpn.dns;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.adaway.AdAwayApplication;
 import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.ListType;
 import org.adaway.model.vpn.VpnModel;
+import org.adaway.util.AppExecutors;
+import org.adaway.vpn.dns.DnsPacketProxy.EventLoop;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
 import org.pcap4j.packet.IpV4Packet;
@@ -47,20 +35,26 @@ import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
+import java.util.concurrent.Executor;
 
+import okhttp3.Cache;
+import okhttp3.HttpUrl;
+import okhttp3.OkHttpClient;
+import okhttp3.dnsoverhttps.DnsOverHttps;
 import timber.log.Timber;
 
 /**
- * Creates and parses packets, and sends packets to a remote socket or the device using
- * {@link VpnWorker}.
+ * Creates and parses packets, and sends packets to a remote socket or the device using VpnWorker.
  */
-public class DnsPacketProxy {
-
-    private static final String TAG = "DnsPacketProxy";
+public class DohPacketProxy {
     // Choose a value that is smaller than the time needed to unblock a host.
     private static final int NEGATIVE_CACHE_TTL_SECONDS = 5;
     private static final SOARecord NEGATIVE_CACHE_SOA_RECORD;
+
+    private static final Executor EXECUTOR = AppExecutors.getInstance().networkIO();
 
     static {
         try {
@@ -77,10 +71,20 @@ public class DnsPacketProxy {
     private final EventLoop eventLoop;
     private final DnsServerMapper dnsServerMapper;
     private VpnModel vpnModel;
+    private DnsOverHttps dnsOverHttps;
 
-    DnsPacketProxy(EventLoop eventLoop, DnsServerMapper dnsServerMapper) {
+    public DohPacketProxy(EventLoop eventLoop, DnsServerMapper dnsServerMapper) {
         this.eventLoop = eventLoop;
         this.dnsServerMapper = dnsServerMapper;
+    }
+
+    private static InetAddress getByIp(String host) {
+        try {
+            return InetAddress.getByName(host);
+        } catch (UnknownHostException e) {
+            // unlikely
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -88,8 +92,21 @@ public class DnsPacketProxy {
      *
      * @param context The context we are operating in (for the database).
      */
-    void initialize(Context context) {
+    public void initialize(Context context) {
         this.vpnModel = (VpnModel) ((AdAwayApplication) context.getApplicationContext()).getAdBlockModel();
+        this.dnsOverHttps = createDnsOverHttps(context);
+    }
+
+    private DnsOverHttps createDnsOverHttps(Context context) {
+        Cache dnsClientCache = new Cache(context.getCacheDir(), 10 * 1024 * 1024L);
+        OkHttpClient dnsClient = new OkHttpClient.Builder().cache(dnsClientCache).build();
+        return new DnsOverHttps.Builder()
+                .client(dnsClient)
+                .url(HttpUrl.get("https://cloudflare-dns.com/dns-query"))
+                .bootstrapDnsHosts(getByIp("1.1.1.1"), getByIp("1.0.0.1"))
+                .includeIPv6(false)
+                .post(true)
+                .build();
     }
 
     /**
@@ -98,7 +115,7 @@ public class DnsPacketProxy {
      * @param requestPacket   The original request packet
      * @param responsePayload The payload of the response
      */
-    void handleDnsResponse(IpPacket requestPacket, byte[] responsePayload) {
+    public void handleDnsResponse(IpPacket requestPacket, byte[] responsePayload) {
         UdpPacket udpOutPacket = (UdpPacket) requestPacket.getPayload();
         UdpPacket.Builder payLoadBuilder = new UdpPacket.Builder(udpOutPacket)
                 .srcPort(udpOutPacket.getHeader().getDstPort())
@@ -137,14 +154,14 @@ public class DnsPacketProxy {
      * Handles a DNS request, by either blocking it or forwarding it to the remote location.
      *
      * @param packetData The packet data to read
-     * @throws VpnWorker.VpnNetworkException If some network error occurred
+     * @throws IOException If some network error occurred
      */
-    void handleDnsRequest(byte[] packetData) throws VpnWorker.VpnNetworkException {
+    public void handleDnsRequest(byte[] packetData) throws IOException {
         IpPacket ipPacket;
         try {
             ipPacket = (IpPacket) IpSelector.newPacket(packetData, 0, packetData.length);
         } catch (Exception e) {
-            Log.i(TAG, "handleDnsRequest: Discarding invalid IP packet", e);
+            Timber.i(e, "handleDnsRequest: Discarding invalid IP packet");
             return;
         }
 
@@ -160,25 +177,27 @@ public class DnsPacketProxy {
             updPacket = (UdpPacket) ipPacket.getPayload();
             udpPayload = updPacket.getPayload();
         } catch (Exception e) {
-            Log.i(TAG, "handleDnsRequest: Discarding unknown packet type " + ipPacket.getHeader(), e);
+            Timber.i(e, "handleDnsRequest: Discarding unknown packet type %s", ipPacket.getHeader());
             return;
         }
 
         InetAddress packetAddress = ipPacket.getHeader().getDstAddr();
         int packetPort = updPacket.getHeader().getDstPort().valueAsInt();
-        InetAddress dnsAddress = this.dnsServerMapper.translate(packetAddress);
-        if (dnsAddress == null) {
+        Optional<InetAddress> dnsAddressOptional = this.dnsServerMapper.getDnsServerFromFakeAddress(packetAddress);
+        if (!dnsAddressOptional.isPresent()) {
+            Timber.w("Cannot find mapped DNS for %s.", packetAddress.getHostAddress());
             return;
         }
+        InetAddress dnsAddress = dnsAddressOptional.get();
 
         if (udpPayload == null) {
-            Log.i(TAG, "handleDnsRequest: Sending UDP packet without payload: " + updPacket);
+            Timber.i("handleDnsRequest: Sending UDP packet without payload: %s", updPacket);
 
             // Let's be nice to Firefox. Firefox uses an empty UDP packet to
             // the gateway to reduce the RTT. For further details, please see
             // https://bugzilla.mozilla.org/show_bug.cgi?id=888268
             DatagramPacket outPacket = new DatagramPacket(new byte[0], 0, 0 /* length */, dnsAddress, packetPort);
-            eventLoop.forwardPacket(outPacket, null);
+            eventLoop.forwardPacket(outPacket);
             return;
         }
 
@@ -187,11 +206,11 @@ public class DnsPacketProxy {
         try {
             dnsMsg = new Message(dnsRawData);
         } catch (IOException e) {
-            Log.i(TAG, "handleDnsRequest: Discarding non-DNS or invalid packet", e);
+            Timber.i(e, "handleDnsRequest: Discarding non-DNS or invalid packet");
             return;
         }
         if (dnsMsg.getQuestion() == null) {
-            Log.i(TAG, "handleDnsRequest: Discarding DNS packet with no query " + dnsMsg);
+            Timber.i("handleDnsRequest: Discarding DNS packet with no query %s", dnsMsg);
             return;
         }
         Name name = dnsMsg.getQuestion().getName();
@@ -199,38 +218,69 @@ public class DnsPacketProxy {
         HostEntry entry = getHostEntry(dnsQueryName);
         switch (entry.getType()) {
             case BLOCKED:
-                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " blocked!");
+                Timber.i("handleDnsRequest: DNS Name %s blocked!", dnsQueryName);
                 dnsMsg.getHeader().setFlag(Flags.QR);
                 dnsMsg.getHeader().setRcode(Rcode.NOERROR);
                 dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
                 handleDnsResponse(ipPacket, dnsMsg.toWire());
                 break;
             case ALLOWED:
-                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " Allowed, sending to " + dnsAddress);
-                DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
-                eventLoop.forwardPacket(outPacket, ipPacket);
+                Timber.i("handleDnsRequest: DNS Name %s allowed, sending to %s.", dnsQueryName, dnsAddress);
+                EXECUTOR.execute(() -> queryDohServer(ipPacket, dnsMsg, name));
                 break;
             case REDIRECTED:
-                Log.i(TAG, "handleDnsRequest: DNS Name " + dnsQueryName + " redirected to " + entry.getRedirection() + ".");
+                Timber.i("handleDnsRequest: DNS Name %s redirected to %s.", dnsQueryName, entry.getRedirection());
                 dnsMsg.getHeader().setFlag(Flags.QR);
                 dnsMsg.getHeader().setFlag(Flags.AA);
                 dnsMsg.getHeader().unsetFlag(Flags.RD);
                 dnsMsg.getHeader().setRcode(Rcode.NOERROR);
                 try {
                     InetAddress address = InetAddress.getByName(entry.getRedirection());
-                    Record record;
+                    Record dnsRecord;
                     if (address instanceof Inet6Address) {
-                        record = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+                        dnsRecord = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
                     } else {
-                        record = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+                        dnsRecord = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
                     }
-                    dnsMsg.addRecord(record, Section.ANSWER);
+                    dnsMsg.addRecord(dnsRecord, Section.ANSWER);
                 } catch (UnknownHostException e) {
-                    Timber.w(e, "Failed to get inet address for host " + dnsQueryName + ".");
+                    Timber.w(e, "Failed to get inet address for host %s.", dnsQueryName);
                 }
                 handleDnsResponse(ipPacket, dnsMsg.toWire());
                 break;
         }
+    }
+
+    private void queryDohServer(IpPacket ipPacket, Message dnsMsg, Name name) {
+        String dnsQueryName = name.toString(true);
+        InetAddress address = null;
+        try {
+            List<InetAddress> addresses = this.dnsOverHttps.lookup(dnsQueryName);
+            if (!addresses.isEmpty()) {
+                address = addresses.get(0);
+            }
+        } catch (UnknownHostException e) {
+            Timber.i(e, "Failed to query DNS Name %s.", dnsQueryName);
+        }
+
+        if (address == null) {
+            Timber.i("No address was found for DNS Name %s.", dnsQueryName);
+            return;
+        }
+
+        Timber.i("handleDnsRequest: DNS Name %s redirected to %s.", dnsQueryName, address);
+        dnsMsg.getHeader().setFlag(Flags.QR);
+        dnsMsg.getHeader().setFlag(Flags.AA);
+        dnsMsg.getHeader().unsetFlag(Flags.RD);
+        dnsMsg.getHeader().setRcode(Rcode.NOERROR);
+        Record dnsRecord;
+        if (address instanceof Inet6Address) {
+            dnsRecord = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+        } else {
+            dnsRecord = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+        }
+        dnsMsg.addRecord(dnsRecord, Section.ANSWER);
+        handleDnsResponse(ipPacket, dnsMsg.toWire());
     }
 
     private HostEntry getHostEntry(String dnsQueryName) {
@@ -245,27 +295,5 @@ public class DnsPacketProxy {
             entry.setType(ListType.ALLOWED);
         }
         return entry;
-    }
-
-    /**
-     * Interface abstracting away {@link VpnWorker}.
-     */
-    interface EventLoop {
-        /**
-         * Called to send a packet to a remote location
-         *
-         * @param packet        The packet to send
-         * @param requestPacket If specified, the event loop must wait for a response, and then
-         *                      call {@link #handleDnsResponse(IpPacket, byte[])} for the data
-         *                      of the response, with this packet as the first argument.
-         */
-        void forwardPacket(DatagramPacket packet, IpPacket requestPacket) throws VpnWorker.VpnNetworkException;
-
-        /**
-         * Write an IP packet to the local TUN device
-         *
-         * @param packet The packet to write (a response to a DNS request)
-         */
-        void queueDeviceWrite(IpPacket packet);
     }
 }

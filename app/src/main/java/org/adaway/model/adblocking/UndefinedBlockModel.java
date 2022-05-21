@@ -1,11 +1,11 @@
 package org.adaway.model.adblocking;
 
+import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
+import static java.util.Collections.emptyList;
+
 import android.content.Context;
 
 import java.util.List;
-
-import static java.util.Collections.emptyList;
-import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
 
 /**
  * This class is a stub model when no ad block method is defined.
@@ -29,12 +29,12 @@ public class UndefinedBlockModel extends AdBlockModel {
 
     @Override
     public void apply() {
-
+        // Unsupported operation
     }
 
     @Override
     public void revert() {
-
+        // Unsupported operation
     }
 
     @Override
@@ -44,7 +44,7 @@ public class UndefinedBlockModel extends AdBlockModel {
 
     @Override
     public void setRecordingLogs(boolean recording) {
-
+        // Unsupported operation
     }
 
     @Override
@@ -54,6 +54,6 @@ public class UndefinedBlockModel extends AdBlockModel {
 
     @Override
     public void clearLogs() {
-
+        // Unsupported operation
     }
 }

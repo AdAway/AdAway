@@ -1,6 +1,7 @@
 package org.adaway.ui.update;
 
 import static android.app.DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR;
+import static android.app.DownloadManager.COLUMN_STATUS;
 import static android.app.DownloadManager.COLUMN_TOTAL_SIZE_BYTES;
 
 import android.app.Application;
@@ -71,7 +72,7 @@ public class UpdateViewModel extends AdwareViewModel {
                 continue;
             }
             // Check download status
-            int statusColumnIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
+            int statusColumnIndex = cursor.getColumnIndex(COLUMN_STATUS);
             int status = cursor.getInt(statusColumnIndex);
             switch (status) {
                 case DownloadManager.STATUS_FAILED:
@@ -81,7 +82,7 @@ public class UpdateViewModel extends AdwareViewModel {
                 case DownloadManager.STATUS_RUNNING:
                     int totalSizeColumnIndex = cursor.getColumnIndex(COLUMN_TOTAL_SIZE_BYTES);
                     total = cursor.getLong(totalSizeColumnIndex);
-                    if (total >= 0) {
+                    if (total > 0) {
                         int bytesDownloadedColumnIndex = cursor.getColumnIndex(COLUMN_BYTES_DOWNLOADED_SO_FAR);
                         long downloaded = cursor.getLong(bytesDownloadedColumnIndex);
                         this.downloadProgress.postValue(new DownloadStatus(downloaded, total));

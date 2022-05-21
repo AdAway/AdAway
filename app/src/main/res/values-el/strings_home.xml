@@ -28,7 +28,7 @@
     <string name="project_label">Ανοίξτε τη σελίδα GitHub </string>
 
     <!-- Support card -->
-    <string name="support_label">Υποστήριξη project</string>
+    <string name="support_label">Υποστήριξη το project</string>
 
     <!-- App bar drawer -->
     <string name="github_project_drawer_item">GitHub project</string>

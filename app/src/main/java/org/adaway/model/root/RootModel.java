@@ -1,39 +1,5 @@
 package org.adaway.model.root;
 
-import android.content.Context;
-
-import com.topjohnwu.superuser.Shell;
-import com.topjohnwu.superuser.io.SuFile;
-
-import org.adaway.R;
-import org.adaway.db.AppDatabase;
-import org.adaway.db.dao.HostEntryDao;
-import org.adaway.db.dao.HostsSourceDao;
-import org.adaway.db.entity.HostsSource;
-import org.adaway.db.entity.HostEntry;
-import org.adaway.helper.PreferenceHelper;
-import org.adaway.model.adblocking.AdBlockMethod;
-import org.adaway.model.adblocking.AdBlockModel;
-import org.adaway.model.error.HostErrorException;
-import org.adaway.util.AppExecutors;
-import org.adaway.util.ShellUtils;
-import org.adaway.util.WebServerUtils;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.concurrent.Executor;
-
 import static android.content.Context.MODE_PRIVATE;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
@@ -41,6 +7,7 @@ import static org.adaway.model.error.HostError.COPY_FAIL;
 import static org.adaway.model.error.HostError.NOT_ENOUGH_SPACE;
 import static org.adaway.model.error.HostError.PRIVATE_FILE_FAILED;
 import static org.adaway.model.error.HostError.REVERT_FAIL;
+import static org.adaway.model.root.ShellUtils.isWritable;
 import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
 import static org.adaway.util.Constants.COMMAND_CHMOD_644;
 import static org.adaway.util.Constants.COMMAND_CHOWN;
@@ -50,9 +17,37 @@ import static org.adaway.util.Constants.LINE_SEPARATOR;
 import static org.adaway.util.Constants.LOCALHOST_HOSTNAME;
 import static org.adaway.util.Constants.LOCALHOST_IPV4;
 import static org.adaway.util.Constants.LOCALHOST_IPV6;
-import static org.adaway.util.MountType.READ_ONLY;
-import static org.adaway.util.MountType.READ_WRITE;
-import static org.adaway.util.ShellUtils.mergeAllLines;
+import static org.adaway.model.root.MountType.READ_ONLY;
+import static org.adaway.model.root.MountType.READ_WRITE;
+import static org.adaway.model.root.ShellUtils.mergeAllLines;
+
+import android.content.Context;
+
+import com.topjohnwu.superuser.Shell;
+
+import org.adaway.R;
+import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostEntryDao;
+import org.adaway.db.dao.HostsSourceDao;
+import org.adaway.db.entity.HostEntry;
+import org.adaway.db.entity.HostsSource;
+import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.adblocking.AdBlockMethod;
+import org.adaway.model.adblocking.AdBlockModel;
+import org.adaway.model.error.HostErrorException;
+import org.adaway.util.AppExecutors;
+import org.adaway.util.WebServerUtils;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.Executor;
 
 import timber.log.Timber;
 
@@ -146,22 +141,13 @@ public class RootModel extends AdBlockModel {
     }
 
     private void checkApplied() {
-        boolean applied;
+        boolean applied = false;
 
-        /* Check if first line in hosts file is AdAway comment */
-        SuFile file = new SuFile(ANDROID_SYSTEM_ETC_HOSTS);
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
-            String firstLine = reader.readLine();
-
-            Timber.d("First line of " + file.getName() + ": " + firstLine);
-
-            applied = firstLine.startsWith(HEADER1);
-        } catch (FileNotFoundException e) {
-            Timber.e(e, "FileNotFoundException");
-            applied = true; // workaround for: http://code.google.com/p/ad-away/issues/detail?id=137
-        } catch (Exception e) {
-            Timber.e(e, "Exception: ");
-            applied = false;
+        Shell.Result result = Shell.cmd("head -n 1 " + ANDROID_SYSTEM_ETC_HOSTS).exec();
+        if (!result.isSuccess()) {
+            Timber.e("Failed to read first line of hosts file. Error code: %s", result.getCode());
+        } else {
+            applied = mergeAllLines(result.getOut()).startsWith(HEADER1);
         }
 
         this.applied.postValue(applied);
@@ -283,7 +269,7 @@ public class RootModel extends AdBlockModel {
 
         // if the target has a trailing slash, it is not a valid target!
         String target = ANDROID_SYSTEM_ETC_HOSTS;
-        SuFile targetFile = new SuFile(target);
+        File targetFile = new File(target);
 
         /* check for space on partition */
         long size = new File(privateFile).length();
@@ -303,7 +289,7 @@ public class RootModel extends AdBlockModel {
                 }
             }
             // Copy hosts file then set owner and permissions
-            Shell.Result result = Shell.su(
+            Shell.Result result = Shell.cmd(
                     "dd if=" + privateFile + " of=" + target,
                     COMMAND_CHOWN + " " + target,
                     COMMAND_CHMOD_644 + " " + target
@@ -326,18 +312,8 @@ public class RootModel extends AdBlockModel {
      * @param target path where to put the file
      * @return true if it will fit on partition of target, false if it will not fit.
      */
-    private boolean hasEnoughSpaceOnPartition(SuFile target, long size) {
+    private boolean hasEnoughSpaceOnPartition(File target, long size) {
         long freeSpace = target.getFreeSpace();
         return (freeSpace == 0 || freeSpace > size);
-    }
-
-    /**
-     * Check if a path is writable.
-     *
-     * @param file The file to check.
-     * @return <code>true</code> if the path is writable, <code>false</code> otherwise.
-     */
-    private boolean isWritable(SuFile file) {
-        return file.canWrite();
     }
 }

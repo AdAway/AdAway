@@ -1,0 +1,43 @@
+name: App compatibility
+description: Create a report to track third party application compatibility
+title: "[app name] compatibility report"
+labels: ['specific-app/site-related :iphone:']
+body:
+- type: checkboxes
+  attributes:
+    label: Is there an existing report for this app?
+    description: Please search to see if an issue already exists for the compatibility issue you encountered.
+    options:
+    - label: I have searched the existing issues
+      required: true
+- type: input
+  attributes:
+    label: Application Name
+    description: The application name that have a compatibility issue with AdAway.
+    placeholder: WhatsApp
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: Application Version
+    description: The application version that have a compatibility issue with AdAway.
+    placeholder: 1.12.3
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Compatibility issue
+    description: A clear and concise description of what the bug is.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Workaround
+    description: |
+     If applicable, describe the whitelist domains to add to fix the issue:
+     - www.somedomain.com
+     - *.server.org
+
+     Please add tag `workaround-available` if a work around is available.
+  validations:
+    required: false

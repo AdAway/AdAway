@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Добре дошли</string>
     <string name="welcome_first_step">Първа стъпка на помощника</string>
@@ -6,23 +6,25 @@
     <string name="welcome_last_step">Последна стъпка на помощника</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_header">Добре дошли в AdAway!</string>
-    <string name="welcome_method_summary">AdAway предоставя два метода за блокиране на реклами. Изберете този, който харесвате:</string>
+    <string name="welcome_method_header">Добре дошли от AdAway!</string>
+    <string name="welcome_method_summary">AdAway предлага два метода за спиране на реклами.
+Изберете предпочитания от вас:</string>
 
-    <string name="welcome_root_method_logo">Руут лого</string>
-    <string name="welcome_root_method_title">Руут базирано\nблокиране на реклами</string>
+    <string name="welcome_root_method_logo">Логотип на суперпотребител</string>
+    <string name="welcome_root_method_title">Чрез достъп до\nсуперпотребител</string>
     <string name="welcome_root_method_text1">По-бърз</string>
-    <string name="welcome_root_method_text2">Пести енергия</string>
-    <string name="welcome_root_method_text3">Има нужда от руут достъп</string>
+    <string name="welcome_root_method_text2">Пести батерия</string>
+    <string name="welcome_root_method_text3">Нужен е суперпотребител</string>
 
-    <string name="welcome_vpn_method_logo">VPN лого</string>
+    <string name="welcome_vpn_method_logo">Логотип на VPN </string>
     <string name="welcome_vpn_method_title">VPN базирано\nблокиране на реклами</string>
-    <string name="welcome_vpn_method_text1">По-бавен</string>
+    <string name="welcome_vpn_method_text1">По-бавно</string>
     <string name="welcome_vpn_method_text2">Работи във фонов режим</string>
     <string name="welcome_vpn_method_text3">Съвместимост</string>
 
-    <string name="welcome_root_missing_title">Изисква се Android с root достъп</string>
-    <string name="welcome_root_missile_description">Или su binary не може да бъде намерена или не сте разрешили руут права на AdAway.\n\nТова може да се случи, когато устройството Ви не е руутнато. Можете да намерите информация за това как да руутнете устройството си на wiki.lineageos.org или други  Android уебсайтове.</string>
+    <string name="welcome_root_missing_title">Изисква се Android с достъп до суперпотребител</string>
+    <string name="welcome_root_missile_description">Изпълниимият файл на su не е намерен или AdAway няма разрешение за достъп до правата на суперпотребителя.\n\n
+Това може да се случи, когато тройството ви няма достъп до суперпотребителя. Можете да намерите информация как да получите достъп до него на устройството си в wiki.lineageos.org или в други страници за Android.</string>
 
     <string name="welcome_method_pro_logo">Предимства</string>
     <string name="welcome_method_con_logo">Недостатъци</string>
@@ -33,17 +35,17 @@
 
     <string name="welcome_sync_header">Синхронизиране</string>
     <string name="welcome_synced_header">Синхронизирано!</string>
-    <string name="welcome_sync_summary">AdAway изтегля рекламни мрежи, за да блокира от онлайн източници. Можете да ги персонализирате по-късно в настройките.</string>
-    <string name="welcome_sync_retry_logo">Синхронизиране отново</string>
-    <string name="welcome_sync_error">Грешка при синхронизация:\n%s.\nПовторен опит?</string>
+    <string name="welcome_sync_summary">AdAway изтегля от отдалечени източници рекламните мрежи, които да спира. По-късно ще можете да ги променяте в настройките.</string>
+    <string name="welcome_sync_retry_logo">Повторно синхронизиране</string>
+    <string name="welcome_sync_error">Грешка при синхронизиране:\n%s.\nПовторен опит?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Поддръжка</string>
     <string name="welcome_support_header">Подкрепете ме!</string>
-    <string name="welcome_support_summary">Това приложение е безплатно и с отворен код. Разработвам го в свободното ми време. Така че, ако ви хареса, не се колебайте да покажете вашата подкрепа:</string>
+    <string name="welcome_support_summary">Това е безплатно приложение с отворен код. Разработвам го в свободното си време. Ако ви хареса, не се колебайте да покажете вашата подкрепа:</string>
     <string name="welcome_support_button">Даряване в PayPal</string>
-    <string name="welcome_support_telemetry_summary">Харесвате ли бъгове? Нито пък аз.</string>
-    <string name="welcome_support_telemetry_button">Активиране на телеметрия, за да ми изпращате сигнали за сривове</string>
+    <string name="welcome_support_telemetry_summary">Харесвате ли дефекти? Аз също.</string>
+    <string name="welcome_support_telemetry_button">Включване на телеметрия, за бъдат изпращани доклади за срив</string>
 
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Назад</string>

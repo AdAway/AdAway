@@ -1,5 +1,6 @@
 package org.adaway.model.update;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -35,14 +36,14 @@ public enum UpdateStore {
     /**
      * The store name.
      */
-    public final String name;
+    public final String storeName;
     /**
      * The store singing certificate digest.
      */
     public final String sign;
 
     UpdateStore(String name, String sign) {
-        this.name = name;
+        this.storeName = name;
         this.sign = sign;
     }
 
@@ -52,6 +53,7 @@ public enum UpdateStore {
      * @param context The application context.
      * @return The application store, {@link #UNKNOWN} if store can't be defined.
      */
+    @SuppressLint("PackageManagerGetSignatures")
     public static UpdateStore getApkStore(Context context) {
         PackageManager packageManager = context.getPackageManager();
         String packageName = context.getPackageName();
@@ -63,6 +65,7 @@ public enum UpdateStore {
                         GET_SIGNING_CERTIFICATES
                 ).signingInfo.getSigningCertificateHistory();
             } else {
+                // Signatures are not used for security reason. Only to guess the flavor of the app.
                 signatures = packageManager.getPackageInfo(
                         packageName,
                         GET_SIGNATURES
@@ -112,6 +115,6 @@ public enum UpdateStore {
      * @return The store name.
      */
     public String getName() {
-        return this.name;
+        return this.storeName;
     }
 }

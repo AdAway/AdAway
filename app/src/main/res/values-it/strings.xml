@@ -237,6 +237,9 @@ Vuoi installare OI File Manager?</string>
         <item quantity="other">%d mesi</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host copiati negli appunti</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">Avvio in corso</string>
     <string name="vpn_notification_running">attivo</string>

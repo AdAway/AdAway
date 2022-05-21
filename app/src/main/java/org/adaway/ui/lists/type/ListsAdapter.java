@@ -85,12 +85,14 @@ class ListsAdapter extends PagingDataAdapter<HostListItem, ListsAdapter.ViewHold
         boolean editable = item.getSourceId() == USER_SOURCE_ID;
         holder.enabledCheckBox.setEnabled(editable);
         holder.enabledCheckBox.setChecked(item.isEnabled());
-        holder.enabledCheckBox.setOnClickListener(editable ? view -> viewCallback.toggleItemEnabled(item) : null);
+        holder.enabledCheckBox.setOnClickListener(editable ? view -> this.viewCallback.toggleItemEnabled(item) : null);
         holder.hostTextView.setText(item.getHost());
         if (this.twoRows) {
             holder.redirectionTextView.setText(item.getRedirection());
         }
-        holder.itemView.setOnLongClickListener(editable ? view -> viewCallback.startAction(item, holder.itemView) : null);
+        holder.itemView.setOnLongClickListener(editable ?
+                view -> this.viewCallback.startAction(item, holder.itemView) :
+                view -> this.viewCallback.copyHostToClipboard(item));
     }
 
     /**

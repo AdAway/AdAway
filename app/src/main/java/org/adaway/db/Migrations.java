@@ -1,18 +1,25 @@
 package org.adaway.db;
 
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
+
 import androidx.annotation.NonNull;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
-
-import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
-import static org.adaway.db.entity.HostsSource.USER_SOURCE_URL;
 
 /**
  * This class declares database schema migrations.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class Migrations {
+final class Migrations {
+    /**
+     * Private constructor of utility class.
+     */
+    private Migrations() {
+
+    }
+
     /**
      * The migration script from v1 to v2.
      */
@@ -75,6 +82,9 @@ class Migrations {
         }
     };
 
+    /**
+     * Migration script from v5 to v6.
+     */
     static final Migration MIGRATION_5_6 = new Migration(5, 6) {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
