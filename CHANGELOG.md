@@ -6,6 +6,8 @@
 - Update mongoose web server
 - Update translations
 
+Special thanks to kubalav for its bug report.
+
 ## [6.0.0] - 2022-05-18
 
 *This version is a pre-release*
