@@ -42,6 +42,9 @@
     <string name="import_success">Se importó correctamente la copia de seguridad del almacenamiento externo.</string>
     <string name="import_failed">No se pudo importar la copia de seguridad. Asegúrate de que el formato sea correcto. Revisa el registro de logcat para obtener más detalles.</string>
     <string name="export_dialog">Exportando…</string>
+    <string name="export_success">Copia de seguridad exportada con éxito a un archivo \'%s\' en su almacenamiento externo.</string>
+    <string name="export_failed">No se ha podido exportar el archivo de copia de seguridad \'%s\'.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">El archivo hosts</string>
     <string name="hosts_description">El archivo hosts es un archivo del sistema que permite asignar los nombres de hosts a las direcciones IP. Es un archivo de texto sin formato cuya configuración administra AdAway. Estas son sus primeras líneas:</string>
@@ -50,8 +53,12 @@
 
     <!--Status Notification-->
     <string name="status_check">Buscando actualizaciones</string>
+    <string name="status_check_source">Buscando actualizaciones en la fuente %s</string>
     <string name="status_retrieve">Recuperando fuentes</string>
     <string name="status_download_source">Descargando datos de la fuente %s</string>
+    <string name="status_read_source">Fuente de lectura %s</string>
+    <string name="status_parse_source">Analizando fuente %s</string>
+    <string name="status_sync_database">Sincronizando la base de datos de reglas</string>
     <string name="status_revert">Revirtiendo el archivo hosts a la versión predeterminada</string>
     <string name="status_revert_done">Se restableció el archivo hosts predeterminado</string>
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
@@ -229,6 +236,9 @@
         <item quantity="other">%d meses</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host copiado al portapapeles</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">iniciando</string>
     <string name="vpn_notification_running">activo</string>
@@ -243,6 +253,9 @@
     <string name="vpn_notification_action_resume">Presiona para continuar</string>
 
     <!-- Permission -->
+    <string name="permission_group_api_label">AdAway permisos</string>
+    <string name="permission_group_api_description">Permite interactuar con AdAway</string>
     <string name="permission_send_command_label">Habilitar e inhabilitar el bloqueo de anuncios del sistema</string>
+    <string name="permission_send_command_description">Permite enviar comandos a AdAway como habilitar o deshabilitar el bloqueo de anuncios en todo el sistema</string>
 
 </resources>
