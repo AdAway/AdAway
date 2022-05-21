@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">Schakelaar Log opslaan</string>
     <string name="log_start_recording">Druk op \"record\" om de aanvragen te loggen, surf het web of gebruik apps, kom dan terug of swipe om de logs te vernieuwen.</string>
