@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="welcome_title">Us donem la benvinguda</string>
+    <string name="welcome_first_step">Primer pas de l\'assistent</string>
+    <string name="welcome_second_step">Segon pas de l\'assistent</string>
+    <string name="welcome_last_step">Últim pas de l\'assistent</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">Sigueu benvinguts a l\'AdAway!</string>
+    <string name="welcome_method_summary">L\'AdAway ofereix dos mètodes de bloqueig d\'anuncis. Trieu la que us agradi:</string>
+
+    <string name="welcome_root_method_logo">Logo root</string>
+    <string name="welcome_root_method_title">Bloqueig d\'anuncis\nbasat en root</string>
+    <string name="welcome_root_method_text1">Més ràpid</string>
+    <string name="welcome_root_method_text2">No consumeix molta bateria</string>
+    <string name="welcome_root_method_text3">Cal root</string>
+
+    <string name="welcome_vpn_method_logo">Logo VPN</string>
+    <string name="welcome_vpn_method_title">Bloqueig d\'anuncis\nbasat en VPN</string>
+    <string name="welcome_vpn_method_text1">Més lent</string>
+    <string name="welcome_vpn_method_text2">S\'executa en segon pla</string>
+    <string name="welcome_vpn_method_text3">Compatibilitat</string>
+
     <string name="welcome_root_missing_title">És necessari tenir l\'Android rootejat</string>
-    </resources>
+    <string name="welcome_root_missile_description">No s\'ha pogut trobar el binari su o no heu permès el permís root per a l\'AdAway.\n\nAixò pot passar quan el dispositiu no té root. Podeu trobar informació sobre com activar el root al vostre dispositiu a wiki.lineageos.org o a altres llocs web d\'Android.</string>
+
+    <string name="welcome_method_pro_logo">Pros</string>
+    <string name="welcome_method_con_logo">Contres</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sincronització completada</string>
+    <string name="welcome_sync_error_logo">Error durant la sincronització</string>
+
+    <string name="welcome_sync_header">S\'està sincronitzant</string>
+    <string name="welcome_synced_header">S\'ha sincronitzat!</string>
+    <string name="welcome_sync_summary">L\'AdAway baixa xarxes publicitàries per bloquejar-les de fonts en línia. Podeu personalitzar-los més endavant a la configuració.</string>
+    <string name="welcome_sync_retry_logo">Reintenta la sincronització</string>
+    <string name="welcome_sync_error">No s\'ha pogut sincronitzar:\n%s.\nVoleu provar-ho de nou?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Ajuda</string>
+    <string name="welcome_support_header">Ajudeu-me!</string>
+    <string name="welcome_support_summary">És una aplicació gratuïta i de codi obert. Ho desenvolupo en el meu temps lliure. Així que si us agrada, no dubteu a mostrar el vostre suport:</string>
+    <string name="welcome_support_button">Feu un donatiu al PayPal</string>
+    <string name="welcome_support_telemetry_summary">Us agraden els errors? A mi tampoc.</string>
+    <string name="welcome_support_telemetry_button">Activeu la telemetria per enviar-me informes d\'error</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Enrere</string>
+    <string name="welcome_next_button">Següent</string>
+    <string name="welcome_finish_button">Acaba</string>
+</resources>
