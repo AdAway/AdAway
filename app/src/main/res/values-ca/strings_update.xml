@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="update_title">Actualització d\'AdAway</string>
     <!-- Home screen -->
@@ -17,5 +17,5 @@
     <string name="update_sponsor_button">Patrocinador</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">S\'està baixant la darrera versió d\'AdAway...</string>
+    <string name="update_notification_description">S\'està baixant la darrera versió d\'AdAway…</string>
 </resources>
