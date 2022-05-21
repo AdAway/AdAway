@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">Actualització d\'AdAway</string>
+    <!-- Home screen -->
+    <string name="update_available">Actualització disponible!</string>
+
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">Actualitzat</string>
     <string name="update_update_available_header">Actualització disponible</string>
-    </resources>
+    <string name="update_updating_header">S\'està actualitzant l\'AdAway</string>
+    <string name="update_update_button">Actualitza ara</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Últims canvis</string>
+    <string name="update_new_changelog_title">Registre de canvis</string>
+    <string name="update_support_title">Ajuda al desenvolupament</string>
+    <string name="update_donate_button">Fer un donatiu</string>
+    <string name="update_sponsor_button">Patrocinador</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">S\'està baixant la darrera versió d\'AdAway...</string>
+</resources>
