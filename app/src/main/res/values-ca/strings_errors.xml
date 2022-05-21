@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">No hi ha connexió a internet</string>
+    <string name="error_no_connection_details">No es pot establir una connexió a Internet. Comproveu la connectivitat del vostre dispositiu.</string>
+    <string name="error_download_failed_message">No s\'ha pogut baixar la font dels amfitrions</string>
+    <string name="error_download_failed_details">Cap de les fonts dels vostres amfitrions habilitats és accessible. Comproveu que esteu connectat correctament a Internet.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">No s\'ha pogut crear el fitxer privat</string>
+    <string name="error_private_file_failed_details">No es pot crear un fitxer privat per crear una font d\'amfitrió nova. Comproveu l\'espai lliure disponible al vostre dispositiu.</string>
     <string name="error_not_enough_space_message">No hi ha prou espai</string>
-    </resources>
+    <string name="error_not_enough_space_details">No es pot copiar el fitxer hosts a la partició del sistema. Comproveu que el mòdul sense sistema Magisk està activat i reinicieu-lo.</string>
+    <string name="error_copy_failed_message">No s\'ha pogut instal·lar el fitxer hosts nou</string>
+    <string name="error_copy_failed_details">No es pot copiar el fitxer hosts a la partició /system. Comproveu que el mòdul sense sistema Magisk està activat i reinicieu-lo.</string>
+    <string name="error_revert_failed_message">No s\'ha pogut revertir el fitxer hosts</string>
+    <string name="error_revert_failed_details">No es pot restaurar la configuració per defecte del fitxer hosts.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Error al activar el blocatge d\'anuncis per VPN</string>
+    <string name="error_enable_vpn_failed_details">Comproveu la configuració de la vostra VPN per autoritzar l\'inici de l\'aplicació VPN.</string>
+    <string name="error_disable_vpn_failed_message">Error al desactivar el blocatge d\'anuncis per VPN</string>
+    <string name="error_disable_vpn_failed_details">Comproveu la configuració de la vostra VPN per desactivar-la manualment.</string>
+</resources>
