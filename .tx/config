@@ -44,6 +44,13 @@ source_file = app/src/main/res/values/strings_lists.xml
 source_lang = en
 type = ANDROID
 
+[adaway.app-src-main-res-values-strings-log-xml--master]
+file_filter = app/src/main/res/values-<lang>/strings_log.xml
+minimum_perc = 0
+source_file = app/src/main/res/values/strings_log.xml
+source_lang = en
+type = ANDROID
+
 [adaway.app-src-main-res-values-strings-notification-xml--master]
 file_filter = app/src/main/res/values-<lang>/strings_notification.xml
 minimum_perc = 0
