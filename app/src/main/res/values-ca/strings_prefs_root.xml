@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Bloquejador d\'anuncis basat en root</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instal·lació hosts</string>
     <string name="pref_root_open_hosts">Obriu el fitxer de hosts</string>
     <string name="pref_apply_method">Fitxer hosts objectiu</string>
+    <string name="pref_apply_method_summary">Llegiu l\'ajuda abans d\'utilitzar aquesta funció</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Objectiu personalitzt</item>
     </string-array>
+    <string name="pref_custom_target">Ubicació destí personalitzada</string>
+    <string name="pref_never_reboot">Amaga el diàleg de reinici després d\'aplicar</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Redirecció</string>
+    <string name="pref_hosts_redirection_summary">Defineix on redirigir els amfitrions bloquejats</string>
+    <string name="pref_redirection_ipv4">Configura la redirecció IPv4</string>
+    <string name="pref_redirection_ipv6">Configura la redirecció IPv6</string>
+    <string name="pref_redirection_invalid">Redirecció no vàlida</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Servidor web local</string>
+    <string name="pref_webserver_summary">El servidor web local escolta les adreces IP locals per respondre a les sol·licituds de nom d\'amfitrió bloquejades. Pot ser útil amb la congelació de l\'aplicació en connexió bloquejada.</string>
     <string name="pref_webserver_enabled">Activa el servidor web</string>
-    </resources>
+    <string name="pref_webserver_test">Prova el servidor web</string>
+    <string name="pref_webserver_certificate">Instal·la el certificat autofirmat</string>
+    <string name="pref_webserver_certificate_dialog_title">Instal·lació manual del certificat</string>
+    <string name="pref_webserver_certificate_dialog_content">A partir d\'Android 11 (R), l\'aplicació ja no pot instal·lar automàticament l\'autoritat de certificació (CA).\n\nAneu a la configuració de \"Seguretat\", \"Xifrat i credencials\" i després \"Instal·la un certificat\". A partir d\'aquí, trieu \"Certificat CA\" i seleccioneu el fitxer de certificat recent exportat.</string>
+    <string name="pref_webserver_certificate_dialog_action">Obriu la configuració de \"Seguretat\".</string>
+    <string name="pref_webserver_state_checking">S\'està comprovant…</string>
+    <string name="pref_webserver_state_not_running">No s\'està executant</string>
+    <string name="pref_webserver_state_running_not_installed">S\'està executant però el certificat no s\'ha instal·lat</string>
+    <string name="pref_webserver_state_running_and_installed">S\'està executant i el certificat està instal·lat</string>
+    <string name="pref_webserver_icon">Substituïu l\'espai publicitari en blanc per la icona de l\'aplicació</string>
+</resources>
