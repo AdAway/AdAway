@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Les vostre llistes</string>
+    <string name="lists_add">Afegeix un amfitrió</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Bloquejat</string>
+    <string name="lists_tab_allowed">Permès</string>
+    <string name="lists_tab_redirected">Redirigit</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Filtra els amfitrions</string>
+    <string name="lists_menu_filter_hint">Cerca un nom d\'amfitrió...</string>
+    <string name="lists_menu_toggle_sources">Commuta les fonts</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Afegeix l\'amfitrió a la llista negra</string>
     <string name="list_add_dialog_white">Afegeix l\'amfitrió a la llista blanca</string>
