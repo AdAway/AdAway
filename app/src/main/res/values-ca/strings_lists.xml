@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="lists_title">Les vostre llistes</string>
     <string name="lists_add">Afegeix un amfitrió</string>
@@ -8,7 +8,7 @@
     <string name="lists_tab_redirected">Redirigit</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtra els amfitrions</string>
-    <string name="lists_menu_filter_hint">Cerca un nom d\'amfitrió...</string>
+    <string name="lists_menu_filter_hint">Cerca un nom d\'amfitrió…</string>
     <string name="lists_menu_toggle_sources">Commuta les fonts</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Afegeix l\'amfitrió a la llista negra</string>
