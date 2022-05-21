@@ -2,7 +2,8 @@
 
 static const char *param_names[] = {
         "url",
-        "fallback"
+        "fallback",
+        "ds_dest_url"
 };
 
 //static void zero_content_length(struct mg_connection *c) {
