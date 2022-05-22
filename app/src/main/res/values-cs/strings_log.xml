@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">Přepnout zaznamenávání</string>
     <string name="log_start_recording">Stisknutím tlačítka nahrávání spusťte zaznamenávání požadavků, procházejte web nebo používáte aplikace a poté se vraťte zpět nebo přejetím prstem dolů aktualizujte záznam.</string>
