@@ -2,11 +2,12 @@
 
 *This version is a pre-release*
 
+- Improve screen rotation handling on home screen.
 - Update libsu
 - Update mongoose web server
 - Update translations
 
-Special thanks to kubalav for its bug report.
+Special thanks to kubalav and zgfg for their bug reports.
 
 ## [6.0.0] - 2022-05-18
 
