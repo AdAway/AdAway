@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">Attiva/disattiva registrazione log</string>
     <string name="log_start_recording">Premi registra per avviare la raccolta delle richieste, naviga su internet o usa le app, quindi torna indietro o scorri per aggiornare i log.</string>
