@@ -5,6 +5,7 @@
 - Improve screen rotation handling on home screen.
 - Update libsu
 - Update mongoose web server
+- Update Android gradle plugin
 - Update third party libraries
 - Update translations
 
