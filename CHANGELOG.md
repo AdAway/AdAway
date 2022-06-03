@@ -5,6 +5,7 @@
 - Improve screen rotation handling on home screen.
 - Update libsu
 - Update mongoose web server
+- Update third party libraries
 - Update translations
 
 Special thanks to kubalav and zgfg for their bug reports.
