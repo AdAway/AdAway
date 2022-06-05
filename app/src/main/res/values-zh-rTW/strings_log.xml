@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">切換日誌記錄開啟狀態</string>
+    <string name="log_start_recording">按下記錄開始記錄請求，瀏覽網頁或使用應用程式，然後返回或滑動以重新整理紀錄。</string>
+    <string name="log_blocked_requests_ignored">\n\n被封鎖的請求不会被記錄。如果你也想記錄它們，請先停用廣告攔截功能。</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">依照字母順序排序</string>
+    <string name="log_sort_top_level_domain">頂級網域排序</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">重新導向網域</string>
+</resources>

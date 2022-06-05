@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Εναλλαγή καταγραφής αρχείου εγγραφής</string>
+    <string name="log_start_recording">Πατήστε εγγραφή για να ξεκινήσετε την καταγραφή αιτημάτων, να περιηγηθείτε στον Ιστό ή να χρησιμοποιήσετε εφαρμογές και, στη συνέχεια, επιστρέψτε ή σύρετε για να ανανεώσετε τα αρχεία καταγραφής.</string>
+    <string name="log_blocked_requests_ignored">\n\nΤα αποκλεισμένα αιτήματα δεν θα καταγράφονται. Απενεργοποιήστε πρώτα τον αποκλεισμό διαφημίσεων εάν θέλετε να τα καταγράψετε επίσης.</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Ταξινόμηση αλφαβητικά</string>
+    <string name="log_sort_top_level_domain">Ταξινόμηση κατά τομέα ανώτατου επιπέδου</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Τομέας ανακατεύθυνσης</string>
+</resources>

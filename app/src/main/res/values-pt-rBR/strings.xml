@@ -236,6 +236,9 @@
         <item quantity="other">%d meses</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host copiado para área da transferência</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">iniciando</string>
     <string name="vpn_notification_running">ativo</string>

@@ -244,6 +244,9 @@
         <item quantity="other">%d miesięcy</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host skopiowany do schowka</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">uruchamianie</string>
     <string name="vpn_notification_running">aktywny</string>

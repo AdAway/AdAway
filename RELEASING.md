@@ -80,11 +80,12 @@ The beta releases are only announced in the XDA development thread.
 ### Stable releases
 
 The stable releases are distributed through [GitHub releases](https://github.com/AdAway/AdAway/releases) and [F-Droid store](https://f-droid.org/packages/org.adaway/) and are posted of the first post of XDA development thread.
-Once ready, create and push a tag on GitHub repository using  `vX.Y.Z` format.
+Once ready, create and push a tag on GitHub repository using  `vX.Y.Z` format (`vX.Y.Zb` for pre-releases).
 To publish the application in GitHub:
 
 * Create a new version based on this tag,
 * Copy the changelog part related to the version as description of the release,
 * Upload apk binary to the release.
 
-To publish the application in F-Droid store, only a pushed tag is needed.
+Pushing a tag will publish the application to F-Droid store.
+It might takes some days to update but if it does not, build logs are available at the following address: https://monitor.f-droid.org/builds/log/org.adaway/<versioncode>

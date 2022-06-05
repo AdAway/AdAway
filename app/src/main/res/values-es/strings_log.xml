@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Activar registros de eventos</string>
+    <string name="log_start_recording">Pulsa grabar para empezar a registrar solicitudes, navegar por la Web o utilizar aplicaciones, luego vuelve atrás o desliza el dedo para actualizar los registros.</string>
+    <string name="log_blocked_requests_ignored">\n\nLas solicitudes bloqueadas no serán guardadas. Desactive primero el bloqueo de publicidad si quiere que se registren también.</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Orden alfabético</string>
+    <string name="log_sort_top_level_domain">Clasificación de dominios de nivel superior</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Redireccionar dominio</string>
+</resources>

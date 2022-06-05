@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.view.View;
 
+import static android.view.View.ALPHA;
+import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
@@ -25,7 +27,7 @@ public final class Animations {
      * @param view The view to animate.
      */
     public static void showView(View view) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, View.ALPHA, 1F);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, ALPHA, 1F);
         objectAnimator.setAutoCancel(true);
         objectAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -42,12 +44,29 @@ public final class Animations {
      * @param view The view to animate.
      */
     public static void hideView(View view) {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, View.ALPHA, 0F);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, ALPHA, 0F);
         objectAnimator.setAutoCancel(true);
         objectAnimator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 view.setVisibility(INVISIBLE);
+            }
+        });
+        objectAnimator.start();
+    }
+
+    /**
+     * Animate view to be removed.
+     *
+     * @param view The view to animate.
+     */
+    public static void removeView(View view) {
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view, ALPHA, 0F);
+        objectAnimator.setAutoCancel(true);
+        objectAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(GONE);
             }
         });
         objectAnimator.start();
@@ -70,6 +89,16 @@ public final class Animations {
      */
     public static void setHidden(View view) {
         view.setVisibility(INVISIBLE);
+        view.setAlpha(0f);
+    }
+
+    /**
+     * Immediately set view to gone state.
+     *
+     * @param view The view to set.
+     */
+    public static void setRemoved(View view) {
+        view.setVisibility(GONE);
         view.setAlpha(0f);
     }
 }

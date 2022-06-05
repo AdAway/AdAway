@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Schakelaar Log opslaan</string>
+    <string name="log_start_recording">Druk op \"record\" om de aanvragen te loggen, surf het web of gebruik apps, kom dan terug of swipe om de logs te vernieuwen.</string>
+    <string name="log_blocked_requests_ignored">\n\nBlocked aanvragen worden niet gelogd. Schakel advertentieblokkering eerst uit als je deze ook wilt gaan loggen.</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Sorteer alfabetisch</string>
+    <string name="log_sort_top_level_domain">Bovenste niveau domein sortering</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Doorverwijzingsdomein</string>
+</resources>

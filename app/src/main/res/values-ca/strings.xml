@@ -236,6 +236,9 @@
         <item quantity="other">%dmesos</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">L\'amfitrió s\'ha copiat al porta-retalls</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">començant</string>
     <string name="vpn_notification_running">actiu</string>

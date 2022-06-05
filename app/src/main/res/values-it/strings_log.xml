@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Attiva/disattiva registrazione log</string>
+    <string name="log_start_recording">Premi registra per avviare la raccolta delle richieste, naviga su internet o usa le app, quindi torna indietro o scorri per aggiornare i log.</string>
+    <string name="log_blocked_requests_ignored">\n\nLe richieste bloccate non verranno registrate. Se vuoi includerle, devi prima disabilitare il blocco pubblicità.</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Ordinamento alfabetico</string>
+    <string name="log_sort_top_level_domain">Ordinamento per dominio di primo livello</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Reindirizza dominio</string>
+</resources>

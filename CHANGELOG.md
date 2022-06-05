@@ -1,3 +1,16 @@
+## [6.0.1] - 2022-06-03
+
+*This version is a pre-release*
+
+- Improve screen rotation handling on home screen.
+- Update libsu
+- Update mongoose web server
+- Update Android gradle plugin
+- Update third party libraries
+- Update translations
+
+Special thanks to kubalav and zgfg for their bug reports.
+
 ## [6.0.0] - 2022-05-18
 
 *This version is a pre-release*

@@ -25,6 +25,7 @@ import org.adaway.util.log.SentryLog;
 import static android.app.Activity.RESULT_OK;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
+import static java.lang.Boolean.TRUE;
 
 /**
  * This class is a fragment to setup the ad blocking method.
@@ -61,7 +62,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
 
     private void checkRoot(@Nullable View view) {
         notifyVpnDisabled();
-        if (Shell.rootAccess()) {
+        if (TRUE.equals(Shell.isAppGrantedRoot())) {
             notifyRootEnabled();
         } else {
             notifyRootDisabled(true);
@@ -94,10 +95,9 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     private void notifyRootDisabled(boolean showDialog) {
         this.binding.rootCardView.setCardBackgroundColor(this.cardColor);
         this.binding.vpnCardView.setCardBackgroundColor(this.cardColor);
-        Context context = getContext();
-        if (context != null && showDialog) {
+        if (showDialog) {
             blockNext();
-            new MaterialAlertDialogBuilder(context)
+            new MaterialAlertDialogBuilder(requireContext())
                     .setTitle(R.string.welcome_root_missing_title)
                     .setMessage(R.string.welcome_root_missile_description)
                     .setPositiveButton(R.string.button_close, null)

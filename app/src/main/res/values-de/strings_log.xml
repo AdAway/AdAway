@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Protokoll-Aufzeichnung umschalten</string>
+    <string name="log_start_recording">Drücken Sie \"aufzeichnen\", um die Protokollierung von Anfragen zu starten, stöbern Sie im Netz oder verwenden Sie Apps, kehren Sie danach hierher zurück oder wischen Sie nach unten, damit die Protokolle erneuert werden.</string>
+    <string name="log_blocked_requests_ignored">\n\nBlockierte Anfragen werden nicht protokolliert. Deaktivieren Sie zunächst den Werbeblocker, wenn Sie diese auch protokollieren möchten.</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Alphabetische Sortierung</string>
+    <string name="log_sort_top_level_domain">Nach Top-Level-Domänen sortieren</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Domäne umleiten</string>
+</resources>

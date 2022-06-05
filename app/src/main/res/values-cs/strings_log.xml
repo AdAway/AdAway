@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Přepnout zaznamenávání</string>
+    <string name="log_start_recording">Stisknutím tlačítka nahrávání spusťte zaznamenávání požadavků, procházejte web nebo používáte aplikace a poté se vraťte zpět nebo přejetím prstem dolů aktualizujte záznam.</string>
+    <string name="log_blocked_requests_ignored">\n\nZablokované požadavky nebudou zaznamenány. Pokud je chcete zaznamenat také, nejprve vypněte blokování reklam.</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Řazení podle abecedy</string>
+    <string name="log_sort_top_level_domain">Řazení podle nejvyšší úrovně domény</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Doména pro přesměrování</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="log_toggle_recording_description">Commuta la gravació del registre</string>
+    <string name="log_start_recording">Premeu grava per començar a registrar les sol·licituds, navegueu pel web o utilitzeu aplicacions i, a continuació, torneu enrere o llisqueu per actualitzar els registres.</string>
+    <string name="log_blocked_requests_ignored">\n\nLes sol·licituds bloquejades no es registraran. Desactiveu primer el bloqueig d\'anuncis si també voleu registrar-los.</string>
+    <!-- Sort -->
+    <string name="log_sort_alphabetical">Ordena alfabèticament</string>
+    <string name="log_sort_top_level_domain">Ordena per nivell de domini</string>
+    <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">Redirigeix domini</string>
+</resources>

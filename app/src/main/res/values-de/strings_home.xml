@@ -28,7 +28,7 @@
     <string name="project_label">GitHub-Seite öffnen</string>
 
     <!-- Support card -->
-    <string name="support_label">Projekt fördern</string>
+    <string name="support_label">Das Projekt unterstützen</string>
 
     <!-- App bar drawer -->
     <string name="github_project_drawer_item">GitHub Project</string>
