@@ -1,5 +1,11 @@
 package org.adaway.ui.welcome;
 
+import static android.app.Activity.RESULT_OK;
+import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
+import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
+import static java.lang.Boolean.TRUE;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.VpnService;
@@ -62,6 +68,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
 
     private void checkRoot(@Nullable View view) {
         notifyVpnDisabled();
+        Shell.getShell();
         if (TRUE.equals(Shell.isAppGrantedRoot())) {
             notifyRootEnabled();
         } else {

@@ -1,8 +1,14 @@
+## [6.0.2] - Unreleased
+
+*This version is a pre-release*
+
+- Fix wizard ad-block method check
+
 ## [6.0.1] - 2022-06-03
 
 *This version is a pre-release*
 
-- Improve screen rotation handling on home screen.
+- Improve screen rotation handling on home screen
 - Update libsu
 - Update mongoose web server
 - Update Android gradle plugin
