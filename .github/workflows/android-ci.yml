@@ -67,7 +67,7 @@ jobs:
 #          BUILD_TOOLS_VERSION: "30.0.2"
 
         # Example use of `signedReleaseFile` output -- not needed
-        - uses: actions/upload-artifact@v2
-          with:
-            name: Signed app bundle
-            path: ${{ steps.sign_app.outputs.signedReleaseFile }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Signed app bundle
+          path: ${{ steps.sign_app.outputs.signedReleaseFile }}
