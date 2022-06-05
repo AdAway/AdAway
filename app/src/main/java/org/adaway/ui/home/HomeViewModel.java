@@ -28,7 +28,6 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class HomeViewModel extends AndroidViewModel {
-    private static final String TAG = "NextViewModel";
     private static final AppExecutors EXECUTORS = AppExecutors.getInstance();
 
     private final SourceModel sourceModel;

@@ -244,6 +244,9 @@
         <item quantity="other">%d mesiacov</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host skopírovaný do schránky</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">spúšťa sa</string>
     <string name="vpn_notification_running">aktívne</string>

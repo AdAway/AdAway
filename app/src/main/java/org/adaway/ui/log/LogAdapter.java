@@ -1,5 +1,10 @@
 package org.adaway.ui.log;
 
+import static android.graphics.PorterDuff.Mode.MULTIPLY;
+import static org.adaway.db.entity.ListType.ALLOWED;
+import static org.adaway.db.entity.ListType.BLOCKED;
+import static org.adaway.db.entity.ListType.REDIRECTED;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -12,11 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.adaway.R;
 import org.adaway.databinding.LogEntryBinding;
 import org.adaway.db.entity.ListType;
-
-import static android.graphics.PorterDuff.Mode.MULTIPLY;
-import static org.adaway.db.entity.ListType.ALLOWED;
-import static org.adaway.db.entity.ListType.BLOCKED;
-import static org.adaway.db.entity.ListType.REDIRECTED;
 
 /**
  * This class is a the {@link RecyclerView.Adapter} for the DNS request log view.
@@ -65,6 +65,10 @@ class LogAdapter extends ListAdapter<LogEntry, LogAdapter.ViewHolder> {
         // Set host name
         holder.binding.hostnameTextView.setText(entry.getHost());
         holder.binding.hostnameTextView.setOnClickListener(v -> this.callback.openHostInBrowser(entry.getHost()));
+        holder.binding.hostnameTextView.setOnLongClickListener(v -> {
+            this.callback.copyHostToClipboard(entry.getHost());
+            return true;
+        });
         // Set type status
         bindImageView(holder.binding.blockImageView, BLOCKED, entry);
         bindImageView(holder.binding.allowImageView, ALLOWED, entry);

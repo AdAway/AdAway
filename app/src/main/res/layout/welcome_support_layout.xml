@@ -82,6 +82,34 @@
 
     </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sponsorshipCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        app:cardCornerRadius="32dp"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="24dp"
+        app:contentPaddingRight="24dp"
+        app:contentPaddingTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paypalCardView"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/sponsorshipTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="8dp"
+            android:text="@string/support_sponsorship_button"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:drawableStartCompat="@drawable/ic_github_32dp" />
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/telemetryTextView"
         android:layout_width="wrap_content"

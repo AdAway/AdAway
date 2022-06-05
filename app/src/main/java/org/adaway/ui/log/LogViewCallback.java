@@ -33,6 +33,13 @@ public interface LogViewCallback {
     void openHostInBrowser(@NonNull String hostName);
 
     /**
+     * Copy an host into the clipboard.
+     *
+     * @param hostName The list to copy hosts.
+     */
+    void copyHostToClipboard(@NonNull String hostName);
+
+    /**
      * Get color value from color identifier.
      *
      * @param colorId The color identifier.

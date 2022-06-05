@@ -264,6 +264,9 @@
         <item quantity="other">%d месяцев</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Хост скопирован в буфер обмена</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">начинается</string>
     <string name="vpn_notification_running">активно</string>

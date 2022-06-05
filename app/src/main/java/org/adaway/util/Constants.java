@@ -21,8 +21,6 @@
 package org.adaway.util;
 
 public class Constants {
-    public static final String TAG = "AdAway";
-
     public static final String PREFS_NAME = "preferences";
 
     public static final String LOCALHOST_IPV4 = "127.0.0.1";
@@ -33,12 +31,9 @@ public class Constants {
     public static final String HOSTS_FILENAME = "hosts";
     public static final String DEFAULT_HOSTS_FILENAME = "default_hosts";
     public static final String LINE_SEPARATOR = System.getProperty("line.separator", "\n");
-    public static final String FILE_SEPARATOR = System.getProperty("file.separator", "/");
 
     public static final String COMMAND_CHOWN = "chown 0:0";
     public static final String COMMAND_CHMOD_644 = "chmod 644";
 
-    public static final String ANDROID_SYSTEM_PATH = System.getProperty("java.home", "/system");
-    public static final String ANDROID_SYSTEM_ETC_HOSTS = ANDROID_SYSTEM_PATH + FILE_SEPARATOR
-            + "etc" + FILE_SEPARATOR + HOSTS_FILENAME;
+    public static final String ANDROID_SYSTEM_ETC_HOSTS = "/system/etc/" + HOSTS_FILENAME;
 }

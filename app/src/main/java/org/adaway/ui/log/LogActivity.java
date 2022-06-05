@@ -20,6 +20,10 @@
 
 package org.adaway.ui.log;
 
+import static org.adaway.ui.Animations.hideView;
+import static org.adaway.ui.Animations.showView;
+import static java.lang.Boolean.TRUE;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -44,11 +48,8 @@ import org.adaway.db.entity.ListType;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
 import org.adaway.ui.dialog.AlertDialogValidator;
+import org.adaway.util.Clipboard;
 import org.adaway.util.RegexUtils;
-
-import static java.lang.Boolean.TRUE;
-import static org.adaway.ui.Animations.hideView;
-import static org.adaway.ui.Animations.showView;
 
 /**
  * This class is an {@link android.app.Activity} to show DNS request log entries.
@@ -225,5 +226,10 @@ public class LogActivity extends AppCompatActivity implements LogViewCallback {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(Uri.parse("http://" + hostName));
         startActivity(intent);
+    }
+
+    @Override
+    public void copyHostToClipboard(@NonNull String hostName) {
+        Clipboard.copyHostToClipboard(this, hostName);
     }
 }

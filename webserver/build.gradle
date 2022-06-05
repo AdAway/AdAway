@@ -1,9 +1,12 @@
+import com.android.build.gradle.internal.tasks.LibraryJniLibsTask
+
 apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 32
     buildToolsVersion '32.1.0-rc1'
-    ndkVersion '22.1.7171670'
+    ndkVersion '24.0.8215888'
+    namespace 'org.adaway.webserver'
 
     defaultConfig {
         minSdkVersion 26
@@ -27,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.ndk.thirdparty:openssl:1.1.1g-alpha-1'
+    implementation 'com.android.ndk.thirdparty:openssl:1.1.1l-beta-1'
 }
 
 /**
@@ -35,31 +38,32 @@ dependencies {
  * If they look like libraries, they are packaged in the apk and deployed on the device in the lib folder!
  *
  * Help with files: https://docs.gradle.org/current/userguide/working_with_files.html
- * Implementation from: https://gitlab.com/fengshaun/syncopoli/blob/master/app/build.gradle
  */
-gradle.taskGraph.afterTask { task ->
-    if (task.name == "externalNativeBuildRelease" || task.name == "externalNativeBuildDebug") {
-        def mode = task.name == "externalNativeBuildDebug" ? "debug" : "release"
-        def buildFolder = file("${buildDir}/intermediates/ndkBuild/${mode}/obj/local/")
+def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) {
+    def flavor = gradle.startParameter.taskRequests.toString().containsIgnoreCase("debug") ? "debug" : "release"
+    def buildFolder = file("${buildDir}/intermediates/ndkBuild/${flavor}/obj/local/")
 
-        copy {
-            from(buildFolder) {
-                exclude "**/objs"
-                exclude "**/objs-debug"
-                exclude "**/*.a"
-                exclude "**/*.d"
-                exclude "**/*.o"
-                exclude "**/*.so"
-                exclude "**/*.txt"
-            }
+    dependsOn ":${project.name}:externalNativeBuild${flavor.substring(0, 1).toUpperCase()}${flavor.substring(1)}"
 
-            into buildFolder
-
-            rename '(.+)', 'lib$1_exec.so'
-
-            eachFile {
-                println "Replacing " + it.getPath() + " from ndkBuild directory"
-            }
-        }
+    from(buildFolder) {
+        exclude "**/objs"
+        exclude "**/objs-debug"
+        exclude "**/*.a"
+        exclude "**/*.d"
+        exclude "**/*.o"
+        exclude "**/*.so"
+        exclude "**/*.txt"
     }
+
+    into buildFolder
+
+    rename '(.+)', 'lib$1_exec.so'
+
+    eachFile {
+        println "Replacing " + it.getPath() + " from ${flavor} ndkBuild directory"
+    }
+}
+
+tasks.withType(LibraryJniLibsTask) {
+    dependsOn renameJniLibAsExecutable
 }

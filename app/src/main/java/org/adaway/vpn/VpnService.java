@@ -16,34 +16,36 @@ package org.adaway.vpn;
 
 import static android.app.NotificationManager.IMPORTANCE_LOW;
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
-import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
-import static android.net.ConnectivityManager.EXTRA_NETWORK_TYPE;
-import static android.net.ConnectivityManager.TYPE_VPN;
-import static android.net.NetworkCapabilities.TRANSPORT_VPN;
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
+import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
 import static org.adaway.broadcast.Command.START;
 import static org.adaway.broadcast.Command.STOP;
 import static org.adaway.broadcast.CommandReceiver.SEND_COMMAND_ACTION;
 import static org.adaway.helper.NotificationHelper.VPN_RESUME_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_RUNNING_SERVICE_NOTIFICATION_ID;
 import static org.adaway.helper.NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL;
-import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_NETWORK_CHANGED;
-import static org.adaway.vpn.VpnService.MyHandler.VPN_MSG_STATUS_UPDATE;
+import static org.adaway.vpn.VpnService.NetworkType.CELLULAR;
+import static org.adaway.vpn.VpnService.NetworkType.WIFI;
 import static org.adaway.vpn.VpnStatus.RECONNECTING;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STARTING;
 import static org.adaway.vpn.VpnStatus.STOPPED;
 import static org.adaway.vpn.VpnStatus.WAITING_FOR_NETWORK;
+import static java.util.Objects.requireNonNull;
 
 import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.ConnectivityManager.NetworkCallback;
+import android.net.Network;
+import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -56,21 +58,44 @@ import org.adaway.broadcast.Command;
 import org.adaway.broadcast.CommandReceiver;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.ui.home.HomeActivity;
-import org.adaway.vpn.VpnWorker.VpnStatusNotifier;
+import org.adaway.vpn.worker.VpnWorker;
 
 import java.lang.ref.WeakReference;
-import java.util.Arrays;
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
+import timber.log.Timber;
+
+/**
+ * This class is the VPN platform service implementation.
+ * <p>
+ * it is in charge of:
+ * <ul>
+ * <li>Accepting service commands,</li>
+ * <li>Starting / stopping the {@link VpnWorker} thread,</li>
+ * <li>Publishing notifications and intent about the VPN state,</li>
+ * <li>Reacting to network connectivity changes.</li>
+ * </ul>
+ *
+ * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+ */
 public class VpnService extends android.net.VpnService implements Handler.Callback {
-    public static final int REQUEST_CODE_START = 43;
-    public static final int REQUEST_CODE_PAUSE = 42;
     public static final String VPN_UPDATE_STATUS_INTENT = "org.jak_linux.dns66.VPN_UPDATE_STATUS";
     public static final String VPN_UPDATE_STATUS_EXTRA = "VPN_STATUS";
-    private static final String TAG = "VpnService";
+    /*
+     * Notification intent related.
+     */
+    private static final int REQUEST_CODE_START = 43;
+    private static final int REQUEST_CODE_PAUSE = 42;
+    /*
+     * Handler related.
+     */
+    private static final int VPN_STATUS_UPDATE_MESSAGE_TYPE = 0;
 
-    private final Handler handler;
-    private final BroadcastReceiver connectivityChangedReceiver;
+    private final MyHandler handler;
+    private final NetworkTypeCallback wifiNetworkCallback;
+    private final NetworkTypeCallback cellularNetworkCallback;
+    private final Set<NetworkType> availableNetworkTypes;
     private final VpnWorker vpnWorker;
 
     /**
@@ -78,133 +103,98 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
      */
     public VpnService() {
         this.handler = new MyHandler(this);
-        this.connectivityChangedReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                Message networkMessage = handler.obtainMessage(VPN_MSG_NETWORK_CHANGED, intent);
-                handler.sendMessage(networkMessage);
-            }
-        };
-        VpnStatusNotifier statusNotifier = status -> {
-            Message statusMessage = this.handler.obtainMessage(VPN_MSG_STATUS_UPDATE, status.toCode(), 0);
-            this.handler.sendMessage(statusMessage);
-        };
-        this.vpnWorker = new VpnWorker(this, statusNotifier);
+        this.wifiNetworkCallback = new NetworkTypeCallback(WIFI);
+        this.cellularNetworkCallback = new NetworkTypeCallback(CELLULAR);
+        this.availableNetworkTypes = new HashSet<>();
+        this.vpnWorker = new VpnWorker(this);
     }
 
-    /**
-     * Check if the VPN service is started.
-     *
-     * @param context The application context.
-     * @return {@code true} if the VPN service is started, {@code false} otherwise.
+    /*
+     * VPN Service.
      */
-    public static boolean isStarted(Context context) {
-        boolean networkVpnCapability = checkAnyNetworkVpnCapability(context);
-        VpnStatus status = PreferenceHelper.getVpnServiceStatus(context);
-        if (status.isStarted() && !networkVpnCapability) {
-            status = STOPPED;
-            PreferenceHelper.setVpnServiceStatus(context, status);
-        }
-        return status.isStarted();
-    }
 
-    /**
-     * Start the VPN service.
-     *
-     * @param context The application context.
-     * @return {@code true} if the service is started, {@code false} otherwise.
-     */
-    public static boolean start(Context context) {
-        // Check if VPN is already running
-        if (isStarted(context)) {
-            return true;
-        }
-        // Start the VPN service
-        Intent intent = new Intent(context, VpnService.class);
-        START.appendToIntent(intent);
-        return context.startForegroundService(intent) != null;
-    }
-
-    /**
-     * Stop the VPN service.
-     *
-     * @param context The application context.
-     */
-    public static void stop(Context context) {
-        Intent intent = new Intent(context, VpnService.class);
-        STOP.appendToIntent(intent);
-        context.startService(intent);
-    }
-
-    private static boolean checkAnyNetworkVpnCapability(Context context) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (connectivityManager == null) {
-            return false;
-        }
-        return Arrays.stream(connectivityManager.getAllNetworks())
-                .map(connectivityManager::getNetworkCapabilities)
-                .filter(Objects::nonNull)
-                .anyMatch(networkCapabilities -> networkCapabilities.hasTransport(TRANSPORT_VPN));
+    @Override
+    public void onCreate() {
+        Timber.d("Creating VPN service…");
+        registerNetworkCallback();
     }
 
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
-        Log.i(TAG, "onStartCommand" + intent);
-        switch (Command.readFromIntent(intent)) {
+        Timber.d("onStartCommand %s", intent == null ? "null intent" : intent);
+        // Check null intent that happens when system restart the service
+        // https://developer.android.com/reference/android/app/Service#START_STICKY
+        Command command = intent == null ?
+                START :
+                Command.readFromIntent(intent);
+        switch (command) {
             case START:
                 startVpn();
-                break;
+                return START_STICKY;
             case STOP:
                 stopVpn();
-                break;
+                return START_NOT_STICKY;
+            default:
+                Timber.w("Unknown command: %s", command);
+                return START_NOT_STICKY;
         }
-        return START_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "Destroyed, shutting down");
-        stopVpn();
+        Timber.d("Destroying VPN service…");
+        unregisterNetworkCallback();
+        Timber.d("Destroyed VPN service.");
     }
 
-    public boolean handleMessage(Message message) {
-        if (message == null) {
-            return true;
-        }
+    /*
+     * Handler callback.
+     */
 
-        switch (message.what) {
-            case VPN_MSG_STATUS_UPDATE:
-                updateVpnStatus(VpnStatus.fromCode(message.arg1));
-                break;
-            case VPN_MSG_NETWORK_CHANGED:
-                connectivityChanged((Intent) message.obj);
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid message with what = " + message.what);
+    @Override
+    public boolean handleMessage(@NonNull Message message) {
+        if (message.what == VPN_STATUS_UPDATE_MESSAGE_TYPE) {
+            updateVpnStatus(VpnStatus.fromCode(message.arg1));
         }
         return true;
     }
 
+    /**
+     * Notify a of the new VPN status.
+     *
+     * @param status The new VPN status.
+     */
+    public void notifyVpnStatus(VpnStatus status) {
+        Message statusMessage = this.handler.obtainMessage(VPN_STATUS_UPDATE_MESSAGE_TYPE, status.toCode(), 0);
+        this.handler.sendMessage(statusMessage);
+    }
+
     private void startVpn() {
+        Timber.d("Starting VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, RUNNING);
         updateVpnStatus(STARTING);
-        registerReceiver(this.connectivityChangedReceiver, new IntentFilter(CONNECTIVITY_ACTION));
-        restartWorker();
+        this.vpnWorker.start();
+        Timber.i("VPN service started.");
     }
 
     private void stopVpn() {
-        Log.i(TAG, "Stopping Service");
+        Timber.d("Stopping VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
-//        if (vpnWorker != null)
-        stopVpnWorker();
-//        vpnWorker = null;
-        try {
-            unregisterReceiver(this.connectivityChangedReceiver);
-        } catch (IllegalArgumentException e) {
-            Log.i(TAG, "Ignoring exception on unregistering receiver");
-        }
-        updateVpnStatus(STOPPED);
+        this.vpnWorker.stop();
+        stopForeground(true);
         stopSelf();
+        updateVpnStatus(STOPPED);
+        Timber.i("VPN service stopped.");
+    }
+
+    private void waitForNetVpn() {
+        this.vpnWorker.stop();
+        updateVpnStatus(WAITING_FOR_NETWORK);
+    }
+
+    private void reconnect() {
+        updateVpnStatus(RECONNECTING);
+        this.vpnWorker.start();
     }
 
     private void updateVpnStatus(VpnStatus status) {
@@ -220,6 +210,8 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 notificationManager.notify(VPN_RESUME_SERVICE_NOTIFICATION_ID, notification);
         }
 
+        // TODO BUG - Nobody is listening to this intent
+        // TODO BUG - VpnModel can lister to it to update the MainActivity according its current state
         Intent intent = new Intent(VPN_UPDATE_STATUS_INTENT);
         intent.putExtra(VPN_UPDATE_STATUS_EXTRA, status);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
@@ -229,7 +221,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         String title = getString(R.string.vpn_notification_title, getString(status.getTextResource()));
 
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.setFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, VPN_SERVICE_NOTIFICATION_CHANNEL)
@@ -266,50 +258,100 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         return builder.build();
     }
 
-    private void restartWorker() {
-        this.vpnWorker.stop();
-        this.vpnWorker.start();
+    private void registerNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        NetworkRequest wifiNetworkRequest = new NetworkRequest.Builder()
+                .addTransportType(TRANSPORT_WIFI)
+                .build();
+        NetworkRequest cellularNetworkRequest = new NetworkRequest.Builder()
+                .addTransportType(TRANSPORT_CELLULAR)
+                .build();
+        initializeNetworkTypes(connectivityManager);
+        connectivityManager.registerNetworkCallback(wifiNetworkRequest, this.wifiNetworkCallback, this.handler);
+        connectivityManager.registerNetworkCallback(cellularNetworkRequest, this.cellularNetworkCallback, this.handler);
+
     }
 
-    private void stopVpnWorker() {
-        this.vpnWorker.stop();
+    private void unregisterNetworkCallback() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        connectivityManager.unregisterNetworkCallback(this.wifiNetworkCallback);
+        connectivityManager.unregisterNetworkCallback(this.cellularNetworkCallback);
     }
 
-    private void waitForNetVpn() {
-        stopVpnWorker();
-        updateVpnStatus(WAITING_FOR_NETWORK);
-    }
-
-    private void reconnect() {
-        updateVpnStatus(RECONNECTING);
-        restartWorker();
-    }
-
-    private void connectivityChanged(Intent intent) {
-        if (intent.getIntExtra(EXTRA_NETWORK_TYPE, 0) == TYPE_VPN) {
-            Log.i(TAG, "Ignoring connectivity changed for our own network");
-            return;
+    private void initializeNetworkTypes(ConnectivityManager connectivityManager) {
+        this.availableNetworkTypes.clear();
+        Network activeNetwork = connectivityManager.getActiveNetwork();
+        if (activeNetwork != null) {
+            NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
+            if (networkCapabilities != null) {
+                if (networkCapabilities.hasTransport(TRANSPORT_WIFI)) {
+                    this.availableNetworkTypes.add(WIFI);
+                }
+                if (networkCapabilities.hasTransport(TRANSPORT_CELLULAR)) {
+                    this.availableNetworkTypes.add(CELLULAR);
+                }
+            }
         }
-        if (!CONNECTIVITY_ACTION.equals(intent.getAction())) {
-            Log.e(TAG, "Got bad intent on connectivity changed " + intent.getAction());
-        }
-        if (intent.getBooleanExtra(ConnectivityManager.EXTRA_NO_CONNECTIVITY, false)) {
-            Log.i(TAG, "Connectivity changed to no connectivity, wait for a network");
-            waitForNetVpn();
-        } else {
-            Log.i(TAG, "Network changed, try to reconnect");
+        Timber.d("Initial network types: %s ", this.availableNetworkTypes);
+    }
+
+    private void addNetworkType(NetworkType type) {
+        boolean noNetwork = this.availableNetworkTypes.isEmpty();
+        this.availableNetworkTypes.add(type);
+        if (noNetwork) {
+            Timber.d("Reconnecting VPN on network %s.", type);
             reconnect();
         }
     }
 
+    private void removeNetworkType(NetworkType type) {
+        this.availableNetworkTypes.remove(type);
+        if (this.availableNetworkTypes.isEmpty()) {
+            Timber.d("Waiting for network…");
+            waitForNetVpn();
+        } else {
+            reconnect();
+        }
+    }
+
+    /**
+     * This class receives network change events to monitor network type available.
+     *
+     * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
+     * @see <a href="https://developer.android.com/training/basics/network-ops/reading-network-state#listening-events">Android Developer Documentation</a>
+     */
+    private class NetworkTypeCallback extends NetworkCallback {
+        private final NetworkType monitoredType;
+
+        NetworkTypeCallback(NetworkType monitoredType) {
+            this.monitoredType = monitoredType;
+        }
+
+        @Override
+        public void onAvailable(@NonNull Network network) {
+            Timber.d("On available %s", this.monitoredType);
+            addNetworkType(this.monitoredType);
+        }
+
+        @Override
+        public void onLost(@NonNull Network network) {
+            Timber.d("On lost %s", this.monitoredType);
+            removeNetworkType(this.monitoredType);
+        }
+    }
+
+    enum NetworkType {
+        CELLULAR,
+        WIFI,
+    }
+
     /* The handler may only keep a weak reference around, otherwise it leaks */
-    static class MyHandler extends Handler {
-        static final int VPN_MSG_STATUS_UPDATE = 0;
-        static final int VPN_MSG_NETWORK_CHANGED = 1;
+    private static class MyHandler extends Handler {
 
         private final WeakReference<Callback> callback;
 
         MyHandler(Callback callback) {
+            super(requireNonNull(Looper.myLooper()));
             this.callback = new WeakReference<>(callback);
         }
 

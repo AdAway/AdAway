@@ -12,9 +12,7 @@
  * Contributions shall also be provided under any later versions of the
  * GPL.
  */
-package org.adaway.vpn;
-
-import android.util.Log;
+package org.adaway.vpn.worker;
 
 import androidx.annotation.NonNull;
 
@@ -23,6 +21,8 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.SocketException;
+
+import timber.log.Timber;
 
 /**
  * Ensures that the connection is alive and sets various timeouts and delays in response.
@@ -38,8 +38,6 @@ import java.net.SocketException;
  */
 
 class VpnWatchdog {
-    private static final String TAG = "VpnWatchDog";
-
     // Polling is quadrupled on every success, and values range from 4s to 1h8m.
     private static final int POLL_TIMEOUT_START = 1000;
     private static final int POLL_TIMEOUT_END = 4096000;
@@ -96,23 +94,23 @@ class VpnWatchdog {
      * @param enabled If the watchdog should be enabled.
      */
     void initialize(boolean enabled) {
-        Log.d(TAG, "initialize: Initializing watchdog");
+        Timber.d("initialize: Initializing watchdog");
 
         this.pollTimeout = POLL_TIMEOUT_START;
         this.lastPacketSent = 0;
         this.enabled = enabled;
 
         if (!this.enabled) {
-            Log.d(TAG, "initialize: Disabled.");
+            Timber.d("initialize: Disabled.");
             return;
         }
 
         if (this.initPenalty > 0) {
-            Log.d(TAG, "init penalty: Sleeping for " + this.initPenalty + "ms");
+            Timber.d("init penalty: Sleeping for %dms…", this.initPenalty);
             try {
                 Thread.sleep(this.initPenalty);
             } catch (InterruptedException exception) {
-                Log.d(TAG, "Failed to wait the initial penalty");
+                Timber.d("Failed to wait the initial penalty.");
                 Thread.currentThread().interrupt();
             }
         }
@@ -121,21 +119,20 @@ class VpnWatchdog {
     /**
      * Handles a timeout of poll()
      *
-     * @throws VpnWorker.VpnNetworkException When the watchdog timed out
+     * @throws VpnNetworkException When the watchdog timed out
      */
-    void handleTimeout() throws VpnWorker.VpnNetworkException {
+    void handleTimeout() throws VpnNetworkException {
         if (!this.enabled) {
             return;
         }
-        Log.d(TAG, "handleTimeout: Milliseconds elapsed between last receive and sent: "
-                + (this.lastPacketReceived - this.lastPacketSent));
+        Timber.d("handleTimeout: Milliseconds elapsed between last receive and sent: %dms", (this.lastPacketReceived - this.lastPacketSent));
         // Receive really timed out
         if (this.lastPacketReceived < this.lastPacketSent && this.lastPacketSent != 0) {
             this.initPenalty += INIT_PENALTY_INC;
             if (this.initPenalty > INIT_PENALTY_END) {
                 this.initPenalty = INIT_PENALTY_END;
             }
-            throw new VpnWorker.VpnNetworkException("Watchdog timed out");
+            throw new VpnNetworkException("Watchdog timed out");
         }
         // We received a packet after sending it, so we can be more confident and grow our wait time
         this.pollTimeout *= POLL_TIMEOUT_GROW;
@@ -155,26 +152,26 @@ class VpnWatchdog {
         if (!this.enabled) {
             return;
         }
-        Log.d(TAG, "handlePacket: Received packet of length " + packetData.length);
+        Timber.d("handlePacket: Received packet of length %s", packetData.length);
         this.lastPacketReceived = System.currentTimeMillis();
     }
 
     /**
      * Sends an empty check-alive packet to the configured target address.
      *
-     * @throws VpnWorker.VpnNetworkException If sending failed and we should restart
+     * @throws VpnNetworkException If sending failed and we should restart
      */
-    void sendPacket() throws VpnWorker.VpnNetworkException {
+    void sendPacket() throws VpnNetworkException {
         if (!this.enabled || this.checkAlivePacket == null) {
             return;
         }
-        Log.d(TAG, "sendPacket: Sending packet, poll timeout is " + this.pollTimeout + ".");
+        Timber.d("sendPacket: Sending packet, poll timeout is %d.", this.pollTimeout);
 
         try (DatagramSocket socket = newDatagramSocket()) {
             socket.send(this.checkAlivePacket);
             this.lastPacketSent = System.currentTimeMillis();
         } catch (IOException e) {
-            throw new VpnWorker.VpnNetworkException("Failed to send check-alive packet.", e);
+            throw new VpnNetworkException("Failed to send check-alive packet.", e);
         }
     }
 

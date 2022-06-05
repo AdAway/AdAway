@@ -1,0 +1,44 @@
+name: Issue checker
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  request-for-bug-context:
+    name: Request for bug context
+    runs-on: ubuntu-latest
+    if: |
+      github.event.label.name == 'bug :bug:' && 
+      !contains(github.event.issue.body, 'AdAway version')
+    steps:
+      - name: Add context request comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}
+            
+            It looks like you report a bug without providing all the context details like the AdAway version you use.
+            Thanks to update your issue with the most details you can, and use the bug report template instead of free form issue.
+            
+            Regards
+      
+  request-app-compat-title-change:
+    name: Request for application compatibility report title change
+    runs-on: ubuntu-latest
+    if: |
+      github.event.label.name == 'specific-app/site-related :iphone:' && 
+      github.event.issue.title == '[app name] compatibility report'
+    steps:
+      - name: Add title change comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Hello @${{ github.event.issue.user.login }}
+            
+            It looks like you left the default report title.
+            Thanks to update it to with the application name.
+            
+            Regards

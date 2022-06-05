@@ -1,3 +1,30 @@
+## [6.0.0] - 2022-05-18
+
+*This version is a pre-release*
+
+- Add a new VPN ad-blocker implementation
+- Add initial DOH (DNS Over HTTPS) support
+- Add VPN connection monitor, heartbeat and throttler to improve reliability
+- Add long press action to copy hostname from user lists and DNS log to clipboard
+- Fix VPN state on network connectivity change and lost
+- Fix VPN restart when system kills it
+- Fix wrong DNS read on VPN restart
+- Fix VPN unwanted restart while paused
+- Fix crash on application update unknown size
+- Improve VPN user control reliability
+- Update logging system
+- Update libsu
+- Update Android gradle plugin
+- Update AndroidX libraries
+- Update NDK
+- Update third party libraries
+
+## [5.12.1] - 2022-05-14
+
+- Fix hosts file install on Android 13
+
+Special thanks to AAGaming00 and KieronQuinn for their bug reports.
+
 ## [5.12.0] - 2022-02-28
 
 - Implement key-value pairs backup service support

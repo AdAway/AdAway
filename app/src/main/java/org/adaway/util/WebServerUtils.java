@@ -50,9 +50,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import timber.log.Timber;
 
-import static org.adaway.util.ShellUtils.isBundledExecutableRunning;
-import static org.adaway.util.ShellUtils.killBundledExecutable;
-import static org.adaway.util.ShellUtils.runBundledExecutable;
+import static org.adaway.model.root.ShellUtils.isBundledExecutableRunning;
+import static org.adaway.model.root.ShellUtils.killBundledExecutable;
+import static org.adaway.model.root.ShellUtils.runBundledExecutable;
 
 /**
  * This class is an utility class to control web server execution.
