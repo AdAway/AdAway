@@ -28,11 +28,6 @@ import org.adaway.databinding.WelcomeMethodLayoutBinding;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.util.log.SentryLog;
 
-import static android.app.Activity.RESULT_OK;
-import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
-import static org.adaway.model.adblocking.AdBlockMethod.VPN;
-import static java.lang.Boolean.TRUE;
-
 /**
  * This class is a fragment to setup the ad blocking method.
  *
@@ -100,6 +95,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     }
 
     private void notifyRootDisabled(boolean showDialog) {
+        PreferenceHelper.setAbBlockMethod(requireContext(), UNDEFINED);
         this.binding.rootCardView.setCardBackgroundColor(this.cardColor);
         this.binding.vpnCardView.setCardBackgroundColor(this.cardColor);
         if (showDialog) {
@@ -122,6 +118,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
     }
 
     private void notifyVpnDisabled() {
+        PreferenceHelper.setAbBlockMethod(requireContext(), UNDEFINED);
         this.binding.rootCardView.setCardBackgroundColor(this.cardColor);
         this.binding.vpnCardView.setCardBackgroundColor(this.cardColor);
         blockNext();
