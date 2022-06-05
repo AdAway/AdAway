@@ -22,8 +22,8 @@ allprojects {
 sonarqube {
     properties {
         // Root project information
-        property 'sonar.projectKey', 'org.adaway'
-        property 'sonar.organization', 'adaway'
+        property "sonar.projectKey", "zombie-king_AdAway"
+        property "sonar.organization", "zombie-king"
         property 'sonar.projectName', 'AdAway'
         property 'sonar.projectVersion', '6.0.1'
         property 'sonar.host.url', 'https://sonarcloud.io'
