@@ -222,18 +222,22 @@
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
+        <item quantity="many">%d minutes</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d heure</item>
         <item quantity="other">%d heures</item>
+        <item quantity="many">%d heures</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d jour</item>
         <item quantity="other">%d jours</item>
+        <item quantity="many">%d jours</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mois</item>
         <item quantity="other">%d mois</item>
+        <item quantity="many">%d mois</item>
     </plurals>
 
     <!-- Clipboard -->
