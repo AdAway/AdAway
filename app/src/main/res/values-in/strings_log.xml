@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">Tombol rekam log</string>
     <string name="log_start_recording">Tekan rekam untuk memulai log,  browsing atau gunakan aplikasi target, kemudian kembali atau refresh halaman ini</string>
