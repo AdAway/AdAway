@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">Daftar pribadi</string>
+    <string name="lists_add">Tambah hosts</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">Diblokir</string>
     <string name="lists_tab_allowed">Diizinkan</string>
