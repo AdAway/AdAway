@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">Pembaruan AdAway</string>
+    <!-- Home screen -->
+    <string name="update_available">Pembaruan tersedia! </string>
+
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">Kamu sudah up-to-date</string>
     <string name="update_update_available_header">Pembaruan tersedia</string>
-    </resources>
+    <string name="update_updating_header">Memperbarui AdAway</string>
+    <string name="update_update_button">Perbarui sekarang</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Perubahan terakhir</string>
+    <string name="update_new_changelog_title">Changelog</string>
+    <string name="update_support_title">Dukung pengembangan</string>
+    <string name="update_donate_button">Donasi</string>
+    <string name="update_sponsor_button">Sponsor</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">Mengunduh AdAway versi terbaru... </string>
+</resources>
