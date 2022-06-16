@@ -1,8 +1,11 @@
-## [6.0.2] - Unreleased
+## [6.0.2] - 2022-06-16
 
 *This version is a pre-release*
 
 - Fix wizard ad-block method check
+- Update translations
+
+Special thanks to Dandu32, ipdev and zhmstar0310 for their bug reports.
 
 ## [6.0.1] - 2022-06-03
 
