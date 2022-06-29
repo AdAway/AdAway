@@ -109,4 +109,15 @@ final class Migrations {
             database.execSQL("DELETE FROM `hosts_sources` WHERE `url` LIKE \"file://%\"");
         }
     };
+
+    /**
+     * Migration script from v6 to v7.
+     */
+    static final Migration MIGRATION_6_7 = new Migration(6, 7) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            // Update hosts_sources table
+            database.execSQL("ALTER TABLE `hosts_sources` ADD `entityTag` TEXT DEFAULT NULL");
+        }
+    };
 }

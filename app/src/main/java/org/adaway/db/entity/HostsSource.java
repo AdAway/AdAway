@@ -47,6 +47,13 @@ public class HostsSource {
     private ZonedDateTime localModificationDate;
     @ColumnInfo(name = "last_modified_online")
     private ZonedDateTime onlineModificationDate;
+    /**
+     * The HTTP ETag (strong from, may be <code>null</code>).
+     */
+    private String entityTag;
+    /**
+     * The number of hosts list items (<code>0</code> until synced).
+     */
     private int size;
 
     /**
@@ -134,6 +141,14 @@ public class HostsSource {
 
     public void setOnlineModificationDate(ZonedDateTime lastOnlineModification) {
         this.onlineModificationDate = lastOnlineModification;
+    }
+
+    public String getEntityTag() {
+        return this.entityTag;
+    }
+
+    public void setEntityTag(String entityTag) {
+        this.entityTag = entityTag;
     }
 
     public int getSize() {
