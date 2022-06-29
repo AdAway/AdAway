@@ -140,7 +140,7 @@ public class SourceModel {
         }
         // Initialize update status
         boolean updateAvailable = false;
-        // Get hosts sources
+        // Get enabled hosts sources
         List<HostsSource> sources = this.hostsSourceDao.getEnabled();
         if (sources.isEmpty()) {
             // Return no update as no source
@@ -170,13 +170,13 @@ public class SourceModel {
                     updateAvailable = true;
                 }
             } else {
-                // Check if update is available for this source and source enabled
-                if (source.isEnabled() && (lastModifiedLocal == null || lastModifiedOnline.isAfter(lastModifiedLocal))) {
+                // Check if source was never installed or installed before the last update
+                if (lastModifiedLocal == null || lastModifiedOnline.isAfter(lastModifiedLocal)) {
                     updateAvailable = true;
                 }
             }
         }
-        // Check if update is available
+        // Update statuses
         Timber.d("Update check result: %s.", updateAvailable);
         if (updateAvailable) {
             setState(R.string.status_update_available);
@@ -198,7 +198,7 @@ public class SourceModel {
             return "not defined";
         } else {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(MEDIUM);
-            return zonedDateTime.toString() + " (" + zonedDateTime.format(dateTimeFormatter) + ")";
+            return zonedDateTime + " (" + zonedDateTime.format(dateTimeFormatter) + ")";
         }
     }
 
