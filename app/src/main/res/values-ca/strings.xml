@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">Actualització necessària per %1$s</string>
     <string name="hosts_source_last_update">Darrera actualització fa %1$s</string>
     <string name="hosts_source_unknown_status">Estat d\'actualització desconegut</string>
+    <string name="hosts_source_disabled">Desactivat</string>
     <string name="hosts_source_few_minutes">pocs minuts</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%dminut</item>
