@@ -13,14 +13,14 @@
     <!--Home-->
     <string name="header_help">Willkommen!</string>
     <string name="text_help">AdAway ist ein freier Open-Source Werbeblocker. AdAway schaut ob eine Netzwerkadresse eines Werbeanbieters aufgerufen wird und blockiert auf Ihrem Gerät diesen Aufruf.\nMöchten Sie mehr darüber erfahren? Rufen sie dazu weiter unten \"Hilfe anzeigen\"  auf!</string>
-    <string name="button_show_help">Erweiterte Hilfe anzeigen </string>
+    <string name="button_show_help">Hilfe anzeigen</string>
     <string name="icon_update_status">Status der Aktualisierung</string>
     <string name="text_update">Alle Hosts-Dateien aus den hinterlegten Quellen werden heruntergeladen. Anschließend diese zur ihrer eigenen Liste hinzugefügt und als eine Hosts-Datei im System installiert.</string>
     <string name="button_enable_hosts">Werbeblocker aktivieren</string>
     <string name="button_disable_hosts">Werbeblocker deaktivieren</string>
     <string name="header_webserver">Webserver</string>
     <string name="webserver_status_running">Läuft</string>
-    <string name="webserver_status_stopped">Gestoppt</string>
+    <string name="webserver_status_stopped">Angehalten</string>
     <string name="webserver_toggle_text">Lokalen Webserver starten oder stoppen, um Anfragen an blockierte Hostnamen zu beantworten. </string>
     <string name="button_enable_webserver">Webserver aktivieren</string>
     <string name="button_disable_webserver">Webserver deaktivieren</string>
@@ -89,7 +89,7 @@
     <string name="notification_configuration_failed">Anwendung der neuen Konfiguration ist fehlgeschlagen.</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">Die Verknüpfung (Symlink) zur Hosts-Datei fehlt</string>
+    <string name="apply_symlink_missing_status">Die symbolische Verknüpfung (symlink) zur Hosts-Datei fehlt</string>
     <string name="apply_symlink_missing">Die symbolische Verknüpfung (Symlink) zwischen Ziel und /system/etc/hosts ist nicht vorhanden oder falsch! Ohne diese Verknüpfung wird AdAway nicht funktionieren.\n\nMöchten Sie versuchen eine symbolische Verknüpfung zu erstellen?</string>
     <string name="apply_symlink_missing_title">Symbolische Verknüpfung fehlt</string>
     <string name="apply_not_enough_space">Nicht genügend Speicherplatz auf der Partition frei!\nVersuchen Sie die zu benutzende Hosts-Datei auf /data/data/hosts zu ändern.</string>
@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">Update seit %1$snotwendig</string>
     <string name="hosts_source_last_update">Letzte Aktualisierung vor %1$s</string>
     <string name="hosts_source_unknown_status">Status der Aktualisierung unbekannt</string>
+    <string name="hosts_source_disabled">Deaktiviert</string>
     <string name="hosts_source_few_minutes">wenigen Minuten</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d Minute</item>
