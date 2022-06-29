@@ -16,8 +16,8 @@
     <string name="button_show_help">Zobrazit další nápovědu</string>
     <string name="icon_update_status">Aktualizovat status</string>
     <string name="text_update">Všechny soubory hostitelů z vybraných zdrojů budou staženy, sloučeny s vašimi vlastními seznamy a aplikovány do vašeho systému jako jeden soubor hostitelů.</string>
-    <string name="button_enable_hosts">Zapnout blokování reklamy</string>
-    <string name="button_disable_hosts">Vypnout blokování reklamy</string>
+    <string name="button_enable_hosts">Zapnout blokování reklam</string>
+    <string name="button_disable_hosts">Vypnout blokování reklam</string>
     <string name="header_webserver">Webový server</string>
     <string name="webserver_status_running">Spuštěn</string>
     <string name="webserver_status_stopped">Vypnut</string>
@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">Dostupná aktualizace před %1$s</string>
     <string name="hosts_source_last_update">Poslední aktualizace před %1$s</string>
     <string name="hosts_source_unknown_status">Neznámý stav aktualizace</string>
+    <string name="hosts_source_disabled">Zakázáno</string>
     <string name="hosts_source_few_minutes">pár minutami</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minutou</item>
