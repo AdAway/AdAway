@@ -164,7 +164,7 @@ public class SourceModel {
             this.hostsSourceDao.updateOnlineModificationDate(source.getId(), lastModifiedOnline);
             // Check if last modified online retrieved
             if (lastModifiedOnline == null) {
-                // If not, consider update is available if install is older than a day
+                // If not, consider update is available if install is older than a week
                 ZonedDateTime lastWeek = ZonedDateTime.now().minus(1, WEEKS);
                 if (lastModifiedLocal != null && lastModifiedLocal.isBefore(lastWeek)) {
                     updateAvailable = true;
