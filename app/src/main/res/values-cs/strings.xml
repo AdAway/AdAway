@@ -19,8 +19,8 @@
     <string name="button_enable_hosts">Zapnout blokování reklam</string>
     <string name="button_disable_hosts">Vypnout blokování reklam</string>
     <string name="header_webserver">Webový server</string>
-    <string name="webserver_status_running">Spuštěn</string>
-    <string name="webserver_status_stopped">Vypnut</string>
+    <string name="webserver_status_running">Spuštěna</string>
+    <string name="webserver_status_stopped">Vypnuta</string>
     <string name="webserver_toggle_text">Zapnout nebo vypnout webový server pro odpovídání na požadavky na jména zablokovaných hostitelů.</string>
     <string name="button_enable_webserver">Povolit webový server</string>
     <string name="button_disable_webserver">Zakázat webový server</string>
@@ -62,7 +62,7 @@
     <string name="status_revert">Obnovování výchozího souboru hostitelů</string>
     <string name="status_revert_done">Výchozí soubor hostitelů obnoven</string>
     <string name="status_reverting_subtitle">Vytváření standardního souboru hostitelů</string>
-    <string name="status_update_available">Aktualizace zdroje k dispozici</string>
+    <string name="status_update_available">Je k dispozici aktualizace zdroje</string>
     <string name="status_update_available_subtitle">Jsou dostupné novější soubory hostitelů</string>
     <string name="status_no_update_found">Nebyla nalezena žádná aktualizace zdroje</string>
     <string name="status_no_connection">Bez připojení k internetu</string>
