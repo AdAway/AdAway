@@ -75,6 +75,6 @@ public interface HostsSourceDao {
     @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online <= last_modified_local")
     LiveData<Integer> countUpToDate();
 
-    @Query("UPDATE hosts_sources SET last_modified_local = null, size = 0 WHERE id = :id")
+    @Query("UPDATE hosts_sources SET last_modified_local = NULL, last_modified_online = NULL, entityTag = NULL, size = 0 WHERE id = :id")
     void clearProperties(int id);
 }
