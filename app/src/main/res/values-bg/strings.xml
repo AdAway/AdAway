@@ -19,8 +19,8 @@
     <string name="button_enable_hosts">Включване блокирането на реклами</string>
     <string name="button_disable_hosts">Изключване блокирането на реклами</string>
     <string name="header_webserver">Уеб сървър</string>
-    <string name="webserver_status_running">Включен</string>
-    <string name="webserver_status_stopped">Изключен</string>
+    <string name="webserver_status_running">Работи</string>
+    <string name="webserver_status_stopped">Спрян</string>
     <string name="webserver_toggle_text">Включване или изключване на местен уеб сървър, отговарящ на заявки към блокирани хостове.</string>
     <string name="button_enable_webserver">Включване на уеб сървър</string>
     <string name="button_disable_webserver">Изключване на уеб сървър</string>
@@ -62,7 +62,7 @@
     <string name="status_revert">Връщане към файл с хостове по подразбиране</string>
     <string name="status_revert_done">Файлът с хостове по подразбиране е възстановен</string>
     <string name="status_reverting_subtitle">Създаване на стандартен файл Hosts</string>
-    <string name="status_update_available">Налично е обновяване</string>
+    <string name="status_update_available">Налице е актуализация на източник</string>
     <string name="status_update_available_subtitle">Налични са нови файлове hosts</string>
     <string name="status_no_update_found">Няма обновен източник</string>
     <string name="status_no_connection">Няма връзка с интернет</string>
@@ -199,7 +199,7 @@
         <item>Начало</item>
         <item>Източници за Hosts файла</item>
         <item>Вашите списъци</item>
-        <item>Отваряне на Hosts файла</item>
+        <item>Отваряне на файла hosts</item>
         <item>Регистриране на DNS заявките</item>
         <item>Сканиране за рекламен софтуер</item>
         <item>Настройки</item>
@@ -230,7 +230,7 @@
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d ден</item>
-        <item quantity="other">%d дни</item>
+        <item quantity="other">%d дена</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d месец</item>
