@@ -219,21 +219,26 @@ Vuoi installare OI File Manager?</string>
     <string name="hosts_source_need_update">Richiede aggiornamento da %1$s</string>
     <string name="hosts_source_last_update">Ultimo aggiornamento %1$s fa</string>
     <string name="hosts_source_unknown_status">Stato aggiornamento sconosciuto</string>
+    <string name="hosts_source_disabled">Disabilitato</string>
     <string name="hosts_source_few_minutes">pochi minuti</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minuto</item>
+        <item quantity="many">%d minuti</item>
         <item quantity="other">%d minuti</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d ora</item>
+        <item quantity="many">%d ore</item>
         <item quantity="other">%d ore</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d giorno</item>
+        <item quantity="many">%d giorni</item>
         <item quantity="other">%d giorni</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mese</item>
+        <item quantity="many">%d mesi</item>
         <item quantity="other">%d mesi</item>
     </plurals>
 
