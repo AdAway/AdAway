@@ -22,7 +22,7 @@
     <string name="webserver_status_running">Εκτελείται</string>
     <string name="webserver_status_stopped">Διακόπηκε</string>
     <string name="webserver_toggle_text">Ξεκινήστε ή διακόψτε webserver στο localhost για να απαντήσετε σε αιτήματα σε αποκλεισμένα hostnames.</string>
-    <string name="button_enable_webserver">Ενεργοποίηση διακομιστή διαδικτύου</string>
+    <string name="button_enable_webserver">Ενεργοποίηση του διακομιστή ιστοσελίδων</string>
     <string name="button_disable_webserver">Απενεργοποήση διακομιστή διαδικτύου</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Εκτελείται</string>
@@ -72,7 +72,7 @@
     <string name="status_root_access_denied">Η πρόσβαση Root απορρίφθηκε </string>
     <string name="status_root_access_denied_subtitle">Επιτρέψετε την πρόσβαση Root από την Root εφαρμογή σας</string>
     <string name="status_failure">Κάτι πήγε λάθος</string>
-    <string name="status_failure_subtitle">Δείτε το αρχείο καταγραφής (logcat) για περισσότερες λεπτομέρειες.</string>
+    <string name="status_failure_subtitle">Δείτε το αρχείο καταγραφής για περισσότερες λεπτομέρειες.</string>
     <string name="status_enabled">Ενεργοποιημένο</string>
     <string name="status_enabled_subtitle">Ενεργοποιήθηκαν τα πιο πρόσφατα αρχεία hosts</string>
     <string name="status_disabled">Απενεργοποιημένο</string>
@@ -224,7 +224,7 @@
         <item>Άνοιγμα του αρχείου hosts</item>
         <item>Εγγραφή αιτημάτων DNS</item>
         <item>Σάρωση για adware</item>
-        <item>Επιλογές</item>
+        <item>Προτιμήσεις</item>
         <item>Βοήθεια</item>
     </string-array>
     <!--Drawer menu labels-->
@@ -232,7 +232,7 @@
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Αιτήματα DNS</string>
     <string name="shortcut_your_lists">Οι λίστες σας</string>
-    <string name="shortcut_preferences">Επιλογές</string>
+    <string name="shortcut_preferences">Προτιμήσεις</string>
 
     <!--Hosts source status-->
     <string name="hosts_source_installed">Εγκαταστάθηκε %1$s πριν</string>
