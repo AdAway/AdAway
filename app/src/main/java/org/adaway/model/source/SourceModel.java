@@ -91,7 +91,7 @@ public class SourceModel {
     /**
      * The HTTP client to download hosts sources ({@code null} until initialized by {@link #getHttpClient()}).
      */
-    private OkHttpClient httpClient;
+    private OkHttpClient cachedHttpClient;
 
     /**
      * Constructor.
@@ -392,12 +392,12 @@ public class SourceModel {
      */
     @NonNull
     private OkHttpClient getHttpClient() {
-        if (this.httpClient == null) {
-            this.httpClient = new OkHttpClient.Builder()
+        if (this.cachedHttpClient == null) {
+            this.cachedHttpClient = new OkHttpClient.Builder()
                     .cache(new Cache(this.context.getCacheDir(), CACHE_SIZE))
                     .build();
         }
-        return this.httpClient;
+        return this.cachedHttpClient;
     }
 
     /**
