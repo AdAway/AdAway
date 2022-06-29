@@ -42,6 +42,9 @@
     <string name="import_success">Copie de rezervă importată cu succes din stocarea externă.</string>
     <string name="import_failed">Imposibil de importat copia de rezervă. Ați verificat corectitudinea formatului? Analizează logcat-ul pentru mai multe detalii.</string>
     <string name="export_dialog">Exportă…</string>
+    <string name="export_success">Exportul s-a realizat cu succes, fișierul %s a fost scris în memoria externă.</string>
+    <string name="export_failed">Exportul a eșuat, fișierul %s nu a fost scris.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Fișierul \'hosts\'</string>
     <string name="hosts_description">Fișierul hosts este un fișier de sistem care mapează numele serverelor la adrese IP. Este pur și simplu un fișier text a cărui configurație este gestionată de către  AdAway. Iată câteva linii din începutul fișierului:</string>
@@ -215,6 +218,7 @@
     <string name="hosts_source_need_update">Actualizare necesară de acum %1$s</string>
     <string name="hosts_source_last_update">Actualizat acum %1$s </string>
     <string name="hosts_source_unknown_status">Status de actualizare necunoscut</string>
+    <string name="hosts_source_disabled">Dezactivat</string>
     <string name="hosts_source_few_minutes">câteva minute</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minut</item>
@@ -237,6 +241,9 @@
         <item quantity="other">%d luni</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Adresă copiată</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">se activează</string>
     <string name="vpn_notification_running">activ</string>
@@ -251,6 +258,9 @@
     <string name="vpn_notification_action_resume">Atingeți pentru continuare</string>
 
     <!-- Permission -->
+    <string name="permission_group_api_label">Permisiuni AdAway</string>
+    <string name="permission_group_api_description">Permite interacțiune cu AdAway</string>
     <string name="permission_send_command_label">Activare sau dezactivare sistem de blocare al reclamelor</string>
+    <string name="permission_send_command_description">Permite trimiterea comenzilor către AdAway, precum activarea/dezactivarea protecției globale AdAway.</string>
 
 </resources>
