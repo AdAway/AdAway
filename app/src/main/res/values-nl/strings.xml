@@ -7,15 +7,15 @@
     <string name="button_no">Nee</string>
     <string name="button_add">Toevoegen</string>
     <string name="button_cancel">Annuleren</string>
-    <string name="button_save">Opslaan</string>
-    <string name="button_help">Hulp</string>
+    <string name="button_save">Bewaren</string>
+    <string name="button_help">Help</string>
 
     <!--Home-->
     <string name="header_help">Welkom!</string>
     <string name="text_help">AdAway is vrije software, ontworpen om advertenties te blokkeren. Het haalt de adressen van reclamenetwerken en blokkeert deze op uw apparaat.\nWilt u meer weten? Bekijk de hulpsectie hieronder.</string>
-    <string name="button_show_help">Meer hulp tonen</string>
+    <string name="button_show_help">Meer help tonen</string>
     <string name="icon_update_status">Status bijwerken</string>
-    <string name="text_update">Alle hosts-bestanden van de gekozen bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geplaatst.</string>
+    <string name="text_update">Alle hosts-bestanden van de gedefinieerde bronnen worden gedownload, samengevoegd met uw eigen lijsten en als één hosts-bestand op uw systeem geïnstalleerd.</string>
     <string name="button_enable_hosts">Advertentieblokkering inschakelen</string>
     <string name="button_disable_hosts">Advertentieblokkering uitschakelen</string>
     <string name="header_webserver">Webserver</string>
@@ -35,7 +35,7 @@
     <string name="checkbox_list_context_title">Invoer bewerken</string>
     <string name="checkbox_list_context_apply">Toepassen</string>
     <string name="checkbox_list_context_edit">Bewerken</string>
-    <string name="checkbox_list_context_delete">Verwijderen</string>
+    <string name="checkbox_list_context_delete">Verwijder</string>
 
     <!--Your lists-->
     <string name="import_dialog">Bezig met importeren…</string>
@@ -61,20 +61,20 @@
     <string name="status_sync_database">Database synchroniseren</string>
     <string name="status_revert">Bezig met terugzetten van standaard hosts-bestand</string>
     <string name="status_revert_done">Het standaard hosts-bestand is teruggezet</string>
-    <string name="status_reverting_subtitle">Standaard hosts-bestand aanmaken</string>
-    <string name="status_update_available">Er is een update beschikbaar</string>
-    <string name="status_update_available_subtitle">Nieuwere hosts-bestanden beschikbaar</string>
+    <string name="status_reverting_subtitle">Bezig met aanmaken van nieuw hosts-bestand</string>
+    <string name="status_update_available">Er is een bronupdate beschikbaar</string>
+    <string name="status_update_available_subtitle">Er zijn nieuwere hosts-bestanden beschikbaar.</string>
     <string name="status_no_update_found">Geen bronupdates gevonden</string>
     <string name="status_no_connection">Geen internetverbinding</string>
     <string name="status_no_connection_subtitle">Geen internetverbinding beschikbaar</string>
     <string name="status_download_fail">Bronnen zijn niet beschikbaar</string>
-    <string name="status_download_fail_subtitle_new">Geen bereikbare hosts-bronnen!</string>
+    <string name="status_download_fail_subtitle_new">Er zijn geen hosts-bronnen bereikbaar!</string>
     <string name="status_root_access_denied">Root toegang geweigerd</string>
     <string name="status_root_access_denied_subtitle">Root toegang toestaan</string>
     <string name="status_failure">Er ging iets mis</string>
     <string name="status_failure_subtitle">Bekijk de logcat voor details</string>
     <string name="status_enabled">Ingeschakeld</string>
-    <string name="status_enabled_subtitle">Nieuwste hosts-bestanden toegepast</string>
+    <string name="status_enabled_subtitle">Nieuwste hosts-bestanden ingeschakeld</string>
     <string name="status_disabled">Uitgeschakeld</string>
     <string name="status_disabled_subtitle">Standaard hosts-bestand geïnstalleerd</string>
     <string name="status_apply_sources">Nieuwste bronnen toepassen</string>
@@ -90,11 +90,12 @@
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">De symlink naar het hosts-bestand ontbreekt</string>
-    <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst.\n\nWilt u proberen een symlink te maken?</string>
+    <string name="apply_symlink_missing">Symlink van de gekozen locatie naar /system/etc/hosts bestaat niet, of verwijst niet naar het juiste bestand! AdAway werkt niet als de symlink niet naar het juiste bestand verwijst. Wilt u proberen een symlink te maken?</string>
     <string name="apply_symlink_missing_title">Symlink ontbreekt</string>
-    <string name="apply_not_enough_space">Onvoldoende ruimte op de systeempartitie!\nVerander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
+    <string name="apply_not_enough_space">Onvoldoende ruimte op de systeempartitie!
+Verander de locatie van het hosts-bestand naar /data/data/hosts in de voorkeuren.</string>
     <string name="apply_not_enough_space_title">Onvoldoende ruimte</string>
-    <string name="apply_private_file_fail">Gedownload bestand kon niet gelezen worden.</string>
+    <string name="apply_private_file_fail">Gedownload bestand kan niet worden gelezen.</string>
     <string name="apply_private_file_fail_title">Privébestandsfout</string>
     <string name="apply_remount_fail">Het opnieuw koppelen van de partitie als lezen/schrijven is mislukt!</string>
     <string name="apply_remount_fail_title">Opnieuw koppelen mislukt</string>
@@ -116,14 +117,14 @@ Wilt u herstarten?
     <string name="apply_symlink_successful_title">Symlink aangemaakt</string>
     <string name="apply_symlink_fail">De symlink kon niet door Android worden aangemaakt. Dit mislukt meestal door een \'feature\' genaamd S-ON op HTC telefoons! Een oplossing is uw telefoon in recoverymodus opstarten en hier de symlink aanmaken met \'ln -s /data/data/hosts /system/etc/hosts\'. Als dit niet werkt, zoek dan op internet naar S-OFF en uw telefoon.</string>
     <string name="apply_symlink_fail_title">Symlink aanmaken mislukt</string>
-    <string name="apply_help">Lees de hulp voor meer informatie.</string>
+    <string name="apply_help">Bekijk de hulpsectie voor meer informatie.</string>
     <string name="apply_apn_proxy">Een APN proxy is ingesteld op jouw Android! AdAway zal niet betrouwbaar werken als er gebruik gemaakt wordt van mobiele netwerken zoals 3G/4G. Je kan je proxy uitschakelen door naar je geselecteerde APN te gaan. (Op Android 4: draadloos en netwerken -&gt; meer… -&gt; Mobiele netwerken -&gt; namen toegangspunten) en de waarde in het proxy veld te verwijderen.</string>
     <string name="apply_apn_proxy_title">APN-proxy ingesteld!</string>
     <string name="no_connection">De internetverbinding werkt niet.</string>
     <string name="no_connection_title">Geen verbinding</string>
     <string name="download_dialog">Downloaden…</string>
     <string name="apply_dialog">Toepassen…</string>
-    <string name="apply_dialog_lists">Zwarte en witte lijst toepassen</string>
+    <string name="apply_dialog_lists">Black en whitelist toepassen</string>
     <string name="apply_dialog_hostnames">Lezen en samenvoegen van hosts-bestanden</string>
     <string name="apply_dialog_hosts">Hosts-bestand opbouwen</string>
     <string name="apply_dialog_apply">Hosts-bestand plaatsen</string>
@@ -156,7 +157,7 @@ Wilt u herstarten?
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Voer URL naar het hosts-bestand in:</string>
     <string name="no_hostname">Dit is geen correcte hostnaam!</string>
-    <string name="no_hostname_title">Hostnaam is verkeerd opgemaakt</string>
+    <string name="no_hostname_title">Host-naam onjuist geformatteerd</string>
     <string name="no_ip">Dit is geen correct IP-adres!</string>
     <string name="no_ip_title">IP-adres is verkeerd opgemaakt</string>
     <string name="reboot_never_reboot">Herstart nooit en laat deze vraag niet meer zien.</string>
@@ -165,7 +166,7 @@ Wilt u herstarten?
     <!--Menu entries-->
     <string name="menu_refresh">Verversen</string>
     <string name="menu_add">Toevoegen</string>
-    <string name="menu_help">Hulp</string>
+    <string name="menu_help">Help</string>
     <string name="menu_import">Back-up importeren</string>
     <string name="menu_export">Back-up exporteren</string>
 
@@ -212,13 +213,13 @@ Wilt u herstarten?
         <item>Log DNS verzoeken</item>
         <item>Scan op Adware</item>
         <item>Voorkeuren</item>
-        <item>Hulp</item>
+        <item>Help</item>
     </string-array>
     <!--Drawer menu labels-->
 
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS verzoeken</string>
-    <string name="shortcut_your_lists">Uw lijsten</string>
+    <string name="shortcut_your_lists">Mijn lijsten</string>
     <string name="shortcut_preferences">Voorkeuren</string>
 
     <!--Hosts source status-->
@@ -230,19 +231,19 @@ Wilt u herstarten?
     <string name="hosts_source_disabled">Uitgeschakeld</string>
     <string name="hosts_source_few_minutes">enkele minuten</string>
     <plurals name="hosts_source_minutes">
-        <item quantity="one">%dminuut</item>
+        <item quantity="one">%d minuten</item>
         <item quantity="other">%d minuten</item>
     </plurals>
     <plurals name="hosts_source_hours">
-        <item quantity="one">%duur</item>
+        <item quantity="one">%duren</item>
         <item quantity="other">%duren</item>
     </plurals>
     <plurals name="hosts_source_days">
-        <item quantity="one">%ddag</item>
+        <item quantity="one">%d dagen</item>
         <item quantity="other">%d dagen</item>
     </plurals>
     <plurals name="hosts_source_months">
-        <item quantity="one">%dmaand</item>
+        <item quantity="one">%dmaanden</item>
         <item quantity="other">%dmaanden</item>
     </plurals>
 
