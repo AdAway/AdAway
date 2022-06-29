@@ -277,11 +277,7 @@ public class SourceModel {
     private ZonedDateTime getFileLastUpdate(Uri fileUri) {
         ContentResolver contentResolver = this.context.getContentResolver();
         try (Cursor cursor = contentResolver.query(fileUri, null, null, null, null)) {
-            if (cursor == null) {
-                Timber.w("The content resolver could not find %s.", fileUri);
-                return null;
-            }
-            if (!cursor.moveToFirst()) {
+            if (cursor == null || !cursor.moveToFirst()) {
                 Timber.w("The content resolver could not find %s.", fileUri);
                 return null;
             }
@@ -331,7 +327,7 @@ public class SourceModel {
             // Check if update available
             ZonedDateTime localModificationDate = source.getLocalModificationDate();
             if (localModificationDate != null && localModificationDate.isAfter(onlineModificationDate)) {
-                Timber.i("Skip source " + source.getUrl() + ": no update.");
+                Timber.i("Skip source %s: no update.", source.getLabel());
                 continue;
             }
             // Increment number of copy
