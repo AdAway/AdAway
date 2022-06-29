@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">更新が必要 %1$s</string>
     <string name="hosts_source_last_update">最後の更新 %1$s</string>
     <string name="hosts_source_unknown_status">更新ステータスが不明</string>
+    <string name="hosts_source_disabled">無効になっています</string>
     <string name="hosts_source_few_minutes">数分前</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d 分前</item>
@@ -231,6 +232,9 @@
     <plurals name="hosts_source_months">
         <item quantity="other">%d ヶ月前</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">ホストをクリップボードにコピーしました</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">開始</string>
