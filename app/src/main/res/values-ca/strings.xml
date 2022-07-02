@@ -155,7 +155,7 @@
 
     <!--Menu entries-->
     <string name="menu_refresh">Refresca</string>
-    <string name="menu_add">Afegiu</string>
+    <string name="menu_add">Afegeix</string>
     <string name="menu_help">Ajuda</string>
     <string name="menu_import">Importar còpia de seguretat </string>
     <string name="menu_export">Exportar còpia de seguretat </string>
@@ -221,8 +221,8 @@
     <string name="hosts_source_disabled">Desactivat</string>
     <string name="hosts_source_few_minutes">pocs minuts</string>
     <plurals name="hosts_source_minutes">
-        <item quantity="one">%dminut</item>
-        <item quantity="other">%dminuts</item>
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minuts</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d hora</item>
@@ -234,7 +234,7 @@
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mes</item>
-        <item quantity="other">%dmesos</item>
+        <item quantity="other">%d mesos</item>
     </plurals>
 
     <!-- Clipboard -->
