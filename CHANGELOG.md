@@ -4,6 +4,7 @@
 
 - Improve hosts source cache to reduce bandwidth usage
 - Improve GitHub API usage to reduce bandwidth usage
+- Update AndroidX libraries
 
 Special thanks to yoshimo for its bug report.
 
