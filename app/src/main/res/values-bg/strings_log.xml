@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="log_toggle_recording_description">Превключване на дневника</string>
+    <string name="log_start_recording">Натиснете бутона за запис, за да започнат да се записват заявките в дневника. Разглеждайте в интернет или използвайте приложения, след това се върнете тук и дръпнете надолу, за да презаредите на дневника.</string>
+    <string name="log_blocked_requests_ignored">\n\nСпрените заявки нама да присъстват в дневника. Ако желаете да присъстват, тогава първо изключете спирането на рекламите.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Азбучно сортиране</string>
     <string name="log_sort_top_level_domain">Сортиране на домейн от първо ниво</string>

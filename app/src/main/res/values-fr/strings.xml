@@ -115,7 +115,7 @@
     <string name="no_connection_title">Aucune connexion</string>
     <string name="download_dialog">Téléchargement…</string>
     <string name="apply_dialog">Mise en place…</string>
-    <string name="apply_dialog_lists">Mise en place des liste noire et blanche</string>
+    <string name="apply_dialog_lists">Mise en place des liste de rejet et d’autorisation</string>
     <string name="apply_dialog_hostnames">Analyse et fusion des fichiers hosts</string>
     <string name="apply_dialog_hosts">Création du fichier hosts</string>
     <string name="apply_dialog_apply">Mise en place du fichier hosts</string>
@@ -180,14 +180,14 @@
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités et analyser ensuite les requêtes DNS d’après le fichier journal. Le serveur publicitaire candidat peut ensuite être ajouté à votre liste noire.</string>
+    <string name="tcpdump_description">Tcpdump est un outil pour surveiller les requêtes DNS et les enregistrer dans un fichier journal. Vous pouvez le démarrer en arrière-plan, lancer des applications qui affichent des publicités et analyser ensuite les requêtes DNS d’après le fichier journal. Le serveur publicitaire candidat peut ensuite être ajouté à votre liste de rejet.</string>
     <string name="tcpdump_disable_monitoring">Désactiver la surveillance</string>
     <string name="tcpdump_enable_monitoring">Activer la surveillance</string>
     <string name="tcpdump_show_results">Afficher les résultats</string>
     <string name="tcpdump_menu_sort">Trier les domaines</string>
     <string name="tcpdump_menu_clear">Effacer le journal</string>
-    <string name="tcpdump_entry_add_blacklist">Ajouter une entrée à la liste noire</string>
-    <string name="tcpdump_entry_add_whitelist">Ajouter une entrée à la liste blanche</string>
+    <string name="tcpdump_entry_add_blacklist">Ajouter une entrée à la liste de rejet</string>
+    <string name="tcpdump_entry_add_whitelist">Ajouter une entrée à la liste d’autorisation</string>
     <string name="tcpdump_entry_add_redirection_list">Ajouter une entrée à la liste des redirections</string>
 
     <string name="pref_edit_text_value">Modifier la valeur de préférence du texte</string>
@@ -218,21 +218,26 @@
     <string name="hosts_source_need_update">Mise à jour nécessaire pour %1$s</string>
     <string name="hosts_source_last_update">Dernière mise à jour il y a %1$s</string>
     <string name="hosts_source_unknown_status">L’état de mise à jour est inconnu</string>
+    <string name="hosts_source_disabled">Désactivé</string>
     <string name="hosts_source_few_minutes">quelques minutes</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minute</item>
+        <item quantity="many">%d minutes</item>
         <item quantity="other">%d minutes</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d heure</item>
+        <item quantity="many">%d heures</item>
         <item quantity="other">%d heures</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d jour</item>
+        <item quantity="many">%d jours</item>
         <item quantity="other">%d jours</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mois</item>
+        <item quantity="many">%d mois</item>
         <item quantity="other">%d mois</item>
     </plurals>
 
