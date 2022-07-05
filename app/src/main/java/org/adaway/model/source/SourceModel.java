@@ -260,8 +260,11 @@ public class SourceModel {
         Request request = getRequestFor(source).head().build();
         try (Response response = getHttpClient().newCall(request).execute()) {
             String lastModified = response.header(LAST_MODIFIED_HEADER);
-            return lastModified == null ? null :
-                    ZonedDateTime.parse(lastModified, RFC_1123_DATE_TIME);
+            if (lastModified == null) {
+                return response.code() == HTTP_NOT_MODIFIED ?
+                     source.getOnlineModificationDate() : null;
+            }
+            return ZonedDateTime.parse(lastModified, RFC_1123_DATE_TIME);
         } catch (IOException | DateTimeParseException e) {
             Timber.e(e, "Exception while fetching last modified date of source %s.", url);
             return null;
