@@ -22,7 +22,7 @@
     <string name="webserver_status_running">Berjalan</string>
     <string name="webserver_status_stopped">Berhenti</string>
     <string name="webserver_toggle_text">Mulai atau hentikan web server pada localhost untuk menjawab permintaan untuk memblok hostnames</string>
-    <string name="button_enable_webserver">Hidupkan layanan perambah</string>
+    <string name="button_enable_webserver">Aktifkan peladen web</string>
     <string name="button_disable_webserver">Matikan layanan perambah</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Berjalan</string>
