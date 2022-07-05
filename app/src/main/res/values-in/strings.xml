@@ -22,7 +22,7 @@
     <string name="webserver_status_running">Berjalan</string>
     <string name="webserver_status_stopped">Berhenti</string>
     <string name="webserver_toggle_text">Mulai atau hentikan web server pada localhost untuk menjawab permintaan untuk memblok hostnames</string>
-    <string name="button_enable_webserver">Hidupkan layanan perambah</string>
+    <string name="button_enable_webserver">Aktifkan peladen web</string>
     <string name="button_disable_webserver">Matikan layanan perambah</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Berjalan</string>
@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">Pembaruan dibutuhkan untuk %1$s</string>
     <string name="hosts_source_last_update">Pembaruan terakhir %1$s yang lalu</string>
     <string name="hosts_source_unknown_status">Status pembaharuan tidak diketahui</string>
+    <string name="hosts_source_disabled">Dimatikan</string>
     <string name="hosts_source_few_minutes">beberapa menit</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d menit</item>
