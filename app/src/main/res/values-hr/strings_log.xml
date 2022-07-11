@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">Uklj/Isklj bilježenje zapisa</string>
     <string name="log_start_recording">Pritisnite tipku snimanja za pokretanje bilježenja zahtjeva, pregledavajte web ili koristite aplikacije, zatim se vratite natag ili povucite po zaslonu za osvježavanje.</string>
