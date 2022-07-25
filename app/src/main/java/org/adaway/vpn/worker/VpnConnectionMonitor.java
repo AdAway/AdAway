@@ -117,8 +117,7 @@ public class VpnConnectionMonitor {
                 }
             }
         } catch (SocketException e) {
-            Timber.w(e, "Failed to test VPN network interface %s. Starting VPN service…",
-                    this.networkInterface == null ? "unset" : this.networkInterface.getName());
+            Timber.w(e, "Failed to test VPN network interface %s. Starting VPN service…", this.networkInterface.getName());
             VpnServiceControls.start(this.context);
         }
     }
