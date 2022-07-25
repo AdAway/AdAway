@@ -15,15 +15,15 @@
     <string name="text_help">AdAway je slobodan softver otvorenog kôda dizajniran za blokiranje oglašavanja. Preuzima popis adresa oglasa i podešava vaš uređaj kako bi ih mogao blokirati.\nŽelite li saznati više? Pogledajte pomoć ispod!</string>
     <string name="button_show_help">Prikaži više pomoći</string>
     <string name="icon_update_status">Stanje ažuriranja</string>
-    <string name="text_update">Sve datoteke poslužitelja su preuzete sa određenih izvora, spojene s vašim popisima i instalirane kao jedna datoteka na vašem sustavu.</string>
+    <string name="text_update">Sve datoteke poslužitelja su preuzete s određenih izvora, spojene s vašim popisima i instalirane kao jedna datoteka na vašem sustavu.</string>
     <string name="button_enable_hosts">Omogući blokiranje oglasa</string>
     <string name="button_disable_hosts">Onemogući blokiranje oglasa</string>
     <string name="header_webserver">Web poslužitelj</string>
     <string name="webserver_status_running">Pokrenuto</string>
     <string name="webserver_status_stopped">Zaustavljeno</string>
     <string name="webserver_toggle_text">Pokreni ili zaustavi web poslužitelj na lokalnom poslužitelju kako bi odgovarao na zahtjeve za blokiranje naziva poslužitelja.</string>
-    <string name="button_enable_webserver">Omogući web poslužitelj</string>
-    <string name="button_disable_webserver">Onemogući web poslužitelj</string>
+    <string name="button_enable_webserver">Omogući web poslužitelja</string>
+    <string name="button_disable_webserver">Onemogući web poslužitelja</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Pokrenuto</string>
     <string name="vpn_status_stopped">Zaustavljeno</string>
@@ -32,7 +32,7 @@
     <string name="button_disable_vpn">Onemogući VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_title">Uredi unos</string>
+    <string name="checkbox_list_context_title">Uredi upis</string>
     <string name="checkbox_list_context_apply">Primijeni</string>
     <string name="checkbox_list_context_edit">Uredi</string>
     <string name="checkbox_list_context_delete">Obriši</string>
@@ -53,31 +53,31 @@
 
     <!--Status Notification-->
     <string name="status_check">Provjeravanje ažuriranja</string>
-    <string name="status_check_source">Provjeravanje ažuriranja na izvoru %s</string>
-    <string name="status_retrieve">Primanje izvora</string>
-    <string name="status_download_source">Preuzimanje izvora %s</string>
-    <string name="status_read_source">Učitavanje izvora%s</string>
-    <string name="status_parse_source">Obrada %s izvora</string>
+    <string name="status_check_source">Provjeravanje ažuriranja na izvoru poslužitelja %s</string>
+    <string name="status_retrieve">Preuzimanje izvora poslužitelja</string>
+    <string name="status_download_source">Preuzimanje izvora poslužitelja %s</string>
+    <string name="status_read_source">Učitavanje izvora poslužitelja%s</string>
+    <string name="status_parse_source">Obrada %s izvora poslužitelja</string>
     <string name="status_sync_database">Usklađivanje baze podataka pravila</string>
-    <string name="status_revert">Primanje u zadanu datoteku poslužitelja</string>
+    <string name="status_revert">Preuzimanje u zadanu datoteku poslužitelja</string>
     <string name="status_revert_done">Zadana datoteka poslužitelja je obnovljena</string>
     <string name="status_reverting_subtitle">Stvaranje standardne datoteke poslužitelja</string>
-    <string name="status_update_available">Dostupno je ažuriranje izvora</string>
-    <string name="status_update_available_subtitle">Novija datoteka poslužitelja je dostupna</string>
-    <string name="status_no_update_found">Nema pronađenih ažuriranja izvora</string>
+    <string name="status_update_available">Dostupno je ažuriranje izvora poslužitelja</string>
+    <string name="status_update_available_subtitle">Dostupne su novije datoteke poslužitelja</string>
+    <string name="status_no_update_found">Nema pronađenih ažuriranja izvora poslužitelja</string>
     <string name="status_no_connection">Internet nedostupan</string>
     <string name="status_no_connection_subtitle">Nema dostupnog pristupa internetu</string>
-    <string name="status_download_fail">Nedostupni izvori</string>
+    <string name="status_download_fail">Nedostupni izvori poslužitelja</string>
     <string name="status_download_fail_subtitle_new">Nema dostupnih izvora poslužitelja!</string>
-    <string name="status_root_access_denied">Root pristup odbijen</string>
-    <string name="status_root_access_denied_subtitle">Dopustite root pristup iz vaše root aplikacije</string>
+    <string name="status_root_access_denied">Korijenski (Root) pristup odbijen</string>
+    <string name="status_root_access_denied_subtitle">Dopustite korijenski (root) pristup iz vaše root aplikacije</string>
     <string name="status_failure">Nešto je pošlo po krivu</string>
     <string name="status_failure_subtitle">Provjeri logcat zapis za više pojedinosti</string>
     <string name="status_enabled">Omogućeno</string>
     <string name="status_enabled_subtitle">Najnovija datoteka poslužitelja je omogućena</string>
     <string name="status_disabled">Onemogućeno</string>
     <string name="status_disabled_subtitle">Zadana datoteka poslužitelja je instalirana</string>
-    <string name="status_apply_sources">Primijeni posljednje izvora</string>
+    <string name="status_apply_sources">Primijeni najnovije izvore poslužitelja</string>
     <string name="status_create_new_hosts">Stvaranje nove datoteke poslužitelja</string>
     <string name="status_copy_new_hosts">Kopiranje nove datoteke poslužitelja</string>
     <string name="status_check_copy">Provjeravanje kopiranja datoteke poslužitelja </string>
@@ -97,7 +97,7 @@
     <string name="apply_private_file_fail">Preuzeta datoteka se ne može pročitati.</string>
     <string name="apply_private_file_fail_title">Neuspjela privatna datoteka</string>
     <string name="apply_remount_fail">Ponovno montiranje particije uslijed neuspjelog čitanja/pisanja!</string>
-    <string name="apply_remount_fail_title">Ponovo montiranje nije uspjelo</string>
+    <string name="apply_remount_fail_title">Neuspjelo ponovno montiranje</string>
     <string name="apply_copy_fail_status">Neuspjelo kopiranje datoteke poslužitelja</string>
     <string name="apply_copy_fail">Neuspjelo kopiranje datoteke poslužitelja!</string>
     <string name="apply_copy_fail_title">Neuspjelo kopiranje</string>
@@ -110,26 +110,26 @@
     <string name="apply_symlink_fail_title">Stvaranje simboličke poveznice je neuspješno</string>
     <string name="apply_help">Pročitajte pomoć za više informacija.</string>
     <string name="apply_apn_proxy">APN proxy je postavljen na vašem Androidu!\nAdAway neće pouzdano raditi na mobilnim 3G mrežama. Taj proxy možete deaktivirati odlaskom na vaš odabrani APN (Iz aplikacije Postavke: Sim kartice -> Sim postavke -> Pristupne točke -> Uredi pristupnu točku) i obrišite podatak u proxy polju.</string>
-    <string name="apply_apn_proxy_title">APN proxy postavljen!</string>
+    <string name="apply_apn_proxy_title">APN proxy  je postavljen!</string>
     <string name="no_connection">Povezivanje s internetom ne radi.</string>
     <string name="no_connection_title">Internet nedostupan</string>
     <string name="download_dialog">Preuzimanje…</string>
     <string name="apply_dialog">Primijenjivanje…</string>
-    <string name="apply_dialog_lists">Primijenjivanje vaših blokiranih i neblokiranih popisa</string>
+    <string name="apply_dialog_lists">Primijenjivanje blokiranih i neblokiranih popisa</string>
     <string name="apply_dialog_hostnames">Obrada i spajanje datoteka poslužitelja</string>
     <string name="apply_dialog_hosts">Izgradnja datoteke poslužitelja</string>
     <string name="apply_dialog_apply">Primijenjivanje datoteke poslužitelja</string>
     <string name="apply_fail_status">Neuspjela primjena nove datoteke poslužitelja.</string>
     <string name="apply_fail">Primijenjivanje datoteke poslužitelja na vašem sustavu nije uspjelo!\n Pokušajte promijeniti odredišnu datoteku poslužitelja u postavkama u /data/data/hosts.</string>
-    <string name="apply_fail_title">Primijenjivanje nije uspjelo</string>
-    <string name="root_access_fail">Provjerite vašu aplikacija root upravljanja kako bi osigurali da je vaš root pristup dopušten.</string>
+    <string name="apply_fail_title">Primijenjivanje neuspjelo</string>
+    <string name="root_access_fail">Provjerite vašu aplikaciju root upravljanja kako bi osigurali da je vaš korijenski (root) pristup dopušten.</string>
     <string name="revert_successful">Ponovno koristite izvornu datoteku poslužitelja.\nPonekada je potrebno ponovo pokrenuti Android za primijenjivanje promjena.\n\n Želite li ponovo pokrenuti Android?\n (Kako biste izbjegli gubitak podataka pobrinite se da nijedna aplikacija trenutno ne koristi memorijsku karticu!)</string>
     <string name="revert_successful_title">Uspješno vraćanje na izvorno</string>
-    <string name="revert_failed_status">Neuspjelo vraćanje datoteke poslužitelja</string>
+    <string name="revert_failed_status">Neuspjelo vraćanje izvorne datoteke poslužitelja</string>
     <string name="revert_problem">Neuspješno vraćanje na izvorno uslijed nepoznatih razloga.</string>
     <string name="revert_problem_title">Neuspješno vraćanje na izvorno!</string>
-    <string name="download_fail_dialog">Niti jedan od vaših omogućenih izvora poslužitelja nije dostupan! Jeste li ispravno povezani na internet?</string>
-    <string name="download_fail_title">Preuzimanje nije uspjelo</string>
+    <string name="download_fail_dialog">Niti jedan od vaših omogućenih izvora poslužitelja nije dostupan! Jeste li ispravno povezani s internetom?</string>
+    <string name="download_fail_title">Neuspjelo preuzimanje</string>
     <string name="no_private_file_status">Neuspjelo zapisivanje nove privatne datoteke poslužitelja</string>
     <string name="no_private_file">Privatna datoteka se ne može stvoriti.</string>
     <string name="no_private_file_title">Neuspjelo stvaranje privatne datoteke</string>
@@ -140,17 +140,17 @@
     <string name="enable_vpn_fail">Neuspjelo omogućavanje VPN blokiranja oglasa.</string>
     <string name="disable_vpn_fail">Neuspjelo onemogućavanje VPN blokiranja oglasa.</string>
     <string name="enable_systemless_magisk_title">Omogućavanje Magisk modula poslužitelja</string>
-    <string name="enable_systemless_magisk">Omogućite systemless hosts značajku iz Magisk upravitelja. Iz njegovih postavki, omogućite <cite>Systemless hosts</cite> mogućnost zatim ponovno pokrenite svoj uređaj.</string>
+    <string name="enable_systemless_magisk">Omogućite bezsustavsku (systemless) hosts značajku iz Magisk upravitelja. Iz njegovih postavki, omogućite <cite>Systemless hosts</cite> mogućnost zatim ponovno pokrenite svoj uređaj.</string>
     <string name="disable_systemless_magisk_title">Onemogućavanje Magisk modula poslužitelja</string>
-    <string name="disable_systemless_magisk">Onemogućite systemless hosts značajku iz Magisk upravitelja. Iz popisa modula, deinstalirajte <cite>Systemless hosts</cite> modul zatim ponovno pokrenite svoj uređaj.</string>
+    <string name="disable_systemless_magisk">Onemogućite bezsustavsku (systemless) hosts značajku iz Magisk upravitelja. Iz popisa modula, deinstalirajte <cite>Systemless hosts</cite> modul zatim ponovno pokrenite svoj uređaj.</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Upiši URL do datoteke poslužitelja:</string>
+    <string name="hosts_add_dialog">URL unosa za datoteku poslužitelja:</string>
     <string name="no_hostname">Ovo nije valjan naziv poslužitelja!</string>
     <string name="no_hostname_title">Nepravilno oblikovan naziv poslužitelja</string>
-    <string name="no_ip">Ovo nije valjani IP!</string>
-    <string name="no_ip_title">Nepravilno oblikovan IP</string>
-    <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne prikazuj više ovo pitanje!</string>
+    <string name="no_ip">Ovo nije valjana IP adresa!</string>
+    <string name="no_ip_title">Nepravilno oblikovana IP adresa</string>
+    <string name="reboot_never_reboot">Nikada ne pokreći ponovno i ne prikazuj ovo pitanje!</string>
     <string name="loading">Učitavanje…</string>
 
     <!--Menu entries-->
@@ -175,8 +175,8 @@
     <string name="app_subtitle">Blokator oglasa</string>
     <string name="no_text_editor_title">Nema instaliranog uređivača teksta</string>
     <string name="no_text_editor">Nema instaliranog uređivača teksta za otvaranje datoteke poslužitelja. Možete instalirati Jotu ili sličnog uređivača teksta.\n\n Želite li instalirati Jotu?</string>
-    <string name="no_file_manager_title">Nema instaliranog upravitelja datotekama</string>
-    <string name="no_file_manager">Nemoguće je pronaći upravitelja datotekama. Možete instalirati OI File Managera ili drugog upravitelja datotekama.\n\n Želite li instalirati OI File Manager?</string>
+    <string name="no_file_manager_title">Nema instaliranog upravitelja datoteka</string>
+    <string name="no_file_manager">Nemoguće je pronaći upravitelja datoteka. Možete instalirati OI File Managera ili drugog upravitelja datoteka.\n\n Želite li instalirati OI File Manager?</string>
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
@@ -219,24 +219,24 @@
     <string name="hosts_source_last_update">Posljednje ažuriranje prije %1$s</string>
     <string name="hosts_source_unknown_status">Nepoznato stanje ažuriranja</string>
     <string name="hosts_source_disabled">Onemogućeno</string>
-    <string name="hosts_source_few_minutes">par minuta</string>
+    <string name="hosts_source_few_minutes">nekoliko minuta</string>
     <plurals name="hosts_source_minutes">
-        <item quantity="one">%d minute</item>
+        <item quantity="one">%d minuta</item>
         <item quantity="few">%d minute</item>
         <item quantity="other">%d minuta</item>
     </plurals>
     <plurals name="hosts_source_hours">
-        <item quantity="one">%d sata</item>
+        <item quantity="one">%d sat</item>
         <item quantity="few">%d sata</item>
         <item quantity="other">%d sati</item>
     </plurals>
     <plurals name="hosts_source_days">
-        <item quantity="one">%d dana</item>
+        <item quantity="one">%d dan</item>
         <item quantity="few">%d dana</item>
         <item quantity="other">%d dana</item>
     </plurals>
     <plurals name="hosts_source_months">
-        <item quantity="one">%d mjeseca</item>
+        <item quantity="one">%d mjesec</item>
         <item quantity="few">%d mjeseca</item>
         <item quantity="other">%d mjeseca</item>
     </plurals>
