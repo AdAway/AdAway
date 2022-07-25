@@ -61,7 +61,7 @@ def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) 
     rename '(.+)', 'lib$1_exec.so'
 
     eachFile {
-        println "Replacing " + it.getPath() + " from ${flavor} ndkBuild directory"
+        println "Replacing ${it.getPath()} from ${flavor} ndkBuild directory"
     }
 }
 
