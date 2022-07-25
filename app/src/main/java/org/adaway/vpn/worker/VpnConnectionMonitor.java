@@ -104,7 +104,8 @@ public class VpnConnectionMonitor {
             while (this.running.get()) {
                 if (this.networkInterface != null && !this.networkInterface.isUp()) {
                     stop();
-                    Timber.i("VPN network interface %s is down. Starting VPN service…", this.networkInterface);
+                    Timber.i("VPN network interface %s is down. Starting VPN service…",
+                            this.networkInterface == null ? "unset" : this.networkInterface.getName());
                     VpnServiceControls.start(this.context);
                 }
                 try {
@@ -116,7 +117,8 @@ public class VpnConnectionMonitor {
                 }
             }
         } catch (SocketException e) {
-            Timber.w(e, "Failed to test VPN network interface. Starting VPN service…");
+            Timber.w(e, "Failed to test VPN network interface %s. Starting VPN service…",
+                    this.networkInterface == null ? "unset" : this.networkInterface.getName());
             VpnServiceControls.start(this.context);
         }
     }

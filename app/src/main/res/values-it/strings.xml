@@ -22,7 +22,7 @@
     <string name="webserver_status_running">In esecuzione</string>
     <string name="webserver_status_stopped">Interrotto</string>
     <string name="webserver_toggle_text">Avvia o interrompe il web server su localhost per rispondere alle richieste degli hostname bloccati</string>
-    <string name="button_enable_webserver">Abilita il web server</string>
+    <string name="button_enable_webserver">Abilita web server</string>
     <string name="button_disable_webserver">Disabilita web server</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">In esecuzione</string>
@@ -62,7 +62,7 @@
     <string name="status_revert">Ripristino in corso del file hosts predefinito</string>
     <string name="status_revert_done">File hosts predefinito ripristinato</string>
     <string name="status_reverting_subtitle">Creo file hosts standard</string>
-    <string name="status_update_available">Aggiornamento sorgenti disponibile</string>
+    <string name="status_update_available">Disponibile aggiornamento sorgenti</string>
     <string name="status_update_available_subtitle">File hosts più recenti disponibili</string>
     <string name="status_no_update_found">Nessuna sorgente da aggiornare</string>
     <string name="status_no_connection">Nessuna connessione internet</string>
@@ -198,12 +198,12 @@ Vuoi installare OI File Manager?</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
-        <item>Sorgenti host</item>
+        <item>Sorgenti hosts</item>
         <item>Le tue liste</item>
         <item>Apri file hosts</item>
         <item>Log richieste DNS</item>
         <item>Scansione Adware</item>
-        <item>Preferenze</item>
+        <item>Impostazioni</item>
         <item>Aiuto</item>
     </string-array>
     <!--Drawer menu labels-->
@@ -211,7 +211,7 @@ Vuoi installare OI File Manager?</string>
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Richieste DNS</string>
     <string name="shortcut_your_lists">Le tue liste</string>
-    <string name="shortcut_preferences">Preferenze</string>
+    <string name="shortcut_preferences">Impostazioni</string>
 
     <!--Hosts source status-->
     <string name="hosts_source_installed">Installato %1$s fa</string>
@@ -228,7 +228,7 @@ Vuoi installare OI File Manager?</string>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d ora</item>
-        <item quantity="many">%d ore</item>
+        <item quantity="many">%d</item>
         <item quantity="other">%d ore</item>
     </plurals>
     <plurals name="hosts_source_days">
@@ -239,7 +239,7 @@ Vuoi installare OI File Manager?</string>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mese</item>
         <item quantity="many">%d mesi</item>
-        <item quantity="other">%d mesi</item>
+        <item quantity="other">%dmesi</item>
     </plurals>
 
     <!-- Clipboard -->
