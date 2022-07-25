@@ -40,8 +40,8 @@ Before releasing any new version, be sure to update the changelog to let users k
 ## 4 - Building release APK
 
 The release apk must be built with release flavor (not debug). Check [contributing guide for building instructions](CONTRIBUTING.md#building-the-project).    
-**The apk name follows the following format: `AdAway-<version_name>-<yymmdd>.apk`**.
-Example: _AdAway-4.0.8-180822.apk_ for the version 4.0.8 built the 08/22/18.
+**The apk name follows the following format: `AdAway-<version_name>-<yyyymmdd>.apk`**.
+Example: _AdAway-6.1.2-20220817.apk_ for the version 6.1.2 built the 08/17/22.
 
 ## 5 - Distributing release
 
@@ -80,7 +80,7 @@ The beta releases are only announced in the XDA development thread.
 ### Stable releases
 
 The stable releases are distributed through [GitHub releases](https://github.com/AdAway/AdAway/releases) and [F-Droid store](https://f-droid.org/packages/org.adaway/) and are posted of the first post of XDA development thread.
-Once ready, create and push a tag on GitHub repository using  `vX.Y.Z` format (`vX.Y.Zb` for pre-releases).
+Once ready, create and push a tag on GitHub repository using  `vX.Y.Z` format (or `vX.Y.Zb` for pre-releases).
 To publish the application in GitHub:
 
 * Create a new version based on this tag,
