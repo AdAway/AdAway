@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
 }
 
-def keyStoreDefined = project.hasProperty('signingStoreLocation') &&
+boolean keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingStorePassword') &&
         project.hasProperty('signingKeyAlias') &&
         project.hasProperty('signingKeyPassword')
