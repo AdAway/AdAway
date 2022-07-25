@@ -1,6 +1,4 @@
-## [6.0.3] - Unreleased
-
-*This version is a pre-release*
+## [6.0.3] - 2022-07-25
 
 - Improve hosts source cache to reduce bandwidth usage
 - Improve GitHub API usage to reduce bandwidth usage
