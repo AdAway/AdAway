@@ -45,6 +45,13 @@ jobs:
       #   with:
       #     name: AdAway-dev
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
+      
+      - name: Update dependency graph
+        uses: mikepenz/gradle-dependency-submission@0.0.5
+        with:
+          gradle-dependency-path: "app/build.gradle"
+          gradle-build-module: ":app"
+          gradle-build-configuration: "releaseCompileClasspath"
 
       - name: Analyze project
         env:
