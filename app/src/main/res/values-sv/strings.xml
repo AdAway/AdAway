@@ -42,6 +42,9 @@
     <string name="import_success">Säkerhetskopian importerades från din extern lagring.</string>
     <string name="import_failed">Det gick inte att importera säkerhetskopian. Är dess format rätt? Kolla logcat för mer detaljer.</string>
     <string name="export_dialog">Exporterar…</string>
+    <string name="export_success">Backup successfully exported to file \'%s\' on your external storage.</string>
+    <string name="export_failed">Exporteringen av den säkerhetskopierade filen \'%s\' misslyckades</string>
+
     <!--Hosts content-->
     <string name="hosts_header">Värdfilen</string>
     <string name="hosts_description">Värdfilen (HOSTS) är en systemfil som mappar om värdnamn till IP-adresser. Det är en vanlig textfil som AdAway kan hantera. Här är några rader från början av filen:</string>
@@ -55,6 +58,7 @@
     <string name="status_download_source">Ladda ner källa %s</string>
     <string name="status_read_source">Läser källan %s</string>
     <string name="status_parse_source">Tolkar %s-källa</string>
+    <string name="status_sync_database">Synkroniserar regel-databas</string>
     <string name="status_revert">Återställer standardvärdfilen</string>
     <string name="status_revert_done">Standard värdfil återställd</string>
     <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
@@ -214,6 +218,7 @@
     <string name="hosts_source_need_update">%1$s behöver uppdateras</string>
     <string name="hosts_source_last_update">Senaste uppdateringen %1$s sedan</string>
     <string name="hosts_source_unknown_status">Okänd uppdaterigsstatus</string>
+    <string name="hosts_source_disabled">Avaktiverad</string>
     <string name="hosts_source_few_minutes">några minuter</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minut</item>
@@ -232,6 +237,9 @@
         <item quantity="other">%d månader</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Värden kopierades till klippbordet</string>
+
     <!--VPN notification-->
     <string name="vpn_notification_starting">startar</string>
     <string name="vpn_notification_running">aktiv</string>
@@ -246,6 +254,9 @@
     <string name="vpn_notification_action_resume">Tryck för att återuppta</string>
 
     <!-- Permission -->
+    <string name="permission_group_api_label">Behörigheter för AdAway</string>
+    <string name="permission_group_api_description">Tillåt interaktion med AdAway</string>
     <string name="permission_send_command_label">Aktivera och inaktivera systemets annonsblockering</string>
+    <string name="permission_send_command_description">Tillåt att skicka kommandon till AdAway exempelvis aktivering eller inaktivering av annonsblockering för hela systemet</string>
 
 </resources>
