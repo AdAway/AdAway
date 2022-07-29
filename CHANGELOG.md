@@ -1,3 +1,7 @@
+## [6.0.4] - 2022-07-25
+
+- Improve settings UI
+
 ## [6.0.3] - 2022-07-25
 
 - Improve hosts source cache to reduce bandwidth usage
