@@ -66,6 +66,13 @@ public interface HostEntryDao {
     @Query("SELECT * FROM `host_entries` ORDER BY `host`")
     List<HostEntry> getAll();
 
+    @Query("SELECT * FROM `host_entries` WHERE `type` == :type ORDER BY `host`")
+    List<HostEntry> getByType(int type);
+
+    // "LIMIT -1" is SQLite for "LIMIT ALL"
+    @Query("SELECT * FROM `host_entries` WHERE `type` == :type ORDER BY `host` LIMIT CASE WHEN :limit = 0 THEN -1 ELSE :limit END OFFSET CASE WHEN :offset < 0 THEN 0 ELSE :offset END")
+    List<HostEntry> getByType(int type, int limit, int offset);
+
     @Query("SELECT `type` FROM `host_entries` WHERE `host` == :host LIMIT 1")
     ListType getTypeOfHost(String host);
 
