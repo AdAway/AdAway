@@ -1,3 +1,9 @@
+## [6.0.5] - 2022-07-25
+
+- Update AndroidX libraries
+- Update third party libraries
+- Update Android gradle plugin
+
 ## [6.0.4] - 2022-07-25
 
 - Improve settings UI
