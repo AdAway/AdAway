@@ -100,19 +100,19 @@ dependencies {
     implementation project(':webserver')
 
     // AndroidX components
-    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'androidx.appcompat:appcompat:1.5.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.fragment:fragment:1.5.0'
+    implementation 'androidx.fragment:fragment:1.5.2'
     // "fragment-ktx" is not used but was added to fix the following dependency error:
     // Duplicate class androidx.lifecycle.ViewModelLazy found in modules lifecycle-viewmodel-2.5.0-runtime (androidx.lifecycle:lifecycle-viewmodel:2.5.0) and lifecycle-viewmodel-ktx-2.3.1-runtime
-    implementation 'androidx.fragment:fragment-ktx:1.5.0'
+    implementation 'androidx.fragment:fragment-ktx:1.5.2'
     implementation 'androidx.paging:paging-runtime:3.1.1'
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
-    implementation 'androidx.room:room-runtime:2.4.2'
-    implementation 'androidx.room:room-paging:2.4.2'
-    annotationProcessor 'androidx.room:room-compiler:2.4.2'
+    implementation 'androidx.room:room-runtime:2.4.3'
+    implementation 'androidx.room:room-paging:2.4.3'
+    annotationProcessor 'androidx.room:room-compiler:2.4.3'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.work:work-runtime:2.7.1'
     implementation 'com.google.android.material:material:1.6.1'
