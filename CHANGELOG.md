@@ -5,6 +5,7 @@
 - Update AndroidX libraries
 - Update third party libraries
 - Update Android gradle plugin
+- Update NDK
 
 ## [6.0.4] - 2022-07-25
 
