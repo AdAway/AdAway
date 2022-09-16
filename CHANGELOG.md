@@ -1,5 +1,6 @@
 ## [6.0.5] - 2022-07-25
 
+- Update mongoose web server
 - Update AndroidX libraries
 - Update third party libraries
 - Update Android gradle plugin
