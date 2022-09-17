@@ -1,5 +1,6 @@
-## [6.0.5] - 2022-07-25
+## [6.1.0] - Unreleased
 
+- Update target SDK to Android 13
 - Update libsu
 - Update mongoose web server
 - Update AndroidX libraries
