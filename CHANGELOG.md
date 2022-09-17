@@ -1,5 +1,6 @@
 ## [6.1.0] - Unreleased
 
+- Add adaptive launcher icon
 - Update target SDK to Android 13
 - Update libsu
 - Update mongoose web server
