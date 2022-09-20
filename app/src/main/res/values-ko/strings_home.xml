@@ -13,6 +13,11 @@
     <plurals name="outdated_source_label">
         <item quantity="other">%d개의 오래된 소스</item>
     </plurals>
+    <string name="check_hosts_update_description">호스트 업데이트 확인</string>
+    <string name="update_hosts_description">호스트 업데이트</string>
+
+    <!-- Log card -->
+    <string name="log_label">DNS 요청 기록 보기</string>
 
     <!-- Help card -->
     <string name="help_label">도움말 보기</string>
@@ -24,6 +29,7 @@
     <string name="support_label">지원하기</string>
 
     <!-- App bar drawer -->
+    <string name="github_project_drawer_item">Github 프로젝트</string>
     <string name="preferences_drawer_item">환경 설정</string>
 
     <!-- App bar buttons -->
