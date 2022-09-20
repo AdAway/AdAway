@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">사용자 목록</string>
+    <string name="lists_add">호스트 추가</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">차단 됨</string>
     <string name="lists_tab_allowed">허용 됨</string>
