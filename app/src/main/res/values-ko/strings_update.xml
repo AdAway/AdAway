@@ -12,6 +12,9 @@
     <string name="update_progress_label">%1$s / %2$s</string>
     <string name="update_last_changelog_title">마지막 변경:</string>
     <string name="update_new_changelog_title">변경사항:</string>
+    <string name="update_support_title">도와준 사람들</string>
+    <string name="update_donate_button">기부</string>
+    <string name="update_sponsor_button">후원</string>
 
     <!-- Notification -->
     <string name="update_notification_description">최신 AdAway 버전을 다운로드 중…</string>
