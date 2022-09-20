@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">로그 기록 전환</string>
     <string name="log_start_recording">기록을 눌러 요청 로그를 시작하고, 웹을 탐색하거나 앱을 사용한 다음 뒤로 돌아가거나 스와이프하여 로그를 새로 고칩니다.</string>
