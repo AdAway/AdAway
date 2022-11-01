@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="log_toggle_recording_description">Przełącz rejestrowanie dziennika</string>
+    <string name="log_start_recording">Naciśnij rekord, aby rozpocząć rejestrowanie żądań, przeglądaj Internet lub korzystaj z aplikacji, a następnie wróć lub przesuń palcem, aby odświeżyć dzienniki.</string>
+    <string name="log_blocked_requests_ignored">\n\nZablokowane żądania nie będą rejestrowane. Najpierw wyłącz blokowanie reklam, jeśli chcesz je również rejestrować.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Sortuj alfabetycznie</string>
     <string name="log_sort_top_level_domain">Sortuj rosnąco</string>

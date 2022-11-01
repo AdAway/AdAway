@@ -1,9 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Tidak ada koneksi internet</string>
+    <string name="error_no_connection_details">Tidak bisa menyambung koneksi ke internet. Tolong cek koneksi perangkat anda. </string>
+    <string name="error_download_failed_message">Gagal mengunduh sumber hosts</string>
+    <string name="error_download_failed_details">Tidak ada satupun sumber hosts anda dapat terjangkau. Tolong cek bahwa anda sudah benar terkoneksi ke internet. </string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Gagal untuk membuat file private</string>
+    <string name="error_private_file_failed_details">Gagal membuat file private untuk membangun sumber hosts baru. Tolong cek ruang penyimpanan yang tersedia di perangkat anda. </string>
     <string name="error_not_enough_space_message">Tidak cukup ruang</string>
+    <string name="error_not_enough_space_details">Tidak bisa menduplikasi file hosts ke partisi system anda. Tolong cek modul Magisk systemless diaktifkan dan mulai ulang. </string>
+    <string name="error_copy_failed_message">Gagal untuk memasang file hosts baru</string>
+    <string name="error_copy_failed_details">Tidak dapat menyalin file ke partisi /system, cek modul systemless Magisk, aktifkan, kemudian reboot. </string>
+    <string name="error_revert_failed_message">Gagal mengembalikan file host</string>
+    <string name="error_revert_failed_details">Gagal mengembalikan host ke aturan bawaan</string>
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">Gagal mengaktifkan VPN pem-blok iklan</string>
+    <string name="error_enable_vpn_failed_details">Cek peraturan VPN untuk mengizinkan aplikasi memulai VPN</string>
     <string name="error_disable_vpn_failed_message">Gagal mematikan VPN pem-blok iklan</string>
-    </resources>
+    <string name="error_disable_vpn_failed_details">Cek peraturan VPN untuk menonaktifkan secara manual</string>
+</resources>

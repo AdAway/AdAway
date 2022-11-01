@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="pref_root_title">pemblokir basis root</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Install hosts</string>
     <string name="pref_root_open_hosts">Buka berkas hosts</string>
     <string name="pref_apply_method">Target file host</string>
     <string name="pref_apply_method_summary">Sebelum mengganti pengaturan. Baca panduan untuk fungsi tersebut.</string>
@@ -13,9 +16,22 @@
     <string name="pref_never_reboot">Sembunyikan pesan reboot</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Pengalihan</string>
+    <string name="pref_hosts_redirection_summary">Masukkan kemana hosts akan dialihkan</string>
     <string name="pref_redirection_ipv4">Redireksi IPv4</string>
     <string name="pref_redirection_ipv6">Redireksi IPv6</string>
+    <string name="pref_redirection_invalid">Pengalihan salah</string>
     <!-- Web server category -->
     <string name="pref_webserver">Peladen Web lokal</string>
+    <string name="pref_webserver_summary">Server web lokal mendengarkan alamat IP lokal untuk menjawab permintaan nama host yang diblokir. Ini dapat membantu dengan pembekuan aplikasi pada koneksi yang diblokir.</string>
     <string name="pref_webserver_enabled">Aktifkan peladen web</string>
-    </resources>
+    <string name="pref_webserver_test">Tes server web</string>
+    <string name="pref_webserver_certificate">Instal sertifikat self-signed</string>
+    <string name="pref_webserver_certificate_dialog_title">Instal sertifikat manual</string>
+    <string name="pref_webserver_certificate_dialog_content">Mulai dari Android 11 (R), aplikasi tidak bisa menginstall certificate authority (CA).\n\nBuka \"keamanaan\" pada setelan, \"Enkripsi &amp; kredensial\" kemudian \"menginstal sertifikat\". Setelah itu, pilih \"Sertifikat CA\" dan pilih file sertifikat yang baru dibuat.</string>
+    <string name="pref_webserver_certificate_dialog_action">Buka \"Keamanan\" di setelan</string>
+    <string name="pref_webserver_state_checking">Memeriksa…</string>
+    <string name="pref_webserver_state_not_running">Tidak berjalan</string>
+    <string name="pref_webserver_state_running_not_installed">Berjalan tapi tidak terinstal</string>
+    <string name="pref_webserver_state_running_and_installed">Berjalan dan terinstal</string>
+    <string name="pref_webserver_icon">Mengganti iklan yang terblokir dengan ikon app</string>
+</resources>

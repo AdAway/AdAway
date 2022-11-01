@@ -120,29 +120,33 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
     private String getUpdateText(HostsSource source) {
         // Get context
         Context context = this.viewCallback.getContext();
+        // Check if source is enabled
+        if (!source.isEnabled()) {
+            return context.getString(R.string.hosts_source_disabled);
+        }
         // Check modification dates
         boolean lastOnlineModificationDefined = source.getOnlineModificationDate() != null;
         boolean lastLocalModificationDefined = source.getLocalModificationDate() != null;
         // Declare update text
         String updateText;
-        // Check if online modification date is unknown
-        if (!lastOnlineModificationDefined) {
+        // Check if last online modification date is known
+        if (lastOnlineModificationDefined) {
+            // Get last online modification delay
+            String approximateDelay = getApproximateDelay(context, source.getOnlineModificationDate());
+            if (!lastLocalModificationDefined) {
+                updateText = context.getString(R.string.hosts_source_last_update, approximateDelay);
+            } else if (source.getOnlineModificationDate().isAfter(source.getLocalModificationDate())) {
+                updateText = context.getString(R.string.hosts_source_need_update, approximateDelay);
+            } else {
+                updateText = context.getString(R.string.hosts_source_up_to_date, approximateDelay);
+            }
+        } else {
             if (lastLocalModificationDefined) {
                 String approximateDelay = getApproximateDelay(context, source.getLocalModificationDate());
                 updateText = context.getString(R.string.hosts_source_installed, approximateDelay);
             } else {
                 updateText = context.getString(R.string.hosts_source_unknown_status);
             }
-            return updateText;
-        }
-        // Get last online modification delay
-        String approximateDelay = getApproximateDelay(context, source.getOnlineModificationDate());
-        if (!source.isEnabled() || !lastLocalModificationDefined) {
-            updateText = context.getString(R.string.hosts_source_last_update, approximateDelay);
-        } else if (source.getOnlineModificationDate().isAfter(source.getLocalModificationDate())) {
-            updateText = context.getString(R.string.hosts_source_need_update, approximateDelay);
-        } else {
-            updateText = context.getString(R.string.hosts_source_up_to_date, approximateDelay);
         }
         return updateText;
     }
@@ -151,7 +155,7 @@ class HostsSourcesAdapter extends ListAdapter<HostsSource, HostsSourcesAdapter.V
         // Note: NumberFormat.getCompactNumberInstance is Java 12 only
         // Check empty source
         int size = source.getSize();
-        if (size <= 0) {
+        if (size <= 0 || !source.isEnabled()) {
             return "";
         }
         // Compute size decimal length

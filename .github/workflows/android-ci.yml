@@ -32,7 +32,7 @@ jobs:
         run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;32.0.0" --sdk_root=${ANDROID_SDK_ROOT}
 
       - name: Install NDK
-        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;24.0.8215888" --sdk_root=${ANDROID_SDK_ROOT}
+        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;25.1.8937393" --sdk_root=${ANDROID_SDK_ROOT}
 
       - name: Run unit tests
         run: ./gradlew test --stacktrace
@@ -45,6 +45,13 @@ jobs:
       #   with:
       #     name: AdAway-dev
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
+      
+      - name: Update dependency graph
+        uses: mikepenz/gradle-dependency-submission@v0.0.5
+        with:
+          gradle-dependency-path: "app/build.gradle"
+          gradle-build-module: ":app"
+          gradle-build-configuration: "releaseCompileClasspath"
 
       - name: Analyze project
         env:

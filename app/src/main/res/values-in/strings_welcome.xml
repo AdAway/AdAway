@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="welcome_title">Selamat datang</string>
+    <string name="welcome_first_step">Langkah pertama</string>
+    <string name="welcome_second_step">Langkah Kedua</string>
+    <string name="welcome_last_step">Langkah ketiga</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">Selamat datang di AdAway!</string>
+    <string name="welcome_method_summary">AdAway menyediakan dua metode pemblokiran iklan.
+Pilih salah satu yang kamu inginkan:</string>
+
+    <string name="welcome_root_method_logo">Logo root</string>
+    <string name="welcome_root_method_title">Pemblokiran iklan menggunakan root</string>
+    <string name="welcome_root_method_text1">Lebih cepat</string>
+    <string name="welcome_root_method_text2">Hemat baterai</string>
+    <string name="welcome_root_method_text3">Membutuhkan mode root</string>
+
+    <string name="welcome_vpn_method_logo">logo VPN</string>
+    <string name="welcome_vpn_method_title">Pemblokiran iklan menggunakan VPN</string>
+    <string name="welcome_vpn_method_text1">Lebih lambat</string>
+    <string name="welcome_vpn_method_text2">Berjalan di latar belakang</string>
+    <string name="welcome_vpn_method_text3">Kompatibilitas</string>
+
     <string name="welcome_root_missing_title">Dibutuhkan perangkat Android yang sudah di-root</string>
-    </resources>
+    <string name="welcome_root_missile_description">Binary su tidak ditemukan atau anda tidak memberikan izin root untuk AdAway.\n\nIni dapat terjadi ketika perangkat anda tidak memiliki akses root. Anda dapat menemukan informasi mengenai cara root perangkat anda di wiki.lineageos.org atau webiste Android lainnya.</string>
+
+    <string name="welcome_method_pro_logo">Kelebihan</string>
+    <string name="welcome_method_con_logo">Kekurangan</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Singkronisasi selesai</string>
+    <string name="welcome_sync_error_logo">Kesalahan saat melakukan sinkronisasi</string>
+
+    <string name="welcome_sync_header">Sedang menyinkronkan</string>
+    <string name="welcome_synced_header">Sudah tersinkron!</string>
+    <string name="welcome_sync_summary">AdAway mengunduh jaringan iklan untuk memblokir dari sumber-sumber online. Anda dapat menyesuaikannya nanti di pengaturan.</string>
+    <string name="welcome_sync_retry_logo">Mengulang sinkorinisasi</string>
+    <string name="welcome_sync_error">Gagal melakukan sinkronisasi:\n%s.\nUlangi sekarang?</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Dukungan</string>
+    <string name="welcome_support_header">Dukung saya!</string>
+    <string name="welcome_support_summary">Ini adalah aplikasi gratis dan open-source. Saya mengembangkannya pada waktu luang. Jika anda menyukainya, anda dapat mendukung melalui:</string>
+    <string name="welcome_support_button">Donasi di PayPal</string>
+    <string name="welcome_support_telemetry_summary">Anda menyukai bug? Saya juga tidak.</string>
+    <string name="welcome_support_telemetry_button">Izinkan penggunaan telemetri untuk mengirimkan laporan kesalahan kepada saya</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Kembali</string>
+    <string name="welcome_next_button">Selanjutnya</string>
+    <string name="welcome_finish_button">Selesai</string>
+</resources>

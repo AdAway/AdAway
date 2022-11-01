@@ -1,5 +1,8 @@
 package org.adaway.ui.prefs;
 
+import static android.content.Intent.CATEGORY_OPENABLE;
+import static org.adaway.util.Constants.PREFS_NAME;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -15,9 +18,6 @@ import androidx.preference.PreferenceFragmentCompat;
 import org.adaway.R;
 import org.adaway.model.backup.BackupExporter;
 import org.adaway.model.backup.BackupImporter;
-
-import static android.content.Intent.CATEGORY_OPENABLE;
-import static org.adaway.util.Constants.PREFS_NAME;
 
 /**
  * This fragment is the preferences fragment for backup and restore block rules.
@@ -77,19 +77,13 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
     }
 
     private void registerForExportActivity() {
-        this.exportActivityLauncher = registerForActivityResult(new CreateDocument() {
-            @NonNull
-            @Override
-            public Intent createIntent(@NonNull Context context, @NonNull String input) {
-                return super.createIntent(context, input)
-                        .addCategory(CATEGORY_OPENABLE)
-                        .putExtra(Intent.EXTRA_MIME_TYPES, new String[]{JSON_MIME_TYPE});
-            }
-        }, backupUri -> {
-            if (backupUri != null) {
-                BackupExporter.exportToBackup(requireContext(), backupUri);
-            }
-        });
+        this.exportActivityLauncher = registerForActivityResult(
+                new CreateDocument(JSON_MIME_TYPE),
+                backupUri -> {
+                    if (backupUri != null) {
+                        BackupExporter.exportToBackup(requireContext(), backupUri);
+                    }
+                });
     }
 
     private void bindBackupPref() {
@@ -111,7 +105,7 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
             } else if (Build.VERSION.SDK_INT < 29) {
                 mimeTypes = new String[]{JSON_MIME_TYPE, "application/octet-stream"};
             } else {
-                mimeTypes = new String[] {JSON_MIME_TYPE};
+                mimeTypes = new String[]{JSON_MIME_TYPE};
             }
             this.importActivityLauncher.launch(mimeTypes);
             return true;

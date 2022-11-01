@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="log_toggle_recording_description">Uklj/Isklj bilježenje zapisa</string>
+    <string name="log_start_recording">Pritisnite tipku snimanja za pokretanje bilježenja zahtjeva, pregledavajte web ili koristite aplikacije, zatim se vratite natag ili povucite po zaslonu za osvježavanje.</string>
+    <string name="log_blocked_requests_ignored">\n\nBlokirani zahtjevi neće se bilježiti. Prvo onemogućite blokiranje oglasa ako želite i njih bilježiti.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Abecedno razvrstavanje</string>
     <string name="log_sort_top_level_domain">Ravrstavanje najviše razine</string>

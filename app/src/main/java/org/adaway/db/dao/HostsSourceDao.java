@@ -63,6 +63,9 @@ public interface HostsSourceDao {
     @Query("UPDATE hosts_sources SET last_modified_local = :localModificationDate, last_modified_online = :onlineModificationDate WHERE id = :id")
     void updateModificationDates(int id, ZonedDateTime localModificationDate, ZonedDateTime onlineModificationDate);
 
+    @Query("UPDATE hosts_sources SET entityTag = :entityTag WHERE id = :id")
+    void updateEntityTag(int id, String entityTag);
+
     @Query("UPDATE hosts_sources SET size = (SELECT count(id) FROM hosts_lists WHERE source_id = :id) WHERE id = :id")
     void updateSize(int id);
 
@@ -72,6 +75,6 @@ public interface HostsSourceDao {
     @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online <= last_modified_local")
     LiveData<Integer> countUpToDate();
 
-    @Query("UPDATE hosts_sources SET last_modified_local = null, size = 0 WHERE id = :id")
+    @Query("UPDATE hosts_sources SET last_modified_local = NULL, last_modified_online = NULL, entityTag = NULL, size = 0 WHERE id = :id")
     void clearProperties(int id);
 }

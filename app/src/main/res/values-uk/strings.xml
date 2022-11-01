@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">Потрібне оновлення %1$s</string>
     <string name="hosts_source_last_update">Останнє оновлення %1$s тому</string>
     <string name="hosts_source_unknown_status">Невідомий статус оновлення</string>
+    <string name="hosts_source_disabled">Вимкнено</string>
     <string name="hosts_source_few_minutes">пару хвилин</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d хвилина</item>

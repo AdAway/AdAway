@@ -1,5 +1,7 @@
 package org.adaway.model.git;
 
+import static java.util.stream.Collectors.joining;
+
 import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
@@ -18,8 +20,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import timber.log.Timber;
-
-import static java.util.stream.Collectors.joining;
 
 /**
  * This class is an utility class to get information from GitHub repository hosting.
@@ -66,7 +66,8 @@ class GitHubHostsSource extends GitHostsSource {
     @Nullable
     public ZonedDateTime getLastUpdate() {
         // Create commit API request URL
-        String commitApiUrl = "https://api.github.com/repos/" + this.owner + "/" + this.repo + "/commits?path=" + this.blobPath;
+        String commitApiUrl = "https://api.github.com/repos/" + this.owner + "/" + this.repo +
+                "/commits?per_page=1&path=" + this.blobPath;
         // Create client and request
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(commitApiUrl).build();
