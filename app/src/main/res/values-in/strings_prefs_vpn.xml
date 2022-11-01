@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="pref_vpn_title">Mode vpn</string>
+    <!-- Service configuration -->
+    <string name="pref_vpn_service_on_boot">Mengizinkan saat mulai</string>
+    <string name="pref_vpn_service_monitor">Memonitor konneksi</string>
+    <string name="pref_vpn_service_monitor_description">Cek keadaan koneksi berkala untuk restart koneksi VPN</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Aplikasi yang dikecualikan</string>
+    <string name="pref_vpn_excluded_apps_description">Atur aplikasi yang tidak menggunakan VPN agar koneksi tidak terblokir</string>
+    <string name="pref_vpn_exclude_system_apps">Kecualikan aplikasi sisttem</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
         <item>All</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">kecualikan aplikasi pengguna</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Aplikasi yang dikecualikan</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Pilih semua</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Batal pilih semua</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Ikon aplikasi</string>
+</resources>

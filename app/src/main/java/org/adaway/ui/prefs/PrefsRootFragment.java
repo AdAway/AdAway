@@ -1,16 +1,15 @@
 package org.adaway.ui.prefs;
 
-import static android.content.Intent.CATEGORY_OPENABLE;
 import static android.os.Build.VERSION.SDK_INT;
 import static android.provider.Settings.ACTION_SECURITY_SETTINGS;
 import static android.widget.Toast.LENGTH_SHORT;
+import static org.adaway.model.root.MountType.READ_ONLY;
+import static org.adaway.model.root.MountType.READ_WRITE;
 import static org.adaway.model.root.ShellUtils.isWritable;
 import static org.adaway.model.root.ShellUtils.remountPartition;
 import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
 import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
 import static org.adaway.util.Constants.PREFS_NAME;
-import static org.adaway.model.root.MountType.READ_ONLY;
-import static org.adaway.model.root.MountType.READ_WRITE;
 import static org.adaway.util.WebServerUtils.TEST_URL;
 import static org.adaway.util.WebServerUtils.copyCertificate;
 import static org.adaway.util.WebServerUtils.getWebServerState;
@@ -58,6 +57,10 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class PrefsRootFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
+    /**
+     * The webserver certificate mime type.
+     */
+    private static final String CERTIFICATE_MIME_TYPE = "application/x-x509-ca-cert";
     /**
      * The launcher to start open hosts file activity.
      */
@@ -131,15 +134,8 @@ public class PrefsRootFragment extends PreferenceFragmentCompat implements Share
 
     private void registerForPrepareCertificateActivity() {
         this.prepareCertificateLauncher = registerForActivityResult(
-                new ActivityResultContracts.CreateDocument() {
-                    @NonNull
-                    @Override
-                    public Intent createIntent(@NonNull Context context, @NonNull String input) {
-                        return super.createIntent(context, input)
-                                .addCategory(CATEGORY_OPENABLE)
-                                .setType("application/x-x509-ca-cert");
-                    }
-                }, this::prepareWebServerCertificate
+                new ActivityResultContracts.CreateDocument(CERTIFICATE_MIME_TYPE),
+                this::prepareWebServerCertificate
         );
     }
 

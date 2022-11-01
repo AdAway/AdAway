@@ -1,12 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_main_title">Pengaturan</string>
+    <!-- General category -->
+    <string name="pref_general_category">Umum</string>
     <string name="pref_dark_theme">Gunakan tema gelap</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Terang</item>
+        <item>Gelap</item>
+        <item>Bawaan sistem</item>
+    </string-array>
+    <string name="pref_update_configuration">Pembaruan otomatis</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Pemblokir iklan</string>
+    <string name="pref_root_ad_blocker_configuration">Mode root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Mode vpn</string>
     <string name="pref_enable_ipv6">Aktifkan IPv6</string>
+    <string name="pref_backup_restore">Backup / memulihkan aturan blokir</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Debug</string>
     <string name="pref_enable_telemetry">Nyalakan laporan crash</string>
     <string name="pref_enable_telemetry_summary">Ijinkan aplikasi untuk mengirim laporan error dan crash ke Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Tidak mendukung pada build ini</string>
     <string name="pref_enable_debug">Nyalakan verbose logging</string>
     <string name="pref_enable_debug_summary">Anda perlu memulai kembali AdAway agar pengaturan ini berlaku.</string>
 </resources>

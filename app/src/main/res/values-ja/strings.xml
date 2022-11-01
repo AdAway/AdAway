@@ -19,8 +19,8 @@
     <string name="button_enable_hosts">広告ブロックを有効にする</string>
     <string name="button_disable_hosts">広告ブロックを無効にする</string>
     <string name="header_webserver">ウェブサーバー</string>
-    <string name="webserver_status_running">起動中</string>
-    <string name="webserver_status_stopped">停止</string>
+    <string name="webserver_status_running">実行中</string>
+    <string name="webserver_status_stopped">停止中</string>
     <string name="webserver_toggle_text">ブロックしたホスト名に返答するローカルホストのウェブサーバーを開始/停止します</string>
     <string name="button_enable_webserver">Webサーバーを有効にする</string>
     <string name="button_disable_webserver">Webサーバーを無効にする</string>
@@ -150,7 +150,7 @@
     <string name="no_hostname_title">ホスト名が正しくありません</string>
     <string name="no_ip">不正なIPです！</string>
     <string name="no_ip_title">IPが正しくありません</string>
-    <string name="reboot_never_reboot">再起動せずこの質問を二度と表示しない</string>
+    <string name="reboot_never_reboot">再起動せずに、この質問を二度と表示しない</string>
     <string name="loading">読み込み中…</string>
 
     <!--Menu entries-->
@@ -197,7 +197,7 @@
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>ホーム</item>
-        <item>hostsのソース</item>
+        <item>hosts 取得先</item>
         <item>あなたのリスト</item>
         <item>hostsファイルを開く</item>
         <item>DNS 要求のログ</item>
@@ -218,19 +218,23 @@
     <string name="hosts_source_need_update">更新が必要 %1$s</string>
     <string name="hosts_source_last_update">最後の更新 %1$s</string>
     <string name="hosts_source_unknown_status">更新ステータスが不明</string>
+    <string name="hosts_source_disabled">無効になっています</string>
     <string name="hosts_source_few_minutes">数分前</string>
     <plurals name="hosts_source_minutes">
-        <item quantity="other">%d 分前</item>
+        <item quantity="other">%d 分</item>
     </plurals>
     <plurals name="hosts_source_hours">
-        <item quantity="other">%d 時間前</item>
+        <item quantity="other">%d 時間</item>
     </plurals>
     <plurals name="hosts_source_days">
-        <item quantity="other">%d 日前</item>
+        <item quantity="other">%d 日</item>
     </plurals>
     <plurals name="hosts_source_months">
-        <item quantity="other">%d ヶ月前</item>
+        <item quantity="other">%d ヶ月</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">ホストをクリップボードにコピーしました</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">開始</string>

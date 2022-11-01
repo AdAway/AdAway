@@ -4,7 +4,8 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
 import static android.provider.DocumentsContract.Document.COLUMN_LAST_MODIFIED;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
 import static org.adaway.model.error.HostError.NO_CONNECTION;
-import static java.time.ZoneOffset.UTC;
+import static java.net.HttpURLConnection.HTTP_NOT_MODIFIED;
+import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
 import static java.time.format.FormatStyle.MEDIUM;
 import static java.time.temporal.ChronoUnit.WEEKS;
 import static java.util.Objects.requireNonNull;
@@ -39,13 +40,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 import okhttp3.Cache;
@@ -64,6 +62,11 @@ public class SourceModel {
      * The HTTP client cache size (100Mo).
      */
     private static final long CACHE_SIZE = 100L * 1024L * 1024L;
+    private static final String LAST_MODIFIED_HEADER = "Last-Modified";
+    private static final String IF_NONE_MATCH_HEADER = "If-None-Match";
+    private static final String IF_MODIFIED_SINCE_HEADER = "If-Modified-Since";
+    private static final String ENTITY_TAG_HEADER = "ETag";
+    private static final String WEAK_ENTITY_TAG_PREFIX = "W/";
     /**
      * The application context.
      */
@@ -91,7 +94,7 @@ public class SourceModel {
     /**
      * The HTTP client to download hosts sources ({@code null} until initialized by {@link #getHttpClient()}).
      */
-    private OkHttpClient httpClient;
+    private OkHttpClient cachedHttpClient;
 
     /**
      * Constructor.
@@ -140,7 +143,7 @@ public class SourceModel {
         }
         // Initialize update status
         boolean updateAvailable = false;
-        // Get hosts sources
+        // Get enabled hosts sources
         List<HostsSource> sources = this.hostsSourceDao.getEnabled();
         if (sources.isEmpty()) {
             // Return no update as no source
@@ -164,19 +167,19 @@ public class SourceModel {
             this.hostsSourceDao.updateOnlineModificationDate(source.getId(), lastModifiedOnline);
             // Check if last modified online retrieved
             if (lastModifiedOnline == null) {
-                // If not, consider update is available if install is older than a day
+                // If not, consider update is available if install is older than a week
                 ZonedDateTime lastWeek = ZonedDateTime.now().minus(1, WEEKS);
                 if (lastModifiedLocal != null && lastModifiedLocal.isBefore(lastWeek)) {
                     updateAvailable = true;
                 }
             } else {
-                // Check if update is available for this source and source enabled
-                if (source.isEnabled() && (lastModifiedLocal == null || lastModifiedOnline.isAfter(lastModifiedLocal))) {
+                // Check if source was never installed or installed before the last update
+                if (lastModifiedLocal == null || lastModifiedOnline.isAfter(lastModifiedLocal)) {
                     updateAvailable = true;
                 }
             }
         }
-        // Check if update is available
+        // Update statuses
         Timber.d("Update check result: %s.", updateAvailable);
         if (updateAvailable) {
             setState(R.string.status_update_available);
@@ -198,7 +201,7 @@ public class SourceModel {
             return "not defined";
         } else {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(MEDIUM);
-            return zonedDateTime.toString() + " (" + zonedDateTime.format(dateTimeFormatter) + ")";
+            return zonedDateTime + " (" + zonedDateTime.format(dateTimeFormatter) + ")";
         }
     }
 
@@ -226,7 +229,7 @@ public class SourceModel {
     private ZonedDateTime getHostsSourceLastUpdate(HostsSource source) {
         switch (source.getType()) {
             case URL:
-                return getUrlLastUpdate(source.getUrl());
+                return getUrlLastUpdate(source);
             case FILE:
                 Uri fileUri = Uri.parse(source.getUrl());
                 return getFileLastUpdate(fileUri);
@@ -238,40 +241,33 @@ public class SourceModel {
     /**
      * Get the url last online update.
      *
-     * @param url The url to get last online update.
+     * @param source The source to get last online update.
      * @return The last online date, {@code null} if the date could not be retrieved.
      */
-    private ZonedDateTime getUrlLastUpdate(String url) {
-        Timber.v("Checking hosts file: %s.", url);
+    private ZonedDateTime getUrlLastUpdate(HostsSource source) {
+        String url = source.getUrl();
+        Timber.v("Checking url last update for source: %s.", url);
         // Check Git hosting
         if (GitHostsSource.isHostedOnGit(url)) {
             try {
                 return GitHostsSource.getSource(url).getLastUpdate();
             } catch (MalformedURLException e) {
-                Timber.w(e, "Failed to get GitHub last update for url " + url + ".");
+                Timber.w(e, "Failed to get Git last commit for url %s.", url);
                 return null;
             }
         }
         // Default hosting
-        URLConnection connection = null;
-        try {
-            /* build connection */
-            URL mURL = new URL(url);
-            connection = mURL.openConnection();
-            connection.setConnectTimeout(15000);
-            connection.setReadTimeout(30000);
-            long lastModified = connection.getLastModified() / 1000;
-            if (lastModified == 0) {
-                return null;
+        Request request = getRequestFor(source).head().build();
+        try (Response response = getHttpClient().newCall(request).execute()) {
+            String lastModified = response.header(LAST_MODIFIED_HEADER);
+            if (lastModified == null) {
+                return response.code() == HTTP_NOT_MODIFIED ?
+                     source.getOnlineModificationDate() : null;
             }
-            return ZonedDateTime.of(LocalDateTime.ofEpochSecond(lastModified, 0, UTC), UTC);
-        } catch (Exception e) {
-            Timber.e(e, "Exception while downloading from %s.", url);
+            return ZonedDateTime.parse(lastModified, RFC_1123_DATE_TIME);
+        } catch (IOException | DateTimeParseException e) {
+            Timber.e(e, "Exception while fetching last modified date of source %s.", url);
             return null;
-        } finally {
-            if (connection instanceof HttpURLConnection) {
-                ((HttpURLConnection) connection).disconnect();
-            }
         }
     }
 
@@ -284,11 +280,7 @@ public class SourceModel {
     private ZonedDateTime getFileLastUpdate(Uri fileUri) {
         ContentResolver contentResolver = this.context.getContentResolver();
         try (Cursor cursor = contentResolver.query(fileUri, null, null, null, null)) {
-            if (cursor == null) {
-                Timber.w("The content resolver could not find %s.", fileUri);
-                return null;
-            }
-            if (!cursor.moveToFirst()) {
+            if (cursor == null || !cursor.moveToFirst()) {
                 Timber.w("The content resolver could not find %s.", fileUri);
                 return null;
             }
@@ -324,7 +316,6 @@ public class SourceModel {
         // Get each hosts source
         for (HostsSource source : this.hostsSourceDao.getAll()) {
             int sourceId = source.getId();
-            String url = source.getUrl();
             // Clear disabled source
             if (!source.isEnabled()) {
                 this.hostListItemDao.clearSourceHosts(sourceId);
@@ -339,7 +330,7 @@ public class SourceModel {
             // Check if update available
             ZonedDateTime localModificationDate = source.getLocalModificationDate();
             if (localModificationDate != null && localModificationDate.isAfter(onlineModificationDate)) {
-                Timber.i("Skip source " + source.getUrl() + ": no update.");
+                Timber.i("Skip source %s: no update.", source.getLabel());
                 continue;
             }
             // Increment number of copy
@@ -362,7 +353,7 @@ public class SourceModel {
                 // Update size
                 this.hostsSourceDao.updateSize(sourceId);
             } catch (IOException e) {
-                Timber.w(e, "Failed to retrieve host source " + url + ".");
+                Timber.w(e, "Failed to retrieve host source %s.", source.getUrl());
                 // Increment number of failed copy
                 numberOfFailedCopies++;
             }
@@ -392,12 +383,31 @@ public class SourceModel {
      */
     @NonNull
     private OkHttpClient getHttpClient() {
-        if (this.httpClient == null) {
-            this.httpClient = new OkHttpClient.Builder()
+        if (this.cachedHttpClient == null) {
+            this.cachedHttpClient = new OkHttpClient.Builder()
                     .cache(new Cache(this.context.getCacheDir(), CACHE_SIZE))
                     .build();
         }
-        return this.httpClient;
+        return this.cachedHttpClient;
+    }
+
+    /**
+     * Get request builder for an hosts source.
+     * All cache data available are filled into the headers.
+     *
+     * @param source The hosts source to get request builder.
+     * @return The hosts source request builder.
+     */
+    private Request.Builder getRequestFor(HostsSource source) {
+        Request.Builder request = new Request.Builder().url(source.getUrl());
+        if (source.getEntityTag() != null) {
+            request = request.header(IF_NONE_MATCH_HEADER, source.getEntityTag());
+        }
+        if (source.getOnlineModificationDate() != null) {
+            String lastModified = source.getOnlineModificationDate().format(RFC_1123_DATE_TIME);
+            request = request.header(IF_MODIFIED_SINCE_HEADER, lastModified);
+        }
+        return request;
     }
 
     /**
@@ -412,16 +422,26 @@ public class SourceModel {
         Timber.v("Downloading hosts file: %s.", hostsFileUrl);
         // Set state to downloading hosts source
         setState(R.string.status_download_source, hostsFileUrl);
-        // Get HTTP client
-        OkHttpClient httpClient = getHttpClient();
         // Create request
-        Request request = new Request.Builder()
-                .url(hostsFileUrl)
-                .build();
+        Request request = getRequestFor(source).build();
         // Request hosts file and open byte stream
-        try (Response response = httpClient.newCall(request).execute();
+        try (Response response = getHttpClient().newCall(request).execute();
              Reader reader = requireNonNull(response.body()).charStream();
              BufferedReader bufferedReader = new BufferedReader(reader)) {
+            // Skip source parsing if not modified
+            if (response.code() == HTTP_NOT_MODIFIED) {
+                Timber.d("Source %s was not updated since last fetch.", source.getUrl());
+                return;
+            }
+            // Extract ETag if present
+            String entityTag = response.header(ENTITY_TAG_HEADER);
+            if (entityTag != null) {
+                if (entityTag.startsWith(WEAK_ENTITY_TAG_PREFIX)) {
+                    entityTag = entityTag.substring(WEAK_ENTITY_TAG_PREFIX.length());
+                }
+                this.hostsSourceDao.updateEntityTag(source.getId(), entityTag);
+            }
+            // Parse source
             parseSourceInputStream(source, bufferedReader);
         } catch (IOException e) {
             throw new IOException("Exception while downloading hosts file from " + hostsFileUrl + ".", e);
@@ -482,7 +502,7 @@ public class SourceModel {
 
     private void setState(@StringRes int stateResId, Object... details) {
         String state = this.context.getString(stateResId, details);
-        Timber.d(state);
+        Timber.d("Source model state: %s.", state);
         this.state.postValue(state);
     }
 }

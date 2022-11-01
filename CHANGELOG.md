@@ -1,8 +1,39 @@
+## [6.0.5] - 2022-07-25
+
+- Update libsu
+- Update mongoose web server
+- Update AndroidX libraries
+- Update third party libraries
+- Update Android gradle plugin
+- Update NDK
+
+## [6.0.4] - 2022-07-25
+
+- Improve settings UI
+
+## [6.0.3] - 2022-07-25
+
+- Improve hosts source cache to reduce bandwidth usage
+- Improve GitHub API usage to reduce bandwidth usage
+- Update AndroidX libraries
+- Update translations
+
+Special thanks to yoshimo for its bug report.
+
+## [6.0.2] - 2022-06-16
+
+*This version is a pre-release*
+
+- Fix wizard ad-block method check
+- Update translations
+
+Special thanks to Dandu32, ipdev and zhmstar0310 for their bug reports.
+
 ## [6.0.1] - 2022-06-03
 
 *This version is a pre-release*
 
-- Improve screen rotation handling on home screen.
+- Improve screen rotation handling on home screen
 - Update libsu
 - Update mongoose web server
 - Update Android gradle plugin
