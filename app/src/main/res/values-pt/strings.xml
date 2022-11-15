@@ -21,9 +21,13 @@
     <string name="header_webserver">Servidor web</string>
     <string name="webserver_status_running">Em execução</string>
     <string name="webserver_status_stopped">Parado</string>
+    <string name="webserver_toggle_text">Começe ou pare um servidor web no anfitrião local para responder pedido para sites/dns blockeados.</string>
     <string name="button_enable_webserver">Ativar servidor web</string>
     <string name="button_disable_webserver">Desativar servidor web</string>
     <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">A funcionar</string>
+    <string name="vpn_status_stopped">Parado</string>
+    <string name="vpn_toggle_text">Ligar ou desligar a vpn para filtrar pedidos.</string>
     <string name="button_enable_vpn">Ativar VPN</string>
     <string name="button_disable_vpn">Desativar VPN</string>
 
@@ -38,6 +42,9 @@
     <string name="import_success">Cópia de segurança importada com sucesso do armazenamento externo.</string>
     <string name="import_failed">A importação da cópia de segurança falhou. O formato é o correto? Verifique o logcat para mais informações.</string>
     <string name="export_dialog">A exportar…</string>
+    <string name="export_success">Backup sucessivamente exportado para o ficheiro %sno seu armazenamento interno.</string>
+    <string name="export_failed">Falha ao exportar o arquivo de backup %s. </string>
+
     <!--Hosts content-->
     <string name="hosts_header">O ficheiro hosts</string>
     <string name="hosts_description">O ficheiro hosts é um ficheiro do sistema que mapeia os nomes de hospedeiro para endereços de IP. É um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
@@ -46,9 +53,18 @@
 
     <!--Status Notification-->
     <string name="status_check">A procurar atualização</string>
+    <string name="status_check_source">A verificar %sfonte por atualizações</string>
+    <string name="status_retrieve">A obter fontes</string>
+    <string name="status_download_source">A baixar a fonte %s</string>
+    <string name="status_read_source">A ler a fonte %s</string>
+    <string name="status_parse_source">A analisar a fonte %s</string>
+    <string name="status_sync_database">A sincronizar a database de regras</string>
+    <string name="status_revert">A reverter para o ficheiro hosts padrão</string>
+    <string name="status_revert_done">Ficheiro hosts padrão restaurado</string>
     <string name="status_reverting_subtitle">A criar um ficheiro de hosts padrão</string>
     <string name="status_update_available">Atualização disponível</string>
     <string name="status_update_available_subtitle">Novos ficheiros de hosts disponíveis</string>
+    <string name="status_no_update_found">Nenhuma atualização das fontes encontradas</string>
     <string name="status_no_connection">Sem ligação à internet</string>
     <string name="status_no_connection_subtitle">Sem ligação à internet disponível</string>
     <string name="status_download_fail">Fontes indisponíveis</string>
@@ -61,14 +77,20 @@
     <string name="status_enabled_subtitle">Os ficheiros de hosts mais recentes estão ativos</string>
     <string name="status_disabled">Desativado</string>
     <string name="status_disabled_subtitle">Instalado o ficheiro de hosts padrão.</string>
+    <string name="status_apply_sources">Aplicar últimas fontes.</string>
     <string name="status_create_new_hosts">A criar um ficheiro hosts novo</string>
     <string name="status_copy_new_hosts">A copiar o novo ficheiro hosts</string>
+    <string name="status_check_copy">A verificar o ficheiro hosts copiado</string>
     <string name="status_hosts_updated">Ficheiro hosts atualizado com sucesso</string>
     <string name="status_vpn_configuration_updated">Configuração da VPN atualizada com sucesso</string>
+    <string name="notification_configuration_changed">Suas configurações foram trocadas.
+Você precisa aplicá-las.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
     <string name="notification_configuration_installing">A aplicar nova configuração…</string>
     <string name="notification_configuration_failed">Falha ao aplicar nova configuração</string>
 
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">O symlink do destino ficheiro hosts está em falta.</string>
     <string name="apply_symlink_missing">Uma ligação simbólica do seu destino para /system/etc/hosts não existe ou está incorreta! O AdAway não funcionará se não estiver a apontar para o ficheiro correto.\n\nPretende tentar criar uma ligação simbólica?</string>
     <string name="apply_symlink_missing_title">Ligação simbólica em falta</string>
     <string name="apply_not_enough_space">Não existe espaço suficiente na partição!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
@@ -109,12 +131,15 @@
     <string name="revert_problem_title">Falha ao reverter!</string>
     <string name="download_fail_dialog">Nenhuma das suas fontes de hosts ativadas está alcançável! Está corretamente ligado à internet?</string>
     <string name="download_fail_title">Falha ao descarregar</string>
+    <string name="no_private_file_status">Falha para escrever novo ficheiro hosts o privado.</string>
     <string name="no_private_file">Impossível criar ficheiro privado.</string>
     <string name="no_private_file_title">Falha ao criar ficheiro privado</string>
     <string name="enable_systemless_successful">Ativou o modo \"systemless\".\nPoderá ser necessário reiniciar o Android para que as alterações surtemefeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão SD neste momento!)</string>
     <string name="enable_systemless_successful_title">Ativação bem-sucedida</string>
     <string name="disable_systemless_successful">Desativou o modo \"systemless\".\nPoderá ser necessário reiniciar o Android para que as alterações surtam efeito.\n\nPretende reiniciar?\n(Para impedir a perda de dados, certifique-se de que nenhuma aplicação esteja a utilizar o cartão de memória neste momento!)</string>
     <string name="disable_systemless_successful_title">Desativação bem-sucedida</string>
+    <string name="enable_vpn_fail">Falha para habilitar vpn bloquadora de anúncios. </string>
+    <string name="disable_vpn_fail">Falha ao desativar o bloqueio de anúncios vpn.</string>
     <string name="enable_systemless_magisk_title">Ativar systemless hosts</string>
     <string name="enable_systemless_magisk">Ativar opção systemless hosts a partir do gestor Magisk. Nas definições do Magisk, ativar a opção <cite>Systemless hosts </cite> e de seguida reinicie o dispositivo. </string>
     <string name="disable_systemless_magisk_title">Desativar módulo hosts do Magisk</string>
@@ -194,23 +219,49 @@
     <string name="hosts_source_need_update">Precisa de atualização para %1$s</string>
     <string name="hosts_source_last_update">Última atualização há %1$s</string>
     <string name="hosts_source_unknown_status">Estado de atualização desconhecido</string>
+    <string name="hosts_source_disabled">Desativado</string>
+    <string name="hosts_source_few_minutes">alguns minutos</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d minuto</item>
+        <item quantity="many">%d minutos</item>
         <item quantity="other">%d minutos</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d hora</item>
+        <item quantity="many">%d horas</item>
         <item quantity="other">%d horas</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d dia</item>
+        <item quantity="many">%d dias</item>
         <item quantity="other">%d dias</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mês</item>
+        <item quantity="many">%d meses</item>
         <item quantity="other">%d meses</item>
     </plurals>
 
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host copiado para a área de transferências</string>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">A começar</string>
     <string name="vpn_notification_running">Ativo</string>
+    <string name="vpn_notification_stopping">a parar</string>
+    <string name="vpn_notification_waiting_for_net">espere por internet</string>
+    <string name="vpn_notification_reconnecting">a reconnectar</string>
     <string name="vpn_notification_reconnecting_error">Erro de conexão</string>
-    </resources>
+    <string name="vpn_notification_paused">pausado</string>
+    <string name="vpn_notification_stopped">parado</string>
+    <string name="vpn_notification_title">Vpn bloqueadora de anúncios%1$s</string>
+    <string name="vpn_notification_action_pause">pausar</string>
+    <string name="vpn_notification_action_resume">continuar</string>
+
+    <!-- Permission -->
+    <string name="permission_group_api_label">Permissions do AdAway. </string>
+    <string name="permission_group_api_description">Permitir a interação com o AdAway. </string>
+    <string name="permission_send_command_label">Enviar comandos para o AdAway</string>
+    <string name="permission_send_command_description">Permitir mandar comandos para o AdAway como habilitar or desabilitar o o bloqueio de anúncios no sistema</string>
+
+</resources>
