@@ -96,7 +96,7 @@ We do not forget the past maintainers:
 * [@0-kaladin](https://github.com/0-kaladin) - Developer and XDA OP
 * Sanjay Govind ([@sanjay900](https://github.com/sanjay900)) - Developer
 
-And we thanks a lot the original author:
+And we thank a lot to the original author:
 * Dominik Schürmann ([@dschuermann](https://github.com/dschuermann)) - Original developer  
 [Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=android%40schuermann.eu&lc=US&item_name=AdAway%20Donation&no_note=0&no_shipping=1&currency_code=EUR) | [Flattr](https://flattr.com/thing/369138/AdAway-Ad-blocker-for-Android) | BTC: `173kZxbkKuvnF5fa5b7t21kqU5XfEvvwTs`
 
