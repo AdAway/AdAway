@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.android.ndk.thirdparty:openssl:1.1.1l-beta-1'
+    implementation 'com.android.ndk.thirdparty:openssl:1.1.1q-beta-1'
 }
 
 /**
