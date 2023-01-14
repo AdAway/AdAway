@@ -39,10 +39,10 @@
 
     <!--Your lists-->
     <string name="import_dialog">Importerar…</string>
-    <string name="import_success">Säkerhetskopian importerades från din extern lagring.</string>
+    <string name="import_success">Säkerhetskopian importerades framgångsrikt från din externa lagring.</string>
     <string name="import_failed">Det gick inte att importera säkerhetskopian. Är dess format rätt? Kolla logcat för mer detaljer.</string>
     <string name="export_dialog">Exporterar…</string>
-    <string name="export_success">Backup successfully exported to file \'%s\' on your external storage.</string>
+    <string name="export_success">Säkerhetskopian exporterades framgångsrikt till filen \'%s\' i din externa lagring.</string>
     <string name="export_failed">Exporteringen av den säkerhetskopierade filen \'%s\' misslyckades</string>
 
     <!--Hosts content-->
@@ -62,7 +62,7 @@
     <string name="status_revert">Återställer standardvärdfilen</string>
     <string name="status_revert_done">Standard värdfil återställd</string>
     <string name="status_reverting_subtitle">Skapar standardvärdfil</string>
-    <string name="status_update_available">Uppdatering tillgänglig</string>
+    <string name="status_update_available">Källuppdatering tillgänglig</string>
     <string name="status_update_available_subtitle">Nyare värdfiler är tillgängliga</string>
     <string name="status_no_update_found">Hittade inga källuppdateringar</string>
     <string name="status_no_connection">Ingen internetanslutning</string>
@@ -137,8 +137,8 @@
     <string name="enable_systemless_successful_title">Aktivering lyckades</string>
     <string name="disable_systemless_successful">Du inaktiverade systemlöst läge.\nDet kan bli nödvändigt att starta om enheten för att ändringarna ska träda i kraft. \n\nVill du starta om?\n(För att förhindra dataförlust se till att ingen app använder SD-kortet för tillfället!)</string>
     <string name="disable_systemless_successful_title">Inaktiverad</string>
-    <string name="enable_vpn_fail">Misslyckades med att aktivera VPN-annonsblockeringen.</string>
-    <string name="disable_vpn_fail">Misslyckades med att aktivera VPN-annonsblockeringen</string>
+    <string name="enable_vpn_fail">Det gick inte att aktivera VPN-annonsblockeringen.</string>
+    <string name="disable_vpn_fail">Det gick inte att inaktivera VPN-annonsblockeringen</string>
     <string name="enable_systemless_magisk_title">Aktiverar värdfil Magisk-modul</string>
     <string name="enable_systemless_magisk">Aktivera systemlöst läge i Magisk manager. I inställningarna, aktivera alternativet <cite>Systemless hosts</cite> och starta sedan om enheten.</string>
     <string name="disable_systemless_magisk_title">Inaktiverar värdfil Magisk-modul</string>
