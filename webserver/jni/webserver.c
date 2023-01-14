@@ -122,7 +122,7 @@ int main(int argc, char *argv[]) {
 
     if (s.debug) {
         __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Debug mode activated.");
-        mg_log_set("3");
+        mg_log_set(MG_LL_DEBUG);
     }
 
     oom_adjust_setup();
