@@ -1,3 +1,18 @@
+## [6.1.0] - Unreleased
+
+- Add adaptive launcher icon
+- Update target SDK to Android 13
+- Update libsu
+- Update mongoose web server
+- Update AndroidX libraries
+- Update third party libraries
+- Update Android gradle plugin
+- Update NDK
+
+## [6.0.4] - 2022-07-25
+
+- Improve settings UI
+
 ## [6.0.3] - 2022-07-25
 
 - Improve hosts source cache to reduce bandwidth usage

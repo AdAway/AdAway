@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="log_toggle_recording_description">로그 기록 전환</string>
+    <string name="log_start_recording">기록을 눌러 요청 로그를 시작하고, 웹을 탐색하거나 앱을 사용한 다음 뒤로 돌아가거나 스와이프하여 로그를 새로 고칩니다.</string>
+    <string name="log_blocked_requests_ignored">\n\n차단된 요청은 로그를 남기지 않습니다. 이것들도 로그를 남기고 싶다면 먼저 광고차단을 비활성화하십시오.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">알파벳순 정렬</string>
     <string name="log_sort_top_level_domain">레벨순 정렬</string>

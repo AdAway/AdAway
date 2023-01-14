@@ -18,7 +18,7 @@ If not, see <https://www.gnu.org/licenses/>.
 * Android Jetpack  
   https://developer.android.com/jetpack/  
   Apache License v2
-  
+
 * DNS66  
   https://github.com/julian-klode/dns66  
   GPLv3
@@ -34,7 +34,7 @@ If not, see <https://www.gnu.org/licenses/>.
 * libsu  
   https://github.com/topjohnwu/libsu  
   Apache License v2
- 
+
 * Material Components for Android  
   https://github.com/material-components/material-components-android  
   Apache License v2

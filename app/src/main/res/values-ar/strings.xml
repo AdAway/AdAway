@@ -219,6 +219,7 @@
     <string name="hosts_source_need_update">مطلوب تحديث لـ %1$s</string>
     <string name="hosts_source_last_update">آخر تحديث قبل %1$s</string>
     <string name="hosts_source_unknown_status">حالة تحديث غير معروفة</string>
+    <string name="hosts_source_disabled">معطل</string>
     <string name="hosts_source_few_minutes">بضع دقائق</string>
     <plurals name="hosts_source_minutes">
         <item quantity="zero">إنتهى  تقريبا%d</item>
@@ -252,6 +253,9 @@
         <item quantity="many">أشهُر %d</item>
         <item quantity="other">أشهُر %d</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">تم نسخ المضيف إلى الحافظة<br></string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">تشغيل</string>

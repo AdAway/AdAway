@@ -88,4 +88,4 @@ To publish the application in GitHub:
 * Upload apk binary to the release.
 
 Pushing a tag will publish the application to F-Droid store.
-It might takes some days to update but if it does not, build logs are available at the following address: https://monitor.f-droid.org/builds/log/org.adaway/<versioncode>
+It might takes some days to update but if it does not, build logs are available at the following address: `https://monitor.f-droid.org/builds/log/org.adaway/<versioncode>`.

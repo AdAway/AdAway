@@ -42,6 +42,9 @@
     <string name="import_success">백업이 성공적으로 외부 저장소에서부터 불러와졌습니다.</string>
     <string name="import_failed">백업을 불러오는데 실패했습니다. 해당 파일 형식이 옳바릅니까? 자세한 내용은 로그캣을 확인해주십시오.</string>
     <string name="export_dialog">내보내는 중…</string>
+    <string name="export_success">Backup successfully exported to file \'%s\' on your external storage.</string>
+    <string name="export_failed">백업 파일 \'%s\'를 내보내지 실패했어요.</string>
+
     <!--Hosts content-->
     <string name="hosts_header">호스트 파일</string>
     <string name="hosts_description">호스트 파일은 호스트이름을 IP주소로 변환하는 파일입니다. AdAway에서 처리되는 간단한 텍스트 파일입니다. 파일의 시작은 다음과 같습니다:</string>
@@ -55,6 +58,7 @@
     <string name="status_download_source">소스 다운로드 중 %s</string>
     <string name="status_read_source">소스 읽는 중 %s</string>
     <string name="status_parse_source">소스 분석 중 %s</string>
+    <string name="status_sync_database">규칙 데이터베이스 동기화</string>
     <string name="status_revert">기본 호스트 파일로 되돌리는 중</string>
     <string name="status_revert_done">기본 호스트 파일로 복구 됨</string>
     <string name="status_reverting_subtitle">표준 호스트 파일 생성 중</string>
@@ -214,6 +218,7 @@
     <string name="hosts_source_need_update">%1$s개의 업데이트가 필요</string>
     <string name="hosts_source_last_update">%1$s일 전에 업데이트 됨</string>
     <string name="hosts_source_unknown_status">업데이트 상태 확인 불가</string>
+    <string name="hosts_source_disabled">비활성화됨</string>
     <string name="hosts_source_few_minutes">몇 분</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d 분</item>
@@ -227,6 +232,9 @@
     <plurals name="hosts_source_months">
         <item quantity="other">%d 개월</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">클립보드에 복사된 호스트</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">시작 중</string>
@@ -242,6 +250,9 @@
     <string name="vpn_notification_action_resume">탭하여 재개</string>
 
     <!-- Permission -->
+    <string name="permission_group_api_label">AdAway의 허가</string>
+    <string name="permission_group_api_description">Adaway와 상호작용하도록 허용</string>
     <string name="permission_send_command_label">시스템 광고 차단을 활성화하거나 비활성화</string>
+    <string name="permission_send_command_description">Adaway에 시스템 전체 광고 차단을 활성화또는 비활성화와 같은 명령을 보낼수 있게 허용</string>
 
 </resources>
