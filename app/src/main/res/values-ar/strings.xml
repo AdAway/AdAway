@@ -255,7 +255,7 @@
     </plurals>
 
     <!-- Clipboard -->
-    <string name="clipboard_host_copied">تم نسخ المضيف إلى الحافظة<br></string>
+    <string name="clipboard_host_copied">تم نسخ المضيف إلى الحافظة</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">تشغيل</string>
