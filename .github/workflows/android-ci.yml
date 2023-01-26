@@ -11,17 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: 11
           cache: 'gradle'
 
       - name: Restore SonarCloud packages cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
@@ -41,7 +41,7 @@ jobs:
         run: ./gradlew assembleRelease --stacktrace
 
       # - name: Upload APK
-      #   uses: actions/upload-artifact@v2
+      #   uses: actions/upload-artifact@v3
       #   with:
       #     name: AdAway-dev
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
