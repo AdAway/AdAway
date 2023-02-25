@@ -15,32 +15,30 @@
 // Alternatively, you can license this software under a commercial
 // license, as set out in https://www.mongoose.ws/licensing/
 //
-// SPDX-License-Identifier: GPL-2.0 or commercial
+// SPDX-License-Identifier: GPL-2.0-only or commercial
 
 #ifndef MONGOOSE_H
 #define MONGOOSE_H
 
-#define MG_VERSION "7.8"
+#define MG_VERSION "7.9"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 
-#define MG_ARCH_CUSTOM 0
-#define MG_ARCH_UNIX 1
-#define MG_ARCH_WIN32 2
-#define MG_ARCH_ESP32 3
-#define MG_ARCH_ESP8266 4
-#define MG_ARCH_FREERTOS_TCP 5
-#define MG_ARCH_FREERTOS_LWIP 6
-#define MG_ARCH_AZURERTOS 7
-#define MG_ARCH_RTX_LWIP 8
-#define MG_ARCH_ZEPHYR 9
-#define MG_ARCH_NEWLIB 10
-#define MG_ARCH_RTX 11
-#define MG_ARCH_TIRTOS 12
-#define MG_ARCH_RP2040 13
+#define MG_ARCH_CUSTOM 0     // User creates its own mongoose_custom.h
+#define MG_ARCH_UNIX 1       // Linux, BSD, Mac, ...
+#define MG_ARCH_WIN32 2      // Windows
+#define MG_ARCH_ESP32 3      // ESP32
+#define MG_ARCH_ESP8266 4    // ESP8266
+#define MG_ARCH_FREERTOS 5   // FreeRTOS
+#define MG_ARCH_AZURERTOS 6  // MS Azure RTOS
+#define MG_ARCH_ZEPHYR 7     // Zephyr RTOS
+#define MG_ARCH_NEWLIB 8     // Bare metal ARM
+#define MG_ARCH_RTX 9        // Keil MDK RTX
+#define MG_ARCH_TIRTOS 10    // Texas Semi TI-RTOS
+#define MG_ARCH_RP2040 11    // Raspberry Pi RP2040
 
 #if !defined(MG_ARCH)
 #if defined(__unix__) || defined(__APPLE__)
@@ -49,26 +47,32 @@ extern "C" {
 #define MG_ARCH MG_ARCH_WIN32
 #elif defined(ICACHE_FLASH) || defined(ICACHE_RAM_ATTR)
 #define MG_ARCH MG_ARCH_ESP8266
+#elif defined(__ZEPHYR__)
+#define MG_ARCH MG_ARCH_ZEPHYR
 #elif defined(ESP_PLATFORM)
 #define MG_ARCH MG_ARCH_ESP32
 #elif defined(FREERTOS_IP_H)
-#define MG_ARCH MG_ARCH_FREERTOS_TCP
+#define MG_ARCH MG_ARCH_FREERTOS
+#define MG_ENABLE_FREERTOS_TCP 1
 #elif defined(AZURE_RTOS_THREADX)
 #define MG_ARCH MG_ARCH_AZURERTOS
-#elif defined(__ZEPHYR__)
-#define MG_ARCH MG_ARCH_ZEPHYR
 #elif defined(PICO_TARGET_NAME)
 #define MG_ARCH MG_ARCH_RP2040
 #endif
+#endif  // !defined(MG_ARCH)
 
-#if !defined(MG_ARCH)
-#include <mongoose_custom.h>
+#if !defined(MG_ARCH) || (MG_ARCH == MG_ARCH_CUSTOM)
+#include "mongoose_custom.h"  // keep this include
 #endif
 
 #if !defined(MG_ARCH)
 #error "MG_ARCH is not specified and we couldn't guess it. Set -D MG_ARCH=..."
 #endif
-#endif  // !defined(MG_ARCH)
+
+// http://esr.ibiblio.org/?p=5095
+#define MG_BIG_ENDIAN (*(uint16_t *) "\0\xff" < 0x100)
+
+
 
 
 
@@ -97,10 +101,6 @@ extern "C" {
 #include <nx_bsd.h>
 #include <nx_port.h>
 #include <tx_port.h>
-
-#ifdef __REDLIB__
-#define va_copy(d, s) __builtin_va_copy(d, s)
-#endif
 
 #define PATH_MAX FX_MAXIMUM_PATH
 #define MG_DIRSEP '\\'
@@ -163,138 +163,45 @@ extern "C" {
 #endif
 
 
-#if MG_ARCH == MG_ARCH_FREERTOS_LWIP
+#if MG_ARCH == MG_ARCH_FREERTOS
 
 #include <ctype.h>
+// #include <errno.h> // Cannot include errno - might conflict with lwip!
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h> // rand(), strtol(), atoi()
 #include <string.h>
-
-#if defined(__GNUC__)
 #include <sys/stat.h>
-#include <sys/time.h>
-#else
-struct timeval {
-  time_t tv_sec;
-  long tv_usec;
-};
-#endif
 
 #include <FreeRTOS.h>
 #include <task.h>
-
-#include <lwip/sockets.h>
-
-#if LWIP_SOCKET != 1
-// Sockets support disabled in LWIP by default
-#error Set LWIP_SOCKET variable to 1 (in lwipopts.h)
-#endif
-
-// Re-route calloc/free to the FreeRTOS's functions, don't use stdlib
-static inline void *mg_calloc(int cnt, size_t size) {
-  void *p = pvPortMalloc(cnt * size);
-  if (p != NULL) memset(p, 0, size * cnt);
-  return p;
-}
-#define calloc(a, b) mg_calloc((a), (b))
-#define free(a) vPortFree(a)
-#define malloc(a) pvPortMalloc(a)
-#define strdup(s) ((char *) mg_strdup(mg_str(s)).ptr)
-#define mkdir(a, b) (-1)
 
 #ifndef MG_IO_SIZE
 #define MG_IO_SIZE 512
 #endif
 
-#endif  // MG_ARCH == MG_ARCH_FREERTOS_LWIP
-
-
-#if MG_ARCH == MG_ARCH_FREERTOS_TCP
-
-#include <ctype.h>
-#include <errno.h>
-#include <limits.h>
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <time.h>
-
-#include <FreeRTOS.h>
-#include <list.h>
-#include <task.h>
-
-#include <FreeRTOS_IP.h>
-#include <FreeRTOS_Sockets.h>
-
-// Why FreeRTOS-TCP did not implement a clean BSD API, but its own thing
-// with FreeRTOS_ prefix, is beyond me
-#define IPPROTO_TCP FREERTOS_IPPROTO_TCP
-#define IPPROTO_UDP FREERTOS_IPPROTO_UDP
-#define AF_INET FREERTOS_AF_INET
-#define SOCK_STREAM FREERTOS_SOCK_STREAM
-#define SOCK_DGRAM FREERTOS_SOCK_DGRAM
-#define SO_BROADCAST 0
-#define SO_ERROR 0
-#define SOL_SOCKET 0
-#define SO_REUSEADDR 0
-#define sockaddr_in freertos_sockaddr
-#define sockaddr freertos_sockaddr
-#define accept(a, b, c) FreeRTOS_accept((a), (b), (c))
-#define connect(a, b, c) FreeRTOS_connect((a), (b), (c))
-#define bind(a, b, c) FreeRTOS_bind((a), (b), (c))
-#define listen(a, b) FreeRTOS_listen((a), (b))
-#define socket(a, b, c) FreeRTOS_socket((a), (b), (c))
-#define send(a, b, c, d) FreeRTOS_send((a), (b), (c), (d))
-#define recv(a, b, c, d) FreeRTOS_recv((a), (b), (c), (d))
-#define setsockopt(a, b, c, d, e) FreeRTOS_setsockopt((a), (b), (c), (d), (e))
-#define sendto(a, b, c, d, e, f) FreeRTOS_sendto((a), (b), (c), (d), (e), (f))
-#define recvfrom(a, b, c, d, e, f) \
-  FreeRTOS_recvfrom((a), (b), (c), (d), (e), (f))
-#define closesocket(x) FreeRTOS_closesocket(x)
-#define gethostbyname(x) FreeRTOS_gethostbyname(x)
-#define getsockname(a, b, c) (-1)
-#define getpeername(a, b, c) 0
+#define calloc(a, b) mg_calloc(a, b)
+#define free(a) vPortFree(a)
+#define malloc(a) pvPortMalloc(a)
+#define strdup(s) ((char *) mg_strdup(mg_str(s)).ptr)
 
 // Re-route calloc/free to the FreeRTOS's functions, don't use stdlib
-static inline void *mg_calloc(int cnt, size_t size) {
+static inline void *mg_calloc(size_t cnt, size_t size) {
   void *p = pvPortMalloc(cnt * size);
   if (p != NULL) memset(p, 0, size * cnt);
   return p;
 }
-#define calloc(a, b) mg_calloc((a), (b))
-#define free(a) vPortFree(a)
-#define malloc(a) pvPortMalloc(a)
-#define mkdir(a, b) (-1)
 
-#if !defined(__GNUC__)
-// copied from GCC on ARM; for some reason useconds are signed
-struct timeval {
-  time_t tv_sec;
-  long tv_usec;
-};
-#endif
+#define mkdir(a, b) mg_mkdir(a, b)
+static inline int mg_mkdir(const char *path, mode_t mode) {
+  (void) path, (void) mode;
+  return -1;
+}
 
-#ifndef EINPROGRESS
-#define EINPROGRESS pdFREERTOS_ERRNO_EINPROGRESS
-#endif
-#ifndef EWOULDBLOCK
-#define EWOULDBLOCK pdFREERTOS_ERRNO_EWOULDBLOCK
-#endif
-#ifndef EAGAIN
-#define EAGAIN pdFREERTOS_ERRNO_EAGAIN
-#endif
-#ifndef EINTR
-#define EINTR pdFREERTOS_ERRNO_EINTR
-#endif
-
-#endif  // MG_ARCH == MG_ARCH_FREERTOS_TCP
+#endif  // MG_ARCH == MG_ARCH_FREERTOS
 
 
 #if MG_ARCH == MG_ARCH_NEWLIB
@@ -348,59 +255,9 @@ int mkdir(const char *, mode_t);
 #include <string.h>
 #include <time.h>
 
-#include <rl_net.h>
-
-#define MG_ENABLE_CUSTOM_MILLIS 1
-typedef int socklen_t;
-#define closesocket(x) closesocket(x)
-#define mkdir(a, b) (-1)
-#define EWOULDBLOCK BSD_EWOULDBLOCK
-#define EAGAIN BSD_EWOULDBLOCK
-#define EINPROGRESS BSD_EWOULDBLOCK
-#define EINTR BSD_EWOULDBLOCK
-#define ECONNRESET BSD_ECONNRESET
-#define EPIPE BSD_ECONNRESET
-#define TCP_NODELAY SO_KEEPALIVE
-
+#if !defined MG_ENABLE_RL && (!defined(MG_ENABLE_LWIP) || !MG_ENABLE_LWIP)
+#define MG_ENABLE_RL 1
 #endif
-
-
-#if MG_ARCH == MG_ARCH_RTX_LWIP
-
-#include <ctype.h>
-#include <stdarg.h>
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
-
-#if defined(__GNUC__)
-#include <sys/stat.h>
-#include <sys/time.h>
-#else
-struct timeval {
-  time_t tv_sec;
-  long tv_usec;
-};
-#endif
-
-#include <lwip/sockets.h>
-
-#if LWIP_SOCKET != 1
-// Sockets support disabled in LWIP by default
-#error Set LWIP_SOCKET variable to 1 (in lwipopts.h)
-#endif
-
-#define mkdir(a, b) (-1)
-
-#ifndef MG_IO_SIZE
-#define MG_IO_SIZE 512
-#endif
-
-#ifndef MG_PATH_MAX
-#define MG_PATH_MAX 128
-#endif
-
 
 #endif
 
@@ -415,13 +272,11 @@ struct timeval {
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include <time.h>
-#include <errno.h>
 
+#include <serrno.h>
 #include <sys/socket.h>
 
-extern int SockStatus(SOCKET hSock, int request, int *results );
-extern int SockSet(SOCKET hSock, int Type, int Prop, void *pbuf, int size);
+#include <ti/sysbios/knl/Clock.h>
 
 #endif
 
@@ -545,6 +400,22 @@ typedef enum { false = 0, true = 1 } bool;
 #endif
 #endif
 
+#define MG_INVALID_SOCKET INVALID_SOCKET
+#define MG_SOCKET_TYPE SOCKET
+typedef unsigned long nfds_t;
+#define MG_SOCKET_ERRNO WSAGetLastError()
+#if defined(_MSC_VER)
+#pragma comment(lib, "ws2_32.lib")
+#ifndef alloca
+#define alloca(a) _alloca(a)
+#endif
+#endif
+#define poll(a, b, c) WSAPoll((a), (b), (c))
+#ifndef SO_EXCLUSIVEADDRUSE
+#define SO_EXCLUSIVEADDRUSE ((int) (~SO_REUSEADDR))
+#endif
+#define closesocket(x) closesocket(x)
+
 typedef int socklen_t;
 #define MG_DIRSEP '\\'
 
@@ -563,13 +434,6 @@ typedef int socklen_t;
 #define sleep(x) Sleep(x)
 #define mkdir(a, b) _mkdir(a)
 
-#ifndef va_copy
-#ifdef __va_copy
-#define va_copy __va_copy
-#else
-#define va_copy(x, y) (x) = (y)
-#endif
-#endif
 #ifndef S_ISDIR
 #define S_ISDIR(x) (((x) &_S_IFMT) == _S_IFDIR)
 #endif
@@ -583,12 +447,12 @@ typedef int socklen_t;
 
 #if MG_ARCH == MG_ARCH_ZEPHYR
 
-#include <zephyr.h>
+#include <zephyr/kernel.h>
 
 #include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <net/socket.h>
+#include <zephyr/net/socket.h>
 #include <stdarg.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -599,6 +463,9 @@ typedef int socklen_t;
 #include <time.h>
 
 #define MG_PUTCHAR(x) printk("%c", x)
+#ifndef strdup
+#define strdup(s) ((char *) mg_strdup(mg_str(s)).ptr)
+#endif
 #define strerror(x) zsock_gai_strerror(x)
 #define FD_CLOEXEC 0
 #define F_SETFD 0
@@ -610,12 +477,129 @@ int sscanf(const char *, const char *, ...);
 #endif
 
 
+#if defined(MG_ENABLE_FREERTOS_TCP) && MG_ENABLE_FREERTOS_TCP
+
+#include <ctype.h>
+#include <errno.h>
+#include <limits.h>
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <time.h>
+
+#include <FreeRTOS.h>
+#include <list.h>
+#include <task.h>
+
+#include <FreeRTOS_IP.h>
+#include <FreeRTOS_Sockets.h>
+
+#define MG_SOCKET_TYPE Socket_t
+#define MG_INVALID_SOCKET FREERTOS_INVALID_SOCKET
+
+// Why FreeRTOS-TCP did not implement a clean BSD API, but its own thing
+// with FreeRTOS_ prefix, is beyond me
+#define IPPROTO_TCP FREERTOS_IPPROTO_TCP
+#define IPPROTO_UDP FREERTOS_IPPROTO_UDP
+#define AF_INET FREERTOS_AF_INET
+#define SOCK_STREAM FREERTOS_SOCK_STREAM
+#define SOCK_DGRAM FREERTOS_SOCK_DGRAM
+#define SO_BROADCAST 0
+#define SO_ERROR 0
+#define SOL_SOCKET 0
+#define SO_REUSEADDR 0
+#define sockaddr_in freertos_sockaddr
+#define sockaddr freertos_sockaddr
+#define accept(a, b, c) FreeRTOS_accept((a), (b), (c))
+#define connect(a, b, c) FreeRTOS_connect((a), (b), (c))
+#define bind(a, b, c) FreeRTOS_bind((a), (b), (c))
+#define listen(a, b) FreeRTOS_listen((a), (b))
+#define socket(a, b, c) FreeRTOS_socket((a), (b), (c))
+#define send(a, b, c, d) FreeRTOS_send((a), (b), (c), (d))
+#define recv(a, b, c, d) FreeRTOS_recv((a), (b), (c), (d))
+#define setsockopt(a, b, c, d, e) FreeRTOS_setsockopt((a), (b), (c), (d), (e))
+#define sendto(a, b, c, d, e, f) FreeRTOS_sendto((a), (b), (c), (d), (e), (f))
+#define recvfrom(a, b, c, d, e, f) \
+  FreeRTOS_recvfrom((a), (b), (c), (d), (e), (f))
+#define closesocket(x) FreeRTOS_closesocket(x)
+#define gethostbyname(x) FreeRTOS_gethostbyname(x)
+#define getsockname(a, b, c) mg_getsockname((a), (b), (c))
+#define getpeername(a, b, c) mg_getpeername((a), (b), (c))
+
+static inline int mg_getsockname(MG_SOCKET_TYPE fd, void *buf, socklen_t *len) {
+  (void) fd, (void) buf, (void) len;
+  return -1;
+}
+
+static inline int mg_getpeername(MG_SOCKET_TYPE fd, void *buf, socklen_t *len) {
+  (void) fd, (void) buf, (void) len;
+  return 0;
+}
+#endif
+
+
+#if defined(MG_ENABLE_LWIP) && MG_ENABLE_LWIP
+#if defined(__GNUC__)
+#include <sys/stat.h>
+#include <sys/time.h>
+#else
+struct timeval {
+  time_t tv_sec;
+  long tv_usec;
+};
+#endif
+
+#include <lwip/sockets.h>
+
+#if LWIP_SOCKET != 1
+// Sockets support disabled in LWIP by default
+#error Set LWIP_SOCKET variable to 1 (in lwipopts.h)
+#endif
+#endif
+
+
+#if defined(MG_ENABLE_RL) && MG_ENABLE_RL
+#include <rl_net.h>
+
+#define MG_ENABLE_CUSTOM_MILLIS 1
+#define closesocket(x) closesocket(x)
+#define mkdir(a, b) (-1)
+#define EWOULDBLOCK BSD_EWOULDBLOCK
+#define EAGAIN BSD_EWOULDBLOCK
+#define EINPROGRESS BSD_EWOULDBLOCK
+#define EINTR BSD_EWOULDBLOCK
+#define ECONNRESET BSD_ECONNRESET
+#define EPIPE BSD_ECONNRESET
+#define TCP_NODELAY SO_KEEPALIVE
+#endif
+
+
 #ifndef MG_ENABLE_LOG
 #define MG_ENABLE_LOG 1
 #endif
 
 #ifndef MG_ENABLE_MIP
-#define MG_ENABLE_MIP 0
+#define MG_ENABLE_MIP 0  // Mongoose built-in network stack
+#endif
+
+#ifndef MG_ENABLE_LWIP
+#define MG_ENABLE_LWIP 0  // lWIP network stack
+#endif
+
+#ifndef MG_ENABLE_FREERTOS_TCP
+#define MG_ENABLE_FREERTOS_TCP 0  // Amazon FreeRTOS-TCP network stack
+#endif
+
+#ifndef MG_ENABLE_RL
+#define MG_ENABLE_RL 0  // ARM MDK network stack
+#endif
+
+#ifndef MG_ENABLE_SOCKET
+#define MG_ENABLE_SOCKET !MG_ENABLE_MIP
 #endif
 
 #ifndef MG_ENABLE_POLL
@@ -628,10 +612,6 @@ int sscanf(const char *, const char *, ...);
 
 #ifndef MG_ENABLE_FATFS
 #define MG_ENABLE_FATFS 0
-#endif
-
-#ifndef MG_ENABLE_SOCKET
-#define MG_ENABLE_SOCKET 1
 #endif
 
 #ifndef MG_ENABLE_MBEDTLS
@@ -655,7 +635,7 @@ int sscanf(const char *, const char *, ...);
 #endif
 
 #ifndef MG_ENABLE_MD5
-#define MG_ENABLE_MD5 0
+#define MG_ENABLE_MD5 1
 #endif
 
 // Set MG_ENABLE_WINSOCK=0 for Win32 builds with external IP stack (like LWIP)
@@ -679,14 +659,16 @@ int sscanf(const char *, const char *, ...);
 #define MG_ENABLE_PACKED_FS 0
 #endif
 
-// Granularity of the send/recv IO buffer growth
 #ifndef MG_IO_SIZE
-#define MG_IO_SIZE 2048
+#define MG_IO_SIZE 2048  // Granularity of the send/recv IO buffer growth
 #endif
 
-// Maximum size of the recv IO buffer
 #ifndef MG_MAX_RECV_SIZE
-#define MG_MAX_RECV_SIZE (3 * 1024 * 1024)
+#define MG_MAX_RECV_SIZE (3 * 1024 * 1024)  // Maximum recv IO buffer size
+#endif
+
+#ifndef MG_DATA_SIZE
+#define MG_DATA_SIZE 32  // struct mg_connection :: data size
 #endif
 
 #ifndef MG_MAX_HTTP_HEADERS
@@ -719,6 +701,18 @@ int sscanf(const char *, const char *, ...);
 #else
 #define MG_ENABLE_FILE 0
 #endif
+#endif
+
+#ifndef MG_INVALID_SOCKET
+#define MG_INVALID_SOCKET (-1)
+#endif
+
+#ifndef MG_SOCKET_TYPE
+#define MG_SOCKET_TYPE int
+#endif
+
+#ifndef MG_SOCKET_ERRNO
+#define MG_SOCKET_ERRNO errno
 #endif
 
 #if MG_ENABLE_EPOLL
@@ -828,7 +822,6 @@ void mg_log_set_fn(mg_pfn_t fn, void *param);
 struct mg_timer {
   unsigned long id;         // Timer ID
   uint64_t period_ms;       // Timer period in milliseconds
-  uint64_t prev_ms;         // Timestamp of a previous poll
   uint64_t expire;          // Expiration timestamp in milliseconds
   unsigned flags;           // Possible flags values below
 #define MG_TIMER_ONCE 0     // Call function once
@@ -844,6 +837,7 @@ void mg_timer_init(struct mg_timer **head, struct mg_timer *timer,
                    void *arg);
 void mg_timer_free(struct mg_timer **head, struct mg_timer *);
 void mg_timer_poll(struct mg_timer **head, uint64_t new_ms);
+bool mg_timer_expired(uint64_t *expiration, uint64_t period, uint64_t now);
 
 
 
@@ -901,6 +895,10 @@ uint64_t mg_millis(void);
 
 #define mg_htons(x) mg_ntohs(x)
 #define mg_htonl(x) mg_ntohl(x)
+
+#define MG_U32(a, b, c, d)                                      \
+  (((uint32_t) ((a) &255) << 24) | ((uint32_t) ((b) &255) << 16) | \
+   ((uint32_t) ((c) &255) << 8) | (uint32_t) ((d) &255))
 
 // Linked list management macros
 #define LIST_ADD_HEAD(type_, head_, elem_) \
@@ -989,11 +987,12 @@ void mg_error(struct mg_connection *c, const char *fmt, ...);
 enum {
   MG_EV_ERROR,       // Error                        char *error_message
   MG_EV_OPEN,        // Connection created           NULL
-  MG_EV_POLL,        // mg_mgr_poll iteration        uint64_t *milliseconds
+  MG_EV_POLL,        // mg_mgr_poll iteration        uint64_t *uptime_millis
   MG_EV_RESOLVE,     // Host name is resolved        NULL
   MG_EV_CONNECT,     // Connection established       NULL
   MG_EV_ACCEPT,      // Connection accepted          NULL
-  MG_EV_READ,        // Data received from socket    struct mg_str *
+  MG_EV_TLS_HS,      // TLS handshake succeeded      NULL
+  MG_EV_READ,        // Data received from socket    long *bytes_read
   MG_EV_WRITE,       // Data written to socket       long *bytes_written
   MG_EV_CLOSE,       // Connection closed            NULL
   MG_EV_HTTP_MSG,    // HTTP request/response        struct mg_http_message *
@@ -1004,9 +1003,10 @@ enum {
   MG_EV_MQTT_CMD,    // MQTT low-level command       struct mg_mqtt_message *
   MG_EV_MQTT_MSG,    // MQTT PUBLISH received        struct mg_mqtt_message *
   MG_EV_MQTT_OPEN,   // MQTT CONNACK received        int *connack_status_code
-  MG_EV_SNTP_TIME,   // SNTP time received           uint64_t *milliseconds
-  MG_EV_USER,        // Starting ID for user events
+  MG_EV_SNTP_TIME,   // SNTP time received           uint64_t *epoch_millis
+  MG_EV_USER         // Starting ID for user events
 };
+
 
 
 
@@ -1042,7 +1042,7 @@ struct mg_mgr {
   int epoll_fd;                 // Used when MG_EPOLL_ENABLE=1
   void *priv;                   // Used by the MIP stack
   size_t extraconnsize;         // Used by the MIP stack
-#if MG_ARCH == MG_ARCH_FREERTOS_TCP
+#if MG_ENABLE_FREERTOS_TCP
   SocketSet_t ss;  // NOTE(lsm): referenced from socket struct
 #endif
 };
@@ -1060,7 +1060,7 @@ struct mg_connection {
   void *fn_data;               // User-specified function parameter
   mg_event_handler_t pfn;      // Protocol-specific handler function
   void *pfn_data;              // Protocol-specific function parameter
-  char label[50];              // Arbitrary label
+  char data[MG_DATA_SIZE];     // Arbitrary connection data
   void *tls;                   // TLS specific data
   unsigned is_listening : 1;   // Listening connection
   unsigned is_client : 1;      // Outbound (client) connection
@@ -1094,10 +1094,8 @@ struct mg_connection *mg_wrapfd(struct mg_mgr *mgr, int fd,
 void mg_connect_resolved(struct mg_connection *);
 bool mg_send(struct mg_connection *, const void *, size_t);
 size_t mg_printf(struct mg_connection *, const char *fmt, ...);
-size_t mg_vprintf(struct mg_connection *, const char *fmt, va_list ap);
-char *mg_straddr(struct mg_addr *, char *, size_t);
+size_t mg_vprintf(struct mg_connection *, const char *fmt, va_list *ap);
 bool mg_aton(struct mg_str str, struct mg_addr *addr);
-char *mg_ntoa(const struct mg_addr *addr, char *buf, size_t len);
 int mg_mkpipe(struct mg_mgr *, mg_event_handler_t, void *, bool udp);
 
 // These functions are used to integrate with custom network stacks
@@ -1106,6 +1104,11 @@ void mg_close_conn(struct mg_connection *c);
 bool mg_open_listener(struct mg_connection *c, const char *url);
 struct mg_timer *mg_timer_add(struct mg_mgr *mgr, uint64_t milliseconds,
                               unsigned flags, void (*fn)(void *), void *arg);
+
+// Low-level IO primives used by TLS layer
+enum { MG_IO_ERR = -1, MG_IO_WAIT = -2, MG_IO_RESET = -3 };
+long mg_io_send(struct mg_connection *c, const void *buf, size_t len);
+long mg_io_recv(struct mg_connection *c, void *buf, size_t len);
 
 
 
@@ -1173,6 +1176,7 @@ void mg_http_bauth(struct mg_connection *, const char *user, const char *pass);
 struct mg_str mg_http_get_header_var(struct mg_str s, struct mg_str v);
 size_t mg_http_next_multipart(struct mg_str, size_t, struct mg_http_part *);
 int mg_http_status(const struct mg_http_message *hm);
+void mg_hello(const char *url);
 
 
 void mg_http_serve_ssi(struct mg_connection *c, const char *root,
@@ -1422,23 +1426,118 @@ void mg_rpc_list(struct mg_rpc_req *r);
 
 
 
+struct mip_if;  // MIP network interface
+
 struct mip_driver {
-  void (*init)(uint8_t *mac, void *data);           // Initialise driver
-  size_t (*tx)(const void *, size_t, void *data);   // Transmit frame
-  size_t (*rx)(void *buf, size_t len, void *data);  // Receive frame (polling)
-  bool (*status)(void *data);                       // Up/down status
-  // Set receive callback for interrupt-driven drivers
-  void (*rxcb)(void (*fn)(void *buf, size_t len, void *rxdata), void *rxdata);
+  bool (*init)(struct mip_if *);                         // Initialise driver
+  size_t (*tx)(const void *, size_t, struct mip_if *);   // Transmit frame
+  size_t (*rx)(void *buf, size_t len, struct mip_if *);  // Receive frame (poll)
+  bool (*up)(struct mip_if *);                           // Up/down status
 };
 
-struct mip_ipcfg {
-  uint8_t mac[6];         // MAC address. Must not be 0
-  uint32_t ip, mask, gw;  // IP, netmask, GW. If IP is 0, DHCP is used
+// Receive queue - single producer, single consumer queue.  Interrupt-based
+// drivers copy received frames to the queue in interrupt context. mip_poll()
+// function runs in event loop context, reads from the queue
+struct queue {
+  uint8_t *buf;
+  size_t len;
+  volatile size_t tail, head;
 };
 
-void mip_init(struct mg_mgr *, struct mip_ipcfg *, struct mip_driver *, void *);
+#define MIP_ARP_ENTRIES 5  // Number of ARP cache entries. Maximum 21
+#define MIP_ARP_CS (2 + 12 * MIP_ARP_ENTRIES)  // ARP cache size
+
+// Network interface
+struct mip_if {
+  uint8_t mac[6];             // MAC address. Must be set to a valid MAC
+  uint32_t ip, mask, gw;      // IP address, mask, default gateway
+  struct mg_str rx;           // Output (TX) buffer
+  struct mg_str tx;           // Input (RX) buffer
+  bool enable_dhcp_client;    // Enable DCHP client
+  bool enable_dhcp_server;    // Enable DCHP server
+  struct mip_driver *driver;  // Low level driver
+  void *driver_data;          // Driver-specific data
+  struct mg_mgr *mgr;         // Mongoose event manager
+  struct queue queue;         // Set queue.len for interrupt based drivers
+
+  // Internal state, user can use it but should not change it
+  uint64_t now;                   // Current time
+  uint64_t timer_1000ms;          // 1000 ms timer: for DHCP and link state
+  uint64_t lease_expire;          // Lease expiration time
+  uint8_t arp_cache[MIP_ARP_CS];  // Each entry is 12 bytes
+  uint16_t eport;                 // Next ephemeral port
+  uint16_t dropped;               // Number of dropped frames
+  uint8_t state;                  // Current state
+#define MIP_STATE_DOWN 0          // Interface is down
+#define MIP_STATE_UP 1            // Interface is up
+#define MIP_STATE_READY 2         // Interface is up and has IP
+};
+
+void mip_init(struct mg_mgr *, struct mip_if *);
+void mip_free(struct mip_if *);
+void mip_qwrite(void *buf, size_t len, struct mip_if *ifp);
+size_t mip_qread(void *buf, struct mip_if *ifp);
+// conveniency rx function for IRQ-driven drivers
+size_t mip_driver_rx(void *buf, size_t len, struct mip_if *ifp);
 
 extern struct mip_driver mip_driver_stm32;
+extern struct mip_driver mip_driver_w5500;
+extern struct mip_driver mip_driver_tm4c;
+
+// Drivers that require SPI, can use this SPI abstraction
+struct mip_spi {
+  void *spi;                        // Opaque SPI bus descriptor
+  void (*begin)(void *);            // SPI begin: slave select low
+  void (*end)(void *);              // SPI end: slave select high
+  uint8_t (*txn)(void *, uint8_t);  // SPI transaction: write 1 byte, read reply
+};
+
+#ifdef MIP_QPROFILE
+enum {
+  QP_IRQTRIGGERED = 0,  // payload is number of interrupts so far
+  QP_FRAMEPUSHED,       // available space in the frame queue
+  QP_FRAMEPOPPED,       // available space in the frame queue
+  QP_FRAMEDONE,         // available space in the frame queue
+  QP_FRAMEDROPPED,      // number of dropped frames
+  QP_QUEUEOVF  // profiling queue is full, payload is number of frame drops
+};
+
+void qp_mark(unsigned int type, int len);
+void qp_log(void);  // timestamp, type, payload
+void qp_init(void);
+#else
+#define qp_mark(a, b)
+#endif
+
+
+struct mip_driver_stm32_data {
+  // MDC clock divider. MDC clock is derived from HCLK, must not exceed 2.5MHz
+  //    HCLK range    DIVIDER    mdc_cr VALUE
+  //    -------------------------------------
+  //                                -1  <-- tell driver to guess the value
+  //    60-100 MHz    HCLK/42        0
+  //    100-150 MHz   HCLK/62        1
+  //    20-35 MHz     HCLK/16        2
+  //    35-60 MHz     HCLK/26        3
+  //    150-216 MHz   HCLK/102       4  <-- value for Nucleo-F* on max speed
+  //    216-310 MHz   HCLK/124       5
+  //    110, 111 Reserved
+  int mdc_cr;  // Valid values: -1, 0, 1, 2, 3, 4, 5
+};
+
+
+struct mip_driver_tm4c_data {
+  // MDC clock divider. MDC clock is derived from SYSCLK, must not exceed 2.5MHz
+  //    SYSCLK range   DIVIDER   mdc_cr VALUE
+  //    -------------------------------------
+  //                                -1  <-- tell driver to guess the value
+  //    60-100 MHz    SYSCLK/42      0
+  //    100-150 MHz   SYSCLK/62      1  <-- value for EK-TM4C129* on max speed
+  //    20-35 MHz     SYSCLK/16      2
+  //    35-60 MHz     SYSCLK/26      3
+  //    0x4-0xF Reserved
+  int mdc_cr;  // Valid values: -1, 0, 1, 2, 3
+};
 
 #ifdef __cplusplus
 }

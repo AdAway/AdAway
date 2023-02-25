@@ -21,6 +21,11 @@ robust, and easy. Features include:
 - Source code is both ISO C and ISO C++ compliant
 - Works with any network stack with socket API, like LwIP or FreeRTOS-Plus-TCP
 - Very easy to integrate: just copy `mongoose.c` and `mongoose.h` files to your build tree
+- Optional built-in TCP/IP stack with drivers for bare metal or RTOS firmwares
+   - A full device dashboard
+  [bare metal example on Nucleo-F429ZI](examples/stm32/nucleo-f429zi-baremetal)
+  is only 6 files
+   - For comparison, a CubeIDE generated HTTP example is 400+ files
 - Detailed [documentation](https://mongoose.ws/documentation/) and
   [tutorials](https://mongoose.ws/tutorials/)
 

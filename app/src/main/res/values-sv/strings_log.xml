@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="log_toggle_recording_description">Stänga av/sätt på logginspelning</string>
+    <string name="log_start_recording">Tryck på spela in för att börja logga förfrågningar, surfa på webben eller använd appar, gå sedan tillbaka eller svep för att uppdatera loggarna.</string>
+    <string name="log_blocked_requests_ignored">\n\nBlockerade förfrågningar kommer inte att loggas. Inaktivera annonsblockering först om du också vill logga dem.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Alfabetisk sortering</string>
     <string name="log_sort_top_level_domain">Toppleveldomän</string>

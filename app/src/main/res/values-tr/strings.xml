@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">%1$s için gücelleme gerekiyor</string>
     <string name="hosts_source_last_update">Son güncelleme %1$s önce</string>
     <string name="hosts_source_unknown_status">Bilinmeyen güncelleme durumu</string>
+    <string name="hosts_source_disabled">Devre dışı</string>
     <string name="hosts_source_few_minutes">birkaç dakika</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d dakika</item>
@@ -235,6 +236,9 @@
         <item quantity="one">%d ay</item>
         <item quantity="other">%d ay</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Ana bilgisayar panoya kopyalandı</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">başlanıyor</string>
