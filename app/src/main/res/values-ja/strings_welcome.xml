@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">同期しました!</string>
     <string name="welcome_sync_summary">AdAwayは、オンラインソースからブロックする広告ネットワークをダウンロードします。後から設定でカスタマイズすることができます。</string>
     <string name="welcome_sync_retry_logo">Retry sync</string>
-    <string name="welcome_sync_error">同期失敗:\n%s.\nリトライしますか?</string>
+    <string name="welcome_sync_error">同期失敗: %1$s リトライしますか?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Support</string>

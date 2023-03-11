@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">S\'ha sincronitzat!</string>
     <string name="welcome_sync_summary">L\'AdAway baixa xarxes publicitàries per bloquejar-les de fonts en línia. Podeu personalitzar-los més endavant a la configuració.</string>
     <string name="welcome_sync_retry_logo">Reintenta la sincronització</string>
-    <string name="welcome_sync_error">No s\'ha pogut sincronitzar:\n%s.\nVoleu provar-ho de nou?</string>
+    <string name="welcome_sync_error">No s\'ha pogut sincronitzar: %1$s Voleu provar-ho de nou?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Ajuda</string>

@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Синхронізовано!</string>
     <string name="welcome_sync_summary">AdAway завантажує мережі оголошень, які потрібно блокувати. Ви можете змінити їх в налаштуваннях.</string>
     <string name="welcome_sync_retry_logo">Повторити синхронізацію</string>
-    <string name="welcome_sync_error">Не вдалося синхронізувати:\n%s.\nПовторити?</string>
+    <string name="welcome_sync_error">Не вдалося синхронізувати: %1$s Повторити?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Підтримка</string>

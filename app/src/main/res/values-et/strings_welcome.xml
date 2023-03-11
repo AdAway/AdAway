@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Sünkroonitud!</string>
     <string name="welcome_sync_summary">AdAway laadib võrguallikatest reklaamivõrgustike nimed, et neid blokeerida. Neid saab hiljem seadetes kohandada.</string>
     <string name="welcome_sync_retry_logo">Proovi uuesti sünkroonida</string>
-    <string name="welcome_sync_error">Sünkroonimine ebaõnnestus:\n%s.\nProovid uuesti?</string>
+    <string name="welcome_sync_error">Sünkroonimine ebaõnnestus: %1$s Proovid uuesti?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Tugi</string>

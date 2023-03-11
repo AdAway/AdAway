@@ -31,7 +31,7 @@
     <string name="welcome_synced_header">Sincronizado</string>
     <string name="welcome_sync_summary">AdAway usa fuentes en línea para descargar las redes de anuncios y bloquearlas. Puedes personalizar estas fuentes más adelante en la configuración.</string>
     <string name="welcome_sync_retry_logo">Reintentar sincronización</string>
-    <string name="welcome_sync_error">No se pudo sincronizar %s.\n¿Quieres volver a intentarlo?</string>
+    <string name="welcome_sync_error">No se pudo sincronizar : %1$s ¿Quieres volver a intentarlo?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Apoyo</string>

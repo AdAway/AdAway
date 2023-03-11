@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">¡Sincronizado!</string>
     <string name="welcome_sync_summary">AdAway descarga redes publicitarias para bloquear las fuentes en línea. Puedes personalizarlas más tarde en la configuración.</string>
     <string name="welcome_sync_retry_logo">Reintentar sincronización</string>
-    <string name="welcome_sync_error">Error al sincronizar:\n%s.\n¿Reintentar ahora?</string>
+    <string name="welcome_sync_error">Error al sincronizar: %1$s ¿Reintentar ahora?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Apoyo</string>

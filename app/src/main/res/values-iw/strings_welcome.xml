@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">סונכרן!</string>
     <string name="welcome_sync_summary">AdAway מוריד רשתות של מודעות כדי לחסום אותן ממקורותיהן המקוונים. אתה יכול להתאים אותן מאוחר יותר בהגדרות.</string>
     <string name="welcome_sync_retry_logo">נסה לסנכרן בשנית</string>
-    <string name="welcome_sync_error">נכשל בסנכרון:\n%s.\n לנסות בשנית כעת?</string>
+    <string name="welcome_sync_error">נכשל בסנכרון: %1$s לנסות בשנית כעת?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">תמיכה</string>

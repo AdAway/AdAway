@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Eşitlendi!</string>
     <string name="welcome_sync_summary">AdAway, çevrimiçi kaynaklardan engellemek için reklam ağlarını indirir. Bunları daha sonra ayarlardan özelleştirebilirsiniz.</string>
     <string name="welcome_sync_retry_logo">Eşitlemeyi tekrar dene</string>
-    <string name="welcome_sync_error">Eşitlenemedi:\n%s.\nŞimdi tekrar dene?</string>
+    <string name="welcome_sync_error">Eşitlenemedi: %1$s Şimdi tekrar dene?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Destek</string>

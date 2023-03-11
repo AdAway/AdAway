@@ -36,7 +36,7 @@
     <string name="welcome_sync_summary">AdAway يقوم بتنزيل شبكات الإعلانات لمنعها من المصادر عبر الإنترنت. يمكنك تخصيصها لاحقًا في الإعدادات.</string>
     <string name="welcome_sync_retry_logo">أعد محاولة المزامنة</string>
     <string name="welcome_sync_error">فشل مزامنة
-%s
+%1$s
 أعد المحاولة الآن؟</string>
 
     <!-- Support -->

@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Sincronizzato!</string>
     <string name="welcome_sync_summary">AdAway scarica da sorgenti online le reti pubblicitarie da bloccare. Puoi personalizzarle dalle impostazioni</string>
     <string name="welcome_sync_retry_logo">Riprova sincronizzazione</string>
-    <string name="welcome_sync_error">Sincronizzazione fallita:\n%s.\nRiprovare?</string>
+    <string name="welcome_sync_error">Sincronizzazione fallita: %1$s Riprovare?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Supporto</string>

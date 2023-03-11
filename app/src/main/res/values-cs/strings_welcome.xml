@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Synchronizováno!</string>
     <string name="welcome_sync_summary">AdAway stahuje reklamní sítě k zablokování z online zdrojů. Později si je můžete v nastavení přizpůsobit.</string>
     <string name="welcome_sync_retry_logo">Opakovat synchonizaci</string>
-    <string name="welcome_sync_error">Synchronizace se nezdařila:\n%s.\nOpakovat nyní?</string>
+    <string name="welcome_sync_error">Synchronizace se nezdařila: %1$s Opakovat nyní?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Podpořit</string>

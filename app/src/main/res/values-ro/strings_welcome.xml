@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Sincronizat!</string>
     <string name="welcome_sync_summary">AdAway descarcă conținut online din serverele cu reclame pentru a le restricționa. Poți alege ulterior conținutul blocat din setări.</string>
     <string name="welcome_sync_retry_logo">Reîncearcă sincronizarea</string>
-    <string name="welcome_sync_error">Imposibil de sincronizat:\n%s.\nReîncercați acum?</string>
+    <string name="welcome_sync_error">Imposibil de sincronizat: %1$s Reîncercați acum?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Suport</string>

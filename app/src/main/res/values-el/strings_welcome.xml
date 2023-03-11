@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Συγχρονίστηκε!</string>
     <string name="welcome_sync_summary">Το AdAway κατεβάζει δίκτυα διαφημίσεων για αποκλεισμό από διαδικτυακές πηγές. Μπορείτε να τα προσαρμόσετε αργότερα στις ρυθμίσεις.</string>
     <string name="welcome_sync_retry_logo">Επανάληψη συγχρονισμού</string>
-    <string name="welcome_sync_error">Αποτυχία συγχρονισμού:/n%s.\nΕπανάληψη τώρα;</string>
+    <string name="welcome_sync_error">Αποτυχία συγχρονισμού: %1$s Επανάληψη τώρα;</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Υποστήριξη</string>

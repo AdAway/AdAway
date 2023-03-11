@@ -35,12 +35,12 @@
     <string name="welcome_synced_header">Synced!</string>
     <string name="welcome_sync_summary">AdAway downloads ad networks to block from online sources. You can customize them later in the settings.</string>
     <string name="welcome_sync_retry_logo">Retry sync</string>
-    <string name="welcome_sync_error">Failed to sync:\n%s.\nRetry now?</string>
+    <string name="welcome_sync_error">Failed to sync: %1$s Retry now?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Support</string>
     <string name="welcome_support_header">Support me!</string>
-    <string name="welcome_support_summary">It\'s a free and open-source app. I develop it on my free time. So if you enjoy it, feel free to show your support:</string>
+    <string name="welcome_support_summary">AdAway is a free and open-source app that I develop on my free time. If you enjoy it, feel free to show your support:</string>
     <string name="welcome_support_button">Donate on PayPal</string>
     <string name="welcome_support_telemetry_summary">Do you like bugs? Me neither.</string>
     <string name="welcome_support_telemetry_button">Enable telemetry to send me crash reports</string>

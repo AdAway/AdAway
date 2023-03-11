@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Zsynchronizowany!</string>
     <string name="welcome_sync_summary">AdAway pobiera sieci reklamowe w celu blokowania ze źródeł internetowych. Możesz je później dostosować w ustawieniach.</string>
     <string name="welcome_sync_retry_logo">Ponów synchronizację</string>
-    <string name="welcome_sync_error">Nie udało się zsynchronizować\n %s. \nPonowić próbę?</string>
+    <string name="welcome_sync_error">Nie udało się zsynchronizować %1$s Ponowić próbę?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Wsparcie</string>

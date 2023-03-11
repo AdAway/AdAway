@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Szinkronizálva!</string>
     <string name="welcome_sync_summary">Az AdAway letölti a hirdetési hálózatokat, hogy blokkolja az online forrásokat. A beállításokban később testreszabhatja őket.</string>
     <string name="welcome_sync_retry_logo">Szinkronizálás újrapróbálása</string>
-    <string name="welcome_sync_error">Nem sikerült a szinkronizálás:\n%s.\nÚjrapróbálkozás?</string>
+    <string name="welcome_sync_error">Nem sikerült a szinkronizálás: %1$s Újrapróbálkozás?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Támogatás</string>

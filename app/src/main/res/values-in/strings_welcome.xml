@@ -36,7 +36,7 @@ Pilih salah satu yang kamu inginkan:</string>
     <string name="welcome_synced_header">Sudah tersinkron!</string>
     <string name="welcome_sync_summary">AdAway mengunduh jaringan iklan untuk memblokir dari sumber-sumber online. Anda dapat menyesuaikannya nanti di pengaturan.</string>
     <string name="welcome_sync_retry_logo">Mengulang sinkorinisasi</string>
-    <string name="welcome_sync_error">Gagal melakukan sinkronisasi:\n%s.\nUlangi sekarang?</string>
+    <string name="welcome_sync_error">Gagal melakukan sinkronisasi: %1$s Ulangi sekarang?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Dukungan</string>
