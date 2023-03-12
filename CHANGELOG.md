@@ -1,6 +1,7 @@
 ## [6.1.0] - Unreleased
 
 - Add adaptive launcher icon
+- Add POST_NOTIFCATIONS runtime permission support
 - Improve settings UI
 - Update target SDK to Android 13
 - Update libsu
