@@ -1,6 +1,7 @@
 package org.adaway.ui.prefs;
 
 import static android.content.Intent.CATEGORY_OPENABLE;
+import static org.adaway.ui.prefs.PrefsActivity.PREFERENCE_NOT_FOUND;
 import static org.adaway.util.Constants.PREFS_NAME;
 
 import android.content.Context;
@@ -88,7 +89,7 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
 
     private void bindBackupPref() {
         Preference backupPreference = findPreference(getString(R.string.pref_backup_key));
-        assert backupPreference != null : "preference not found";
+        assert backupPreference != null : PREFERENCE_NOT_FOUND;
         backupPreference.setOnPreferenceClickListener(preference -> {
             this.exportActivityLauncher.launch(BACKUP_FILE_NAME);
             return true;
@@ -97,7 +98,7 @@ public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
 
     private void bindRestorePref() {
         Preference backupPreference = findPreference(getString(R.string.pref_restore_key));
-        assert backupPreference != null : "preference not found";
+        assert backupPreference != null : PREFERENCE_NOT_FOUND;
         backupPreference.setOnPreferenceClickListener(preference -> {
             String[] mimeTypes;
             if (Build.VERSION.SDK_INT < 28) {
