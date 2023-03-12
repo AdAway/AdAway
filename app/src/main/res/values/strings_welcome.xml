@@ -36,6 +36,7 @@
     <string name="welcome_sync_summary">AdAway downloads ad networks to block from online sources. You can customize them later in the settings.</string>
     <string name="welcome_sync_retry_logo">Retry sync</string>
     <string name="welcome_sync_error">Failed to sync: %1$s Retry now?</string>
+    <string name="welcome_sync_notifications">It can send notifications to display ad block status and control, and to notify about available app update (a few per year). Enable them if you want to stay up-to-date.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Support</string>

@@ -1,6 +1,15 @@
 package org.adaway.ui.prefs;
 
+import static android.Manifest.permission.POST_NOTIFICATIONS;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.TIRAMISU;
+import static android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS;
+import static android.provider.Settings.EXTRA_APP_PACKAGE;
+
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,15 +40,37 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
         getPreferenceManager().setSharedPreferencesName(PREFS_NAME);
         addPreferencesFromResource(R.xml.preferences_update);
         // Bind pref actions
+        bindNotificationPreferencesAction();
         bindAppUpdatePrefAction();
         bindAppChannelPrefAction();
         bindHostsUpdatePrefAction();
+        // Update current state
+        updateNotificationPreferencesState();
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         PrefsActivity.setAppBarTitle(this, R.string.pref_update_title);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateNotificationPreferencesState();
+    }
+
+    private void bindNotificationPreferencesAction() {
+        Context context = requireContext();
+        Preference openNotificationPref = findPreference(getString(R.string.pref_update_open_notification_preferences_key));
+        assert openNotificationPref != null : PREFERENCE_NOT_FOUND;
+        openNotificationPref.setOnPreferenceClickListener(preference -> {
+            Intent settingsIntent = new Intent(ACTION_APP_NOTIFICATION_SETTINGS)
+                    .addFlags(FLAG_ACTIVITY_NEW_TASK)
+                    .putExtra(EXTRA_APP_PACKAGE, context.getPackageName());
+            context.startActivity(settingsIntent);
+            return true;
+        });
     }
 
     private void bindAppUpdatePrefAction() {
@@ -84,5 +115,13 @@ public class PrefsUpdateFragment extends PreferenceFragmentCompat {
             SourceUpdateService.enable(context, Boolean.TRUE.equals(newValue));
             return true;
         });
+    }
+
+    private void updateNotificationPreferencesState() {
+        Context context = requireContext();
+        Preference openNotificationPref = findPreference(getString(R.string.pref_update_open_notification_preferences_key));
+        assert openNotificationPref != null : PREFERENCE_NOT_FOUND;
+        boolean notificationsDisabled = SDK_INT >= TIRAMISU && context.checkSelfPermission(POST_NOTIFICATIONS) != PERMISSION_GRANTED;
+        openNotificationPref.setVisible(notificationsDisabled);
     }
 }
