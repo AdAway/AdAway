@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Добре дошли</string>
     <string name="welcome_first_step">Първа стъпка на помощника</string>
@@ -37,12 +37,13 @@
     <string name="welcome_synced_header">Синхронизирано!</string>
     <string name="welcome_sync_summary">AdAway изтегля от отдалечени източници рекламните мрежи, които да спира. По-късно ще можете да ги променяте в настройките.</string>
     <string name="welcome_sync_retry_logo">Повторно синхронизиране</string>
-    <string name="welcome_sync_error">Грешка при синхронизиране:\n%s.\nПовторен опит?</string>
+    <string name="welcome_sync_error">Грешка при синхронизиране: %1$s Повторен опит?</string>
+    <string name="welcome_sync_notifications">Може да показва известия за състоянието и да ви известява за налични обновявания (няколко пъти в годината). Включете ги, за да научаеате последните промени.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Поддръжка</string>
     <string name="welcome_support_header">Подкрепете ме!</string>
-    <string name="welcome_support_summary">Това е безплатно приложение с отворен код. Разработвам го в свободното си време. Ако ви хареса, не се колебайте да покажете вашата подкрепа:</string>
+    <string name="welcome_support_summary">AdAway е безплатно приложение с отворен код. Разработвам го в свободното си време. Ако ви хареса, не се колебайте да покажете вашата подкрепа:</string>
     <string name="welcome_support_button">Даряване в PayPal</string>
     <string name="welcome_support_telemetry_summary">Харесвате ли дефекти? Аз също.</string>
     <string name="welcome_support_telemetry_button">Включване на телеметрия, за бъдат изпращани доклади за срив</string>
