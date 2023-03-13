@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_update_title">Актуализации</string>
+    <string name="pref_update_title">Обновяване</string>
+    <string name="pref_update_enable_notifications">Известията са изключени</string>
+    <string name="pref_update_enable_notifications_summary">Приложението няма да показва известия. За да ги включите, докоснете.</string>
     <!-- Application category -->
-    <string name="pref_update_app_category">Актуализации на приложението</string>
-    <string name="pref_update_check_app_startup">Проверка за актуализации при стартиране</string>
-    <string name="pref_update_check_app_daily">Периодична проверка за актуализации</string>
-    <string name="pref_update_include_beta_releases">Включвай бета издания</string>
+    <string name="pref_update_app_category">Обновяване на приложението</string>
+    <string name="pref_update_check_app_startup">Проверка за обновяване при стартиране</string>
+    <string name="pref_update_check_app_daily">Периодична проверка за обновяване</string>
+    <string name="pref_update_include_beta_releases">Включително бета издания</string>
     <!-- Application hosts -->
-    <string name="pref_update_hosts_category">Хост актуализации</string>
-    <string name="pref_update_check">Проверка за актуализации при стартиране</string>
+    <string name="pref_update_hosts_category">Обновяване на хостове</string>
+    <string name="pref_update_check">Проверка за обновяване при стартиране</string>
     <string name="pref_update_check_hosts_daily">Периодична проверка за актуализации</string>
     <string name="pref_update_sync_on_update">Синхронизиране при актуализация</string>
     <string name="pref_update_sync_unmetered_only">Синхронизиране само в немерирана мрежа</string>
