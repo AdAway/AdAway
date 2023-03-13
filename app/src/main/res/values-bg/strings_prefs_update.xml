@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Актуализации</string>
+    <string name="pref_update_enable_notifications">Известията са изключени</string>
+    <string name="pref_update_enable_notifications_summary">Приложението няма да показва известия. За да ги включите, докоснете.</string>
     <!-- Application category -->
-    <string name="pref_update_app_category">Актуализации на приложението</string>
+    <string name="pref_update_app_category">Обновяване на приложението</string>
     <string name="pref_update_check_app_startup">Проверка за актуализации при стартиране</string>
     <string name="pref_update_check_app_daily">Периодична проверка за актуализации</string>
     <string name="pref_update_include_beta_releases">Включвай бета издания</string>
