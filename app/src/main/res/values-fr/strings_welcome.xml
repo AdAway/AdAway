@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">La synchronisation est terminée</string>
     <string name="welcome_sync_summary">AdAway télécharge de sources en ligne la liste de réseaux publicitaires à bloquer. Vous pouvez les personnaliser ultérieurement dans les paramètres.</string>
     <string name="welcome_sync_retry_logo">Essayer de resynchroniser</string>
-    <string name="welcome_sync_error">Échec de synchronisation : %1$s Réessayer maintenant ?</string>
+    <string name="welcome_sync_error">Échec de synchronisation : %1$s Réessayer maintenant ?</string>
+    <string name="welcome_sync_notifications">Peut envoyer des notifications pour afficher l’état et le contrôle du blocage des publicités et pour vous signaler la présence de mise à jour de l’appli (quelques fois par an). Activez-les si vous voulez rester à jour.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Dons</string>
     <string name="welcome_support_header">Soutenez-moi !</string>
-    <string name="welcome_support_summary">L’appli est gratuite et à code source ouvert. Je la développe à temps perdu. Alors si vous l’aimez, n’hésitez pas à témoigner votre soutien :</string>
+    <string name="welcome_support_summary">AdAway est une appli gratuite et à code source ouvert que je développe à temps perdu. Si vous l’aimez, n’hésitez pas à témoigner votre soutien :</string>
     <string name="welcome_support_button">Faire un don par PayPal</string>
     <string name="welcome_support_telemetry_summary">Aimez-vous les bogues ? Moi non plus.</string>
     <string name="welcome_support_telemetry_button">Activer la télémétrie pour envoyer des relevés de plantage</string>
