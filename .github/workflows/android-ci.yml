@@ -47,7 +47,7 @@ jobs:
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
       
       - name: Update dependency graph
-        uses: mikepenz/gradle-dependency-submission@v0.0.5
+        uses: mikepenz/gradle-dependency-submission@v0.8.5
         with:
           gradle-dependency-path: "app/build.gradle"
           gradle-build-module: ":app"
