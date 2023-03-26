@@ -1,4 +1,4 @@
-## [6.1.0] - Unreleased
+## [6.1.0] - 2023-03-26
 
 - Add adaptive launcher icon
 - Add POST_NOTIFCATIONS runtime permission support
