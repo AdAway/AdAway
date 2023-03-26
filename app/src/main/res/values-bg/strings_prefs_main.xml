@@ -2,7 +2,7 @@
 <resources>
     <string name="pref_main_title">Настройки</string>
     <!-- General category -->
-    <string name="pref_general_category">Общ</string>
+    <string name="pref_general_category">Общи</string>
     <string name="pref_dark_theme">Тъмна тема</string>
     <string-array name="pref_dark_theme_modes">
         <item>Светла</item>
@@ -21,6 +21,6 @@
     <string name="pref_enable_telemetry">Изпращане на доклади за сривове</string>
     <string name="pref_enable_telemetry_summary">Докладване до Sentry (sentry.io)</string>
     <string name="pref_enable_telemetry_disabled_summary">Не се поддържа в тази сглобка</string>
-    <string name="pref_enable_debug">Многословно записване</string>
+    <string name="pref_enable_debug">Подробности в дневника</string>
     <string name="pref_enable_debug_summary">Необходимо е рестартиране на приложението за прилагане</string>
 </resources>
