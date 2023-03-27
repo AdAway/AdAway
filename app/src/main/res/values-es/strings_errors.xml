@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">No hay conexión a Internet</string>
-    <string name="error_no_connection_details">No se pudo establecer una conexión a Internet. Verifica la conectividad de tu dispositivo.</string>
+    <string name="error_no_connection_details">No se puede establecer una conexión a Internet. Compruebe la conectividad de su dispositivo.</string>
     <string name="error_download_failed_message">Error al descargar la fuente de hosts</string>
     <string name="error_download_failed_details">No se pudo acceder a ninguna de las fuentes de host habilitadas. Verifica que estés conectado correctamente a Internet.</string>
     <!-- Hosts install model error -->
