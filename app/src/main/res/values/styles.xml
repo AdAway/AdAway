@@ -15,6 +15,9 @@
         <item name="colorPrimaryDark">?colorPrimary</item>
 
         <item name="switchPreferenceCompatStyle">@style/MaterialPreferenceSwitch</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.AdAway.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
@@ -25,15 +28,14 @@
         <item name="colorSecondaryVariant">@color/primaryVariant</item>
         <item name="colorOnSecondary">@color/onPrimary</item>
 
-        <item name="android:statusBarColor">?colorPrimary</item>
-
         <item name="switchPreferenceCompatStyle">@style/MaterialPreferenceSwitch</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
     <style name="Theme.AdAway.NoActionBar.Monet" parent="Theme.AdAway.NoActionBar">
-        <item name="android:statusBarColor">?colorOnSecondary</item>
-        <item name="android:navigationBarColor">@color/welcomeBackground</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryDark</item>
     </style>
 
     <style name="MaterialPreferenceSwitch" parent="@style/Preference.SwitchPreferenceCompat.Material">

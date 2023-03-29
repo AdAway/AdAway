@@ -4,7 +4,6 @@
     android:id="@+id/supportRootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/welcomeBackground"
     android:padding="16dp">
 
     <ImageView
@@ -46,11 +45,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/paypalCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:elevation="20dp"
         app:cardCornerRadius="32dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="24dp"
@@ -58,7 +58,8 @@
         app:contentPaddingTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/summaryTextView">
+        app:layout_constraintTop_toBottomOf="@+id/summaryTextView"
+        app:strokeWidth="0dp">
 
         <TextView
             android:id="@+id/paypalTextView"
@@ -69,13 +70,14 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:drawableStartCompat="@drawable/paypal" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/sponsorshipCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:elevation="20dp"
         app:cardCornerRadius="32dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="24dp"
@@ -83,7 +85,8 @@
         app:contentPaddingTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/paypalCardView">
+        app:layout_constraintTop_toBottomOf="@+id/paypalCardView"
+        app:strokeWidth="0dp">
 
         <TextView
             android:id="@+id/sponsorshipTextView"
@@ -94,6 +97,6 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:drawableStartCompat="@drawable/ic_github_32dp" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

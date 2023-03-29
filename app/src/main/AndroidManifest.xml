@@ -53,7 +53,7 @@
             android:name=".ui.home.HomeActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.AdAway.NoActionBar">
+            android:theme="@style/Theme.AdAway.NoActionBar.Monet">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -67,7 +67,7 @@
             android:exported="false"
             android:label="@string/welcome_title"
             android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Monet" />
+            android:theme="@style/Theme.AdAway.NoActionBar" />
         <activity
             android:name=".ui.hosts.HostsSourcesActivity"
             android:exported="false"
@@ -105,7 +105,7 @@
             android:exported="false"
             android:label="@string/support_title"
             android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Monet" />
+            android:theme="@style/Theme.AdAway.NoActionBar" />
         <activity
             android:name=".ui.prefs.PrefsActivity"
             android:exported="false"
@@ -120,7 +120,7 @@
             android:exported="false"
             android:label="@string/update_title"
             android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Monet" />
+            android:theme="@style/Theme.AdAway.NoActionBar" />
 
         <service
             android:name=".vpn.VpnService"

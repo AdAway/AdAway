@@ -54,13 +54,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/paypalCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
         app:cardCornerRadius="32dp"
+        app:cardElevation="10dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="24dp"
         app:contentPaddingRight="24dp"
@@ -69,7 +70,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/summaryTextView">
+        app:layout_constraintTop_toBottomOf="@+id/summaryTextView"
+        app:strokeWidth="0dp">
 
         <TextView
             android:id="@+id/paypalTextView"
@@ -80,15 +82,16 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:drawableStartCompat="@drawable/paypal" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/sponsorshipCardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:cardCornerRadius="32dp"
+        app:cardElevation="10dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="24dp"
         app:contentPaddingRight="24dp"
@@ -97,7 +100,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paypalCardView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeWidth="0dp">
 
         <TextView
             android:id="@+id/sponsorshipTextView"
@@ -108,7 +112,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:drawableStartCompat="@drawable/ic_github_32dp" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/telemetryTextView"
