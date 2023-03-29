@@ -3,7 +3,7 @@
 
     <style name="Theme.AdAway" parent="Base.AdAway" />
 
-    <style name="Base.AdAway" parent="Theme.MaterialComponents.DayNight">
+    <style name="Base.AdAway" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primaryVariant</item>
         <item name="colorOnPrimary">@color/onPrimary</item>
@@ -13,9 +13,11 @@
 
         <!--Remap legacy AppCompat attributes to MaterialComponent attributes-->
         <item name="colorPrimaryDark">?colorPrimary</item>
+
+        <item name="switchPreferenceCompatStyle">@style/MaterialPreferenceSwitch</item>
     </style>
 
-    <style name="Theme.AdAway.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.AdAway.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primaryVariant</item>
         <item name="colorOnPrimary">@color/onPrimary</item>
@@ -24,18 +26,17 @@
         <item name="colorOnSecondary">@color/onPrimary</item>
 
         <item name="android:statusBarColor">?colorPrimary</item>
+
+        <item name="switchPreferenceCompatStyle">@style/MaterialPreferenceSwitch</item>
     </style>
 
-    <style name="Theme.AdAway.NoActionBar.Red" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="colorPrimary">@color/welcomeBackground</item>
-        <item name="colorPrimaryVariant">@color/primaryVariant</item>
-        <item name="colorOnPrimary">@color/onPrimary</item>
-        <item name="colorSecondary">@color/onPrimary</item>
-        <item name="colorSecondaryVariant">@color/primaryVariant</item>
-        <item name="colorOnSecondary">@color/welcomeBackground</item>
-
+    <style name="Theme.AdAway.NoActionBar.Monet" parent="Theme.AdAway.NoActionBar">
         <item name="android:statusBarColor">?colorOnSecondary</item>
         <item name="android:navigationBarColor">@color/welcomeBackground</item>
         <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="MaterialPreferenceSwitch" parent="@style/Preference.SwitchPreferenceCompat.Material">
+        <item name="widgetLayout">@layout/view_preference_switch</item>
     </style>
 </resources>

@@ -9,7 +9,6 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.annotation.NonNull;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
 
 import org.adaway.R;
 import org.adaway.ui.prefs.exclusion.PrefsVpnExcludedAppsActivity;
@@ -23,7 +22,7 @@ import static org.adaway.util.Constants.PREFS_NAME;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class PrefsVpnFragment extends PreferenceFragmentCompat {
+public class PrefsVpnFragment extends BasePreferenceFragment {
     private ActivityResultLauncher<Intent> startActivityLauncher;
 
     @Override

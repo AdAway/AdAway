@@ -22,7 +22,7 @@ import static org.adaway.util.Constants.PREFS_NAME;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class PrefsMainFragment extends PreferenceFragmentCompat {
+public class PrefsMainFragment extends BasePreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         // Configure preferences
