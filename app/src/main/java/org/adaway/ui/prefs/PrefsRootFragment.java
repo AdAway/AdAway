@@ -56,7 +56,7 @@ import timber.log.Timber;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class PrefsRootFragment extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class PrefsRootFragment extends BasePreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
     /**
      * The webserver certificate mime type.
      */

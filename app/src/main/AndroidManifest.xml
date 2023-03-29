@@ -67,7 +67,7 @@
             android:exported="false"
             android:label="@string/welcome_title"
             android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
+            android:theme="@style/Theme.AdAway.NoActionBar.Monet" />
         <activity
             android:name=".ui.hosts.HostsSourcesActivity"
             android:exported="false"
@@ -105,7 +105,7 @@
             android:exported="false"
             android:label="@string/support_title"
             android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
+            android:theme="@style/Theme.AdAway.NoActionBar.Monet" />
         <activity
             android:name=".ui.prefs.PrefsActivity"
             android:exported="false"
@@ -120,7 +120,7 @@
             android:exported="false"
             android:label="@string/update_title"
             android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
+            android:theme="@style/Theme.AdAway.NoActionBar.Monet" />
 
         <service
             android:name=".vpn.VpnService"
