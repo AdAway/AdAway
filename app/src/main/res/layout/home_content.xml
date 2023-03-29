@@ -120,13 +120,12 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
-        android:translationZ="20dp"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/blockedHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/blockedHostCardView"
@@ -142,7 +141,7 @@
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_block_24"
             app:tint="@color/blocked" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <Space
         android:id="@+id/badge1Space"
@@ -198,13 +197,12 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
-        android:translationZ="20dp"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/allowedHostCardView"
@@ -220,7 +218,7 @@
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_check_24"
             app:tint="@color/allowed" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <Space
         android:id="@+id/badge2Space"
@@ -277,13 +275,12 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
-        android:translationZ="30dp"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/redirectHostCardView"
         app:layout_constraintEnd_toEndOf="@+id/redirectHostCardView"
@@ -299,7 +296,7 @@
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_compare_arrows_24"
             app:tint="@color/redirected" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/sourcesCardView"
@@ -440,13 +437,12 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
-        android:translationZ="20dp"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/logCardView"
         app:layout_constraintEnd_toEndOf="@+id/logCardView"
@@ -461,7 +457,7 @@
             android:contentDescription="@string/log_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/ic_outline_rule_24" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/helpCardView"
@@ -493,13 +489,12 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
-        android:translationZ="20dp"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/helpCardView"
         app:layout_constraintEnd_toEndOf="@+id/helpCardView"
@@ -514,7 +509,7 @@
             android:contentDescription="@string/help_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/ic_help_24dp" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/supportCardView"
@@ -546,13 +541,12 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
-        android:translationZ="20dp"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/supportCardView"
         app:layout_constraintEnd_toEndOf="@+id/supportCardView"
@@ -567,7 +561,7 @@
             android:contentDescription="@string/support_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_favorite_24" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"

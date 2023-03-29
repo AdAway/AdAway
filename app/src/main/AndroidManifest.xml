@@ -105,7 +105,7 @@
             android:exported="false"
             android:label="@string/support_title"
             android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar" />
+            android:theme="@style/Theme.AdAway" />
         <activity
             android:name=".ui.prefs.PrefsActivity"
             android:exported="false"
