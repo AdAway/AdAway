@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Ενημερώσεις</string>
+    <string name="pref_update_enable_notifications">Οι ειδοποιήσεις είναι απενεργοποιημένες</string>
+    <string name="pref_update_enable_notifications_summary">Οι ειδοποιήσεις εφαρμογών δεν θα εμφανίζονται. Πατήστε για να τις ενεργοποιήσετε.</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Ενημερώσεις εφαρμογής</string>
     <string name="pref_update_check_app_startup">Έλεγχος για ενημέρωση κατά την εκκίνηση</string>
