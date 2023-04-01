@@ -11,7 +11,7 @@
     <string name="pref_vpn_exclude_system_apps">Excluir aplicaciones del sistema</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>Ninguno</item>
-        <item>Todos excepto los navegadores</item>
+        <item>Todas excepto los navegadores</item>
         <item>Todo</item>
     </string-array>
     <string name="pref_vpn_exclude_user_apps">Excluir aplicaciones del usuario</string>
