@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hosts_title">Fuentes de archivos hosts </string>
+    <string name="hosts_title">Fuentes de archivos hosts</string>
     <!-- Default hosts source -->
     <string name="hosts_user_source">Lista del usuario</string>
     <string name="hosts_adaway_source">Hosts oficiales de AdAway</string>
@@ -12,6 +12,6 @@
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Añadir fuente</string>
     <string name="hosts_edit_dialog_title">Editar fuente</string>
-    <string name="hosts_dialog_url">URL: (un https:// o recurso file://)</string>
+    <string name="hosts_dialog_url">URL: (un recurso https:// o file://)</string>
     <string name="hosts_dialog_url_hint">URL fuente de los hosts</string>
 </resources>
