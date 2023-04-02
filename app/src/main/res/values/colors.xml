@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Material theming light theme -->
-    <color name="primary">#ef5350</color>
-    <color name="primaryVariant">#e53935</color>
-    <color name="onPrimary">#000000</color>
+    <color name="seed">#ef5350</color>
+    <color name="primary">#B3272A</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="primaryContainer">#FFDAD7</color>
+    <color name="onPrimaryContainer">#410004</color>
+    <color name="secondary">#775654</color>
+    <color name="onSecondary">#FFFFFF</color>
+    <color name="secondaryContainer">#FFDAD7</color>
+    <color name="onSecondaryContainer">#2C1513</color>
+    <color name="tertiary">#725B2E</color>
+    <color name="onTertiary">#FFFFFF</color>
+    <color name="tertiaryContainer">#FFDEA6</color>
+    <color name="onTertiaryContainer">#271900</color>
+    <color name="error">#BA1A1A</color>
+    <color name="errorContainer">#FFDAD6</color>
+    <color name="onError">#FFFFFF</color>
+    <color name="onErrorContainer">#410002</color>
+    <color name="background">#FFFBFF</color>
+    <color name="onBackground">#201A1A</color>
+    <color name="surface">#FFFBFF</color>
+    <color name="onSurface">#201A1A</color>
+    <color name="surfaceVariant">#F5DDDB</color>
+    <color name="onSurfaceVariant">#534342</color>
+    <color name="outline">#857371</color>
+    <color name="inverseOnSurface">#FBEEEC</color>
+    <color name="inverseSurface">#362F2E</color>
+    <color name="inversePrimary">#FFB3AE</color>
+    <color name="shadow">#000000</color>
+    <color name="surfaceTint">#B3272A</color>
+    <color name="outlineVariant">#D8C2BF</color>
+    <color name="scrim">#000000</color>
     <!-- App icon colors -->
     <color name="drawer_icon">#B71C1C</color>
     <!-- Host list state -->

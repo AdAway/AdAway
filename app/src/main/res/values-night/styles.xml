@@ -2,5 +2,6 @@
 <resources>
     <style name="Theme.AdAway" parent="Base.AdAway">
         <item name="colorPrimaryDark">?colorSurface</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 </resources>
