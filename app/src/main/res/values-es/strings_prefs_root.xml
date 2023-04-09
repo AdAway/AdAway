@@ -2,7 +2,7 @@
 <resources>
     <string name="pref_root_title">Bloqueador de anuncios basado en root</string>
     <!-- Hosts install category -->
-    <string name="pref_hosts_installation">Instalación de hosts</string>
+    <string name="pref_hosts_installation">Instalación del hosts</string>
     <string name="pref_root_open_hosts">Abrir el archivo hosts</string>
     <string name="pref_apply_method">Ruta del archivo hosts</string>
     <string name="pref_apply_method_summary">Antes de cambiar esta configuración, lea la Ayuda sobre esta funcionalidad.</string>
@@ -30,8 +30,8 @@
     <string name="pref_webserver_certificate_dialog_content">A partir de Android 11 (R), la aplicación ya no puede instalar automáticamente la autoridad de certificación (CA).\n\nVe a la configuración de \"Seguridad\", \"Cifrado y credenciales\" y luego \"Instalar un certificado\". Desde allí, elige \"Certificado CA\" y selecciona el archivo de certificado recién exportado.</string>
     <string name="pref_webserver_certificate_dialog_action">Abrir configuración de \"Seguridad\"</string>
     <string name="pref_webserver_state_checking">Comprobando…</string>
-    <string name="pref_webserver_state_not_running">No funcionando</string>
-    <string name="pref_webserver_state_running_not_installed">Funcionando pero el certificado no está instalado</string>
-    <string name="pref_webserver_state_running_and_installed">Funcionando y el certificado instalado</string>
-    <string name="pref_webserver_icon">Reemplazar espacio en blanco del anuncio por el icono de la aplicación</string>
+    <string name="pref_webserver_state_not_running">No se está ejecutando</string>
+    <string name="pref_webserver_state_running_not_installed">En ejecución pero el certificado no está instalado</string>
+    <string name="pref_webserver_state_running_and_installed">En ejecución y certificado instalado</string>
+    <string name="pref_webserver_icon">Sustituir el espacio publicitario en blanco por el icono de la aplicación</string>
 </resources>
