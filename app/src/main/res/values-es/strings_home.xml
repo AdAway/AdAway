@@ -4,19 +4,21 @@
     <!-- Hosts card -->
     <string name="blocked_hosts_label">Bloqueado</string>
     <string name="allowed_hosts_label">Permitido</string>
-    <string name="redirect_hosts_label">Redireccionado</string>
+    <string name="redirect_hosts_label">Redirigido a</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
+        <item quantity="one">%d fuente actualizada</item>
+        <item quantity="many">%d fuentes actualizadas</item>
         <item quantity="other">%d fuentes actualizadas</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="one">%d outdated source</item>
+        <item quantity="one">%d fuente desactualizada</item>
+        <item quantity="many">%d fuentes desactualizadas</item>
         <item quantity="other">%d fuentes desactualizadas</item>
     </plurals>
-    <string name="check_hosts_update_description">Comprobar actualizaciones de hosts</string>
-    <string name="update_hosts_description">Actualizar hosts</string>
+    <string name="check_hosts_update_description">Buscar las actualizaciones de hosts</string>
+    <string name="update_hosts_description">Actualizar los hosts</string>
 
     <!-- Log card -->
     <string name="log_label">Mostrar registro de peticiones DNS</string>
@@ -25,7 +27,7 @@
     <string name="help_label">Mostrar ayuda\ny consejos</string>
 
     <!-- Project card -->
-    <string name="project_label">Abrir página en GitHub</string>
+    <string name="project_label">Abrir página de GitHub</string>
 
     <!-- Support card -->
     <string name="support_label">Apoyar el proyecto</string>
