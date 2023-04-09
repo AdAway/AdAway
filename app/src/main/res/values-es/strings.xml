@@ -16,12 +16,12 @@
     <string name="button_show_help">Mostrar más ayuda</string>
     <string name="icon_update_status">Estado de la actualización</string>
     <string name="text_update">Todos los archivos hosts de las fuentes especificadas se han descargado, se fusionan con tus propias listas y se instala como un archivo hosts en tu sistema.</string>
-    <string name="button_enable_hosts">Habilitar bloqueo de anuncios</string>
-    <string name="button_disable_hosts">Deshabilitar bloqueo de anuncios</string>
+    <string name="button_enable_hosts">Habilitar el bloqueo de anuncios</string>
+    <string name="button_disable_hosts">Deshabilitar el bloqueo de anuncios</string>
     <string name="header_webserver">Servidor web</string>
     <string name="webserver_status_running">Funcionando</string>
     <string name="webserver_status_stopped">Detenido</string>
-    <string name="webserver_toggle_text">Iniciar o detener el servidor web en localhost para responder a las peticiones de nombres de host bloqueados.</string>
+    <string name="webserver_toggle_text">Inicia o detiene el servidor web en localhost para responder a las peticiones de nombres de host bloqueados.</string>
     <string name="button_enable_webserver">Habilitar servidor web</string>
     <string name="button_disable_webserver">Deshabilitar servidor web</string>
     <string name="header_vpn">VPN</string>
@@ -39,11 +39,11 @@
 
     <!--Your lists-->
     <string name="import_dialog">Importando…</string>
-    <string name="import_success">Respaldo importado correctamente desde el almacenamiento externo.</string>
-    <string name="import_failed">No se pudo importar el respaldo. ¿Es correcto el formato? Revisa el logcat para más detalles. </string>
+    <string name="import_success">Copia de seguridad importada correctamente desde el almacenamiento externo</string>
+    <string name="import_failed">No se ha podido importar la copia de seguridad. ¿Es correcto su formato? Comprueba el logcat para más detalles</string>
     <string name="export_dialog">Exportando…</string>
-    <string name="export_success">Respaldo exportado correctamente al archivo \'%s\' en tu almacenamiento externo.</string>
-    <string name="export_failed">Error al exportar el archivo de respaldo \'%s\'.</string>
+    <string name="export_success">Copia de seguridad exportada correctamente a un archivo \'%s\' enen el almacenamiento externo.</string>
+    <string name="export_failed">Error al exportar el archivo de la copia de seguridad \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Archivo hosts</string>
@@ -52,13 +52,13 @@
     <string name="hosts_open_button">Abrir el archivo hosts</string>
 
     <!--Status Notification-->
-    <string name="status_check">Comprobando actualización</string>
-    <string name="status_check_source">Comprobando fuente %s para la actualización</string>
-    <string name="status_retrieve">Recuperando fuentes</string>
+    <string name="status_check">Comprobando las actualizaciones</string>
+    <string name="status_check_source">Comprobando la fuente %s para la actualización</string>
+    <string name="status_retrieve">Recuperando las fuentes</string>
     <string name="status_download_source">Descargando fuente %s</string>
     <string name="status_read_source">Fuente de lectura %s</string>
-    <string name="status_parse_source">Analizando fuente %s</string>
-    <string name="status_sync_database">Sincronización de las reglas de la base de datos</string>
+    <string name="status_parse_source">Analizando la fuente %s</string>
+    <string name="status_sync_database">Sincronizando la base de datos de las reglas</string>
     <string name="status_revert">Volviendo al archivo hosts predeterminado</string>
     <string name="status_revert_done">Archivo hosts predeterminado restaurado</string>
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
@@ -70,7 +70,7 @@
     <string name="status_download_fail">Fuentes no disponibles</string>
     <string name="status_download_fail_subtitle_new">¡No hay fuentes de archivos hosts accesibles!</string>
     <string name="status_root_access_denied">Acceso root denegado</string>
-    <string name="status_root_access_denied_subtitle">Permitir el acceso root desde la aplicación root</string>
+    <string name="status_root_access_denied_subtitle">Permitir el acceso root desde tu aplicación root</string>
     <string name="status_failure">Algo salió mal</string>
     <string name="status_failure_subtitle">Comprueba el logcat para más detalles</string>
     <string name="status_enabled">Habilitado</string>
@@ -82,21 +82,21 @@
     <string name="status_copy_new_hosts">Copiando un nuevo archivo hosts</string>
     <string name="status_check_copy">Comprobando la copia del archivo hosts</string>
     <string name="status_hosts_updated">Archivo hosts actualizado correctamente</string>
-    <string name="status_vpn_configuration_updated">Configuración VPN actualizada correctamente</string>
-    <string name="notification_configuration_changed">Tu configuración ha cambiado. Debes aplicarla.</string>
+    <string name="status_vpn_configuration_updated">Configuración de la VPN actualizada correctamente</string>
+    <string name="notification_configuration_changed">Tu configuración ha cambiado. Necesitas aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
     <string name="notification_configuration_installing">Aplicando nueva configuración…</string>
     <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">El enlace simbólico del archivo hosts ha desaparecido</string>
-    <string name="apply_symlink_missing">¡No existe enlace simbólico, o no es correcto, desde su ruta a /system/etc/hosts! AdAway no funcionará si no está enlazado al archivo correcto.\n\n¿Quieres intentar crear un enlace simbólico?</string>
+    <string name="apply_symlink_missing_status">Falta el enlace simbólico al archivo hosts</string>
+    <string name="apply_symlink_missing">El enlace simbólico a /system/etc/hosts no existe o es incorrecto. AdAway no funcionará si no apunta al archivo correcto.\n¿Quieres intentar crear un enlace simbólico?</string>
     <string name="apply_symlink_missing_title">Falta enlace simbólico</string>
     <string name="apply_not_enough_space">¡No hay suficiente espacio en la partición!\nIntenta cambiar la ruta del archivo hosts a /data/data/hosts en las preferencias.</string>
     <string name="apply_not_enough_space_title">No hay suficiente espacio</string>
     <string name="apply_private_file_fail">No se pudo leer el archivo descargado.</string>
     <string name="apply_private_file_fail_title">El archivo privado falló</string>
-    <string name="apply_remount_fail">¡No se pudo volver a montar la partición en modo lectura/escritura!</string>
+    <string name="apply_remount_fail">¡Error al volver a montar la partición en modo lectura/escritura!</string>
     <string name="apply_remount_fail_title">Error al volver a montar</string>
     <string name="apply_copy_fail_status">Error al copiar el achivo hosts.</string>
     <string name="apply_copy_fail">¡La copia del archivo host ha fallado!</string>
@@ -132,9 +132,9 @@
     <string name="download_fail_title">Descarga fallida</string>
     <string name="no_private_file_status">Error al escribir el nuevo archivo hosts privado</string>
     <string name="no_private_file">No se pudo crear el archivo privado.</string>
-    <string name="no_private_file_title">La creación del archivo privado falló</string>
+    <string name="no_private_file_title">Error al crear el archivo privado</string>
     <string name="enable_systemless_successful">Has habilitado el modo sin sistema.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(Para evitar una posible pérdida de datos, asegúrese que ninguna aplicación esté usando la memoria SD en este momento)</string>
-    <string name="enable_systemless_successful_title">Se ha habilitado correctamente</string>
+    <string name="enable_systemless_successful_title">Habilitado correctamente</string>
     <string name="disable_systemless_successful">Has deshabilitado el modo sin sistema.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(Para evitar una posible pérdida de datos, asegúrese que ninguna aplicación esté usando la memoria SD en este momento)</string>
     <string name="disable_systemless_successful_title">Deshabilitado correctamente</string>
     <string name="enable_vpn_fail">Error al habilitar el bloqueo de anuncios VPN.</string>
@@ -145,7 +145,7 @@
     <string name="disable_systemless_magisk">Deshabilita la función de hosts sin sistema del administrador Magisk. En la lista de módulos, desinstala el módulo <cite>Hosts sin sistema</cite> y reinicia tu dispositivo.</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Ingresar URL del archivo hosts:</string>
+    <string name="hosts_add_dialog">Ingresar la URL del archivo hosts:</string>
     <string name="no_hostname">¡Este no es un nombre de host válido!</string>
     <string name="no_hostname_title">Nombre de host con formato incorrecto</string>
     <string name="no_ip">¡Esta no es una IP válida!</string>
@@ -157,8 +157,8 @@
     <string name="menu_refresh">Actualizar</string>
     <string name="menu_add">Añadir</string>
     <string name="menu_help">Ayuda</string>
-    <string name="menu_import">Importar respaldo</string>
-    <string name="menu_export">Exportar respaldo</string>
+    <string name="menu_import">Importar la copia de seguridad</string>
+    <string name="menu_export">Exportar la copia de seguridad</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -182,17 +182,17 @@
     <string name="tcpdump_header">Tcpdump</string>
     <string name="tcpdump_description">Tcpdump es una herramienta para monitorizar peticiones DNS y guardarlas en un archivo de registro. Puedes iniciarla en segundo plano, ejecutar aplicaciones que muestran anuncios, y luego analizar las peticiones DNS de ellas usando el archivo de registro. Los posibles servidores de anuncios utilizados podrán entonces ser añadidos a tu lista negra.</string>
     <string name="tcpdump_disable_monitoring">Deshabilitar la monitorización</string>
-    <string name="tcpdump_enable_monitoring">Habilitar el monitorización</string>
-    <string name="tcpdump_show_results">Mostrar resultados</string>
+    <string name="tcpdump_enable_monitoring">Habilitar la monitorización</string>
+    <string name="tcpdump_show_results">Mostrar los resultados</string>
     <string name="tcpdump_menu_sort">Dominios cortos</string>
-    <string name="tcpdump_menu_clear">Borrar registro</string>
+    <string name="tcpdump_menu_clear">Borrar el registro</string>
     <string name="tcpdump_entry_add_blacklist">Añadir una entrada a la lista negra</string>
     <string name="tcpdump_entry_add_whitelist">Añadir una entrada a la lista blanca</string>
     <string name="tcpdump_entry_add_redirection_list">Añadir una entrada a la lista de redirección</string>
 
     <string name="pref_edit_text_value">Editar valor de preferencia de texto</string>
-    <string name="drawer_open">Abrir menú</string>
-    <string name="drawer_close">Cerrar menú</string>
+    <string name="drawer_open">Abrir el menú</string>
+    <string name="drawer_close">Cerrar el menú</string>
 
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
@@ -201,7 +201,7 @@
         <item>Tus listas</item>
         <item>Abrir el archivo hosts</item>
         <item>Registro de peticiones DNS</item>
-        <item>Escanear adware</item>
+        <item>Escanea en busca de adware</item>
         <item>Preferencias</item>
         <item>Ayuda</item>
     </string-array>
@@ -217,7 +217,7 @@
     <string name="hosts_source_up_to_date">Actualizado para %1$s</string>
     <string name="hosts_source_need_update">Necesita actualización para %1$s</string>
     <string name="hosts_source_last_update">Última actualización hace %1$s</string>
-    <string name="hosts_source_unknown_status">Estado de actualización desconocido</string>
+    <string name="hosts_source_unknown_status">Estado de la actualización desconocido</string>
     <string name="hosts_source_disabled">Deshabilitado</string>
     <string name="hosts_source_few_minutes">pocos minutos</string>
     <plurals name="hosts_source_minutes">
@@ -242,13 +242,13 @@
     </plurals>
 
     <!-- Clipboard -->
-    <string name="clipboard_host_copied">Host copiado al portapapeles</string>
+    <string name="clipboard_host_copied">Host copiado en el portapapeles</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">iniciando</string>
     <string name="vpn_notification_running">activo</string>
     <string name="vpn_notification_stopping">deteniendo</string>
-    <string name="vpn_notification_waiting_for_net">esperar a la red</string>
+    <string name="vpn_notification_waiting_for_net">esperando a la red</string>
     <string name="vpn_notification_reconnecting">reconectando</string>
     <string name="vpn_notification_reconnecting_error">error al reconectar</string>
     <string name="vpn_notification_paused">pausado</string>
