@@ -1,3 +1,14 @@
+## [6.1.1] - Unreleased
+
+- Improve adaptive launcher icon
+- Update libsu
+- Update mongoose web server
+- Update Android gradle plugin
+- Update build tools
+- Update translations
+
+Special thanks to AzusaHana for its contribution.
+
 ## [6.1.0] - 2023-03-26
 
 - Add adaptive launcher icon
