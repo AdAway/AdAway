@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_backup_restore_title">Copia de seguridad y restaurar</string>
     <string name="pref_backup">Copia de seguridad</string>
