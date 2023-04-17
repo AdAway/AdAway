@@ -4,5 +4,5 @@
     <string name="pref_backup">Respaldar</string>
     <string name="pref_backup_summary">Respalda tus reglas de bloqueo en el almacenamiento externo</string>
     <string name="pref_restore">Restaurar</string>
-    <string name="pref_restore_summary">Restaura tus reglas de bloqueo desde archivo de respaldo</string>
+    <string name="pref_restore_summary">Respalda tus reglas de bloqueo en el almacenamiento externo</string>
 </resources>
