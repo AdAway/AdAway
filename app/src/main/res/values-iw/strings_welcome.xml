@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">סונכרן!</string>
     <string name="welcome_sync_summary">AdAway מוריד רשתות של מודעות כדי לחסום אותן ממקורותיהן המקוונים. אתה יכול להתאים אותן מאוחר יותר בהגדרות.</string>
     <string name="welcome_sync_retry_logo">נסה לסנכרן בשנית</string>
-    <string name="welcome_sync_error">נכשל בסנכרון: %1$s לנסות בשנית כעת?</string>
+    <string name="welcome_sync_error">נכשל בסנכרון: %1$s לנסות כעת?</string>
+    <string name="welcome_sync_notifications">זה יכול לשלוח הודעות כדי להציג סטטוס חסימת מודעות ושליטה, ולהודיע על עדכון יישום זמין (מספר פעמים בשנה). יש להפעיל אותם אם ברצונך להישאר מעודכן.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">תמיכה</string>
     <string name="welcome_support_header">תמוך בי!</string>
-    <string name="welcome_support_summary">זו אפליקציית קוד פתוח בחינם. אני מפתח את זה בזמני החופשי. אז אם אתה נהנה מזה, אל תהסס להראות את תמיכתך:</string>
+    <string name="welcome_support_summary">AdAway הוא יישום חינמי וקוד פתוח שאני מפתח בזמני הפנוי. אם הינך נהנה מזה, אל תהסס להראות את תמיכתך:</string>
     <string name="welcome_support_button">תרומה באמצעות PayPal</string>
     <string name="welcome_support_telemetry_summary">אתה אוהב באגים? גמאני לא.</string>
     <string name="welcome_support_telemetry_button">הפעלת טלמטריה בכדי לשלוח לי דוחות קריסה</string>
