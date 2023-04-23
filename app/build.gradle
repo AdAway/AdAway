@@ -103,10 +103,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.fragment:fragment:1.5.6'
+    implementation 'androidx.fragment:fragment:1.5.7'
     // "fragment-ktx" is not used but was added to fix the following dependency error:
     // Duplicate class androidx.lifecycle.ViewModelLazy found in modules lifecycle-viewmodel-2.5.0-runtime (androidx.lifecycle:lifecycle-viewmodel:2.5.0) and lifecycle-viewmodel-ktx-2.3.1-runtime
-    implementation 'androidx.fragment:fragment-ktx:1.5.6'
+    implementation 'androidx.fragment:fragment-ktx:1.5.7'
     implementation 'androidx.paging:paging-runtime:3.1.1'
     implementation 'androidx.preference:preference:1.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.3.0'
@@ -126,7 +126,7 @@ dependencies {
     if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {
-        implementation 'io.sentry:sentry-android:3.1.3'
+        implementation 'io.sentry:sentry-android:3.2.1'
     }
 
     // Root related
@@ -141,7 +141,7 @@ dependencies {
 
     // Test related
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.json:json:20220320'
+    testImplementation 'org.json:json:20230227'
     androidTestImplementation 'androidx.arch.core:core-testing:2.2.0'
     androidTestImplementation 'androidx.test:core:1.5.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
