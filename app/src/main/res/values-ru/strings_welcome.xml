@@ -10,7 +10,7 @@
     <string name="welcome_method_summary">AdAway предоставляет два метода блокировки рекламы. Выберите тот, который вам подходит:</string>
 
     <string name="welcome_root_method_logo">Логотип root</string>
-    <string name="welcome_root_method_title">Root\n блокировка рекламы</string>
+    <string name="welcome_root_method_title">Root\nблокировка рекламы</string>
     <string name="welcome_root_method_text1">Быстрее</string>
     <string name="welcome_root_method_text2">Экономит батарею</string>
     <string name="welcome_root_method_text3">Требуются рут права</string>
@@ -21,7 +21,7 @@
     <string name="welcome_vpn_method_text2">Работает в фоне</string>
     <string name="welcome_vpn_method_text3">Совместимый</string>
 
-    <string name="welcome_root_missing_title">Требуются Android устройство с Root доступом</string>
+    <string name="welcome_root_missing_title">Требуется Android с Root-правами</string>
     <string name="welcome_root_missile_description">Либо двоичный файл su не найден, либо вы не предоставили AdAway права root.\n\nЭто может случиться тогда, когда ваше устройство не имеет root-прав. Вы можете найти информацию о том, как получить root права на ваше устройство, на wiki.lineageos.org или других сайтах Android.</string>
 
     <string name="welcome_method_pro_logo">Плюсы</string>
@@ -35,12 +35,14 @@
     <string name="welcome_synced_header">Синхронизировано!</string>
     <string name="welcome_sync_summary">AdAway загружает списки блокировки из онлайн-источников. Вы можете изменить их позже в настройках.</string>
     <string name="welcome_sync_retry_logo">Повторить синхронизацию</string>
-    <string name="welcome_sync_error">Синхронизация не удалась: %1$s Повторить сейчас?</string>
+    <string name="welcome_sync_error">Ошибка синхронизации: %1$s Повторить сейчас?</string>
+    <string name="welcome_sync_notifications">Это поможет отправлять уведомления для отображения статуса блокировки рекламы и управления, а также уведомит, когда будет доступно обновление приложения (несколько раз в год). 
+Включите если хотите быть в курсе событий.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Поддержать</string>
     <string name="welcome_support_header">Поддержать меня!</string>
-    <string name="welcome_support_summary">Это бесплатное приложение с открытым исходным кодом. Я занимаюсь его разработкой в свободное время. Так что если оно вам понравилось, не стесняйтесь показать вашу поддержку:</string>
+    <string name="welcome_support_summary">AdAway — это бесплатное приложение с открытым исходным кодом, которое я разрабатываю в свободное время. Если она вам нравится, не стесняйтесь оказать свою поддержку:</string>
     <string name="welcome_support_button">Пожертвовать на PayPal</string>
     <string name="welcome_support_telemetry_summary">Вам не нравятся ошибки? Мне тоже.</string>
     <string name="welcome_support_telemetry_button">Включить телеметрию для отправки мне отчетов о сбоях</string>
