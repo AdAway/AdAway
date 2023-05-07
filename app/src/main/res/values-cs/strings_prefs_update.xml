@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Aktualizace</string>
+    <string name="pref_update_enable_notifications">Notifikace jsou vypnuté</string>
+    <string name="pref_update_enable_notifications_summary">Oznámení aplikace se nezobrazí. Klepnutím je povolíte.</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Aktualizace aplikace</string>
     <string name="pref_update_check_app_startup">Zkontrolovat aktualizace při spuštění</string>
