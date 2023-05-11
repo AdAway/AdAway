@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_root_title">Zaviralec oglasov na osnovi korenskega sistema</string>
     <!-- Hosts install category -->
@@ -29,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Ročna namestitev potrdila</string>
     <string name="pref_webserver_certificate_dialog_content">Od Androida 11 (R) naprej aplikacija ne more več samodejno namestiti overitelja potrdil (CA).\n\nPojdite na nastavitve \'Varnost\', \'Šifriranje in poverilnice\' in nato \'Namesti potrdilo\'. Od tam izberite \'Potrdilo CA\' in izberite novo izvoženo datoteko potrdila.</string>
     <string name="pref_webserver_certificate_dialog_action">Odpri nastavitve \'Varnost\'</string>
-    <string name="pref_webserver_state_checking">Preverjanje...</string>
+    <string name="pref_webserver_state_checking">Preverjanje…</string>
     <string name="pref_webserver_state_not_running">Ne izvaja se</string>
     <string name="pref_webserver_state_running_not_installed">Izvaja se, vendar potrdilo ni nameščeno</string>
     <string name="pref_webserver_state_running_and_installed">Izvaja se in potrdilo je nameščeno</string>
