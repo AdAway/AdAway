@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_root_title">Zaviralec oglasov na osnovi korenskega sistema</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Namesti gostitelje</string>
     <string name="pref_root_open_hosts">Odpri hosts datoteko</string>
     <string name="pref_apply_method">Uporabljena hosts datoteka</string>
+    <string name="pref_apply_method_summary">Pred uporabo te funkcije preberite pomoč</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Pot do uporabljene hosts datoteke po meri</item>
+        <item>Cilj po meri</item>
     </string-array>
+    <string name="pref_custom_target">Ciljno mesto po meri</string>
+    <string name="pref_never_reboot">Po uporabi skrij pogovorno okno za ponovni zagon </string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Preusmeritev</string>
-    </resources>
+    <string name="pref_hosts_redirection_summary">Določite, kam želite preusmeriti nemogočene gostitelje</string>
+    <string name="pref_redirection_ipv4">Nastavite preusmeritev IPv4</string>
+    <string name="pref_redirection_ipv6">Nastavite preusmeritev IPv6</string>
+    <string name="pref_redirection_invalid">Neveljavna preusmeritev</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Lokalni spletni strežnik</string>
+    <string name="pref_webserver_summary">Lokalni spletni strežnik posluša lokalne naslove IP, da odgovori na zahteve po onemogočenih imenih gostiteljev. Morda pomaga pri zamrznitvi aplikacije pri onemogočeni povezavi.</string>
+    <string name="pref_webserver_enabled">Omogoči spletni strežnik</string>
+    <string name="pref_webserver_test">Preizkusni spletni strežnik</string>
+    <string name="pref_webserver_certificate">Namesti samopodpisano potrdilo</string>
+    <string name="pref_webserver_certificate_dialog_title">Ročna namestitev potrdila</string>
+    <string name="pref_webserver_certificate_dialog_content">Od Androida 11 (R) naprej aplikacija ne more več samodejno namestiti overitelja potrdil (CA).\n\nPojdite na nastavitve \'Varnost\', \'Šifriranje in poverilnice\' in nato \'Namesti potrdilo\'. Od tam izberite \'Potrdilo CA\' in izberite novo izvoženo datoteko potrdila.</string>
+    <string name="pref_webserver_certificate_dialog_action">Odpri nastavitve \'Varnost\'</string>
+    <string name="pref_webserver_state_checking">Preverjanje...</string>
+    <string name="pref_webserver_state_not_running">Ne izvaja se</string>
+    <string name="pref_webserver_state_running_not_installed">Izvaja se, vendar potrdilo ni nameščeno</string>
+    <string name="pref_webserver_state_running_and_installed">Izvaja se in potrdilo je nameščeno</string>
+    <string name="pref_webserver_icon">Zamenjajte prazen oglasni prostor z ikono aplikacije</string>
+</resources>
