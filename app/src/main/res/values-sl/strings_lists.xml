@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="lists_title">Vaši seznami</string>
     <string name="lists_add">Dodaj gostitelja</string>
@@ -8,7 +8,7 @@
     <string name="lists_tab_redirected">Preusmerjeno</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtriraj gostitelje</string>
-    <string name="lists_menu_filter_hint">Poišči ime gostitelja...</string>
+    <string name="lists_menu_filter_hint">Poišči ime gostitelja…</string>
     <string name="lists_menu_toggle_sources">Preklopi vire</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Dodaj gostitelja na seznam nedovoljenih</string>
