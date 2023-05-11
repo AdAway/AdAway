@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Nastavitve</string>
+    <!-- General category -->
+    <string name="pref_general_category">Splošno</string>
+    <string name="pref_dark_theme">Temna tema</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Svetla</item>
+        <item>Temna</item>
+        <item>Sistemska privzeta</item>
+    </string-array>
+    <string name="pref_update_configuration">Samodejne posodobitve</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Zaviranje oglasov</string>
+    <string name="pref_root_ad_blocker_configuration">Zaviralec oglasov na osnovi korenskega sistema</string>
+    <string name="pref_vpn_ad_blocker_configuration">Zaviralec oglasov na osnovi VPN</string>
+    <string name="pref_enable_ipv6">Omogoči podporo za IPv6</string>
+    <string name="pref_backup_restore">Varnostno kopiraj/obnovi pravila zaviranja</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Debug</string>
-    </resources>
+    <string name="pref_debug_category">Odpravi napake programa</string>
+    <string name="pref_enable_telemetry">Pošlji poročila o zrušitvah</string>
+    <string name="pref_enable_telemetry_summary">Prijavi na Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Ni podprto v tej zgradbi</string>
+    <string name="pref_enable_debug">Podrobno beleženje</string>
+    <string name="pref_enable_debug_summary">Za uporabo je potreben ponovni zagon aplikacije</string>
+</resources>
