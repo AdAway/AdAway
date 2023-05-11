@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Hosts viri</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">Uporabniški seznam</string>
+    <string name="hosts_adaway_source">Uradni gostitelji AdAway</string>
+    <string name="hosts_stevenblack_source">Poenoteni gostitelji StevenBlack</string>
+    <string name="hosts_peterlowe_source">Gostitelji seznama zaviranih Pete Lowe</string>
     <!-- List -->
     <string name="hosts_not_available">ni na voljo</string>
-    </resources>
+    <string name="hosts_count">%s gostiteljev </string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">Dodaj vir</string>
+    <string name="hosts_edit_dialog_title">Uredi vir</string>
+    <string name="hosts_dialog_url">URL: (a https:// ali datoteka:// resource)</string>
+    <string name="hosts_dialog_url_hint">Izvorni URL gostiteljev</string>
+</resources>
