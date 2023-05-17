@@ -335,8 +335,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void notifyAdBlocked(boolean adBlocked) {
-        int color = adBlocked ? MaterialColors.getColor(this, R.attr.colorPrimaryDark, Color.RED) : Color.GRAY;
+        int color = adBlocked ? MaterialColors.getColor(this, R.attr.colorPrimaryDark, Color.RED)
+                : MaterialColors.getColor(this, R.attr.colorError, Color.GRAY);
         this.binding.content.headerFrameLayout.setBackgroundColor(color);
+        getWindow().setStatusBarColor(color);
         this.binding.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.logo);
     }
 

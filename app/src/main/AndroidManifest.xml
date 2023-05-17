@@ -104,8 +104,7 @@
             android:name=".ui.support.SupportActivity"
             android:exported="false"
             android:label="@string/support_title"
-            android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway" />
+            android:parentActivityName=".ui.home.HomeActivity" />
         <activity
             android:name=".ui.prefs.PrefsActivity"
             android:exported="false"

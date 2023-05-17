@@ -35,9 +35,6 @@
         <item name="colorSurfaceInverse">@color/inverseSurface</item>
         <item name="colorPrimaryInverse">@color/inversePrimary</item>
 
-        <!--Remap legacy AppCompat attributes to MaterialComponent attributes-->
-        <item name="colorPrimaryDark">?colorPrimary</item>
-
         <item name="switchPreferenceCompatStyle">@style/MaterialPreferenceSwitch</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>

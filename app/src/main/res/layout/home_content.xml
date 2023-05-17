@@ -10,7 +10,7 @@
         android:id="@+id/headerFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="?android:attr/colorPrimaryDark"
+        android:background="?colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.25"
         app:layout_constraintStart_toStartOf="parent"
