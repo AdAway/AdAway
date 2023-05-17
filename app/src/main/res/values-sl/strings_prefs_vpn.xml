@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">Zaviralec oglasov na osnovi VPN</string>
+    <!-- Service configuration -->
+    <string name="pref_vpn_service_on_boot">Omogoči ob zagonu</string>
+    <string name="pref_vpn_service_monitor">Spremljaj povezavo</string>
+    <string name="pref_vpn_service_monitor_description">Občasno preveri stanje omrežja za ponovni zagon VPN ob prekinitvi povezave.</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Izključene aplikacije</string>
+    <string name="pref_vpn_excluded_apps_description">Nastavite, katere aplikacije ne smejo uporabljati VPN, da nobena povezava ne bo onemogočena.</string>
+    <string name="pref_vpn_exclude_system_apps">Izključi sistemske aplikacije</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Brez</item>
+        <item>Vse razen brskalnikov</item>
+        <item>Vse</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Izključi uporabniške aplikacije</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Izključene aplikacije</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Izberi vse</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Počisti izbor vseh</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Ikona aplikacije</string>
+</resources>
