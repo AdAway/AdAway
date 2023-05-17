@@ -7,4 +7,7 @@
     <!-- Dialog -->
     <dimen name="dialog_spacing">16dp</dimen>
     <dimen name="dialog_inner_padding">16dp</dimen>
+    <!-- List items -->
+    <dimen name="divider_margin">10dp</dimen>
+    <dimen name="divider_height">2dp</dimen>
 </resources>
