@@ -22,28 +22,29 @@
     <string name="welcome_vpn_method_text3">Compatibilità</string>
 
     <string name="welcome_root_missing_title">Richiesto Android con root</string>
-    <string name="welcome_root_missile_description">Non è stato trovato il binario SU o non hai concesso i permessi di root ad AdAway.\n\nPuò succedere quando il tuo dispositivo non ha i diritti di root.\nPuoi trovare maggiori informazioni su come effettuare il root al tuo dispositivo su wiki.lineageos.org o su altri siti web Android</string>
+    <string name="welcome_root_missile_description">Non è stato trovato il binario SU o non hai concesso i permessi di root ad AdAway.\n\nPuò succedere quando il tuo dispositivo non ha i permessi di root.\nPuoi trovare maggiori informazioni su come abilitarli per il tuo dispositivo su wiki.lineageos.org o su altri siti web riguardanti Android.</string>
 
     <string name="welcome_method_pro_logo">Pro</string>
     <string name="welcome_method_con_logo">Contro</string>
 
     <!-- Sync UI -->
     <string name="welcome_sync_done_logo">Sincronizzazione completata</string>
-    <string name="welcome_sync_error_logo">Errore durante sincronizzazione</string>
+    <string name="welcome_sync_error_logo">Errore durante la sincronizzazione</string>
 
     <string name="welcome_sync_header">Sincronizzazione in corso</string>
     <string name="welcome_synced_header">Sincronizzato!</string>
     <string name="welcome_sync_summary">AdAway scarica da sorgenti online le reti pubblicitarie da bloccare. Puoi personalizzarle dalle impostazioni</string>
     <string name="welcome_sync_retry_logo">Riprova sincronizzazione</string>
-    <string name="welcome_sync_error">Sincronizzazione fallita: %1$s Riprovare?</string>
+    <string name="welcome_sync_error">Sincronizzazione fallita: %1$s Vuoi riprovare adesso?</string>
+    <string name="welcome_sync_notifications">Può inviare notifiche per mostrare lo stato e i controlli del blocco pubblicità, e per segnalare la disponibilità di aggiornamenti dell\'app (poche volte all\'anno). Abilitale se vuoi rimanere aggiornato.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Supporto</string>
     <string name="welcome_support_header">Supportami!</string>
-    <string name="welcome_support_summary">È una app gratutia e open-source. La sviluppo nel mio tempo libero. Se ti piace utilizzarla, puoi mostrare il tuo supporto:</string>
-    <string name="welcome_support_button">Donazione su PayPal</string>
-    <string name="welcome_support_telemetry_summary">Ti piacciono i bug? Neanche a me</string>
-    <string name="welcome_support_telemetry_button">Abilita telemetria per inviarmi le segnalazioni di errori</string>
+    <string name="welcome_support_summary">AdAway è un\'app gratuita e open-source che sviluppo nel mio tempo libero. Se ti piace, sentiti libero di mostrare il tuo sostegno:</string>
+    <string name="welcome_support_button">Dona tramite PayPal</string>
+    <string name="welcome_support_telemetry_summary">Ti piacciono i bug? Neanche a me.</string>
+    <string name="welcome_support_telemetry_button">Abilita la telemetria per inviarmi le segnalazioni di errori</string>
 
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Indietro</string>
