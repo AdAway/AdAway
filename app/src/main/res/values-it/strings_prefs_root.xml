@@ -10,19 +10,19 @@
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
-        <item>Percorso personalizzato</item>
+        <item>Destinazione personalizzata</item>
     </string-array>
     <string name="pref_custom_target">Percorso personalizzato</string>
     <string name="pref_never_reboot">Nascondi la richiesta di riavvio</string>
     <!-- Redirection category -->
     <string name="pref_hosts_redirection">Reindirizzamento</string>
-    <string name="pref_hosts_redirection_summary">Imposta reindirizzamento hosts bloccati</string>
+    <string name="pref_hosts_redirection_summary">Specifica dove reindirizzare gli host bloccati</string>
     <string name="pref_redirection_ipv4">Reindirizzamento IPv4</string>
     <string name="pref_redirection_ipv6">Reindirizzamento IPv6</string>
     <string name="pref_redirection_invalid">Reindirizzamento non valido</string>
     <!-- Web server category -->
     <string name="pref_webserver">Web server locale</string>
-    <string name="pref_webserver_summary">Web server locale in ascolto degli indirizzi IP locali per rispondere alle richieste degli hostname bloccati. Può aiutare con le app che danno problemi sulle connessioni bloccate</string>
+    <string name="pref_webserver_summary">Il web server locale rimane in ascolto sugli indirizzi IP locali per rispondere alle richieste degli hostname bloccati. Può aiutare con le app che danno problemi sulle connessioni bloccate.</string>
     <string name="pref_webserver_enabled">Abilita web server</string>
     <string name="pref_webserver_test">Test web server</string>
     <string name="pref_webserver_certificate">Installa certificato autofirmato</string>
@@ -31,7 +31,7 @@
     <string name="pref_webserver_certificate_dialog_action">Apri impostazioni di Sicurezza</string>
     <string name="pref_webserver_state_checking">Verifica in corso…</string>
     <string name="pref_webserver_state_not_running">Non in esecuzione</string>
-    <string name="pref_webserver_state_running_not_installed">In esecuzione. ma certificato non installato</string>
+    <string name="pref_webserver_state_running_not_installed">In esecuzione ma certificato non installato</string>
     <string name="pref_webserver_state_running_and_installed">In esecuzione con certificato installato</string>
     <string name="pref_webserver_icon">Riempi lo spazio pubblicitario con l\'icona dell\'app</string>
 </resources>
