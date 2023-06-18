@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Aktualizacje</string>
     <string name="pref_update_enable_notifications">Powiadomienia wyłączone</string>
@@ -13,5 +13,5 @@
     <string name="pref_update_check">Sprawdź aktualizację na starcie</string>
     <string name="pref_update_check_hosts_daily">Szukaj aktualizacji co jakiś czas</string>
     <string name="pref_update_sync_on_update">Synchronizuj podczas aktualizacji</string>
-    <string name="pref_update_sync_unmetered_only">Synchro.. tylko w sieci nietaryfowej</string>
+    <string name="pref_update_sync_unmetered_only">Synchronizuj tylko w bezpłatnej sieci</string>
 </resources>
