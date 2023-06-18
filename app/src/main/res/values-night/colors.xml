@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Material theming black theme -->
-    <color name="primary">#B71C1C</color>
-    <color name="primaryVariant">#e53935</color>
-    <color name="onPrimary">#ffffff</color>
+    <color name="primary">#FFB3AE</color>
+    <color name="onPrimary">#68000B</color>
+    <color name="primaryContainer">#910816</color>
+    <color name="onPrimaryContainer">#FFDAD7</color>
+    <color name="secondary">#E7BDB9</color>
+    <color name="onSecondary">#442927</color>
+    <color name="secondaryContainer">#5D3F3D</color>
+    <color name="onSecondaryContainer">#FFDAD7</color>
+    <color name="tertiary">#E2C28C</color>
+    <color name="onTertiary">#402D04</color>
+    <color name="tertiaryContainer">#594319</color>
+    <color name="onTertiaryContainer">#FFDEA6</color>
+    <color name="error">#FFB4AB</color>
+    <color name="errorContainer">#93000A</color>
+    <color name="onError">#690005</color>
+    <color name="onErrorContainer">#FFDAD6</color>
+    <color name="background">#201A1A</color>
+    <color name="onBackground">#EDE0DE</color>
+    <color name="surface">#201A1A</color>
+    <color name="onSurface">#EDE0DE</color>
+    <color name="surfaceVariant">#534342</color>
+    <color name="onSurfaceVariant">#D8C2BF</color>
+    <color name="outline">#A08C8A</color>
+    <color name="inverseOnSurface">#201A1A</color>
+    <color name="inverseSurface">#EDE0DE</color>
+    <color name="inversePrimary">#B3272A</color>
+    <color name="shadow">#000000</color>
+    <color name="surfaceTint">#FFB3AE</color>
+    <color name="outlineVariant">#534342</color>
+    <color name="scrim">#000000</color>
+
     <color name="blocked">#EF9A9A</color>
     <color name="allowed">#80CBC4</color>
     <color name="redirected">#9FA8DA</color>

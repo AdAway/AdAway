@@ -33,6 +33,7 @@ import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import org.adaway.R;
@@ -329,8 +330,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void notifyAdBlocked(boolean adBlocked) {
-        int color = adBlocked ? getResources().getColor(R.color.primary, null) : Color.GRAY;
+        int color = adBlocked ? MaterialColors.getColor(this, R.attr.colorPrimaryDark, Color.RED)
+                : MaterialColors.getColor(this, R.attr.colorError, Color.GRAY);
         this.binding.content.headerFrameLayout.setBackgroundColor(color);
+        getWindow().setStatusBarColor(color);
         this.binding.fab.setImageResource(adBlocked ? R.drawable.ic_pause_24dp : R.drawable.logo);
     }
 

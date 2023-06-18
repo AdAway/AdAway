@@ -5,6 +5,7 @@ import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,6 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.color.MaterialColors;
 
 import org.adaway.R;
 import org.adaway.databinding.LogEntryBinding;
@@ -77,7 +80,7 @@ class LogAdapter extends ListAdapter<LogEntry, LogAdapter.ViewHolder> {
 
     private void bindImageView(ImageView imageView, ListType type, LogEntry entry) {
         if (type == entry.getType()) {
-            int primaryColor = this.callback.getColor(R.color.primary);
+            int primaryColor = MaterialColors.getColor(imageView.getContext(), R.attr.colorPrimary, Color.RED);
             imageView.setColorFilter(primaryColor, MULTIPLY);
             imageView.setOnClickListener(v -> this.callback.removeListItem(entry.getHost()));
         } else {

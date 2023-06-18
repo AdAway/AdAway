@@ -18,12 +18,10 @@
         app:title="@string/pref_hosts_redirection">
         <EditTextPreference
             app:defaultValue="@string/pref_redirection_ipv4_def"
-            app:dialogLayout="@layout/pref_edittext_dialog"
             app:key="@string/pref_redirection_ipv4_key"
             app:title="@string/pref_redirection_ipv4" />
         <EditTextPreference
             app:defaultValue="@string/pref_redirection_ipv6_def"
-            app:dialogLayout="@layout/pref_edittext_dialog"
             app:enabled="false"
             app:key="@string/pref_redirection_ipv6_key"
             app:title="@string/pref_redirection_ipv6" />

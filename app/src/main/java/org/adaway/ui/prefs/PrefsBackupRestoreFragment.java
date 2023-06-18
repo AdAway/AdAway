@@ -25,7 +25,7 @@ import org.adaway.model.backup.BackupImporter;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class PrefsBackupRestoreFragment extends PreferenceFragmentCompat {
+public class PrefsBackupRestoreFragment extends BasePreferenceFragment {
     /**
      * The backup mime type.
      */

@@ -8,6 +8,7 @@ import static java.lang.Boolean.TRUE;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.VpnService;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.topjohnwu.superuser.Shell;
 
@@ -56,8 +58,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
         this.binding.rootCardView.setOnClickListener(this::checkRoot);
         this.binding.vpnCardView.setOnClickListener(this::enableVpnService);
 
-        this.cardColor = getResources().getColor(R.color.cardBackground, null);
-        this.cardEnabledColor = getResources().getColor(R.color.cardEnabledBackground, null);
+        this.cardEnabledColor = MaterialColors.getColor(requireContext(), R.attr.colorSurface, Color.GREEN);
         return this.binding.getRoot();
     }
 

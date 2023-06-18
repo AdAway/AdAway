@@ -14,7 +14,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
 
 import org.adaway.AdAwayApplication;
@@ -33,7 +32,7 @@ import static org.adaway.util.Constants.PREFS_NAME;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class PrefsUpdateFragment extends PreferenceFragmentCompat {
+public class PrefsUpdateFragment extends BasePreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         // Configure preferences

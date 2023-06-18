@@ -10,7 +10,7 @@
         android:id="@+id/headerFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="?attr/colorPrimary"
+        android:background="?colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.25"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +26,7 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="viewEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Version" />
@@ -52,6 +53,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintBottom_toTopOf="@+id/appDescriptionTextView"
         app:layout_constraintEnd_toEndOf="@+id/headerFrameLayout"
         app:layout_constraintHorizontal_bias="0.5"
@@ -67,19 +69,21 @@
         android:layout_marginBottom="8dp"
         android:text="@string/app_description"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintBottom_toTopOf="@+id/headerFrameLayout"
         app:layout_constraintEnd_toEndOf="@+id/headerFrameLayout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/logoImageView"
         app:layout_constraintTop_toBottomOf="@+id/appNameTextView" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/blockedHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
@@ -89,7 +93,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout">
+        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout"
+        app:strokeWidth="0dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -114,13 +119,13 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/blockedHostCardView"
@@ -137,7 +142,7 @@
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_block_24"
             app:tint="@color/blocked" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <Space
         android:id="@+id/badge1Space"
@@ -149,12 +154,13 @@
         app:layout_constraintStart_toEndOf="@id/blockedHostCardView"
         app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/allowedHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
@@ -164,7 +170,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/badge1Space"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout">
+        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout"
+        app:strokeWidth="0dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -189,13 +196,13 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
@@ -212,7 +219,7 @@
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_check_24"
             app:tint="@color/allowed" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <Space
         android:id="@+id/badge2Space"
@@ -224,13 +231,14 @@
         app:layout_constraintStart_toEndOf="@id/allowedHostCardView"
         app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/redirectHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
@@ -240,7 +248,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/badge2Space"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout">
+        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout"
+        app:strokeWidth="0dp">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -265,13 +274,13 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/redirectHostCardView"
@@ -288,9 +297,9 @@
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_compare_arrows_24"
             app:tint="@color/redirected" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/sourcesCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -298,10 +307,12 @@
         android:layout_marginTop="24dp"
         android:layout_marginRight="16dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:contentPadding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allowedHostCardView">
+        app:layout_constraintTop_toBottomOf="@+id/allowedHostCardView"
+        app:strokeWidth="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -395,9 +406,9 @@
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/logCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -405,6 +416,7 @@
         android:layout_marginTop="34dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
@@ -414,7 +426,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
+        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView"
+        app:strokeWidth="0dp">
 
         <TextView
             android:id="@+id/logTextView"
@@ -423,13 +436,13 @@
             android:gravity="center"
             android:text="@string/log_label" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/logCardView"
@@ -445,15 +458,16 @@
             android:contentDescription="@string/log_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/ic_outline_rule_24" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/helpCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
@@ -464,7 +478,8 @@
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/badge1Space"
         app:layout_constraintTop_toBottomOf="@+id/sourcesCardView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeWidth="0dp">
 
         <TextView
             android:id="@+id/helpTextView"
@@ -473,13 +488,13 @@
             android:gravity="center"
             android:text="@string/help_label" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/helpCardView"
@@ -495,9 +510,9 @@
             android:contentDescription="@string/help_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/ic_help_24dp" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/supportCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -505,6 +520,7 @@
         android:layout_marginEnd="16dp"
         android:elevation="10dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
@@ -514,7 +530,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/badge2Space"
-        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
+        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView"
+        app:strokeWidth="0dp">
 
         <TextView
             android:id="@+id/supportTextView"
@@ -523,13 +540,13 @@
             android:gravity="center"
             android:text="@string/support_label" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:elevation="10dp"
+        app:cardElevation="5dp"
         android:shape="ring"
         app:cardCornerRadius="75dp"
         app:layout_constraintBottom_toTopOf="@+id/supportCardView"
@@ -545,7 +562,7 @@
             android:contentDescription="@string/support_label"
             android:elevation="15dp"
             app:srcCompat="@drawable/baseline_favorite_24" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"

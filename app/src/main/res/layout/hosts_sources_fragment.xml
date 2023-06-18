@@ -10,7 +10,9 @@
         android:id="@+id/hosts_sources_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:clipToPadding="true"
         android:longClickable="true"
+        android:paddingTop="10dp"
         android:scrollbars="vertical"
         tools:layoutManager="androidx.appcompat.widget.LinearLayoutManager"
         tools:listitem="@layout/checkbox_list_entry" />
