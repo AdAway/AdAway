@@ -131,7 +131,7 @@ dependencies {
     }
 
     // Root related
-    implementation 'com.github.topjohnwu.libsu:core:5.0.4'
+    implementation 'com.github.topjohnwu.libsu:core:5.1.0'
 
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.8.2'
