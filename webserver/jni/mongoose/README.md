@@ -5,29 +5,33 @@
 [![Code Coverage](https://codecov.io/gh/cesanta/mongoose/branch/master/graph/badge.svg)](https://codecov.io/gh/cesanta/mongoose)
 [![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/mongoose.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
 
-Mongoose is a networking library for C/C++. It implements event-driven
+Mongoose is a network library for C/C++. 
+It implements event-driven
 non-blocking APIs for TCP, UDP, HTTP, WebSocket, MQTT.  It is designed for
 connecting devices and bringing them online. On the market since 2004, used by
 vast number of open source and commercial products - it even runs on the
 International Space Station!  Mongoose makes embedded network programming fast,
 robust, and easy. Features include:
 
-- Cross-platform: works on Linux/UNIX, MacOS, Windows, Android, FreeRTOS, etc.
-- Supported embedded architectures: ESP32, NRF52, STM32, NXP, and more
+- Cross-platform:
+  - works on Linux/UNIX, MacOS, Windows, Android
+  - works on STM32, NXP, ESP32, NRF52, TI, Microchip, and other
+  - write code once - and it'll work everywhere
+  - ideal for the unification of the network infrastructure code across company
 - Built-in protocols: plain TCP/UDP, HTTP, MQTT, Websocket
 - SSL/TLS support: mbedTLS, OpenSSL or custom (via API)
 - Asynchronous DNS resolver
 - Tiny static and run-time footprint
 - Source code is both ISO C and ISO C++ compliant
+- Very easy to integrate: just copy `mongoose.c` and `mongoose.h` files to your source tree. See
+  [exact steps](https://mongoose.ws/documentation/#2-minute-integration-guide)
 - Works with any network stack with socket API, like LwIP or FreeRTOS-Plus-TCP
-- Very easy to integrate: just copy `mongoose.c` and `mongoose.h` files to your build tree
-- Optional built-in TCP/IP stack with drivers for bare metal or RTOS firmwares
-   - A full device dashboard
+- Provides a built-in TCP/IP stack with drivers for bare metal or RTOS systems
+   - A complete Web device dashboard
   [bare metal example on Nucleo-F429ZI](examples/stm32/nucleo-f429zi-baremetal)
   is only 6 files
    - For comparison, a CubeIDE generated HTTP example is 400+ files
-- Detailed [documentation](https://mongoose.ws/documentation/) and
-  [tutorials](https://mongoose.ws/tutorials/)
+- Detailed [user guide, API reference and tons of tutorials](https://mongoose.ws/documentation/) available
 
 
 # Commercial use
