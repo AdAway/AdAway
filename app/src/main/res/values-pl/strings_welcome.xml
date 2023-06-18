@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">Zsynchronizowany!</string>
     <string name="welcome_sync_summary">AdAway pobiera sieci reklamowe w celu blokowania ze źródeł internetowych. Możesz je później dostosować w ustawieniach.</string>
     <string name="welcome_sync_retry_logo">Ponów synchronizację</string>
-    <string name="welcome_sync_error">Nie udało się zsynchronizować %1$s Ponowić próbę?</string>
+    <string name="welcome_sync_error">Błąd synchronizacji: %1$s Powtórzyć? </string>
+    <string name="welcome_sync_notifications">Może wyświetlać powiadomienia o statusie AdAway i jego ustawieniach oraz informować o dostępnych aktualizacjach aplikacji (kilka w ciągu roku). Włącz, aby być na bieżąco.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Wsparcie</string>
     <string name="welcome_support_header">Wesprzyj mnie!</string>
-    <string name="welcome_support_summary"> To darmowa aplikacja typu open source. Rozwijam to w wolnym czasie. Więc jeśli ci się spodoba, nie wahaj się okazać wsparcie:</string>
+    <string name="welcome_support_summary">AdAway jest darmową aplikacją open-source, którą rozwijam w wolnym czasie. Jeśli podoba Ci się, pomyśl nad wsparciem projektu:</string>
     <string name="welcome_support_button">Darowizna na PayPal</string>
     <string name="welcome_support_telemetry_summary">Lubisz błędy? Ja też nie.</string>
     <string name="welcome_support_telemetry_button">Włącz telemetrię, aby wysyłać mi raporty o awariach</string>
