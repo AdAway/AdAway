@@ -1,6 +1,8 @@
 ## [6.1.1] - Unreleased
 
 - Improve adaptive launcher icon
+- Update AndroidX libraries
+- Update third party libraries
 - Update libsu
 - Update mongoose web server
 - Update Android gradle plugin
