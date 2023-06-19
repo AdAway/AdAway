@@ -101,7 +101,7 @@
     <string name="apply_copy_fail_status">Error al copiar el achivo hosts.</string>
     <string name="apply_copy_fail">¡La copia del archivo host ha fallado!</string>
     <string name="apply_copy_fail_title">Ha fallado la copia</string>
-    <string name="apply_success_subtitle">Fuentes de los hosts aplicadas</string>
+    <string name="apply_success_subtitle">Fuentes de hosts aplicados</string>
     <string name="apply_success_title">Aplicado correctamente</string>
     <string name="apply_success_dialog">Se ha aplicado correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(¡Para evitar una posible pérdida de datos, asegúrate que ninguna aplicación esté usando la memoria SD en este momento!)</string>
     <string name="apply_symlink_successful">El enlace simbólico fue creado correctamente.\nPuede ser necesario reiniciar Android para que los cambios surtan efecto.\n\n¿Quieres reiniciar?\n(¡Para evitar una posible pérdida de datos, asegúrate que ninguna aplicación esté usando la memoria SD en este momento!)</string>
