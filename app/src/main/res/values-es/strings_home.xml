@@ -4,7 +4,7 @@
     <!-- Hosts card -->
     <string name="blocked_hosts_label">Bloqueado</string>
     <string name="allowed_hosts_label">Permitido</string>
-    <string name="redirect_hosts_label">Redirigido a</string>
+    <string name="redirect_hosts_label">Redirigido</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
