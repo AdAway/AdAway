@@ -145,7 +145,7 @@
     <string name="disable_systemless_magisk">Deshabilita la función de hosts sin sistema del administrador Magisk. En la lista de módulos, desinstala el módulo <cite>Hosts sin sistema</cite> y reinicia tu dispositivo.</string>
 
     <!--Other Dialogs-->
-    <string name="hosts_add_dialog">Introduce la URL del archivo hosts:</string>
+    <string name="hosts_add_dialog">Ingresar URL del archivo hosts:</string>
     <string name="no_hostname">¡Este no es un nombre de host válido!</string>
     <string name="no_hostname_title">El nombre del host tiene un formato erróneo.</string>
     <string name="no_ip">¡Esta no es una IP válida!</string>
