@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Sin conexión a Internet</string>
     <string name="error_no_connection_details">No se puede establecer una conexión a Internet. Verifica la conectividad de tu dispositivo.</string>
     <string name="error_download_failed_message">Error al descargar la fuente de hosts</string>
-    <string name="error_download_failed_details">No se puede acceder a ninguna de las fuentes de hosts habilitadas. Comprueba que estés correctamente conectado a Internet.</string>
+    <string name="error_download_failed_details">No se puede acceder a ninguna de las fuentes de hosts habilitadas. Comprueba que estés conectado correctamente a Internet.</string>
     <!-- Hosts install model error -->
     <string name="error_private_file_failed_message">Error al crear el archivo privado</string>
     <string name="error_private_file_failed_details">No se puede crear un archivo privado para crear una nueva fuente de hosts. Comprueba el espacio libre disponible en tu dispositivo.</string>
