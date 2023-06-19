@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="log_toggle_recording_description">Activar registros de eventos</string>
+    <string name="log_toggle_recording_description">Habilitar registro de eventos</string>
     <string name="log_start_recording">Pulsa grabar para empezar a registrar solicitudes, navegar por la Web o utilizar aplicaciones, luego vuelve atrás o desliza el dedo para actualizar los registros.</string>
     <string name="log_blocked_requests_ignored">\n\nLas solicitudes bloqueadas no serán guardadas. Desactive primero el bloqueo de publicidad si quiere que se registren también.</string>
     <!-- Sort -->
