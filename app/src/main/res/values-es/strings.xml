@@ -28,7 +28,7 @@
     <string name="vpn_status_running">Funcionando</string>
     <string name="vpn_status_stopped">Detenido</string>
     <string name="vpn_toggle_text">Iniciar o detener VPN para filtrar peticiones.</string>
-    <string name="button_enable_vpn">Activar la VPN</string>
+    <string name="button_enable_vpn">Habilitar VPN</string>
     <string name="button_disable_vpn">Desactivar la VPN</string>
 
     <!--Checkbox List-->
