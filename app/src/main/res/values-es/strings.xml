@@ -117,7 +117,7 @@
     <string name="apply_dialog">Aplicando…</string>
     <string name="apply_dialog_lists">Aplicando las listas negra y blanca</string>
     <string name="apply_dialog_hostnames">Analizando y fusionando los archivos hosts</string>
-    <string name="apply_dialog_hosts">Construyendo el archivo hosts</string>
+    <string name="apply_dialog_hosts">Construyendo archivo hosts</string>
     <string name="apply_dialog_apply">Aplicando el archivo hosts</string>
     <string name="apply_fail_status">Error al aplicar el nuevo archivo hosts.</string>
     <string name="apply_fail">¡No se pudo aplicar el archivo hosts en tu sistema!\nIntenta cambiar la ruta del archivo hosts a /data/data/hosts en las preferencias.</string>
