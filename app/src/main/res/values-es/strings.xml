@@ -40,7 +40,7 @@
     <!--Your lists-->
     <string name="import_dialog">Importando…</string>
     <string name="import_success">Respaldo importado correctamente desde el almacenamiento externo.</string>
-    <string name="import_failed">No se pudo importar la copia de seguridad. ¿Es correcto el formato? Revisa el logcat para ver más detalles.</string>
+    <string name="import_failed">No se pudo importar el respaldo. ¿Es correcto el formato? Revisa el logcat para más detalles.</string>
     <string name="export_dialog">Exportando…</string>
     <string name="export_success">Copia de seguridad exportada correctamente al archivo \'%s\' en tu almacenamiento externo.</string>
     <string name="export_failed">Error al exportar la copia de seguridad \'%s\'.</string>
