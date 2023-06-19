@@ -52,7 +52,7 @@
     <string name="hosts_open_button">Abrir el archivo hosts</string>
 
     <!--Status Notification-->
-    <string name="status_check">Comprobando las actualizaciones</string>
+    <string name="status_check">Comprobando actualización</string>
     <string name="status_check_source">Comprobando la fuente %s para la actualización</string>
     <string name="status_retrieve">Recuperando fuentes</string>
     <string name="status_download_source">Descargando fuente %s</string>
