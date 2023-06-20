@@ -1,4 +1,4 @@
-## [6.1.1] - Unreleased
+## [6.1.1] - 2023-06-20
 
 - Improve adaptive launcher icon
 - Update AndroidX libraries
