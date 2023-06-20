@@ -18,7 +18,7 @@ import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 
 import static androidx.work.ExistingPeriodicWorkPolicy.KEEP;
-import static androidx.work.ExistingPeriodicWorkPolicy.REPLACE;
+import static androidx.work.ExistingPeriodicWorkPolicy.UPDATE;
 import static androidx.work.ListenableWorker.Result.failure;
 import static androidx.work.ListenableWorker.Result.retry;
 import static androidx.work.ListenableWorker.Result.success;
@@ -53,7 +53,7 @@ public final class SourceUpdateService {
      * @param unmeteredNetworkOnly <code>true</code> if the update should be done on unmetered network only, <code>false</code> otherwise.
      */
     public static void enable(Context context, boolean unmeteredNetworkOnly) {
-        enqueueWork(context, REPLACE, unmeteredNetworkOnly);
+        enqueueWork(context, UPDATE, unmeteredNetworkOnly);
     }
 
     /**
