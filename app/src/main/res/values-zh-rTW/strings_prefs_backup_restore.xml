@@ -3,6 +3,6 @@
     <string name="pref_backup_restore_title">備份和恢復</string>
     <string name="pref_backup">備份</string>
     <string name="pref_backup_summary">將阻擋規則備份到外部存儲</string>
-    <string name="pref_restore">恢復</string>
+    <string name="pref_restore">還原</string>
     <string name="pref_restore_summary">從備份檔案恢復阻擋規則</string>
 </resources>
