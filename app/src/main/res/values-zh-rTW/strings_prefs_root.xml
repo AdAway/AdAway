@@ -30,7 +30,7 @@
     <string name="pref_webserver_certificate_dialog_content">從 Android 11 (R) 開始，應用程式無法再自動安裝憑證認證機構 (CA)。\n\n請前往「安全性」設定，「加密和憑證」，然後「安裝憑證」。從那裡，選擇「CA 憑證」並選擇新匯出的憑證檔案。</string>
     <string name="pref_webserver_certificate_dialog_action">開啟「安全性」設定</string>
     <string name="pref_webserver_state_checking">檢查中……</string>
-    <string name="pref_webserver_state_not_running">沒有運作</string>
+    <string name="pref_webserver_state_not_running">未執行</string>
     <string name="pref_webserver_state_running_not_installed">正在運作，但未安裝憑證</string>
     <string name="pref_webserver_state_running_and_installed">運作中並且憑證已安裝</string>
     <string name="pref_webserver_icon">用應用程式圖示替換空白的廣告區塊</string>
