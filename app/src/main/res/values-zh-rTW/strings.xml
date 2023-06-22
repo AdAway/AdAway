@@ -60,7 +60,7 @@
     <string name="status_parse_source">正在分析來源%s</string>
     <string name="status_sync_database">正在同步規則資料庫</string>
     <string name="status_revert">恢復到預設 hosts 檔案</string>
-    <string name="status_revert_done">預設 hosts 檔案已恢復</string>
+    <string name="status_revert_done">已還原預設 hosts 檔案</string>
     <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
     <string name="status_update_available">有更新</string>
     <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
