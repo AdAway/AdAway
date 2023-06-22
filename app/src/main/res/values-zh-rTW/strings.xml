@@ -19,7 +19,7 @@
     <string name="button_enable_hosts">啟用廣告封鎖</string>
     <string name="button_disable_hosts">停用廣告封鎖</string>
     <string name="header_webserver">網頁伺服器</string>
-    <string name="webserver_status_running">執行中</string>
+    <string name="webserver_status_running">正在執行</string>
     <string name="webserver_status_stopped">已停止</string>
     <string name="webserver_toggle_text">啟動或停止本地主機上的網頁伺服器以響應對被阻止主機名的請求。</string>
     <string name="button_enable_webserver">啟用網頁伺服器</string>
