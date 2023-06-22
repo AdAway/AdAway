@@ -32,6 +32,6 @@
     <string name="pref_webserver_state_checking">檢查中……</string>
     <string name="pref_webserver_state_not_running">未執行</string>
     <string name="pref_webserver_state_running_not_installed">正在執行，但未安裝憑證</string>
-    <string name="pref_webserver_state_running_and_installed">運作中並且憑證已安裝</string>
+    <string name="pref_webserver_state_running_and_installed">正在執行且已安裝憑證</string>
     <string name="pref_webserver_icon">用應用程式圖示替換空白的廣告區塊</string>
 </resources>
