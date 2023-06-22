@@ -9,5 +9,5 @@
     <string name="notification_update_app_available_text">可以下載新版本的 AdAway。</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
-    <string name="notification_vpn_channel_description">VPN 運作通知</string>
+    <string name="notification_vpn_channel_description">VPN 執行通知</string>
 </resources>
