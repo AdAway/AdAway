@@ -25,7 +25,7 @@
     <string name="button_enable_webserver">啟用網頁伺服器</string>
     <string name="button_disable_webserver">停用網頁伺服器</string>
     <string name="header_vpn">VPN</string>
-    <string name="vpn_status_running">運行中</string>
+    <string name="vpn_status_running">正在執行</string>
     <string name="vpn_status_stopped">已停止</string>
     <string name="vpn_toggle_text">啟動或停止 VPN 來過濾請求。</string>
     <string name="button_enable_vpn">啟動 VPN</string>
