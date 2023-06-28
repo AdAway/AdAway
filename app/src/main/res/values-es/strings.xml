@@ -60,7 +60,7 @@
     <string name="status_parse_source">Analizando la fuente %s</string>
     <string name="status_sync_database">Sincronizando la base de datos de las reglas</string>
     <string name="status_revert">Volviendo al archivo hosts predeterminado</string>
-    <string name="status_revert_done">Archivo hosts predeterminado restaurado</string>
+    <string name="status_revert_done">Archivo de hosts predeterminado restaurado</string>
     <string name="status_reverting_subtitle">Creando archivo hosts estándar</string>
     <string name="status_update_available">Actualización disponible</string>
     <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
