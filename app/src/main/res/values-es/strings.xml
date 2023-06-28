@@ -43,7 +43,7 @@
     <string name="import_failed">No se pudo importar el respaldo. ¿Es correcto el formato? Revisa el logcat para más detalles.</string>
     <string name="export_dialog">Exportando…</string>
     <string name="export_success">Copia de seguridad exportada correctamente al archivo \'%s\' en tu almacenamiento externo.</string>
-    <string name="export_failed">Error al exportar el archivo de respaldo \'%s\'.</string>
+    <string name="export_failed">Error al exportar el archivo de la copia de seguridad \'%s\'.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">El archivo hosts</string>
