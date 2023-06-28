@@ -27,7 +27,7 @@
     <string name="help_label">Mostrar la ayuda\ny los consejos</string>
 
     <!-- Project card -->
-    <string name="project_label">Abrir página de GitHub</string>
+    <string name="project_label">Abrir la página de GitHub</string>
 
     <!-- Support card -->
     <string name="support_label">Apoyar el proyecto</string>
