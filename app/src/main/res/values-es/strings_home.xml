@@ -39,8 +39,8 @@
     <!-- App bar buttons -->
     <string name="open_drawer_button_description">Abrir el cajón de navegación</string>
     <string name="adblock_pause_button_description">Pausar/reanudar bloqueo de anuncios</string>
-    <string name="update_button">Actualizar dominios bloqueados</string>
-    <string name="show_log_button">Mostrar peticiones a dominios</string>
+    <string name="update_button">Actualizar los dominios bloqueados</string>
+    <string name="show_log_button">Mostrar los dominios solicitados</string>
 
     <!-- Error dialog -->
     <string name="error_dialog_help">Por favor lee la Ayuda para más información.</string>
