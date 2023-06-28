@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bienvenido</string>
     <string name="welcome_first_step">Primer paso del asistente</string>
@@ -34,7 +34,7 @@
     <string name="welcome_sync_header">Sincronización</string>
     <string name="welcome_synced_header">¡Sincronizado!</string>
     <string name="welcome_sync_summary">AdAway descarga redes publicitarias para bloquear las fuentes en línea. Puedes personalizarlas más tarde en la configuración.</string>
-    <string name="welcome_sync_retry_logo">Reintentar sincronización</string>
+    <string name="welcome_sync_retry_logo">Reintentar la sincronización</string>
     <string name="welcome_sync_error">Error al sincronizar: %1$s ¿Reintentar ahora?</string>
     <string name="welcome_sync_notifications">Puedes enviar notificaciones para mostrar el estado y el control del bloqueo de anuncios, y para notificar sobre las actualizaciones disponibles de la aplicación (unas pocas al año). Habilítalas si quieres estar actualizado.</string>
 
