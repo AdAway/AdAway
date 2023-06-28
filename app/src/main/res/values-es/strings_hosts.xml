@@ -11,7 +11,7 @@
     <string name="hosts_count">%s hosts</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Añadir una fuente</string>
-    <string name="hosts_edit_dialog_title">Editar fuente</string>
+    <string name="hosts_edit_dialog_title">Editar una fuente</string>
     <string name="hosts_dialog_url">URL: (un recurso https:// o archivo file://)</string>
     <string name="hosts_dialog_url_hint">URL fuente de los hosts</string>
 </resources>
