@@ -17,7 +17,7 @@
     <string name="icon_update_status">Estado de la actualización</string>
     <string name="text_update">Todos los archivos hosts de las fuentes especificadas se han descargado, se fusionan con tus propias listas y se instala como un archivo hosts en tu sistema.</string>
     <string name="button_enable_hosts">Activar el bloqueo de anuncios</string>
-    <string name="button_disable_hosts">Deshabilitar bloqueo de anuncios</string>
+    <string name="button_disable_hosts">Desactivar el bloqueo de anuncios</string>
     <string name="header_webserver">Servidor web</string>
     <string name="webserver_status_running">Funcionando</string>
     <string name="webserver_status_stopped">Detenido</string>
