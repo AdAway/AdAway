@@ -21,7 +21,7 @@
     <string name="update_hosts_description">Actualizar los hosts</string>
 
     <!-- Log card -->
-    <string name="log_label">Mostrar registro de peticiones DNS</string>
+    <string name="log_label">Mostrar el registro de peticiones DNS</string>
 
     <!-- Help card -->
     <string name="help_label">Mostrar ayuda\ny consejos</string>
