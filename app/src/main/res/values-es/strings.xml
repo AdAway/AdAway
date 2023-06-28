@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">La configuración de la VPN se actualizó correctamente</string>
     <string name="notification_configuration_changed">Tu configuración ha cambiado. Necesitas aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Aplicando la nueva configuración…</string>
+    <string name="notification_configuration_installing">Aplicando la nueva configuración...</string>
     <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -158,7 +158,7 @@
     <string name="menu_add">Añadir</string>
     <string name="menu_help">Ayuda</string>
     <string name="menu_import">Importar respaldo</string>
-    <string name="menu_export">Exportar respaldo</string>
+    <string name="menu_export">Exportar la copia de seguridad</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
