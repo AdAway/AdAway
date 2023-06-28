@@ -22,7 +22,7 @@
     <string name="webserver_status_running">Funcionando</string>
     <string name="webserver_status_stopped">Detenido</string>
     <string name="webserver_toggle_text">Inicia o detiene el servidor web en localhost para responder a las peticiones de nombres de host bloqueados.</string>
-    <string name="button_enable_webserver">Habilitar servidor web</string>
+    <string name="button_enable_webserver">Activar el servidor web</string>
     <string name="button_disable_webserver">Desactivar el servidor web</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Funcionando</string>
