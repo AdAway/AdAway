@@ -46,7 +46,7 @@
     <string name="export_failed">Error al exportar el archivo de respaldo \'%s\'.</string>
 
     <!--Hosts content-->
-    <string name="hosts_header">Archivo hosts</string>
+    <string name="hosts_header">El archivo hosts</string>
     <string name="hosts_description">El archivo hosts es un archivo del sistema que asigna los nombres de los hosts a las direcciones IP. Es un archivo de texto plano cuya configuración es manejada por AdAway. Estas son sus primeras líneas:</string>
     <string name="hosts_content">Cargando el contenido del archivo hosts…</string>
     <string name="hosts_open_button">Abrir el archivo hosts</string>
