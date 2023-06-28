@@ -24,7 +24,7 @@
     <string name="log_label">Mostrar el registro de las peticiones DNS</string>
 
     <!-- Help card -->
-    <string name="help_label">Mostrar ayuda\ny consejos</string>
+    <string name="help_label">Mostrar la ayuda\ny los consejos</string>
 
     <!-- Project card -->
     <string name="project_label">Abrir página de GitHub</string>
