@@ -82,7 +82,7 @@
     <string name="status_copy_new_hosts">Copiando un nuevo archivo hosts</string>
     <string name="status_check_copy">Comprobando la copia del archivo hosts</string>
     <string name="status_hosts_updated">Archivo hosts actualizado correctamente</string>
-    <string name="status_vpn_configuration_updated">Configuración de la VPN actualizada correctamente</string>
+    <string name="status_vpn_configuration_updated">La configuración de la VPN se actualizó correctamente</string>
     <string name="notification_configuration_changed">Tu configuración ha cambiado. Necesitas aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
     <string name="notification_configuration_installing">Aplicando nueva configuración…</string>
