@@ -14,7 +14,7 @@
     <string name="list_add_dialog_black">Añadir host a la lista negra</string>
     <string name="list_add_dialog_white">Añadir host a la lista blanca</string>
     <string name="list_add_dialog_redirect">Añadir host de redirección</string>
-    <string name="list_edit_dialog_black">Editar host de la lista negra</string>
+    <string name="list_edit_dialog_black">Editar el host de la lista negra</string>
     <string name="list_edit_dialog_white">Editar el host de la lista blanca</string>
     <string name="list_edit_dialog_redirect">Editar la redirección</string>
     <string name="list_dialog_hostname">Nombre del host:</string>
