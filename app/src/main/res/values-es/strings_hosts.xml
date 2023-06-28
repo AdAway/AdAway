@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Fuentes de los archivos hosts</string>
     <!-- Default hosts source -->
@@ -13,5 +13,5 @@
     <string name="hosts_add_dialog_title">Añadir una fuente</string>
     <string name="hosts_edit_dialog_title">Editar una fuente</string>
     <string name="hosts_dialog_url">URL: (un recurso https:// o archivo file://)</string>
-    <string name="hosts_dialog_url_hint">URL fuente de los hosts</string>
+    <string name="hosts_dialog_url_hint">La dirección URL del origen de los hosts</string>
 </resources>
