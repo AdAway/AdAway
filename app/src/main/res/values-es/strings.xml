@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">La configuración de la VPN se actualizó correctamente</string>
     <string name="notification_configuration_changed">Tu configuración ha cambiado. Necesitas aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Aplicando la nueva configuración…</string>
+    <string name="notification_configuration_installing">Aplicando la nueva configuración...</string>
     <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->
@@ -117,7 +117,7 @@
     <string name="apply_dialog">Aplicando…</string>
     <string name="apply_dialog_lists">Aplicando las listas negra y blanca</string>
     <string name="apply_dialog_hostnames">Analizando y fusionando los archivos hosts</string>
-    <string name="apply_dialog_hosts">Construyendo archivo hosts</string>
+    <string name="apply_dialog_hosts">Construyendo el archivo hosts</string>
     <string name="apply_dialog_apply">Aplicando archivo hosts</string>
     <string name="apply_fail_status">Error al aplicar el nuevo archivo hosts.</string>
     <string name="apply_fail">¡No se pudo aplicar el archivo hosts en tu sistema!\nIntenta cambiar la ruta del archivo hosts a /data/data/hosts en las preferencias.</string>
