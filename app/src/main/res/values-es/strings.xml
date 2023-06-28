@@ -32,7 +32,7 @@
     <string name="button_disable_vpn">Desactivar la VPN</string>
 
     <!--Checkbox List-->
-    <string name="checkbox_list_context_title">Editar entrada</string>
+    <string name="checkbox_list_context_title">Modificar la entrada</string>
     <string name="checkbox_list_context_apply">Aplicar</string>
     <string name="checkbox_list_context_edit">Editar</string>
     <string name="checkbox_list_context_delete">Borrar</string>
