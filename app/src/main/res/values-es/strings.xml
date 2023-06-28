@@ -54,7 +54,7 @@
     <!--Status Notification-->
     <string name="status_check">Comprobando actualización</string>
     <string name="status_check_source">Comprobando la fuente %s para la actualización</string>
-    <string name="status_retrieve">Recuperando fuentes</string>
+    <string name="status_retrieve">Recuperando las fuentes</string>
     <string name="status_download_source">Descargando fuente %s</string>
     <string name="status_read_source">Leyendo fuente %s</string>
     <string name="status_parse_source">Analizando fuente %s</string>
