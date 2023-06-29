@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferencias</string>
     <!-- General category -->
@@ -15,7 +15,7 @@
     <string name="pref_root_ad_blocker_configuration">Bloqueador de anuncios basado en root</string>
     <string name="pref_vpn_ad_blocker_configuration">Bloqueador de anuncios basado en VPN</string>
     <string name="pref_enable_ipv6">Habilitar soporte para IPv6</string>
-    <string name="pref_backup_restore">Respaldar/restaurar reglas de bloqueo</string>
+    <string name="pref_backup_restore">Copia de seguridad / restauración de las reglas de bloqueo</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Depurar</string>
     <string name="pref_enable_telemetry">Envíar informes de fallos</string>
