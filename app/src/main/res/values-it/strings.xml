@@ -120,7 +120,7 @@
     <string name="apply_dialog_hosts">Costruisco file hosts</string>
     <string name="apply_dialog_apply">Applico file hosts</string>
     <string name="apply_fail_status">Impossibile applicare il nuovo file host</string>
-    <string name="apply_fail">L\'applicazione del file hosts è fallita!\nProva a cambiare il percorso del file hosts in /data/data/hosts nelle impostazioni.</string>
+    <string name="apply_fail">L\'applicazione del file hosts è fallita!\nProva a cambiare il percorso del file hosts in /data/data/hosts nelle preferenze.</string>
     <string name="apply_fail_title">Modifiche non applicate!</string>
     <string name="root_access_fail">Controlla il root manager per assicurarti che i permessi di root siano stati concessi</string>
     <string name="revert_successful">Sei tornato al file hosts predefinito.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
