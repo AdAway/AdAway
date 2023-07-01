@@ -1,3 +1,9 @@
+## [6.1.2] - Unreleased
+
+- Update translations
+
+Special thanks to @Fs00 and @gallegonovato for their bug reports.
+
 ## [6.1.1] - 2023-06-20
 
 - Improve adaptive launcher icon
