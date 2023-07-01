@@ -92,7 +92,7 @@
     <string name="apply_symlink_missing_status">Symlink del file hosts di destinazione mancante</string>
     <string name="apply_symlink_missing">Il collegamento simbolico a /system/etc/hosts non esiste o non è corretto! AdAway  non funzionerà se il collegamento non punta al file giusto.\n\nVuoi provare a creare un collegamento simbolico?</string>
     <string name="apply_symlink_missing_title">Collegamento simbolico mancante</string>
-    <string name="apply_not_enough_space">Non c\'è abbastanza spazio nella partizione!\nProva cambiando il percorso del file hosts in /data/data/hosts nelle preferenze</string>
+    <string name="apply_not_enough_space">Non c\'è abbastanza spazio nella partizione!\nProva a cambiare il percorso del file hosts in /data/data/hosts nelle preferenze.</string>
     <string name="apply_not_enough_space_title">Spazio non sufficiente</string>
     <string name="apply_private_file_fail">Il file scaricato non può essere letto</string>
     <string name="apply_private_file_fail_title">Creazione file privato fallita</string>
