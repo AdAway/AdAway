@@ -42,7 +42,7 @@
     <string name="import_success">Yedekleme, harici depolama alanınızdan başarıyla içe aktarıldı.</string>
     <string name="import_failed">Yedekleme içe alınamadı. Dosya biçimi doğru mu? Daha fazla ayrıntı için logcat\'i kontrol edin.</string>
     <string name="export_dialog">Dışa aktarılıyor…</string>
-    <string name="export_success">Yedekleme, harici depolama alanınızdaki \'%s\' başarıyla aktarıldı.</string>
+    <string name="export_success">Yedekleme, harici depolama alanınızdaki \'%s\' dosyasına başarıyla aktarıldı.</string>
     <string name="export_failed">Yedekleme dosyası dışa aktarılamadı \'%s\'.</string>
 
     <!--Hosts content-->
