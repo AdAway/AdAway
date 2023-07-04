@@ -79,7 +79,7 @@
     <string name="status_disabled_subtitle">Varsayılan sunucu dosyası yüklendi</string>
     <string name="status_apply_sources">En son kaynakları uygula</string>
     <string name="status_create_new_hosts">Yeni bir hosts dosyası oluşturuluyor</string>
-    <string name="status_copy_new_hosts">Yeni bir hosts dosyası kopyala</string>
+    <string name="status_copy_new_hosts">Yeni bir hosts dosyası kopyalanıyor</string>
     <string name="status_check_copy">Hosts dosya kopyası kontrol ediliyor</string>
     <string name="status_hosts_updated">Hosts dosyası başarıyla güncellendi</string>
     <string name="status_vpn_configuration_updated">VPN yapılandırması başarıyla güncellendi</string>
