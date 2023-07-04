@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="update_title">Actualización de AdAway</string>
     <!-- Home screen -->
     <string name="update_available">¡Actualización disponible!</string>
 
     <!-- Update activity -->
-    <string name="update_up_to_date_header">Estás actualizado</string>
+    <string name="update_up_to_date_header">Estás al día</string>
     <string name="update_update_available_header">Actualización disponible</string>
     <string name="update_updating_header">Actualizando AdAway</string>
     <string name="update_update_button">Actualizar ahora</string>
