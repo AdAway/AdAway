@@ -3,7 +3,7 @@
     <string name="welcome_title">Hoşgeldiniz</string>
     <string name="welcome_first_step">Kurulumun ilk aşaması</string>
     <string name="welcome_second_step">Kurulumun ikinci aşaması</string>
-    <string name="welcome_last_step">Sihirbaz kurulumunun son aşaması</string>
+    <string name="welcome_last_step">Kurulumun son aşaması</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">AdAway\'e hoş geldiniz!</string>
