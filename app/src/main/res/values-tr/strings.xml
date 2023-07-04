@@ -58,7 +58,7 @@
     <string name="status_download_source">%s kaynağı indiriliyor</string>
     <string name="status_read_source"> %s kaynağı okunuyor</string>
     <string name="status_parse_source">%s kaynağı ayrıştırılıyor</string>
-    <string name="status_sync_database">Veritabanı kuralı senkronize ediliyor</string>
+    <string name="status_sync_database">Kural veritabanı senkronize ediliyor</string>
     <string name="status_revert">Varsayılan hosts dosyasına geri dönülüyor</string>
     <string name="status_revert_done">Varsayılan hosts dosyası geri yüklendi</string>
     <string name="status_reverting_subtitle">Varsayılan bir hosts dosyası yapılıyor</string>
