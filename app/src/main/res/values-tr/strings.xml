@@ -241,7 +241,7 @@
     <string name="clipboard_host_copied">Ana bilgisayar panoya kopyalandı</string>
 
     <!--VPN notification-->
-    <string name="vpn_notification_starting">başlanıyor</string>
+    <string name="vpn_notification_starting">başlatılıyor</string>
     <string name="vpn_notification_running">etkin</string>
     <string name="vpn_notification_stopping">durduruluyor</string>
     <string name="vpn_notification_waiting_for_net">ağ için bekle</string>
