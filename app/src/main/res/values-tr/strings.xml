@@ -213,7 +213,7 @@
     <string name="shortcut_preferences">Tercihler</string>
 
     <!--Hosts source status-->
-    <string name="hosts_source_installed">Kuruldu %1$s önce</string>
+    <string name="hosts_source_installed"> %1$s önce kuruldu</string>
     <string name="hosts_source_up_to_date">%1$s güncel</string>
     <string name="hosts_source_need_update">%1$s için gücelleme gerekiyor</string>
     <string name="hosts_source_last_update">Son güncelleme %1$s önce</string>
