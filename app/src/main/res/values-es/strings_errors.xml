@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Sin conexión a Internet</string>
@@ -18,5 +18,5 @@
     <string name="error_enable_vpn_failed_message">Error al habilitar el bloqueo de anuncios VPN.</string>
     <string name="error_enable_vpn_failed_details">Verifica la configuración de tu VPN para autorizar el inicio de la aplicación VPN.</string>
     <string name="error_disable_vpn_failed_message">Error al deshabilitar el bloqueo de anuncios VPN.</string>
-    <string name="error_disable_vpn_failed_details">Verifica la configuración de tu VPN para deshabilitarla manualmente.</string>
+    <string name="error_disable_vpn_failed_details">Comprueba la configuración de tu VPN para desactivarla manualmente.</string>
 </resources>
