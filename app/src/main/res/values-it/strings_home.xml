@@ -43,6 +43,6 @@
     <string name="show_log_button">Mostra domini richiesti</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Leggi l\'Aiuto per ulteriori informazioni</string>
+    <string name="error_dialog_help">Leggi l\'aiuto per maggiori informazioni</string>
 
 </resources>
