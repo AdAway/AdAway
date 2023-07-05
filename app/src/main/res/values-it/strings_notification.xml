@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">Aggiornamenti</string>
     <string name="notification_update_channel_description">Notifica nuovo aggiornamento</string>
-    <string name="notification_update_host_available_title">Disponibile aggiornamento sorgenti</string>
+    <string name="notification_update_host_available_title">Aggiornamento sorgenti disponibile</string>
     <string name="notification_update_host_available_text">File hosts più recente disponibile</string>
-    <string name="notification_update_app_available_title">Aggiornamento app disponibile</string>
+    <string name="notification_update_app_available_title">Aggiornamento dell\'app disponibile</string>
     <string name="notification_update_app_available_text">Nuova versione di AdAway disponibile</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
