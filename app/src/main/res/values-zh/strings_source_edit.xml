@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">编辑来源</string>
+    <string name="source_edit_add_title">添加来源</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">标签</string>
+    <string name="source_edit_label_required">需要标签</string>
+    <string name="source_edit_type">类型</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">文件</string>
+    <string name="source_edit_url_location">位置</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">需要位置</string>
+    <string name="source_edit_file_hint">按下“文件”来选择源文件</string>
+    <string name="source_edit_location_invalid">无效的位置</string>
+    <string name="source_edit_format">列表格式</string>
+    <string name="source_edit_format_block_list">拦截</string>
+    <string name="source_edit_format_allow_list">允许</string>
+    <string name="source_edit_redirected_hosts">应用重定向 hosts</string>
+    <string name="source_edit_redirected_hosts_warning">允许重定向 hosts 可能导致安全问题。因其可能会将一些敏感流量重定向到任何它指定的服务器，请只对信任的源使用此设置。</string>
+</resources>
