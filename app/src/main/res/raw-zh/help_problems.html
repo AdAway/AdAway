@@ -5,31 +5,31 @@ And don't add newlines before or after p tags because of transifex -->
 <html>
 <head><title>常见问题</title></head>
 <body>
-<h2>Copy of hosts file failed on Android 9+</h2>
+<h2>在 Android 9+ 上 hosts 文件复制失败</h2>
 <p>Latest versions of Android use read-only <code>/system</code> partition.<br>
 If you are using Magisk as root solution, ensure you enable the systemless hosts module then reboot.</p>
 
 <h2>分区空间不足</h2>
-<p>尝试把设置中的目标hosts文件修改为<code>/data/data/hosts</code>（或<code>/data/hosts</code>）后再应用AdAway。</p>
+<p>尝试把设置中的目标hosts文件修改为<code>/data/data/hosts</code>（或<code>/data/hosts</code>）并再次应用 AdAway。</p>
 
 <h2>在安卓4.4及以上版本不能工作</h2>
 <p>尝试把设置中的目标hosts文件从<code>/data/data/hosts</code>改为<code>/data/hosts</code>或者<code>/system/etc/hosts</code>后再应用Adaway。</p>
 
-<h2>无法屏蔽某某应用中的广告！</h2>
+<h2>它不会阻止应用 XYZ 中的广告！</h2>
 <p>Some hostnames may be missing in the provided hosts files from the <cite>Hosts Sources</cite> or the application has bundled the images to provide ads without accessing the internet.<br><br>
 You can log DNS requests (Menu-&gt;Log DNS Requests) from AdAway to find out which additional hostnames have to be blocked.
 <br><br>Add the suspicious hostnames to your own Blacklist by long pressing the entries in the Log and report these hostnames when you have verified them in the Forum <a href="http://forum.hosts-file.net/viewforum.php?f=9">Hosts Inbox</a> of <a href="http://hosts-file.net">hosts-file.net</a>.</p>
 
-<h2>缓存的广告</h2>
-<p>一些应用在下载广告后缓存广告。这导致应用中仍然有广告。你可以试着从 Android 的“应用程序”列表中删除这些程序的缓存来解决这一问题。</p>
+<h2>缓存广告</h2>
+<p>有时应用程序会在下载后缓存广告。这会导致某些应用程序中存在剩余广告。您可以尝试在Android 的应用程序列表中删除这些应用程序的缓存来规避此问题。</p>
 
-<h2>屏蔽广告后应用程序 XYZ 不能用了！</h2>
-<p>某些应用程序需要与AdAway阻止的主机名进行通信，或者在无法访问应提供广告的主机名时拒绝工作。在<a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a>可以查看已知有上述问题的应用。否则，找出所需的主机名，并将它们添加到<cite>你的名单</cite>下的<cite>白名单</cite>中，并将其报告给<a href="https://github.com/AdAway/AdAway/issues">AdAway的错误跟踪器</a>。</p>
+<h2>应用程序 XYZ 无法使用！</h2>
+<p>某些应用程序需要与被 AdAway 阻止的主机名通信，或者在无法访问应提供广告的主机名时拒绝工作。请参阅 <a href="https://github.com/AdAway/AdAway/wiki/ProblematicApps">https://github.com/AdAway/AdAway/wiki/ProblematicApps</a>以获取存在问题的已知应用程序列表。当然，您也可以找出那些主机名并将它们添加到<cite>您的列表</cite>下的<cite>白名单</cite>，并将它们报告给 <a href="https://github.com/AdAway/AdAway/issues">AdAway 的错误跟踪器</a>。</p>
 
-<h2>Web浏览器的后退按钮无法正常工作</h2>
-<p>你可以在AdAway的设置中启用本地Web服务器作为一种解决方法</p>
+<h2>不适用于 Android 4.4+</h2>
+<p>尝试将首选项中的目标 hosts 文件从 <code>/data/data/hosts</code> 更改为 <code>/data/hosts</code> 或 <code>/system/etc/hosts</code>后，并再次应用 AdAway。</p>
 
-<h2>Web浏览器的后退按钮无法正常工作</h2>
+<h2>Web 浏览器中的后退按钮无法工作</h2>
 <p>你可以在AdAway的设置中启用本地Web服务器作为一种解决方法</p>
 
 </body>
