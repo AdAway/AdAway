@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">切换日志记录开启状态</string>
     <string name="log_start_recording">按下录制按钮以开始记录请求，浏览网页或使用应用程序，然后返回或滑动屏幕刷新日志。</string>
