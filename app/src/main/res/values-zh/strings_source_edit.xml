@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">编辑来源</string>
     <string name="source_edit_add_title">添加来源</string>
@@ -17,5 +17,5 @@
     <string name="source_edit_format_block_list">拦截</string>
     <string name="source_edit_format_allow_list">允许</string>
     <string name="source_edit_redirected_hosts">应用重定向 hosts</string>
-    <string name="source_edit_redirected_hosts_warning">允许重定向 hosts 可能导致安全问题。请只对信任的源使用这个设置因它可以将一些敏感流量重定向到任何此类 hosts 设置的服务器。</string>
+    <string name="source_edit_redirected_hosts_warning">允许重定向 hosts 可能导致安全问题。因其可能会将一些敏感流量重定向到任何它指定的服务器，请只对信任的源使用此设置。</string>
 </resources>
