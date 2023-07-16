@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Vítejte</string>
     <string name="welcome_first_step">Průvodce první krok</string>
@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">Synchronizováno!</string>
     <string name="welcome_sync_summary">AdAway stahuje reklamní sítě k zablokování z online zdrojů. Později si je můžete v nastavení přizpůsobit.</string>
     <string name="welcome_sync_retry_logo">Opakovat synchonizaci</string>
-    <string name="welcome_sync_error">Synchronizace se nezdařila: %1$s Opakovat nyní?</string>
+    <string name="welcome_sync_error">Selhala synchronizace: %1$s Opakovat nyní?</string>
+    <string name="welcome_sync_notifications">Může zasílat oznámení k zobrazení stavu blokování reklam a ovládání, zznamovat nové aktualizace aplikace (několikrát ročně). Povolte je, pokud chcete zůstat informováni.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Podpořit</string>
     <string name="welcome_support_header">Podpořte mě!</string>
-    <string name="welcome_support_summary">Je to bezplatná open-source aplikace. Vyvíjím ji ve svém volném čase. Takže pokud se Vám líbí, neváhejte ukázat svou podporu:</string>
+    <string name="welcome_support_summary">AdAway je aplikace se svobodným zdrojovým kódem, kterou jsem vyvinul ve svém volném čase. Pokud se vám líbí, můžete mě podpořit:</string>
     <string name="welcome_support_button">Darovat přes PayPal</string>
     <string name="welcome_support_telemetry_summary">Máte rádi chyby? Ani já ne.</string>
     <string name="welcome_support_telemetry_button">Povolit temeterii, aby mi posílala zprávy o selhání</string>
