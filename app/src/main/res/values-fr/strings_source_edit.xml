@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="source_edit_title">Modifier une source</string>
+    <string name="source_edit_add_title">Ajouter une source</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Étiquette</string>
+    <string name="source_edit_label_required">Étiquette requise</string>
+    <string name="source_edit_type">Type</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Fichier</string>
+    <string name="source_edit_url_location">Emplacement</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Emplacement requis</string>
+    <string name="source_edit_file_hint">Appuyez sur Fichier pour sélectionner le fichier source</string>
+    <string name="source_edit_location_invalid">Emplacement invalide</string>
+    <string name="source_edit_format">Format de la liste</string>
+    <string name="source_edit_format_block_list">Bloquer</string>
+    <string name="source_edit_format_allow_list">Autoriser</string>
+    <string name="source_edit_redirected_hosts">Appliquer les redirection d\'hôtes</string>
+    <string name="source_edit_redirected_hosts_warning">Autoriser les redirections d\'hôtes peut entraîner des problèmes de sécurité. N\'utilisez ces paramètres que sur une source de confiance car cela pourrait rediriger une partie du trafic sensible vers le serveur de votre choix.</string>
+</resources>
