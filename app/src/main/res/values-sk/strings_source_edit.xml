@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Upraviť zdroj</string>
+    <string name="source_edit_add_title">Pridať zdroj</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Menovka</string>
+    <string name="source_edit_label_required">Menovka je povinná</string>
+    <string name="source_edit_type">Typ</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Súbor</string>
+    <string name="source_edit_url_location">Adresa</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Adresa je povinná</string>
+    <string name="source_edit_file_hint">Stlačením tlačidla Súbor vyberte zdrojový súbor</string>
+    <string name="source_edit_location_invalid">Neplatná cesta</string>
+    <string name="source_edit_format">Formát zoznamu</string>
+    <string name="source_edit_format_block_list">Blokovať</string>
+    <string name="source_edit_format_allow_list">Povoliť</string>
+    <string name="source_edit_redirected_hosts">Použiť presmerovaných hostiteľov</string>
+    <string name="source_edit_redirected_hosts_warning">Povolenie presmerovaných hostiteľov môže spôsobiť bezpečnostné problémy. Toto nastavenie používajte len na dôveryhodnom zdroji, pretože by mohlo presmerovať citlivú komunikáciu na ľubovoľný server.</string>
+</resources>
