@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Edytuj źródło</string>
+    <string name="source_edit_add_title">Dodaj źródło</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Etykieta</string>
+    <string name="source_edit_label_required">Wymagana etykieta</string>
+    <string name="source_edit_type">Typ</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Plik</string>
+    <string name="source_edit_url_location">Lokalizacja</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Wymagana lokalizacja </string>
+    <string name="source_edit_file_hint">Kliknij Plik, aby wybrać źródło</string>
+    <string name="source_edit_location_invalid">Nieprawidłowa lokalizacja</string>
+    <string name="source_edit_format">Format listy</string>
+    <string name="source_edit_format_block_list">Zablokuj</string>
+    <string name="source_edit_format_allow_list">Zezwól</string>
+    <string name="source_edit_redirected_hosts">Zastosuj przekierowane hosty</string>
+    <string name="source_edit_redirected_hosts_warning">Zezwalanie na przekierowanie hostów może powodować problemy z bezpieczeństwem. Używaj tego ustawienia tylko na zaufanym źródle, ponieważ może ono przekierować wrażliwy ruch na dowolny serwer.</string>
+</resources>
