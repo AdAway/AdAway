@@ -5,7 +5,7 @@
     <!-- Tab -->
     <string name="lists_tab_blocked">Bloqueado</string>
     <string name="lists_tab_allowed">Permitido</string>
-    <string name="lists_tab_redirected">Redirigido</string>
+    <string name="lists_tab_redirected">Redirigido a</string>
     <!-- Menu -->
     <string name="lists_menu_filter">Filtrar los hosts</string>
     <string name="lists_menu_filter_hint">Buscar el nombre del host…</string>

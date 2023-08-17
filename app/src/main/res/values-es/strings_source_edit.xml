@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="source_edit_title">Editar una fuente</string>
-    <string name="source_edit_add_title">Agregar una fuente</string>
+    <string name="source_edit_add_title">Añadir una fuente</string>
     <!-- Hosts source edition -->
     <string name="source_edit_label">Etiqueta</string>
     <string name="source_edit_label_required">La etiqueta es obligatoria</string>
