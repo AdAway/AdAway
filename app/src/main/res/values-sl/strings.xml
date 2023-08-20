@@ -48,7 +48,7 @@
     <!--Hosts content-->
     <string name="hosts_header">Datoteka gostiteljev (hosts)</string>
     <string name="hosts_description">Datoteka gostiteljev je sistemska datoteka, ki preslika imena gostiteljev v naslove IP. Je datoteka z navadnim besedilom, katere Nastavitve upravlja AdAway. Tukaj je nekaj njegovih prvih vrstic:</string>
-    <string name="hosts_content">Nalaganje vsebine datoteke gostiteljev...</string>
+    <string name="hosts_content">Nalaganje vsebine datoteke gostiteljev…</string>
     <string name="hosts_open_button">Odpri datoteko gostiteljev</string>
 
     <!--Status Notification-->
@@ -168,7 +168,7 @@
     <!--Adware-->
     <string name="adware_header">Oglaševalski programi</string>
     <string name="adware_description">Tukaj lahko najdete nameščeno oglaševalske programe, slabe aplikacije, ki jih AdAway ne more zavirati. Te aplikacije uporabljajo na primer obvestila Airpush, ki se prikažejo, tudi ko se aplikacija ne izvaja, ali celo spremenijo melodijo zvonjenja. Edini razpoložljivi protiukrep je odstranitev teh aplikacij s klikom na vnose seznama.</string>
-    <string name="adware_scanning">Pregled...</string>
+    <string name="adware_scanning">Pregled…</string>
     <string name="adware_empty">Oglaševalski programi niso bili najdeni!</string>
 
     <!--Other-->
