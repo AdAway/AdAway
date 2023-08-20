@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Uredi vir</string>
+    <string name="source_edit_add_title">Dodaj vir</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Oznaka</string>
+    <string name="source_edit_label_required">Zahtevana je oznaka</string>
+    <string name="source_edit_type">Vrsta</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Datoteka</string>
+    <string name="source_edit_url_location">Lokacija</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Zahtevana je lokacija</string>
+    <string name="source_edit_file_hint">Pritisnite Datoteka, da izberete izvorno datoteko</string>
+    <string name="source_edit_location_invalid">Neveljavna lokacija</string>
+    <string name="source_edit_format">Oblika seznama</string>
+    <string name="source_edit_format_block_list">Onemogoči</string>
+    <string name="source_edit_format_allow_list">Dovoli</string>
+    <string name="source_edit_redirected_hosts">Uporabi preusmerjene gostitelje</string>
+    <string name="source_edit_redirected_hosts_warning">Dovolitev preusmerjenih gostiteljev lahko povzroči varnostne težave. Te nastavitve uporabljajte samo na zaupanja vrednem viru, saj lahko preusmeri del občutljivega prometa na kateri koli strežnik, ki ga želi.</string>
+</resources>
