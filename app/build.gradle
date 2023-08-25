@@ -14,14 +14,14 @@ repositories {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
     buildToolsVersion '34.0.0'
     ndkVersion '25.2.9519653'
     namespace 'org.adaway'
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion 33
+        targetSdk 33
         versionCode 60101   // Read x.yy.zz to match version name
         versionName '6.1.1'
 
