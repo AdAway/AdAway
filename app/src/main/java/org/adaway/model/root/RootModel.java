@@ -1,6 +1,7 @@
 package org.adaway.model.root;
 
 import static android.content.Context.MODE_PRIVATE;
+import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.db.entity.ListType.REDIRECTED;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
 import static org.adaway.model.error.HostError.COPY_FAIL;
@@ -48,6 +49,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.Executor;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import timber.log.Timber;
 
@@ -222,20 +225,30 @@ public class RootModel extends AdBlockModel {
         String redirectionIpv4 = PreferenceHelper.getRedirectionIpv4(this.context);
         String redirectionIpv6 = PreferenceHelper.getRedirectionIpv6(this.context);
         boolean enableIpv6 = PreferenceHelper.getEnableIpv6(this.context);
-        // Write each hostname
-        for (HostEntry entry : this.hostEntryDao.getAll()) {
-            String hostname = entry.getHost();
-            if (entry.getType() == REDIRECTED) {
-                writer.write(entry.getRedirection() + " " + hostname);
-                writer.newLine();
-            } else {
-                writer.write(redirectionIpv4 + " " + hostname);
-                writer.newLine();
-                if (enableIpv6) {
-                    writer.write(redirectionIpv6 + " " + hostname);
-                    writer.newLine();
-                }
-            }
+
+        String blockedHosts; int pageSize = 16;
+
+        // Write out blocked hostnames
+        int offset = 0; do {
+            blockedHosts = this.hostEntryDao.getByType(BLOCKED.getValue(), pageSize, offset)
+                .stream().map(e -> e.getHost()).collect(Collectors.joining(" "));
+            writer.write(redirectionIpv4 + " " + blockedHosts); writer.newLine(); writer.flush();
+            offset += pageSize;
+        } while(!blockedHosts.trim().isEmpty());
+
+        if (enableIpv6) {
+            offset = 0; do {
+                blockedHosts = this.hostEntryDao.getByType(BLOCKED.getValue(), pageSize, offset)
+                    .stream().map(e -> e.getHost()).collect(Collectors.joining(" "));
+                writer.write(redirectionIpv6 + " " + blockedHosts); writer.newLine(); writer.flush();
+                offset += pageSize;
+            } while(!blockedHosts.trim().isEmpty());
+        }
+
+        // Write each redirected hostname
+        for (HostEntry entry : this.hostEntryDao.getByType(REDIRECTED.getValue())) {
+            writer.write(entry.getRedirection() + " " + entry.getHost());
+            writer.newLine();
         }
     }
 
