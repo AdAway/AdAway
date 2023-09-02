@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">동기화 됨!</string>
     <string name="welcome_sync_summary">AdAway는 온라인 소스로 부터 차단하기 위해 광고 네트워크를 다운로드합니다. 나중에 설정에서 수정할 수 있습니다.</string>
     <string name="welcome_sync_retry_logo">동기화 재시도</string>
-    <string name="welcome_sync_error">동기화 실패 됨:\n%s.\n재시도하시겠습니까?</string>
+    <string name="welcome_sync_error">동기화 실패 됨: %1$s 재시도하시겠습니까?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">지원</string>

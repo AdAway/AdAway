@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="pref_root_title">Blokování reklamy pomocí přístupu ROOT</string>
+    <string name="pref_root_title">Blokování reklam pomocí přístupu ROOT</string>
     <!-- Hosts install category -->
     <string name="pref_hosts_installation">Instalace hostitelů</string>
     <string name="pref_root_open_hosts">Otevřít soubor hostitelů</string>
@@ -32,6 +32,6 @@
     <string name="pref_webserver_state_checking">Kontrolování…</string>
     <string name="pref_webserver_state_not_running">Neběží</string>
     <string name="pref_webserver_state_running_not_installed">Běží, ale není nainstalován certifikát</string>
-    <string name="pref_webserver_state_running_and_installed">Běží a certifikát je nainsalován</string>
+    <string name="pref_webserver_state_running_and_installed">Běží a certifikát je nainstalován</string>
     <string name="pref_webserver_icon">Vyplnit prázdné místo reklamy ikonou aplikace</string>
 </resources>

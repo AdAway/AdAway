@@ -19,13 +19,13 @@
     <string name="button_enable_hosts">啟用廣告封鎖</string>
     <string name="button_disable_hosts">停用廣告封鎖</string>
     <string name="header_webserver">網頁伺服器</string>
-    <string name="webserver_status_running">執行中</string>
+    <string name="webserver_status_running">正在執行</string>
     <string name="webserver_status_stopped">已停止</string>
     <string name="webserver_toggle_text">啟動或停止本地主機上的網頁伺服器以響應對被阻止主機名的請求。</string>
     <string name="button_enable_webserver">啟用網頁伺服器</string>
     <string name="button_disable_webserver">停用網頁伺服器</string>
     <string name="header_vpn">VPN</string>
-    <string name="vpn_status_running">運行中</string>
+    <string name="vpn_status_running">正在執行</string>
     <string name="vpn_status_stopped">已停止</string>
     <string name="vpn_toggle_text">啟動或停止 VPN 來過濾請求。</string>
     <string name="button_enable_vpn">啟動 VPN</string>
@@ -60,7 +60,7 @@
     <string name="status_parse_source">正在分析來源%s</string>
     <string name="status_sync_database">正在同步規則資料庫</string>
     <string name="status_revert">恢復到預設 hosts 檔案</string>
-    <string name="status_revert_done">預設 hosts 檔案已恢復</string>
+    <string name="status_revert_done">已還原預設 hosts 檔案</string>
     <string name="status_reverting_subtitle">建立標準的 hosts 檔案</string>
     <string name="status_update_available">有更新</string>
     <string name="status_update_available_subtitle">有更新的 hosts 檔案</string>
@@ -167,7 +167,7 @@
 
     <!--Adware-->
     <string name="adware_header">廣告軟體</string>
-    <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 Adaway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單項目來移除它們。</string>
+    <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 AdAway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單項目來移除它們。</string>
     <string name="adware_scanning">掃描中…</string>
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 

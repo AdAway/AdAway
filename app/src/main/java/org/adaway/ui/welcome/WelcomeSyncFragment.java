@@ -1,10 +1,20 @@
 package org.adaway.ui.welcome;
 
+import static android.Manifest.permission.POST_NOTIFICATIONS;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+import static android.os.Build.VERSION.SDK_INT;
+import static android.os.Build.VERSION_CODES.TIRAMISU;
+import static android.view.View.VISIBLE;
+import static org.adaway.ui.Animations.hideView;
+import static org.adaway.ui.Animations.showView;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleOwner;
@@ -15,8 +25,8 @@ import org.adaway.databinding.WelcomeSyncLayoutBinding;
 import org.adaway.model.error.HostError;
 import org.adaway.ui.home.HomeViewModel;
 
-import static org.adaway.ui.Animations.hideView;
-import static org.adaway.ui.Animations.showView;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * This class is a fragment to first sync the main hosts source.
@@ -26,12 +36,16 @@ import static org.adaway.ui.Animations.showView;
 public class WelcomeSyncFragment extends WelcomeFragment {
     private WelcomeSyncLayoutBinding binding;
     private HomeViewModel homeViewModel;
+    private ActivityResultLauncher<String> activityResultLauncher;
+    private boolean requestPostNotificationsPermission;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         this.binding = WelcomeSyncLayoutBinding.inflate(inflater, container, false);
+        this.activityResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {});
         bindRetry();
+        bindNotifications();
 
         this.homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         LifecycleOwner lifecycleOwner = getViewLifecycleOwner();
@@ -51,12 +65,28 @@ public class WelcomeSyncFragment extends WelcomeFragment {
         this.binding.errorTextView.setOnClickListener(this::retry);
     }
 
+    private void bindNotifications() {
+        if (SDK_INT < TIRAMISU || requireActivity().checkSelfPermission(POST_NOTIFICATIONS) == PERMISSION_GRANTED) {
+            this.requestPostNotificationsPermission = false;
+        } else {
+            this.binding.notificationsTextView.setVisibility(VISIBLE);
+            this.requestPostNotificationsPermission = true;
+            new Timer(true).schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    requestPostNotificationsPermission();
+                }
+            }, 10_000);
+        }
+    }
+
     private void notifySynced() {
         this.homeViewModel.enableAllSources();
         this.binding.headerTextView.setText(R.string.welcome_synced_header);
         hideView(this.binding.progressBar);
         showView(this.binding.syncedImageView);
         allowNext();
+        requestPostNotificationsPermission();
     }
 
     private void notifyError(HostError error) {
@@ -76,5 +106,12 @@ public class WelcomeSyncFragment extends WelcomeFragment {
         hideView(this.binding.errorTextView);
         showView(this.binding.progressBar);
         this.homeViewModel.sync();
+    }
+
+    private void requestPostNotificationsPermission() {
+        if (SDK_INT >= TIRAMISU && this.requestPostNotificationsPermission) {
+            this.requestPostNotificationsPermission = false;
+            this.activityResultLauncher.launch(POST_NOTIFICATIONS);
+        }
     }
 }

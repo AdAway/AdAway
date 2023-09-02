@@ -36,12 +36,13 @@ Pilih salah satu yang kamu inginkan:</string>
     <string name="welcome_synced_header">Sudah tersinkron!</string>
     <string name="welcome_sync_summary">AdAway mengunduh jaringan iklan untuk memblokir dari sumber-sumber online. Anda dapat menyesuaikannya nanti di pengaturan.</string>
     <string name="welcome_sync_retry_logo">Mengulang sinkorinisasi</string>
-    <string name="welcome_sync_error">Gagal melakukan sinkronisasi:\n%s.\nUlangi sekarang?</string>
+    <string name="welcome_sync_error">Gagal saat sinkronisasi: %1$s Coba lagi?</string>
+    <string name="welcome_sync_notifications">dapat mengirimkan notifikasi tentang blok iklan dan pengaturan, juga  notifikasi update aplikasi yang tersedia (beberapa kali per tahun). Aktifkan jika ingin tetap up-to-date</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Dukungan</string>
     <string name="welcome_support_header">Dukung saya!</string>
-    <string name="welcome_support_summary">Ini adalah aplikasi gratis dan open-source. Saya mengembangkannya pada waktu luang. Jika anda menyukainya, anda dapat mendukung melalui:</string>
+    <string name="welcome_support_summary">AdAway adalah aplikasi graris dan open-source yang dikembangkan pada waktu luang saya. Jika kamu menyukainya, terima kasih dukungannya:</string>
     <string name="welcome_support_button">Donasi di PayPal</string>
     <string name="welcome_support_telemetry_summary">Anda menyukai bug? Saya juga tidak.</string>
     <string name="welcome_support_telemetry_button">Izinkan penggunaan telemetri untuk mengirimkan laporan kesalahan kepada saya</string>

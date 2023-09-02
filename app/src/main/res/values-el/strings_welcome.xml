@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Καλώς ήρθατε</string>
     <string name="welcome_first_step">Wizard πρώτο βήμα</string>
@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">Συγχρονίστηκε!</string>
     <string name="welcome_sync_summary">Το AdAway κατεβάζει δίκτυα διαφημίσεων για αποκλεισμό από διαδικτυακές πηγές. Μπορείτε να τα προσαρμόσετε αργότερα στις ρυθμίσεις.</string>
     <string name="welcome_sync_retry_logo">Επανάληψη συγχρονισμού</string>
-    <string name="welcome_sync_error">Αποτυχία συγχρονισμού:/n%s.\nΕπανάληψη τώρα;</string>
+    <string name="welcome_sync_error">Αποτυχία συγχρονισμού: %1$s Επανάληψη τώρα;</string>
+    <string name="welcome_sync_notifications">Μπορεί να στείλει ειδοποιήσεις για προβολή της κατάστασης και έλεγχο του μπλοκαρίσματος διαφημίσεων και να σας ειδοποιήσει εάν υπάρξει διαθέσιμη ενημέρωση εφαρμογής (λίγες ανά έτος). Ενεργοποιήστε το εάν θέλετε να παραμείνετε ενημερωμένοι.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Υποστήριξη</string>
     <string name="welcome_support_header">Υποστήριξε με!</string>
-    <string name="welcome_support_summary">Είναι μια δωρεάν και ανοιχτού κώδικα εφαρμογή. Την αναπτύσσω στον ελεύθερο χρόνο μου. Επομένως αν την απολαμβάνετε, μη διστάσετε να δείξετε την υποστήριξή σας:</string>
+    <string name="welcome_support_summary">Το AdAway είναι μια δωρεάν και ανοιχτού κώδικα εφαρμογή την οποία αναπτύσσω στον ελεύθερο χρόνο μου. Εάν την απολαμβάνετε, μη διστάσετε να δείξετε την υποστήριξή σας:</string>
     <string name="welcome_support_button">Δωρεά στο PayPal</string>
     <string name="welcome_support_telemetry_summary">Σας αρέσουν τα bugs; Ούτε εμένα.</string>
     <string name="welcome_support_telemetry_button">Ενεργοποιήστε την τηλεμετρία για να μου στέλνετε αναφορές σφαλμάτων</string>

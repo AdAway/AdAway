@@ -14,7 +14,7 @@ import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 
 import static androidx.work.ExistingPeriodicWorkPolicy.KEEP;
-import static androidx.work.ExistingPeriodicWorkPolicy.REPLACE;
+import static androidx.work.ExistingPeriodicWorkPolicy.UPDATE;
 import static androidx.work.ListenableWorker.Result.success;
 import static java.util.concurrent.TimeUnit.DAYS;
 
@@ -46,7 +46,7 @@ public final class ApkUpdateService {
      * @param context The application context.
      */
     public static void enable(Context context) {
-        enqueueWork(context, REPLACE);
+        enqueueWork(context, UPDATE);
     }
 
     /**

@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_update_title">Mises à jour</string>
+    <string name="pref_update_enable_notifications">Les notifications sont désactivées</string>
+    <string name="pref_update_enable_notifications_summary">Les notifications de l’appli ne seront pas affichées. Touchez pour les activer.</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Mises à jour de l’application</string>
     <string name="pref_update_check_app_startup">Vérifier la présence d’une mise à jour au démarrage</string>

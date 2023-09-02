@@ -1,6 +1,27 @@
-## [6.1.0] - Unreleased
+## [6.1.2] - Unreleased
+
+- Update translations
+
+Special thanks to @Fs00 and @gallegonovato for their bug reports.
+
+## [6.1.1] - 2023-06-20
+
+- Improve adaptive launcher icon
+- Update AndroidX libraries
+- Update third party libraries
+- Update libsu
+- Update mongoose web server
+- Update Android gradle plugin
+- Update build tools
+- Update translations
+
+Special thanks to AzusaHana for its contribution.
+
+## [6.1.0] - 2023-03-26
 
 - Add adaptive launcher icon
+- Add POST_NOTIFCATIONS runtime permission support
+- Improve settings UI
 - Update target SDK to Android 13
 - Update libsu
 - Update mongoose web server
@@ -8,10 +29,6 @@
 - Update third party libraries
 - Update Android gradle plugin
 - Update NDK
-
-## [6.0.4] - 2022-07-25
-
-- Improve settings UI
 
 ## [6.0.3] - 2022-07-25
 

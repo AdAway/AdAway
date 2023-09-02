@@ -6,28 +6,90 @@
     <string name="button_yes">Da</string>
     <string name="button_no">Ne</string>
     <string name="button_add">Dodaj</string>
-    <string name="button_cancel">Prekini</string>
+    <string name="button_cancel">Prekliči</string>
     <string name="button_save">Shrani</string>
     <string name="button_help">Pomoč</string>
 
+    <!--Home-->
+    <string name="header_help">Dobrodošli!</string>
+    <string name="text_help">AdAway je brezplačen in odprtokodni program za zaviranje oglaševanja. Pridobi naslove oglaševalskih omrežij, da jih onemogoči v vaši napravi.\nŽelite izvedeti več? Spodaj preverite pomoč!</string>
+    <string name="button_show_help">Prikaži več pomoči</string>
+    <string name="icon_update_status">Posodobljeno stanje</string>
     <string name="text_update">Vse hosts datoteke danih virov so prenešene, združene z vašimi osebnimi seznami in nameščene kot ena hosts datoteka na vašem sistemu.</string>
+    <string name="button_enable_hosts">Omogoči zaviranje oglasov</string>
+    <string name="button_disable_hosts">Onemogoči zaviranje oglasov</string>
+    <string name="header_webserver">Spletni strežnik</string>
+    <string name="webserver_status_running">Izvajanje</string>
+    <string name="webserver_status_stopped">Ustavljeno</string>
+    <string name="webserver_toggle_text">Zaženite ali zaustavite spletni strežnik na lokalnem gostitelju, da odgovorite na zahteve onemogočenih imen gostiteljev.</string>
+    <string name="button_enable_webserver">Omogoči spletni strežnik</string>
+    <string name="button_disable_webserver">Onemogoči spletni strežnik</string>
+    <string name="header_vpn">VPN</string>
+    <string name="vpn_status_running">Izvajanje</string>
+    <string name="vpn_status_stopped">Ustavljeno</string>
+    <string name="vpn_toggle_text">Zaženite ali zaustavite VPN za filtriranje zahtev.</string>
+    <string name="button_enable_vpn">Omogoči VPN</string>
+    <string name="button_disable_vpn">Onemogoči VPN</string>
+
     <!--Checkbox List-->
     <string name="checkbox_list_context_title">Uredi vnos</string>
+    <string name="checkbox_list_context_apply">Uporabi</string>
     <string name="checkbox_list_context_edit">Uredi</string>
-    <string name="checkbox_list_context_delete">Odstrani</string>
+    <string name="checkbox_list_context_delete">Izbriši</string>
 
     <!--Your lists-->
     <string name="import_dialog">Uvažanje…</string>
+    <string name="import_success">Varnostna kopija je bila uspešno uvožena iz vaše zunanje shrambe.</string>
+    <string name="import_failed">Uvoz varnostne kopije ni uspel. Je njegova oblika pravilna? Preverite \'logcat\' za več podrobnosti.</string>
     <string name="export_dialog">Izvažanje…</string>
+    <string name="export_success">Varnostna kopija je bila uspešno izvožena v datoteko \'%s\' na vašo zunanjo shrambo.</string>
+    <string name="export_failed">Datoteke varnostne kopije \'%s\' ni bilo mogoče izvoziti.</string>
+
+    <!--Hosts content-->
+    <string name="hosts_header">Datoteka gostiteljev (hosts)</string>
+    <string name="hosts_description">Datoteka gostiteljev je sistemska datoteka, ki preslika imena gostiteljev v naslove IP. Je datoteka z navadnim besedilom, katere Nastavitve upravlja AdAway. Tukaj je nekaj njegovih prvih vrstic:</string>
+    <string name="hosts_content">Nalaganje vsebine datoteke gostiteljev…</string>
+    <string name="hosts_open_button">Odpri datoteko gostiteljev</string>
+
+    <!--Status Notification-->
+    <string name="status_check">Preveri obstoj posodobitev</string>
+    <string name="status_check_source">Preverjanje vira %s za posodobitev</string>
+    <string name="status_retrieve">Pridobivanje virov</string>
+    <string name="status_download_source">Prenašanje vira %s</string>
+    <string name="status_read_source">Branje vira %s</string>
+    <string name="status_parse_source">Razčlenjevanje vira %s</string>
+    <string name="status_sync_database">Sinhronizacija zbirke podatkov pravil</string>
+    <string name="status_revert">Vrnitev na privzeto datoteko gostiteljev</string>
+    <string name="status_revert_done">Privzeta datoteka gostiteljev je obnovljena</string>
     <string name="status_reverting_subtitle">Ustvarjanje privzete hosts datoteke</string>
+    <string name="status_update_available">Na voljo je posodobitev vira</string>
     <string name="status_update_available_subtitle">Na voljo so posodobljene hosts datoteke</string>
+    <string name="status_no_update_found">Ni najdene posodobitve vira</string>
     <string name="status_no_connection">Ni omrežne povezave</string>
     <string name="status_no_connection_subtitle">Omrežna povezava ni na voljo</string>
     <string name="status_download_fail">Nedosegljivi viri</string>
     <string name="status_download_fail_subtitle_new">Noben hosts vir ni dosegljiv!</string>
+    <string name="status_root_access_denied">Korenski dostop je zavrnjen</string>
+    <string name="status_root_access_denied_subtitle">Dovolite korenski dostop iz vaše korenske aplikacije</string>
+    <string name="status_failure">Nekaj ​​je šlo narobe</string>
+    <string name="status_failure_subtitle">Preverite \'logcat\' za več podrobnosti</string>
     <string name="status_enabled">Omogočeno</string>
     <string name="status_enabled_subtitle">Uporabljene so najnovejše hosts datoteke</string>
     <string name="status_disabled">Onemogočeno</string>
+    <string name="status_disabled_subtitle">Nameščena je privzeta datoteka gostiteljev</string>
+    <string name="status_apply_sources">Uporabi najnovejše vire</string>
+    <string name="status_create_new_hosts">Ustvarjanje nove datoteke gostiteljev</string>
+    <string name="status_copy_new_hosts">Kopiranje nove datoteke gostiteljev</string>
+    <string name="status_check_copy">Preverjanje kopije datoteke gostiteljev</string>
+    <string name="status_hosts_updated">Datoteka \'Hosts\' je bila uspešno posodobljena</string>
+    <string name="status_vpn_configuration_updated">Nastavitve VPN so bile uspešno posodobljene</string>
+    <string name="notification_configuration_changed">Vaše nastavitve so se spremenile. Uporabiti jih morate.</string>
+    <string name="notification_configuration_changed_action">Uporabi</string>
+    <string name="notification_configuration_installing">Uporaba novih nastavitev…</string>
+    <string name="notification_configuration_failed">Novih nastavitev ni bilo mogoče uporabiti.</string>
+
+    <!--Apply and Revert Dialogs-->
+    <string name="apply_symlink_missing_status">Manjka simbolna povezava do cilja datoteke gostiteljev</string>
     <string name="apply_symlink_missing">Symlink vaše tarče /system/etc/hosts ne obstaja ali ni pravilen! AdAway ne bo deloval, če ne bo kazal na pravo datoteko.\n\nAli želite poizkusiti ustvariti symlink?</string>
     <string name="apply_symlink_missing_title">Symlink ne obstaja</string>
     <string name="apply_not_enough_space">Na particiji ni dovolj prostora!\nPoizkusite spremeniti pot hosts datoteke na /data/data/hosts v nastavitvah.</string>
@@ -36,12 +98,18 @@
     <string name="apply_private_file_fail_title">Privatna datoteka spodletela</string>
     <string name="apply_remount_fail">Ponovno montiranje particije z read/write dovoljenjem je spodletelo!</string>
     <string name="apply_remount_fail_title">Ponovno montiranje spodletelo</string>
+    <string name="apply_copy_fail_status">Datoteke gostiteljev ni bilo mogoče kopirati</string>
     <string name="apply_copy_fail">Kopiranje hosts datoteke spodletelo!</string>
     <string name="apply_copy_fail_title">Kopiranje spodletelo</string>
+    <string name="apply_success_subtitle">Uporabljeni viri gostiteljev</string>
     <string name="apply_success_title">Uporaba uspešna</string>
+    <string name="apply_success_dialog">Uporaba je bila uspešna.\nMorda bo treba znova zagnati Android, za uveljavitev sprememb.\n\nAli želite znova zagnati?\n(Če želite preprečiti izgubo podatkov, se prepričajte, da nobena aplikacija trenutno ne uporablja kartice SD!)</string>
+    <string name="apply_symlink_successful">Simbolna povezava je bila ustvarjena uspešno.\nMorda bo treba znova zagnati Android, za uveljavitev sprememb.\n\nAli želite znova zagnati?\n(Za preprečitev izgube podatkov se prepričajte, da nobena aplikacija trenutno ne uporablja kartice SD!)</string>
     <string name="apply_symlink_successful_title">Symlink je bil uspešno ustvarjen</string>
+    <string name="apply_symlink_fail">Android ni mogel ustvariti simbolne povezave.\nTo ne uspe predvsem zaradi \'funkcije\', imenovane S-ON na telefonih HTC!\n\nRešitev je, da telefon zaženete v obnovitveni način in tam ustvarite simbolno povezavo z \'ln -s / data/data/hosts /system/etc/hosts\'.\n\nČe to ne deluje, poiščite na spletu S-OFF in svoj telefon.</string>
     <string name="apply_symlink_fail_title">Ustvarjanje symlink-a je spodletelo</string>
     <string name="apply_help">Prosimo, preberite pomoč za več informacij.</string>
+    <string name="apply_apn_proxy">V vašem Androidu je nastavljen namestniški strežnik APN!\nAdAway ne bo zanesljivo deloval v mobilnih omrežjih, kot je 3G. Ta namestniški strežnik lahko deaktivirate tako, da odprete izbrano APN (v aplikaciji Nastavitve: Omrežje in internet -> Mobilno omrežje -> Napredno -> Imena dostopnih točk) in odstranite vrednost v polju namestniškega strežnika.</string>
     <string name="apply_apn_proxy_title">APN proxy nastavljen!</string>
     <string name="no_connection">Omrežna povezava ni vzpostavljena.</string>
     <string name="no_connection_title">Ni povezave</string>
@@ -51,33 +119,57 @@
     <string name="apply_dialog_hostnames">Združevanje hosts datotek</string>
     <string name="apply_dialog_hosts">Izgradnja hosts datotek</string>
     <string name="apply_dialog_apply">Uporabljanje hosts datotek</string>
+    <string name="apply_fail_status">Nove datoteke gostiteljev ni bilo mogoče uporabiti.</string>
     <string name="apply_fail">Uporaba hosts datotek na vašem sistemu je spodletela!\nPoizkusite spremeniti pot hosts datoteke na /data/data/hosts v nastavitvah.</string>
     <string name="apply_fail_title">Uporaba neuspešna</string>
+    <string name="root_access_fail">Preverite svojo aplikacijo za upravljanje korena, da zagotovite, da je odobren korenski dostop.</string>
+    <string name="revert_successful">Povrnili ste se na privzeto datoteko gostiteljev.\nMorda bo treba znova zagnati Android za uveljavitev sprememb.\n\nAli želite znova zagnati?\n(Za preprečitev izgube podatkov se prepričajte, da nobena aplikacija trenutno ne uporablja kartice SD !)</string>
     <string name="revert_successful_title">Povrnitev uspešna</string>
+    <string name="revert_failed_status">Datoteke gostiteljev ni mogoče povrniti</string>
     <string name="revert_problem">Povrnitev spodletela zaradi neznanega razloga.</string>
     <string name="revert_problem_title">Povrnitev neuspešna!</string>
     <string name="download_fail_dialog">Noben od vaših uporabljenih hosts virov ni dosegljiv! Ali ste pravilno povezani na omrežje?</string>
     <string name="download_fail_title">Prenos spodletel</string>
+    <string name="no_private_file_status">Nove datoteke zasebnih gostiteljev ni bilo mogoče napisati</string>
     <string name="no_private_file">Privatne datoteke ni bilo mogoče ustvariti.</string>
     <string name="no_private_file_title">Privatne datoteke ni bilo mogoče ustvariti.</string>
+    <string name="enable_systemless_successful">Omogočili ste brezsistemski način.\nMorda bo treba znova zagnati Android, za uveljavitev sprememb.\n\nAli želite znova zagnati?\n(Za preprečitev izgube podatkov se prepričajte, da nobena aplikacija trenutno ne uporablja kartice SD!)</string>
     <string name="enable_systemless_successful_title">Uspešno omogočeno</string>
+    <string name="disable_systemless_successful">Onemogočili ste brezsistemski način.\nMorda bo treba znova zagnati Android za uveljavitev sprememb.\n\nAli želite znova zagnati?\n(Za preprečitev izgube podatkov, se prepričajte, da nobena aplikacija trenutno ne uporablja kartice SD!)</string>
     <string name="disable_systemless_successful_title">Uspešno onemogočeno</string>
+    <string name="enable_vpn_fail">Zaviranja oglasov VPN ni bilo mogoče omogočiti.</string>
+    <string name="disable_vpn_fail">Zaviiranja oglasov VPN ni bilo mogoče onemogočiti.</string>
+    <string name="enable_systemless_magisk_title">Omogočanje gostiteljskega modula Magisk</string>
+    <string name="enable_systemless_magisk">Omogočite funkcijo brezsistemskih gostiteljev v upravitelju Magisk. V nastavitvah omogočite možnost <clte>Brezsistemski gostitelji</clte> in znova zaženite napravo.</string>
+    <string name="disable_systemless_magisk_title">Onemogočanje gostiteljskega modula Magisk</string>
+    <string name="disable_systemless_magisk">Onemogočite funkcijo brezsistemskih gostiteljev v upravitelju Magisk. S seznama modulov odstranite <cite>Brezsistemske gostitelje</cite> in znova zaženite napravo.</string>
+
     <!--Other Dialogs-->
     <string name="hosts_add_dialog">Vnesi URL do hosts datoteke:</string>
     <string name="no_hostname">Neveljavno domensko ime!</string>
     <string name="no_hostname_title">Nepravilno oblikovano domensko ime</string>
     <string name="no_ip">Neveljaven IP!</string>
     <string name="no_ip_title">Nepravilno oblikovan IP</string>
+    <string name="reboot_never_reboot">Nikoli znova ne zaženi in naslednjič ne pokaži tega vprašanja!</string>
     <string name="loading">Nalaganje…</string>
 
     <!--Menu entries-->
     <string name="menu_refresh">Osveži</string>
     <string name="menu_add">Dodaj</string>
     <string name="menu_help">Pomoč</string>
+    <string name="menu_import">Uvozi varnostno kopijo</string>
+    <string name="menu_export">Izvozi varnostno kopijo</string>
+
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
     <string name="help_tab_faq">Pogosto postavljena vprašanja</string>
     <string name="help_tab_problems">Težave</string>
+
+    <!--Adware-->
+    <string name="adware_header">Oglaševalski programi</string>
+    <string name="adware_description">Tukaj lahko najdete nameščeno oglaševalske programe, slabe aplikacije, ki jih AdAway ne more zavirati. Te aplikacije uporabljajo na primer obvestila Airpush, ki se prikažejo, tudi ko se aplikacija ne izvaja, ali celo spremenijo melodijo zvonjenja. Edini razpoložljivi protiukrep je odstranitev teh aplikacij s klikom na vnose seznama.</string>
+    <string name="adware_scanning">Pregled…</string>
+    <string name="adware_empty">Oglaševalski programi niso bili najdeni!</string>
 
     <!--Other-->
     <string name="app_subtitle">Ad blocker</string>
@@ -86,7 +178,22 @@
     <string name="no_file_manager_title">Noben raziskovalec ni nameščen</string>
     <string name="no_file_manager">Noben raziskovalec ni nameščen. Namestite lahko aplikacijo OI File Manager ali katerikoli drug raziskovalec.\n\nAli želite namestiti OI File Manager?</string>
 
+    <!--Tcpdump-->
+    <string name="tcpdump_header">Odlagališče TCP</string>
     <string name="tcpdump_description">Tcpdump je orodje za nadziranje DNS zahtev in njihovo shranjevanje v log datoteko. Zaženete jo lahko v ozadju, zaženete aplikacijo, ki prikazuje oglase, ter analizirate DNS zahteve preko log datoteke. Morebitne oglaševalne strežnike lahko potem dodate na vašo blacklist-o.</string>
+    <string name="tcpdump_disable_monitoring">Onemogoči spremljanje</string>
+    <string name="tcpdump_enable_monitoring">Omogoči spremljanje</string>
+    <string name="tcpdump_show_results">Prikaži rezultate</string>
+    <string name="tcpdump_menu_sort">Razvrsti domene</string>
+    <string name="tcpdump_menu_clear">Počisti dnevnik</string>
+    <string name="tcpdump_entry_add_blacklist">Dodaj vnos na seznam nedovoljenih</string>
+    <string name="tcpdump_entry_add_whitelist">Dodaj vnos na seznam dovoljenih</string>
+    <string name="tcpdump_entry_add_redirection_list">Dodaj vnos na seznam preusmeritev</string>
+
+    <string name="pref_edit_text_value">Uredi vrednost nastavitev besedila</string>
+    <string name="drawer_open">Odpri meni</string>
+    <string name="drawer_close">Zapri meni</string>
+
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
@@ -98,6 +205,66 @@
         <item>Nastavitve</item>
         <item>Pomoč</item>
     </string-array>
+    <!--Drawer menu labels-->
+
+    <!--Shortcuts-->
+    <string name="shortcut_dns_requests">Zahteve DNS</string>
+    <string name="shortcut_your_lists">Vaši seznami</string>
     <string name="shortcut_preferences">Nastavitve</string>
 
-    </resources>
+    <!--Hosts source status-->
+    <string name="hosts_source_installed">Nameščen pred %1$s</string>
+    <string name="hosts_source_up_to_date">Posodobljen za %1$s</string>
+    <string name="hosts_source_need_update">Potrebna posodobitev za %1$s</string>
+    <string name="hosts_source_last_update">Zadnja posodobitev pred %1$s</string>
+    <string name="hosts_source_unknown_status">Neznano stanje posodobitve</string>
+    <string name="hosts_source_disabled">Onemogočeno</string>
+    <string name="hosts_source_few_minutes">nekaj minut</string>
+    <plurals name="hosts_source_minutes">
+        <item quantity="one"> %d minuto</item>
+        <item quantity="two">%d minutama</item>
+        <item quantity="few">%d minutami</item>
+        <item quantity="other">%d minutami</item>
+    </plurals>
+    <plurals name="hosts_source_hours">
+        <item quantity="one">%d uro</item>
+        <item quantity="two">%d urama</item>
+        <item quantity="few">%d urami</item>
+        <item quantity="other">%d uro</item>
+    </plurals>
+    <plurals name="hosts_source_days">
+        <item quantity="one">%d dan</item>
+        <item quantity="two">%d dneva</item>
+        <item quantity="few">%d dnevi</item>
+        <item quantity="other">%d dnevi</item>
+    </plurals>
+    <plurals name="hosts_source_months">
+        <item quantity="one">%d mesec</item>
+        <item quantity="two">%d meseca</item>
+        <item quantity="few">%d meseci</item>
+        <item quantity="other">%d mesec</item>
+    </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Gostitelj kopiran v odložišče</string>
+
+    <!--VPN notification-->
+    <string name="vpn_notification_starting">začet</string>
+    <string name="vpn_notification_running">aktiven</string>
+    <string name="vpn_notification_stopping">zaustavitev</string>
+    <string name="vpn_notification_waiting_for_net">počakajte na omrežje</string>
+    <string name="vpn_notification_reconnecting">ponovno povezovanje</string>
+    <string name="vpn_notification_reconnecting_error">napaka pri ponovni povezavi</string>
+    <string name="vpn_notification_paused">začasno ustavljen</string>
+    <string name="vpn_notification_stopped">ustavljen</string>
+    <string name="vpn_notification_title">Zaviralec oglasov VPN %1$s</string>
+    <string name="vpn_notification_action_pause">Premor</string>
+    <string name="vpn_notification_action_resume">Nadaljuj</string>
+
+    <!-- Permission -->
+    <string name="permission_group_api_label">AdAway dovoljenja</string>
+    <string name="permission_group_api_description">Dovoli interakcijo z AdAway</string>
+    <string name="permission_send_command_label">Pošlji ukaze v AdAway</string>
+    <string name="permission_send_command_description">Dovoli pošiljanje ukazov v AdAway, kot je omogočanje ali onemogočanje sistemskega zaviranja oglasov</string>
+
+</resources>

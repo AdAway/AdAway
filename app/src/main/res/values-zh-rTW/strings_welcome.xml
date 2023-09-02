@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">歡迎</string>
     <string name="welcome_first_step">精靈第一步</string>
@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">已同步！</string>
     <string name="welcome_sync_summary">AdAway 從線上來源下載要阻擋的廣告網路，您可以稍後在設定中設定它們。</string>
     <string name="welcome_sync_retry_logo">重新同步</string>
-    <string name="welcome_sync_error">無法同步：\n%s。\n 是否立即重試？</string>
+    <string name="welcome_sync_error">同步失敗：%1$s，現在重試？</string>
+    <string name="welcome_sync_notifications">此App是一款使用主機檔案來阻擋廣告的開放原始碼廣告攔截程式，可透過通知顯示廣告攔截狀態及進行控制，以及通知可用的應用程式更新（每年少數次）。若您希望保持最新狀態，可啟用這些通知。</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">支持</string>
     <string name="welcome_support_header">支持我們！</string>
-    <string name="welcome_support_summary">這是一個免費的開源應用程式。我利用工作以外的時間開發他。因此，如果你喜歡，請隨時表示支持：</string>
+    <string name="welcome_support_summary">AdAway 是一個免費且開放原始碼的應用程式，我利用空閒時間開發。如果您喜歡它，請隨意表示支持：</string>
     <string name="welcome_support_button">在 PayPal 上捐贈</string>
     <string name="welcome_support_telemetry_summary">你喜歡臭蟲嗎？我也不喜歡。</string>
     <string name="welcome_support_telemetry_button">啟用自動傳送崩潰報告</string>

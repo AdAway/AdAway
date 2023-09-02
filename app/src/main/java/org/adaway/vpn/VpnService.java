@@ -14,10 +14,12 @@
  */
 package org.adaway.vpn;
 
+import static android.Manifest.permission.POST_NOTIFICATIONS;
 import static android.app.NotificationManager.IMPORTANCE_LOW;
 import static android.app.PendingIntent.FLAG_IMMUTABLE;
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK;
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
 import static android.net.NetworkCapabilities.TRANSPORT_WIFI;
 import static org.adaway.broadcast.Command.START;
@@ -207,7 +209,9 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                 startForeground(VPN_RUNNING_SERVICE_NOTIFICATION_ID, notification);
                 break;
             default:
-                notificationManager.notify(VPN_RESUME_SERVICE_NOTIFICATION_ID, notification);
+                if (checkSelfPermission(POST_NOTIFICATIONS) == PERMISSION_GRANTED) {
+                    notificationManager.notify(VPN_RESUME_SERVICE_NOTIFICATION_ID, notification);
+                }
         }
 
         // TODO BUG - Nobody is listening to this intent
@@ -241,7 +245,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
                         R.drawable.ic_pause_24dp,
                         getString(R.string.vpn_notification_action_pause),
                         stopActionIntent
-                );
+                ).setOngoing(true);
                 break;
             case STOPPED:
                 Intent startIntent = new Intent(this, CommandReceiver.class)

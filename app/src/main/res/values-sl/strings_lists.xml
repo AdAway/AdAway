@@ -1,6 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="lists_title">Your lists</string>
-    <string name="list_dialog_hostname">Domena:</string>
+    <string name="lists_title">Vaši seznami</string>
+    <string name="lists_add">Dodaj gostitelja</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">Onemogočeno</string>
+    <string name="lists_tab_allowed">Dovoljeno</string>
+    <string name="lists_tab_redirected">Preusmerjeno</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">Filtriraj gostitelje</string>
+    <string name="lists_menu_filter_hint">Poišči ime gostitelja…</string>
+    <string name="lists_menu_toggle_sources">Preklopi vire</string>
+    <!-- Edition dialog -->
+    <string name="list_add_dialog_black">Dodaj gostitelja na seznam nedovoljenih</string>
+    <string name="list_add_dialog_white">Dodaj gostitelja na seznam dovoljenih</string>
+    <string name="list_add_dialog_redirect">Dodaj preusmeritev gostitelja</string>
+    <string name="list_edit_dialog_black">Uredi gostitelja na seznamu nedovoljenih</string>
+    <string name="list_edit_dialog_white">Uredi gostitelja na seznamu dovoljenih</string>
+    <string name="list_edit_dialog_redirect">Uredi preusmeritev</string>
+    <string name="list_dialog_hostname">Ime gostitelja:</string>
+    <string name="list_dialog_hostname_hint">URL vira gostiteljev</string>
+    <string name="list_dialog_wildcard">(Dovoljena sta nadomestna znaka * in ?)</string>
     <string name="list_dialog_ip">IP (IPv4 ali IPv6):</string>
 </resources>

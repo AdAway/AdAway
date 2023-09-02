@@ -8,10 +8,10 @@
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="other">%dsumber terbaru</item>
+        <item quantity="other">%d sumber up-to-date</item>
     </plurals>
     <plurals name="outdated_source_label">
-        <item quantity="other">%dsumber usang</item>
+        <item quantity="other">%d sumber usang</item>
     </plurals>
     <string name="check_hosts_update_description">Mengecek pembaruan host</string>
     <string name="update_hosts_description">Perbaharui daftar</string>

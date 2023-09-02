@@ -28,3 +28,11 @@
 -dontwarn org.codehaus.mojo.animal_sniffer.*
 # OkHttp platform used only on JVM and when Conscrypt dependency is available.
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
+# Generated rules from R8
+-dontwarn org.bouncycastle.jsse.**
+-dontwarn org.conscrypt.**
+-dontwarn org.openjsse.**
+
+### dnsjava ###
+-dontwarn lombok.Generated
+-dontwarn sun.net.spi.nameservice.NameServiceDescriptor

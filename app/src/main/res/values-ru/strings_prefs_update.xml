@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_update_title">Обновления</string>
+    <string name="pref_update_enable_notifications">Уведомления отключены</string>
+    <string name="pref_update_enable_notifications_summary">Уведомления приложений не будут отображаться. Нажмите, чтобы включить их.</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Обновления приложения</string>
     <string name="pref_update_check_app_startup">Проверять обновления при запуске</string>
@@ -11,5 +13,5 @@
     <string name="pref_update_check">Проверять обновления при запуске</string>
     <string name="pref_update_check_hosts_daily">Периодическая проверка обновлений</string>
     <string name="pref_update_sync_on_update">Синхронизация при обновлении</string>
-    <string name="pref_update_sync_unmetered_only">Синхронизация только в незащищенной сети</string>
+    <string name="pref_update_sync_unmetered_only">Синхронизация только в нетарифицируемой сети</string>
 </resources>

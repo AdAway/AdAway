@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Synkronoitu! </string>
     <string name="welcome_sync_summary">AdAway lataa estettäviä mainosverkostoja verkkolähteistä. Voit mukauttaa niitä myöhemmin asetuksista.</string>
     <string name="welcome_sync_retry_logo">Yritä synkronointia uudelleen</string>
-    <string name="welcome_sync_error">Synkronointi epäonnistui:\n%s.\nYritä uudelleen nyt? </string>
+    <string name="welcome_sync_error">Synkronointi epäonnistui: %1$s Yritä uudelleen nyt? </string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Tue</string>

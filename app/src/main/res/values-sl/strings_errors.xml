@@ -1,6 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!-- Source model errors -->
-    <string name="error_no_connection_message">Ni omrežne povezave</string>
+    <string name="error_no_connection_message">Ni internetne povezave</string>
+    <string name="error_no_connection_details">Ni mogoče vzpostaviti povezave z internetom. Preverite povezljivost vaše naprave.</string>
+    <string name="error_download_failed_message">Prenos vira gostiteljev ni uspel</string>
+    <string name="error_download_failed_details">Noben od vaših omogočenih virov gostiteljev ni dosegljiv. Preverite, ali ste pravilno povezani z internetom.</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">Zasebne datoteke ni bilo mogoče ustvariti</string>
+    <string name="error_private_file_failed_details">Ni mogoče ustvariti zasebne datoteke za izdelavo novega vira gostiteljev. Preverite prosti prostor na vaši napravi.</string>
     <string name="error_not_enough_space_message">Ni dovolj prostora</string>
-    </resources>
+    <string name="error_not_enough_space_details">Ni mogoče kopirati datoteke gostiteljev na sistemsko particijo. Preverite, ali je nesistemski modul Magisk omogočen, nato znova zaženite.</string>
+    <string name="error_copy_failed_message">Namestitev nove datoteke gostiteljev ni uspela</string>
+    <string name="error_copy_failed_details">Datoteke gostiteljev ni mogoče kopirati na /sistemsko particijo. Preverite, ali je nesistemski modul Magisk omogočen, nato znova zaženite.</string>
+    <string name="error_revert_failed_message">Datoteke gostiteljev ni bilo mogoče povrniti</string>
+    <string name="error_revert_failed_details">Ni mogoče obnoviti privzetih nastavitev datoteke gostiteljev.</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">Zaviranja oglasov VPN ni bilo mogoče omogočiti.</string>
+    <string name="error_enable_vpn_failed_details">Preverite svoje nastavitve VPN, da dovolite zagon aplikacije VPN.</string>
+    <string name="error_disable_vpn_failed_message">Zaviiranja oglasov VPN ni bilo mogoče onemogočiti.</string>
+    <string name="error_disable_vpn_failed_details">Preverite nastavitve VPN, da ga ročno onemogočite.</string>
+</resources>

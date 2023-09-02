@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Susinchronizuota!</string>
     <string name="welcome_sync_summary">AdAway atsiunčia reklamų adresus kad juos užblokuotų iš tinklo. Jūs galite juos pasirinkti veliau nustatymuose.</string>
     <string name="welcome_sync_retry_logo">Bandyti sinchronizuoti iš naujo</string>
-    <string name="welcome_sync_error">Sinchronizacija nepavyko%s.\nBandyti iš naujo?</string>
+    <string name="welcome_sync_error">Sinchronizacija nepavyko %1$s Bandyti iš naujo?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Palaikymas</string>

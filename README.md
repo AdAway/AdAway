@@ -108,6 +108,7 @@ AdAway requires the following permissions:
 * `ACCESS_NETWORK_STATE` to restart VPN on network connection change
 * `RECEIVE_BOOT_COMPLETED` to start the VPN on boot
 * `FOREGROUND_SERVICE` to run the VPN service in foreground
+* `POST_NOTIFICATIONS` to post notifications about hosts source update, application update and VPN controls. All notifications can be enabled or disabled independently.
 * `REQUEST_INSTALL_PACKAGES` to update the application using the builtin updater
 * `QUERY_ALL_PACKAGES` to let the user pick the applications to exclude from VPN
 

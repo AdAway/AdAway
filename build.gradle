@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.0'
+        classpath 'com.android.tools.build:gradle:8.0.2'
     }
 }
 
@@ -25,7 +25,7 @@ sonarqube {
         property "sonar.projectKey", "zombie-king_AdAway"
         property "sonar.organization", "zombie-king"
         property 'sonar.projectName', 'AdAway'
-        property 'sonar.projectVersion', '6.0.3'
+        property 'sonar.projectVersion', '6.1.1'
         property 'sonar.host.url', 'https://sonarcloud.io'
     }
 }

@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="welcome_title">Dobrodošli</string>
+    <string name="welcome_first_step">Prvi korak čarovnika</string>
+    <string name="welcome_second_step">Drugi korak čarovnika</string>
+    <string name="welcome_last_step">Zadnji korak čarovnika</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">Dobrodošli v AdAway!</string>
+    <string name="welcome_method_summary">AdAway ponuja dva načina zaviranja oglasov. Izberite tistega, ki vam je všeč:</string>
+
+    <string name="welcome_root_method_logo">Logotip korena</string>
+    <string name="welcome_root_method_title">Zaviranje oglasov\nna osnovi korena</string>
+    <string name="welcome_root_method_text1">Hitreje</string>
+    <string name="welcome_root_method_text2">Prijazen z baterijo</string>
+    <string name="welcome_root_method_text3">Zahtevan je korenski dostop</string>
+
+    <string name="welcome_vpn_method_logo">Logotip VPN</string>
+    <string name="welcome_vpn_method_title">Zaviranje oglason\nna podlagi korena</string>
+    <string name="welcome_vpn_method_text1">Počasneje</string>
+    <string name="welcome_vpn_method_text2">Zaženi v ozadju</string>
+    <string name="welcome_vpn_method_text3">Združljivost</string>
+
     <string name="welcome_root_missing_title">Potreben je root dostop</string>
-    </resources>
+    <string name="welcome_root_missile_description">Dvojiške datoteke \'su\' ni bilo mogoče najti ali pa niste dovolili korenskega dovoljenja za AdAway.\n\nTo se lahko zgodi, če vaša naprava nima dostop do korena. Informacije o tem, kako povezati svojo napravo s korenom, najdete na wiki.lineageos.org ali drugih spletnih straneh za Android.</string>
+
+    <string name="welcome_method_pro_logo">Pro</string>
+    <string name="welcome_method_con_logo">Con</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sinhronizacija je končana</string>
+    <string name="welcome_sync_error_logo">Napaka med sinhronizacijo</string>
+
+    <string name="welcome_sync_header">Sinhronizacija</string>
+    <string name="welcome_synced_header">Sinhronizirano!</string>
+    <string name="welcome_sync_summary">AdAway iz spletnih virov prenese oglasna omrežja, ki jih blokira. Kasneje jih lahko prilagodite v nastavitvah.</string>
+    <string name="welcome_sync_retry_logo">Ponovi sinhronizacijo</string>
+    <string name="welcome_sync_error">Sinhronizacija %1$s ni uspela: Želite poskusiti znova?</string>
+    <string name="welcome_sync_notifications">Pošilja lahko obvestila prikaza stanja in nadzora zaviranja oglasov ter za obveščanje o razpoložljivih posodobitvah aplikacije (nekaj na leto). Omogočite jih, če želite biti na tekočem.</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Podpora</string>
+    <string name="welcome_support_header">Podprite me!</string>
+    <string name="welcome_support_summary">AdAway je brezplačna in odprtokodna aplikacija, ki jo razvijam v prostem času. Če vam je všeč, vas prosim, da izkažete svojo podporo:</string>
+    <string name="welcome_support_button">Darujte na PayPal</string>
+    <string name="welcome_support_telemetry_summary">Ali imate radi programske napake? Jaz tudi ne.</string>
+    <string name="welcome_support_telemetry_button">Omogočite telemetrijo, da mi pošiljate poročila o zrušitvah</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Nazaj</string>
+    <string name="welcome_next_button">Naprej</string>
+    <string name="welcome_finish_button">Končaj</string>
+</resources>

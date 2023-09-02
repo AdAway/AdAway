@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Gesynchroniseerd!</string>
     <string name="welcome_sync_summary">AdAway haalt reclamenetwerken op uit online-bronnen. U kunt deze later aanpassen in de instellingen.</string>
     <string name="welcome_sync_retry_logo">Opnieuw proberen</string>
-    <string name="welcome_sync_error">Het synchroniseren is mislukt:\n%s\n Wilt u het opnieuw proberen?</string>
+    <string name="welcome_sync_error">Het synchroniseren is mislukt: %1$s Wilt u het opnieuw proberen?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Ondersteuning</string>

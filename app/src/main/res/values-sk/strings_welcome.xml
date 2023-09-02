@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Vitajte</string>
     <string name="welcome_first_step">Sprievodca – 1. krok</string>
@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">Synchronizované!</string>
     <string name="welcome_sync_summary">AdAway sťahuje reklamné siete na blokovanie z online zdrojov. Neskôr ich môžete upraviť.</string>
     <string name="welcome_sync_retry_logo">Zopakovať synchronizáciu</string>
-    <string name="welcome_sync_error">Synchronizácia zlyhala:\n%s.\nSkúsiť znova?,</string>
+    <string name="welcome_sync_error">Synchronizácia zlyhala: %1$s Skúsiť znova?</string>
+    <string name="welcome_sync_notifications">Môže posielať upozornenia na zobrazenie stavu a kontroly blokovania reklám a upozorniť na dostupnú aktualizáciu aplikácie (niekoľko za rok). Ak ich chcete mať stále aktuálne, povoľte ich.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Podpora</string>
     <string name="welcome_support_header">Podporte ma!</string>
-    <string name="welcome_support_summary">Je bezplatná aplikácia s otvoreným kódom. Robím ju v mojom voľnom čase. Ak sa Vám teda páči, neváhajte a prejavte svoju podporu:</string>
+    <string name="welcome_support_summary">Je bezplatná aplikácia s otvoreným kódom, ktorú robím vo svojom voľnom čase. Ak sa Vám teda páči, neváhajte vyjadriť svoju podporu:</string>
     <string name="welcome_support_button">Podpora na PayPal</string>
     <string name="welcome_support_telemetry_summary">Máte radi chyby? Ani ja nie.</string>
     <string name="welcome_support_telemetry_button">Povoliť telemetriu a posielať hlásenia o chybe</string>

@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Usklađeno!</string>
     <string name="welcome_sync_summary">AdAway preuzima mrežna oglašavanja kako bi ih blokirao iz mrežnih izvora. Možete ih prilagoditi kasnije u postavkama.</string>
     <string name="welcome_sync_retry_logo">Ponovno pokušaj uskladiti</string>
-    <string name="welcome_sync_error">Neuspjelo usklađivanje:\n%s.\nPonovno pokušaj odmah?</string>
+    <string name="welcome_sync_error">Neuspjelo usklađivanje: %1$s Ponovno pokušaj odmah?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Podrška</string>

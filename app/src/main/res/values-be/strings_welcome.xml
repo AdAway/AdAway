@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Сінхранізавана!</string>
     <string name="welcome_sync_summary">AdAway загружае спісы блакавання з анлайн-крыніц. Вы можаце змяніць іх пазней у наладах.</string>
     <string name="welcome_sync_retry_logo">Паўтарыць сінхранізацыю</string>
-    <string name="welcome_sync_error">Сінхранізацыя не ўдалася:\n%s.\nПаўтарыць зараз?</string>
+    <string name="welcome_sync_error">Сінхранізацыя не ўдалася: %1$s nПаўтарыць зараз?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Падтрымаць</string>

@@ -54,7 +54,7 @@
     <!--Status Notification-->
     <string name="status_check">Verificare pentru actualizări</string>
     <string name="status_check_source">Verificare sursă %s pentru actualizări</string>
-    <string name="status_retrieve">Regăsire surse</string>
+    <string name="status_retrieve">Se citesc surse</string>
     <string name="status_download_source">Descărcare sursă %s</string>
     <string name="status_read_source">Se citește sursa %s</string>
     <string name="status_parse_source">Analizare sursă %s</string>

@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Sincronizado</string>
     <string name="welcome_sync_summary">O AdAway baixa redes de anúncios para bloquear de fontes on-line. Você pode personalizá-los posteriormente nas configurações.</string>
     <string name="welcome_sync_retry_logo">Repetir sincronização</string>
-    <string name="welcome_sync_error">Falha ao sincronizar:\n%s.\nTentar novamente agora?</string>
+    <string name="welcome_sync_error">Falha ao sincronizar: %1$s Tentar novamente agora?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Suporte</string>

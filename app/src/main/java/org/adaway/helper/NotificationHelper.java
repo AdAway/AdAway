@@ -93,7 +93,7 @@ public final class NotificationHelper {
     public static void showUpdateHostsNotification(@NonNull Context context) {
         // Get notification manager
         NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-        if (notificationManager == null) {
+        if (notificationManager == null || !notificationManager.areNotificationsEnabled()) {
             return;
         }
         // Build notification
@@ -125,7 +125,7 @@ public final class NotificationHelper {
     public static void showUpdateApplicationNotification(@NonNull Context context) {
         // Get notification manager
         NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-        if (notificationManager == null) {
+        if (notificationManager == null || !notificationManager.areNotificationsEnabled()) {
             return;
         }
         // Build notification

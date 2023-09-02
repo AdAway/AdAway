@@ -35,7 +35,7 @@
     <string name="welcome_synced_header">Synkroniserad!</string>
     <string name="welcome_sync_summary">AdAway laddar ner annonsnätverk att blockera från online-källor. Du kan anpassa dem senare i inställningarna.</string>
     <string name="welcome_sync_retry_logo">Försök synkronisera igen</string>
-    <string name="welcome_sync_error">Det gick inte att synkronisera:\n%s.\nFörsöka igen?</string>
+    <string name="welcome_sync_error">Det gick inte att synkronisera: %1$s Försöka igen?</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Support</string>
