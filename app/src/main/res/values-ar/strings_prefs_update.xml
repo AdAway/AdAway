@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">تحديثات</string>
+    <string name="pref_update_enable_notifications">الإشعارات معطلة</string>
+    <string name="pref_update_enable_notifications_summary">اشعارات التطبيق لن تظهر. اضغط لتفعيلها</string>
     <!-- Application category -->
     <string name="pref_update_app_category">تحديثات التطبيق</string>
     <string name="pref_update_check_app_startup">تحقق من التحديث عند بدء التشغيل</string>
