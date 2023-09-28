@@ -128,7 +128,7 @@
     <string name="revert_failed_status">無法還原 hosts 檔案</string>
     <string name="revert_problem">因未知原因還原失敗。</string>
     <string name="revert_problem_title">還原失敗！</string>
-    <string name="download_fail_dialog">所有啟用的 hosts 來源都無法連結！您是否正確連上網際網路？</string>
+    <string name="download_fail_dialog">所有您啟用的 hosts 來源都無法連接！您是否已正確連接至網際網路？</string>
     <string name="download_fail_title">下載失敗</string>
     <string name="no_private_file_status">無法寫入新的私人 hosts 檔案</string>
     <string name="no_private_file">不能建立私人檔案。</string>
