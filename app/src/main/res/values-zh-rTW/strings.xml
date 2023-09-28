@@ -122,7 +122,7 @@
     <string name="apply_fail_status">無法套用新的 hosts 檔案。</string>
     <string name="apply_fail">將 hosts 檔案應用到您的系統失敗了！\n請在偏好設定中將目標 hosts 檔案更改為 `/data/data/hosts`。</string>
     <string name="apply_fail_title">建立失敗</string>
-    <string name="root_access_fail">請檢查您的 root 管理應用程式以確保已授予 root 權限。</string>
+    <string name="root_access_fail">請確認您的 root 管理應用程式已授予 root 存取權限。</string>
     <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="revert_successful_title">還原成功</string>
     <string name="revert_failed_status">無法還原 hosts 檔案</string>
