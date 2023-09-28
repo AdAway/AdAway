@@ -3,7 +3,7 @@
     <string name="pref_vpn_title">基於 VPN 的廣告阻擋器</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">開機時啟用</string>
-    <string name="pref_vpn_service_monitor">監視連線</string>
+    <string name="pref_vpn_service_monitor">監視連線狀態</string>
     <string name="pref_vpn_service_monitor_description">定期檢查網路狀態，以在連線中斷時重新啟動 VPN</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">排除的應用程式</string>
