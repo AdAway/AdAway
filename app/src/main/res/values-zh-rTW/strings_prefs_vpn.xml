@@ -4,7 +4,7 @@
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">開機時啟用</string>
     <string name="pref_vpn_service_monitor">監視連線狀態</string>
-    <string name="pref_vpn_service_monitor_description">定期檢查網路狀態，以在連線中斷時重新啟動 VPN</string>
+    <string name="pref_vpn_service_monitor_description">定期檢查網路狀態，並在斷線時重新啟動 VPN。</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">排除的應用程式</string>
     <string name="pref_vpn_excluded_apps_description">設定哪些應用程式不應使用 VPN，這樣就不會阻擋任何連線。</string>
