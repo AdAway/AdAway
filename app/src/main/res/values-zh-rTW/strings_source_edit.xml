@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">編輯來源</string>
     <string name="source_edit_add_title">加入來源</string>
@@ -17,5 +17,5 @@
     <string name="source_edit_format_block_list">阻擋</string>
     <string name="source_edit_format_allow_list">允許</string>
     <string name="source_edit_redirected_hosts">套用重新導向 hosts</string>
-    <string name="source_edit_redirected_hosts_warning">允許重新導向 hosts 可能導致安全性問題。請只在信任的來源啟用此選項，因為他能將敏感流量重新導向到他指定的任何伺服器。</string>
+    <string name="source_edit_redirected_hosts_warning">允許重新導向的主機可能會導致安全問題。僅在信任的來源上使用此設定，因為它可能會將一些敏感流量導向任何它想要的伺服器。</string>
 </resources>
