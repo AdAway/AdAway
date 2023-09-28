@@ -133,7 +133,7 @@
     <string name="no_private_file_status">無法寫入新的私人 hosts 檔案</string>
     <string name="no_private_file">不能建立私人檔案。</string>
     <string name="no_private_file_title">私人檔案建立失敗</string>
-    <string name="enable_systemless_successful">您啟用了 systemless 模式。\n變更需要重新啟動才能生效。\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
+    <string name="enable_systemless_successful">您已啟用 systemless 模式。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
     <string name="enable_systemless_successful_title">啟用成功</string>
     <string name="disable_systemless_successful">您停用了 systemless 模式。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="disable_systemless_successful_title">取消成功</string>
