@@ -17,7 +17,7 @@
     <string name="pref_vpn_exclude_user_apps">排除使用者應用程式</string>
 
     <!-- Exclude user apps activity -->
-    <string name="pref_vpn_exclude_user_apps_activity">排除的應用程式</string>
+    <string name="pref_vpn_exclude_user_apps_activity">已排除的應用程式</string>
     <string name="pref_vpn_exclude_user_apps_select_all">選擇全部</string>
     <string name="pref_vpn_exclude_user_apps_deselect_all">全部取消選擇</string>
     <string name="pref_vpn_exclude_user_apps_icon">應用程式圖示</string>
