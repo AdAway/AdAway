@@ -13,7 +13,7 @@ And don't add newlines before or after p tags because of transifex -->
  如果 hosts 檔案不可寫入，則可以使用內置的 VPN 服務作為後備解決方案。它會過濾到不想要的主機名稱的連接，其他的則可以正常通過。</p>
 
 <h2>為什麼我需要重新啟動 Android 才能使變更生效？</h2>
-<p>在 Android 上的Java 維護一份獨立的名稱解析快取檔案，作業系統可以對修改過的快取檔案立即做出反應 (可以透過簡單的 ping 來驗證)，但是如果要重新建立這個檔案的話，則必須要重新啟動 Android。</p>
+<p>Android 上的 Java 擁有自己的內部 DNS 快取。操作系統將立即反映新的 hosts 檔案（可以用命令列上的 ping 來驗證），但你需要重新啟動 Android 以重建 Java 的 DNS 快取。</p>
 
 <h2>如何使用 AdAway 內建的網頁伺服器？</h2>
 <p><strong>即使不使用內建的本地網頁伺服器，AdAway 仍可正常運作！</strong>
