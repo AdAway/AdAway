@@ -180,7 +180,7 @@
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump 是一個用來監視 DNS 請求並儲存為記錄檔的工具，可以在背景執行。當前景執行有廣告的程式，利用用記錄檔來分析 DNS 請求。把找到的廣告伺服器加入到您的黑名單中。</string>
+    <string name="tcpdump_description">Tcpdump 是一個用於監控 DNS 請求並將它們保存在日誌檔案中的工具。您可以在背景執行它，開啟顯示廣告的應用程式，之後使用日誌檔案來分析 DNS 請求。之後，您可以將可能的廣告伺服器新增到您的黑名單中。</string>
     <string name="tcpdump_disable_monitoring">停用監視</string>
     <string name="tcpdump_enable_monitoring">啟用監視</string>
     <string name="tcpdump_show_results">顯示結果</string>
