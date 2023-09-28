@@ -210,7 +210,7 @@
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 請求</string>
     <string name="shortcut_your_lists">你的清單</string>
-    <string name="shortcut_preferences">設定</string>
+    <string name="shortcut_preferences">偏好設定</string>
 
     <!--Hosts source status-->
     <string name="hosts_source_installed">%1$s 前安裝</string>
