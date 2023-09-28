@@ -12,7 +12,7 @@
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>無</item>
         <item>排除瀏覽器之外的所有應用程式</item>
-        <item>全</item>
+        <item>全部</item>
     </string-array>
     <string name="pref_vpn_exclude_user_apps">排除使用者應用程式</string>
 
