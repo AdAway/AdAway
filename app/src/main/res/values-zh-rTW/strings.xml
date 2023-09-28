@@ -120,7 +120,7 @@
     <string name="apply_dialog_hosts">建立 hosts 檔案</string>
     <string name="apply_dialog_apply">合併 hosts 檔案</string>
     <string name="apply_fail_status">無法套用新的 hosts 檔案。</string>
-    <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
+    <string name="apply_fail">將 hosts 檔案應用到您的系統失敗了！\n請在偏好設定中將目標 hosts 檔案更改為 `/data/data/hosts`。</string>
     <string name="apply_fail_title">建立失敗</string>
     <string name="root_access_fail">請檢查您的 root 管理應用程式以確保已授予 root 權限。</string>
     <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
