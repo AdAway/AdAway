@@ -21,7 +21,7 @@
     <string name="header_webserver">網頁伺服器</string>
     <string name="webserver_status_running">正在執行</string>
     <string name="webserver_status_stopped">已停止</string>
-    <string name="webserver_toggle_text">您可以啟動或停用本機的網路伺服器，以處理到被阻擋網站的請求。</string>
+    <string name="webserver_toggle_text">您可以啟動或停用本機的網頁伺服器，以處理到被阻擋網站的請求。</string>
     <string name="button_enable_webserver">啟用網頁伺服器</string>
     <string name="button_disable_webserver">停用網頁伺服器</string>
     <string name="header_vpn">VPN</string>
