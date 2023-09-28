@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_vpn_title">基於 VPN 的廣告阻擋器</string>
     <!-- Service configuration -->
-    <string name="pref_vpn_service_on_boot">啟動時啟用</string>
-    <string name="pref_vpn_service_monitor">監視連線</string>
-    <string name="pref_vpn_service_monitor_description">定期檢查網路狀態，以在連線中斷時重新啟動 VPN</string>
+    <string name="pref_vpn_service_on_boot">開機時啟用</string>
+    <string name="pref_vpn_service_monitor">監視連線狀態</string>
+    <string name="pref_vpn_service_monitor_description">定期檢查網路狀態，並在斷線時重新啟動 VPN。</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">排除的應用程式</string>
-    <string name="pref_vpn_excluded_apps_description">設定哪些應用程式不應使用 VPN，這樣就不會阻擋任何連線。</string>
+    <string name="pref_vpn_excluded_apps_description">設定哪些應用程式不應使用 VPN，以避免阻擋任何連線。</string>
     <string name="pref_vpn_exclude_system_apps">排除系統應用程式</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>無</item>
+        <item>排除瀏覽器之外的所有應用程式</item>
+        <item>全部</item>
     </string-array>
     <string name="pref_vpn_exclude_user_apps">排除使用者應用程式</string>
 
     <!-- Exclude user apps activity -->
-    <string name="pref_vpn_exclude_user_apps_activity">排除的應用程式</string>
-    <string name="pref_vpn_exclude_user_apps_select_all">選擇全部</string>
-    <string name="pref_vpn_exclude_user_apps_deselect_all">全部取消選擇</string>
+    <string name="pref_vpn_exclude_user_apps_activity">已排除的應用程式</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">全選</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">全不選</string>
     <string name="pref_vpn_exclude_user_apps_icon">應用程式圖示</string>
 </resources>
