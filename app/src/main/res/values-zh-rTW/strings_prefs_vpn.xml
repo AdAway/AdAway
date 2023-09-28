@@ -11,8 +11,8 @@
     <string name="pref_vpn_exclude_system_apps">排除系統應用程式</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>無</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>排除瀏覽器之外的所有應用程式</item>
+        <item>全</item>
     </string-array>
     <string name="pref_vpn_exclude_user_apps">排除使用者應用程式</string>
 
