@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">編輯來源</string>
     <string name="source_edit_add_title">加入來源</string>
@@ -11,7 +11,7 @@
     <string name="source_edit_url_location">位置</string>
     <string name="source_edit_url_location_default">https://</string>
     <string name="source_edit_url_location_required">需要位置</string>
-    <string name="source_edit_file_hint">點擊 [檔案] 以選擇來源檔案</string>
+    <string name="source_edit_file_hint">點擊檔案以選擇來源檔案</string>
     <string name="source_edit_location_invalid">位置無效</string>
     <string name="source_edit_format">清單格式</string>
     <string name="source_edit_format_block_list">阻擋</string>
