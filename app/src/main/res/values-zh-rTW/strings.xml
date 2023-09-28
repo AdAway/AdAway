@@ -104,7 +104,7 @@
     <string name="apply_success_subtitle">已套用 hosts 來源</string>
     <string name="apply_success_title">建立成功</string>
     <string name="apply_success_dialog">應用成功。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
-    <string name="apply_symlink_successful">符號連結建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
+    <string name="apply_symlink_successful">符號連結成功建立。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
     <string name="apply_symlink_successful_title">符號連結建立成功</string>
     <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
     <string name="apply_symlink_fail_title">符號連結建立失敗</string>
