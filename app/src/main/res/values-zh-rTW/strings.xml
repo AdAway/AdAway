@@ -92,7 +92,7 @@
     <string name="apply_symlink_missing_status">hosts 檔案目標的符號連結遺失</string>
     <string name="apply_symlink_missing">由您的目標位置到 /system/etc/hosts 的符號連結不存在或是錯誤！若非指向正確的檔案，AdAway 將無法正常運作。\n\n您是否嘗試建立新的符號連結？</string>
     <string name="apply_symlink_missing_title">符號連結遺失</string>
-    <string name="apply_not_enough_space">分割區剩餘空間不足！\n請在偏好設定中將目標 hosts 檔案更改為 /data/data/hosts。</string>
+    <string name="apply_not_enough_space">分割區剩餘空間不足！\n請在偏好設定中將目標 hosts 檔案更改為 `/data/data/hosts`。</string>
     <string name="apply_not_enough_space_title">空間不足</string>
     <string name="apply_private_file_fail">無法讀取已下載的檔案。</string>
     <string name="apply_private_file_fail_title">私人檔案失敗</string>
@@ -106,7 +106,7 @@
     <string name="apply_success_dialog">應用成功。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
     <string name="apply_symlink_successful">符號連結成功建立。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
     <string name="apply_symlink_successful_title">符號連結建立成功</string>
-    <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
+    <string name="apply_symlink_fail">Android 系統無法建立符號連結。\n這主要是因為 HTC 手機上一個名為 S-ON 的「功能」！\n\n解決方案是將手機重啟至復原模式，並用 `ln -s /data/data/hosts /system/etc/hosts` 命令建立符號連結。\n\n若仍然不行，請在網路上查找關於 S-OFF 及您的手機型號的資訊。</string>
     <string name="apply_symlink_fail_title">符號連結建立失敗</string>
     <string name="apply_help">請閱讀說明以獲得更多訊息。</string>
     <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（從設定程式：在無線與網路 -&gt; 行動網路 -&gt; 進階 -&gt; 存取點名稱）移除代理伺服器設定。</string>
