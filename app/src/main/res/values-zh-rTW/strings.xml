@@ -47,7 +47,7 @@
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 檔案</string>
-    <string name="hosts_description">hosts 檔案是一個將主機名稱對應到 IP 位置的系統檔案。它是一個由 AdAway 配置的純文字檔案。這是這個檔案的前幾行：</string>
+    <string name="hosts_description">hosts 檔案是一個與系統相關的純文字檔案，主要用於將網站名稱對應到其 IP 地址。AdAway 會管理此檔案的設定。以下是此檔案的首幾行：</string>
     <string name="hosts_content">正在載入 hosts 檔案內容…</string>
     <string name="hosts_open_button">開啟 hosts 檔案</string>
 
