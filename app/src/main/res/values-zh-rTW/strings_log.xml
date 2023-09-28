@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="log_toggle_recording_description">切換記錄的記錄功能</string>
     <string name="log_start_recording">按下記錄開始記錄請求，瀏覽網頁或使用應用程式，然後返回或滑動以重新整理紀錄。</string>
