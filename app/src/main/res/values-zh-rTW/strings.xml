@@ -109,7 +109,7 @@
     <string name="apply_symlink_fail">Android 系統無法建立符號連結。\n這主要是因為 HTC 手機上一個名為 S-ON 的「功能」！\n\n解決方案是將手機重啟至復原模式，並用 `ln -s /data/data/hosts /system/etc/hosts` 命令建立符號連結。\n\n若仍然不行，請在網路上查找關於 S-OFF 及您的手機型號的資訊。</string>
     <string name="apply_symlink_fail_title">符號連結建立失敗</string>
     <string name="apply_help">請閱讀說明以獲得更多訊息。</string>
-    <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（從設定程式：在無線與網路 -&gt; 行動網路 -&gt; 進階 -&gt; 存取點名稱）移除代理伺服器設定。</string>
+    <string name="apply_apn_proxy">您的 Android 設備設定了 APN 代理！\n在使用如 3G 之類的行動網路時，AdAway 將無法穩定運作。您可以透過設定中移除 APN 代理來停用它。（設定 -> 網路與網際網路 -> 行動網路 -> 進階 -> 存取點名稱，然後清除代理欄位的值）</string>
     <string name="apply_apn_proxy_title">設定了 APN 代理伺服器！</string>
     <string name="no_connection">網際網路連線無法正常連線</string>
     <string name="no_connection_title">無法連線</string>
