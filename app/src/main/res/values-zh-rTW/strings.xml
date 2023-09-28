@@ -40,7 +40,7 @@
     <!--Your lists-->
     <string name="import_dialog">匯入中…</string>
     <string name="import_success">成功從外接儲存裝置匯入了備份資料。</string>
-    <string name="import_failed">無法匯入備份。它的格式正確嗎？檢查 logcat 以獲得更多詳細資訊。</string>
+    <string name="import_failed">備份匯入失敗。請確認備份檔案的格式，或查看 logcat 以瞭解更多詳情。</string>
     <string name="export_dialog">匯出中…</string>
     <string name="export_success">備份成功匯出到外部儲存空間的「%s」檔案。</string>
     <string name="export_failed">無法匯出備份檔案「%s」。</string>
