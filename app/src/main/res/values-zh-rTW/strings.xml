@@ -176,7 +176,7 @@
     <string name="no_text_editor_title">沒有安裝文字編輯器</string>
     <string name="no_text_editor">找不到適合開啟 hosts 檔案的文字編輯器。您可以安裝 Jota 或其他文字編輯器來處理這個問題。\n\n您想要安裝 Jota 嗎？</string>
     <string name="no_file_manager_title">沒有安裝檔案管理器</string>
-    <string name="no_file_manager">沒有找到檔案管理器來打開檔案。你可以安裝 OI File Manager 或者其他檔案管理器來解決。\n\n你需要安裝 OI File Manager 嗎？</string>
+    <string name="no_file_manager">找不到適合開啟檔案的檔案管理器。您可以安裝 OI 檔案管理器或其他檔案管理工具來處理這個問題。\n\n您想要安裝 OI 檔案管理器嗎？</string>
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
