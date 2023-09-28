@@ -90,7 +90,7 @@
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">hosts 檔案目標的符號連結遺失</string>
-    <string name="apply_symlink_missing">由您的目標位置到 /system/etc/hosts 的符號連結不存在或是錯誤！若非指向正確的檔案，AdAway 將無法正常運作。\n\n您是否嘗試建立新的符號連結？</string>
+    <string name="apply_symlink_missing">由您的目標位置到 `/system/etc/hosts` 的符號連結不存在或是錯誤！若非指向正確的檔案，AdAway 將無法正常運作。\n\n您是否嘗試建立新的符號連結？</string>
     <string name="apply_symlink_missing_title">符號連結遺失</string>
     <string name="apply_not_enough_space">分割區剩餘空間不足！\n請在偏好設定中將目標 hosts 檔案更改為 `/data/data/hosts`。</string>
     <string name="apply_not_enough_space_title">空間不足</string>
