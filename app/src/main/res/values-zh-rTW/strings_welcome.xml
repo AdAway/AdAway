@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">歡迎</string>
     <string name="welcome_first_step">精靈第一步</string>
@@ -41,7 +41,7 @@
     <!-- Support -->
     <string name="welcome_support_logo">支持</string>
     <string name="welcome_support_header">支持我們！</string>
-    <string name="welcome_support_summary">AdAway 是一個免費且開放原始碼的應用程式，我利用空閒時間開發。如果您喜歡它，請隨意表示支持：</string>
+    <string name="welcome_support_summary">AdAway 是一個我在閒暇時間開發的免費且開放原始碼的應用程式。如果您喜歡它，歡迎隨時表達您的支持：</string>
     <string name="welcome_support_button">在 PayPal 上捐贈</string>
     <string name="welcome_support_telemetry_summary">你喜歡臭蟲嗎？我也不喜歡。</string>
     <string name="welcome_support_telemetry_button">啟用自動傳送崩潰報告</string>
