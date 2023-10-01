@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">ソースを編集</string>
+    <string name="source_edit_add_title">ソースを追加</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">ラベル</string>
+    <string name="source_edit_label_required">ラベルは必須です</string>
+    <string name="source_edit_type">タイプ</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">ファイル</string>
+    <string name="source_edit_url_location">場所</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">場所は必須です</string>
+    <string name="source_edit_file_hint">ファイルを押すとソースファイルとして選べます</string>
+    <string name="source_edit_location_invalid">場所が間違っています</string>
+    <string name="source_edit_format">リスト形式</string>
+    <string name="source_edit_format_block_list">ブロック</string>
+    <string name="source_edit_format_allow_list">許可</string>
+    <string name="source_edit_redirected_hosts">リダイレクトホストの適用</string>
+    <string name="source_edit_redirected_hosts_warning">リダイレクトホストを許可するとセキュリティの問題を起こす可能性があります。重要なトラフィックを他のサーバーに転送してしまう恐れがあるため、信頼できるソースでのみこの設定を使ってください。</string>
+</resources>
