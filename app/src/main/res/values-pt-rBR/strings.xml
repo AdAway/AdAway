@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Bem-vindo!</string>
-    <string name="text_help">O AdAway é um projeto de software livre e Open-Source para bloquear publicidade. Ele baixa o endereço de rede de anúncios e configura o dispositivo para bloqueá-los.\nQuer saber mais? Verifique a ajuda abaixo!</string>
+    <string name="text_help">O AdAway é um projeto de software livre e Open-Source para bloquear publicidade. Ele baixa endereços de rede de anúncios e configura o dispositivo para bloqueá-los.\nQuer saber mais? Veja a ajuda abaixo!</string>
     <string name="button_show_help">Mostrar mais ajuda</string>
     <string name="icon_update_status">Atualizar status</string>
     <string name="text_update">Todos os arquivos hosts das fontes selecionadas já estão baixados, mesclados com suas listas personalizadas e instalados como um único arquivo hosts no seu sistema.</string>
@@ -53,7 +53,7 @@
 
     <!--Status Notification-->
     <string name="status_check">Buscando atualização</string>
-    <string name="status_check_source">Verificando %s fonte para atualização</string>
+    <string name="status_check_source">Verificando atualização de fonte: %s</string>
     <string name="status_retrieve">Obtendo fontes</string>
     <string name="status_download_source">Baixando fontes %s</string>
     <string name="status_read_source">Fonte de leitura %s</string>
@@ -253,7 +253,7 @@
     <string name="vpn_notification_reconnecting_error">erro de reconexão</string>
     <string name="vpn_notification_paused">pausado</string>
     <string name="vpn_notification_stopped">parado</string>
-    <string name="vpn_notification_title">VPN bloqueador de anúncios %1$s</string>
+    <string name="vpn_notification_title">VPN bloqueadora de anúncios %1$s</string>
     <string name="vpn_notification_action_pause">Pausar</string>
     <string name="vpn_notification_action_resume">Retomar</string>
 
