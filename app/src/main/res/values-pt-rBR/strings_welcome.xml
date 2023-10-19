@@ -10,22 +10,22 @@
     <string name="welcome_method_summary">O AdAway fornece dois métodos de bloqueio de anúncios. Escolha o que você gosta:</string>
 
     <string name="welcome_root_method_logo">Root logo</string>
-    <string name="welcome_root_method_title">Root baseado em\nad bloqueador</string>
+    <string name="welcome_root_method_title">Bloqueio baseado\nem root</string>
     <string name="welcome_root_method_text1">Mais rápido</string>
-    <string name="welcome_root_method_text2">Bateria amigável</string>
-    <string name="welcome_root_method_text3">Root requerido</string>
+    <string name="welcome_root_method_text2">Economiza bateria</string>
+    <string name="welcome_root_method_text3">Requer acesso root</string>
 
     <string name="welcome_vpn_method_logo">VPN logo</string>
-    <string name="welcome_vpn_method_title">VPN basedo em\nad bloqueador</string>
+    <string name="welcome_vpn_method_title">Bloqueio baseado\nem VPN</string>
     <string name="welcome_vpn_method_text1">Mais lento</string>
     <string name="welcome_vpn_method_text2">Executado em segundo plano</string>
-    <string name="welcome_vpn_method_text3">Compatibilidade</string>
+    <string name="welcome_vpn_method_text3">Maior compatibilidade</string>
 
-    <string name="welcome_root_missing_title">É obrigatório o acesso ROOT</string>
+    <string name="welcome_root_missing_title">É obrigatório o acesso root</string>
     <string name="welcome_root_missile_description">Não foi possível encontrar o binário su ou você não permitiu a permissão root do AdAway.\n\nIsso pode acontecer quando o dispositivo não está rooteado. Você pode encontrar informações sobre como fazer root no seu dispositivo em wiki.lineageos.org ou em outros sites Android.</string>
 
-    <string name="welcome_method_pro_logo">Pro</string>
-    <string name="welcome_method_con_logo">Con</string>
+    <string name="welcome_method_pro_logo">Pró</string>
+    <string name="welcome_method_con_logo">Contra</string>
 
     <!-- Sync UI -->
     <string name="welcome_sync_done_logo">Sincronização concluída</string>
@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">Sincronizado</string>
     <string name="welcome_sync_summary">O AdAway baixa redes de anúncios para bloquear de fontes on-line. Você pode personalizá-los posteriormente nas configurações.</string>
     <string name="welcome_sync_retry_logo">Repetir sincronização</string>
-    <string name="welcome_sync_error">Falha ao sincronizar: %1$s Tentar novamente agora?</string>
+    <string name="welcome_sync_error">Falha ao sincronizar: %1$s Repetir agora?</string>
+    <string name="welcome_sync_notifications">Ele pode enviar notificações para exibir o status e o controle do bloqueio de anúncios e para notificar sobre atualizações disponíveis do aplicativo (algumas por ano). Ative-as se quiser se manter atualizado.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Suporte</string>
     <string name="welcome_support_header">Ajude-me!</string>
-    <string name="welcome_support_summary">É um aplicativo gratuito e de código aberto. Eu desenvolvo isso no meu tempo livre. Portanto, se você gostar, sinta-se à vontade para mostrar seu apoio:</string>
+    <string name="welcome_support_summary">O AdAway é um aplicativo gratuito e de código aberto que desenvolvo em meu tempo livre. Se você gostar dele, fique à vontade para mostrar seu apoio:</string>
     <string name="welcome_support_button">Doar pelo PayPal</string>
     <string name="welcome_support_telemetry_summary">Você gosta de bugs? Nem eu.</string>
     <string name="welcome_support_telemetry_button">Ativar telemetria para me enviar relatórios de falhas</string>
