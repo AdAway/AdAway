@@ -70,7 +70,7 @@
     <string name="status_download_fail">Fontes indisponíveis</string>
     <string name="status_download_fail_subtitle_new">Impossível aceder às fontes de hosts!</string>
     <string name="status_root_access_denied">Acesso root negado</string>
-    <string name="status_root_access_denied_subtitle">Dê permissão de acesso root na sua app de root</string>
+    <string name="status_root_access_denied_subtitle">Permitir acesso root na sua aplicação de root</string>
     <string name="status_failure">Algo correu mal</string>
     <string name="status_failure_subtitle">Verifique logcat para mais detalhes</string>
     <string name="status_enabled">Ativado</string>
