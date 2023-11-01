@@ -1,7 +1,7 @@
 Um bloqueador de anúncios livre e de código aberto para Android.
 
 A aplicação está disponível para dispositivos com e sem acesso root.
-Usando um dispositivo com acesso root, a aplicação atualiza o ficheiro hosts do sistema que contém uma lista de mapeamentos entre hostnames e endereços IP.
+Usando um dispositivo com acesso root, a aplicação atualiza o ficheiro hosts do sistema que contém uma lista de mapeamentos entre hostnames e endereços IP
 Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
 So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
 
