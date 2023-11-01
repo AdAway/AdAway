@@ -1,4 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">É necessário um Android com root</string>
+    <string name="welcome_title">Bem-vindo(a)!</string>
+    <string name="welcome_first_step">Primeira etapa do assistente</string>
+    <string name="welcome_second_step">Segunda etapa do assistente</string>
+    <string name="welcome_last_step">Última etapa do assistente</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">Bem-vindo(a) ao AdAway!</string>
+    <string name="welcome_method_summary">O AdAway oferece dois métodos de bloqueio de anúncios. Escolhe o que quiseres:</string>
+
+    <string name="welcome_root_method_logo">Logótipo root</string>
+    <string name="welcome_root_method_title">Bloqueio baseado\nem root</string>
+    <string name="welcome_root_method_text1">Mais rápido</string>
+    <string name="welcome_root_method_text2">Economiza bateria</string>
+    <string name="welcome_root_method_text3">Requer acesso root</string>
+
+    <string name="welcome_vpn_method_logo">Logótipo VPN</string>
+    <string name="welcome_vpn_method_title">Bloqueio baseado\nem VPN</string>
+    <string name="welcome_vpn_method_text1">Mais lento</string>
+    <string name="welcome_vpn_method_text2">Executa em segundo plano</string>
+    <string name="welcome_vpn_method_text3">Maior compatiilidade</string>
+
+    <string name="welcome_root_missing_title">É necessário um sistema Android com acesso root</string>
+    <string name="welcome_root_missile_description">Ou o binário SU não foi encontrado ou não concedeste permissão de root ao AdAway.\n\nIsto pode acontecer quando o dispositivo não tem acesso root.\nPodes encontrar informação sobre como obter acesso root no dispositivo em wiki.lineageos.org ou noutros websites sobre Android.</string>
+
+    <string name="welcome_method_pro_logo">Pró</string>
+    <string name="welcome_method_con_logo">Contra</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">Sincronização concluída</string>
+    <string name="welcome_sync_error_logo">Erro durante sincronização</string>
+
+    <string name="welcome_sync_header">A sincronizar</string>
+    <string name="welcome_synced_header">Sincronizado!</string>
+    <string name="welcome_sync_summary">O AdAway descarrega redes de anúncios para bloquear de fontes online. Podes personalizá-las posteriormente nas configurações.</string>
+    <string name="welcome_sync_retry_logo">Tentar sincronização novamente</string>
+    <string name="welcome_sync_error">Falha ao sincronizar: %1$s Tentar novamente?</string>
+    <string name="welcome_sync_notifications">Pode enviar notificações para exibir o estado e o controle do bloqueio de anúncios e notificar sobre atualizações disponíveis para a aplicação (algumas por ano). Ativa-as se quiseres manter-te atualizado(a).</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">Suporte</string>
+    <string name="welcome_support_header">Apoia-me!</string>
+    <string name="welcome_support_summary">O AdAway é uma aplicação livre e de código aberto que desenvolvo no meu tempo livre. Se aprecias a aplicação, estás à vontade para mostrar o teu apoio:</string>
+    <string name="welcome_support_button">Doar pelo PayPal</string>
+    <string name="welcome_support_telemetry_summary">Gostas de erros? Eu também não.</string>
+    <string name="welcome_support_telemetry_button">Ativar telemetria para me enviar relatórios de erros.</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">Voltar</string>
+    <string name="welcome_next_button">Seguinte</string>
+    <string name="welcome_finish_button">Terminar</string>
 </resources>
