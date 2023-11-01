@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferências</string>
-    <string name="pref_dark_theme">Ativar tema escuro</string>
+    <!-- General category -->
+    <string name="pref_general_category">Geral</string>
+    <string name="pref_dark_theme">Tema escuro</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>Claro</item>
+        <item>Escuro</item>
+        <item>Pré-definição do sistema</item>
+    </string-array>
+    <string name="pref_update_configuration">Atualizações automáticas</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">Bloqueio de anúncios</string>
+    <string name="pref_root_ad_blocker_configuration">Bloqueador de anúncios baseado em acesso root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Bloqueador de anúncios baseado em VPN</string>
     <string name="pref_enable_ipv6">Ativar IPv6</string>
+    <string name="pref_backup_restore">Guardar cópia de segurança / restaurar regras de bloqueio</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Depuração</string>
-    <string name="pref_enable_telemetry">Ativar relatórios de bloqueios (crash)</string>
-    <string name="pref_enable_telemetry_summary">Autorizar a aplicação a enviar erros e relatórios de bloqueios para o Sentry (sentry.io).</string>
-    <string name="pref_enable_debug">Ativar registo verboso</string>
-    <string name="pref_enable_debug_summary">Tem de reiniciar o AdAway para que esta definição entre em efeito.</string>
+    <string name="pref_enable_telemetry">Enviar relatórios de quebras</string>
+    <string name="pref_enable_telemetry_summary">Enviar relatórios para o Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Não suportado nesta compilação</string>
+    <string name="pref_enable_debug">Registo verboso</string>
+    <string name="pref_enable_debug_summary">Reinício da aplicação necessário para entrar em efeito</string>
 </resources>
