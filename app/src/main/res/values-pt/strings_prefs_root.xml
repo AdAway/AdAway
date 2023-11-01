@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_root_title">Bloqueador de anúncios baseado em acesso root</string>
     <!-- Hosts install category -->
@@ -29,7 +29,7 @@
     <string name="pref_webserver_certificate_dialog_title">Instalação manual de certificado</string>
     <string name="pref_webserver_certificate_dialog_content">A partir do Android 11 (R), a aplicação não pode instalar automaticamente a autoridade de certificação (CA).\n\nVai às configurações de \"Segurança\", \"Encriptação e credenciais\" e, de seguida, \"Instalar um certificado\". A partir daí, escolhe \"Certificado CA\" e seleciona o ficheiro de certificado recém-exportado.</string>
     <string name="pref_webserver_certificate_dialog_action">Abre as configurações de \"Segurança\"</string>
-    <string name="pref_webserver_state_checking">A verificar...</string>
+    <string name="pref_webserver_state_checking">A verificar…</string>
     <string name="pref_webserver_state_not_running">Não está em execução</string>
     <string name="pref_webserver_state_running_not_installed">Em execução, mas o certificado não está instalado</string>
     <string name="pref_webserver_state_running_and_installed">Em execução, com certificado instalado</string>
