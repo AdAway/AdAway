@@ -53,7 +53,7 @@
 
     <!--Status Notification-->
     <string name="status_check">A procurar atualização</string>
-    <string name="status_check_source">A verificar %sfonte por atualizações</string>
+    <string name="status_check_source">A verificar %s fonte por atualizações</string>
     <string name="status_retrieve">A obter fontes</string>
     <string name="status_download_source">A baixar a fonte %s</string>
     <string name="status_read_source">A ler a fonte %s</string>
