@@ -17,5 +17,5 @@
     <string name="update_sponsor_button">Patrocinador</string>
 
     <!-- Notification -->
-    <string name="update_notification_description">A descarregar a última versão do AdAway</string>
+    <string name="update_notification_description">Descarregando a última versão do AdAway</string>
 </resources>
