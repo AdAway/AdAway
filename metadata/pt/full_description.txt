@@ -1,4 +1,4 @@
-A Free and Open Source ad blocker for Android.
+Um bloqueador de anúncios livre e de código aberto para Android.
 
 The application is available for rooted and non-rooted devices.
 Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
