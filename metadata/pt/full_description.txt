@@ -6,4 +6,4 @@ Usando um dispositivo sem acesso root, a aplicação usa a função de VPN para 
 Portanto, quando uma aplicação solicita um anúncio ou um perseguidor de um host nesse ficheiro, esse pedido é redirecionado para o IP local 127.0.0.1, que não faz nada.
 
 Pode descarregar listas de bloqueio de anúncios predefinidas como ficheiros hosts a partir da aplicação para incorporá-los no ficheiro hosts do sistema. Também é possível utilizar os seus próprios ficheiros e adicionar certos hosts às listas de permissão e bloqueio.
-Existem opções para executar um servidor da Web local que responda aos nomes de hospedeiro bloqueados e que direcione os pedidos para os endereços de IP que escolher.
+Há opção de executar um servidor web local para responder a hostnames bloqueados e, ao invés disso, direcionar estes pedidos para um endereço de IP à sua escolha.
