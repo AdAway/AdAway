@@ -5,5 +5,5 @@ Usando um dispositivo com acesso root, a aplicação atualiza o ficheiro hosts d
 Usando um dispositivo sem acesso root, a aplicação usa a função de VPN para bloquear conexões de saída a anúncios e perseguidores.
 Portanto, quando uma aplicação solicita um anúncio ou um perseguidor de um host nesse ficheiro, esse pedido é redirecionado para o IP local 127.0.0.1, que não faz nada.
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+Pode descarregar listas de bloqueio de anúncios predefinidas como ficheiros hosts a partir da aplicação para incorporá-los no ficheiro hosts do sistema. Também é possível utilizar os seus próprios ficheiros e adicionar certos hosts às listas de permissão e bloqueio.
 Existem opções para executar um servidor da Web local que responda aos nomes de hospedeiro bloqueados e que direcione os pedidos para os endereços de IP que escolher.
