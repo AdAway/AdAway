@@ -11,7 +11,7 @@
     <string name="lists_menu_filter_hint">Pesquisar nome do host…</string>
     <string name="lists_menu_toggle_sources">Alternar fontes</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">Adicionar hospedeiro à lista negra</string>
+    <string name="list_add_dialog_black">Adicionar host à lista negra</string>
     <string name="list_add_dialog_white">Adicionar host à lista branca</string>
     <string name="list_add_dialog_redirect">Adicionar redirecionamento de host</string>
     <string name="list_edit_dialog_black">Editar lista negra de hosts</string>
