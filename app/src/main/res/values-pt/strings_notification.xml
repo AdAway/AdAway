@@ -2,7 +2,12 @@
 <resources>
     <!-- Update notification -->
     <string name="notification_update_channel_name">Atualizações</string>
+    <string name="notification_update_channel_description">Notificações de nova atualização</string>
     <string name="notification_update_host_available_title">Atualização disponível</string>
+    <string name="notification_update_host_available_text">Novos ficheiros de hosts disponíveis para descarregamento</string>
+    <string name="notification_update_app_available_title">Atualização da aplicação disponível</string>
+    <string name="notification_update_app_available_text">Uma versão nova do AdAway está disponível para descarregamento.</string>
     <!-- VPN notification -->
     <string name="notification_vpn_channel_name">VPN</string>
-    </resources>
+    <string name="notification_vpn_channel_description">Notificações recorrentes da VPN</string>
+</resources>
