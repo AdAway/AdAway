@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="log_toggle_recording_description">Ativar gravação de registo</string>
     <string name="log_start_recording">Pressiona Gravar para começar a registar pedidos. Navega na Web ou usa aplicações, e então volta ou desliza para atualizar o registo.</string>
     <string name="log_blocked_requests_ignored">\n\nPedidos bloqueados não serão registados. Desativa o bloqueio de anúncios se quiseres registá-los também.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Ordenar alfabeticamente</string>
-    <string name="log_sort_top_level_domain">Ordenar por TLD</string>
+    <string name="log_sort_top_level_domain">Ordenação de domínio de nível superior</string>
     <!-- Redirect dialog  -->
     <string name="log_redirect_dialog_title">Domínio de redirecionamento</string>
 </resources>
