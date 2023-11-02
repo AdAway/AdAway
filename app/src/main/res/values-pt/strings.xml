@@ -49,7 +49,7 @@
     <string name="hosts_header">O ficheiro \'\'hosts\'\'</string>
     <string name="hosts_description">O ficheiro \'\'hosts\'\' é um ficheiro do sistema que mapeia os nomes de hospedeiro para os endereços de IP. É um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
     <string name="hosts_content">A carregar o conteúdo do ficheiro \'\'hosts\'\'…</string>
-    <string name="hosts_open_button">Abrir o ficheiro hosts</string>
+    <string name="hosts_open_button">Abrir o ficheiro \'\'hosts\'\'</string>
 
     <!--Status Notification-->
     <string name="status_check">A procurar atualização</string>
