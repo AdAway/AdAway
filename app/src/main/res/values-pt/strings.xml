@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Bem-vindo!</string>
-    <string name="text_help">O AdAway é um projeto de software gratuito e de código aberto que bloqueia publicidade. Procura endereços de redes de anúncios para os bloquear no seu dispositivo.\nQuer saber mais? Consulte a ajuda abaixo!</string>
+    <string name="text_help">O AdAway é um projeto de programa de código aberto e gratuito que bloqueia publicidade. Este procura endereços de redes de anúncios para os bloquear no seu dispositivo.\nQuer saber mais? Consulte a ajuda abaixo!</string>
     <string name="button_show_help">Mostrar mais ajuda</string>
     <string name="icon_update_status">Estado da atualização</string>
     <string name="text_update">Todos os ficheiros hosts das fontes definidas foram transferidos, unidos com as suas próprias listas e instalados como um único ficheiro hosts no seu sistema.</string>
