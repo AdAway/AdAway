@@ -8,7 +8,7 @@
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
-        <item quantity="one">%d up-to-date source</item>
+        <item quantity="one">%d fonte atualizada</item>
         <item quantity="many">%d up-to-date sources</item>
         <item quantity="other">%d fontes atualizadas</item>
     </plurals>
