@@ -19,7 +19,7 @@
     <string name="welcome_vpn_method_title">Bloqueio baseado\nem VPN</string>
     <string name="welcome_vpn_method_text1">Mais lento</string>
     <string name="welcome_vpn_method_text2">Funciona em segundo plano</string>
-    <string name="welcome_vpn_method_text3">Maior compatiilidade</string>
+    <string name="welcome_vpn_method_text3">Compatibilidade</string>
 
     <string name="welcome_root_missing_title">É necessário um sistema Android com acesso root</string>
     <string name="welcome_root_missile_description">Ou o binário SU não foi encontrado ou não concedeste permissão de root ao AdAway.\n\nIsto pode acontecer quando o dispositivo não tem acesso root.\nPodes encontrar informação sobre como obter acesso root no dispositivo em wiki.lineageos.org ou noutros websites sobre Android.</string>
