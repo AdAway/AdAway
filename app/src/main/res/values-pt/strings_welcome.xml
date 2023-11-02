@@ -40,7 +40,7 @@
 
     <!-- Support -->
     <string name="welcome_support_logo">Apoio</string>
-    <string name="welcome_support_header">Apoia-me!</string>
+    <string name="welcome_support_header">Apoie-me!</string>
     <string name="welcome_support_summary">O AdAway é uma aplicação livre e de código aberto que desenvolvo no meu tempo livre. Se aprecias a aplicação, estás à vontade para mostrar o teu apoio:</string>
     <string name="welcome_support_button">Doar pelo PayPal</string>
     <string name="welcome_support_telemetry_summary">Gostas de erros? Eu também não.</string>
