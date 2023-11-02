@@ -18,7 +18,7 @@
     <string name="text_update">Todos os ficheiros de hospedeiros das fontes definidas foram transferidos, unidos com as suas próprias listas e instalados como um único ficheiro de hospedeiros no seu sistema.</string>
     <string name="button_enable_hosts">Ativar bloqueio de anúncios</string>
     <string name="button_disable_hosts">Desativar bloqueio de anúncios</string>
-    <string name="header_webserver">Servidor web</string>
+    <string name="header_webserver">Servidor da Web</string>
     <string name="webserver_status_running">Em execução</string>
     <string name="webserver_status_stopped">Parado</string>
     <string name="webserver_toggle_text">Ligar ou desligar um servidor web no host local para responder a pedidos de hostnames bloqueados.</string>
