@@ -42,7 +42,7 @@
     <string name="welcome_support_logo">Apoio</string>
     <string name="welcome_support_header">Apoie-me!</string>
     <string name="welcome_support_summary">O AdAway é uma aplicação de código aberto e gratuito que eu desenvolvo no meu tempo livre. Se aprecia a aplicação, fique à vontade para mostrar o seu apoio:</string>
-    <string name="welcome_support_button">Doar pelo PayPal</string>
+    <string name="welcome_support_button">Doar com PayPal</string>
     <string name="welcome_support_telemetry_summary">Gostas de erros? Eu também não.</string>
     <string name="welcome_support_telemetry_button">Ativar telemetria para me enviar relatórios de erros.</string>
 
