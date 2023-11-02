@@ -23,7 +23,7 @@
     <string name="webserver_status_stopped">Parado</string>
     <string name="webserver_toggle_text">Ligar ou desligar um servidor da Web no hospedeiro local para responder a pedidos de nomes de hospedeiro bloqueados.</string>
     <string name="button_enable_webserver">Ativar servidor da Web</string>
-    <string name="button_disable_webserver">Desativar servidor web</string>
+    <string name="button_disable_webserver">Desativar servidor da Web</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Em funcionamento</string>
     <string name="vpn_status_stopped">Parado</string>
