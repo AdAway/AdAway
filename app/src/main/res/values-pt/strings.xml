@@ -27,7 +27,7 @@
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">Em funcionamento</string>
     <string name="vpn_status_stopped">Parado</string>
-    <string name="vpn_toggle_text">Ligar ou desligar a vpn para filtrar pedidos.</string>
+    <string name="vpn_toggle_text">Iniciar ou parar a VPN para filtrar os pedidos.</string>
     <string name="button_enable_vpn">Ativar VPN</string>
     <string name="button_disable_vpn">Desativar VPN</string>
 
