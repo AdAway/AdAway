@@ -17,8 +17,8 @@
         <item quantity="many">%d fontes desatualizadas</item>
         <item quantity="other">%d fontes desatualizadas</item>
     </plurals>
-    <string name="check_hosts_update_description">Verificar atualizações junto dos hosts</string>
-    <string name="update_hosts_description">Atualizar hosts</string>
+    <string name="check_hosts_update_description">Verificar atualizações junto dos hospedeiros</string>
+    <string name="update_hosts_description">Atualizar hospedeiros</string>
 
     <!-- Log card -->
     <string name="log_label">Mostrar registo de pedidos DNS</string>
