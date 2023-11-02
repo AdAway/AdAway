@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bem-vindo!</string>
     <string name="welcome_first_step">Primeira etapa do assistente</string>
@@ -41,7 +41,7 @@
     <!-- Support -->
     <string name="welcome_support_logo">Apoio</string>
     <string name="welcome_support_header">Apoie-me!</string>
-    <string name="welcome_support_summary">O AdAway é uma aplicação livre e de código aberto que desenvolvo no meu tempo livre. Se aprecias a aplicação, estás à vontade para mostrar o teu apoio:</string>
+    <string name="welcome_support_summary">O AdAway é uma aplicação de código aberto e gratuito que eu desenvolvo no meu tempo livre. Se aprecia a aplicação, fique à vontade para mostrar o seu apoio:</string>
     <string name="welcome_support_button">Doar pelo PayPal</string>
     <string name="welcome_support_telemetry_summary">Gostas de erros? Eu também não.</string>
     <string name="welcome_support_telemetry_button">Ativar telemetria para me enviar relatórios de erros.</string>
