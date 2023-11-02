@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="log_toggle_recording_description">Ativar gravação de registo</string>
     <string name="log_start_recording">Pressione \"Gravar\" para começar a registar os pedidos, explorar a Web ou utilize aplicações, e depois volte ou deslize para atualizar os registos.</string>
-    <string name="log_blocked_requests_ignored">\n\nPedidos bloqueados não serão registados. Desativa o bloqueio de anúncios se quiseres registá-los também.</string>
+    <string name="log_blocked_requests_ignored">\n\nOs pedidos bloqueados não serão registados. Desative primeiro o bloqueio de anúncios se também os quiser registar.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Ordenar alfabeticamente</string>
     <string name="log_sort_top_level_domain">Ordenação de domínio de nível superior</string>
