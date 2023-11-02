@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bem-vindo!</string>
     <string name="welcome_first_step">Primeira etapa do assistente</string>
@@ -6,8 +6,8 @@
     <string name="welcome_last_step">Última etapa do assistente</string>
 
     <!-- Method UI -->
-    <string name="welcome_method_header">Bem-vindo(a) ao AdAway!</string>
-    <string name="welcome_method_summary">O AdAway oferece dois métodos de bloqueio de anúncios. Escolhe o que quiseres:</string>
+    <string name="welcome_method_header">Bem-vindo ao AdAway!</string>
+    <string name="welcome_method_summary">O AdAway oferece dois métodos de bloqueio de anúncios. Escolha o que gostar:</string>
 
     <string name="welcome_root_method_logo">Logótipo root</string>
     <string name="welcome_root_method_title">Bloqueio baseado\nem root</string>
