@@ -18,7 +18,7 @@
     <string name="welcome_vpn_method_logo">Logótipo VPN</string>
     <string name="welcome_vpn_method_title">Bloqueio baseado\nem VPN</string>
     <string name="welcome_vpn_method_text1">Mais lento</string>
-    <string name="welcome_vpn_method_text2">Executa em segundo plano</string>
+    <string name="welcome_vpn_method_text2">Funciona em segundo plano</string>
     <string name="welcome_vpn_method_text3">Maior compatiilidade</string>
 
     <string name="welcome_root_missing_title">É necessário um sistema Android com acesso root</string>
