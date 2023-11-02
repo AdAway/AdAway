@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bem-vindo!</string>
     <string name="welcome_first_step">Primeira etapa do assistente</string>
@@ -33,7 +33,7 @@
 
     <string name="welcome_sync_header">A sincronizar</string>
     <string name="welcome_synced_header">Sincronizado!</string>
-    <string name="welcome_sync_summary">O AdAway descarrega redes de anúncios para bloquear de fontes online. Podes personalizá-las posteriormente nas configurações.</string>
+    <string name="welcome_sync_summary">O AdAway transfere redes de anúncios para bloquear das fontes \'\'on-line\'\'. Pode personalizá-las mais tarde nas definições.</string>
     <string name="welcome_sync_retry_logo">Tentar sincronização novamente</string>
     <string name="welcome_sync_error">Falha ao sincronizar: %1$s Tentar novamente?</string>
     <string name="welcome_sync_notifications">Pode enviar notificações para exibir o estado e o controle do bloqueio de anúncios e notificar sobre atualizações disponíveis para a aplicação (algumas por ano). Ativa-as se quiseres manter-te atualizado(a).</string>
