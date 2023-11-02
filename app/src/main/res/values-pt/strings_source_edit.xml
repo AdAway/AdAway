@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Editar fonte</string>
+    <string name="source_edit_add_title">Adicionar fonte</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Etiqueta</string>
+    <string name="source_edit_label_required">Etiqueta necessária</string>
+    <string name="source_edit_type">Tipo</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Ficheiro</string>
+    <string name="source_edit_url_location">Localização</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Localização necessária</string>
+    <string name="source_edit_file_hint">Carrega em Ficheiro para selecionar o ficheiro fonte</string>
+    <string name="source_edit_location_invalid">Localização inválida</string>
+    <string name="source_edit_format">Formato da lista</string>
+    <string name="source_edit_format_block_list">Bloquear</string>
+    <string name="source_edit_format_allow_list">Permitir</string>
+    <string name="source_edit_redirected_hosts">Aplicar hosts redirecionados</string>
+    <string name="source_edit_redirected_hosts_warning">Permitir hosts redirecionados poderá causar problemas de segurança. Usa esta definição apenas em fontes confiáveis, pois estas poderão redirecionar tráfego sensível para qualquer servidor que queiram.</string>
+</resources>

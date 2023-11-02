@@ -1,14 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="pref_root_title">Bloqueador de anúncios baseado em acesso root</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">Instalar hosts</string>
     <string name="pref_root_open_hosts">Abrir ficheiro de hosts</string>
     <string name="pref_apply_method">Ficheiro de hosts de destino</string>
+    <string name="pref_apply_method_summary">Lê a Ajuda antes de usar esta funcionalidade</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>Destino personalizado</item>
     </string-array>
+    <string name="pref_custom_target">Localização do destino personalizado</string>
+    <string name="pref_never_reboot">Ocultar diálogo de reinício após aplicação</string>
     <!-- Redirection category -->
-    <string name="pref_hosts_redirection">Redirec.</string>
+    <string name="pref_hosts_redirection">Redirecionamento </string>
+    <string name="pref_hosts_redirection_summary">Definir para onde redirecionar hosts bloqueados</string>
+    <string name="pref_redirection_ipv4">Configurar redirecionamento de IPv4</string>
+    <string name="pref_redirection_ipv6">Configurar redirecionamento de IPv6</string>
+    <string name="pref_redirection_invalid">Redirecionamento inválido</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">Servidor web local</string>
+    <string name="pref_webserver_summary">O servidor web local escuta os endereços IP locais para responder a pedidos de hostnames bloqueados. Isto poderá ajudar com o congelamento de aplicações com conexões bloqueadas.</string>
     <string name="pref_webserver_enabled">Ativar servidor web</string>
-    </resources>
+    <string name="pref_webserver_test">Testar servidor web</string>
+    <string name="pref_webserver_certificate">Instalar certificado auto-assinado</string>
+    <string name="pref_webserver_certificate_dialog_title">Instalação manual de certificado</string>
+    <string name="pref_webserver_certificate_dialog_content">A partir do Android 11 (R), a aplicação não pode instalar automaticamente a autoridade de certificação (CA).\n\nVai às configurações de \"Segurança\", \"Encriptação e credenciais\" e, de seguida, \"Instalar um certificado\". A partir daí, escolhe \"Certificado CA\" e seleciona o ficheiro de certificado recém-exportado.</string>
+    <string name="pref_webserver_certificate_dialog_action">Abre as configurações de \"Segurança\"</string>
+    <string name="pref_webserver_state_checking">A verificar…</string>
+    <string name="pref_webserver_state_not_running">Não está em execução</string>
+    <string name="pref_webserver_state_running_not_installed">Em execução, mas o certificado não está instalado</string>
+    <string name="pref_webserver_state_running_and_installed">Em execução, com certificado instalado</string>
+    <string name="pref_webserver_icon">Substituir espaço vazio do anúncio pelo ícone da aplicação</string>
+</resources>
