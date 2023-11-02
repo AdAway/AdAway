@@ -11,7 +11,7 @@
     <string name="button_help">Ajuda</string>
 
     <!--Home-->
-    <string name="header_help">Bem-vindo(a)!</string>
+    <string name="header_help">Bem-vindo!</string>
     <string name="text_help">O AdAway é um projeto de software gratuito e de código aberto que bloqueia publicidade. Procura endereços de redes de anúncios para os bloquear no seu dispositivo.\nQuer saber mais? Consulte a ajuda abaixo!</string>
     <string name="button_show_help">Mostrar mais ajuda</string>
     <string name="icon_update_status">Estado da atualização</string>
