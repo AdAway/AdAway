@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Tervetuloa</string>
     <string name="welcome_first_step">Määrityksen ensimmäinen vaihe</string>
@@ -44,7 +44,7 @@
     <string name="welcome_support_summary">AdAway on ilmainen avoimen lähdekoodin sovellus, jota kehitän vapaa-ajallani. Jos pidät siitä, voit halutessasi ilmaista tukesi:</string>
     <string name="welcome_support_button">Lahjoita PayPalilla</string>
     <string name="welcome_support_telemetry_summary">Pidätkö vioista? En minäkään. </string>
-    <string name="welcome_support_telemetry_button">Ota telemetria käyttöön virheilmoitusten lähettämiseksi</string>
+    <string name="welcome_support_telemetry_button">Lähetä minulle virheraportteja ottamalla telemetria käyttöön</string>
 
     <!-- Navigation buttons -->
     <string name="welcome_back_button">Edellinen</string>
