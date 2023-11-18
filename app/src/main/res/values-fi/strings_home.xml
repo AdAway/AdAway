@@ -16,7 +16,7 @@
         <item quantity="other">%d vanhentunutta lähdettä</item>
     </plurals>
     <string name="check_hosts_update_description">Tarkista hosts-päivitykset</string>
-    <string name="update_hosts_description">Päivitä hosts-tiedosto</string>
+    <string name="update_hosts_description">Päivitä hosts-tiedot</string>
 
     <!-- Log card -->
     <string name="log_label">Näytä DNS-pyyntöjen loki</string>
