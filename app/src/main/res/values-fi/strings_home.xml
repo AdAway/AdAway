@@ -41,6 +41,6 @@
     <string name="show_log_button">Näytä pyydetyt verkkotunnukset</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Lue ohjeet, jos haluat lisätietoja.</string>
+    <string name="error_dialog_help">Lue lisätietoja ohjeista.</string>
 
 </resources>
