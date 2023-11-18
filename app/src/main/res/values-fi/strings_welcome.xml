@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Tervetuloa</string>
     <string name="welcome_first_step">Määrityksen ensimmäinen vaihe</string>
@@ -36,7 +36,7 @@
     <string name="welcome_sync_summary">AdAway lataa estettäviä mainosverkostoja verkkolähteistä. Voit mukauttaa niitä myöhemmin asetuksista.</string>
     <string name="welcome_sync_retry_logo">Yritä synkronointia uudelleen</string>
     <string name="welcome_sync_error">Synkronointi epäonnistui: %1$s Yritetäänkö uudelleen?</string>
-    <string name="welcome_sync_notifications">Se voi näyttää ilmoituksia mainoseston tilasta, hallinnasta ja uusista sovellusversioista (muutama vuodessa). Ota ne käyttöön, jos haluat pysyä ajan tasalla.</string>
+    <string name="welcome_sync_notifications">Sovellus voi näyttää ilmoituksia mainoseston tilasta, hallinnasta ja uusista sovellusversioista (muutama vuodessa). Ota ne käyttöön, jos haluat pysyä ajan tasalla.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Tue</string>
