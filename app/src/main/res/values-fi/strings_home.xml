@@ -9,7 +9,7 @@
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d ajantasalla olevaa lähdettä</item>
+        <item quantity="other">%d lähdettä ajan tasalla</item>
     </plurals>
     <plurals name="outdated_source_label">
         <item quantity="one">%d outdated source</item>
