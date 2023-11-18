@@ -19,7 +19,7 @@
     <string name="update_hosts_description">Päivitä hosts-tiedot</string>
 
     <!-- Log card -->
-    <string name="log_label">Näytä DNS-pyyntöjen loki</string>
+    <string name="log_label">Näytä DNS-pyyntöhistoria</string>
 
     <!-- Help card -->
     <string name="help_label">Näytä ohje\nja vinkit</string>
