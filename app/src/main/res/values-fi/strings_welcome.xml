@@ -41,7 +41,7 @@
     <!-- Support -->
     <string name="welcome_support_logo">Tue</string>
     <string name="welcome_support_header">Tue minua! </string>
-    <string name="welcome_support_summary">AdAway on ilmainen avoimen lähdekoodin sovellus, jota kehitän vapaa-ajallani. Jos pidät siitä, voit halutessasi ilmaista sen:</string>
+    <string name="welcome_support_summary">AdAway on ilmainen avoimen lähdekoodin sovellus, jota kehitän vapaa-ajallani. Jos pidät siitä, voit halutessasi ilmaista tukesi:</string>
     <string name="welcome_support_button">Lahjoita PayPalilla</string>
     <string name="welcome_support_telemetry_summary">Pidätkö bugeista? En minäkään. </string>
     <string name="welcome_support_telemetry_button">Ota telemetria käyttöön lähettääksesi kaatumisraportteja</string>
