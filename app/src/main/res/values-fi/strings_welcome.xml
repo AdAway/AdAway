@@ -1,46 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Tervetuloa</string>
-    <string name="welcome_first_step">Avustajan ensimmäinen vaihe</string>
-    <string name="welcome_second_step">Avustajan toinen vaihe</string>
-    <string name="welcome_last_step">Avustajan viimeinen vaihe</string>
+    <string name="welcome_first_step">Määrityksen ensimmäinen vaihe</string>
+    <string name="welcome_second_step">Määrityksen toinen vaihe</string>
+    <string name="welcome_last_step">Määrityksen viimeinen vaihe</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">Tervetuloa käyttämään AdAwaytä!</string>
-    <string name="welcome_method_summary">AdAway tarjoaa kaksi tapaa mainosten estämiseen. Valitse haluamasi:</string>
+    <string name="welcome_method_summary">AdAway tarjoaa kaksi mainosten estotapaa. Valitse haluamasi:</string>
 
     <string name="welcome_root_method_logo">Root-logo</string>
-    <string name="welcome_root_method_title">Root-pohjainen\nmainosten esto</string>
+    <string name="welcome_root_method_title">Root-pohjainen\nmainosesto</string>
     <string name="welcome_root_method_text1">Nopeampi</string>
     <string name="welcome_root_method_text2">Akkuystävällinen</string>
-    <string name="welcome_root_method_text3">Root-oikeudet vaaditaan</string>
+    <string name="welcome_root_method_text3">Vaatii root-oikeudet</string>
 
     <string name="welcome_vpn_method_logo">VPN-logo</string>
-    <string name="welcome_vpn_method_title">VPN-pohjainen\nmainosten esto</string>
+    <string name="welcome_vpn_method_title">VPN-pohjainen\nmainosesto</string>
     <string name="welcome_vpn_method_text1">Hitaampi</string>
-    <string name="welcome_vpn_method_text2">Suorita taustalla</string>
-    <string name="welcome_vpn_method_text3">Yhteensopivuus</string>
+    <string name="welcome_vpn_method_text2">Suoritetaan taustalla</string>
+    <string name="welcome_vpn_method_text3">Yhteensopiva</string>
 
-    <string name="welcome_root_missing_title">Rootattu Android vaaditaan</string>
-    <string name="welcome_root_missile_description">Joko su-binääriä ei voitu löytää tai et hyväksynyt root-oikeutta AdAwaylle.\n\nTämä voi tapahtua jos laitettasi ei ole rootattu. Löydät lisätietoja laitteesi roottaamisesta osoitteessa wiki.lineageos.org tai muilta Android-verkkosivuilta.</string>
+    <string name="welcome_root_missing_title">Vaatii rootatun Androidin</string>
+    <string name="welcome_root_missile_description">Joko su-binääriä ei löytynyt tai et myöntänyt AdAwaylle root-oikeuksia.\n\nTämä voi tapahtua jos laitetta ei ole rootattu. Löydät tietoja laitteen roottauksesta osoitteessa wiki.lineageos.org tai muilta Android-sivustoilta.</string>
 
-    <string name="welcome_method_pro_logo">Etu</string>
+    <string name="welcome_method_pro_logo">Hyöty</string>
     <string name="welcome_method_con_logo">Haitta</string>
 
     <!-- Sync UI -->
-    <string name="welcome_sync_done_logo">Synkronointi valmis</string>
+    <string name="welcome_sync_done_logo">Synkronointi on suoritettu</string>
     <string name="welcome_sync_error_logo">Virhe synkronoitaessa</string>
 
     <string name="welcome_sync_header">Synkronoidaan </string>
     <string name="welcome_synced_header">Synkronoitu! </string>
     <string name="welcome_sync_summary">AdAway lataa estettäviä mainosverkostoja verkkolähteistä. Voit mukauttaa niitä myöhemmin asetuksista.</string>
     <string name="welcome_sync_retry_logo">Yritä synkronointia uudelleen</string>
-    <string name="welcome_sync_error">Synkronointi epäonnistui: %1$s Yritä uudelleen nyt? </string>
+    <string name="welcome_sync_error">Synkronointi epäonnistui: %1$s Yritetäänkö uudelleen?</string>
+    <string name="welcome_sync_notifications">Se voi näyttää ilmoituksia mainoseston tilasta, hallinnasta ja uusista sovellusversioista (muutama vuodessa). Ota ne käyttöön, jos haluat pysyä ajan tasalla.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Tue</string>
     <string name="welcome_support_header">Tue minua! </string>
-    <string name="welcome_support_summary">Se on ilmainen avoimen lähdekoodin sovellus. Kehitän sitä vapaa-ajallani. Joten jos pidät siitä, voit vapaasti ilmaista tukesi:</string>
+    <string name="welcome_support_summary">AdAway on ilmainen avoimen lähdekoodin sovellus, jota kehitän vapaa-ajallani. Jos pidät siitä, voit halutessasi ilmaista sen:</string>
     <string name="welcome_support_button">Lahjoita PayPalilla</string>
     <string name="welcome_support_telemetry_summary">Pidätkö bugeista? En minäkään. </string>
     <string name="welcome_support_telemetry_button">Ota telemetria käyttöön lähettääksesi kaatumisraportteja</string>
