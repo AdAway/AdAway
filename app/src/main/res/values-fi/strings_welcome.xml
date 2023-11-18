@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Tervetuloa</string>
     <string name="welcome_first_step">Määrityksen ensimmäinen vaihe</string>
@@ -47,7 +47,7 @@
     <string name="welcome_support_telemetry_button">Ota telemetria käyttöön lähettääksesi kaatumisraportteja</string>
 
     <!-- Navigation buttons -->
-    <string name="welcome_back_button">Takaisin</string>
+    <string name="welcome_back_button">Edellinen</string>
     <string name="welcome_next_button">Seuraava</string>
     <string name="welcome_finish_button">Valmis</string>
 </resources>
