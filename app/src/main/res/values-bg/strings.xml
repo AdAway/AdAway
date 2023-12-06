@@ -215,7 +215,7 @@
     <!--Hosts source status-->
     <string name="hosts_source_installed">Инсталиран преди %1$s</string>
     <string name="hosts_source_up_to_date">Без обновяване от %1$s</string>
-    <string name="hosts_source_need_update">Нужна актуализация за %1$s</string>
+    <string name="hosts_source_need_update">За обновяване %1$s</string>
     <string name="hosts_source_last_update">Последно обновяване преди %1$s</string>
     <string name="hosts_source_unknown_status">Състоянието на обновяване е неизвестно</string>
     <string name="hosts_source_disabled">Изключено</string>
