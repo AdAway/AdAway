@@ -157,7 +157,7 @@
     <string name="menu_refresh">Опресняване</string>
     <string name="menu_add">Добавяне</string>
     <string name="menu_help">Помощ</string>
-    <string name="menu_import">Внасяне на архив</string>
+    <string name="menu_import">Внасяне на резервно копие</string>
     <string name="menu_export">Изнасяне на архив</string>
 
     <!--Help-->
