@@ -86,7 +86,7 @@
     <string name="notification_configuration_changed">Настройките са променени. Трябва да бъдат приложени.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
     <string name="notification_configuration_installing">Прилагане на настройки…</string>
-    <string name="notification_configuration_failed">Грешка при прилагане на настройки.</string>
+    <string name="notification_configuration_failed">Грешка при прилагане на настройките.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Символната връзка целта на хост файла липсва</string>
