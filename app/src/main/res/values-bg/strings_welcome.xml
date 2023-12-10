@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Добре дошли</string>
     <string name="welcome_first_step">Първа стъпка на помощника</string>
@@ -31,7 +31,7 @@
 
     <!-- Sync UI -->
     <string name="welcome_sync_done_logo">Синхронизирането е извършено</string>
-    <string name="welcome_sync_error_logo">Грешка при синхронизиране</string>
+    <string name="welcome_sync_error_logo">Грешка при синхронизиране.</string>
 
     <string name="welcome_sync_header">Синхронизиране</string>
     <string name="welcome_synced_header">Синхронизирано!</string>
