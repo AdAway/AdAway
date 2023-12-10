@@ -2,7 +2,7 @@
 <resources>
     <string name="pref_backup_restore_title">Резервно копие и възстановяване</string>
     <string name="pref_backup">Резервно копие</string>
-    <string name="pref_backup_summary">Резервно копие във външно хранилище на правилата за блокиране</string>
+    <string name="pref_backup_summary">Създава резервно копие на правилата във външното хранилище</string>
     <string name="pref_restore">Възстановяване</string>
     <string name="pref_restore_summary">Възстановява правилата от резервно копие</string>
 </resources>
