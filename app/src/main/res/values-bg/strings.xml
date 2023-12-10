@@ -39,7 +39,7 @@
 
     <!--Your lists-->
     <string name="import_dialog">Внасяне…</string>
-    <string name="import_success">Архивът е внесен успешно от външната памет.</string>
+    <string name="import_success">Резервното копие е внесено успешно от външната памет.</string>
     <string name="import_failed">Грешка при внасяне на архив. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
     <string name="export_dialog">Изнасяне…</string>
     <string name="export_success">Архивът е успешно изнесен във файла „%s“ на външното ви хранилище.</string>
