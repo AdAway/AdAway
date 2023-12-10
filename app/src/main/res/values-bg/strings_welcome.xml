@@ -31,7 +31,7 @@
 
     <!-- Sync UI -->
     <string name="welcome_sync_done_logo">Синхронизирането е извършено</string>
-    <string name="welcome_sync_error_logo">Грешка при синхронизиране</string>
+    <string name="welcome_sync_error_logo">Грешка при синхронизиране.</string>
 
     <string name="welcome_sync_header">Синхронизиране</string>
     <string name="welcome_synced_header">Синхронизирано!</string>
