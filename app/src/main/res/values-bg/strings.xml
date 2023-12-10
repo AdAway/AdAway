@@ -158,7 +158,7 @@
     <string name="menu_add">Добавяне</string>
     <string name="menu_help">Помощ</string>
     <string name="menu_import">Внасяне на резервно копие</string>
-    <string name="menu_export">Изнасяне на архив</string>
+    <string name="menu_export">Изнасяне на резервно копие</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
