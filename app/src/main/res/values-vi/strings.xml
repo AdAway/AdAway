@@ -218,6 +218,7 @@
     <string name="hosts_source_need_update">Cần được cập nhật %1$s</string>
     <string name="hosts_source_last_update">Cập nhật lần cuối %1$s trước</string>
     <string name="hosts_source_unknown_status">Trạng thái cập nhật không xác định</string>
+    <string name="hosts_source_disabled">Đã tắt</string>
     <string name="hosts_source_few_minutes">vài phút</string>
     <plurals name="hosts_source_minutes">
         <item quantity="other">%d phút</item>
@@ -231,6 +232,9 @@
     <plurals name="hosts_source_months">
         <item quantity="other">%d tháng</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Host đã được copy vào clipboard</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">đang bắt đầu</string>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Chào mừng</string>
     <string name="welcome_first_step">Bước đầu wizard</string>
@@ -35,7 +35,8 @@
     <string name="welcome_synced_header">Đã đồng bộ</string>
     <string name="welcome_sync_summary">AdAway tải xuống thông tin về các host quảng cáo để chặn chúng. Bạn có thể tùy chỉnh các host trong Cài đặt.</string>
     <string name="welcome_sync_retry_logo">Thử đồng bộ lại</string>
-    <string name="welcome_sync_error">Đồng bộ xảy ra lỗi tại : %1$s Thử lại ngay?</string>
+    <string name="welcome_sync_error">Đồng bộ thất bại: %1$sThử lại ngay?</string>
+    <string name="welcome_sync_notifications">Nó có thể gửi thông báo để hiển thị trạng thái và kiểm soát khối quảng cáo cũng như thông báo về bản cập nhật ứng dụng có sẵn (một vài bản cập nhật mỗi năm). Kích hoạt chúng nếu bạn muốn luôn cập nhật.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Hỗ trợ</string>
