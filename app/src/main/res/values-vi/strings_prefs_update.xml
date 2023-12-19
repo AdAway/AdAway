@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Cập nhật</string>
+    <string name="pref_update_enable_notifications">Thông báo bị vô hiệu hóa</string>
+    <string name="pref_update_enable_notifications_summary">Thông báo ứng dụng sẽ không hiển thị. Nhấn để kích hoạt chúng.</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Cập nhật ứng dụng</string>
     <string name="pref_update_check_app_startup">Kiểm tra cập nhật khi khởi động</string>
