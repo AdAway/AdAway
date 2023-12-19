@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="log_toggle_recording_description">Chuyển đổi ghi nhật ký</string>
+    <string name="log_start_recording">Nhấn ghi để bắt đầu ghi yêu cầu, duyệt Web hoặc sử dụng ứng dụng, sau đó quay lại hoặc vuốt để làm mới nhật ký.
+</string>
+    <string name="log_blocked_requests_ignored">\n\nCác yêu cầu bị chặn sẽ không được ghi lại. Trước tiên hãy tắt tính năng chặn quảng cáo nếu bạn cũng muốn đăng nhập chúng.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Sắp xếp theo thứ tự chữ cái</string>
     <string name="log_sort_top_level_domain">Sắp xếp miền cấp trên cùng</string>
