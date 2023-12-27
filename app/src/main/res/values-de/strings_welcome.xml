@@ -16,7 +16,7 @@
     <string name="welcome_root_method_text3">Benötigt Root</string>
 
     <string name="welcome_vpn_method_logo">VPN logo</string>
-    <string name="welcome_vpn_method_title">VPN-basierter\nAd-Blocker</string>
+    <string name="welcome_vpn_method_title">VPN-basierter\nWerbeblocker</string>
     <string name="welcome_vpn_method_text1">Langsamer</string>
     <string name="welcome_vpn_method_text2">Läuft im Hintergrund</string>
     <string name="welcome_vpn_method_text3">Kompatibilität</string>
