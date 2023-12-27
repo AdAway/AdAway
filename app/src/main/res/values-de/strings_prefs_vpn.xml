@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_vpn_title">VPN basierender Werbeblocker</string>
+    <string name="pref_vpn_title">VPN-basierter Werbeblocker</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Beim Starten einschalten</string>
     <string name="pref_vpn_service_monitor">Verbindung überwachen</string>
