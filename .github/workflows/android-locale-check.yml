@@ -24,7 +24,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v11.9 
+        uses: tj-actions/changed-files@v41 
 
       - name: Validate locale files
         id: validation
