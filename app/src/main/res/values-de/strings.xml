@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Willkommen!</string>
-    <string name="text_help">AdAway ist ein freier Open-Source Werbeblocker. AdAway schaut ob eine Netzwerkadresse eines Werbeanbieters aufgerufen wird und blockiert auf Ihrem Gerät diesen Aufruf.\nMöchten Sie mehr darüber erfahren? Rufen sie dazu weiter unten \"Hilfe anzeigen\"  auf!</string>
+    <string name="text_help">AdAway ist ein freier Open-Source Werbeblocker. Wenn eine Netzwerkadresse eines Werbeanbieters aufgerufen wird, blockiert er dies.\nMöchten Sie mehr darüber erfahren? Rufen Sie dazu weiter unten \"Hilfe anzeigen\"  auf!</string>
     <string name="button_show_help">Hilfe anzeigen</string>
     <string name="icon_update_status">Status der Aktualisierung</string>
     <string name="text_update">Alle Hosts-Dateien aus den hinterlegten Quellen werden heruntergeladen. Anschließend diese zur ihrer eigenen Liste hinzugefügt und als eine Hosts-Datei im System installiert.</string>
@@ -33,12 +33,12 @@
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_title">Eintrag bearbeiten</string>
-    <string name="checkbox_list_context_apply">Übernehmen</string>
+    <string name="checkbox_list_context_apply">Anwenden</string>
     <string name="checkbox_list_context_edit">Bearbeiten</string>
     <string name="checkbox_list_context_delete">Löschen</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importiere …</string>
+    <string name="import_dialog">Importiere…</string>
     <string name="import_success">Sicherung aus externem Speicher erfolgreich eingelesen. </string>
     <string name="import_failed">Einlesen der Sicherung fehlgeschlagen. Passt das Format? Weitere Infos dazu im Logcat Protokoll.</string>
     <string name="export_dialog">Speichern…</string>
@@ -47,7 +47,7 @@
 
     <!--Hosts content-->
     <string name="hosts_header">Die Hosts-Datei</string>
-    <string name="hosts_description">Die Hosts-Datei ist eine Datei aus dem Systembereich, bei der Hostnamen (Webadressen) zu IP-Adressen zugewiesen werden. Die Konfiguration der reinen Textdatei wird von AdAway übernommen. Nachfolgend ihre ersten Zeilen:</string>
+    <string name="hosts_description">Die Hosts-Datei ist eine Datei aus dem Systembereich, bei der Hostnamen(Webadressen) zu IP-Adressen zugewiesen werden. Die Konfiguration der reinen Text Datei wird von AdAway übernommen. Nachfolgend ihre ersten Zeilen:</string>
     <string name="hosts_content">Inhalt der Hosts-Datei laden…</string>
     <string name="hosts_open_button">Hosts-Datei öffnen</string>
 
@@ -89,7 +89,7 @@
     <string name="notification_configuration_failed">Anwendung der neuen Konfiguration ist fehlgeschlagen.</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">Die symbolische Verknüpfung (Symlink) zur Hosts-Datei fehlt</string>
+    <string name="apply_symlink_missing_status">Die symbolische Verknüpfung (symlink) zur Hosts-Datei fehlt</string>
     <string name="apply_symlink_missing">Die symbolische Verknüpfung (Symlink) zwischen Ziel und /system/etc/hosts ist nicht vorhanden oder falsch! Ohne diese Verknüpfung wird AdAway nicht funktionieren.\n\nMöchten Sie versuchen eine symbolische Verknüpfung zu erstellen?</string>
     <string name="apply_symlink_missing_title">Symbolische Verknüpfung fehlt</string>
     <string name="apply_not_enough_space">Nicht genügend Speicherplatz auf der Partition frei!\nVersuchen Sie die zu benutzende Hosts-Datei auf /data/data/hosts zu ändern.</string>
@@ -115,7 +115,7 @@
     <string name="no_connection_title">Keine Verbindung</string>
     <string name="download_dialog">Wird heruntergeladen…</string>
     <string name="apply_dialog">Wird angewendet…</string>
-    <string name="apply_dialog_lists">Positiv- und Negativliste werden angewendet</string>
+    <string name="apply_dialog_lists">Negativ- und Positivliste werden angewendet</string>
     <string name="apply_dialog_hostnames">Hosts-Dateien werden verarbeitet und zusammengefügt</string>
     <string name="apply_dialog_hosts">Hosts-Datei wird erstellt</string>
     <string name="apply_dialog_apply">Neue Hosts-Datei im System aktivieren</string>
@@ -162,7 +162,7 @@
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
-    <string name="help_tab_faq">F&amp;A</string>
+    <string name="help_tab_faq">FAQ</string>
     <string name="help_tab_problems">Probleme</string>
 
     <!--Adware-->
@@ -226,15 +226,15 @@
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d Stunde</item>
-        <item quantity="other">%d Stunden</item>
+        <item quantity="other">%d Stunde(n)</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d Tag</item>
-        <item quantity="other">%d Tage</item>
+        <item quantity="other">%d Tag(en)</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d Monat</item>
-        <item quantity="other">%d Monate</item>
+        <item quantity="other">%d Monat(en)</item>
     </plurals>
 
     <!-- Clipboard -->
