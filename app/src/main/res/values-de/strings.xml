@@ -39,7 +39,7 @@
 
     <!--Your lists-->
     <string name="import_dialog">Importiere…</string>
-    <string name="import_success">Sicherung aus externem Speicher erfolgreich eingelesen. </string>
+    <string name="import_success">Sicherung aus externem Speicher erfolgreich importiert. </string>
     <string name="import_failed">Einlesen der Sicherung fehlgeschlagen. Passt das Format? Weitere Infos dazu im Logcat Protokoll.</string>
     <string name="export_dialog">Speichern…</string>
     <string name="export_success">Sicherung wurde erfolgreich in die Datei \'%s\' auf externem Speicher erstellt.</string>
