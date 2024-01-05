@@ -20,7 +20,7 @@
     <string name="button_disable_hosts">Werbeblocker deaktivieren</string>
     <string name="header_webserver">Webserver</string>
     <string name="webserver_status_running">Läuft</string>
-    <string name="webserver_status_stopped">Pausiert</string>
+    <string name="webserver_status_stopped">Gestoppt</string>
     <string name="webserver_toggle_text">Lokalen Webserver starten oder stoppen, um Anfragen an blockierte Hostnamen zu beantworten. </string>
     <string name="button_enable_webserver">Webserver aktivieren</string>
     <string name="button_disable_webserver">Webserver deaktivieren</string>
