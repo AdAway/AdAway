@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_main_title">Einstellungen</string>
     <!-- General category -->
@@ -12,8 +12,8 @@
     <string name="pref_update_configuration">Automatische Updates</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Werbung blockieren</string>
-    <string name="pref_root_ad_blocker_configuration">Root basierender Werbeblocker</string>
-    <string name="pref_vpn_ad_blocker_configuration">VPN basierender Ad-Blocker</string>
+    <string name="pref_root_ad_blocker_configuration">Root-basierter Werbeblocker</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN-basierter Werbeblocker</string>
     <string name="pref_enable_ipv6">IPv6 aktivieren</string>
     <string name="pref_backup_restore">Sichern / Wiederherstellen Ihrer Listen</string>
     <!-- Debug category -->
