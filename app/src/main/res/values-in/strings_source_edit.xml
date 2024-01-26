@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Ubah sumber</string>
+    <string name="source_edit_add_title">Tambah sumber</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Label</string>
+    <string name="source_edit_label_required">Label dibutuhkan</string>
+    <string name="source_edit_type">Tipe</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">File</string>
+    <string name="source_edit_url_location">Lokasi</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Lokasi dibutuhkan</string>
+    <string name="source_edit_file_hint">Tekan File untuk memilih sumber berkasnya </string>
+    <string name="source_edit_location_invalid">Lokasi salah</string>
+    <string name="source_edit_format">Daftar format</string>
+    <string name="source_edit_format_block_list">Blokir</string>
+    <string name="source_edit_format_allow_list">Ijinkan</string>
+    <string name="source_edit_redirected_hosts">Perbolehkan pengalihan host</string>
+    <string name="source_edit_redirected_hosts_warning">Memperbolehkan pengalihan host dapat menyebabkan masalah keamanan. Hanya gunakan pengaturan ini pada sumber yang terpercaya, karena ini dapat mengalihkan lalu lintas data sensitif ke server manapun.</string>
+</resources>
