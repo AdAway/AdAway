@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_update_title">Atualizações</string>
+    <string name="pref_update_enable_notifications">As notificações estão desativadas</string>
+    <string name="pref_update_enable_notifications_summary">As notificações de aplicativos não serão exibidas. Toque para ativá-las.</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Atualizações do aplicativo</string>
     <string name="pref_update_check_app_startup">Verificar se há atualizações na inicialização</string>
