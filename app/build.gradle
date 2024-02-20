@@ -14,12 +14,11 @@ repositories {
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion '34.0.0'
-    ndkVersion '25.2.9519653'
+    ndkVersion '26.2.11394342'
     namespace 'org.adaway'
 
     defaultConfig {
+        compileSdk 34
         minSdkVersion 26
         targetSdkVersion 33
         versionCode 60101   // Read x.yy.zz to match version name
@@ -104,24 +103,24 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.fragment:fragment:1.5.5'
+    implementation 'androidx.fragment:fragment:1.6.2'
     // "fragment-ktx" is not used but was added to fix the following dependency error:
     // Duplicate class androidx.lifecycle.ViewModelLazy found in modules lifecycle-viewmodel-2.5.0-runtime (androidx.lifecycle:lifecycle-viewmodel:2.5.0) and lifecycle-viewmodel-ktx-2.3.1-runtime
-    implementation 'androidx.fragment:fragment-ktx:1.5.5'
-    implementation 'androidx.paging:paging-runtime:3.1.1'
-    implementation 'androidx.preference:preference:1.2.0'
-    implementation 'androidx.recyclerview:recyclerview:1.3.0'
-    implementation 'androidx.room:room-runtime:2.5.1'
-    implementation 'androidx.room:room-paging:2.5.1'
-    annotationProcessor 'androidx.room:room-compiler:2.5.1'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+    implementation 'androidx.paging:paging-runtime:3.2.1'
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.room:room-runtime:2.6.1'
+    implementation 'androidx.room:room-paging:2.6.1'
+    annotationProcessor 'androidx.room:room-compiler:2.6.1'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'androidx.work:work-runtime:2.8.1'
-    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.work:work-runtime:2.9.0'
+    implementation 'com.google.android.material:material:1.11.0'
 
     // Collections related
     implementation 'com.google.guava:guava:32.0.1-android'
     // Network related
-    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
     // Logging related
     implementation 'com.jakewharton.timber:timber:5.0.1'
     if (keyStoreDefined) {
@@ -136,13 +135,13 @@ dependencies {
     // VPN related
     implementation 'org.pcap4j:pcap4j-core:1.8.2'
     implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
-    implementation 'dnsjava:dnsjava:3.5.2'
-    implementation 'org.slf4j:slf4j-android:1.7.32'
-    implementation 'com.squareup.okhttp3:okhttp-dnsoverhttps:4.11.0'
+    implementation 'dnsjava:dnsjava:3.5.3'
+    implementation 'org.slf4j:slf4j-android:1.7.36'
+    implementation 'com.squareup.okhttp3:okhttp-dnsoverhttps:4.12.0'
 
     // Test related
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.json:json:20220320'
+    testImplementation 'org.json:json:20240205'
     androidTestImplementation 'androidx.arch.core:core-testing:2.2.0'
     androidTestImplementation 'androidx.test:core:1.5.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -3,7 +3,8 @@
 static const char *param_names[] = {
         "url",
         "fallback",
-        "ds_dest_url"
+        "ds_dest_url",
+        "wgtarget"
 };
 
 //static void zero_content_length(struct mg_connection *c) {

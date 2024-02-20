@@ -9,12 +9,11 @@ android {
         }
     }
 
-    compileSdkVersion 33
-    buildToolsVersion '34.0.0'
-    ndkVersion '25.2.9519653'
+    ndkVersion '26.2.11394342'
     namespace 'org.adaway.libpcap'
 
     defaultConfig {
+        compileSdk 34
         minSdkVersion 26
         targetSdkVersion 33
     }

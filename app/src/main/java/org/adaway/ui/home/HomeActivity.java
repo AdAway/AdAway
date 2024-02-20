@@ -27,7 +27,6 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModelProvider;
@@ -51,6 +50,7 @@ import org.adaway.ui.support.SupportActivity;
 import org.adaway.ui.update.UpdateActivity;
 import org.adaway.ui.welcome.WelcomeActivity;
 
+import kotlin.jvm.functions.Function1;
 import timber.log.Timber;
 
 /**
@@ -174,7 +174,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void bindHostCounter() {
-        Function<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
+        Function1<Integer, CharSequence> stringMapper = count -> Integer.toString(count);
 
         TextView blockedHostCountTextView = this.binding.content.blockedHostCounterTextView;
         LiveData<Integer> blockedHostCount = this.homeViewModel.getBlockedHostCount();
