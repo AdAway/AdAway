@@ -26,6 +26,7 @@ android {
     sonarqube {
         skipProject = true
     }
+    compileSdk 34
 }
 
 dependencies {
