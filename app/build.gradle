@@ -67,6 +67,7 @@ android {
 
     buildFeatures {
         viewBinding true
+        buildConfig true
     }
 
     packagingOptions {
@@ -93,6 +94,7 @@ android {
         disable 'MissingTranslation'
     }
     compileSdk 34
+    buildToolsVersion '35.0.0 rc1'
 }
 
 dependencies {

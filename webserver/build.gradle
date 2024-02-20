@@ -27,6 +27,7 @@ android {
         skipProject = true
     }
     compileSdk 34
+    buildToolsVersion '35.0.0 rc1'
 }
 
 dependencies {
