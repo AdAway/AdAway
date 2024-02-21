@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">Modifier une source</string>
     <string name="source_edit_add_title">Ajouter une source</string>
@@ -11,7 +11,7 @@
     <string name="source_edit_url_location">Emplacement</string>
     <string name="source_edit_url_location_default">https://</string>
     <string name="source_edit_url_location_required">Un emplacement est nécessaire</string>
-    <string name="source_edit_file_hint">Appuyez sur Fichier pour sélectionner le fichier source</string>
+    <string name="source_edit_file_hint">Touchez Fichier pour sélectionner le fichier source</string>
     <string name="source_edit_location_invalid">Emplacement invalide</string>
     <string name="source_edit_format">Format de la liste</string>
     <string name="source_edit_format_block_list">Bloquer</string>
