@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">Modifier une source</string>
     <string name="source_edit_add_title">Ajouter une source</string>
     <!-- Hosts source edition -->
     <string name="source_edit_label">Étiquette</string>
-    <string name="source_edit_label_required">Étiquette requise</string>
+    <string name="source_edit_label_required">Une étiquette est nécessaire</string>
     <string name="source_edit_type">Type</string>
     <string name="source_edit_url">URL</string>
     <string name="source_edit_file">Fichier</string>
