@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">Modifier une source</string>
     <string name="source_edit_add_title">Ajouter une source</string>
@@ -16,6 +16,6 @@
     <string name="source_edit_format">Format des listes</string>
     <string name="source_edit_format_block_list">Bloquer</string>
     <string name="source_edit_format_allow_list">Autoriser</string>
-    <string name="source_edit_redirected_hosts">Appliquer les redirection d\'hôtes</string>
+    <string name="source_edit_redirected_hosts">Appliquer les hôtes redirigés</string>
     <string name="source_edit_redirected_hosts_warning">Autoriser les redirections d\'hôtes peut entraîner des problèmes de sécurité. N\'utilisez ces paramètres que sur une source de confiance car cela pourrait rediriger une partie du trafic sensible vers le serveur de votre choix.</string>
 </resources>
