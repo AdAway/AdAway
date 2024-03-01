@@ -45,58 +45,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/paypalCardView"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/paypalButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        app:cardCornerRadius="32dp"
-        app:cardElevation="20dp"
-        app:contentPaddingBottom="16dp"
-        app:contentPaddingLeft="24dp"
-        app:contentPaddingRight="24dp"
-        app:contentPaddingTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:paddingTop="20dp"
+        android:text="@string/welcome_support_button"
+        android:textSize="18sp"
+        app:icon="@drawable/paypal"
+        app:iconSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/summaryTextView"
-        app:strokeWidth="0dp">
+        app:layout_constraintTop_toBottomOf="@+id/summaryTextView"/>
 
-        <TextView
-            android:id="@+id/paypalTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
-            android:text="@string/welcome_support_button"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:drawableStartCompat="@drawable/paypal" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/sponsorshipCardView"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sponsorshipButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        app:cardCornerRadius="32dp"
-        app:cardElevation="24dp"
-        app:contentPaddingBottom="16dp"
-        app:contentPaddingLeft="24dp"
-        app:contentPaddingRight="24dp"
-        app:contentPaddingTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp"
+        android:paddingTop="20dp"
+        android:text="@string/support_sponsorship_button"
+        android:textSize="18sp"
+        app:icon="@drawable/ic_github_32dp"
+        app:iconSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/paypalCardView"
-        app:strokeWidth="0dp">
-
-        <TextView
-            android:id="@+id/sponsorshipTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawablePadding="8dp"
-            android:text="@string/support_sponsorship_button"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:drawableStartCompat="@drawable/ic_github_32dp" />
-
-    </com.google.android.material.card.MaterialCardView>
+        app:layout_constraintTop_toBottomOf="@+id/paypalButton"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -78,10 +78,10 @@ public class SupportActivity extends AppCompatActivity {
 
     private void bindPaypal() {
         bindLink(this, findViewById(R.id.headerImageView), SUPPORT_LINK);
-        bindLink(this, findViewById(R.id.paypalCardView), SUPPORT_LINK);
+        bindLink(this, findViewById(R.id.paypalButton), SUPPORT_LINK);
     }
 
     private void bindSponsorShip() {
-        bindLink(this, findViewById(R.id.sponsorshipCardView), SPONSORSHIP_LINK);
+        bindLink(this, findViewById(R.id.sponsorshipButton), SPONSORSHIP_LINK);
     }
 }
