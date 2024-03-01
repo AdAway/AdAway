@@ -135,8 +135,8 @@
 
         <ImageView
             android:id="@+id/blockedHostImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_margin="5dp"
             android:contentDescription="@string/blocked_hosts_label"
             android:elevation="15dp"
@@ -212,8 +212,8 @@
 
         <ImageView
             android:id="@+id/allowedHostImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_margin="5dp"
             android:contentDescription="@string/allowed_hosts_label"
             android:elevation="15dp"
@@ -290,8 +290,8 @@
 
         <ImageView
             android:id="@+id/redirectHostImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_margin="5dp"
             android:contentDescription="@string/redirect_hosts_label"
             android:elevation="15dp"
@@ -452,8 +452,8 @@
 
         <ImageView
             android:id="@+id/helpImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_margin="5dp"
             android:contentDescription="@string/log_label"
             android:elevation="15dp"
@@ -504,8 +504,8 @@
 
         <ImageView
             android:id="@+id/projectImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_margin="5dp"
             android:contentDescription="@string/help_label"
             android:elevation="15dp"
@@ -556,8 +556,8 @@
 
         <ImageView
             android:id="@+id/supportImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/circle_size"
+            android:layout_height="@dimen/circle_size"
             android:layout_margin="5dp"
             android:contentDescription="@string/support_label"
             android:elevation="15dp"

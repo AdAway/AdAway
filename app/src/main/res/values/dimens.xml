@@ -10,4 +10,6 @@
     <!-- List items -->
     <dimen name="divider_margin">10dp</dimen>
     <dimen name="divider_height">2dp</dimen>
+    <!-- Icons -->
+    <dimen name="circle_size">24dp</dimen>
 </resources>
