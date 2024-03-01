@@ -35,14 +35,13 @@
     <string name="welcome_synced_header">تمت المزامنة</string>
     <string name="welcome_sync_summary">AdAway يقوم بتنزيل شبكات الإعلانات لمنعها من المصادر عبر الإنترنت. يمكنك تخصيصها لاحقًا في الإعدادات.</string>
     <string name="welcome_sync_retry_logo">أعد محاولة المزامنة</string>
-    <string name="welcome_sync_error">فشل مزامنة
-%1$s
-أعد المحاولة الآن؟</string>
+    <string name="welcome_sync_error">فشل مزامنة: %1$s إعادة المحاولة الآن</string>
+    <string name="welcome_sync_notifications">يمكنه إرسال إشعارات لعرض حالة حظر الإعلانات والتحكم فيها، وإعلامك بتحديث التطبيق المتاح (عدد قليل في السنة). قم بتمكينها إذا كنت ترغب في البقاء على اطلاع دائم.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">الدعم</string>
     <string name="welcome_support_header">إدعمني!</string>
-    <string name="welcome_support_summary">إنه تطبيق مجاني ومفتوح المصدر. أقوم بتطويره في وقت فراغي. لذلك إذا كنت تستمتع به ، فلا تتردد في إظهار دعمك:</string>
+    <string name="welcome_support_summary">Adaway هو برنامج مفتوح المصدر اقوم بتطويره في وقت فراغي. اذا أعجبك. كُن حر بإظهار دعمك:</string>
     <string name="welcome_support_button">تبرع على PayPal</string>
     <string name="welcome_support_telemetry_summary">هل وجدت مشاكل في التطبيق؟ ولا أنا.</string>
     <string name="welcome_support_telemetry_button">قم بتفعيل إرسال تقارير مشاكل التطبيق</string>
