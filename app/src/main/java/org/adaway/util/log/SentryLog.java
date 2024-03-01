@@ -1,8 +1,10 @@
 package org.adaway.util.log;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.Log;
 
+import org.adaway.BuildConfig;
 import org.adaway.helper.PreferenceHelper;
 import org.jetbrains.annotations.Nullable;
 
@@ -10,6 +12,7 @@ import io.sentry.Breadcrumb;
 import io.sentry.Sentry;
 import io.sentry.SentryLevel;
 import io.sentry.android.core.SentryAndroid;
+import io.sentry.android.core.SystemEventsBreadcrumbsIntegration;
 import timber.log.Timber;
 
 import static io.sentry.SentryLevel.INFO;
@@ -47,7 +50,11 @@ public final class SentryLog {
     public static void setEnabled(Context context, boolean enabled) {
         if (enabled) {
             // Initialize sentry client manually
-            SentryAndroid.init(context);
+            SentryAndroid.init(context, options -> {
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU) {
+                    options.getIntegrations().removeIf(it -> it instanceof SystemEventsBreadcrumbsIntegration);
+                }
+            });
         }
     }
 

@@ -1,9 +1,11 @@
 package org.adaway.model.update;
 
+import android.annotation.SuppressLint;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Build;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -155,9 +157,23 @@ public class UpdateModel {
         long downloadId = download(manifest);
         // Register new broadcast receiver
         this.receiver = new ApkDownloadReceiver(downloadId);
-        this.context.registerReceiver(this.receiver, new IntentFilter(ACTION_DOWNLOAD_COMPLETE));
+        registerReceiver();
         // Return download identifier
         return downloadId;
+    }
+
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
+    private void registerReceiver() {
+        if (SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            this.context.registerReceiver(
+                    this.receiver,
+                    new IntentFilter(ACTION_DOWNLOAD_COMPLETE),
+                    Context.RECEIVER_NOT_EXPORTED);
+        } else {
+            this.context.registerReceiver(
+                    this.receiver,
+                    new IntentFilter(ACTION_DOWNLOAD_COMPLETE));
+        }
     }
 
     private long download(Manifest manifest) {
