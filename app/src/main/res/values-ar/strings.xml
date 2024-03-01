@@ -11,7 +11,7 @@
     <string name="button_help">المساعدة</string>
 
     <!--Home-->
-    <string name="header_help">أهلاً وسهلاً!</string>
+    <string name="header_help">مرحباً!</string>
     <string name="text_help">AdAway هو تصميم برامج مجاني ومفتوح المصدر لمنع الإعلانات. إنه يجلب عناوين الشبكات الإعلانية لمنعها من الظهور على جهازك. \nهل تود معرفة المزيد؟ يرجى رؤية المساعدة أدناه!</string>
     <string name="button_show_help">إظهار المزيد من المساعدة</string>
     <string name="icon_update_status">حالة التحديث</string>
@@ -255,7 +255,7 @@
     </plurals>
 
     <!-- Clipboard -->
-    <string name="clipboard_host_copied">تم نسخ المضيف إلى الحافظة</string>
+    <string name="clipboard_host_copied">تم نسخ المضيف إلى الحافظة<br></string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">تشغيل</string>
