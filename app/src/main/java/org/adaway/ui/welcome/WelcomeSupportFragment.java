@@ -57,7 +57,7 @@ public class WelcomeSupportFragment extends WelcomeFragment {
         Context context = requireContext();
         bindLink(context, this.binding.headerImageView, SUPPORT_LINK);
         bindLink(context, this.binding.headerTextView, SUPPORT_LINK);
-        bindLink(context, this.binding.paypalCardView, SUPPORT_LINK);
+        bindLink(context, this.binding.paypalButton, SUPPORT_LINK);
     }
 
     private void bindTelemetry() {
@@ -70,7 +70,7 @@ public class WelcomeSupportFragment extends WelcomeFragment {
     private void showAndBindSponsorship() {
         this.binding.telemetryTextView.setVisibility(INVISIBLE);
         this.binding.telemetryCheckBox.setVisibility(INVISIBLE);
-        this.binding.sponsorshipCardView.setVisibility(VISIBLE);
-        bindLink(requireContext(), this.binding.sponsorshipCardView, SPONSORSHIP_LINK);
+        this.binding.sponsorshipButton.setVisibility(VISIBLE);
+        bindLink(requireContext(), this.binding.sponsorshipButton, SPONSORSHIP_LINK);
     }
 }
