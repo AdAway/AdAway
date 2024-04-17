@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Benvenuto!</string>
-    <string name="text_help">AdAway è un software gratuito e open-source progettato per bloccare pubblicità. Raccoglie gli indirizzi pubblicitari per bloccarli sul tuo dispositivo..\nVuoi saperne di più? Controlla la sezione di aiuto qui sotto!</string>
+    <string name="text_help">AdAway è un software gratuito e open-source progettato per bloccare pubblicità. Raccoglie gli indirizzi pubblicitari per bloccarli sul tuo dispositivo.\nVuoi saperne di più? Controlla la sezione di aiuto qui sotto!</string>
     <string name="button_show_help">Mostra più suggerimenti</string>
     <string name="icon_update_status">Aggiorna stato</string>
     <string name="text_update">Tutti i file hosts vengono scaricati dalle sorgenti definite, uniti alle tue liste personali e installati come un unico file hosts nel sistema</string>
