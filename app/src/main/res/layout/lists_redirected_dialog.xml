@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,29 +13,46 @@
         android:text="@string/list_dialog_hostname"
         android:textAppearance="@android:style/TextAppearance.Medium" />
 
-    <EditText
-        android:id="@+id/list_dialog_hostname"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"
-        android:inputType="textVisiblePassword"
+        android:layout_marginTop="8dp"
         android:scrollHorizontally="true"
-        android:singleLine="true" />
+        android:singleLine="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/list_dialog_hostname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:inputType="textVisiblePassword"
+            android:importantForAutofill="no" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:labelFor="@id/list_dialog_ip"
         android:text="@string/list_dialog_ip"
         android:textAppearance="@android:style/TextAppearance.Medium" />
 
-    <EditText
-        android:id="@+id/list_dialog_ip"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:importantForAutofill="no"
-        android:inputType="textVisiblePassword"
+        android:layout_marginTop="8dp"
         android:scrollHorizontally="true"
-        android:singleLine="true" />
+        android:singleLine="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/list_dialog_ip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionNext"
+            android:inputType="textVisiblePassword"
+            android:importantForAutofill="no" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>

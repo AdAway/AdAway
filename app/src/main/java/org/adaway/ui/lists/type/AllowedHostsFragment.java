@@ -24,13 +24,13 @@ package org.adaway.ui.lists.type;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
 import androidx.paging.PagingData;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
@@ -54,7 +54,7 @@ public class AllowedHostsFragment extends AbstractListFragment {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_allowed_dialog, null);
-        EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
+        TextInputEditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         // Create dialog
         AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
                 .setCancelable(true)
@@ -93,7 +93,7 @@ public class AllowedHostsFragment extends AbstractListFragment {
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_allowed_dialog, null);
         // Set hostname
-        EditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
+        TextInputEditText inputEditText = view.findViewById(R.id.list_dialog_hostname);
         inputEditText.setText(item.getHost());
         // Move cursor to end of EditText
         Editable inputEditContent = inputEditText.getText();
