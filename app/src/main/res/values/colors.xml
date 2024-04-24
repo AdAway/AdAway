@@ -2,6 +2,7 @@
 <resources>
     <!-- Material theming light theme -->
     <color name="seed">#ef5350</color>
+    <color name="brand">#B3272A</color>
     <color name="primary">#B3272A</color>
     <color name="onPrimary">#FFFFFF</color>
     <color name="primaryContainer">#FFDAD7</color>
