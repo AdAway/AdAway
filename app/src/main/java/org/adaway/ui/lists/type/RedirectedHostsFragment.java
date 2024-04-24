@@ -23,13 +23,13 @@ package org.adaway.ui.lists.type;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
 import androidx.paging.PagingData;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.adaway.R;
 import org.adaway.db.entity.HostListItem;
@@ -58,8 +58,8 @@ public class RedirectedHostsFragment extends AbstractListFragment {
         // Create dialog view
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_redirected_dialog, null);
-        EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
-        EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
+        TextInputEditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
+        TextInputEditText ipEditText = view.findViewById(R.id.list_dialog_ip);
         // Create dialog
         AlertDialog alertDialog = new MaterialAlertDialogBuilder(this.mActivity)
                 .setCancelable(true)
@@ -107,8 +107,8 @@ public class RedirectedHostsFragment extends AbstractListFragment {
         LayoutInflater factory = LayoutInflater.from(this.mActivity);
         View view = factory.inflate(R.layout.lists_redirected_dialog, null);
         // Set hostname and IP
-        EditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
-        EditText ipEditText = view.findViewById(R.id.list_dialog_ip);
+        TextInputEditText hostnameEditText = view.findViewById(R.id.list_dialog_hostname);
+        TextInputEditText ipEditText = view.findViewById(R.id.list_dialog_ip);
         hostnameEditText.setText(item.getHost());
         ipEditText.setText(item.getRedirection());
         // Move cursor to end of EditText
