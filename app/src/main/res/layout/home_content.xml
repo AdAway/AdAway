@@ -35,14 +35,15 @@
         android:id="@+id/logoImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
         android:contentDescription="@string/app_logo"
         app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.1"
         app:layout_constraintStart_toStartOf="@+id/headerFrameLayout"
         app:layout_constraintTop_toTopOf="@+id/headerFrameLayout"
-        app:srcCompat="@mipmap/icon_round" />
+        android:scaleType="center"
+        app:srcCompat="@mipmap/icon_foreground" />
 
     <TextView
         android:id="@+id/appNameTextView"
