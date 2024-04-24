@@ -63,237 +63,214 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/rootCardView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        app:cardCornerRadius="32dp"
-        app:cardElevation="10dp"
-        app:layout_constraintBottom_toTopOf="@id/CardBottom"
-        app:layout_constraintEnd_toEndOf="@+id/rootMethodLayout"
-        app:layout_constraintStart_toStartOf="@+id/rootMethodLayout"
-        app:layout_constraintTop_toTopOf="@+id/contentGuideline"
-        app:strokeWidth="0dp">
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/rootMethodLayout"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
-        android:padding="16dp"
-        android:translationZ="10dp"
-        app:layout_constraintBottom_toTopOf="@id/CardBottom"
-        app:layout_constraintEnd_toStartOf="@+id/vpnMethodLayout"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginEnd="8dp"
+        style="@style/Widget.Material3.CardView.Filled"
+        app:cardCornerRadius="32dp"
+        app:contentPadding="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/vpnCardView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/contentGuideline"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@+id/contentGuideline">
 
-        <ImageView
-            android:id="@+id/rootMethodImageView"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:contentDescription="@string/welcome_root_method_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_superuser_24dp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootMethodLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/rootMethodTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/welcome_root_method_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rootMethodImageView" />
+            <ImageView
+                android:id="@+id/rootMethodImageView"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="@string/welcome_root_method_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_superuser_24dp" />
 
-        <ImageView
-            android:id="@+id/rootListImageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/welcome_method_pro_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rootMethodTextView"
-            app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
+            <TextView
+                android:id="@+id/rootMethodTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/welcome_root_method_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rootMethodImageView" />
 
-        <TextView
-            android:id="@+id/rootListTextView1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/welcome_root_method_text1"
-            app:layout_constraintBottom_toBottomOf="@+id/rootListImageView1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rootListImageView1"
-            app:layout_constraintTop_toTopOf="@+id/rootListImageView1" />
+            <ImageView
+                android:id="@+id/rootListImageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_pro_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rootMethodTextView"
+                app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
 
-        <ImageView
-            android:id="@+id/rootListImageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/welcome_method_pro_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rootListImageView1"
-            app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
+            <TextView
+                android:id="@+id/rootListTextView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/welcome_root_method_text1"
+                app:layout_constraintBottom_toBottomOf="@+id/rootListImageView1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rootListImageView1"
+                app:layout_constraintTop_toTopOf="@+id/rootListImageView1" />
 
-        <TextView
-            android:id="@+id/rootListTextView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/welcome_root_method_text2"
-            app:layout_constraintBottom_toBottomOf="@+id/rootListImageView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rootListImageView2"
-            app:layout_constraintTop_toTopOf="@+id/rootListImageView2" />
+            <ImageView
+                android:id="@+id/rootListImageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_pro_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rootListImageView1"
+                app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
 
-        <ImageView
-            android:id="@+id/rootListImageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/welcome_method_con_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rootListImageView2"
-            app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
+            <TextView
+                android:id="@+id/rootListTextView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/welcome_root_method_text2"
+                app:layout_constraintBottom_toBottomOf="@+id/rootListImageView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rootListImageView2"
+                app:layout_constraintTop_toTopOf="@+id/rootListImageView2" />
 
-        <TextView
-            android:id="@+id/rootListTextView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/welcome_root_method_text3"
-            app:layout_constraintBottom_toBottomOf="@+id/rootListImageView3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/rootListImageView3"
-            app:layout_constraintTop_toTopOf="@+id/rootListImageView3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/rootListImageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_con_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rootListImageView2"
+                app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
+
+            <TextView
+                android:id="@+id/rootListTextView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/welcome_root_method_text3"
+                app:layout_constraintBottom_toBottomOf="@+id/rootListImageView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rootListImageView3"
+                app:layout_constraintTop_toTopOf="@+id/rootListImageView3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/vpnCardView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
+        android:layout_marginStart="8dp"
+        style="@style/Widget.Material3.CardView.Filled"
         app:cardCornerRadius="32dp"
-        app:cardElevation="10dp"
         app:contentPadding="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/CardBottom"
-        app:layout_constraintEnd_toEndOf="@+id/vpnMethodLayout"
-        app:layout_constraintStart_toStartOf="@+id/vpnMethodLayout"
-        app:layout_constraintTop_toTopOf="@+id/contentGuideline"
-        app:strokeWidth="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rootCardView"
+        app:layout_constraintTop_toTopOf="@+id/contentGuideline">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/vpnMethodLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/vpnMethodImageView"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="@string/welcome_vpn_method_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_vpn_key_24dp" />
+
+            <TextView
+                android:id="@+id/vpnMethodTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/welcome_vpn_method_title"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vpnMethodImageView" />
+
+            <ImageView
+                android:id="@+id/vpnListimageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_con_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vpnMethodTextView"
+                app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
+
+            <TextView
+                android:id="@+id/vpnListtextView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/welcome_vpn_method_text1"
+                app:layout_constraintBottom_toBottomOf="@+id/vpnListimageView1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/vpnListimageView1"
+                app:layout_constraintTop_toTopOf="@+id/vpnListimageView1" />
+
+            <ImageView
+                android:id="@+id/vpnListImageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_con_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vpnListimageView1"
+                app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
+
+            <TextView
+                android:id="@+id/vpnListTextView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/welcome_vpn_method_text2"
+                app:layout_constraintBottom_toBottomOf="@+id/vpnListImageView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/vpnListImageView2"
+                app:layout_constraintTop_toTopOf="@+id/vpnListImageView2" />
+
+            <ImageView
+                android:id="@+id/vpnListImageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/welcome_method_pro_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vpnListImageView2"
+                app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
+
+            <TextView
+                android:id="@+id/vpnListTextView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/welcome_vpn_method_text3"
+                app:layout_constraintBottom_toBottomOf="@+id/vpnListImageView3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/vpnListImageView3"
+                app:layout_constraintTop_toTopOf="@+id/vpnListImageView3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/vpnMethodLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="32dp"
-        android:padding="16dp"
-        android:translationZ="20dp"
-        app:layout_constraintBottom_toTopOf="@id/CardBottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/rootMethodLayout"
-        app:layout_constraintTop_toTopOf="@+id/contentGuideline"
-        app:layout_constraintVertical_bias="0.0">
-
-        <ImageView
-            android:id="@+id/vpnMethodImageView"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:contentDescription="@string/welcome_vpn_method_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_vpn_key_24dp" />
-
-        <TextView
-            android:id="@+id/vpnMethodTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/welcome_vpn_method_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vpnMethodImageView" />
-
-        <ImageView
-            android:id="@+id/vpnListimageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/welcome_method_con_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vpnMethodTextView"
-            app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
-
-        <TextView
-            android:id="@+id/vpnListtextView1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/welcome_vpn_method_text1"
-            app:layout_constraintBottom_toBottomOf="@+id/vpnListimageView1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/vpnListimageView1"
-            app:layout_constraintTop_toTopOf="@+id/vpnListimageView1" />
-
-        <ImageView
-            android:id="@+id/vpnListImageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/welcome_method_con_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vpnListimageView1"
-            app:srcCompat="@drawable/ic_remove_circle_outline_24dp" />
-
-        <TextView
-            android:id="@+id/vpnListTextView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/welcome_vpn_method_text2"
-            app:layout_constraintBottom_toBottomOf="@+id/vpnListImageView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/vpnListImageView2"
-            app:layout_constraintTop_toTopOf="@+id/vpnListImageView2" />
-
-        <ImageView
-            android:id="@+id/vpnListImageView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:contentDescription="@string/welcome_method_pro_logo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vpnListImageView2"
-            app:srcCompat="@drawable/ic_add_circle_outline_24dp" />
-
-        <TextView
-            android:id="@+id/vpnListTextView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/welcome_vpn_method_text3"
-            app:layout_constraintBottom_toBottomOf="@+id/vpnListImageView3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/vpnListImageView3"
-            app:layout_constraintTop_toTopOf="@+id/vpnListImageView3" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/CardBottom"
