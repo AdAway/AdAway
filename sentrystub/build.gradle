@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdk 33
-    buildToolsVersion = '34.0.0'
     namespace 'io.sentry'
 
     defaultConfig {
