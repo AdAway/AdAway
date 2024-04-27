@@ -3,14 +3,14 @@ import com.android.build.gradle.internal.tasks.LibraryJniLibsTask
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 33
+    compileSdk 33
     buildToolsVersion '34.0.0'
     ndkVersion '25.2.9519653'
     namespace 'org.adaway.webserver'
 
     defaultConfig {
-        minSdkVersion 26
-        targetSdkVersion 33
+        minSdk 26
+        targetSdk 33
     }
 
     buildFeatures {
@@ -64,6 +64,6 @@ def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) 
     }
 }
 
-tasks.withType(LibraryJniLibsTask) {
+tasks.withType(LibraryJniLibsTask).configureEach {
     dependsOn renameJniLibAsExecutable
 }

@@ -9,7 +9,7 @@ android {
         }
     }
 
-    compileSdkVersion 33
+    compileSdk 33
     buildToolsVersion '34.0.0'
     ndkVersion '25.2.9519653'
     namespace 'org.adaway.libpcap'
@@ -65,7 +65,7 @@ def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) 
     }
 }
 
-tasks.withType(LibraryJniLibsTask) {
+tasks.withType(LibraryJniLibsTask).configureEach {
     dependsOn renameJniLibAsExecutable
 }
 

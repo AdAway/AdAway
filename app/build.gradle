@@ -20,7 +20,7 @@ android {
     namespace 'org.adaway'
 
     defaultConfig {
-        minSdkVersion 26
+        minSdk 26
         targetSdk 33
         versionCode 60101   // Read x.yy.zz to match version name
         versionName '6.1.1'
