@@ -8,7 +8,7 @@
     <string name="hosts_peterlowe_source">Pete Lowe-ren ostalarien blokeo-zerrenda</string>
     <!-- List -->
     <string name="hosts_not_available">ez dago eskuragarri</string>
-    <string name="hosts_count">%s hostalari</string>
+    <string name="hosts_count">%s ostalari</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Gehitu iturria</string>
     <string name="hosts_edit_dialog_title">Editatu iturria</string>
