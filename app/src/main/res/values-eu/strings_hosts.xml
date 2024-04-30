@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">Ostalari-iturburuak</string>
     <!-- Default hosts source -->
@@ -13,5 +13,5 @@
     <string name="hosts_add_dialog_title">Gehitu iturria</string>
     <string name="hosts_edit_dialog_title">Editatu iturria</string>
     <string name="hosts_dialog_url">URL: (https:// edo file:// baliabidea)</string>
-    <string name="hosts_dialog_url_hint">Hostalari iturriaren URLa</string>
+    <string name="hosts_dialog_url_hint">Ostalari-iturburuaren URLa</string>
 </resources>
