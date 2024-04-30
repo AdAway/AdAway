@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Eguneraketak</string>
+    <string name="pref_update_enable_notifications">Jakinarazpenak ezgaituta daude</string>
+    <string name="pref_update_enable_notifications_summary">Ez dira aplikazioaren jakinarazpenak erakutsiko. Sakatu gaitzeko.</string>
     <!-- Application category -->
     <string name="pref_update_app_category">Aplikazioaren eguneraketak</string>
     <string name="pref_update_check_app_startup">Egiaztatu eguneraketak abiatzean</string>
