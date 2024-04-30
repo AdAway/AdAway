@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="update_title">AdAway eguneratzea</string>
+    <!-- Home screen -->
+    <string name="update_available">Eguneraketa eskuragarri!</string>
+
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">Egunean zaude</string>
     <string name="update_update_available_header">Eguneraketa eskuragarri</string>
-    </resources>
+    <string name="update_updating_header">AdAway eguneratzen</string>
+    <string name="update_update_button">Eguneratu orain</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_last_changelog_title">Azken aldaketak</string>
+    <string name="update_new_changelog_title">Aldaketa-oharra</string>
+    <string name="update_support_title">Babestu garapena</string>
+    <string name="update_donate_button">Dirulaguntza</string>
+    <string name="update_sponsor_button">Babesa</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">AdAway-ren azken bertsioa deskargatzen…</string>
+</resources>
