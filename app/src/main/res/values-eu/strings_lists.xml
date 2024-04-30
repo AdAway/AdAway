@@ -15,9 +15,9 @@
     <string name="list_add_dialog_white">Gehitu ostalaria zerrenda-zurira</string>
     <string name="list_add_dialog_redirect">Gehitu birbideratze ostalaria</string>
     <string name="list_edit_dialog_black">Editatu zerrenda-beltzeko ostalaria</string>
-    <string name="list_edit_dialog_white">Editatu zerrenda-zuriko hostalaria</string>
+    <string name="list_edit_dialog_white">Editatu zerrenda-zuriko ostalaria</string>
     <string name="list_edit_dialog_redirect">Editatu birbideratzea</string>
-    <string name="list_dialog_hostname">Hostalari-izena:</string>
+    <string name="list_dialog_hostname">Ostalari-izena:</string>
     <string name="list_dialog_hostname_hint">Hostalari iturriaren URLa</string>
     <string name="list_dialog_wildcard">(* eta ? bezalako komodin karaktereak onartzen dira)</string>
     <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
