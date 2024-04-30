@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Eguneraketak</string>
     <string name="pref_update_enable_notifications">Jakinarazpenak ezgaituta daude</string>
@@ -9,7 +9,7 @@
     <string name="pref_update_check_app_daily">Egiaztatu eguneraketak egunero</string>
     <string name="pref_update_include_beta_releases">Barne hartu beta bertsioak</string>
     <!-- Application hosts -->
-    <string name="pref_update_hosts_category">Hostalarien eguneraketak</string>
+    <string name="pref_update_hosts_category">Ostalarien eguneraketak</string>
     <string name="pref_update_check">Egiaztatu eguneraketak abiatzean</string>
     <string name="pref_update_check_hosts_daily">Egiaztatu eguneraketak egunero</string>
     <string name="pref_update_sync_on_update">Sinkronizatu eguneratzean</string>
