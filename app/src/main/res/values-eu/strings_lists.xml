@@ -7,7 +7,7 @@
     <string name="lists_tab_allowed">baimenduta</string>
     <string name="lists_tab_redirected">birbideratze</string>
     <!-- Menu -->
-    <string name="lists_menu_filter">Iragazi hostalariak</string>
+    <string name="lists_menu_filter">Iragazi ostalariak</string>
     <string name="lists_menu_filter_hint">host-aren izena bilatu</string>
     <string name="lists_menu_toggle_sources">Txandakatu iturriak</string>
     <!-- Edition dialog -->
