@@ -12,7 +12,7 @@
     <string name="lists_menu_toggle_sources">Txandakatu iturriak</string>
     <!-- Edition dialog -->
     <string name="list_add_dialog_black">Gehitu ostalaria zerrenda-beltzara</string>
-    <string name="list_add_dialog_white">Gehitu hostalaria zerrenda-zurira</string>
+    <string name="list_add_dialog_white">Gehitu ostalaria zerrenda-zurira</string>
     <string name="list_add_dialog_redirect">Gehitu birbideratze hostalaria</string>
     <string name="list_edit_dialog_black">Editatu zerrenda-beltzeko hostalaria</string>
     <string name="list_edit_dialog_white">Editatu zerrenda-zuriko hostalaria</string>
