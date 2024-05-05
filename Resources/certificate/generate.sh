@@ -1,6 +1,6 @@
 rm localhost.*
 
-# Add compatiblity for MINGW
+# Add compatibility for MINGW
 kernel=$(uname -s)
 if [[ $kernel == MINGW* ]]; then
   export MSYS_NO_PATHCONV=1
