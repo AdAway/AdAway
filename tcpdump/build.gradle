@@ -18,10 +18,6 @@ android {
         targetSdkVersion 33
     }
 
-    buildFeatures {
-        buildConfig = false
-    }
-
     externalNativeBuild {
         ndkBuild {
             path 'jni/Android.mk'

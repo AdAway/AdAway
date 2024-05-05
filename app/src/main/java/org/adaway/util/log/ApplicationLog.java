@@ -1,10 +1,10 @@
 package org.adaway.util.log;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 
 import com.topjohnwu.superuser.Shell;
 
-import org.adaway.BuildConfig;
 import org.adaway.helper.PreferenceHelper;
 
 import timber.log.Timber;
@@ -28,7 +28,7 @@ public final class ApplicationLog {
      * @param context The application context.
      */
     public static void init(Context context) {
-        if (BuildConfig.DEBUG || PreferenceHelper.getDebugEnabled(context)) {
+        if (isApplicationDebuggable(context) || PreferenceHelper.getDebugEnabled(context)) {
             Shell.enableVerboseLogging = true;
             Timber.plant(new Timber.DebugTree());
         } else {
@@ -36,5 +36,9 @@ public final class ApplicationLog {
             SentryLog.init(context);
             Timber.plant(new SentryLog.SentryTree());
         }
+    }
+
+    private static boolean isApplicationDebuggable(Context context) {
+        return (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
     }
 }
