@@ -1,20 +1,17 @@
 package org.adaway.util.log;
 
-import android.content.Context;
-import android.util.Log;
+import static io.sentry.SentryLevel.ERROR;
+import static io.sentry.SentryLevel.INFO;
+
+import android.app.Application;
 
 import org.adaway.helper.PreferenceHelper;
-import org.jetbrains.annotations.Nullable;
 
 import io.sentry.Breadcrumb;
 import io.sentry.Sentry;
-import io.sentry.SentryLevel;
 import io.sentry.android.core.SentryAndroid;
-import timber.log.Timber;
-
-import static io.sentry.SentryLevel.INFO;
-
-import androidx.annotation.NonNull;
+import io.sentry.android.fragment.FragmentLifecycleIntegration;
+import io.sentry.android.timber.SentryTimberIntegration;
 
 /**
  * This class is a helper to initialize and configuration Sentry.
@@ -32,22 +29,25 @@ public final class SentryLog {
     /**
      * Initialize Sentry logging client according user preferences.
      *
-     * @param context The application context.
+     * @param application The application instance.
      */
-    public static void init(Context context) {
-        setEnabled(context, PreferenceHelper.getTelemetryEnabled(context));
+    public static void init(Application application) {
+        setEnabled(application, PreferenceHelper.getTelemetryEnabled(application));
     }
 
     /**
      * Initialize Sentry logging client.
      *
-     * @param context The application context.
+     * @param application The application instance.
      * @param enabled Whether the application is allowed to send events to Sentry or not.
      */
-    public static void setEnabled(Context context, boolean enabled) {
+    public static void setEnabled(Application application, boolean enabled) {
         if (enabled) {
-            // Initialize sentry client manually
-            SentryAndroid.init(context);
+            // Initialize sentry client manually and bind it to logging
+            SentryAndroid.init(application, options -> {
+                options.addIntegration(new SentryTimberIntegration(ERROR, INFO));
+                options.addIntegration(new FragmentLifecycleIntegration(application, true, false));
+            });
         }
     }
 
@@ -76,17 +76,6 @@ public final class SentryLog {
             return true;
         } catch (NoSuchFieldException exception) {
             return false;
-        }
-    }
-
-    static class SentryTree extends Timber.Tree {
-        @Override
-        protected void log(int priority, @Nullable String tag, @NonNull String message, @Nullable Throwable throwable) {
-            if (priority == Log.WARN) {
-                Sentry.captureMessage(message, SentryLevel.WARNING);
-            } else if (priority == Log.ERROR) {
-                Sentry.captureMessage(message, SentryLevel.ERROR);
-            }
         }
     }
 }
