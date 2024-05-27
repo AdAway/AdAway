@@ -1,5 +1,8 @@
 ## [6.1.2] - Unreleased
 
+- Update mongoose web server
+- Update third party libraries
+- Update Android gradle plugin
 - Update translations
 
 Special thanks to @Fs00 and @gallegonovato for their bug reports.
