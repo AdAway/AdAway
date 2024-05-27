@@ -27,11 +27,18 @@ struct settings {
     bool debug;
 };
 
-static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
-    if (ev == MG_EV_HTTP_MSG) {
+static void fn(struct mg_connection *c, int ev, void *ev_data) {
+    if (ev == MG_EV_ACCEPT) {
+        struct settings *s = (struct settings *) c->data;
+        struct mg_tls_opts tls_opts = {
+                .cert = mg_str(s->ssl_cert),
+                .key = mg_str(s->ssl_key)
+        };
+        mg_tls_init(c, &tls_opts);
+    } else if (ev == MG_EV_HTTP_MSG) {
         struct mg_http_message *hm = (struct mg_http_message *) ev_data;
-        struct settings *s = (struct settings *) fn_data;
-        if (mg_vcmp(&hm->uri, "/internal-test") == 0) {
+        struct settings *s = (struct settings *) c->data;
+        if (mg_strcmp(hm->uri, mg_str("/internal-test"))) {
             struct mg_http_serve_opts opts;
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->test_path, &opts);
@@ -42,19 +49,6 @@ static void fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
         } else {
             mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
         }
-    }
-}
-
-static void tls_fn(struct mg_connection *c, int ev, void *ev_data, void *fn_data) {
-    if (ev == MG_EV_ACCEPT) {
-        struct settings *s = (struct settings *) fn_data;
-        struct mg_tls_opts tls_opts = {
-                .cert = s->ssl_cert,
-                .certkey= s->ssl_key
-        };
-        mg_tls_init(c, &tls_opts);
-    } else {
-        fn(c, ev, ev_data, fn_data);
     }
 }
 
@@ -87,7 +81,11 @@ void oom_adjust_setup(void) {
 }
 
 struct settings parse_cli_parameters(int argc, char *argv[]) {
-    struct settings s;
+    struct settings s = {
+            .init = false,
+            .icon = false,
+            .debug = false
+    };
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--resources") == 0 && i < argc - 1) {
             char *resource_path = argv[++i];
@@ -133,7 +131,7 @@ int main(int argc, char *argv[]) {
         __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Failed to listen on http port.");
         return EXIT_FAILURE;
     }
-    https_connection = mg_http_listen(&mgr, HTTPS_URL, tls_fn, &s);
+    https_connection = mg_http_listen(&mgr, HTTPS_URL, fn, &s);
     if (https_connection == NULL) {
         __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Failed to listen on https port.");
         return EXIT_FAILURE;
