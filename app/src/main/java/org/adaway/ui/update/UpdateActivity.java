@@ -61,7 +61,7 @@ public class UpdateActivity extends AppCompatActivity {
         this.updateViewModel.getDownloadProgress().observe(this, progress -> {
             this.binding.updateButton.setVisibility(INVISIBLE);
             this.binding.downloadProgressBar.setVisibility(VISIBLE);
-            this.binding.downloadProgressBar.setProgress(progress.progress, true);
+            this.binding.downloadProgressBar.setProgress(progress.getProgress(), true);
             this.binding.progressTextView.setText(progress.format(this));
         });
     }
