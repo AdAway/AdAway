@@ -1,5 +1,7 @@
-## [6.1.2] - Unreleased
+## [6.1.2] - 2024-06-17
 
+- Fix VPN restart on network interface change
+- Fix crash when update is instantly download
 - Update mongoose web server
 - Update third party libraries
 - Update Android gradle plugin
