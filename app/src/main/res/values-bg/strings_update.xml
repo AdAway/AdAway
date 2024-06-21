@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="update_title">Обновяване на AdAway</string>
     <!-- Home screen -->
@@ -10,6 +10,7 @@
     <string name="update_updating_header">Обновяване на AdAway</string>
     <string name="update_update_button">Обновяване</string>
     <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_complete_label">Готово</string>
     <string name="update_last_changelog_title">Последни промени</string>
     <string name="update_new_changelog_title">Дневник на промените</string>
     <string name="update_support_title">Подкрепете разработката</string>
