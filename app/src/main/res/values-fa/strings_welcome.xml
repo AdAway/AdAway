@@ -1,4 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_root_missing_title">نیاز به آندروید روت شده میباشد</string>
+    <string name="welcome_title">خوش آمدید</string>
+    <string name="welcome_first_step">اولین قدم جادوگر</string>
+    <string name="welcome_second_step">گام دوم جادوگر</string>
+    <string name="welcome_last_step">آخرین مرحله جادوگر</string>
+
+    <!-- Method UI -->
+    <string name="welcome_method_header">به برنامه AdAway مسدود کننده تبلیغات خوش آمدید</string>
+    <string name="welcome_method_summary">برنامه AdAway به دو روش ویژگی مسدود کردن تبلیغات را ارائه می دهد لطفا یکی از روش ها را انتخاب کنید :</string>
+
+    <string name="welcome_root_method_logo">نماد روت</string>
+    <string name="welcome_root_method_title">مسدود کردن تبلیغات با استفاده از روت</string>
+    <string name="welcome_root_method_text1">سریع تر</string>
+    <string name="welcome_root_method_text2">سازگار با باتری</string>
+    <string name="welcome_root_method_text3">نیاز به روت دارد</string>
+
+    <string name="welcome_vpn_method_logo">نماد vpn</string>
+    <string name="welcome_vpn_method_title">مسدود کردن تبلیغات مبتنی بر VPN</string>
+    <string name="welcome_vpn_method_text1">کند تر</string>
+    <string name="welcome_vpn_method_text2">اجرا در پس زمینه</string>
+    <string name="welcome_vpn_method_text3">سازگاری</string>
+
+    <string name="welcome_root_missing_title">به گوشی اندروید روت شده نیاز دارد</string>
+    <string name="welcome_root_missile_description">دسترسی روت به AdAway داده نشده یا باینری پیدا نشد این اتفاق ممکن است زمانی اتفاق بیفتد که دستگاه شما روت نشده باشد شما می توانید اطلاعات مورد نظر در مورد روش روت کردن گوشی خود را در سایت wiki.lineageos.org یا سایر سایت های اندروید پیدا کنید</string>
+
+    <string name="welcome_method_pro_logo">حرفه ای</string>
+    <string name="welcome_method_con_logo">همراه هم</string>
+
+    <!-- Sync UI -->
+    <string name="welcome_sync_done_logo">همگام سازی انجام شد</string>
+    <string name="welcome_sync_error_logo">خطا در هنگام همگام سازی</string>
+
+    <string name="welcome_sync_header">در حال همگام سازی</string>
+    <string name="welcome_synced_header">همگام سازی شد</string>
+    <string name="welcome_sync_summary">AdAway شبکه های تبلیغاتی را دانلود کرده و آن ها را مسدود خواهد کرد شما می توانید آن ها را در تنظیمات برنامه سفارشی کنید</string>
+    <string name="welcome_sync_retry_logo">دوباره همگام سازی کنید</string>
+    <string name="welcome_sync_error">همگام‌ سازی انجام نشد : %1$s آیا دوباره امتحان می‌کنید؟</string>
+    <string name="welcome_sync_notifications">این گزینه اعلان‌ هایی را برای نمایش وضعیت مسدود کردن تبلیغات و مدیریت و اطلاع‌ رسانی در مورد به‌ روز رسانی برنامه (تا چندین سال) ارسال کند اگر می‌خواهید به‌ روز بمانید آن‌ها را فعال کنید</string>
+
+    <!-- Support -->
+    <string name="welcome_support_logo">حمایت</string>
+    <string name="welcome_support_header">حمایت از من</string>
+    <string name="welcome_support_summary">AdAway یک برنامه رایگان و منبع باز است که در اوقات فراغت خود توسعه می دهم اگر از آن لذت می برید‌ با کمک مالی از طریق پی پال از توسعه برنامه حمایت کنید</string>
+    <string name="welcome_support_button">کمک مالی در پی پال</string>
+    <string name="welcome_support_telemetry_summary">آیا شما اشکالات را دوست دارید؟ من هم نه</string>
+    <string name="welcome_support_telemetry_button">فعال کردن ارسال گزارش‌ های خرابی تله‌ متری</string>
+
+    <!-- Navigation buttons -->
+    <string name="welcome_back_button">بازگشت</string>
+    <string name="welcome_next_button">بعدی</string>
+    <string name="welcome_finish_button">پایان</string>
 </resources>
