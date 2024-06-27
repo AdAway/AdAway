@@ -1,6 +1,6 @@
 یکی از بهترین برنامه های رایگان و منبع باز مسدود کننده تبلیغات برای گوشی های اندروید
 
-The application is available for rooted and non-rooted devices.
+این برنامه برای دستگاه های روت شده و غیر روت شده در دسترس است
 Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
 Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
 So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
