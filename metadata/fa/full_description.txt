@@ -5,5 +5,5 @@
 در حالت استفاده بدون روت برنامه از ویژگی VPN برای مسدود کردن اتصالات خروجی به تبلیغات و ردیاب ها استفاده می کند
 بنابراین هنگامی که یک برنامه از یک host در آن فایل درخواست تبلیغ یا ردیاب می کند این درخواست به IP محلی 127.0.0.1 منتقل می شود که هیچ کاری انجام نمی دهد
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
+شما می‌توانید تبلیغات از پیش تعریف‌ شده و فهرست‌ های مسدود کننده را به‌ عنوان فایل‌ های hosts از داخل برنامه دانلود کنید تا در آن گنجانده شود همچنین می توانید از فایل های خود استفاده کنید و host های خاصی را به لیست های مجاز و مسدود شده اضافه کنید
 There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
