@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">لیست های شما</string>
     <string name="lists_add">افزودن host</string>
@@ -20,5 +20,5 @@
     <string name="list_dialog_hostname">نام Host :</string>
     <string name="list_dialog_hostname_hint">لینک منبع hosts</string>
     <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز هستند)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+    <string name="list_dialog_ip">IP (IPv4 یا IPv6) :</string>
 </resources>
