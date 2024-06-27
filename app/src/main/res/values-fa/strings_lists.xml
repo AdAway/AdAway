@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="lists_title">لیست های شما</string>
     <string name="lists_add">افزودن host</string>
@@ -11,7 +11,7 @@
     <string name="lists_menu_filter_hint">جستجوی نام host …</string>
     <string name="lists_menu_toggle_sources">تغییر وضعیت منابع</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">اضافه کردن هاست به لیست سیاه</string>
+    <string name="list_add_dialog_black">افزودن host به لیست سیاه</string>
     <string name="list_add_dialog_white">اضافه کردن هاست به لیست سفید</string>
     <string name="list_add_dialog_redirect">اضافه کردن هدایت مجدد هاست</string>
     <string name="list_edit_dialog_black">ویرایش هاست‌های لیست سیاه</string>
