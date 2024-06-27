@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="pref_vpn_title">مسدود کننده تبلیغات مبتنی بر VPN</string>
+    <!-- Service configuration -->
+    <string name="pref_vpn_service_on_boot">فعال کردن در هنگام استارت آپ</string>
+    <string name="pref_vpn_service_monitor">نظارت بر اتصال</string>
+    <string name="pref_vpn_service_monitor_description">به طور دوره ای وضعیت شبکه را بررسی کنید تا VPN در صورت قطع اتصال دوباره متصل شود</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">برنامه های کاربردی استثنا شده</string>
+    <string name="pref_vpn_excluded_apps_description">پیکربندی کنید که کدام برنامه ها نباید از VPN استفاده کنند تا هیچ اتصالی مسدود نشود</string>
+    <string name="pref_vpn_exclude_system_apps">استثنا کردن برنامه های سیستمی</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>هیچ کدام</item>
+        <item>همه به جز مرورگر ها</item>
+        <item>همه</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">استثنا کردن برنامه های کاربر</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">برنامه های کاربردی استثنا شده</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">انتخاب همه</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">لغو انتخاب همه</string>
+    <string name="pref_vpn_exclude_user_apps_icon">نماد برنامه</string>
+</resources>
