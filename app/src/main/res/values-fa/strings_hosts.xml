@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">منابع Hosts</string>
+    <!-- Default hosts source -->
+    <string name="hosts_user_source">فهرست کاربر</string>
+    <string name="hosts_adaway_source">hosts رسمی AdAway</string>
+    <string name="hosts_stevenblack_source">hosts یکپارچه StevenBlack</string>
+    <string name="hosts_peterlowe_source">hosts لیست مسدود کردن Pete Lowe</string>
     <!-- List -->
     <string name="hosts_not_available">موجود نیست:</string>
-    <string name="hosts_dialog_url_hint">لینک منبع هاست ها</string>
+    <string name="hosts_count">%s hosts</string>
+    <!-- Edition dialog -->
+    <string name="hosts_add_dialog_title">افزودن منبع</string>
+    <string name="hosts_edit_dialog_title">ویرایش منبع</string>
+    <string name="hosts_dialog_url">لینک : (a https:// or file:// resource)</string>
+    <string name="hosts_dialog_url_hint">لینک منبع hosts</string>
 </resources>
