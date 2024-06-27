@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="update_update_available_header">به روز رسانی موجود میباشد</string>
-    </resources>
+    <string name="update_title">به روز رسانی AdAway</string>
+    <!-- Home screen -->
+    <string name="update_available">به روز رسانی موجود است</string>
+
+    <!-- Update activity -->
+    <string name="update_up_to_date_header">شما به روز هستید</string>
+    <string name="update_update_available_header">به روز رسانی موجود است</string>
+    <string name="update_updating_header">در حال به روز رسانی AdAway</string>
+    <string name="update_update_button">اکنون به روز رسانی کنید</string>
+    <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_complete_label">کامل</string>
+    <string name="update_last_changelog_title">آخرین تغییرات</string>
+    <string name="update_new_changelog_title">گزارش تغییرات</string>
+    <string name="update_support_title">پشتیبانی از توسعه</string>
+    <string name="update_donate_button">حمایت مالی</string>
+    <string name="update_sponsor_button">حامی مالی</string>
+
+    <!-- Notification -->
+    <string name="update_notification_description">در حال دانلود آخرین نسخه AdAway …</string>
+</resources>
