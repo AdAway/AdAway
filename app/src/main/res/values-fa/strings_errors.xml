@@ -2,5 +2,21 @@
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">اتصال اینترنت برقرار نیست</string>
+    <string name="error_no_connection_details">امکان برقراری اتصال به اینترنت وجود ندارد لطفا اتصال گوشی خود را بررسی کنید</string>
+    <string name="error_download_failed_message">منبع hosts دانلود نشد</string>
+    <string name="error_download_failed_details">هیچ یک از منابع hosts فعال شما در دسترس نیست لطفا بررسی کنید که به درستی به اینترنت متصل هستید</string>
+    <!-- Hosts install model error -->
+    <string name="error_private_file_failed_message">فایل خصوصی ساخته نشد</string>
+    <string name="error_private_file_failed_details">امکان ساخت یک فایل خصوصی برای ساخت یک منبع hosts جدید وجود ندارد لطفا فضای خالی موجود در گوشی خود را بررسی کنید</string>
     <string name="error_not_enough_space_message">فضای کافی موجود نیست</string>
-    </resources>
+    <string name="error_not_enough_space_details">امکان کپی فایل hosts به پارتیشن سیستم شما وجود ندارد لطفا بررسی کنید که ماژول بدون سیستم Magisk فعال است و سپس گوشی خود را خاموش و روشن کنید</string>
+    <string name="error_copy_failed_message">فایل hosts جدید نصب نشد</string>
+    <string name="error_copy_failed_details">کپی فایل hosts در پارتیشن سیستم / امکان پذیر نیست لطفا بررسی کنید که ماژول بدون سیستم Magisk فعال است و سپس گوشی خود را خاموش و روشن کنید</string>
+    <string name="error_revert_failed_message">فایل hosts بازگردانده نشد</string>
+    <string name="error_revert_failed_details">نمی توان پیکربندی فایل hosts پیش‌فرض را بازیابی کرد</string>
+    <!-- VPN model error -->
+    <string name="error_enable_vpn_failed_message">مسدود کننده تبلیغات VPN فعال نشد</string>
+    <string name="error_enable_vpn_failed_details">لطفا تنظیمات VPN خود را بررسی کنید تا برنامه VPN شروع به کار کند</string>
+    <string name="error_disable_vpn_failed_message">مسدود کننده تبلیغات VPN غیرفعال نشد</string>
+    <string name="error_disable_vpn_failed_details">لطفا تنظیمات VPN خود را بررسی کنید تا آن را به صورت دستی غیرفعال کنید</string>
+</resources>
