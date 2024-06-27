@@ -1,3 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    </resources>
+    <string name="pref_backup_restore_title">پشتیبان گیری و بازگردانی</string>
+    <string name="pref_backup">پشتیبان گیری</string>
+    <string name="pref_backup_summary">از قوانین مسدود سازی در حافظه خارجی یک نسخه پشتیبان گیری شده تهیه کنید</string>
+    <string name="pref_restore">بازگردانی</string>
+    <string name="pref_restore_summary">قوانین مسدود سازی را از طریق فایل پشتیبان گیری شده بازیابی کنید</string>
+</resources>
