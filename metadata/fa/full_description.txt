@@ -3,7 +3,7 @@
 این برنامه برای دستگاه های روت شده و بدون روت در دسترس است
 در حالت استفاده از روت برنامه فایل hosts سیستم شما را به روز رسانی می کند که شامل لیستی از نگاشت ها بین نام host و آدرس های IP است
 در حالت استفاده بدون روت برنامه از ویژگی VPN برای مسدود کردن اتصالات خروجی به تبلیغات و ردیاب ها استفاده می کند
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+بنابراین هنگامی که یک برنامه از یک host در آن فایل درخواست تبلیغ یا ردیاب می کند این درخواست به IP محلی 127.0.0.1 منتقل می شود که هیچ کاری انجام نمی دهد
 
 You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
 There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
