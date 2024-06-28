@@ -1,14 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="pref_root_title">مسدود کننده تبلیغات مبتنی بر روت</string>
+    <!-- Hosts install category -->
+    <string name="pref_hosts_installation">نصب Hosts</string>
     <string name="pref_root_open_hosts">باز کردن فایل hosts</string>
     <string name="pref_apply_method">هدف فایل hosts</string>
+    <string name="pref_apply_method_summary">قبل از استفاده از این ویژگی راهنما را بخوانید</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
         <item>/data/data/hosts</item>
         <item>هدف سفارشی</item>
     </string-array>
+    <string name="pref_custom_target">مکان هدف سفارشی</string>
+    <string name="pref_never_reboot">مخفی کردن گفتگوی خاموش و روشن کردن گوشی بعد از انجام</string>
     <!-- Redirection category -->
-    <string name="pref_hosts_redirection">هدایت مجدد</string>
-    <string name="pref_webserver_enabled">فعالسازی وب سرور</string>
-    </resources>
+    <string name="pref_hosts_redirection">تغییر مسیر</string>
+    <string name="pref_hosts_redirection_summary">تعیین کنید که hosts مسدود شده به کجا منتقل شود</string>
+    <string name="pref_redirection_ipv4">پیکربندی تغییر مسیر IPv4</string>
+    <string name="pref_redirection_ipv6">پیکربندی تغییر مسیر IPv6</string>
+    <string name="pref_redirection_invalid">تغییر مسیر نامعتبر است</string>
+    <!-- Web server category -->
+    <string name="pref_webserver">وب سرور محلی</string>
+    <string name="pref_webserver_summary">وب سرور محلی به آدرس های IP محلی گوش می دهد تا به درخواست های نام host مسدود شده پاسخ دهد و ممکن است به مسدود شدن برنامه در اتصال مسدود شده کمک کند</string>
+    <string name="pref_webserver_enabled">فعال کردن وب سرور</string>
+    <string name="pref_webserver_test">آزمایش وب سرور</string>
+    <string name="pref_webserver_certificate">نصب گواهی امضا شده شما</string>
+    <string name="pref_webserver_certificate_dialog_title">نصب دستی گواهی</string>
+    <string name="pref_webserver_certificate_dialog_content">از اندروید 11 (R) به بعد برنامه دیگر نمی تواند به طور خودکار مرجع گواهی (CA) را نصب کند برای برطرف شدن این مشکل به تنظیمات گوشی / \"امنیت\" / \"رمزگذاری و اعتبار\" و سپس \"نصب گواهی\" بروید از آنجا \" گواهی CA\" را انتخاب کنید و فایل گواهی صادر شده جدید را انتخاب کنید </string>
+    <string name="pref_webserver_certificate_dialog_action">باز کردن تنظیمات امنیت</string>
+    <string name="pref_webserver_state_checking">در حال بررسی ..‌.</string>
+    <string name="pref_webserver_state_not_running">در حال اجرا نیست</string>
+    <string name="pref_webserver_state_running_not_installed">در حال اجرا است اما گواهی نصب نشده</string>
+    <string name="pref_webserver_state_running_and_installed">در حال اجرا است و گواهی نصب شده</string>
+    <string name="pref_webserver_icon">فضای خالی تبلیغات را با نماد برنامه جایگزین کنید</string>
+</resources>

@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="log_toggle_recording_description">تغییر وضعیت ثبت گزارش</string>
+    <string name="log_start_recording">برای شروع گزارش درخواست‌ ها درباره مرور وب یا استفاده از برنامه‌ ها دکمه ثبت را فشار دهید سپس به عقب برگردید یا برای تازه سازی صفحه گزارش‌ ها انگشت خود را به پایین بکشید</string>
+    <string name="log_blocked_requests_ignored">درخواست های مسدود شده گزارش نمی شوند اگر می‌خواهید آن‌ ها را نیز وارد کنید ابتدا مسدود کردن تبلیغات را غیرفعال کنید.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">مرتب‌سازی بر اساس حروف الفبا</string>
+    <string name="log_sort_top_level_domain">مرتب سازی دامنه سطح بالا</string>
     <!-- Redirect dialog  -->
+    <string name="log_redirect_dialog_title">تغییر مسیر دامنه</string>
 </resources>

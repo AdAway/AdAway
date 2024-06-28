@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">ویرایش منبع</string>
+    <string name="source_edit_add_title">افزودن منبع</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">برچسب</string>
+    <string name="source_edit_label_required">برچسب لازم است</string>
+    <string name="source_edit_type">بنویسید</string>
+    <string name="source_edit_url">لینک</string>
+    <string name="source_edit_file">فایل</string>
+    <string name="source_edit_url_location">مکان</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">مکان لازم است</string>
+    <string name="source_edit_file_hint">برای انتخاب فایل منبع فایل را فشار دهید</string>
+    <string name="source_edit_location_invalid">مکان نامعتبر است</string>
+    <string name="source_edit_format">قالب فهرست</string>
+    <string name="source_edit_format_block_list">مسدود کردن</string>
+    <string name="source_edit_format_allow_list">اجازه</string>
+    <string name="source_edit_redirected_hosts">انجام انتقال hosts</string>
+    <string name="source_edit_redirected_hosts_warning">اجازه دادن به hosts منتقل شده ممکن است باعث ایجاد مشکلات امنیتی شود از این تنظیمات فقط در یک منبع قابل اعتماد استفاده کنید زیرا می تواند برخی از ترافیک حساس را به هر سروری که می خواهد هدایت کند</string>
+</resources>

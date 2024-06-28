@@ -9,24 +9,23 @@ And don't add newlines before or after p tags because of transifex -->
 <p>این یک باور غلطی میباشد که اگر کاربر هرگز بر روی تبلیغات کلیک ننماید درنتیجه مسدود نمودن آنها به یک سایت و یا برنامه ضرر مالی نخواهد رساند. این اشتباه است، توسعه دهندگان برنامه میتوانند تنها با نمایش تبلیغات کسب درآمد نمایند. این به شما بستگی دارد که جلوی تبلیغات را بگیرید یا نه. من شخصا از برنامه هایی که تبلیغات نشان میدهند استفاده نمیکنم زیرا که آنها بسیار آزاردهنده هستند، بنابراین بدون مسدود کننده تبلیغات من از اینگونه برنامه ها استفاده نمینمایم.</p>
 
 <h2>برنامه AdAway چگونه کار میکند؟</h2>
-<p>AdAway uses the <a href="http://en.wikipedia.org/wiki/Hosts_file">hosts file</a> to block hostnames, that serve advertisements. The hosts file is a file found in <code>/system/etc/hosts</code> that maps hostnames to IP addresses. It is a traditional way to define hostname to IP address pairs without relying on the Domain Name System (DNS). All unwanted hostnames are redirected to <code>127.0.0.1</code> which means they will point to your own device.<br>
-If the hosts file is not writable, a fallback solution is to use the builtin VPN service. It will filter connections to unwanted hostnames and let others go through.</p>
+<p>AdAway از <a href="http://en.wikipedia.org/wiki/Hosts_file">فایل hosts</a> برای مسدود کردن نام های host که تبلیغات را ارائه می دهند استفاده می کند فایل host فایلی است که در <code> system/etc/hosts/</code> یافت می شود که نام های host را به آدرس های IP نگاشت می کند این یک روش سنتی برای تعریف نام host به جفت آدرس IP بدون تکیه بر سیستم نام دامنه (DNS) است همه نام‌ های host ناخواسته به <code>127.0.0.1</code> منتقل می‌شوند و به این معنی که آن ها به دستگاه شما اشاره می کنند<br>فایل hosts قابل نوشتن نیست یک راه حل بازگشتی استفاده از سرویس VPN داخلی است که اتصالات به نام های host ناخواسته را فیلتر می کند و به دیگران اجازه می دهد تا از آن عبور کنند</p>
 
-<h2>چرا باید دستگاه اندرویدی را برای اعمال تغییرات شروع مجدد یا ریست نمود؟</h2>
-<p>جاوا در اندروید از کش دی ان اس درونی خود استفاده مینماید. سیستم عامل مستقیما تغییرات فایل hosts را منعکس مینماید (آن را با پینگ در خط فرمان بررسی نمایید) اما شما میبایستی دستگاه اندروید خود را برای از نو ساختن دی ان اس کش  جاوا شروع مجدد نمایید.</p>
+<h2>چرا برای انجام تغییرات باید گوشی خود را خاموش و روشن کنم؟</h2>
+<p>جاوا در اندروید حافظه پنهان DNS داخلی خود را حفظ می کند سیستم عامل گوشی شما فایل hosts جدید را فورا منعکس می کند (این را با پینگ در خط فرمان تایید کنید) اما برای بازسازی حافظه پنهان DNS جاوا باید گوشی خود را خاموش و روشن کنید</p>
 
-<h2>چگونه از وب سرور AdAway استفاده نمایید؟</h2>
-<p><strong>AdAway will also work without using the webserver!</strong>
-<br><br>You can enable a local webserver in preferences of AdAway to answer requests to the local IP address <code>127.0.0.1</code>. This means requests from applications to ad servers which are redirected to <code>127.0.0.1</code> are answered by AdAway's webserver.
-<br>Some applications refuse to work, when ad servers are not reachable. With this method they will be reachable again, replying with a blank page and no ad images.</p>
+<h2>چگونه از وب سرور در AdAway استفاده کنیم؟</h2>
+<p><strong>AdAway همچنین بدون استفاده از وب سرور کار خواهد کرد</strong>
+<br><br>شما می توانید یک وب سرور محلی را در تنظیمات برگزیده AdAway فعال کنید تا به درخواست ها با آدرس IP محلی <code>127.0.0.1</code> پاسخ دهد این به این معناست که درخواست‌ های برنامه‌ ها به سرورهای تبلیغاتی به <code>127.0.0.1</code> منتقل می‌ شوند توسط وب سرور AdAway پاسخ داده می‌شوند
+<br> وقتی سرورهای تبلیغاتی در دسترس نیستند برخی از برنامه‌ ها که از کار کردن خودداری می‌کنند با این روش دوباره در دسترس خواهند بود و با صفحه خالی و بدون تصاویر تبلیغاتی پاسخ داده می شوند</p>
 
-<h2>چگونه میتوانم یک hostnames خاص را مسدود و یا آزاد نمایم؟</h2>
-<p>Add the hostnames you want to block to the <cite>Blocked</cite> list from the<cite>homescreen</cite>. Additionally, hostnames you want to exclude from blocking can be added to the <cite>Allowed</cite> and hostnames you want to redirect to a specific IP address belong to the <cite>Redirected</cite>.</p>
+<h2>چگونه می توانم نام host خاصی را مسدود یا آزاد کنم؟</h2>
+<p>نام‌ host هایی را که می‌خواهید مسدود کنید از <cite>صفحه اصلی</cite> به لیست <cite>مسدود شده</cite> اضافه کنید و همچنین نام‌ های host مورد نظر که می‌ خواهید از مسدود کردن حذف شوند را به <cite>مجاز شده</cite> اضافه کنید همچنین نام‌ های host که می‌خواهید به یک آدرس IP خاص هدایت کنید متعلق به <cite>تغییر مسیر</cite> هستند</p>
 
-<h2>از کجا میتوانید منابع بیشتری از hosts بیابم؟</h2>
-<p>مراجعه نمایید به <a href="https://github.com/AdAway/AdAway/wiki/HostsSources">لیست منابع اضافی hosts برای AdAway</a>.</p>
+<h2>از کجا می توانم منابع hosts بیشتری پیدا کنم؟</h2>
+<p><a href="https://github.com/AdAway/AdAway/wiki/HostsSources">فهرست منابع hosts اضافی برای AdAway</a> را ببینید</p>
 
-<h2>کمک به ترجمه و گزارش اشکالات</h2>
-<p>لطفا بروید به <a href="https://adaway.org">https://adaway.org</a>.</p>
+<h2>کمک به ترجمه و گزارش مشکلات برنامه</h2>
+<p>لطفا سایت <a href="https://adaway.org">https://adaway.org</a> را مشاهده کنید</p>
 </body>
 </html>

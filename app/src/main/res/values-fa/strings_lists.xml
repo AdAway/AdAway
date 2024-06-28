@@ -1,15 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="lists_title">Your lists</string>
+    <string name="lists_title">لیست های شما</string>
+    <string name="lists_add">افزودن host</string>
+    <!-- Tab -->
+    <string name="lists_tab_blocked">مسدود شده</string>
+    <string name="lists_tab_allowed">اجازه داده شده</string>
+    <string name="lists_tab_redirected">منتقل شده</string>
+    <!-- Menu -->
+    <string name="lists_menu_filter">فیلتر hosts</string>
+    <string name="lists_menu_filter_hint">جستجوی نام host …</string>
+    <string name="lists_menu_toggle_sources">تغییر وضعیت منابع</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">اضافه کردن هاست به لیست سیاه</string>
-    <string name="list_add_dialog_white">اضافه کردن هاست به لیست سفید</string>
-    <string name="list_add_dialog_redirect">اضافه کردن هدایت مجدد هاست</string>
-    <string name="list_edit_dialog_black">ویرایش هاست‌های لیست سیاه</string>
-    <string name="list_edit_dialog_white">ویرایش هاست‌های لیست سفید</string>
-    <string name="list_edit_dialog_redirect">ویرایش هدایت مجدد</string>
-    <string name="list_dialog_hostname">Hostname:</string>
-    <string name="list_dialog_hostname_hint">لینک منبع هاست ها</string>
-    <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز میباشند)</string>
-    <string name="list_dialog_ip">IP (IPv4 or IPv6):</string>
+    <string name="list_add_dialog_black">افزودن host به لیست سیاه</string>
+    <string name="list_add_dialog_white">افزودن host به لیست سفید</string>
+    <string name="list_add_dialog_redirect">افزودن تغییر مسیر host</string>
+    <string name="list_edit_dialog_black">ویرایش host موجود در لیست سیاه</string>
+    <string name="list_edit_dialog_white">ویرایش host موجود در لیست سفید</string>
+    <string name="list_edit_dialog_redirect">ویرایش و تغییر مسیر</string>
+    <string name="list_dialog_hostname">نام Host :</string>
+    <string name="list_dialog_hostname_hint">لینک منبع hosts</string>
+    <string name="list_dialog_wildcard">(کاراکترهای جامع * و ؟ مجاز هستند)</string>
+    <string name="list_dialog_ip">IP (IPv4 یا IPv6) :</string>
 </resources>
