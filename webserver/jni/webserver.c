@@ -19,8 +19,7 @@ static int s_sig_num = 0;
 
 struct settings {
     bool init;
-    char ssl_cert[100];
-    char ssl_key[100];
+    struct mg_tls_opts tls_opts;
     char test_path[100];
     char icon_path[100];
     bool icon;
@@ -28,17 +27,10 @@ struct settings {
 };
 
 static void fn(struct mg_connection *c, int ev, void *ev_data) {
-    if (ev == MG_EV_ACCEPT) {
-        struct settings *s = (struct settings *) c->data;
-        struct mg_tls_opts tls_opts = {
-                .cert = mg_str(s->ssl_cert),
-                .key = mg_str(s->ssl_key)
-        };
-        mg_tls_init(c, &tls_opts);
-    } else if (ev == MG_EV_HTTP_MSG) {
+    if (ev == MG_EV_HTTP_MSG && c->fn_data != NULL) {
         struct mg_http_message *hm = (struct mg_http_message *) ev_data;
-        struct settings *s = (struct settings *) c->data;
-        if (mg_strcmp(hm->uri, mg_str("/internal-test"))) {
+        struct settings *s = (struct settings *) c->fn_data;
+        if (mg_strcmp(hm->uri, mg_str("/internal-test")) == 0) {
             struct mg_http_serve_opts opts;
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->test_path, &opts);
@@ -47,8 +39,17 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
             memset(&opts, 0, sizeof(opts));
             mg_http_serve_file(c, hm, s->icon_path, &opts);
         } else {
-            mg_printf(c, "%s", "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n");
+            mg_http_reply(c, 200, "", "");
         }
+    }
+}
+
+static void tls_fn(struct mg_connection *c, int ev, void *ev_data) {
+    if (ev == MG_EV_ACCEPT && c->fn_data != NULL) {
+        struct settings *s = (struct settings *) c->fn_data;
+        mg_tls_init(c, &s->tls_opts);
+    } else {
+        fn(c, ev, ev_data);
     }
 }
 
@@ -83,16 +84,23 @@ void oom_adjust_setup(void) {
 struct settings parse_cli_parameters(int argc, char *argv[]) {
     struct settings s = {
             .init = false,
+            .tls_opts = { 0 },
             .icon = false,
             .debug = false
     };
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "--resources") == 0 && i < argc - 1) {
             char *resource_path = argv[++i];
-            strcpy(s.ssl_cert, resource_path);
-            strcat(s.ssl_cert, "/localhost-2108.crt");
-            strcpy(s.ssl_key, resource_path);
-            strcat(s.ssl_key, "/localhost-2108.key");
+            // Initialize TLS options
+            char cert_path[100];
+            char key_path[100];
+            strcpy(cert_path, resource_path);
+            strcat(cert_path, "/localhost-2108.crt");
+            strcpy(key_path, resource_path);
+            strcat(key_path, "/localhost-2108.key");
+            s.tls_opts.cert = mg_file_read(&mg_fs_posix, cert_path);
+            s.tls_opts.key = mg_file_read(&mg_fs_posix, key_path);
+            // Initialize resource paths
             strcpy(s.icon_path, resource_path);
             strcat(s.icon_path, "/icon.svg");
             strcpy(s.test_path, resource_path);
@@ -131,7 +139,7 @@ int main(int argc, char *argv[]) {
         __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Failed to listen on http port.");
         return EXIT_FAILURE;
     }
-    https_connection = mg_http_listen(&mgr, HTTPS_URL, fn, &s);
+    https_connection = mg_http_listen(&mgr, HTTPS_URL, tls_fn, &s);
     if (https_connection == NULL) {
         __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Failed to listen on https port.");
         return EXIT_FAILURE;
