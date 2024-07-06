@@ -1,3 +1,10 @@
+## [6.1.3] - 2024-07-06
+
+- Fix mongoose web server
+- Update translations
+
+Special thanks to mbangi for its bug report.
+
 ## [6.1.2] - 2024-06-17
 
 - Fix VPN restart on network interface change
