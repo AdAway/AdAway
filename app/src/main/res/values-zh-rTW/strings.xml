@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">歡迎！</string>
-    <string name="text_help">AdAway 是一款免費且開源的軟體，用來封鎖廣告。它會獲取廣告網路的位址並在您的裝置上阻擋它們。想了解更多嗎？請查看下面的說明！</string>
+    <string name="text_help">AdAway 是一款免費且開源的軟體，用來封鎖廣告。它會獲取廣告網路的位址並在您的裝置上阻擋它們。\n想了解更多嗎？請查看下面的說明！</string>
     <string name="button_show_help">顯示更多說明</string>
     <string name="icon_update_status">更新狀態</string>
     <string name="text_update">這個應用程式會自動下載您所設定的所有 hosts 檔案，與您個人的過濾清單進行合併，並安裝為單一的 hosts 檔案。</string>
