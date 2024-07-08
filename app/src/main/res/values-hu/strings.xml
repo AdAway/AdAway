@@ -14,7 +14,7 @@
     <string name="header_help">Üdv!</string>
     <string name="text_help">Az AdAway egy ingyenes és nyílt forráskódú szoftver, amely blokkolja a hirdetéseket. A hirdetési hálózatok címeit letiltja, hogy blokkolja őket a készüléken.\nSzeretnél többet tudni? Nézd meg az alábbi súgót!</string>
     <string name="button_show_help">További információ megjelenítése</string>
-    <string name="icon_update_status">Státusz frissítése</string>
+    <string name="icon_update_status">Frissítési státusz</string>
     <string name="text_update">A kijelölt hosts fájlok letöltése, összefűzése a saját listákkal, majd aktiválás a rendszeren közös hosts fájlként.</string>
     <string name="button_enable_hosts">Hirdetésblokkolás engedélyezése</string>
     <string name="button_disable_hosts">Hirdetésblokkolás letiltása</string>
@@ -89,7 +89,7 @@
     <string name="notification_configuration_failed">Nem sikerült alkalmazni az új konfigurációt.</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">Hiányzik a hosts fájl symlink</string>
+    <string name="apply_symlink_missing_status">Hiányzik a host fájl symlinkje</string>
     <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
 
 Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
@@ -110,7 +110,7 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="apply_symlink_successful_title">A symlink létrehozása sikeres</string>
     <string name="apply_symlink_fail">Nem tudta létrehozni a symlink-et az Android.\nEz elsősorban a HTC telefonok S-ON \"funkciójának\" köszönhető.\n\nA megoldás az, hogy telefonját recovery módba kapcsolja és létrehozza ott a symlink-et \'ln -s /data/data/hosts /system/etc/hosts\' paranccsal.\n\nHa ez sem működik keressen rá az interneten, arra a szövegre, hogy \"S-OFF + a telefonja\".</string>
     <string name="apply_symlink_fail_title">Szimbolikus link létrehozása sikertelen</string>
-    <string name="apply_help">Kérlek olvassa el a Súgót további információkért!</string>
+    <string name="apply_help">Kérlek olvasd el a Súgót további információkért!</string>
     <string name="apply_apn_proxy">Egy APN proxy van beállítva az készülékén!\nAz AdAway nem fog megbízhatóan működni az olyan mobilhálózatokon, mint pl. a 3G. Ezt a proxy-t deaktiválhatod, ha a kiválasztott APN-hez lépsz (A Beállításokban: Hálózat &amp; Internet -&gt; Mobil hálózat -&gt; Haladó -&gt; Hozzáférési pontok nevei) ás távolítsd el az értéket a proxy mezőből.</string>
     <string name="apply_apn_proxy_title">APN proxy beállítva!</string>
     <string name="no_connection">Az internetkapcsolat nem működik.</string>
@@ -224,19 +224,19 @@ Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
     <string name="hosts_source_few_minutes">néhány perce</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d perc</item>
-        <item quantity="other">%d perc</item>
+        <item quantity="other">%d perccel</item>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d óra</item>
-        <item quantity="other">%d óra</item>
+        <item quantity="other">%d órával</item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d nap</item>
-        <item quantity="other">%d nap</item>
+        <item quantity="other">%d nappal</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d hónap</item>
-        <item quantity="other">%d hónap</item>
+        <item quantity="other">%d hónappal</item>
     </plurals>
 
     <!-- Clipboard -->
