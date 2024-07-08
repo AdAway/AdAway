@@ -2,7 +2,7 @@
 <resources>
     <string name="update_title">AdAway 更新</string>
     <!-- Home screen -->
-    <string name="update_available">更新可用！</string>
+    <string name="update_available">有更新可用！</string>
 
     <!-- Update activity -->
     <string name="update_up_to_date_header">您已是最新的</string>
