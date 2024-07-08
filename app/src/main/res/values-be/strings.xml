@@ -219,6 +219,7 @@
     <string name="hosts_source_need_update">Патрабуецца абнаўленне %1$s</string>
     <string name="hosts_source_last_update">Апошняе абнаўленне %1$s таму</string>
     <string name="hosts_source_unknown_status">Невядомы статус абнаўлення</string>
+    <string name="hosts_source_disabled">Выключана</string>
     <string name="hosts_source_few_minutes">некалькі хвілін</string>
     <plurals name="hosts_source_minutes">
         <item quantity="one">%d хвіліна</item>
@@ -244,6 +245,9 @@
         <item quantity="many">%d месяцаў</item>
         <item quantity="other">%d месяцаў</item>
     </plurals>
+
+    <!-- Clipboard -->
+    <string name="clipboard_host_copied">Хост скапiраваны ў буфер абмену</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">пачынаецца</string>
