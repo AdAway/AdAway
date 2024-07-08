@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">歡迎！</string>
-    <string name="text_help">AdAway 是一個免費、開源的廣告阻擋工具，專為 Android 設計。它會自動擷取廣告網路的地址，然後在您的手機或平板上進行廣告阻擋。\n想進一步瞭解？請查閱下面的使用說明。</string>
+    <string name="text_help">AdAway 是一款免費且開源的軟體，用來阻擋廣告。它會獲取廣告網路的位址並在您的裝置上阻擋它們。\n想了解更多嗎？請查看下面的說明！</string>
     <string name="button_show_help">顯示更多說明</string>
     <string name="icon_update_status">更新狀態</string>
     <string name="text_update">這個應用程式會自動下載您所設定的所有 hosts 檔案，與您個人的過濾清單進行合併，並安裝為單一的 hosts 檔案。</string>
@@ -21,7 +21,7 @@
     <string name="header_webserver">網頁伺服器</string>
     <string name="webserver_status_running">正在執行</string>
     <string name="webserver_status_stopped">已停止</string>
-    <string name="webserver_toggle_text">您可以啟動或停用本機的網頁伺服器，以處理到被阻擋網站的請求。</string>
+    <string name="webserver_toggle_text">在本機上啟動或停止網頁伺服器，以回應被封鎖主機名稱的請求。</string>
     <string name="button_enable_webserver">啟用網頁伺服器</string>
     <string name="button_disable_webserver">停用網頁伺服器</string>
     <string name="header_vpn">VPN</string>
