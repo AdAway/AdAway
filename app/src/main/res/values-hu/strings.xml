@@ -89,7 +89,7 @@
     <string name="notification_configuration_failed">Nem sikerült alkalmazni az új konfigurációt.</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">Hiányzik a hosts fájl symlink</string>
+    <string name="apply_symlink_missing_status">Hiányzik a host fájl symlinkje</string>
     <string name="apply_symlink_missing">A /system/etc/hosts fájlra mutató szimbolikus link nem létezik vagy hibás! Az AdAway nem fog működni, amíg ez nem mutat a megfelelő fájlra.
 
 Szeretnéd megpróbálni létrehozni a szimbolikus linket?</string>
