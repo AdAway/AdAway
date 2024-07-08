@@ -5,7 +5,7 @@
     <string name="update_available">有更新可用！</string>
 
     <!-- Update activity -->
-    <string name="update_up_to_date_header">您已是最新的</string>
+    <string name="update_up_to_date_header">您已是最新版本</string>
     <string name="update_update_available_header">有更新</string>
     <string name="update_updating_header">正在更新 AdAway</string>
     <string name="update_update_button">現在更新</string>
