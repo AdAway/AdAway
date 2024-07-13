@@ -1,5 +1,17 @@
-## [6.1.2] - Unreleased
+## [6.1.3] - 2024-07-06
 
+- Fix mongoose web server
+- Update translations
+
+Special thanks to mbangi for its bug report.
+
+## [6.1.2] - 2024-06-17
+
+- Fix VPN restart on network interface change
+- Fix crash when update is instantly download
+- Update mongoose web server
+- Update third party libraries
+- Update Android gradle plugin
 - Update translations
 
 Special thanks to @Fs00 and @gallegonovato for their bug reports.

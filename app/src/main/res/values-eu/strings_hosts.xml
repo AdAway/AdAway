@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="hosts_title">Hostalari iturburuak</string>
+    <string name="hosts_title">Ostalari-iturburuak</string>
     <!-- Default hosts source -->
     <string name="hosts_user_source">Erabiltzailearen zerrenda</string>
-    <string name="hosts_adaway_source">AdAway-ren hostalari ofizialak</string>
-    <string name="hosts_stevenblack_source">StevenBlack Unified hosts</string>
-    <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
+    <string name="hosts_adaway_source">AdAway-ren ostalari ofizialak</string>
+    <string name="hosts_stevenblack_source">StevenBlack-en ostalari bateratuak</string>
+    <string name="hosts_peterlowe_source">Pete Lowe-ren ostalarien blokeo-zerrenda</string>
     <!-- List -->
     <string name="hosts_not_available">ez dago eskuragarri</string>
-    <string name="hosts_count">%s hostalari</string>
+    <string name="hosts_count">%s ostalari</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Gehitu iturria</string>
     <string name="hosts_edit_dialog_title">Editatu iturria</string>
     <string name="hosts_dialog_url">URL: (https:// edo file:// baliabidea)</string>
-    <string name="hosts_dialog_url_hint">Hostalari iturriaren URLa</string>
+    <string name="hosts_dialog_url_hint">Ostalari-iturburuaren URLa</string>
 </resources>

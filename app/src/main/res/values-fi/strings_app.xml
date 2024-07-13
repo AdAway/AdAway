@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">AdAway</string>
-    <string name="app_description">Avoimen lähdekoodin mainostenestäjä</string>
+    <string name="app_description">Avoimen lähdekoodin mainosesto</string>
     <string name="app_logo">AdAway-logo</string>
 </resources>

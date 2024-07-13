@@ -15,7 +15,7 @@
     <string name="text_help">AdAway es software libre y código abierto para bloquear anuncios. Descarga las direcciones de red publicitarias para bloquearlas en tu dispositivo.\n¿Quieres saber más? ¡Revisa la ayuda más abajo!</string>
     <string name="button_show_help">Mostrar más ayuda</string>
     <string name="icon_update_status">Estado de la actualización</string>
-    <string name="text_update">Todos los archivos hosts de las fuentes especificadas se han descargado, se fusionan con tus propias listas y se instala como un archivo hosts en tu sistema.</string>
+    <string name="text_update">Todos los archivos hosts de las fuentes específicadas se descargan, se fusionan contsus propias listas y se instalan como un único archivo hosts en tu sistema.</string>
     <string name="button_enable_hosts">Activar el bloqueo de anuncios</string>
     <string name="button_disable_hosts">Desactivar el bloqueo de anuncios</string>
     <string name="header_webserver">Servidor web</string>
@@ -39,8 +39,8 @@
 
     <!--Your lists-->
     <string name="import_dialog">Importando…</string>
-    <string name="import_success">Respaldo importado correctamente desde el almacenamiento externo.</string>
-    <string name="import_failed">No se pudo importar el respaldo. ¿Es correcto el formato? Revisa el logcat para más detalles.</string>
+    <string name="import_success">Copia de seguridad importada correctamente desde el almacenamiento externo.</string>
+    <string name="import_failed">No se ha podido importar la copia de seguridad. ¿Es correcto su formato? Comprueba logcat para más detalles.</string>
     <string name="export_dialog">Exportando…</string>
     <string name="export_success">Copia de seguridad exportada correctamente al archivo \'%s\' en tu almacenamiento externo.</string>
     <string name="export_failed">Error al exportar el archivo de la copia de seguridad \'%s\'.</string>

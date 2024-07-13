@@ -14,7 +14,7 @@
     <string name="header_help">Dobrodošli!</string>
     <string name="text_help">AdAway je brezplačen in odprtokodni program za zaviranje oglaševanja. Pridobi naslove oglaševalskih omrežij, da jih onemogoči v vaši napravi.\nŽelite izvedeti več? Spodaj preverite pomoč!</string>
     <string name="button_show_help">Prikaži več pomoči</string>
-    <string name="icon_update_status">Posodobljeno stanje</string>
+    <string name="icon_update_status">Stanje posodobitev</string>
     <string name="text_update">Vse hosts datoteke danih virov so prenešene, združene z vašimi osebnimi seznami in nameščene kot ena hosts datoteka na vašem sistemu.</string>
     <string name="button_enable_hosts">Omogoči zaviranje oglasov</string>
     <string name="button_disable_hosts">Onemogoči zaviranje oglasov</string>

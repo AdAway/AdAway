@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_vpn_title">Chặn quảng cáo sử dụng VPN</string>
     <!-- Service configuration -->
@@ -12,7 +12,7 @@
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>None</item>
         <item>All except browsers</item>
-        <item>All</item>
+        <item>Tất cả</item>
     </string-array>
     <string name="pref_vpn_exclude_user_apps">Các ứng dụng không bị chặn </string>
 

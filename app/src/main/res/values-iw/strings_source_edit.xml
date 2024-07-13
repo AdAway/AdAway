@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">עריכת מקור</string>
+    <string name="source_edit_add_title">הוספת מקור</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">תווית</string>
+    <string name="source_edit_label_required">נדרש תווית</string>
+    <string name="source_edit_type">סוג</string>
+    <string name="source_edit_url">כתובת אתר</string>
+    <string name="source_edit_file">קובץ</string>
+    <string name="source_edit_url_location">מיקום</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">מיקום נדרש</string>
+    <string name="source_edit_file_hint">לחיצה על קובץ כדי לבחור קובץ מקור</string>
+    <string name="source_edit_location_invalid">מיקום לא חוקי</string>
+    <string name="source_edit_format">תבנית רשימה</string>
+    <string name="source_edit_format_block_list">חסימה</string>
+    <string name="source_edit_format_allow_list">הרשאה</string>
+    <string name="source_edit_redirected_hosts">החלת מארחים שנותבו מחדש</string>
+    <string name="source_edit_redirected_hosts_warning">מתן אפשרות למארחים המנותבים מחדש עלולה לגרום לבעיות אבטחה. יש להשתמש בהגדרות אלו רק במקור מהימן מכיוון שהוא יכול להפנות תנועה רגישה לאיזה שרת שהוא רוצה.</string>
+</resources>

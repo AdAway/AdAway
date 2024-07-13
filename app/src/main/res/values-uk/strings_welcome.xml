@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Вітаємо</string>
     <string name="welcome_first_step">Перший крок</string>
@@ -35,12 +35,13 @@
     <string name="welcome_synced_header">Синхронізовано!</string>
     <string name="welcome_sync_summary">AdAway завантажує мережі оголошень, які потрібно блокувати. Ви можете змінити їх в налаштуваннях.</string>
     <string name="welcome_sync_retry_logo">Повторити синхронізацію</string>
-    <string name="welcome_sync_error">Не вдалося синхронізувати: %1$s Повторити?</string>
+    <string name="welcome_sync_error">Не вдалося синхронізувати:\n %1$s .\n Повторити?</string>
+    <string name="welcome_sync_notifications">Може надсилати сповіщення для відображення стану контролю та блокування реклами , а також сповіщати про доступні оновлення додатку (декілька разів на рік). Увімкніть, якщо хочете бути в курсі подій.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Підтримка</string>
     <string name="welcome_support_header">Підтримай мене!</string>
-    <string name="welcome_support_summary">Це безкоштовний застосунок з відкритим вихідним кодом. Я розробляв його у свій вільний час. Тому, якщо вам подобаєтсья цей застосунок, ви можете підтримати подальшу його розробку:</string>
+    <string name="welcome_support_summary">AdAway — безкоштовний додаток з відкритим кодом, який я розробляю у вільний час. Якщо вам він до вподоби, ви можете підтримати мене:</string>
     <string name="welcome_support_button">Заплатити через PayPal</string>
     <string name="welcome_support_telemetry_summary">Любите помилки? Я теж ні.</string>
     <string name="welcome_support_telemetry_button">Увімкнути збір даних про помилки</string>

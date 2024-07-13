@@ -1,8 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <string name="pref_vpn_title">VPNan oinarritutako iragarkien blokeoa</string>
+    <!-- Service configuration -->
+    <string name="pref_vpn_service_on_boot">Gaitu sistemaren abioan</string>
+    <string name="pref_vpn_service_monitor">Egin konexioaren segimendua</string>
+    <string name="pref_vpn_service_monitor_description">Egiaztatu noizean behin sarearen egoera VPNa deskonektatzen denean berrabiarazteko.</string>
+    <!-- Excluded applications -->
+    <string name="pref_vpn_excluded_apps">Alde batera utzitako aplikazioak</string>
+    <string name="pref_vpn_excluded_apps_description">Ezarri zein aplikaziok ez lukeen VPNa erabili beharko konexioa ez blokeatzeko.</string>
+    <string name="pref_vpn_exclude_system_apps">Alde batera utzitako sistemaren aplikazioak</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
-        <item>None</item>
-        <item>All except browsers</item>
-        <item>All</item>
+        <item>Bat ere ez</item>
+        <item>Guztia nabigatzaileak izan ezik</item>
+        <item>Guztia</item>
     </string-array>
-    </resources>
+    <string name="pref_vpn_exclude_user_apps">Utzi alde batera erabiltzailearen aplikazioak</string>
+
+    <!-- Exclude user apps activity -->
+    <string name="pref_vpn_exclude_user_apps_activity">Alde batera utzitako aplikazioak</string>
+    <string name="pref_vpn_exclude_user_apps_select_all">Hautatu guztia</string>
+    <string name="pref_vpn_exclude_user_apps_deselect_all">Utzi guztia hautatzeari</string>
+    <string name="pref_vpn_exclude_user_apps_icon">Aplikazioaren ikonoa</string>
+</resources>

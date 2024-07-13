@@ -1,0 +1,46 @@
+[versions]
+# Common
+guava = "32.0.1-android"
+junitVersion = "1.2.1"
+okhttp = "4.12.0"
+timber = "5.0.1"
+# Root
+libsu = "6.0.0"
+# VPN
+pcap4jCore = "1.8.2"
+pcap4jPacketfactoryStatic = "1.8.2"
+dnsjava = "3.5.3"
+slf4j = "1.7.36"
+# Test
+junit = "4.13.2"
+json = "20220320"
+androidxTestCore = "1.6.1"
+androidXCoreTesting = "2.2.0"
+
+[libraries]
+# Common
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+# Root
+libsu = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
+# VPN
+pcap4j-core = { module = "org.pcap4j:pcap4j-core", version.ref = "pcap4jCore" }
+pcap4j-pcap4j-packetfactory-static = { module = "org.pcap4j:pcap4j-packetfactory-static", version.ref = "pcap4jPacketfactoryStatic" }
+dnsjava = { module = "dnsjava:dnsjava", version.ref = "dnsjava" }
+slf4j-android = { module = "org.slf4j:slf4j-android", version.ref = "slf4j" }
+okhttp-dnsoverhttps = { module = "com.squareup.okhttp3:okhttp-dnsoverhttps", version.ref = "okhttp" }
+# Test
+junit = { module = "junit:junit", version.ref = "junit" }
+json = { module = "org.json:json", version.ref = "json" }
+androidx-test-core = { module = "androidx.test:core", version.ref = "androidxTestCore" }
+androidx-test-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "androidXCoreTesting" }
+androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestCore" }
+
+[bundles]
+pcap4j = ["pcap4j-core", "pcap4j-pcap4j-packetfactory-static"]
+androidx-test = ["androidx-test-core", "androidx-test-core-testing", "androidx-test-ext-junit", "androidx-test-runner"]
+
+[plugins]
+

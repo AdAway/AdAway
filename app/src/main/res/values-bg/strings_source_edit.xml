@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Редактиране на източник</string>
+    <string name="source_edit_add_title">Добавяне на източник</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Етикет</string>
+    <string name="source_edit_label_required">Етикетът е задължителен</string>
+    <string name="source_edit_type">Вид</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Файл</string>
+    <string name="source_edit_url_location">Местоположение</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Местоположението е задължително</string>
+    <string name="source_edit_file_hint">За да изберете изходен файл докоснете Файл</string>
+    <string name="source_edit_location_invalid">Местоположението е неприемливо</string>
+    <string name="source_edit_format">Формат на списъка</string>
+    <string name="source_edit_format_block_list">Забраняване</string>
+    <string name="source_edit_format_allow_list">Разрешаване</string>
+    <string name="source_edit_redirected_hosts">Прилагане на пренасочените</string>
+    <string name="source_edit_redirected_hosts_warning">Разрешаването на пренасочените адреси може да доведе до проблеми със сигурността. Използвайте тази настройка само при доверен източник, тъй като тя може да пренасочи чувствителен трафик към произволен сървър.</string>
+</resources>

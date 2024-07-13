@@ -2,24 +2,24 @@
 <resources>
 
     <!-- Hosts card -->
-    <string name="blocked_hosts_label">Estettyjä</string>
-    <string name="allowed_hosts_label">Hyväksyttyjä</string>
-    <string name="redirect_hosts_label">Siirrettyjä</string>
+    <string name="blocked_hosts_label">Estetty</string>
+    <string name="allowed_hosts_label">Sallittu</string>
+    <string name="redirect_hosts_label">Ohjattu</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
         <item quantity="one">%d up-to-date source</item>
-        <item quantity="other">%d ajantasalla olevaa lähdettä</item>
+        <item quantity="other">%d lähdettä ajan tasalla</item>
     </plurals>
     <plurals name="outdated_source_label">
         <item quantity="one">%d outdated source</item>
         <item quantity="other">%d vanhentunutta lähdettä</item>
     </plurals>
-    <string name="check_hosts_update_description">Tarkista hosts-päivityksiä</string>
-    <string name="update_hosts_description">Päivitä hosts-tiedosto</string>
+    <string name="check_hosts_update_description">Tarkista hosts-päivitykset</string>
+    <string name="update_hosts_description">Päivitä hosts-tiedot</string>
 
     <!-- Log card -->
-    <string name="log_label">Näytä DNS-pyyntöjen loki</string>
+    <string name="log_label">Näytä DNS-pyyntöhistoria</string>
 
     <!-- Help card -->
     <string name="help_label">Näytä ohje\nja vinkit</string>
@@ -35,12 +35,12 @@
     <string name="preferences_drawer_item">Asetukset</string>
 
     <!-- App bar buttons -->
-    <string name="open_drawer_button_description">Avaa navigointipalkki</string>
-    <string name="adblock_pause_button_description">Pysäytä/jatka mainostenestämistä</string>
-    <string name="update_button">Päivitä torjutut palvelimet</string>
-    <string name="show_log_button">Näytä pyydetyt palvelimet</string>
+    <string name="open_drawer_button_description">Avaa siirtymisvalikko</string>
+    <string name="adblock_pause_button_description">Keskeytä/palauta mainosesto</string>
+    <string name="update_button">Päivitä estetyt verkkotunnukset</string>
+    <string name="show_log_button">Näytä pyydetyt verkkotunnukset</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Lue ohjeet, jos haluat lisätietoja.</string>
+    <string name="error_dialog_help">Lue lisätietoja ohjeista.</string>
 
 </resources>

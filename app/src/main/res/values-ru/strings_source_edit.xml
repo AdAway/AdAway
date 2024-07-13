@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Редактировать источник</string>
+    <string name="source_edit_add_title">Добавить источник</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Метка</string>
+    <string name="source_edit_label_required">Требуется метка</string>
+    <string name="source_edit_type">Тип</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Файл</string>
+    <string name="source_edit_url_location">Местоположение</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Требуется доступ к Местоположению</string>
+    <string name="source_edit_file_hint">Нажмите Файл, чтобы выбрать исходный файл</string>
+    <string name="source_edit_location_invalid">Неверное местоположение</string>
+    <string name="source_edit_format">Формат списка</string>
+    <string name="source_edit_format_block_list">Блокировать</string>
+    <string name="source_edit_format_allow_list">Разрешить</string>
+    <string name="source_edit_redirected_hosts">Применить перенаправленные хосты</string>
+    <string name="source_edit_redirected_hosts_warning">Разрешение перенаправления хостов может вызвать проблемы с безопасностью. Используйте эти настройки только для надежного источника, поскольку он может перенаправить некоторый конфиденциальный трафик на любой сервер, который ему нужен.</string>
+</resources>

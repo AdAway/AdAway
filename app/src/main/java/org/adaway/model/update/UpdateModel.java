@@ -1,8 +1,15 @@
 package org.adaway.model.update;
 
+import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
+import static android.os.Build.VERSION.SDK_INT;
+import static org.adaway.model.update.UpdateStore.getApkStore;
+import static java.util.Objects.requireNonNull;
+
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.IntentFilter;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
@@ -21,12 +28,6 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import timber.log.Timber;
 
-import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
-import static android.os.Build.VERSION.SDK_INT;
-import static org.adaway.BuildConfig.VERSION_CODE;
-import static org.adaway.BuildConfig.VERSION_NAME;
-import static org.adaway.model.update.UpdateStore.getApkStore;
-
 /**
  * This class is the model in charge of updating the application.
  *
@@ -36,6 +37,7 @@ public class UpdateModel {
     private static final String MANIFEST_URL = "https://app.adaway.org/manifest.json";
     private static final String DOWNLOAD_URL = "https://app.adaway.org/adaway.apk?versionCode=";
     private final Context context;
+    private final VersionInfo versionInfo;
     private final OkHttpClient client;
     private final MutableLiveData<Manifest> manifest;
     private ApkDownloadReceiver receiver;
@@ -47,6 +49,7 @@ public class UpdateModel {
      */
     public UpdateModel(Context context) {
         this.context = context;
+        this.versionInfo = VersionInfo.get(context);
         this.manifest = new MutableLiveData<>();
         this.client = buildHttpClient();
         ApkUpdateService.syncPreferences(context);
@@ -58,7 +61,7 @@ public class UpdateModel {
      * @return The current version code.
      */
     public int getVersionCode() {
-        return VERSION_CODE;
+        return this.versionInfo.code;
     }
 
     /**
@@ -67,7 +70,7 @@ public class UpdateModel {
      * @return The current version name.
      */
     public String getVersionName() {
-        return VERSION_NAME;
+        return this.versionInfo.name;
     }
 
     /**
@@ -81,6 +84,7 @@ public class UpdateModel {
 
     /**
      * Get the application update store.
+     *
      * @return The application update store.
      */
     public UpdateStore getStore() {
@@ -112,9 +116,12 @@ public class UpdateModel {
     }
 
     private Manifest downloadManifest() {
-        HttpUrl httpUrl = HttpUrl.parse(MANIFEST_URL)
+        if (!this.versionInfo.isValid()) {
+            return null;
+        }
+        HttpUrl httpUrl = requireNonNull(HttpUrl.parse(MANIFEST_URL), "Failed to parse manifest URL")
                 .newBuilder()
-                .addQueryParameter("versionCode", Integer.toString(VERSION_CODE))
+                .addQueryParameter("versionCode", Integer.toString(this.versionInfo.code))
                 .addQueryParameter("sdkCode", Integer.toString(SDK_INT))
                 .addQueryParameter("channel", getChannel())
                 .addQueryParameter("store", getStore().getName())
@@ -124,8 +131,8 @@ public class UpdateModel {
                 .build();
         try (Response execute = this.client.newCall(request).execute();
              ResponseBody body = execute.body()) {
-            if (execute.isSuccessful()) {
-                return new Manifest(body.string(), VERSION_CODE);
+            if (execute.isSuccessful() && body != null) {
+                return new Manifest(body.string(), this.versionInfo.code);
             } else {
                 return null;
             }
@@ -168,5 +175,29 @@ public class UpdateModel {
                 .setDescription(this.context.getString(R.string.update_notification_description));
         DownloadManager downloadManager = this.context.getSystemService(DownloadManager.class);
         return downloadManager.enqueue(request);
+    }
+
+    private static class VersionInfo {
+        private final int code;
+        private final String name;
+
+        private VersionInfo(int code, String name) {
+            this.code = code;
+            this.name = name;
+        }
+
+        public static VersionInfo get(Context context) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager()
+                        .getPackageInfo(context.getPackageName(), 0);
+                return new VersionInfo(packageInfo.versionCode, packageInfo.versionName);
+            } catch (PackageManager.NameNotFoundException e) {
+                return new VersionInfo(0, "development");
+            }
+        }
+
+        public boolean isValid() {
+            return this.code > 0;
+        }
     }
 }

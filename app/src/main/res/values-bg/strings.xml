@@ -39,11 +39,11 @@
 
     <!--Your lists-->
     <string name="import_dialog">Внасяне…</string>
-    <string name="import_success">Архивът е внесен успешно от външната памет.</string>
-    <string name="import_failed">Грешка при внасяне на архив. Форматът правилен ли е? Проверете дневника за повече детайли.</string>
+    <string name="import_success">Резервното копие е внесено успешно от външната памет.</string>
+    <string name="import_failed">Грешка при внасяне на резервно копие. Форматът правилен ли е? Проверете дневника за подробности.</string>
     <string name="export_dialog">Изнасяне…</string>
-    <string name="export_success">Архивът е успешно изнесен във файла „%s“ на външното ви хранилище.</string>
-    <string name="export_failed">Грешка при изнасяне на архивен файл \'%s\'.</string>
+    <string name="export_success">Резервното копие е изнесено във файла „%s“ на външното хранилище.</string>
+    <string name="export_failed">Грешка при изнасяне на резервното копие „%s“.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Файлът hosts</string>
@@ -86,7 +86,7 @@
     <string name="notification_configuration_changed">Настройките са променени. Трябва да бъдат приложени.</string>
     <string name="notification_configuration_changed_action">Прилагане</string>
     <string name="notification_configuration_installing">Прилагане на настройки…</string>
-    <string name="notification_configuration_failed">Грешка при прилагане на настройки.</string>
+    <string name="notification_configuration_failed">Грешка при прилагане на настройките.</string>
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">Символната връзка целта на хост файла липсва</string>
@@ -107,7 +107,7 @@
     <string name="apply_symlink_successful">Символичната връзка е създадена успешно.\nМоже да се наложи да рестартирате Android, за да влязат в сила промените.\n\nИскате ли да рестартирате?\n(За да предотвратите загуба на данни, уверете се, че в момента никое приложение не използва SD картата!)</string>
     <string name="apply_symlink_successful_title">Успешно създаване на символична връзка</string>
     <string name="apply_symlink_fail">Символната връзка не може да бъде създадена от Android.\nТова се дължи най-вече на „функция“, наречена S-ON при телефоните на HTC!\n\nЕдно от възможните решения е да заредите телефона си в режим на възстановяване и там да създадете символна връзка с командата „ln -s /data/data/hosts /system/etc/hosts“.\n\nАко това и не работи, потърсете в интернет за S-OFF и вашия модел на телефона.</string>
-    <string name="apply_symlink_fail_title">Грешка при създаване на символна връзка</string>
+    <string name="apply_symlink_fail_title">Грешка при създаване на символна връзка.</string>
     <string name="apply_help">Моля, прочетете Помощ за повече информация.</string>
     <string name="apply_apn_proxy">Зададено е APN прокси на вашия Android!\nAdAway няма да работи надеждно, когато сте на мобилни мрежи като 3G. Можете да деактивирате това прокси като отидете на вашия избран APN (От Настройки: Мрежа и интернет -&gt; Мобилна мрежа -&gt; Разширени -&gt; Имена на точки за достъп) и премахнете стойността в полето за прокси.</string>
     <string name="apply_apn_proxy_title">APN прокси е зададено!</string>
@@ -157,8 +157,8 @@
     <string name="menu_refresh">Опресняване</string>
     <string name="menu_add">Добавяне</string>
     <string name="menu_help">Помощ</string>
-    <string name="menu_import">Внасяне на архив</string>
-    <string name="menu_export">Изнасяне на архив</string>
+    <string name="menu_import">Внасяне на резервно копие</string>
+    <string name="menu_export">Изнасяне на резервно копие</string>
 
     <!--Help-->
     <string name="help_tab_s_on_s_off">S-ON/S-OFF</string>
@@ -215,7 +215,7 @@
     <!--Hosts source status-->
     <string name="hosts_source_installed">Инсталиран преди %1$s</string>
     <string name="hosts_source_up_to_date">Без обновяване от %1$s</string>
-    <string name="hosts_source_need_update">Нужна актуализация за %1$s</string>
+    <string name="hosts_source_need_update">За обновяване %1$s</string>
     <string name="hosts_source_last_update">Последно обновяване преди %1$s</string>
     <string name="hosts_source_unknown_status">Състоянието на обновяване е неизвестно</string>
     <string name="hosts_source_disabled">Изключено</string>

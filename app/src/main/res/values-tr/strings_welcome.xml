@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Hoşgeldiniz</string>
-    <string name="welcome_first_step">Sihirbaz kurulumunun ilk aşaması</string>
-    <string name="welcome_second_step">Sihirbaz kurulumunun ikinci aşaması</string>
-    <string name="welcome_last_step">Sihirbaz kurulumunun son aşaması</string>
+    <string name="welcome_first_step">Kurulumun ilk aşaması</string>
+    <string name="welcome_second_step">Kurulumun ikinci aşaması</string>
+    <string name="welcome_last_step">Kurulumun son aşaması</string>
 
     <!-- Method UI -->
     <string name="welcome_method_header">AdAway\'e hoş geldiniz!</string>
@@ -11,13 +11,13 @@
 
     <string name="welcome_root_method_logo">Kök erişimi logosu</string>
     <string name="welcome_root_method_title">Kök erişimi tabanlı\nreklam engelleyici</string>
-    <string name="welcome_root_method_text1">Hızlı</string>
+    <string name="welcome_root_method_text1">Daha hızlı</string>
     <string name="welcome_root_method_text2">Pil dostu</string>
     <string name="welcome_root_method_text3">Kök erişimi gerekli</string>
 
     <string name="welcome_vpn_method_logo">VPN logosu</string>
     <string name="welcome_vpn_method_title">VPN tabanlı\nreklam engelleyici</string>
-    <string name="welcome_vpn_method_text1">Yavaş</string>
+    <string name="welcome_vpn_method_text1">Daha yavaş</string>
     <string name="welcome_vpn_method_text2">Arka planda çalıştır</string>
     <string name="welcome_vpn_method_text3">Uyumluluk</string>
 

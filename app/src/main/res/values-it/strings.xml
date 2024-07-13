@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Benvenuto!</string>
-    <string name="text_help">AdAway è un software gratuito e open-source progettato per bloccare pubblicità. Raccoglie gli indirizzi pubblicitari per bloccarli sul tuo dispositivo..\nVuoi saperne di più? Controlla la sezione di aiuto qui sotto!</string>
+    <string name="text_help">AdAway è un software gratuito e open-source progettato per bloccare pubblicità. Raccoglie gli indirizzi pubblicitari per bloccarli sul tuo dispositivo.\nVuoi saperne di più? Controlla la sezione di aiuto qui sotto!</string>
     <string name="button_show_help">Mostra più suggerimenti</string>
     <string name="icon_update_status">Aggiorna stato</string>
     <string name="text_update">Tutti i file hosts vengono scaricati dalle sorgenti definite, uniti alle tue liste personali e installati come un unico file hosts nel sistema</string>
@@ -22,7 +22,7 @@
     <string name="webserver_status_running">In esecuzione</string>
     <string name="webserver_status_stopped">Interrotto</string>
     <string name="webserver_toggle_text">Avvia o interrompe il web server su localhost per rispondere alle richieste degli hostname bloccati</string>
-    <string name="button_enable_webserver">Abilita web server</string>
+    <string name="button_enable_webserver">Abilita il web server</string>
     <string name="button_disable_webserver">Disabilita web server</string>
     <string name="header_vpn">VPN</string>
     <string name="vpn_status_running">In esecuzione</string>
@@ -62,7 +62,7 @@
     <string name="status_revert">Ripristino in corso del file hosts predefinito</string>
     <string name="status_revert_done">File hosts predefinito ripristinato</string>
     <string name="status_reverting_subtitle">Creo file hosts standard</string>
-    <string name="status_update_available">Disponibile aggiornamento sorgenti</string>
+    <string name="status_update_available">Aggiornamento sorgenti disponibile</string>
     <string name="status_update_available_subtitle">File hosts più recenti disponibili</string>
     <string name="status_no_update_found">Nessuna sorgente da aggiornare</string>
     <string name="status_no_connection">Nessuna connessione internet</string>
@@ -92,7 +92,7 @@
     <string name="apply_symlink_missing_status">Symlink del file hosts di destinazione mancante</string>
     <string name="apply_symlink_missing">Il collegamento simbolico a /system/etc/hosts non esiste o non è corretto! AdAway  non funzionerà se il collegamento non punta al file giusto.\n\nVuoi provare a creare un collegamento simbolico?</string>
     <string name="apply_symlink_missing_title">Collegamento simbolico mancante</string>
-    <string name="apply_not_enough_space">Non c\'è abbastanza spazio nella partizione!\nProva cambiando il percorso del file hosts in /data/data/hosts nelle preferenze</string>
+    <string name="apply_not_enough_space">Non c\'è abbastanza spazio nella partizione!\nProva a cambiare il percorso del file hosts in /data/data/hosts nelle preferenze.</string>
     <string name="apply_not_enough_space_title">Spazio non sufficiente</string>
     <string name="apply_private_file_fail">Il file scaricato non può essere letto</string>
     <string name="apply_private_file_fail_title">Creazione file privato fallita</string>
@@ -120,7 +120,7 @@
     <string name="apply_dialog_hosts">Costruisco file hosts</string>
     <string name="apply_dialog_apply">Applico file hosts</string>
     <string name="apply_fail_status">Impossibile applicare il nuovo file host</string>
-    <string name="apply_fail">L\'applicazione del file hosts è fallita!\nProva cambiando il percorso del file hostsin /data/data/hosts nelle preferenze</string>
+    <string name="apply_fail">L\'applicazione del file hosts è fallita!\nProva a cambiare il percorso del file hosts in /data/data/hosts nelle preferenze.</string>
     <string name="apply_fail_title">Modifiche non applicate!</string>
     <string name="root_access_fail">Controlla il root manager per assicurarti che i permessi di root siano stati concessi</string>
     <string name="revert_successful">Sei tornato al file hosts predefinito.\nPotrebbe essere necessario riavviare Android affinché le modifiche abbiano effetto.\n\nVuoi riavviare?\n(Per evitare la perdita di dati assicurati che nessuna app utilizzi la scheda SD al momento!)</string>
@@ -198,12 +198,12 @@ Vuoi installare OI File Manager?</string>
     <!-- !!! Attention, always translate all items from this array !!! - Drawer menu items -->
     <string-array name="drawer_items">
         <item>Home</item>
-        <item>Sorgenti hosts</item>
+        <item>Sorgenti host</item>
         <item>Le tue liste</item>
         <item>Apri file hosts</item>
         <item>Log richieste DNS</item>
         <item>Scansione Adware</item>
-        <item>Impostazioni</item>
+        <item>Preferenze</item>
         <item>Aiuto</item>
     </string-array>
     <!--Drawer menu labels-->
@@ -211,7 +211,7 @@ Vuoi installare OI File Manager?</string>
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">Richieste DNS</string>
     <string name="shortcut_your_lists">Le tue liste</string>
-    <string name="shortcut_preferences">Impostazioni</string>
+    <string name="shortcut_preferences">Preferenze</string>
 
     <!--Hosts source status-->
     <string name="hosts_source_installed">Installato %1$s fa</string>
@@ -228,7 +228,7 @@ Vuoi installare OI File Manager?</string>
     </plurals>
     <plurals name="hosts_source_hours">
         <item quantity="one">%d ora</item>
-        <item quantity="many">%d</item>
+        <item quantity="many">%d ore</item>
         <item quantity="other">%d ore</item>
     </plurals>
     <plurals name="hosts_source_days">
@@ -239,7 +239,7 @@ Vuoi installare OI File Manager?</string>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mese</item>
         <item quantity="many">%d mesi</item>
-        <item quantity="other">%dmesi</item>
+        <item quantity="other">%d mesi</item>
     </plurals>
 
     <!-- Clipboard -->

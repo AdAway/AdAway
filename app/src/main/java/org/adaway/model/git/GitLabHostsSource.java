@@ -1,32 +1,27 @@
 package org.adaway.model.git;
 
+import static java.util.stream.Collectors.joining;
+
 import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 import timber.log.Timber;
-
-import static java.util.stream.Collectors.joining;
 
 /**
  * This class is an utility class to get information from GitLab hosts source hosting.
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-public class GitLabHostsSource extends GitHostsSource {
+public class GitLabHostsSource extends GitHostsJsonApiSource {
     /**
      * The GitHub owner name.
      */
@@ -61,31 +56,14 @@ public class GitLabHostsSource extends GitHostsSource {
                 .collect(joining("/"));
     }
 
-    /**
-     * Get last update of the hosts file.
-     *
-     * @return The last update date, {@code null} if the date could not be retrieved.
-     */
-    @Nullable
-    public ZonedDateTime getLastUpdate() {
-        // Create commit API request URL
-        String commitApiUrl = "https://gitlab.com/api/v4/projects/" + this.owner + "%2F" + this.repo
+    @Override
+    protected String getCommitApiUrl() {
+        return "https://gitlab.com/api/v4/projects/" + this.owner + "%2F" + this.repo
                 + "/repository/commits?path=" + this.path + "&ref_name=" + this.ref;
-        // Create client and request
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url(commitApiUrl).build();
-        try (Response execute = client.newCall(request).execute();
-             ResponseBody body = execute.body()) {
-            return parseJsonBody(body.string());
-        } catch (IOException | JSONException exception) {
-            Timber.e(exception, "Unable to get commits from API.");
-            // Return failed
-            return null;
-        }
     }
 
     @Nullable
-    private ZonedDateTime parseJsonBody(String body) throws JSONException {
+    protected ZonedDateTime parseJsonBody(String body) throws JSONException {
         JSONArray commitArray = new JSONArray(body);
         int nbrOfCommits = commitArray.length();
         ZonedDateTime date = null;

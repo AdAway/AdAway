@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_root_title">Блокировщик рекламы на основе root</string>
     <!-- Hosts install category -->
     <string name="pref_hosts_installation">Установка хостов</string>
     <string name="pref_root_open_hosts">Открыть файл hosts</string>
     <string name="pref_apply_method">Путь к файлу hosts</string>
-    <string name="pref_apply_method_summary">Прочитайте Справку перед использованием этой возможности</string>
+    <string name="pref_apply_method_summary">Прочитайте Справку перед использованием этой функции</string>
     <string-array name="pref_apply_method_entries">
         <item>/system/etc/hosts</item>
         <item>/data/hosts</item>
@@ -27,11 +27,11 @@
     <string name="pref_webserver_test">Проверить веб-сервер</string>
     <string name="pref_webserver_certificate">Установить самоподписанный сертификат</string>
     <string name="pref_webserver_certificate_dialog_title">Установка сертификата вручную</string>
-    <string name="pref_webserver_certificate_dialog_content">Начиная с 11 версии Андроид (R), приложение больше не может автоматически устанавливать главный сертификат (CA)\n\nИдите в \"Настройки безопасности\", \"Шифрование личных данных\", затем \"Установить сертификат\". Оттуда выберите \"CA сертификат\" и выберите только что экспортированный файл сертификата.</string>
+    <string name="pref_webserver_certificate_dialog_content">Начиная с Android 11 (R), приложение больше не может автоматически устанавливать центр сертификации (CA).\n\nПерейдите в настройки \"Безопасность\", \"Шифрование личных данных\", затем \"Установить сертификат\". Оттуда выберите \"Сертификат CA\" и выберите только что экспортированный файл сертификата.</string>
     <string name="pref_webserver_certificate_dialog_action">Откройте настройки безопасности</string>
     <string name="pref_webserver_state_checking">Проверка…</string>
     <string name="pref_webserver_state_not_running">Не запущен</string>
     <string name="pref_webserver_state_running_not_installed">Запущен, но сертификат не установлен</string>
-    <string name="pref_webserver_state_running_and_installed">Запущен, сертификат установлен</string>
+    <string name="pref_webserver_state_running_and_installed">Запущен и сертификат установлен</string>
     <string name="pref_webserver_icon">Заменить пустое место от рекламы логотипом приложения</string>
 </resources>

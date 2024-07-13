@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Kaynak düzenle</string>
+    <string name="source_edit_add_title">Kaynak ekle</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Etiket</string>
+    <string name="source_edit_label_required">Etiket gerekli</string>
+    <string name="source_edit_type">Tür</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Dosya</string>
+    <string name="source_edit_url_location">Konum</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Yer gerekli</string>
+    <string name="source_edit_file_hint">Kaynak dosya seçmek için Dosya\'ya tıklayın</string>
+    <string name="source_edit_location_invalid">Geçersiz konum</string>
+    <string name="source_edit_format">Liste Formatı</string>
+    <string name="source_edit_format_block_list">Engelle</string>
+    <string name="source_edit_format_allow_list">İzin ver</string>
+    <string name="source_edit_redirected_hosts">Yönlendirilmiş hosts\'u uygula</string>
+    <string name="source_edit_redirected_hosts_warning">Yönlendirilmiş hosts\'a izin vermek güvenlik sorunu oluşturabilir. Yalnızca güvendiğiniz kaynaklar ile kullanınız. Aksi durumda hassas bilgileriniz farklı kaynaklara yönlendirilebilir.</string>
+</resources>

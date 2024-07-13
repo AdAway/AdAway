@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Επεξεργασία πηγής</string>
+    <string name="source_edit_add_title">Προσθήκη πηγής</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Ετικέτα</string>
+    <string name="source_edit_label_required">Απαιτείται ετικέτα</string>
+    <string name="source_edit_type">Τύπος</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Αρχείο</string>
+    <string name="source_edit_url_location">Τοποθεσία</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Απαιτείται τοποθεσία</string>
+    <string name="source_edit_file_hint">Πατήστε Αρχείο για να επιλέξετε πηγαίο αρχείο</string>
+    <string name="source_edit_location_invalid">Μη έγκυρη τοποθεσία</string>
+    <string name="source_edit_format">Μορφή λίστας</string>
+    <string name="source_edit_format_block_list">Αποκλεισμός</string>
+    <string name="source_edit_format_allow_list">Να επιτρέπεται</string>
+    <string name="source_edit_redirected_hosts">Εφαρμογή ανακατευθυνόμενων hosts</string>
+    <string name="source_edit_redirected_hosts_warning">Η αποδοχή ανακατευθυνόμενων hosts μπορεί να προκαλέσει προβλήματα ασφαλείας. Χρησιμοποιήστε αυτές τις ρυθμίσεις μόνο σε μια αξιόπιστη πηγή, καθώς θα μπορούσε να ανακατευθύνει κάποια ευαίσθητη κίνηση σε όποιον διακομιστή θέλει.</string>
+</resources>
