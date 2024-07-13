@@ -5,16 +5,11 @@ import androidx.annotation.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 import timber.log.Timber;
 
 /**
@@ -22,7 +17,7 @@ import timber.log.Timber;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class GistHostsSource extends GitHostsSource {
+class GistHostsSource extends GitHostsJsonApiSource {
     /**
      * The gist identifier.
      */
@@ -47,25 +42,12 @@ class GistHostsSource extends GitHostsSource {
     }
 
     @Override
-    @Nullable
-    public ZonedDateTime getLastUpdate() {
-        // Create commit API request URL
-        String commitApiUrl = "https://api.github.com/gists/" + this.gistIdentifier;
-        // Create client and request
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url(commitApiUrl).build();
-        try (Response execute = client.newCall(request).execute();
-             ResponseBody body = execute.body()) {
-            return parseJsonBody(body.string());
-        } catch (IOException | JSONException exception) {
-            Timber.e(exception, "Unable to get commits from API.");
-            // Return failed
-            return null;
-        }
+    protected String getCommitApiUrl() {
+        return "https://api.github.com/gists/" + this.gistIdentifier;
     }
 
     @Nullable
-    private ZonedDateTime parseJsonBody(String body) throws JSONException {
+    protected ZonedDateTime parseJsonBody(String body) throws JSONException {
         JSONObject gistObject = new JSONObject(body);
         String dateString = gistObject.getString("updated_at");
         ZonedDateTime date = null;
