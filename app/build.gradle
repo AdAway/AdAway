@@ -118,11 +118,11 @@ dependencies {
     implementation 'com.google.android.material:material:1.9.0'
 
     // Collections related
-    implementation 'com.google.guava:guava:32.0.1-android'
+    implementation libs.guava
     // Network related
-    implementation 'com.squareup.okhttp3:okhttp:4.11.0'
+    implementation libs.okhttp3.okhttp
     // Logging related
-    implementation 'com.jakewharton.timber:timber:5.0.1'
+    implementation libs.timber
     if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {
@@ -133,21 +133,17 @@ dependencies {
     }
 
     // Root related
-    implementation 'com.github.topjohnwu.libsu:core:5.1.0'
+    implementation libs.libsu
 
     // VPN related
-    implementation 'org.pcap4j:pcap4j-core:1.8.2'
-    implementation 'org.pcap4j:pcap4j-packetfactory-static:1.8.2'
-    implementation 'dnsjava:dnsjava:3.5.2'
-    implementation 'org.slf4j:slf4j-android:1.7.32'
-    implementation 'com.squareup.okhttp3:okhttp-dnsoverhttps:4.11.0'
+    implementation libs.bundles.pcap4j
+    implementation libs.dnsjava
+    implementation libs.slf4j.android
+    implementation libs.okhttp.dnsoverhttps
 
     // Test related
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.json:json:20220320'
-    androidTestImplementation 'androidx.arch.core:core-testing:2.2.0'
-    androidTestImplementation 'androidx.test:core:1.5.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test:runner:1.5.2'
-    androidTestImplementation 'junit:junit:4.13.2'
+    testImplementation libs.junit
+    testImplementation libs.json
+    androidTestImplementation libs.bundles.androidx.test
+    androidTestImplementation libs.junit
 }
