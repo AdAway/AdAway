@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="update_title">Atualização do AdAway</string>
     <!-- Home screen -->
@@ -10,6 +10,7 @@
     <string name="update_updating_header">Atualizando AdAway</string>
     <string name="update_update_button">Atualizar agora</string>
     <string name="update_progress_label">%1$s / %2$s</string>
+    <string name="update_complete_label">Completo</string>
     <string name="update_last_changelog_title">Últimas modificações</string>
     <string name="update_new_changelog_title">Registro de mudanças</string>
     <string name="update_support_title">Apoiar o desenvolvimento</string>
