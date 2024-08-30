@@ -1,6 +1,7 @@
 package org.adaway.ui.welcome;
 
 import static android.app.Activity.RESULT_OK;
+import static android.provider.Settings.ACTION_VPN_SETTINGS;
 import static org.adaway.model.adblocking.AdBlockMethod.ROOT;
 import static org.adaway.model.adblocking.AdBlockMethod.UNDEFINED;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
@@ -10,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.VpnService;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +52,7 @@ public class WelcomeMethodFragment extends WelcomeFragment {
                 notifyVpnEnabled();
             } else {
                 notifyVpnDisabled();
+                checkAlwaysOnVPN();
             }
         });
 
@@ -122,5 +125,30 @@ public class WelcomeMethodFragment extends WelcomeFragment {
         this.binding.rootCardView.setCardBackgroundColor(this.cardColor);
         this.binding.vpnCardView.setCardBackgroundColor(this.cardColor);
         blockNext();
+    }
+
+    private void checkAlwaysOnVPN() {
+        int alwayson_message = R.string.welcome_vpn_alwayson_description;
+        try {
+            String alwaysOn = Settings.Secure.getString(getContext().getContentResolver(), "always_on_vpn_app");
+            if (alwaysOn == null)
+                return;
+        } catch (java.lang.SecurityException exception) {
+            // Some Android versions will block the always_on_vpn_app request, as it's not marked @Readable
+            alwayson_message = R.string.welcome_vpn_alwayson_blocked_description;
+        }
+        new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.welcome_vpn_alwayson_title)
+                .setMessage(alwayson_message)
+                .setNegativeButton(R.string.button_close, null)
+                .setPositiveButton(
+                        R.string.welcome_vpn_alwayson_settings_action,
+                        (dialog, which) -> {
+                            dialog.dismiss();
+                            Intent intent = new Intent(ACTION_VPN_SETTINGS);
+                            startActivity(intent);
+                        })
+                .create()
+                .show();
     }
 }
