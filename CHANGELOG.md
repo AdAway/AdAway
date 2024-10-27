@@ -5,6 +5,8 @@
 - Renew web server TLS certificate
 - Update Android gradle plugin
 
+Special thanks to masudscloud for its bug report.
+
 ## [6.1.3] - 2024-07-06
 
 - Fix mongoose web server
