@@ -1,3 +1,10 @@
+# Changelog
+
+## [6.1.4] - 2024-10-27
+
+- Renew web server TLS certificate
+- Update Android gradle plugin
+
 ## [6.1.3] - 2024-07-06
 
 - Fix mongoose web server
