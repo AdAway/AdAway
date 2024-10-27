@@ -96,6 +96,8 @@ public class UpdateViewModel extends AdwareViewModel {
                         this.downloadProgress.postValue(new CompleteDownloadStatus());
                         finishDownload = true;
                         break;
+                    default:
+                        break;
                 }
             }
         }
