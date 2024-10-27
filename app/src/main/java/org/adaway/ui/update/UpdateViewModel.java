@@ -66,6 +66,8 @@ public class UpdateViewModel extends AdwareViewModel {
             } catch (InterruptedException e) {
                 Timber.d(e, "Failed to wait before querying download manager.");
                 Thread.currentThread().interrupt();
+                this.downloadProgress.postValue(null);
+                return;
             }
             // Query download manager
             try (Cursor cursor = downloadManager.query(query)) {
