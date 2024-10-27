@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.1.5] - Unreleased
+
+- Add always-on VPN detection during setup
+
+Special thanks to El-Virus for its contribution.
+
 ## [6.1.4] - 2024-10-27
 
 - Renew web server TLS certificate
