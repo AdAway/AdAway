@@ -1,54 +1,55 @@
-# Making a release
+# Releasing
 
-### Table of contents
-
-1. [Checking bugs and technical debt](#1---checking-bugs-and-technical-debt)
-2. [Updating application version](#2---updating-application-version)
-3. [Updating the changelog](#3---updating-the-changelog)
-3. [Building release apk](#4---building-release-apk)
-4. [Distributing release](#5---distributing-release)
-
-## 1 - Checking bugs and technical debt
+## 1. Checking bugs and technical debt
 
 ### Lint checks
-Android development tool provide linter to check common errors.    
-Use `./gradlew :app:lint` to run the linter and produce report.
-It will generate an HTML (human readable) file at `app/build/reports/lint-results.html`.    
-So before making a release, **ensure no new warning has been introduced**.
+
+Android development tools provide linter to check common errors.
+Use `./gradlew :app:lint` to run the linter and produce (human readable) reports as HTML file located at `app/build/reports/lint-results.html`.
+
+> [!IMPORTANT] 
+> Check no new warning was introduced before releasing.
 
 ### SonarCloud analysis
-The AdAway application source code is [monitored by SonarCloud](https://sonarcloud.io/dashboard?id=org.adaway).    
-The current version of the source code is analysed to find bugs, code smells and compute technical debt.
-The overall score may be not perfect, each new release should not increase it.    
-So before making a release, **ensure that no new bug or debt has been introduced**.
 
-## 2 - Updating application version
+The AdAway application source code is [analyzed by SonarCloud](https://sonarcloud.io/dashboard?id=org.adaway) to find bugs, code smells and compute technical debt.
+While the overall score may be not perfect, each new release should not increase it.  
 
-Each version has each own version number.
-It follows the [Semantic Versioning](https://semver.org/) principle (_once the first 4.x.y stable release is published_).    
-**It must be declared a 3 different locations**:
+> [!IMPORTANT]
+> Check no new bug nor debt was introduced before releasing.
 
-* The version name `android.defaultConfig.versionName` in `src/app/build.gradle`: '4.1.2', '5.12.3'
-* The version code `android.defaultConfig.versionCode` in `src/app/build.gradle`: 41020, 51203
-* The version name for SonarCloud `sonarqube.properties.property.sonar.projectVersion` in `src/build.gradle`: same as version name
+## 2. Updating application version
 
-## 3 - Updating the changelog
+Each version has its own number that follows the [Semantic Versioning](https://semver.org/) principle (starting from version 4).
 
-The AdAway project provides [a global changelog](CHANGELOG.md).  
-Before releasing any new version, be sure to update the changelog to let users know what is inside each new version.
+> [!IMPORTANT]
+> Update application version name (`appName`) and code (`appCode`) from the `gradle/libs.versions.toml` catalog file.
 
-## 4 - Building release APK
+## 3. Updating the changelog
 
-The release apk must be built with release flavor (not debug). Check [contributing guide for building instructions](CONTRIBUTING.md#building-the-project).    
-**The apk name follows the following format: `AdAway-<version_name>-<yyyymmdd>.apk`**.
+The AdAway project provides [a global changelog](CHANGELOG.md).
+
+> [!IMPORTANT]
+> Update the changelog to let users know what is inside each new version before releasing it.
+
+## 4. Building release APK
+
+The release apk must be built using the `release` flavor (not `debug`).
+Check the [contributing guide for building instructions](CONTRIBUTING.md#building-the-project).  
+
+> [!IMPORTANT]
+> Rename to release apk file to follow the format: `AdAway-<version_name>-<yyyymmdd>.apk`
+ 
 Example: _AdAway-6.1.2-20220817.apk_ for the version 6.1.2 built the 08/17/22.
 
-## 5 - Distributing release
+## 5. Distributing release
 
 Before sharing the any release, remember to test it.
 Release variant apk does not behave like debug variant.
-Same goes for real device versus emulator.  
-**Final test should be done with release apk variant on real device.**
+Same goes for real device versus emulator.
+
+> [!IMPORTANT]
+> Final tests should be done with release apk variant on real device.
 
 Once tested, releases are posted on XDA development thread using the following template:
 ```
@@ -80,7 +81,7 @@ The beta releases are only announced in the XDA development thread.
 ### Stable releases
 
 The stable releases are distributed through [GitHub releases](https://github.com/AdAway/AdAway/releases) and [F-Droid store](https://f-droid.org/packages/org.adaway/) and are posted of the first post of XDA development thread.
-Once ready, create and push a tag on GitHub repository using  `vX.Y.Z` format (or `vX.Y.Zb` for pre-releases).
+Once ready, create and push a tag on GitHub repository using `vX.Y.Z` format (or `vX.Y.Zb` for pre-releases).
 To publish the application in GitHub:
 
 * Create a new version based on this tag,
