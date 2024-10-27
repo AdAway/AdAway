@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Vitajte</string>
     <string name="welcome_first_step">Sprievodca – 1. krok</string>
@@ -23,6 +23,11 @@
 
     <string name="welcome_root_missing_title">Je potrebné rootnuté zariadenie</string>
     <string name="welcome_root_missile_description">Buď sa nepodarilo nájsť binárny súbor SU alebo ste nepovolili oprávnenie roota v AdAway.\n\nK tomuto dochádza, keď vaše zariadenie nie je rootnuté. Informácie o tom, ako rootnuť vaše zariadenia nájdete na wiki.lineageos.org alebo na inej stránke o zariadeniach s Androidom.</string>
+
+    <string name="welcome_vpn_alwayson_title">Aktívne \"VPN vždy zapnuté\"</string>
+    <string name="welcome_vpn_alwayson_description">Aplikácia AdAway zistila, že iná sieť VPN má aktívne nastavenie \"VPN vždy zapnuté\".\n\nTo zabraňuje AdAway požadovať prístup k sieti VPN. Prosím, vypnite \"VPN vždy zapnuté\" na príslušnej VPN a skúste to znova.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">Aplikácii AdAway sa nepodarilo vyžiadať prístup k sieti VPN.\n\nMôže to byť spôsobené tým, že iná sieť VPN má aktívne nastavenie \"VPN vždy zapnuté\". Pred ďalším pokusom skontrolujte, či má niektorá VPN toto nastavenie povolené, a vypnite ho.</string>
+    <string name="welcome_vpn_alwayson_settings_action">Otvoriť nastavenie \"VPN\"</string>
 
     <string name="welcome_method_pro_logo">Výhody</string>
     <string name="welcome_method_con_logo">Nevýhody</string>
