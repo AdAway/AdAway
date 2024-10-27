@@ -95,9 +95,9 @@ struct settings parse_cli_parameters(int argc, char *argv[]) {
             char cert_path[100];
             char key_path[100];
             strcpy(cert_path, resource_path);
-            strcat(cert_path, "/localhost-2108.crt");
+            strcat(cert_path, "/localhost-2410.crt");
             strcpy(key_path, resource_path);
-            strcat(key_path, "/localhost-2108.key");
+            strcat(key_path, "/localhost-2410.key");
             s.tls_opts.cert = mg_file_read(&mg_fs_posix, cert_path);
             s.tls_opts.key = mg_file_read(&mg_fs_posix, key_path);
             // Initialize resource paths
