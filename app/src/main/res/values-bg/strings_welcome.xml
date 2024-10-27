@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Добре дошли</string>
     <string name="welcome_first_step">Първа стъпка на помощника</string>
@@ -25,6 +25,11 @@
     <string name="welcome_root_missing_title">Изисква се Android с достъп до суперпотребител</string>
     <string name="welcome_root_missile_description">Изпълниимият файл на su не е намерен или AdAway няма разрешение за достъп до правата на суперпотребителя.\n\n
 Това може да се случи, когато тройството ви няма достъп до суперпотребителя. Можете да намерите информация как да получите достъп до него на устройството си в wiki.lineageos.org или в други страници за Android.</string>
+
+    <string name="welcome_vpn_alwayson_title">Настроен е винаги включен VPN</string>
+    <string name="welcome_vpn_alwayson_description">AdAway откри, че друга VPN услуга има активна настройка „Винаги включен VPN“.\n\nТова не позволява на AdAway да поиска достъп до VPN. Изключете „Винаги включен VPN“ на съответната VPN услуга и опитайте отново.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">AdAway не можа да поиска VPN достъп.\n\nТова може да се дължи на факта, че друга VPN услуга има активна настройка „Винаги включен VPN“. Проверете дали някоя VPN услуга има включена тази настройка и я изключете, преди да опитате отново.</string>
+    <string name="welcome_vpn_alwayson_settings_action">Настройки на VPN</string>
 
     <string name="welcome_method_pro_logo">Предимства</string>
     <string name="welcome_method_con_logo">Недостатъци</string>
