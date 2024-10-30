@@ -24,6 +24,11 @@
     <string name="welcome_root_missing_title">需要 root 權限</string>
     <string name="welcome_root_missile_description">找不到 su 二進位制檔案，或者您沒有允許 AdAway root 權限。\n\n 當您的裝置沒有 root 權限時，可能會發生這種情況。您可以在 wiki.lineageos.org 或其他 Android 網站上找到有關如何 root 裝置的資訊。</string>
 
+    <string name="welcome_vpn_alwayson_title">永遠開啟 VPN 已啟用</string>
+    <string name="welcome_vpn_alwayson_description">AdAway 檢測到另一個 VPN 已啟用了「永遠開啟 VPN」的設定。\n\n這會阻止 AdAway 請求 VPN 存取權限。請停用該 VPN 的「永遠開啟 VPN」設定後再重試。</string>
+    <string name="welcome_vpn_alwayson_blocked_description">AdAway 無法請求 VPN 存取權限。\n\n這可能是因為另一個 VPN 已啟用了「永遠開啟 VPN」設定。請檢查是否有任何 VPN 啟用了此設定，並在嘗試前將其停用。</string>
+    <string name="welcome_vpn_alwayson_settings_action">開啟「VPN」設定</string>
+
     <string name="welcome_method_pro_logo">Pro</string>
     <string name="welcome_method_con_logo">Con</string>
 
