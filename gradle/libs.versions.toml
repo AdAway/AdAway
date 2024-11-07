@@ -2,7 +2,7 @@
 # Build
 appName = "6.1.4"
 appCode = "60104" # Read x.yy.zz to match version name
-gradle = "8.7.1"
+gradle = "8.7.2"
 # Common
 guava = "32.0.1-android"
 junitVersion = "1.2.1"
