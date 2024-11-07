@@ -37,7 +37,7 @@ android {
  */
 def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) {
     def flavor = gradle.startParameter.taskRequests.toString().containsIgnoreCase("debug") ? "debug" : "release"
-    def buildFolder = file("${buildDir}/intermediates/ndkBuild/${flavor}/obj/local/")
+    def buildFolder = layout.buildDirectory.dir("intermediates/ndkBuild/${flavor}/obj/local")
 
     dependsOn ":${project.name}:externalNativeBuild${flavor.substring(0, 1).toUpperCase()}${flavor.substring(1)}"
 
