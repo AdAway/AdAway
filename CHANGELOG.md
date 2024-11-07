@@ -3,6 +3,9 @@
 ## [6.1.5] - Unreleased
 
 - Add always-on VPN detection during setup
+- Update mongoose web server
+- Update Android gradle plugin
+- Update NDK
 
 Special thanks to El-Virus for its contribution.
 
