@@ -80,7 +80,7 @@ class LogAdapter extends ListAdapter<LogEntry, LogAdapter.ViewHolder> {
 
     private void bindImageView(ImageView imageView, ListType type, LogEntry entry) {
         if (type == entry.getType()) {
-            int primaryColor = MaterialColors.getColor(imageView.getContext(), R.attr.colorPrimary, Color.RED);
+            int primaryColor = MaterialColors.getColor(imageView.getContext(), android.R.attr.colorPrimary, Color.RED);
             imageView.setColorFilter(primaryColor, MULTIPLY);
             imageView.setOnClickListener(v -> this.callback.removeListItem(entry.getHost()));
         } else {

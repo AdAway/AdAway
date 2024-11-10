@@ -62,8 +62,8 @@ public class WelcomeMethodFragment extends WelcomeFragment {
         this.binding.rootCardView.setOnClickListener(this::checkRoot);
         this.binding.vpnCardView.setOnClickListener(this::enableVpnService);
 
-        this.cardColor = MaterialColors.getColor(requireContext(), R.attr.colorSecondaryContainer, Color.GREEN);
-        this.cardEnabledColor = MaterialColors.getColor(requireContext(), R.attr.colorPrimaryContainer, Color.GREEN);
+        this.cardColor = MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorSecondaryContainer, Color.GREEN);
+        this.cardEnabledColor = MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorPrimaryContainer, Color.GREEN);
         return this.binding.getRoot();
     }
 
