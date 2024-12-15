@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bienvenido</string>
     <string name="welcome_first_step">Primer paso del asistente</string>
@@ -23,6 +23,11 @@
 
     <string name="welcome_root_missing_title">Se requiere un Android rooteado</string>
     <string name="welcome_root_missile_description">O bien no se pudo encontrar el binario o no permitió el permiso de root para AdAway.\n\nEsto puede suceder cuando tu dispositivo no está rooteado. Puedes encontrar información acerca de cómo hacer funcionar tu dispositivo en wiki.lineageos.org u otros sitios web de Android.</string>
+
+    <string name="welcome_vpn_alwayson_title">VPN siempre activa habilitada</string>
+    <string name="welcome_vpn_alwayson_description">AdAway detectó que otra VPN tiene la configuración \"VPN siempre activa\" habilitada.\n\nEsto impide que AdAway solicite acceso a la VPN. Por favor desactivar \"VPN siempre activa\" en la VPN correspondiente y volver a intentarlo.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">AdAway no pudo solicitar acceso a la VPN.\n\nEsto podría deberse a que otra VPN tiene activada la configuración de \"VPN siempre activa\". Por favor, verificar si alguna VPN tiene esta configuración habilitada y desactivarla antes de intentar nuevamente.</string>
+    <string name="welcome_vpn_alwayson_settings_action">Abrir la configuración de \"VPN\"</string>
 
     <string name="welcome_method_pro_logo">Pro</string>
     <string name="welcome_method_con_logo">Con</string>
