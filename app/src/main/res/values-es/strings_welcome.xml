@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Bienvenido</string>
     <string name="welcome_first_step">Primer paso del asistente</string>
@@ -44,7 +44,7 @@
     <string name="welcome_sync_notifications">Puedes enviar notificaciones para mostrar el estado y el control del bloqueo de anuncios, y para notificar sobre las actualizaciones disponibles de la aplicación (unas pocas al año). Habilítalas si quieres estar actualizado.</string>
 
     <!-- Support -->
-    <string name="welcome_support_logo">Apoyo</string>
+    <string name="welcome_support_logo">Soporte</string>
     <string name="welcome_support_header">¡Apóyame!</string>
     <string name="welcome_support_summary">AdAway es una aplicación libre y de código abierto. Lo desarrollo en mi tiempo libre. Entonces, si lo disfrutas, no dudes en mostrar tu apoyo:</string>
     <string name="welcome_support_button">Donar en PayPal</string>
