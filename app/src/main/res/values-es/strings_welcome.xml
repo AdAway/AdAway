@@ -24,6 +24,11 @@
     <string name="welcome_root_missing_title">Se requiere un Android rooteado</string>
     <string name="welcome_root_missile_description">O bien no se pudo encontrar el binario o no permitió el permiso de root para AdAway.\n\nEsto puede suceder cuando tu dispositivo no está rooteado. Puedes encontrar información acerca de cómo hacer funcionar tu dispositivo en wiki.lineageos.org u otros sitios web de Android.</string>
 
+    <string name="welcome_vpn_alwayson_title">VPN siempre activa habilitada</string>
+    <string name="welcome_vpn_alwayson_description">AdAway detectó que otra VPN tiene la configuración \"VPN siempre activa\" habilitada.\n\nEsto impide que AdAway solicite acceso a la VPN. Por favor desactivar \"VPN siempre activa\" en la VPN correspondiente y volver a intentarlo.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">AdAway no pudo solicitar acceso a la VPN.\n\nEsto podría deberse a que otra VPN tiene activada la configuración de \"VPN siempre activa\". Por favor, verificar si alguna VPN tiene esta configuración habilitada y desactivarla antes de intentar nuevamente.</string>
+    <string name="welcome_vpn_alwayson_settings_action">Abrir la configuración de \"VPN\"</string>
+
     <string name="welcome_method_pro_logo">Pro</string>
     <string name="welcome_method_con_logo">Con</string>
 
@@ -31,7 +36,7 @@
     <string name="welcome_sync_done_logo">Sincronización realizada</string>
     <string name="welcome_sync_error_logo">Error durante la sincronización</string>
 
-    <string name="welcome_sync_header">Sincronización</string>
+    <string name="welcome_sync_header">Sincronizando</string>
     <string name="welcome_synced_header">¡Sincronizado!</string>
     <string name="welcome_sync_summary">AdAway descarga redes publicitarias para bloquear las fuentes en línea. Puedes personalizarlas más tarde en la configuración.</string>
     <string name="welcome_sync_retry_logo">Reintentar la sincronización</string>
@@ -39,7 +44,7 @@
     <string name="welcome_sync_notifications">Puedes enviar notificaciones para mostrar el estado y el control del bloqueo de anuncios, y para notificar sobre las actualizaciones disponibles de la aplicación (unas pocas al año). Habilítalas si quieres estar actualizado.</string>
 
     <!-- Support -->
-    <string name="welcome_support_logo">Apoyo</string>
+    <string name="welcome_support_logo">Soporte</string>
     <string name="welcome_support_header">¡Apóyame!</string>
     <string name="welcome_support_summary">AdAway es una aplicación libre y de código abierto. Lo desarrollo en mi tiempo libre. Entonces, si lo disfrutas, no dudes en mostrar tu apoyo:</string>
     <string name="welcome_support_button">Donar en PayPal</string>

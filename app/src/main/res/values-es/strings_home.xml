@@ -2,9 +2,9 @@
 <resources>
 
     <!-- Hosts card -->
-    <string name="blocked_hosts_label">Bloqueado</string>
-    <string name="allowed_hosts_label">Permitido</string>
-    <string name="redirect_hosts_label">Redirigido a</string>
+    <string name="blocked_hosts_label">Bloqueados</string>
+    <string name="allowed_hosts_label">Permitidos</string>
+    <string name="redirect_hosts_label">Redirigidos</string>
 
     <!-- Source card -->
     <plurals name="up_to_date_source_label">
@@ -17,7 +17,7 @@
         <item quantity="many">%d fuentes desactualizadas</item>
         <item quantity="other">%d fuentes desactualizadas</item>
     </plurals>
-    <string name="check_hosts_update_description">Buscar las actualizaciones de los hosts</string>
+    <string name="check_hosts_update_description">Descarga nuevas versiones del archivo «hosts» y comprueba si hay novedades</string>
     <string name="update_hosts_description">Actualizar los hosts</string>
 
     <!-- Log card -->

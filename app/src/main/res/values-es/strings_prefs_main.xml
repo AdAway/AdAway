@@ -18,8 +18,8 @@
     <string name="pref_backup_restore">Copia de seguridad / restauración de las reglas de bloqueo</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Depurar</string>
-    <string name="pref_enable_telemetry">Enviar los informes de los fallos</string>
-    <string name="pref_enable_telemetry_summary">Informar a Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry">Informar de fallos y cuelgues</string>
+    <string name="pref_enable_telemetry_summary">Sube automáticamente los errores encontrados al servidor de Sentry (sentry.io)</string>
     <string name="pref_enable_telemetry_disabled_summary">No es compatible con esta compilación</string>
     <string name="pref_enable_debug">Registro detallado</string>
     <string name="pref_enable_debug_summary">Es necesario reiniciar la aplicación para aplicar los cambios</string>
