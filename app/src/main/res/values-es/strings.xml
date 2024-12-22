@@ -64,7 +64,7 @@
     <string name="status_reverting_subtitle">Creando un archivo hosts estándar</string>
     <string name="status_update_available">Actualización disponible</string>
     <string name="status_update_available_subtitle">Nuevos archivos hosts disponibles</string>
-    <string name="status_no_update_found">No se encontró ninguna actualización de la fuente</string>
+    <string name="status_no_update_found">Todas las fuentes ya están al día</string>
     <string name="status_no_connection">No hay conexión a Internet</string>
     <string name="status_no_connection_subtitle">No hay ninguna conexión a Internet disponible</string>
     <string name="status_download_fail">Fuentes no disponibles</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">La configuración de la VPN se actualizó correctamente</string>
     <string name="notification_configuration_changed">Tu configuración ha cambiado. Necesitas aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Aplicando la nueva configuración…</string>
+    <string name="notification_configuration_installing">Aplicando la nueva configuración...</string>
     <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->
