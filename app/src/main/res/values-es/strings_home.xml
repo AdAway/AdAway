@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Hosts card -->
-    <string name="blocked_hosts_label">Bloqueado</string>
+    <string name="blocked_hosts_label">Bloqueados</string>
     <string name="allowed_hosts_label">Permitidos</string>
     <string name="redirect_hosts_label">Redirigidos</string>
 
