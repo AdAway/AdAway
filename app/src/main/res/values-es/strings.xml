@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">¡Bienvenido!</string>
-    <string name="text_help">AdAway es una aplicación libre, gratuita y de código abierto para bloquear anuncios. Obtiene listas negras de servidores que distribuyen publicidad y hace que tu dispositivo los ignore.\n¿Quieres saber más? ¡Tienes más información a continuación!</string>
+    <string name="text_help">AdAway es una aplicación libre, gratuita y de código abierto para bloquear anuncios. Obtiene listas negras de servidores que distribuyen publicidad de forma periódica y hace que tu dispositivo los ignore.\n¿Quieres saber más? ¡Tienes más información a continuación!</string>
     <string name="button_show_help">Mostrar más ayuda</string>
     <string name="icon_update_status">Estado de la actualización</string>
     <string name="text_update">Todos los archivos hosts de las fuentes específicadas se descargan, se fusionan contsus propias listas y se instalan como un único archivo hosts en tu sistema.</string>
@@ -85,7 +85,7 @@
     <string name="status_vpn_configuration_updated">La configuración de la VPN se actualizó correctamente</string>
     <string name="notification_configuration_changed">Tu configuración ha cambiado. Necesitas aplicarla.</string>
     <string name="notification_configuration_changed_action">Aplicar</string>
-    <string name="notification_configuration_installing">Aplicando la nueva configuración…</string>
+    <string name="notification_configuration_installing">Aplicando la nueva configuración...</string>
     <string name="notification_configuration_failed">Error al aplicar la nueva configuración.</string>
 
     <!--Apply and Revert Dialogs-->
