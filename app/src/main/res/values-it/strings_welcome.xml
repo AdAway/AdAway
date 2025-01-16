@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Benvenuto</string>
     <string name="welcome_first_step">Procedura Guida primo passo</string>
@@ -23,6 +23,11 @@
 
     <string name="welcome_root_missing_title">Richiesto Android con root</string>
     <string name="welcome_root_missile_description">Non è stato trovato il binario SU o non hai concesso i permessi di root ad AdAway.\n\nPuò succedere quando il tuo dispositivo non ha i permessi di root.\nPuoi trovare maggiori informazioni su come abilitarli per il tuo dispositivo su wiki.lineageos.org o su altri siti web riguardanti Android.</string>
+
+    <string name="welcome_vpn_alwayson_title">VPN always-on abilitata</string>
+    <string name="welcome_vpn_alwayson_description">AdAway ha rilevato che un\'altra VPN ha l\'impostazione \"VPN always-on\" attiva.\n\nCiò impedisce ad AdAway di richiedere l\'accesso VPN. Disattiva \"VPN always-on\" sulla VPN e riprova.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">AdAway non è riuscito a richiedere l\'accesso alla VPN.\n\nPotrebbe dipendere dal fatto che un\'altra VPN ha l\'impostazione \"VPN always-on\" attiva. Controlla se una diversa VPN ha questa impostazione abilitata e disabilitala prima di riprovare.</string>
+    <string name="welcome_vpn_alwayson_settings_action">Apri Impostazioni \"VPN\"</string>
 
     <string name="welcome_method_pro_logo">Pro</string>
     <string name="welcome_method_con_logo">Contro</string>
