@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hosts_title">منابع Hosts</string>
     <!-- Default hosts source -->
@@ -12,6 +12,6 @@
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">افزودن منبع</string>
     <string name="hosts_edit_dialog_title">ویرایش منبع</string>
-    <string name="hosts_dialog_url">لینک : (a https:// or file:// resource)</string>
+    <string name="hosts_dialog_url">لینک : (یک لینک https:// یا فایل : // منبع)</string>
     <string name="hosts_dialog_url_hint">لینک منبع hosts</string>
 </resources>
