@@ -247,7 +247,7 @@
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">A começar</string>
-    <string name="vpn_notification_running">Ativo</string>
+    <string name="vpn_notification_running">Ativa</string>
     <string name="vpn_notification_stopping">a parar</string>
     <string name="vpn_notification_waiting_for_net">espere por internet</string>
     <string name="vpn_notification_reconnecting">a reconnectar</string>
