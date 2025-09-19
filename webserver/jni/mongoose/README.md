@@ -1,9 +1,9 @@
 # Mongoose - Embedded Web Server / Embedded Network Library
 
 [![License: GPLv2/Commercial](https://img.shields.io/badge/License-GPLv2%20or%20Commercial-green.svg)](https://opensource.org/licenses/gpl-2.0.php)
-[![Build Status]( https://github.com/cesanta/mongoose/workflows/build/badge.svg)](https://github.com/cesanta/mongoose/actions)
+[![Build Status]( https://github.com/cesanta/mongoose/actions/workflows/quicktest.yml/badge.svg)](https://github.com/cesanta/mongoose/actions)
 [![Code Coverage](https://codecov.io/gh/cesanta/mongoose/branch/master/graph/badge.svg)](https://codecov.io/gh/cesanta/mongoose)
-[![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/mongoose.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
+[![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/mongoose.svg)](https://issues.oss-fuzz.com/issues?sort=-opened&can=1&q=proj:mongoose)
 
 Mongoose is a network library for C/C++.  It provides event-driven non-blocking
 APIs for TCP, UDP, HTTP, WebSocket, MQTT, and other protocols.  It is designed
@@ -14,7 +14,7 @@ robust, and easy. Features include:
 
 - Cross-platform:
   - works on Linux/UNIX, MacOS, Windows, Android
-  - works on STM32, NXP, ESP32, NRF52, TI, Microchip, and other
+  - works on ST, NXP, ESP32, Nordic, TI, Microchip, Infineon, Renesas and other chips
   - write code once - and it'll work everywhere
   - ideal for the unification of the network infrastructure code across company
 - Built-in protocols: plain TCP/UDP, SNTP, HTTP, MQTT, Websocket, and other
@@ -33,6 +33,35 @@ robust, and easy. Features include:
 - Built-in firmware updates for STM32 H5, STM32 H7
 
 See https://mongoose.ws/ for complete documentation, videos, case studies, etc.
+
+## Supported platforms
+
+Mongoose can work on top of any TCP/IP stack that supports BSD sockets API.
+Platforms supported by the 3rd party TCP/IP stacks:
+
+| TCP/IP stack    | Notes |
+| :-------------- | :------- |
+| **lwIP**        | All devices running lwIP, for example ESP32, ESP32S3, ESP32C3, ESP32C6, etc |
+| **Zephyr**      | All devices supported by Zephyr |
+| **Other**       | Any other TCP/IP stack that supports BSD socket API, for example Amazon FreeRTOS-TCP |
+| **Linux, Mac, Windows**   | Workstations, server, single board computers, embedded Linux devices running on MPUs or FPGAs |
+
+Optionally, Mongoose provides its own built-in TCP/IP stack, eliminating the
+need for additional software to implement networking functionality. The
+built-in stack supports operation in both bare-metal and RTOS environments.
+Platforms supported by the Mongoose built-in TCP/IP stack:
+
+| Hardware       | Notes |
+| :------------- | :------- |
+| **STM32**      | All STM32 MCUs with built-in Ethernet: STM32Fxx, STM32H5xx, STM32H7xx |
+| **NXP**        |  All NXP MCUs with built-in Ethernet: IMXRT102x, IMXRT104x, IMXRT105x, IMXRT106x, IMXRT117x, RW612, MCXN94x   |
+| **Microchip**  | ATSAME54 MCUs with built-int Ethernet  |
+| **Renesas**    | RA5M, RA6M, RA8M MCUs with built-in Ethernet    |
+| **Infineon**   | XMC4, XMC7 MCUs with built-in Ethernet    |
+| **Texas Instruments**  |  TM4C, TMS570 MCUs with built-in Ethernet   |
+| **Cypress WiFi**  | Any MCU with CY43xx WiFi chips, like RP2040 Pico-W, RP2350 Pico2-W, Arduino Portenta    |
+| **Wiznet Ethernet**  | Any MCU that use Wiznet W5500 or Wiznet 5100 MAC+PHY chips    |
+| **Cellular**   | NRF9160, SIM800    |
 
 ## Usage Examples
 
@@ -70,7 +99,7 @@ HTTP server implements a REST API that returns current time. JSON formatting:
 static void ev_handler(struct mg_connection *c, int ev, void *ev_data) {
   if (ev == MG_EV_HTTP_MSG) {
     struct mg_http_message *hm = (struct mg_http_message *) ev_data;
-    if (mg_http_match_uri(hm, "/api/time/get")) {
+    if (mg_match(hm->uri, mg_str("/api/time/get"), NULL)) {
       mg_http_reply(c, 200, "", "{%m:%lu}\n", MG_ESC("time"), time(NULL));
     } else {
       mg_http_reply(c, 500, "", "{%m:%m}\n", MG_ESC("error"), MG_ESC("Unsupported URI")); 
@@ -168,6 +197,18 @@ We take security seriously:
 4. Some of our customers (for example NASA)
   have specific security requirements and run independent security audits,
   of which we get notified and in case of any issue, act similar to (3).
+
+
+## Articles
+
+Technical guides and deep dives into embedded web servers, WebUI integration and embedded networking technologies:
+- [Embedded Web Server: A Comprehensive Guide for Modern Connected Devices](https://mongoose.ws/articles/embedded-web-server-a-comprehensive-guide-for-modern-connected-devices/)
+- [Building Embedded Web Device Dashboards](https://mongoose.ws/articles/building-embedded-web-device-dashboard/)
+- [ESP32 Device Dashboard: A Step-by-Step Guide for Developers](https://mongoose.ws/articles/esp32-device-dashboard/)
+- [How to build an STM32 Web Dashboard](https://mongoose.ws/articles/stm32-device-dashboard/)
+- [STM32 WebSocket Guide](https://mongoose.ws/articles/stm32-websocket-guide/)
+- [Web File Manager on STM32, ESP32 and Embedded Linux](https://mongoose.ws/articles/building-a-web-file-manager-on-stm32-esp32-embedded-linux/)
+- [Web dashboard on Zephyr RTOS](https://mongoose.ws/articles/web-dashboard-on-zephyr-rtos/)
 
 
 ## Contributions
