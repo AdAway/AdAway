@@ -10,4 +10,4 @@ build
 # IntelliJ IDEA
 .idea
 *.iml
-/app/release/output-metadata.json
+/app/
