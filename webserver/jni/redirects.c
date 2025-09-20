@@ -4,7 +4,8 @@ static const char *param_names[] = {
         "url",
         "fallback",
         "ds_dest_url",
-        "wgtarget"
+        "wgtarget",
+        "dl_target_url"
 };
 
 //static void zero_content_length(struct mg_connection *c) {
