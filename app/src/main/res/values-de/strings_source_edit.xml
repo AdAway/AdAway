@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Quelle bearbeiten</string>
+    <string name="source_edit_add_title">Quelle hinzufügen</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Beschriftung</string>
+    <string name="source_edit_label_required">Beschriftung erforderlich</string>
+    <string name="source_edit_type">Typ</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Datei</string>
+    <string name="source_edit_url_location">Speicherort</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Speicherort erforderlich</string>
+    <string name="source_edit_file_hint">Drücke Datei, um Quelldatei auszuwählen</string>
+    <string name="source_edit_location_invalid">Ungültiger Speicherort </string>
+    <string name="source_edit_format">Format auflisten</string>
+    <string name="source_edit_format_block_list">Blockieren</string>
+    <string name="source_edit_format_allow_list">Erlauben</string>
+    <string name="source_edit_redirected_hosts">Host-Weiterleitungen anwenden</string>
+    <string name="source_edit_redirected_hosts_warning">Host-Weiterleitungen können ein Sicherheitsrisiko sein. Benutze diese Einstellungen nur, wenn du der Quelle vertraust, denn die Quelldatei kann den sensiblen Netzwerkverkehr auf jeden beliebigen Server umleiten.</string>
+</resources>

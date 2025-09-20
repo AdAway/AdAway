@@ -4,12 +4,12 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.13.0'
+        classpath libs.gradle
     }
 }
 
 plugins {
-    id 'org.sonarqube' version '3.4.0.2513'
+    id 'org.sonarqube' version '6.3.1.5724'
 }
 
 allprojects {
@@ -22,10 +22,10 @@ allprojects {
 sonarqube {
     properties {
         // Root project information
-        property "sonar.projectKey", "zombie-king_AdAway"
-        property "sonar.organization", "zombie-king"
+        property 'sonar.projectKey', 'org.adaway'
+        property 'sonar.organization', 'adaway'
         property 'sonar.projectName', 'AdAway'
-        property 'sonar.projectVersion', '6.1.1'
+        property 'sonar.projectVersion', libs.versions.appName.get()
         property 'sonar.host.url', 'https://sonarcloud.io'
     }
 }

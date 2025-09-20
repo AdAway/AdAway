@@ -118,6 +118,7 @@ public class VpnConnectionMonitor {
             }
         } catch (SocketException e) {
             Timber.w(e, "Failed to test VPN network interface %s. Starting VPN service…", this.networkInterface.getName());
+            reset();
             VpnServiceControls.start(this.context);
         }
     }

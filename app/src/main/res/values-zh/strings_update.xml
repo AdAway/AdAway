@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="update_title">AdAway 更新</string>
     <!-- Home screen -->
@@ -10,6 +10,7 @@
     <string name="update_updating_header">正在更新AdAway</string>
     <string name="update_update_button">立即更新</string>
     <string name="update_progress_label">%1$s/%2$s</string>
+    <string name="update_complete_label">完毕</string>
     <string name="update_last_changelog_title">最近更改</string>
     <string name="update_new_changelog_title">更新日志</string>
     <string name="update_support_title">支持开发</string>

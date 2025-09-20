@@ -11,28 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17
           cache: 'gradle'
 
       - name: Restore SonarCloud packages cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
-
-      # Manually install latest build tools (takes up to two weeks to update in action images)
-      - name: Install latest build tools
-        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;34.0.0" --sdk_root=${ANDROID_SDK_ROOT}
-
-      - name: Install NDK
-        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;25.2.9519653" --sdk_root=${ANDROID_SDK_ROOT}
 
       - name: Run unit tests
         run: ./gradlew test --stacktrace
@@ -47,7 +40,7 @@ jobs:
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
       
       - name: Update dependency graph
-        uses: mikepenz/gradle-dependency-submission@v0.8.5
+        uses: mikepenz/gradle-dependency-submission@v0.8.5 # Deprecated: need to be changed
         with:
           gradle-dependency-path: "app/build.gradle"
           gradle-build-module: ":app"

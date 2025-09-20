@@ -12,16 +12,16 @@
 
     <!--Home-->
     <string name="header_help">歡迎！</string>
-    <string name="text_help">AdAway 是一個自由及開放原始碼的軟體，設計來阻擋廣告。這個軟體會在您的裝置上獲取廣告網路位置來阻擋它們。\n想要了解更多嗎？看看下面的說明！</string>
+    <string name="text_help">AdAway 是一個免費、開源的廣告阻擋工具，專為 Android 設計。它會自動擷取廣告網路的地址，然後在您的手機或平板上進行廣告阻擋。\n想進一步瞭解？請查閱下面的使用說明。</string>
     <string name="button_show_help">顯示更多說明</string>
     <string name="icon_update_status">更新狀態</string>
-    <string name="text_update">所有來自已定義來源的 hosts 檔案已下載、與您的自訂清單整合，並以一個 hosts 檔案安裝至系統中。</string>
+    <string name="text_update">這個應用程式會自動下載您所設定的所有 hosts 檔案，與您個人的過濾清單進行合併，並安裝為單一的 hosts 檔案。</string>
     <string name="button_enable_hosts">啟用廣告封鎖</string>
     <string name="button_disable_hosts">停用廣告封鎖</string>
     <string name="header_webserver">網頁伺服器</string>
     <string name="webserver_status_running">正在執行</string>
     <string name="webserver_status_stopped">已停止</string>
-    <string name="webserver_toggle_text">啟動或停止本地主機上的網頁伺服器以響應對被阻止主機名的請求。</string>
+    <string name="webserver_toggle_text">您可以啟動或停用本機的網頁伺服器，以處理到被阻擋網站的請求。</string>
     <string name="button_enable_webserver">啟用網頁伺服器</string>
     <string name="button_disable_webserver">停用網頁伺服器</string>
     <string name="header_vpn">VPN</string>
@@ -39,15 +39,15 @@
 
     <!--Your lists-->
     <string name="import_dialog">匯入中…</string>
-    <string name="import_success">備份成功從您的外部儲存空間匯入。</string>
-    <string name="import_failed">無法匯入備份。它的格式正確嗎？檢查 logcat 以獲得更多詳細資訊。</string>
+    <string name="import_success">成功從外接儲存裝置匯入了備份資料。</string>
+    <string name="import_failed">備份匯入失敗。請確認備份檔案的格式，或查看 logcat 以瞭解更多詳情。</string>
     <string name="export_dialog">匯出中…</string>
     <string name="export_success">備份成功匯出到外部儲存空間的「%s」檔案。</string>
     <string name="export_failed">無法匯出備份檔案「%s」。</string>
 
     <!--Hosts content-->
     <string name="hosts_header">hosts 檔案</string>
-    <string name="hosts_description">hosts 檔案是一個將主機名稱對應到 IP 位置的系統檔案。它是一個由 AdAway 配置的純文字檔案。這是這個檔案的前幾行：</string>
+    <string name="hosts_description">hosts 檔案是一個與系統相關的純文字檔案，主要用於將網站名稱對應到其 IP 位址。AdAway 會管理此檔案的設定。以下是此檔案的首幾行：</string>
     <string name="hosts_content">正在載入 hosts 檔案內容…</string>
     <string name="hosts_open_button">開啟 hosts 檔案</string>
 
@@ -90,9 +90,9 @@
 
     <!--Apply and Revert Dialogs-->
     <string name="apply_symlink_missing_status">hosts 檔案目標的符號連結遺失</string>
-    <string name="apply_symlink_missing">你設定的目標不存在或者不是正確的 /system/etc/hosts 符號連結！沒有正確的符號連結AdAway不能執行。 你需要建立符號連結嗎？</string>
+    <string name="apply_symlink_missing">由您的目標位置到 `/system/etc/hosts` 的符號連結不存在或是錯誤！若非指向正確的檔案，AdAway 將無法正常運作。\n\n您是否嘗試建立新的符號連結？</string>
     <string name="apply_symlink_missing_title">符號連結遺失</string>
-    <string name="apply_not_enough_space">分割區上沒有足夠的空間！\n請試著在設定裡面將目標 hosts 檔案變更為 /data/data/hosts。</string>
+    <string name="apply_not_enough_space">分割區剩餘空間不足！\n請在偏好設定中將目標 hosts 檔案更改為 `/data/data/hosts`。</string>
     <string name="apply_not_enough_space_title">空間不足</string>
     <string name="apply_private_file_fail">無法讀取已下載的檔案。</string>
     <string name="apply_private_file_fail_title">私人檔案失敗</string>
@@ -103,13 +103,13 @@
     <string name="apply_copy_fail_title">複製失敗</string>
     <string name="apply_success_subtitle">已套用 hosts 來源</string>
     <string name="apply_success_title">建立成功</string>
-    <string name="apply_success_dialog">套用成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
-    <string name="apply_symlink_successful">符號連結建立成功。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
+    <string name="apply_success_dialog">應用成功。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
+    <string name="apply_symlink_successful">符號連結成功建立。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
     <string name="apply_symlink_successful_title">符號連結建立成功</string>
-    <string name="apply_symlink_fail">符號連結建立失敗。\n這很有可能是因為 HTC 上一個叫 S-ON 的「功能」！\n\n一個解決方法是啟動你的手機到還原模式並使用命令 \'ln -s /data/data/hosts /system/etc/hosts\' 來建立符號連結。\n\n如果沒有用，請上網搜尋 S-OFF 與你的手機。</string>
+    <string name="apply_symlink_fail">Android 系統無法建立符號連結。\n這主要是因為 HTC 手機上一個名為 S-ON 的「功能」！\n\n解決方案是將手機重啟至復原模式，並用 `ln -s /data/data/hosts /system/etc/hosts` 命令建立符號連結。\n\n若仍然不行，請在網路上查找關於 S-OFF 及您的手機型號的資訊。</string>
     <string name="apply_symlink_fail_title">符號連結建立失敗</string>
     <string name="apply_help">請閱讀說明以獲得更多訊息。</string>
-    <string name="apply_apn_proxy">你的 Android 設定了 APN 代理伺服器！\nAdAway 無法保證在行動網路如 3G 下正常的運作。你可以在 APN 設定中關閉代理伺服器設定（從設定程式：在無線與網路 -&gt; 行動網路 -&gt; 進階 -&gt; 存取點名稱）移除代理伺服器設定。</string>
+    <string name="apply_apn_proxy">您的 Android 設備設定了 APN 代理！\n在使用如 3G 之類的行動網路時，AdAway 將無法穩定運作。您可以透過設定中移除 APN 代理來停用它。（設定 -> 網路與網際網路 -> 行動網路 -> 進階 -> 存取點名稱，然後清除代理欄位的值）</string>
     <string name="apply_apn_proxy_title">設定了 APN 代理伺服器！</string>
     <string name="no_connection">網際網路連線無法正常連線</string>
     <string name="no_connection_title">無法連線</string>
@@ -120,20 +120,20 @@
     <string name="apply_dialog_hosts">建立 hosts 檔案</string>
     <string name="apply_dialog_apply">合併 hosts 檔案</string>
     <string name="apply_fail_status">無法套用新的 hosts 檔案。</string>
-    <string name="apply_fail">hosts 檔案修改失敗！\n請將設定中的 hosts 檔案目標修改為 /data/data/hosts。</string>
+    <string name="apply_fail">將 hosts 檔案應用到您的系統失敗了！\n請在偏好設定中將目標 hosts 檔案更改為 `/data/data/hosts`。</string>
     <string name="apply_fail_title">建立失敗</string>
-    <string name="root_access_fail">請檢查您的 root 管理應用程式以確保已授予 root 權限。</string>
-    <string name="revert_successful">已經還原為預設的 hosts 檔案了。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
+    <string name="root_access_fail">請確認您的 root 管理應用程式已授予 root 存取權限。</string>
+    <string name="revert_successful">您已恢復至預設的 hosts 檔案。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
     <string name="revert_successful_title">還原成功</string>
     <string name="revert_failed_status">無法還原 hosts 檔案</string>
     <string name="revert_problem">因未知原因還原失敗。</string>
     <string name="revert_problem_title">還原失敗！</string>
-    <string name="download_fail_dialog">所有啟用的 hosts 來源都無法連結！您是否正確連上網際網路？</string>
+    <string name="download_fail_dialog">所有您啟用的 hosts 來源都無法連接！您是否已正確連接至網際網路？</string>
     <string name="download_fail_title">下載失敗</string>
     <string name="no_private_file_status">無法寫入新的私人 hosts 檔案</string>
     <string name="no_private_file">不能建立私人檔案。</string>
     <string name="no_private_file_title">私人檔案建立失敗</string>
-    <string name="enable_systemless_successful">您啟用了 systemless 模式。\n變更需要重新啟動才能生效。\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
+    <string name="enable_systemless_successful">您已啟用 systemless 模式。\n可能需要重新啟動 Android 才能使變更生效。\n\n您是否要重新啟動手機？\n（為防止資料遺失，請確保目前沒有應用程式在使用 SD 卡！）</string>
     <string name="enable_systemless_successful_title">啟用成功</string>
     <string name="disable_systemless_successful">您停用了 systemless 模式。\n變更需要重新啟動才能生效。\n\n您要重新啟動嗎？\n（為了防止檔案遺失，請確保沒有程式正在使用 SD 卡）</string>
     <string name="disable_systemless_successful_title">取消成功</string>
@@ -167,20 +167,20 @@
 
     <!--Adware-->
     <string name="adware_header">廣告軟體</string>
-    <string name="adware_description">你可以在這裡找到已安裝的廣告軟體，這些惡意的應用程式無法被 AdAway 阻擋。舉例來說，這些應用程式使用推播技術 (Airpush notifications) ，即使當軟體沒有在執行時也會彈跳出廣告訊息，甚至改變您的鈴聲。對付這些惡意軟體最有效的方法就是輕觸清單項目來移除它們。</string>
+    <string name="adware_description">在此，您可以找到已安裝的廣告軟體和 AdAway 無法阻擋的不良應用程式。這些應用程式可能會使用像是 Airpush 的通知功能，即使應用程式沒有運行，也會彈出通知或更改您的鈴聲。唯一可行的對策是點選清單項目，移除這些不良應用程式。</string>
     <string name="adware_scanning">掃描中…</string>
     <string name="adware_empty">沒有發現任何廣告軟體！</string>
 
     <!--Other-->
     <string name="app_subtitle">廣告阻擋器</string>
     <string name="no_text_editor_title">沒有安裝文字編輯器</string>
-    <string name="no_text_editor">沒有找到文字編輯器來打開 hosts 檔案。你可以安裝 Jota 或者其他文字編輯器來解決。\n\n你需要安裝Jota嗎？</string>
+    <string name="no_text_editor">找不到適合開啟 hosts 檔案的文字編輯器。您可以安裝 Jota 或其他文字編輯器來處理這個問題。\n\n您想要安裝 Jota 嗎？</string>
     <string name="no_file_manager_title">沒有安裝檔案管理器</string>
-    <string name="no_file_manager">沒有找到檔案管理器來打開檔案。你可以安裝 OI File Manager 或者其他檔案管理器來解決。\n\n你需要安裝 OI File Manager 嗎？</string>
+    <string name="no_file_manager">找不到適合開啟檔案的檔案管理器。您可以安裝 OI 檔案管理器或其他檔案管理工具來處理這個問題。\n\n您想要安裝 OI 檔案管理器嗎？</string>
 
     <!--Tcpdump-->
     <string name="tcpdump_header">Tcpdump</string>
-    <string name="tcpdump_description">Tcpdump 是一個用來監視 DNS 請求並儲存為記錄檔的工具，可以在背景執行。當前景執行有廣告的程式，利用用記錄檔來分析 DNS 請求。把找到的廣告伺服器加入到您的黑名單中。</string>
+    <string name="tcpdump_description">Tcpdump 是一個用於監視 DNS 請求並將它們保存在記錄檔案中的工具。您可以在背景執行它，開啟顯示廣告的應用程式，之後使用記錄檔案來分析 DNS 請求。之後，您可以將可能的廣告伺服器新增到您的黑名單中。</string>
     <string name="tcpdump_disable_monitoring">停用監視</string>
     <string name="tcpdump_enable_monitoring">啟用監視</string>
     <string name="tcpdump_show_results">顯示結果</string>
@@ -210,7 +210,7 @@
     <!--Shortcuts-->
     <string name="shortcut_dns_requests">DNS 請求</string>
     <string name="shortcut_your_lists">你的清單</string>
-    <string name="shortcut_preferences">設定</string>
+    <string name="shortcut_preferences">偏好設定</string>
 
     <!--Hosts source status-->
     <string name="hosts_source_installed">%1$s 前安裝</string>

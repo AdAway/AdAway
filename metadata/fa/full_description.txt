@@ -1,9 +1,9 @@
-A Free and Open Source ad blocker for Android.
+یکی از بهترین برنامه های رایگان و منبع باز مسدود کننده تبلیغات برای گوشی های اندروید
 
-The application is available for rooted and non-rooted devices.
-Using rooted device, the application update your system hosts file that contains a list of mappings between host names and IP addresses.
-Using non-rooted device, the application use the VPN feature to block outgoing connections to ads and trackers.
-So when an app requests an ad or a tracker from a host in that file, this request is redirected to the local IP 127.0.0.1, which does nothing.
+این برنامه برای دستگاه های روت شده و بدون روت در دسترس است
+در حالت استفاده از روت برنامه فایل hosts سیستم شما را به روز رسانی می کند که شامل لیستی از نگاشت ها بین نام host و آدرس های IP است
+در حالت استفاده بدون روت برنامه از ویژگی VPN برای مسدود کردن اتصالات خروجی به تبلیغات و ردیاب ها استفاده می کند
+بنابراین هنگامی که یک برنامه از یک host در آن فایل درخواست تبلیغ یا ردیاب می کند این درخواست به IP محلی 127.0.0.1 منتقل می شود که هیچ کاری انجام نمی دهد
 
-You can download predefined ads and blocker lists as hosts files from within the app to incorporate. It is also possible to use your own files and to add certain hosts to allowed and blocked lists.
-There are options to run a local web server to respond to blocked host names and to direct requests to the IP address of your choosing instead.
+شما می‌توانید تبلیغات از پیش تعریف‌ شده و فهرست‌ های مسدود کننده را به‌ عنوان فایل‌ های hosts از داخل برنامه دانلود کنید تا در آن گنجانده شود همچنین می توانید از فایل های خود استفاده کنید و host های خاصی را به لیست های مجاز و مسدود شده اضافه کنید
+گزینه‌ هایی برای اجرای یک وب سرور محلی در پاسخ به نام‌ های host مسدود شده و انتقال درخواست‌ها به آدرس IP مورد نظر شما وجود دارد

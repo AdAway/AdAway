@@ -27,7 +27,7 @@
     <string name="pref_webserver_test">Probar servidor web</string>
     <string name="pref_webserver_certificate">Instalar certificado autofirmado</string>
     <string name="pref_webserver_certificate_dialog_title">Instalación manual del certificado</string>
-    <string name="pref_webserver_certificate_dialog_content">A partir de Android 11 (R), la aplicación ya no puede instalar automáticamente la autoridad de certificación (CA).\n\nVe a la configuración de \"Seguridad\", \"Cifrado y credenciales\" y luego \"Instalar un certificado\". Desde allí, elige \"Certificado CA\" y selecciona el archivo de certificado recién exportado.</string>
+    <string name="pref_webserver_certificate_dialog_content">A partir de Android 11 (R), la aplicación ya no puede instalar automáticamente la autoridad de certificación (CA).\n\nVe a la configuración de \"Seguridad\", \"Cifrado y credenciales\" y luego a \"Instalar un certificado\". Desde allí, elige \"Certificado de CA\" y seleccione el archivo del certificado recién exportado.</string>
     <string name="pref_webserver_certificate_dialog_action">Abrir configuración de \"Seguridad\"</string>
     <string name="pref_webserver_state_checking">Comprobando…</string>
     <string name="pref_webserver_state_not_running">No se está ejecutando</string>

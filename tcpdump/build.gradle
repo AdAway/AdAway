@@ -8,18 +8,14 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    compileSdk 35
 
-    ndkVersion '26.2.11394342'
+    ndkVersion '27.2.12479018'
     namespace 'org.adaway.libpcap'
 
     defaultConfig {
-        compileSdk 34
         minSdkVersion 26
         targetSdkVersion 33
-    }
-
-    buildFeatures {
-        buildConfig = false
     }
 
     externalNativeBuild {
@@ -31,8 +27,6 @@ android {
     sonarqube {
         skipProject = true
     }
-    compileSdk 34
-    buildToolsVersion '35.0.0 rc1'
 }
 
 /**
@@ -43,7 +37,7 @@ android {
  */
 def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) {
     def flavor = gradle.startParameter.taskRequests.toString().containsIgnoreCase("debug") ? "debug" : "release"
-    def buildFolder = file("${buildDir}/intermediates/ndkBuild/${flavor}/obj/local/")
+    def buildFolder = layout.buildDirectory.dir("intermediates/ndkBuild/${flavor}/obj/local")
 
     dependsOn ":${project.name}:externalNativeBuild${flavor.substring(0, 1).toUpperCase()}${flavor.substring(1)}"
 
@@ -66,7 +60,7 @@ def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) 
     }
 }
 
-tasks.withType(LibraryJniLibsTask) {
+tasks.withType(LibraryJniLibsTask).configureEach {
     dependsOn renameJniLibAsExecutable
 }
 

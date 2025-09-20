@@ -1,6 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_main_title">تنظیمات</string>
+    <!-- General category -->
+    <string name="pref_general_category">عمومی</string>
+    <string name="pref_dark_theme">پس زمینه سیاه</string>
+    <string-array name="pref_dark_theme_modes">
+        <item>سفید</item>
+        <item>سیاه</item>
+        <item>پیش فرض سیستم</item>
+    </string-array>
+    <string name="pref_update_configuration">به روز رسانی های خودکار</string>
+    <!-- Ad block category -->
+    <string name="pref_ad_block_category">مسدود کردن تبلیغات</string>
+    <string name="pref_root_ad_blocker_configuration">مسدود کننده تبلیغات مبتنی بر روت</string>
+    <string name="pref_vpn_ad_blocker_configuration">مسدود کننده تبلیغات مبتنی بر VPN</string>
+    <string name="pref_enable_ipv6">فعال کردن پشتیبانی از IPv6</string>
+    <string name="pref_backup_restore">پشتیبان گیری / بازیابی از قوانین مسدود کردن</string>
     <!-- Debug category -->
     <string name="pref_debug_category">عیب یابی</string>
-    </resources>
+    <string name="pref_enable_telemetry">ارسال گزارش خرابی</string>
+    <string name="pref_enable_telemetry_summary">گزارش به نگهبان (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">در این نسخه پشتیبانی نمی شود</string>
+    <string name="pref_enable_debug">ثبت نام کامل</string>
+    <string name="pref_enable_debug_summary">برای انجام به خاموش و روشن کردن گوشی نیاز است</string>
+</resources>

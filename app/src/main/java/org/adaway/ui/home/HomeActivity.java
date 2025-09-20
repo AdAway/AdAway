@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult;
 import androidx.annotation.IdRes;
@@ -66,6 +67,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private HomeActivityBinding binding;
     private BottomSheetBehavior<View> drawerBehavior;
+    private OnBackPressedCallback onBackPressedCallback;
     private HomeViewModel homeViewModel;
     private ActivityResultLauncher<Intent> prepareVpnLauncher;
 
@@ -112,16 +114,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         checkFirstStep();
-    }
-
-    @Override
-    public void onBackPressed() {
-        // Hide drawer if expanded
-        if (this.drawerBehavior != null && this.drawerBehavior.getState() != STATE_HIDDEN) {
-            this.drawerBehavior.setState(STATE_HIDDEN);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override
@@ -243,7 +235,20 @@ public class HomeActivity extends AppCompatActivity {
         this.drawerBehavior = BottomSheetBehavior.from(this.binding.bottomDrawer);
         this.drawerBehavior.setState(STATE_HIDDEN);
 
-        this.binding.bar.setNavigationOnClickListener(v -> this.drawerBehavior.setState(STATE_HALF_EXPANDED));
+        this.onBackPressedCallback = new OnBackPressedCallback(false) {
+            @Override
+            public void handleOnBackPressed() {
+                // Hide drawer if expanded
+                HomeActivity.this.drawerBehavior.setState(STATE_HIDDEN);
+                HomeActivity.this.onBackPressedCallback.setEnabled(false);
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this.onBackPressedCallback);
+
+        this.binding.bar.setNavigationOnClickListener(v -> {
+            this.drawerBehavior.setState(STATE_HALF_EXPANDED);
+            this.onBackPressedCallback.setEnabled(true);
+        });
 //        this.binding.bar.setNavigationIcon(R.drawable.ic_menu_24dp);
 //        this.binding.bar.replaceMenu(R.menu.next_actions);
     }

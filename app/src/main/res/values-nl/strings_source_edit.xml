@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Bron aanpassen</string>
+    <string name="source_edit_add_title">Bron toevoegen</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Label</string>
+    <string name="source_edit_label_required">Label verplicht</string>
+    <string name="source_edit_type">Type</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Bestand</string>
+    <string name="source_edit_url_location">Locatie</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Locatie verplicht</string>
+    <string name="source_edit_file_hint">Druk op bestand om het bronbestand te selecteren</string>
+    <string name="source_edit_location_invalid">Ongeldige locatie</string>
+    <string name="source_edit_format">Lijst format</string>
+    <string name="source_edit_format_block_list">Blokkeer</string>
+    <string name="source_edit_format_allow_list">Toestaan</string>
+    <string name="source_edit_redirected_hosts">Doorverwezen hosts toepassen</string>
+    <string name="source_edit_redirected_hosts_warning">Het toestaan van doorverwezen hosts kan beveiligingsproblemen veroorzaken. Gebruik deze instelling alleen bij een vertrouwde bron want het kan gevoelig verkeer doorsturen naar elke willekeurige server.</string>
+</resources>

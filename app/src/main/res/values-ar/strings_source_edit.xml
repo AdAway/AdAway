@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">تحرير مصدر</string>
+    <string name="source_edit_add_title">إضافة مصدر</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">تسمية</string>
+    <string name="source_edit_label_required">التسمية مطلوبة</string>
+    <string name="source_edit_type">نوع</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">ملف</string>
+    <string name="source_edit_url_location">موقع</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">الموقع مطلوب</string>
+    <string name="source_edit_file_hint">اضغط على ملف لتحديد ملف المصدر</string>
+    <string name="source_edit_location_invalid">موقع غير صالح</string>
+    <string name="source_edit_format">قائمة التنسيق</string>
+    <string name="source_edit_format_block_list">حظر</string>
+    <string name="source_edit_format_allow_list">سماح</string>
+    <string name="source_edit_redirected_hosts">تطبيق المضيفين الموجهين</string>
+    <string name="source_edit_redirected_hosts_warning">السماح بالمضيفين الموجهين قد يسبب مشاكل أمان. استخدم هذا الإعداد فقط على مصدر موثوق به حيث يمكن أن يعيد توجيه بعض حركة المرور الحساسة إلى أي خادم يريده.</string>
+</resources>

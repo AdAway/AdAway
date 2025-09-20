@@ -1,5 +1,7 @@
 package org.adaway.ui.lists;
 
+import static android.content.Intent.ACTION_SEARCH;
+
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,8 +24,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.adaway.R;
 import org.adaway.helper.ThemeHelper;
 import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
-
-import static android.content.Intent.ACTION_SEARCH;
 
 /**
  * This activity display hosts list items.
@@ -50,7 +51,10 @@ public class ListsActivity extends AppCompatActivity {
      * The view model.
      */
     private ListsViewModel listsViewModel;
-
+    /**
+     * The back press callback.
+     */
+    private OnBackPressedCallback onBackPressedCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,17 @@ public class ListsActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        /*
+         * Configure back press callback.
+         */
+        this.onBackPressedCallback = new OnBackPressedCallback(false) {
+            @Override
+            public void handleOnBackPressed() {
+                ListsActivity.this.listsViewModel.clearSearch();
+                ListsActivity.this.onBackPressedCallback.setEnabled(false);
+            }
+        };
+        getOnBackPressedDispatcher().addCallback(this.onBackPressedCallback);
         /*
          * Configure tabs.
          */
@@ -87,7 +102,7 @@ public class ListsActivity extends AppCompatActivity {
             }
         });
         // Add navigation view item selected listener to change view pager current item
-        navigationView.setOnNavigationItemSelectedListener(item -> {
+        navigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.lists_navigation_blocked) {
                 viewPager.setCurrentItem(0);
                 return true;
@@ -97,9 +112,8 @@ public class ListsActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.lists_navigation_redirected) {
                 viewPager.setCurrentItem(2);
                 return true;
-            } else {
-                return false;
             }
+            return false;
         });
         // Display requested tab
         Intent intent = getIntent();
@@ -142,6 +156,7 @@ public class ListsActivity extends AppCompatActivity {
         if (ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             this.listsViewModel.search(query);
+            this.onBackPressedCallback.setEnabled(true);
         }
     }
 
@@ -166,14 +181,5 @@ public class ListsActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (this.listsViewModel.isSearching()) {
-            this.listsViewModel.clearSearch();
-        } else {
-            super.onBackPressed();
-        }
     }
 }

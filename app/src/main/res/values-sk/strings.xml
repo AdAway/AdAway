@@ -19,8 +19,8 @@
     <string name="button_enable_hosts">Povoliť blokovanie reklám</string>
     <string name="button_disable_hosts">Zakázať blokovanie reklám</string>
     <string name="header_webserver">Web server</string>
-    <string name="webserver_status_running">Spustené</string>
-    <string name="webserver_status_stopped">Zastavené</string>
+    <string name="webserver_status_running">Spustený</string>
+    <string name="webserver_status_stopped">Zastavený</string>
     <string name="webserver_toggle_text">Spustiť alebo zastaviť webserver na zariadení pre odpovedanie na požiadavky blokovaných adries.</string>
     <string name="button_enable_webserver">Povoliť web server</string>
     <string name="button_disable_webserver">Zakázať web server</string>
@@ -128,12 +128,12 @@
     <string name="revert_failed_status">Súbor hosts sa nedá obnoviť</string>
     <string name="revert_problem">Obnovenie zlyhalo z neznámeho dôvodu.</string>
     <string name="revert_problem_title">Obnovenie zlyhalo!</string>
-    <string name="download_fail_dialog">Žiadne z vašich povolených hosts zdrojov nie je dostupný! Ste správne pripojený k internetu?</string>
+    <string name="download_fail_dialog">Žiadny z vašich povolených hosts zdrojov nie je dostupný! Ste správne pripojený k internetu?</string>
     <string name="download_fail_title">Sťahovanie zlyhalo</string>
     <string name="no_private_file_status">Nepodarilo sa zapísať nový súkromný súbor hosts</string>
     <string name="no_private_file">Súkromný súbor nemožno vytvoriť.</string>
     <string name="no_private_file_title">Vytváranie súboru zlyhalo</string>
-    <string name="enable_systemless_successful">Povolili ste bezsystémový režim.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD)</string>
+    <string name="enable_systemless_successful">Povolili ste bezsystémový režim.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD</string>
     <string name="enable_systemless_successful_title">Úspešne povolené</string>
     <string name="disable_systemless_successful">Zakázali ste bezsystémový režim.\nPre aplikovanie zmien budete musieť reštartovať zariadenie.\n\nChcete reštartovať?\n(Aby ste predišli strate dát, uistite sa, že žiadna aplikácie práve teraz nepoužíva SD kartu!)</string>
     <string name="disable_systemless_successful_title">Zakázanie úspešné</string>
@@ -221,27 +221,27 @@
     <string name="hosts_source_disabled">Zakázané</string>
     <string name="hosts_source_few_minutes">pár minútami</string>
     <plurals name="hosts_source_minutes">
-        <item quantity="one">%d minúta</item>
+        <item quantity="one">%dminútu</item>
         <item quantity="few">%d minúty</item>
-        <item quantity="many">%d minúty</item>
+        <item quantity="many">%d minúť</item>
         <item quantity="other">%d minút</item>
     </plurals>
     <plurals name="hosts_source_hours">
-        <item quantity="one">%d hodina</item>
-        <item quantity="few">%d hodiny</item>
-        <item quantity="many">%d hodiny</item>
-        <item quantity="other">%d hodín</item>
+        <item quantity="one">%d hodinu</item>
+        <item quantity="few">%dhodiny </item>
+        <item quantity="many">%dhodín </item>
+        <item quantity="other">%dhodín </item>
     </plurals>
     <plurals name="hosts_source_days">
         <item quantity="one">%d deň</item>
         <item quantity="few">%d dni</item>
-        <item quantity="many">%d dňa</item>
+        <item quantity="many">%d dní</item>
         <item quantity="other">%d dní</item>
     </plurals>
     <plurals name="hosts_source_months">
         <item quantity="one">%d mesiac</item>
         <item quantity="few">%d mesiace</item>
-        <item quantity="many">%d mesiaca</item>
+        <item quantity="many">%d mesiacov</item>
         <item quantity="other">%d mesiacov</item>
     </plurals>
 

@@ -245,8 +245,8 @@ class SourceLoader {
                         batch[cacheSize++] = item;
                         if (cacheSize >= batch.length) {
                             this.hostListItemDao.insert(batch);
-                            cacheSize = 0;
                             inserted += cacheSize;
+                            cacheSize = 0;
                         }
                     }
                 } catch (InterruptedException e) {

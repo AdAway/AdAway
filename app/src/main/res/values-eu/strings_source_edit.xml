@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Editatu iturria</string>
+    <string name="source_edit_add_title">Gehitu iturria</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Etiketa</string>
+    <string name="source_edit_label_required">Etiketa beharrezkoa da</string>
+    <string name="source_edit_type">Mota</string>
+    <string name="source_edit_url">URLa</string>
+    <string name="source_edit_file">Fitxategia</string>
+    <string name="source_edit_url_location">Kokalekua</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Kokalekua beharrezkoa da</string>
+    <string name="source_edit_file_hint">Sakatu Fitxategia iturburuaren fitxategia hautatzeko</string>
+    <string name="source_edit_location_invalid">Kokalekua ez da baliozkoa</string>
+    <string name="source_edit_format">Zerrendaren formatua</string>
+    <string name="source_edit_format_block_list">Blokeatu</string>
+    <string name="source_edit_format_allow_list">Baimendu</string>
+    <string name="source_edit_redirected_hosts">Aplikatu birbideratutako ostalariak</string>
+    <string name="source_edit_redirected_hosts_warning">Ostalarien birbideratzea baimentzeak segurtasun arazoak sor ditzake. Fidagarritzat dituzun iturburuekin soilik erabili ezarpen hau, trafiko sentsitiboa nahi duen zerbitzarira bidal lezakelako.</string>
+</resources>

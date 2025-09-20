@@ -63,7 +63,7 @@ public class WelcomeSupportFragment extends WelcomeFragment {
     private void bindTelemetry() {
         this.binding.telemetryCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             PreferenceHelper.setTelemetryEnabled(requireContext(), isChecked);
-            SentryLog.setEnabled(getContext(), isChecked);
+            SentryLog.setEnabled(requireActivity().getApplication(), isChecked);
         });
     }
 

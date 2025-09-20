@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="lists_title">Zure zerrendak</string>
-    <string name="lists_add">Gehitu hostalaria</string>
+    <string name="lists_add">Gehitu ostalaria</string>
     <!-- Tab -->
     <string name="lists_tab_blocked">blokeatuta</string>
-    <string name="lists_tab_allowed">baimendua</string>
+    <string name="lists_tab_allowed">baimenduta</string>
     <string name="lists_tab_redirected">birbideratze</string>
     <!-- Menu -->
-    <string name="lists_menu_filter">Iragazi hostalariak</string>
-    <string name="lists_menu_filter_hint">host-aren izena bilatu</string>
+    <string name="lists_menu_filter">Iragazi ostalariak</string>
+    <string name="lists_menu_filter_hint">ostalari-izena bilatu…</string>
     <string name="lists_menu_toggle_sources">Txandakatu iturriak</string>
     <!-- Edition dialog -->
-    <string name="list_add_dialog_black">Gehitu hostalaria zerrenda-beltzara</string>
-    <string name="list_add_dialog_white">Gehitu hostalaria zerrenda-zurira</string>
-    <string name="list_add_dialog_redirect">Gehitu birbideratze hostalaria</string>
-    <string name="list_edit_dialog_black">Editatu zerrenda-beltzeko hostalaria</string>
-    <string name="list_edit_dialog_white">Editatu zerrenda-zuriko hostalaria</string>
+    <string name="list_add_dialog_black">Gehitu ostalaria zerrenda-beltzara</string>
+    <string name="list_add_dialog_white">Gehitu ostalaria zerrenda-zurira</string>
+    <string name="list_add_dialog_redirect">Gehitu birbideratze ostalaria</string>
+    <string name="list_edit_dialog_black">Editatu zerrenda-beltzeko ostalaria</string>
+    <string name="list_edit_dialog_white">Editatu zerrenda-zuriko ostalaria</string>
     <string name="list_edit_dialog_redirect">Editatu birbideratzea</string>
-    <string name="list_dialog_hostname">Hostalari-izena:</string>
-    <string name="list_dialog_hostname_hint">Hostalari iturriaren URLa</string>
+    <string name="list_dialog_hostname">Ostalari-izena:</string>
+    <string name="list_dialog_hostname_hint">Ostalari-iturburuaren URLa</string>
     <string name="list_dialog_wildcard">(* eta ? bezalako komodin karaktereak onartzen dira)</string>
     <string name="list_dialog_ip">IP-a (IPv4 edo IPv6):</string>
 </resources>

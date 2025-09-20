@@ -8,17 +8,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 import timber.log.Timber;
 
 /**
@@ -26,7 +21,7 @@ import timber.log.Timber;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class GitHubHostsSource extends GitHostsSource {
+class GitHubHostsSource extends GitHostsJsonApiSource {
     /**
      * The GitHub owner name.
      */
@@ -63,26 +58,13 @@ class GitHubHostsSource extends GitHostsSource {
     }
 
     @Override
-    @Nullable
-    public ZonedDateTime getLastUpdate() {
-        // Create commit API request URL
-        String commitApiUrl = "https://api.github.com/repos/" + this.owner + "/" + this.repo +
+    protected String getCommitApiUrl() {
+        return "https://api.github.com/repos/" + this.owner + "/" + this.repo +
                 "/commits?per_page=1&path=" + this.blobPath;
-        // Create client and request
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url(commitApiUrl).build();
-        try (Response execute = client.newCall(request).execute();
-             ResponseBody body = execute.body()) {
-            return parseJsonBody(body.string());
-        } catch (IOException | JSONException exception) {
-            Timber.e(exception, "Unable to get commits from API.");
-            // Return failed
-            return null;
-        }
     }
 
     @Nullable
-    private ZonedDateTime parseJsonBody(String body) throws JSONException {
+    protected ZonedDateTime parseJsonBody(String body) throws JSONException {
         JSONArray commitArray = new JSONArray(body);
         int nbrOfCommits = commitArray.length();
         ZonedDateTime date = null;

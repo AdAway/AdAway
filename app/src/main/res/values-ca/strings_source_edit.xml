@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Edita la font</string>
+    <string name="source_edit_add_title">Afegeix una font</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Etiqueta</string>
+    <string name="source_edit_label_required">Etiqueta necessària</string>
+    <string name="source_edit_type">Tipus</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Fitxer</string>
+    <string name="source_edit_url_location">Enllaç</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Enllaç necessari</string>
+    <string name="source_edit_file_hint">Premeu Fitxer per seleccionar un fitxer com a origen</string>
+    <string name="source_edit_location_invalid">Enllaç no vàlid</string>
+    <string name="source_edit_format">Format de llista</string>
+    <string name="source_edit_format_block_list">Bloca</string>
+    <string name="source_edit_format_allow_list">Permet</string>
+    <string name="source_edit_redirected_hosts">Aplica la redirecció</string>
+    <string name="source_edit_redirected_hosts_warning">En permetre la redirecció del web pot causar problemes de seguretat . Utilitzeu aquesta opció només si prové d\'una font confiable, atès que podria redirigir informació confidencial cap a un servidor atacant.</string>
+</resources>

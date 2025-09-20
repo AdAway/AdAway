@@ -1,8 +1,8 @@
 Android için ücretsiz ve açık kaynak reklam engelleyici.
 
-Uygulama köklü ve köklü olmayan cihazlar için uygundur.
-Köklü bir cihaz kullanarak, uygulama ana bilgisayar adları ve IP adresleri arasındaki eşlemelerin bir listesini içeren sistem ana bilgisayar dosyanızı günceller.
-Köklü olmayan bir cihaz kullanan uygulama, reklamlara ve izleyicilere giden bağlantıları engellemek için VPN özelliğini kullanır.
+Uygulama kök izni olan ve kök izni olmayan cihazlar için uygundur.
+Kök izni olan bir cihaz kullanarak, uygulama ana bilgisayar adları ve IP adresleri arasındaki eşlemelerin bir listesini içeren sistem ana bilgisayar dosyanızı günceller.
+Kök izni olmayan bir cihaz kullanan uygulama, reklamlara ve izleyicilere giden bağlantıları engellemek için VPN özelliğini kullanır.
 Bu nedenle, bir uygulama bu dosyadaki bir ana bilgisayardan bir reklam veya izleyici istediğinde, bu istek hiçbir şey yapmayan yerel IP 127.0.0.1'e yönlendirilir.
 
 Önceden tanımlanmış reklamları ve engellenen listeleri, dahil etmek için uygulama içinden ana bilgisayar dosyaları olarak indirebilirsiniz. Kendi dosyalarınızı kullanmak ve izin verilen ve engellenen listelere belirli ana bilgisayarlar eklemek de mümkündür.
