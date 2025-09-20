@@ -24,7 +24,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v44
+        uses: tj-actions/changed-files@v47
 
       - name: Validate locale files
         id: validation
@@ -35,7 +35,7 @@ jobs:
           java .github/workflows/AndroidLocaleChecker.java ${ALL_CHANGED_FILES}
 
       - name: Commit patch
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         if: steps.validation.outputs.patch_applied == 'true'
         with:
-          message: 'chore: Fix contribution'
+          commit_message: 'chore: Fix contribution'

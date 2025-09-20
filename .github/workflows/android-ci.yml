@@ -5,6 +5,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Development build
@@ -27,6 +30,11 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
+      - name: Setup Gradle and generate dependency graph
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          dependency-graph: generate-and-submit
+
       - name: Run unit tests
         run: ./gradlew test --stacktrace
 
@@ -34,17 +42,10 @@ jobs:
         run: ./gradlew assembleRelease --stacktrace
 
       # - name: Upload APK
-      #   uses: actions/upload-artifact@v3
+      #   uses: actions/upload-artifact@v4
       #   with:
       #     name: AdAway-dev
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
-      
-      - name: Update dependency graph
-        uses: mikepenz/gradle-dependency-submission@v0.8.5 # Deprecated: need to be changed
-        with:
-          gradle-dependency-path: "app/build.gradle"
-          gradle-build-module: ":app"
-          gradle-build-configuration: "releaseCompileClasspath"
 
       - name: Analyze project
         env:
@@ -64,10 +65,10 @@ jobs:
           keyPassword: ${{ secrets.KEY_PASSWORD }}
         env:
           # override default build-tools version (29.0.3) -- optional
-          BUILD_TOOLS_VERSION: "32.0.0"
+          BUILD_TOOLS_VERSION: "34.0.0"
 
         # Example use of `signedReleaseFile` output -- not needed
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v4
         with:
           name: Signed app bundle
           path: ${{ steps.sign_app.outputs.signedReleaseFile }}
