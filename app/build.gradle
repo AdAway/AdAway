@@ -7,15 +7,9 @@ boolean keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingKeyAlias') &&
         project.hasProperty('signingKeyPassword')
 
-repositories {
-    maven {
-        url 'https://jitpack.io'
-    }
-}
-
 android {
     compileSdk 36
-    namespace 'org.adaway'
+    namespace = 'org.adaway'
 
     defaultConfig {
         minSdk 26
@@ -65,7 +59,7 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
 
     packagingOptions {
@@ -82,8 +76,11 @@ android {
 //        }
         release {
             minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (keyStoreDefined) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 

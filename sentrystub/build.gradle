@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdk 35
-    namespace 'io.sentry'
+    compileSdk 36
+    namespace = 'io.sentry'
 
     defaultConfig {
         minSdk 26

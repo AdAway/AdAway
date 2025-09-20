@@ -3,9 +3,9 @@ import com.android.build.gradle.internal.tasks.LibraryJniLibsTask
 apply plugin: 'com.android.library'
 
 android {
-    compileSdk 35
-    ndkVersion '27.2.12479018'
-    namespace 'org.adaway.webserver'
+    compileSdk 36
+    ndkVersion = '27.2.12479018'
+    namespace = 'org.adaway.webserver'
 
     defaultConfig {
         minSdk 26
