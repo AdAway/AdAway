@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdk 36
-    ndkVersion = '27.2.12479018'
+    ndkVersion = '29.0.14033849'
     namespace = 'org.adaway.webserver'
 
     defaultConfig {

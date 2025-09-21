@@ -136,6 +136,9 @@ int main(int argc, char *argv[]) {
 
     oom_adjust_setup();
 
+    // Initialize redirects parameter names from file
+    init_redirects();
+
     mg_mgr_init(&mgr);
     http_connection = mg_http_listen(&mgr, HTTP_URL, fn, &s);
     if (http_connection == NULL) {
@@ -157,6 +160,10 @@ int main(int argc, char *argv[]) {
     }
 
     mg_mgr_free(&mgr);
+    
+    // Cleanup redirects resources
+    cleanup_redirects();
+    
     __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "Stopping server on signal %d.", s_sig_num);
     return EXIT_SUCCESS;
 }

@@ -9,6 +9,8 @@ extern "C" {
 
 bool redirect(struct mg_connection *c, struct mg_http_message* hm, const char* param_name);
 bool redirects(struct mg_connection *c, struct mg_http_message* hm);
+void init_redirects(void);
+void cleanup_redirects(void);
 
 #ifdef __cplusplus
 }
