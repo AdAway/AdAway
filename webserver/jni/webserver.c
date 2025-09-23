@@ -15,7 +15,7 @@
 #define OOM_ADJ_PATH    "/proc/self/oom_score_adj"
 #define OOM_ADJ_NOKILL  -17
 
-static int s_sig_num = 0;
+static volatile sig_atomic_t s_sig_num = 0;
 
 struct settings {
     bool init;
@@ -48,8 +48,15 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
 }
 
 static void signal_handler(int sig_num) {
-    signal(sig_num, signal_handler);
     s_sig_num = sig_num;
+}
+
+void setup_signal_handler() {
+    struct sigaction sa;
+    memset(&sa, 0, sizeof(sa));
+    sa.sa_handler = signal_handler;
+    sigaction(SIGINT, &sa, NULL);
+    sigaction(SIGTERM, &sa, NULL);
 }
 
 /*
@@ -139,9 +146,7 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    signal(SIGINT, signal_handler);
-    signal(SIGTERM, signal_handler);
-
+    setup_signal_handler();
     __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "Starting server.");
     while (s_sig_num == 0) {
         mg_mgr_poll(&mgr, 1000);
