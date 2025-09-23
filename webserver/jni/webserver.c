@@ -60,26 +60,38 @@ void setup_signal_handler() {
 }
 
 /*
- * Tell the kernel's out-of-memory killer to avoid this process.
+ * Tells the kernel's out-of-memory killer to avoid this process.
  */
 void oom_adjust_setup(void) {
     FILE *fp;
-    int oom_score = INT_MIN;
-    if ((fp = fopen(OOM_ADJ_PATH, "r+")) != NULL) {
-        if (fscanf(fp, "%d", &oom_score) != 1)
-            __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error reading %s: %s", OOM_ADJ_PATH,
-                                strerror(errno));
-        else {
-            rewind(fp);
-            if (fprintf(fp, "%d\n", OOM_ADJ_NOKILL) <= 0)
-                __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error writing %s: %s",
-                                    OOM_ADJ_PATH, strerror(errno));
-            else
-                __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "Set %s from %d to %d",
-                                    OOM_ADJ_PATH, oom_score, OOM_ADJ_NOKILL);
-        }
-        fclose(fp);
+    char buf[32];
+    if ((fp = fopen(OOM_ADJ_PATH, "r+")) == NULL) {
+        __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error opening %s: %s", OOM_ADJ_PATH,
+                            strerror(errno));
+        return;
     }
+    if (fgets(buf, sizeof(buf), fp) == NULL) {
+        __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error reading %s: %s", OOM_ADJ_PATH,
+                            strerror(errno));
+        return;
+    }
+    char *end_ptr;
+    errno = 0;
+    int oom_score = (int) strtol(buf, &end_ptr, 10);
+    if (end_ptr == buf || errno != 0) {
+        __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error reading %s: %s", OOM_ADJ_PATH,
+                            strerror(errno));
+    } else if (OOM_ADJ_NOKILL < oom_score) {
+        rewind(fp);
+        if (fprintf(fp, "%d\n", OOM_ADJ_NOKILL) <= 0) {
+            __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "error writing %s: %s",
+                                OOM_ADJ_PATH, strerror(errno));
+        } else {
+            __android_log_print(ANDROID_LOG_INFO, THIS_FILE, "Set %s from %d to %d",
+                                OOM_ADJ_PATH, oom_score, OOM_ADJ_NOKILL);
+        }
+    }
+    fclose(fp);
 }
 
 struct settings parse_cli_parameters(int argc, char *argv[]) {
