@@ -27,7 +27,10 @@ struct settings {
 };
 
 static void fn(struct mg_connection *c, int ev, void *ev_data) {
-    if (ev == MG_EV_HTTP_MSG && c->fn_data != NULL) {
+    if (ev == MG_EV_ACCEPT && c->is_tls && c->fn_data != NULL) {
+        struct settings *s = (struct settings *) c->fn_data;
+        mg_tls_init(c, &s->tls_opts);
+    } else if (ev == MG_EV_HTTP_MSG && c->fn_data != NULL) {
         struct mg_http_message *hm = (struct mg_http_message *) ev_data;
         struct settings *s = (struct settings *) c->fn_data;
         if (mg_strcmp(hm->uri, mg_str("/internal-test")) == 0) {
@@ -41,15 +44,6 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
         } else {
             mg_http_reply(c, 200, "", "");
         }
-    }
-}
-
-static void tls_fn(struct mg_connection *c, int ev, void *ev_data) {
-    if (ev == MG_EV_ACCEPT && c->fn_data != NULL) {
-        struct settings *s = (struct settings *) c->fn_data;
-        mg_tls_init(c, &s->tls_opts);
-    } else {
-        fn(c, ev, ev_data);
     }
 }
 
@@ -139,7 +133,7 @@ int main(int argc, char *argv[]) {
         __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Failed to listen on http port.");
         return EXIT_FAILURE;
     }
-    https_connection = mg_http_listen(&mgr, HTTPS_URL, tls_fn, &s);
+    https_connection = mg_http_listen(&mgr, HTTPS_URL, fn, &s);
     if (https_connection == NULL) {
         __android_log_print(ANDROID_LOG_FATAL, THIS_FILE, "Failed to listen on https port.");
         return EXIT_FAILURE;
