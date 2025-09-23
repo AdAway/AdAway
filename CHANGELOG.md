@@ -3,11 +3,12 @@
 ## [6.1.5] - Unreleased
 
 - Add always-on VPN detection during setup
+- Improve web signal handling and OOM killer
 - Update mongoose web server
 - Update Android gradle plugin
 - Update NDK
 
-Special thanks to El-Virus for its contribution.
+Special thanks to El-Virus, Fry-kun for its contribution.
 
 ## [6.1.4] - 2024-10-27
 
