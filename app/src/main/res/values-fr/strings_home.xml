@@ -43,6 +43,6 @@
     <string name="show_log_button">Afficher les domaines interrogés</string>
 
     <!-- Error dialog -->
-    <string name="error_dialog_help">Veuillez consulter l’aide pour plus de précisions.</string>
+    <string name="error_dialog_help">Pour plus de précisions, consultez l’aide.</string>
 
 </resources>
