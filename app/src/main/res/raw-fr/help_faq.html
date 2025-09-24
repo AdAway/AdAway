@@ -10,7 +10,7 @@ And don't add newlines before or after p tags because of transifex -->
 
 <h2>Comment AdAway fonctionne-t-il ?</h2>
 <p>AdAway utilise le <a href="http://en.wikipedia.org/wiki/Hosts_file">fichier hosts</a> pour bloquer les noms d’hôtes qui servent des publicités. Le fichier hosts se situe dans <code>/system/etc/hosts</code> et mappe les noms d’hôtes à des adresses IP. C’est une façon habituelle de définir des paires noms de serveurs/adresses IP sans avoir recours au système de noms de domaine (DNS). Tous les noms d’hôtes indésirables sont redirigés vers <code>127.0.0.1</code>, c’est-à-dire votre propre appareil.<br>
-S’il est impossible d’écrire dans le fichier hosts, vous pouvez utiliser le service de RPV intégré comme solution de rechange. Il filtrera les connexions vers les noms d’hôte indésirables et laissera passer les autres.</p>
+S’il est impossible d’écrire dans le fichier hosts, vous pouvez utiliser le service de RPV/VPN intégré comme solution de rechange. Il filtrera les connexions vers les noms d’hôte indésirables et laissera passer les autres.</p>
 
 <h2>Pourquoi dois-je redémarrer Android pour que les changements prennent effet ?</h2>
 <p>Java sur Android maintient son propre cache DNS interne. Le système d’exploitation appliquera immédiatement le nouveau fichier hosts (vérifiez-le avec ping en ligne de commande), mais vous devrez redémarrer Android pour reconstruire le cache DNS de Java.</p>
