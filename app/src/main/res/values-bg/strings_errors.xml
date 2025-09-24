@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Няма връзка с интернет</string>
@@ -12,7 +12,7 @@
     <string name="error_not_enough_space_details">Невъзможно е копирането на файла hosts на системния дял. Проверете дали модулът „systemless hosts“ на Magisk е включен и след това рестартирайте.</string>
     <string name="error_copy_failed_message">Инсталирането на нов хост файл се провали</string>
     <string name="error_copy_failed_details">Невъзможно е копирането на файла hosts на дялът /system. Проверете дали модулът „systemless hosts“ на Magisk е включен и след това рестартирайте.</string>
-    <string name="error_revert_failed_message">Отменянето на хост файла се провали</string>
+    <string name="error_revert_failed_message">Отменянето на промените във файла hosts е неуспешно</string>
     <string name="error_revert_failed_details">Невъзможно е възстановяването на конфигурацията по подразбиране на хост файла.</string>
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">Включването на VPN блокирането на реклами се провали.</string>
