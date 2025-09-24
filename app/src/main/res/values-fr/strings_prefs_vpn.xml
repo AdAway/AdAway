@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_vpn_title">Bloqueur de publicités fondé sur un RPV</string>
+    <string name="pref_vpn_title">Bloqueur de publicités fondé sur un RPV/VPN</string>
     <!-- Service configuration -->
     <string name="pref_vpn_service_on_boot">Activer au démarrage</string>
     <string name="pref_vpn_service_monitor">Surveiller la connexion</string>
-    <string name="pref_vpn_service_monitor_description">Vérifier régulièrement l’état du réseau pour relancer le RPV après une déconnexion.</string>
+    <string name="pref_vpn_service_monitor_description">Vérifier régulièrement l’état du réseau pour relancer le RPV/VPN après une déconnexion.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Applications exclues</string>
-    <string name="pref_vpn_excluded_apps_description">Configurer les applis qui ne devraient pas utiliser le RPV, afin qu’aucune connexion ne soit bloquée.</string>
+    <string name="pref_vpn_excluded_apps_description">Configurer les applis qui ne devraient pas utiliser le RPV/VPN, afin qu’aucune connexion ne soit bloquée.</string>
     <string name="pref_vpn_exclude_system_apps">Exclure les applications système</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>Aucune</item>
