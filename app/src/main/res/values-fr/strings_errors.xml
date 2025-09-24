@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Aucune connexion à Internet</string>
@@ -7,7 +7,7 @@
     <string name="error_download_failed_details">Aucune de vos sources de fichiers hosts activées n’est accessible. Assurez-vous que votre appareil est bien connecté à Internet ?</string>
     <!-- Hosts install model error -->
     <string name="error_private_file_failed_message">Échec de création du fichier privé</string>
-    <string name="error_private_file_failed_details">Impossible de créer un fichier privé pour construire une nouvelle source d’hosts. Vérifiez l’espace libre sur votre appareil.</string>
+    <string name="error_private_file_failed_details">Impossible de créer un fichier privé pour construire une nouvelle source de fichiers hosts. Vérifiez l’espace libre sur votre appareil.</string>
     <string name="error_not_enough_space_message">Il manque d’espace</string>
     <string name="error_not_enough_space_details">Impossible de copier le fichier hosts vers votre partition système. Assurez-vous que le module « Systemless Hosts » de Magisk est activé, puis redémarrez.</string>
     <string name="error_copy_failed_message">Échec d’installation du nouveau fichier hosts.</string>
