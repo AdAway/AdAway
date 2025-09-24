@@ -24,12 +24,12 @@
     <string name="webserver_toggle_text">Démarrer ou arrêter le serveur Web sur « localhost » pour répondre aux requêtes vers des noms d’hôtes bloqués.</string>
     <string name="button_enable_webserver">Activer le serveur Web</string>
     <string name="button_disable_webserver">Désactiver le serveur Web</string>
-    <string name="header_vpn">RPV</string>
+    <string name="header_vpn">RPV/VPN</string>
     <string name="vpn_status_running">En fonction</string>
     <string name="vpn_status_stopped">Arrêté</string>
-    <string name="vpn_toggle_text">Démarrer ou arrêter le RPV pour filtrer les requêtes.</string>
-    <string name="button_enable_vpn">Activer le RPV</string>
-    <string name="button_disable_vpn">Désactiver le RPV</string>
+    <string name="vpn_toggle_text">Démarrer ou arrêter le RPV/VPN pour filtrer les requêtes.</string>
+    <string name="button_enable_vpn">Activer le RPV/VPN</string>
+    <string name="button_disable_vpn">Désactiver le RPV/VPN</string>
 
     <!--Checkbox List-->
     <string name="checkbox_list_context_title">Modifier l’entrée</string>
@@ -82,7 +82,7 @@
     <string name="status_copy_new_hosts">Copie d’un nouveau fichier hosts</string>
     <string name="status_check_copy">Vérification de la copie du fichier hosts</string>
     <string name="status_hosts_updated">Le fichier hosts a été mis à jour avec succès</string>
-    <string name="status_vpn_configuration_updated">La configuration du RPV a été mise à jour avec succès</string>
+    <string name="status_vpn_configuration_updated">La configuration du RPV/VPN a été mise à jour avec succès</string>
     <string name="notification_configuration_changed">Votre configuration a changé. Vous devez l’appliquer.</string>
     <string name="notification_configuration_changed_action">Appliquer</string>
     <string name="notification_configuration_installing">Application de la nouvelle configuration…</string>
@@ -137,8 +137,8 @@
     <string name="enable_systemless_successful_title">L’activation a réussi</string>
     <string name="disable_systemless_successful">Vous avez désactivé le mode sans système.\nIl faudra peut-être redémarrer Android pour que les changements prennent effet.\n\nVoulez-vous redémarrer l’appareil ?\n(Pour prévenir toute perte de données, assurez-vous qu’aucune autre appli n’utilise la carte SD en ce moment.)</string>
     <string name="disable_systemless_successful_title">La désactivation a réussi</string>
-    <string name="enable_vpn_fail">Échec d’activation du blocage des publicités par RPV.</string>
-    <string name="disable_vpn_fail">Échec de désactivation du blocage des publicités par RPV.</string>
+    <string name="enable_vpn_fail">Échec d’activation du blocage des publicités par RPV/VPN.</string>
+    <string name="disable_vpn_fail">Échec de désactivation du blocage des publicités par RPV/VPN.</string>
     <string name="enable_systemless_magisk_title">Activation du module hosts de Magisk</string>
     <string name="enable_systemless_magisk">Activer la fonction Fichier hosts sans système du gestionnaire Magisk. Dans ses paramètres, activez l’option <cite>Fichier hosts sans système</cite>, puis redémarrez votre appareil.</string>
     <string name="disable_systemless_magisk_title">Désactivation du module hosts de Magisk</string>
@@ -253,7 +253,7 @@
     <string name="vpn_notification_reconnecting_error">erreur de reconnexion</string>
     <string name="vpn_notification_paused">en pause</string>
     <string name="vpn_notification_stopped">arrêté</string>
-    <string name="vpn_notification_title">RPV bloqueur de publicités %1$s</string>
+    <string name="vpn_notification_title">RPV/VPN bloqueur de publicités %1$s</string>
     <string name="vpn_notification_action_pause">Pause</string>
     <string name="vpn_notification_action_resume">Reprendre</string>
 
