@@ -9,7 +9,7 @@
     <string name="error_private_file_failed_message">Impossibile creare file privato</string>
     <string name="error_private_file_failed_details">Impossibile creare il file privato per assemblare la nuova sorgente hosts. Assicurati che ci sia spazio disponibile sul tuo dispositivo</string>
     <string name="error_not_enough_space_message">Spazio non sufficiente</string>
-    <string name="error_not_enough_space_details">Impossibile copiare il file hosts nella partizione /system. Controlla se il modulo systemless di Magisk è attivo e riavvia il dispositivo</string>
+    <string name="error_not_enough_space_details">Impossibile copiare il file hosts nella partizione di sistema. Controlla se il modulo systemless di Magisk è attivo e riavvia il dispositivo.</string>
     <string name="error_copy_failed_message">Impossibile installare il nuovo file hosts</string>
     <string name="error_copy_failed_details">Impossibile copiare il file hosts nella partizione /system. Controlla se il modulo systemless di Magisk è attivo e poi riavvia il dispositivo.</string>
     <string name="error_revert_failed_message">Impossibile ripristinare file hosts</string>
