@@ -8,6 +8,6 @@
     <string name="notification_update_app_available_title">Une mise à jour de l’appli est proposée</string>
     <string name="notification_update_app_available_text">Une nouvelle version d’AdAway est proposée en téléchargement.</string>
     <!-- VPN notification -->
-    <string name="notification_vpn_channel_name">RPV</string>
-    <string name="notification_vpn_channel_description">Notifications de l’exécution du RPV</string>
+    <string name="notification_vpn_channel_name">RPV/VPN</string>
+    <string name="notification_vpn_channel_description">Notifications de l’exécution du RPV/VPN</string>
 </resources>
