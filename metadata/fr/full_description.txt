@@ -2,7 +2,7 @@ Un bloqueur de publicité libre pour Android.
 
 L’application est offerte pour les appareils débridés (racine) et non débridés .
 Sur un appareil débridé, l’application met à jour le fichier hosts de votre système, qui comprend une liste de correspondances entre noms d’hôtes et adresses IP.
-Sur un appareil non débridé, l’application utilise la fonction RPV pour bloquer les connexions sortantes vers les publicités et les traqueurs.
+Sur un appareil non débridé, l’application utilise la fonction RPV/VPN pour bloquer les connexions sortantes vers les publicités et les traqueurs.
 Donc, quand une appli demande une publicité ou un traqueur à un hôte qui se trouve dans ce fichier, cette requête est redirigée vers l’adresse IP locale 127.0.0.1, ce qui ne retourne rien.
 
 Vous pouvez télécharger des listes prédéfinies de publicités et de bloqueurs, sous la forme de fichiers hosts, à partir de l’appli pour les incorporer. Il est aussi possible d’utiliser vos propres fichiers et d’ajouter certains hôtes aux listes d’acceptation et de blocage.
