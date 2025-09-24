@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Няма връзка с интернет</string>
@@ -17,6 +17,6 @@
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">Включването на спирането на реклами чрез ВЧМ е неуспешно.</string>
     <string name="error_enable_vpn_failed_details">Проверете настройките на ВЧМ и разрешете на ВЧМ на приложението да стартира.</string>
-    <string name="error_disable_vpn_failed_message">Спирането на VPN блокирането на реклами се провали.</string>
+    <string name="error_disable_vpn_failed_message">Изключването на ВЧМ за спиране на реклами е неуспешно.</string>
     <string name="error_disable_vpn_failed_details">Моля, проверете Вашите VPN настройки, за да ги изключите ръчно.</string>
 </resources>
