@@ -9,9 +9,9 @@
     <string name="error_private_file_failed_message">Nepodarilo sa vytvoriť súkromný súbor</string>
     <string name="error_private_file_failed_details">Nepodarilo sa vytvoriť súkromný súbor na vytvorenie nového zdroja hosts. Prosím, skontrolujte dostupné voľné miesto na zariadení.</string>
     <string name="error_not_enough_space_message">Nedostatok miesta</string>
-    <string name="error_not_enough_space_details">Nepodarilo sa skopírovať súbor hosts na systémový oddiel. Prosím, skontrolujte, či je povolený systemless modul Magisku, a potom reštartujte.</string>
+    <string name="error_not_enough_space_details">Nepodarilo sa skopírovať súbor hosts na systémový oddiel. Prosím, skontrolujte, či je povolený \"systemless hosts\" modul Magisku, a potom reštartujte.</string>
     <string name="error_copy_failed_message">Nepodarilo sa nainštalovať nový súbor hosts</string>
-    <string name="error_copy_failed_details">Nepodarilo sa skopírovať súbor hosts na oddiel /system. Prosím, skontrolujte, či je povolený systemless modul Magisku, a potom reštartujte.</string>
+    <string name="error_copy_failed_details">Nepodarilo sa skopírovať súbor hosts na oddiel /system. Prosím, skontrolujte, či je povolený \"systemless hosts\" modul Magisku, a potom reštartujte.</string>
     <string name="error_revert_failed_message">Nepodarilo obnoviť súbor hosts</string>
     <string name="error_revert_failed_details">Nepodarilo obnoviť pôvodné nastavenie súboru hosts.</string>
     <!-- VPN model error -->
