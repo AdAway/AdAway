@@ -18,5 +18,5 @@
     <string name="error_enable_vpn_failed_message">Включването на спирането на реклами чрез ВЧМ е неуспешно.</string>
     <string name="error_enable_vpn_failed_details">Проверете настройките на ВЧМ и разрешете на ВЧМ на приложението да стартира.</string>
     <string name="error_disable_vpn_failed_message">Изключването на ВЧМ за спиране на реклами е неуспешно.</string>
-    <string name="error_disable_vpn_failed_details">Моля, проверете Вашите VPN настройки, за да ги изключите ръчно.</string>
+    <string name="error_disable_vpn_failed_details">Проверете настройките на ВЧМ и го изключете ръчно.</string>
 </resources>
