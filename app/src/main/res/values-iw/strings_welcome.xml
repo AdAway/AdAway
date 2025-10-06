@@ -52,7 +52,7 @@
     <string name="welcome_support_telemetry_button">הפעלת טלמטריה בכדי לשלוח לי דוחות קריסה</string>
 
     <!-- Navigation buttons -->
-    <string name="welcome_back_button">אחורה</string>
-    <string name="welcome_next_button">קדימה</string>
+    <string name="welcome_back_button">חזור</string>
+    <string name="welcome_next_button">הבא</string>
     <string name="welcome_finish_button">סיום</string>
 </resources>
