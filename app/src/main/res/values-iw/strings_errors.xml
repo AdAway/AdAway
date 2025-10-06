@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">אין חיבור לאינטרנט</string>
-    <string name="error_no_connection_details">לא ניתן ליצור חיבור לאינטרנט. אנא בדוק את קישוריות המכשיר שלך.</string>
-    <string name="error_download_failed_message">הורדת מקור קובץ המארחים נכשלה</string>
-    <string name="error_download_failed_details">לא ניתן להגיע לאף אחד ממקורות המארחים המופעלים שלך. אנא בדוק שאתה מחובר כראוי לאינטרנט.</string>
+    <string name="error_no_connection_details">לא ניתן ליצור חיבור לאינטרנט. אנא בדוק/י את חיבור המכשיר שלך.</string>
+    <string name="error_download_failed_message">הורדת מקור קובץ ה-hosts נכשלה</string>
+    <string name="error_download_failed_details">אף אחד ממקורות ה-hosts שהפעלת אינו נגיש. אנא בדוק/י שהמכשיר מחובר כראוי לאינטרנט.</string>
     <!-- Hosts install model error -->
     <string name="error_private_file_failed_message">יצירת קובץ פרטי נכשלה</string>
-    <string name="error_private_file_failed_details">לא ניתן היה ליצור קובץ פרטי לבניית מקור מארחים חדש. אנא בדוק את שטח האחסון הפנוי הזמין במכשיר שלך.</string>
-    <string name="error_not_enough_space_message">אין מספיק מקום אחסון</string>
-    <string name="error_not_enough_space_details">לא ניתן להעתיק את קובץ המארחים למחיצת המערכת שלך. אנא בדוק שהמודול ללא מערכת ב־Magisk מופעל ואז אתחל מחדש.</string>
-    <string name="error_copy_failed_message">התקנת קובץ מארחים חדש נכשלה</string>
-    <string name="error_copy_failed_details">לא ניתן להעתיק את קובץ המארחים למחיצת המערכת. אנא בדוק אם מודול Magisk systemless מופעל ואז לאתחל מחדש.</string>
+    <string name="error_private_file_failed_details">לא ניתן ליצור קובץ פרטי לבניית מקור hosts חדש. אנא בדוק/י את שטח האחסון הפנוי במכשיר שלך.</string>
+    <string name="error_not_enough_space_message">אין מספיק נפח אחסון</string>
+    <string name="error_not_enough_space_details">לא ניתן להעתיק את קובץ ה-hosts למחיצת המערכת שלך. אנא ודא/י שמודול \"Systemless Hosts\" של Magisk מופעל ולאחר מכן אתחל/י את המכשיר.</string>
+    <string name="error_copy_failed_message">התקנת קובץ hosts חדש נכשלה</string>
+    <string name="error_copy_failed_details">לא ניתן להעתיק את קובץ ה-hosts למחיצת /system. אנא ודא/י שמודול \"Systemless Hosts\" של Magisk מופעל ולאחר מכן אתחל/י את המכשיר.</string>
     <string name="error_revert_failed_message">ביטול קובץ המארחים נכשל</string>
     <string name="error_revert_failed_details">לא ניתן היה לשחזר את תצורת הקבצים המוגדרת כברירת מחדל.</string>
     <!-- VPN model error -->
