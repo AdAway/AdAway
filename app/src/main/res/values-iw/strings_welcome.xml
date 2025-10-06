@@ -7,7 +7,7 @@
 
     <!-- Method UI -->
     <string name="welcome_method_header">ברוכים הבאים אל AdAway!</string>
-    <string name="welcome_method_summary">‏AdAway מספק שני שיטות חסימת פרסומות. בחר/י את השיטה שמתאימה לך:</string>
+    <string name="welcome_method_summary">‏AdAway מספק שני שיטות חסימת פרסומות. בחר\י את השיטה שמתאימה לך:</string>
 
     <string name="welcome_root_method_logo">לוגו גישת שורש</string>
     <string name="welcome_root_method_title">מבוסס גישת שורש\nחוסם פרסומות</string>
