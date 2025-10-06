@@ -37,7 +37,7 @@
     <string name="welcome_sync_error_logo">שגיאת בעת סינכרון</string>
 
     <string name="welcome_sync_header">מסנכרן</string>
-    <string name="welcome_synced_header">סונכרן!</string>
+    <string name="welcome_synced_header">מסונכרן!</string>
     <string name="welcome_sync_summary">AdAway מוריד רשתות של מודעות כדי לחסום אותן ממקורותיהן המקוונים. אתה יכול להתאים אותן מאוחר יותר בהגדרות.</string>
     <string name="welcome_sync_retry_logo">נסה לסנכרן בשנית</string>
     <string name="welcome_sync_error">סנכרון נכשל: %1$s לנסות כעת?</string>
