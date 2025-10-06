@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="welcome_title">ברוך הבא!</string>
+    <string name="welcome_title">ברוך\ה הבא\ה!</string>
     <string name="welcome_first_step">אשף הצעד הראשון</string>
     <string name="welcome_second_step">אשף הצעד השני</string>
     <string name="welcome_last_step">אשף הצעד האחרון</string>
@@ -22,7 +22,12 @@
     <string name="welcome_vpn_method_text3">מותאם</string>
 
     <string name="welcome_root_missing_title">גישת שורש אנדרואיד נדרשת</string>
-    <string name="welcome_root_missile_description">לא אפשרת הרשאת Root ל־AdAway.\n\nזה יכול לקרות כאשר המכשיר שלך אינו בעל גישת Root. תוכל למצוא מידע על אופן ביצוע Root במכשיר שלך ב־wiki.lineageos.org או באתרי דומים.</string>
+    <string name="welcome_root_missile_description">לא אפשרת הרשאת Root ל־AdAway.\n\nזה יכול לקרות כאשר המכשיר שלך אינו בעל הרשאת Root. תוכל\י למצוא מידע על אופן ביצוע Root במכשיר שלך ב־wiki.lineageos.org או באתרים דומים.</string>
+
+    <string name="welcome_vpn_alwayson_title">הפעלת \"VPN תמיד פעיל\"</string>
+    <string name="welcome_vpn_alwayson_description">AdAway זיהתה ש-VPN אחר משתמש בהגדרה \"‏VPN תמיד פעיל\".\n\nהדבר מונע מ-AdAway לבקש גישת VPN. אנא השבת את ההגדרה \"‏VPN תמיד פעיל\" ב-VPN המתאים ונסה שוב.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">‏AdAway נכשלה בבקשת גישת VPN.\n\nייתכן שהסיבה לכך היא ש-VPN אחר משתמש בהגדרה \"‏VPN תמיד פעיל\". אנא בדוק אם יש VPN כלשהו שבו ההגדרה הזו מופעלת והשבת אותה לפני שתנסה שוב.</string>
+    <string name="welcome_vpn_alwayson_settings_action">פתח\י הגדרות \"VPN\"</string>
 
     <string name="welcome_method_pro_logo">מקצועי</string>
     <string name="welcome_method_con_logo">עם</string>
