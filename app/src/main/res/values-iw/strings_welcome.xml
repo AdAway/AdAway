@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">ברוך\ה הבא\ה!</string>
     <string name="welcome_first_step">אשף הצעד הראשון</string>
@@ -48,7 +48,7 @@
     <string name="welcome_support_header">תמוך בי!</string>
     <string name="welcome_support_summary">AdAway הוא יישום חינמי וקוד פתוח שאני מפתח בזמני הפנוי. אם הינך נהנה מזה, אל תהסס להראות את תמיכתך:</string>
     <string name="welcome_support_button">תרומה באמצעות PayPal</string>
-    <string name="welcome_support_telemetry_summary">אתה אוהב באגים? גמאני לא.</string>
+    <string name="welcome_support_telemetry_summary">את\ה אוהב\ת באגים? גם אני לא.</string>
     <string name="welcome_support_telemetry_button">הפעלת טלמטריה בכדי לשלוח לי דוחות קריסה</string>
 
     <!-- Navigation buttons -->
