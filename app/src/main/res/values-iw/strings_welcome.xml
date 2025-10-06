@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">ברוך\ה הבא\ה!</string>
     <string name="welcome_first_step">אשף הצעד הראשון</string>
@@ -19,9 +19,9 @@
     <string name="welcome_vpn_method_title">מבוסס VPN\nחוסם פרסומות</string>
     <string name="welcome_vpn_method_text1">איטי יותר</string>
     <string name="welcome_vpn_method_text2">פועל ברקע</string>
-    <string name="welcome_vpn_method_text3">מותאם</string>
+    <string name="welcome_vpn_method_text3">תאימות</string>
 
-    <string name="welcome_root_missing_title">גישת שורש אנדרואיד נדרשת</string>
+    <string name="welcome_root_missing_title">נדרשת הרשאת ROOT</string>
     <string name="welcome_root_missile_description">לא אפשרת הרשאת Root ל־AdAway.\n\nזה יכול לקרות כאשר המכשיר שלך אינו בעל הרשאת Root. תוכל\י למצוא מידע על אופן ביצוע Root במכשיר שלך ב־wiki.lineageos.org או באתרים דומים.</string>
 
     <string name="welcome_vpn_alwayson_title">הפעלת \"VPN תמיד פעיל\"</string>
