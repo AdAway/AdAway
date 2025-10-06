@@ -41,7 +41,7 @@
     <string name="welcome_sync_summary">AdAway מוריד רשתות של מודעות כדי לחסום אותן ממקורותיהן המקוונים. אתה יכול להתאים אותן מאוחר יותר בהגדרות.</string>
     <string name="welcome_sync_retry_logo">נסה לסנכרן בשנית</string>
     <string name="welcome_sync_error">סנכרון נכשל: %1$s לנסות כעת?</string>
-    <string name="welcome_sync_notifications">זה יכול לשלוח הודעות כדי להציג סטטוס חסימת מודעות ושליטה, ולהודיע על עדכון יישום זמין (מספר פעמים בשנה). יש להפעיל אותם אם ברצונך להישאר מעודכן.</string>
+    <string name="welcome_sync_notifications">היישום יכול לשלוח התראות להצגת מצב ושליטה בחסימת פרסומות, וכן להודיע על עדכוני אפליקציה זמינים (כמה פעמים בשנה). הפעל התראות אלו אם ברצונך להישאר מעודכן.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">תמיכה</string>
