@@ -3,28 +3,27 @@ This makes it easy to translate the values with transifex!
 And don't add newlines before or after p tags because of transifex -->
 <!DOCTYPE html>
 <html>
-<head><title>S-ON related help</title></head>
+<head><title>עזרה בנושא S-ON</title></head>
 <body>
-<h2>מכשירי HTC</h2>
+<h2>התקני HTC</h2>
 <p>AdAway לא עובד טוב עם המכשיר שלך בגלל משהו שנקרא S-ON / S-OFF זה משהו שנמצא בהרבה מכשירים של HTC ה S-ON מונע מAdAway לרשום קובץ HOST ובגלל זה יכול להיות ש AdAway לא יעבוד טוב על מכשירך / לא יעבוד בכלל</p>
 
 <h2>S-ON/S-OFF?</h2>
 <p>AdAway לא עובד טוב עם המכשיר שלך בגלל משהו שנקרא S-ON / S-OFF זה משהו שנמצא בהרבה מכשירים של HTC ה S-ON מונע מAdAway לרשום קובץ HOST ובגלל זה יכול להיות ש AdAway לא יעבוד טוב על מכשירך / לא יעבוד בכלל</p>
 
 <h2>יש לך תכונת S-ON או S-OFF?</h2>
-<p>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power and the text on top will show the flag status as either S-OFF or S-ON. A full root generally means S-OFF.
-<br><br>More information can be found on <a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. Additional S-OFF methods since Unrevokable (in link) might interest you, namely: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
+<p>הכנס/י לתפריט האתחול במכשירך על‑ידי החזקת כפתור <cite>הורדת עוצמת הקול</cite> בזמן לחיצה על כפתור ההפעלה, והטקסט בחלק העליון יציג את מצב הדגל — S-OFF או S-ON. רוט מלא בדרך כלל מעיד על S-OFF.<br><br>מידע נוסף ניתן למצוא ב-<a href="http://www.addictivetips.com/mobile/what-is-s-off-how-to-gain-it-on-htc-android-phones-with-unrevoked-forever/">www.addictivetips.com</a>. שיטות נוספות להשגת S-OFF מאז Unrevokable (מוזכר בקישור) שעשויות לעניין אותך: Revolutionary, Revone, Firewater, RumRunner, Moonshine, SunShine…</p>
 
 <h2>לעקיפת הבעיה</h2>
-<p>Prerequisite: You have to install a working Android SDK with ADB shell on your PC.</p>
+<p>תנאי מוקדם: עליך להתקין במחשב שלך SDK של אנדרואיד עובד עם מעטפת ADB.</p>
 <ol>
-<li>Boot into the Boot Menu on your device by holding down <cite>volume down</cite> button while pressing power.</li>
-<li>Use <cite>volume down</cite> to select <cite>recovery</cite> then <cite>power</cite> to boot it.</li>
-<li>In clockwork recovery go to "partitions menu".</li>
-<li>Select <cite>mount /system</cite>, <cite>mount /sdcard</cite> and <cite>mount /data</cite>.</li>
-<li>Plug in your USB cord and open a command line on your pc.</li>
-<li>Enter adb shell and type <code>ln -s /data/hosts /system/etc/hosts</code> (This creates a symbolic link, which allows AdAway to edit the hosts file stored in <code>/data</code> while allowing the OS to use the file as if it were stored in <code>/system</code>.)</li>
-<li>Reboot your device and set <cite>Target hosts file</cite> to <cite>/data/hosts</cite> in AdAway's preferences.</li>
+<li>הכנס/י לתפריט האתחול במכשירך על‑ידי החזקת <cite>כפתור הורדת עוצמת הקול</cite> בזמן לחיצה על כפתור ההפעלה.</li>
+<li>השתמש במקש <cite>עוצמת השמע התחתון</cite> כדי לנווט <cite>למצב שחזור</cite> ולאחר מכן לחץ על <cite>מקש ההפעלה</cite> כדי לבחור בו.</li>
+<li>במצב שחזור (Recovery), עבור אל תפריט ה"מחיצות".</li>
+<li>בחר/י ב‑<cite>mount /system</cite>, <cite>mount /sdcard</cite> ו‑<cite>mount /data</cite>.</li>
+<li>חבר את כבל ה־USB ופתח את שורת הפקודה במחשב שלך.</li>
+<li>היכנס/י ל‑adb shell והקלד/י <code>ln -s /data/hosts /system/etc/hosts</code> (פעולה זו יוצרת קישור סימבולי שמאפשרת ל‑AdAway לערוך את קובץ ה‑hosts המאוחסן ב‑<code>/data</code>, בעוד שמערכת ההפעלה משתמשת בקובץ כאילו הוא מאוחסן ב‑<code>/system</code>.)</li>
+<li>אתחל/י את המכשיר שלך והגדר/י את <cite>Target hosts file</cite> ל‑<cite>/data/hosts</cite> בהעדפות של AdAway.</li>
 <li>AdAway  אמור לעבוד עכשיו</li>
 </ol>
 </body>
