@@ -83,7 +83,7 @@
     <string name="status_check_copy">Kopie der Hosts-Datei wird geprüft</string>
     <string name="status_hosts_updated">Hosts-Datei erfolgreich aktualisiert</string>
     <string name="status_vpn_configuration_updated">VPN-Konfiguration erfolgreich aktualisiert</string>
-    <string name="notification_configuration_changed">Ihre Konfiguration hat sich geändert. Zum Anwenden \'übernehmen\' betätigen.</string>
+    <string name="notification_configuration_changed">Ihre Konfiguration hat sich geändert. Zum Anwenden „Übernehmen“ betätigen.</string>
     <string name="notification_configuration_changed_action">Übernehmen</string>
     <string name="notification_configuration_installing">Neue Konfiguration wird übernommen …</string>
     <string name="notification_configuration_failed">Anwendung der neuen Konfiguration ist fehlgeschlagen.</string>
