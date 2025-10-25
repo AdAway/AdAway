@@ -47,7 +47,7 @@
 
     <!--Hosts content-->
     <string name="hosts_header">Die Hosts-Datei</string>
-    <string name="hosts_description">Die Hosts-Datei ist eine Datei aus dem Systembereich, bei der Hostnamen(Webadressen) zu IP-Adressen zugewiesen werden. Die Konfiguration der reinen Text Datei wird von AdAway übernommen. Nachfolgend ihre ersten Zeilen:</string>
+    <string name="hosts_description">Die Hosts-Datei ist eine Datei aus dem Systembereich, bei der Hostnamen(Webadressen) zu IP-Adressen zugewiesen werden. Die Konfiguration der reinen Textdatei wird von AdAway übernommen. Nachfolgend ihre ersten Zeilen:</string>
     <string name="hosts_content">Inhalt der Hosts-Datei laden…</string>
     <string name="hosts_open_button">Hosts-Datei öffnen</string>
 
