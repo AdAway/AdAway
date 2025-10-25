@@ -43,7 +43,7 @@
     <string name="import_failed">Einlesen der Sicherung fehlgeschlagen. Passt das Format? Weitere Infos dazu im Logcat Protokoll.</string>
     <string name="export_dialog">Export läuft …</string>
     <string name="export_success">Sicherung wurde erfolgreich in die Datei „%s“ auf externem Speicher erstellt.</string>
-    <string name="export_failed">Erstellen der Sicherungsdatei \'%s\' ist fehlgeschlagen.</string>
+    <string name="export_failed">Erstellen der Sicherungsdatei „%s“ ist fehlgeschlagen.</string>
 
     <!--Hosts content-->
     <string name="hosts_header">Die Hosts-Datei</string>
