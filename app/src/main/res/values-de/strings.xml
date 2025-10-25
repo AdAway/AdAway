@@ -103,7 +103,7 @@
     <string name="apply_copy_fail_title">Kopieren fehlgeschlagen</string>
     <string name="apply_success_subtitle">Hosts-Quellen wurden angewandt</string>
     <string name="apply_success_title">Erfolgreich angewendet</string>
-    <string name="apply_success_dialog">Änderungen waren erfolgreich.\nDamit alle Änderungen wirksam werden, kann es nötig sein Android neu zu starten.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, stellen Sie bitte sicher, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
+    <string name="apply_success_dialog">Änderungen waren erfolgreich.\nAndroid muss eventuell neu gestartet werden, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverlust zu vermeiden, stellen Sie bitte sicher, dass keine Anwendung gerade die SD-Karte verwendet!)</string>
     <string name="apply_symlink_successful">Symbolische Verknüpfung wurde erfolgreich erstellt.\nAndroid muss eventuell neu gestartet werden, damit alle Änderungen wirksam werden.\n\nMöchten Sie neu starten?\n(Um Datenverluste zu vermeiden, darf momentan keine Anwendung die SD-Karte verwenden!)</string>
     <string name="apply_symlink_successful_title">Symbolische Verknüpfung erfolgreich erstellt</string>
     <string name="apply_symlink_fail">Symbolische Verknüpfung konnte nicht von Android erstellt werden.\nDies liegt wahrscheinlich an einer „Funktion“ namens S-ON auf HTC-Geräten!\n\nEine Lösung ist es, Ihr Gerät im Wiederherstellungsmodus zu starten und die Verknüpfung von dort mit „ln -s /data/data/hosts /system/etc/hosts“ zu erstellen.\n\nWenn dies nicht funktioniert, suchen Sie bitte im Internet nach S-OFF und Ihrem Gerät.</string>
