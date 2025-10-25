@@ -167,7 +167,7 @@
 
     <!--Adware-->
     <string name="adware_header">Adware</string>
-    <string name="adware_description">Hier sind schlechte Werbesoftware Anwendungen aufgelistet, die nicht von AdAway blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen die selbst dann erscheinen, wenn die App gar nicht läuft oder es wird sogar Ihr Klingelton umgestellt. Die einzige Gegenmaßnahme ist solche Apps zu deinstalieren, indem Sie auf die Listeneinträge klicken.</string>
+    <string name="adware_description">Hier sind schlechte Werbesoftware-Anwendungen aufgelistet, die nicht von AdAway blockiert werden können. Diese Apps nutzen zum Beispiel Airpush-Benachrichtigungen, die selbst dann erscheinen, wenn die App gar nicht läuft oder es wird sogar Ihr Klingelton umgestellt. Die einzige Gegenmaßnahme ist solche Apps zu deinstalieren, indem Sie auf die Listeneinträge klicken.</string>
     <string name="adware_scanning">Durchsuchen …</string>
     <string name="adware_empty">Keine Adware gefunden!</string>
 
