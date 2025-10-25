@@ -56,7 +56,7 @@
     <string name="status_check_source">Quelle %s auf Aktualisierung prüfen</string>
     <string name="status_retrieve">Quellen abrufen</string>
     <string name="status_download_source">Quelle %s wird heruntergeladen</string>
-    <string name="status_read_source">Lese Quelle %s</string>
+    <string name="status_read_source">Quelle lesen: %s</string>
     <string name="status_parse_source">Analysiere Quelle %s</string>
     <string name="status_sync_database">Abgleichen des Regelwerks</string>
     <string name="status_revert">Hosts-Datei wird auf Standard zurückgesetzt</string>
