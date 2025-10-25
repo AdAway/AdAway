@@ -255,7 +255,7 @@
 
     <!-- Permission -->
     <string name="permission_group_api_label">AdAway-Bewilligung</string>
-    <string name="permission_group_api_description">Mit AdAway den Kontakt bewilligen</string>
+    <string name="permission_group_api_description">Interaktion mit AdAway zulassen</string>
     <string name="permission_send_command_label">Befehle an AdAway senden</string>
     <string name="permission_send_command_description">Das Senden von Befehlen an AdAway erlauben, wie „Einschalten“ oder „Ausschalten“ des Werbeblockers</string>
 
