@@ -39,7 +39,7 @@
     <string name="welcome_sync_header">Wird synchronisiert</string>
     <string name="welcome_synced_header">Synchronisiert!</string>
     <string name="welcome_sync_summary">AdAway lädt Werbenetzwerke zum Blockieren aus Online-Quellen herunter. Sie können sie später in den Einstellungen anpassen.</string>
-    <string name="welcome_sync_retry_logo">Wiederhole Synchronisierung</string>
+    <string name="welcome_sync_retry_logo">Synchronisierung wiederholen</string>
     <string name="welcome_sync_error">Fehler beim Synchronisieren: %1$s. Jetzt erneut versuchen?</string>
     <string name="welcome_sync_notifications">Es kann Benachrichtigungen anzeigen, die Informationen sowohl über den Status und das Blockieren von Werbung enthalten als auch über anstehende App-Aktualisierungen (einige pro Jahr). Schalte sie ein, wenn du auf dem Laufenden bleiben möchtest.</string>
 
