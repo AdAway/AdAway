@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Aktualisierungen</string>
     <string name="pref_update_enable_notifications">Benachrichtigungen sind ausgeschaltet</string>
-    <string name="pref_update_enable_notifications_summary">App-Benachrichtigungen werden unterdrückt. Drücke, um sie anzuzeigen.<br></string>
+    <string name="pref_update_enable_notifications_summary">App-Benachrichtigungen werden unterdrückt. Tippen, um sie anzuzeigen.<br></string>
     <!-- Application category -->
     <string name="pref_update_app_category">App-Aktualisierungen</string>
     <string name="pref_update_check_app_startup">Beim Start nach Aktualisierungen suchen</string>
