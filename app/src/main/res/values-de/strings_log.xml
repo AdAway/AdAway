@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="log_toggle_recording_description">Protokollaufzeichnung umschalten</string>
-    <string name="log_start_recording">Drücken Sie \"aufzeichnen\", um die Protokollierung von Anfragen zu starten, stöbern Sie im Netz oder verwenden Sie Apps, kehren Sie danach hierher zurück oder wischen Sie nach unten, damit die Protokolle erneuert werden.</string>
+    <string name="log_start_recording">Drücken Sie „Aufzeichnen“, um die Protokollierung von Anfragen zu starten, stöbern Sie im Netz oder verwenden Sie Apps, kehren Sie danach hierher zurück oder wischen Sie nach unten, damit die Protokolle erneuert werden.</string>
     <string name="log_blocked_requests_ignored">\n\nBlockierte Anfragen werden nicht protokolliert. Deaktivieren Sie zunächst den Werbeblocker, wenn Sie diese auch protokollieren möchten.</string>
     <!-- Sort -->
     <string name="log_sort_alphabetical">Alphabetische Sortierung</string>
