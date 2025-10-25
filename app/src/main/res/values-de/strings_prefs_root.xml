@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_root_title">Root-basierter Werbeblocker</string>
     <!-- Hosts install category -->
@@ -22,7 +22,7 @@
     <string name="pref_redirection_invalid">Ungültige Umleitung</string>
     <!-- Web server category -->
     <string name="pref_webserver">Lokaler Webserver</string>
-    <string name="pref_webserver_summary">Der lokale Webserver überwacht lokale IP-Adressen um auf blockierte Hostnamen zu antworten. Dies kann helfen wenn Apps einfrieren bei blockierter Verbindung.</string>
+    <string name="pref_webserver_summary">Der lokale Webserver überwacht lokale IP-Adressen, um auf blockierte Hostnamen zu antworten. Es kann helfen, wenn Apps bei einer blockierten Verbindung einfrieren.</string>
     <string name="pref_webserver_enabled">Webserver aktivieren</string>
     <string name="pref_webserver_test">Webserver testen</string>
     <string name="pref_webserver_certificate">Selbstsigniertes Zertifikat installieren</string>
