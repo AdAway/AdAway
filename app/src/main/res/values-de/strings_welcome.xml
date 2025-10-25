@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Willkommen</string>
     <string name="welcome_first_step">Assistent erste Schritte</string>
@@ -47,7 +47,7 @@
     <string name="welcome_support_logo">Support</string>
     <string name="welcome_support_header">Unterstützt mich!</string>
     <string name="welcome_support_summary">AdAway ist eine kostenlose Open-Source-App, die ich in meiner Freizeit entwickle. Wenn sie Ihnen gefällt, können Sie mich gerne unterstützen:</string>
-    <string name="welcome_support_button">Spende über PayPal</string>
+    <string name="welcome_support_button">Über PayPal spenden</string>
     <string name="welcome_support_telemetry_summary">Mögen Sie Fehler? Ich auch nicht</string>
     <string name="welcome_support_telemetry_button">Telemetrie aktivieren, um Absturzberichte zu senden.</string>
 
