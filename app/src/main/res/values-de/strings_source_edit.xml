@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">Quelle bearbeiten</string>
     <string name="source_edit_add_title">Quelle hinzufügen</string>
@@ -6,12 +6,12 @@
     <string name="source_edit_label">Beschriftung</string>
     <string name="source_edit_label_required">Beschriftung erforderlich</string>
     <string name="source_edit_type">Typ</string>
-    <string name="source_edit_url">URL</string>
+    <string name="source_edit_url">URL<br></string>
     <string name="source_edit_file">Datei</string>
     <string name="source_edit_url_location">Speicherort</string>
     <string name="source_edit_url_location_default">https://</string>
     <string name="source_edit_url_location_required">Speicherort erforderlich</string>
-    <string name="source_edit_file_hint">Drücke Datei, um Quelldatei auszuwählen</string>
+    <string name="source_edit_file_hint">Datei drücken, um Quelldatei auszuwählen</string>
     <string name="source_edit_location_invalid">Ungültiger Speicherort </string>
     <string name="source_edit_format">Format auflisten</string>
     <string name="source_edit_format_block_list">Blockieren</string>
