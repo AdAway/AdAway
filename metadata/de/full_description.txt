@@ -6,4 +6,4 @@ Wenn Sie ein nicht gerootetes Gerät verwenden, nutzt die Anwendung die VPN-Funk
 Wenn also eine App eine Werbeanzeige oder einen Tracker von einem Host in dieser Datei anfordert, wird diese Anforderung an die lokale IP 127.0.0.1 weitergeleitet, was nichts bewirkt.
 
 Sie können vordefinierte Werbungs- und Sperrlisten als Hosts-Dateien aus der App herunterladen und einbinden. Es ist auch möglich, eigene Dateien zu verwenden und bestimmte Hosts zu erlaubten und blockierten Listen hinzuzufügen.
-Es gibt die Möglichkeit, einen lokalen Webserver zu betreiben, der auf blockierte Host-Namen reagiert und Anfragen an sie an eine selbstgewählte IP-Adresse weiterleitet.
+Es gibt die Möglichkeit, einen lokalen Webserver zu betreiben, der auf blockierte Hostnamen reagiert und Anfragen an sie an eine selbstgewählte IP-Adresse weiterleitet.
