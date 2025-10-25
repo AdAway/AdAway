@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_vpn_title">VPN-basierter Werbeblocker</string>
     <!-- Service configuration -->
@@ -7,7 +7,7 @@
     <string name="pref_vpn_service_monitor_description">Überprüfen Sie regelmäßig den Netzwerkstatus, um VPN beim Trennen der Verbindung neu zu starten.</string>
     <!-- Excluded applications -->
     <string name="pref_vpn_excluded_apps">Ausgenommene Anwendungen</string>
-    <string name="pref_vpn_excluded_apps_description">Konfiguriere welche Anwendungen das VPN nicht verwenden sollen, damit keine Verbindungen blockiert werden.</string>
+    <string name="pref_vpn_excluded_apps_description">Konfigurieren Sie, welche Anwendungen das VPN nicht verwenden sollen, damit keine Verbindungen blockiert werden.</string>
     <string name="pref_vpn_exclude_system_apps">System-Anwendungen ausschließen</string>
     <string-array name="pref_vpn_excluded_system_apps_entries">
         <item>Keine</item>
