@@ -38,7 +38,7 @@
     <string name="checkbox_list_context_delete">Löschen</string>
 
     <!--Your lists-->
-    <string name="import_dialog">Importiere…</string>
+    <string name="import_dialog">Import läuft …</string>
     <string name="import_success">Sicherung erfolgreich aus externem Speicher importiert. </string>
     <string name="import_failed">Einlesen der Sicherung fehlgeschlagen. Passt das Format? Weitere Infos dazu im Logcat Protokoll.</string>
     <string name="export_dialog">Exportiere…</string>
