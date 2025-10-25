@@ -9,9 +9,9 @@
     <string name="error_private_file_failed_message">Erstellung der privaten Datei fehlgeschlagen</string>
     <string name="error_private_file_failed_details">Es ist nicht möglich, eine private Datei zu erstellen, um eine neue Hosts-Quelle aufzubauen. Prüfen Sie bitte, ob auf Ihrem Gerät ausreichend Speicherplatz zur Verfügung steht.</string>
     <string name="error_not_enough_space_message">Nicht genügend Speicherplatz</string>
-    <string name="error_not_enough_space_details">Es ist nicht möglich, die Hosts-Datei in Ihre Systempartition zu kopieren. Prüfen Sie bitte, ob das systemlose Magisk-Modul aktiviert ist, und starten Sie dann das Gerät neu.</string>
+    <string name="error_not_enough_space_details">Die Hosts-Datei kann nicht auf Ihre Systempartition kopiert werden. Bitte überprüfen Sie, ob das Magisk-Modul „systemless hosts” aktiviert ist, und starten Sie das Gerät neu.</string>
     <string name="error_copy_failed_message">Installation der neuen Hosts-Datei fehlgeschlagen</string>
-    <string name="error_copy_failed_details">Kopieren der Hosts Datei zur /System Partition nicht möglich. Bitte überprüfe ob das Magisk Systemless Modul aktiv ist, dann Gerät neu starten</string>
+    <string name="error_copy_failed_details">Die Hosts-Datei kann nicht in die Partition /system kopiert werden. Bitte überprüfen Sie, ob das Magisk-Modul „systemless hosts” aktiviert ist, und starten Sie das Gerät neu.</string>
     <string name="error_revert_failed_message">Zurücksetzen der Hosts-Datei fehlgeschlagen</string>
     <string name="error_revert_failed_details">Es ist nicht möglich, die Standardkonfiguration der Hosts-Datei wiederherzustellen.</string>
     <!-- VPN model error -->
