@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="welcome_title">Willkommen</string>
     <string name="welcome_first_step">Assistent erste Schritte</string>
@@ -23,6 +23,11 @@
 
     <string name="welcome_root_missing_title">Das System muss gerootet sein</string>
     <string name="welcome_root_missile_description">Entweder konnte die su-Binärdatei nicht gefunden werden, oder Sie haben AdAway keine Root-Berechtigung erteilt.\n\nDies kann passieren, wenn Ihr Gerät nicht gerootet ist. Informationen darüber, wie Sie Ihr Gerät rooten können, finden Sie auf wiki.lineageos.org oder anderen Android-Webseiten.</string>
+
+    <string name="welcome_vpn_alwayson_title">„VPN immer eingeschaltet“ aktiviert</string>
+    <string name="welcome_vpn_alwayson_description">AdAway hat festgestellt, dass bei einem anderen VPN die Einstellung „VPN immer eingeschaltet” aktiviert ist. \n\nDadurch wird verhindert, dass AdAway den VPN-Zugriff anfordern kann. Bitte deaktivieren Sie „VPN immer eingeschaltet” bei dem entsprechenden VPN und versuchen Sie es erneut.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">AdAway konnte keinen VPN-Zugang anfordern.\n\nDies könnte daran liegen, dass bei einem anderen VPN die Einstellung „VPN immer eingeschaltet” aktiviert ist. Bitte überprüfen Sie, ob bei einem anderen VPN diese Einstellung aktiviert ist, und deaktivieren Sie sie, bevor Sie es erneut versuchen.</string>
+    <string name="welcome_vpn_alwayson_settings_action">„VPN“-Einstellungen öffnen</string>
 
     <string name="welcome_method_pro_logo">Pro</string>
     <string name="welcome_method_con_logo">Kontra</string>
