@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_update_title">Aktualisierungen</string>
     <string name="pref_update_enable_notifications">Benachrichtigungen sind ausgeschaltet</string>
-    <string name="pref_update_enable_notifications_summary">App-Benachrichtigungen werden unterdrückt. Drücke, um sie anzuzeigen.</string>
+    <string name="pref_update_enable_notifications_summary">App-Benachrichtigungen werden unterdrückt. Drücke, um sie anzuzeigen.<br></string>
     <!-- Application category -->
     <string name="pref_update_app_category">App-Aktualisierungen</string>
     <string name="pref_update_check_app_startup">Beim Start nach Aktualisierungen suchen</string>
@@ -12,6 +12,6 @@
     <string name="pref_update_hosts_category">Hosts-Aktualisierungen</string>
     <string name="pref_update_check">Beim Start nach Aktualisierungen suchen</string>
     <string name="pref_update_check_hosts_daily">Täglich nach Aktualisierungen suchen</string>
-    <string name="pref_update_sync_on_update">Synchronisiere beim Aktualisieren</string>
+    <string name="pref_update_sync_on_update">Beim Aktualisieren synchronisieren</string>
     <string name="pref_update_sync_unmetered_only">Synchronisiere nur im gebührenfreien Netzwerk</string>
 </resources>
