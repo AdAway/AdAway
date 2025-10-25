@@ -180,7 +180,7 @@
 
     <!--Tcpdump-->
     <string name="tcpdump_header">TCPdump</string>
-    <string name="tcpdump_description">Mit TCPDump können DNS-Anfragen aufgezeichnet und in einer Protokolldatei gespeichert werden. Dazu TCPDump im Hintergrund starten und anschließend die App mit Werbung ausführen. Danach die Protokolldatei in AdAway analysieren. Mögliche Werbe-Server können nun zu Ihrer Negativliste(blacklist) hinzugefügt werden.</string>
+    <string name="tcpdump_description">Mit TCPDump können DNS-Anfragen aufgezeichnet und in einer Protokolldatei gespeichert werden. Dazu TCPDump im Hintergrund starten und anschließend die App mit Werbung ausführen. Danach die Protokolldatei in AdAway analysieren. Mögliche Werbeserver können nun zu Ihrer Negativliste (blacklist) hinzugefügt werden.</string>
     <string name="tcpdump_disable_monitoring">Aufzeichnung deaktivieren</string>
     <string name="tcpdump_enable_monitoring">Aufzeichnung aktivieren</string>
     <string name="tcpdump_show_results">Ergebnisse anzeigen</string>
