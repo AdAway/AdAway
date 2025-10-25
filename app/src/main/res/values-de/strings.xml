@@ -174,7 +174,7 @@
     <!--Other-->
     <string name="app_subtitle">Werbeblocker</string>
     <string name="no_text_editor_title">Kein Text Editor installiert</string>
-    <string name="no_text_editor">Es konnte kein Text Editor gefunden werden um die Hosts-Datei zu öffnen. Sie können Jota oder eine andere Editor installieren um Textdateien zu öffnen.\n\nMöchten Sie Jota installieren?</string>
+    <string name="no_text_editor">Es konnte kein Texteditor gefunden werden, um die Hosts-Datei zu öffnen. Sie können Jota oder eine andere Editor installieren, um Textdateien zu öffnen.\n\nMöchten Sie Jota installieren?</string>
     <string name="no_file_manager_title">Keine Dateiverwaltung installiert</string>
     <string name="no_file_manager">Es konnte keine Dateiverwaltung gefunden werden um Dateien zu öffnen. Sie können um dies zu beheben  »OI File Manager« oder einen andere Dateimanager installieren.\n\n Möchten Sie »OI File Manager« installieren?</string>
 
