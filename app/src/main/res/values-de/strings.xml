@@ -109,7 +109,7 @@
     <string name="apply_symlink_fail">Symbolische Verknüpfung konnte nicht von Android erstellt werden.\nDies liegt wahrscheinlich an einer „Funktion“ namens S-ON auf HTC-Geräten!\n\nEine Lösung ist es, Ihr Gerät im Wiederherstellungsmodus zu starten und die Verknüpfung von dort mit „ln -s /data/data/hosts /system/etc/hosts“ zu erstellen.\n\nWenn dies nicht funktioniert, suchen Sie bitte im Internet nach S-OFF und Ihrem Gerät.</string>
     <string name="apply_symlink_fail_title">Symbolische Verknüpfung konnte nicht erstellt werden</string>
     <string name="apply_help">Bitte Hilfe für mehr Informationen lesen.</string>
-    <string name="apply_apn_proxy">Auf Ihrem Android-Gerät ist ein Zugangspunktvermittlungsserver (APN-Proxy) aktiviert!\nAdAway wird in Mobilfunknetzen (2G, 3G, 4G, 5G) nicht zuverlässig funktionieren. Sie können diesen Vermittlungsserver (Proxy) deaktivieren, indem Sie in den Einstellungen wechseln: Netzwerk &amp; Internet -&gt; Mobilfunknetz -&gt; Zugangspunkte (APNs)) und den Wert im Proxy-Feld entfernen.</string>
+    <string name="apply_apn_proxy">Auf Ihrem Android-Gerät ist ein APN-Proxy eingerichtet! AdAway funktioniert nicht zuverlässig in Mobilfunknetzen wie 3G usw. Sie können diesen Proxy deaktivieren, indem Sie zu Ihrem ausgewählten APN gehen (in der App „Einstellungen“: Verbindungen -> Mobile Netzwerke -> Erweitert -> Zugangspunktnamen) und den Wert im Proxy-Feld entfernen.</string>
     <string name="apply_apn_proxy_title">APN-Proxy eingestellt!</string>
     <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
     <string name="no_connection_title">Keine Verbindung</string>
