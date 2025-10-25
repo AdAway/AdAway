@@ -72,7 +72,7 @@
     <string name="status_root_access_denied">Root-Zugriff verweigert</string>
     <string name="status_root_access_denied_subtitle">Aus der Root-App den Root-Zugriff zulassen.</string>
     <string name="status_failure">Ein Fehler ist aufgetreten</string>
-    <string name="status_failure_subtitle">Logcat für weitere Details sichten</string>
+    <string name="status_failure_subtitle">Logcat für weitere Details prüfen</string>
     <string name="status_enabled">Aktiviert</string>
     <string name="status_enabled_subtitle">Die neuesten Hosts-Dateien sind aktiv</string>
     <string name="status_disabled">Deaktiviert</string>
