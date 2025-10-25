@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Keine Internetverbindung</string>
@@ -17,6 +17,6 @@
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">Aktivierung der VPN-Werbeblockade fehlgeschlagen</string>
     <string name="error_enable_vpn_failed_details">Überprüfen Sie bitte Ihre VPN-Einstellungen, um der App den VPN-Start zu genehmigen.</string>
-    <string name="error_disable_vpn_failed_message">Deaktivierung der VPN-Werbeblockade fehlgeschlagen</string>
+    <string name="error_disable_vpn_failed_message">Deaktivieren der VPN-Werbeblockade fehlgeschlagen</string>
     <string name="error_disable_vpn_failed_details">Überprüfen Sie bitte Ihre VPN-Einstellungen, um sie manuell zu deaktivieren.</string>
 </resources>
