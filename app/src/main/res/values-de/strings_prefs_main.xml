@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Einstellungen</string>
     <!-- General category -->
@@ -22,5 +22,5 @@
     <string name="pref_enable_telemetry_summary">Der Anwendung erlauben, Fehler und Absturzberichte an Sentry (sentry.io) zu senden.</string>
     <string name="pref_enable_telemetry_disabled_summary">Nicht unterstützt in dieser Version</string>
     <string name="pref_enable_debug">Ausführliche Protokollierung aktivieren</string>
-    <string name="pref_enable_debug_summary">Sie müssen AdAway neustarten, damit diese Einstellung genutzt werden kann.</string>
+    <string name="pref_enable_debug_summary">Zum Anwenden ist ein Neustart der App erforderlich.</string>
 </resources>
