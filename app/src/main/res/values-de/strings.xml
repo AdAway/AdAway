@@ -113,7 +113,7 @@
     <string name="apply_apn_proxy_title">APN-Proxy eingestellt!</string>
     <string name="no_connection">Die Internetverbindung funktioniert nicht.</string>
     <string name="no_connection_title">Keine Verbindung</string>
-    <string name="download_dialog">Wird heruntergeladen…</string>
+    <string name="download_dialog">Wird heruntergeladen …</string>
     <string name="apply_dialog">Wird angewendet …</string>
     <string name="apply_dialog_lists">Negativ- und Positivliste werden angewendet</string>
     <string name="apply_dialog_hostnames">Hosts-Dateien werden verarbeitet und zusammengefügt</string>
