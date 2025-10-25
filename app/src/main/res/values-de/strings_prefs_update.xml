@@ -13,5 +13,5 @@
     <string name="pref_update_check">Beim Start nach Aktualisierungen suchen</string>
     <string name="pref_update_check_hosts_daily">Täglich nach Aktualisierungen suchen</string>
     <string name="pref_update_sync_on_update">Beim Aktualisieren synchronisieren</string>
-    <string name="pref_update_sync_unmetered_only">Synchronisiere nur im gebührenfreien Netzwerk</string>
+    <string name="pref_update_sync_unmetered_only">Nur im gebührenfreien Netzwerk synchronisieren</string>
 </resources>
