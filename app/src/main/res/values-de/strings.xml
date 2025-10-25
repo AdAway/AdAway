@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Willkommen!</string>
-    <string name="text_help">AdAway ist ein freier Open-Source Werbeblocker. Wenn eine Netzwerkadresse eines Werbeanbieters aufgerufen wird, blockiert er dies.\nMöchten Sie mehr darüber erfahren? Lesen Sie unten die Hilfe!</string>
+    <string name="text_help">AdAway ist ein freier Open-Source-Werbeblocker. Wenn eine Netzwerkadresse eines Werbeanbieters aufgerufen wird, blockiert er dies.\nMöchten Sie mehr darüber erfahren? Lesen Sie unten die Hilfe!</string>
     <string name="button_show_help">Hilfe anzeigen</string>
     <string name="icon_update_status">Aktualisierungsstatus</string>
     <string name="text_update">Alle Hosts-Dateien aus den hinterlegten Quellen werden heruntergeladen. Anschließend werden diese zu Ihrer eigenen Liste hinzugefügt und als eine Hosts-Datei im System gespeichert.</string>
