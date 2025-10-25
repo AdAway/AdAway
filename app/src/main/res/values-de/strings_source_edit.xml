@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="source_edit_title">Quelle bearbeiten</string>
     <string name="source_edit_add_title">Quelle hinzufügen</string>
@@ -17,5 +17,5 @@
     <string name="source_edit_format_block_list">Blockieren</string>
     <string name="source_edit_format_allow_list">Erlauben</string>
     <string name="source_edit_redirected_hosts">Host-Weiterleitungen anwenden</string>
-    <string name="source_edit_redirected_hosts_warning">Host-Weiterleitungen können ein Sicherheitsrisiko sein. Benutze diese Einstellungen nur, wenn du der Quelle vertraust, denn die Quelldatei kann den sensiblen Netzwerkverkehr auf jeden beliebigen Server umleiten.</string>
+    <string name="source_edit_redirected_hosts_warning">Host-Weiterleitungen können ein Sicherheitsrisiko sein. Diese Einstellungen nur verwenden, wenn Sie der Quelle vertrauen, denn die Quelldatei kann den sensiblen Netzwerkverkehr auf jeden beliebigen Server umleiten.</string>
 </resources>
