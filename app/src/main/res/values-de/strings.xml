@@ -254,7 +254,7 @@
     <string name="vpn_notification_action_resume">Weiter</string>
 
     <!-- Permission -->
-    <string name="permission_group_api_label">AdAway Bewilligung</string>
+    <string name="permission_group_api_label">AdAway-Bewilligung</string>
     <string name="permission_group_api_description">Mit AdAway den Kontakt bewilligen</string>
     <string name="permission_send_command_label">Befehle an AdAway senden</string>
     <string name="permission_send_command_description">Bewillige das Senden von Befehlen an AdAway, wie \"Einschalten\" oder \"Ausschalten\" des Werbeblockers</string>
