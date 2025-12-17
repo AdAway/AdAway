@@ -43,7 +43,7 @@
     <string name="import_failed">A importação da cópia de segurança falhou. O formato está correto? Verifique o \"logcat\" para mais detalhes.</string>
     <string name="export_dialog">A exportar…</string>
     <string name="export_success">Cópia de segurança exportada com sucesso para o ficheiro \'%s\' no seu armazenamento externo.</string>
-    <string name="export_failed">Falha ao exportar o arquivo de backup %s. </string>
+    <string name="export_failed">Não foi possível exportar o ficheiro da cópia de segurança \'%s\'. </string>
 
     <!--Hosts content-->
     <string name="hosts_header">O ficheiro \'\'hosts\'\'</string>
