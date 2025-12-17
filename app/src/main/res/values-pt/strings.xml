@@ -100,7 +100,7 @@
     <string name="apply_remount_fail">Falha ao remontar a partição em modo leitura/escrita!</string>
     <string name="apply_remount_fail_title">Falha ao remontar</string>
     <string name="apply_copy_fail_status">Não foi possível copiar o ficheiro de anfitriões</string>
-    <string name="apply_copy_fail">Falha ao copiar o ficheiro de hosts!</string>
+    <string name="apply_copy_fail">A cópia do ficheiro de de anfitriões falhou!</string>
     <string name="apply_copy_fail_title">Falha ao copiar</string>
     <string name="apply_success_subtitle">As fontes de hosts foram aplicadas</string>
     <string name="apply_success_title">Aplicado com sucesso</string>
