@@ -80,8 +80,8 @@
     <string name="status_apply_sources">Aplicar últimas fontes.</string>
     <string name="status_create_new_hosts">A criar um novo ficheiro de anfitriões</string>
     <string name="status_copy_new_hosts">A copiar o novo ficheiro de anfitriões</string>
-    <string name="status_check_copy">A verificar o ficheiro hosts copiado</string>
-    <string name="status_hosts_updated">Ficheiro hosts atualizado com sucesso</string>
+    <string name="status_check_copy">A verificar o ficheiro de anfitriões copiado</string>
+    <string name="status_hosts_updated">Ficheiro de anfitriões atualizado com sucesso</string>
     <string name="status_vpn_configuration_updated">Configuração da VPN atualizada com sucesso</string>
     <string name="notification_configuration_changed">As suas configurações foram alteradas.
 É necessário aplicá-las.</string>
