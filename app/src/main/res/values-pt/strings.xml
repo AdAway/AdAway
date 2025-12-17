@@ -63,7 +63,7 @@
     <string name="status_revert_done">Ficheiro de anfitriões predefinido restaurado</string>
     <string name="status_reverting_subtitle">A criar um ficheiro de anfitriões padrão</string>
     <string name="status_update_available">Atualização disponível</string>
-    <string name="status_update_available_subtitle">Novos ficheiros de hosts disponíveis</string>
+    <string name="status_update_available_subtitle">Novos ficheiros de anfitriões disponíveis</string>
     <string name="status_no_update_found">Nenhuma atualização das fontes encontradas</string>
     <string name="status_no_connection">Sem ligação à internet</string>
     <string name="status_no_connection_subtitle">Sem ligação à internet disponível</string>
