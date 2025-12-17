@@ -48,7 +48,7 @@
     <!--Hosts content-->
     <string name="hosts_header">O ficheiro de anfitriões</string>
     <string name="hosts_description">O ficheiro de anfitriões é um ficheiro do sistema que mapeia os nomes de anfitrião para os endereços de IP. Este é um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
-    <string name="hosts_content">A carregar o conteúdo do ficheiro de anfitriões…</string>
+    <string name="hosts_content">A carregar o conteúdo do ficheiro de anfitriões...</string>
     <string name="hosts_open_button">Abrir o ficheiro de anfitriões</string>
 
     <!--Status Notification-->
@@ -107,7 +107,7 @@
     <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o Android para as alterações surtirem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
     <string name="apply_symlink_successful">A ligação simbólica foi criada com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações surtem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
     <string name="apply_symlink_successful_title">Ligação simbólica criada com sucesso</string>
-    <string name="apply_symlink_fail">O link simbólico não pôde ser criado pelo Android.\nIsso acontece principalmente devido a um \'recurso\' chamado S-ON nos telefones HTC!\n\nUma solução é inicializar o telemóvel no modo de recuperação e criar o link simbólico com \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe isso não funcionar, procure na Internet por S-OFF e o seu telemóvel.</string>
+    <string name="apply_symlink_fail">A ligação simbólica não pode ser criada pelo Android.\nIsto acontece principalmente devido a uma \'funcionalidade\' chamada de S-ON nos telemóveis HTC!\n\nUma solução é inicializar o seu telemóvel no modo de recuperação e criar a ligação simbólica com \'ln -s /data/data/hosts /system/etc/hosts\'.\n\nSe isto não funcionar, procure na Internet por S-OFF e o seu telemóvel.</string>
     <string name="apply_symlink_fail_title">Falha ao criar a ligação simbólica</string>
     <string name="apply_help">Para mais informações, por favor, leia a ajuda.</string>
     <string name="apply_apn_proxy">Está definido no seu Android um proxy APN!\nO AdAway não funcionará de forma confiável quando estiver em redes móveis como o 3G. Pode desativar este proxy acedendo ao APN selecionado (na aplicação Definições: Rede &amp; Internet -&gt; Rede móvel -&gt; Avançado -&gt; Nomes de pontos de acesso) e remova o valor no campo de proxy.</string>
