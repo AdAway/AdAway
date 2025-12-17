@@ -17,6 +17,6 @@
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">Não foi possível ativar o bloqueio de anúncios da VPN.</string>
     <string name="error_enable_vpn_failed_details">Por favor, verifique as suas definições da VPN para autorizar o início da VPN da aplicação.</string>
-    <string name="error_disable_vpn_failed_message">Falha ao desativar VPN de bloqueio de anúncios. </string>
+    <string name="error_disable_vpn_failed_message">Não foi possível desativar o bloqueio de anúncios da VPN.</string>
     <string name="error_disable_vpn_failed_details">Verifique a configuração da sua VPN para a desativar manualmente.</string>
 </resources>
