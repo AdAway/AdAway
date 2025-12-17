@@ -68,7 +68,7 @@
     <string name="status_no_connection">Sem ligação à internet</string>
     <string name="status_no_connection_subtitle">Sem ligação à internet disponível</string>
     <string name="status_download_fail">Fontes indisponíveis</string>
-    <string name="status_download_fail_subtitle_new">Impossível aceder às fontes de hosts!</string>
+    <string name="status_download_fail_subtitle_new">Impossível aceder às fontes de anfitriões!</string>
     <string name="status_root_access_denied">Acesso root negado</string>
     <string name="status_root_access_denied_subtitle">Permitir acesso root na sua aplicação de root</string>
     <string name="status_failure">Algo correu mal</string>
