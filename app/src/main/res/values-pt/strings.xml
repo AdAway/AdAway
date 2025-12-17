@@ -76,9 +76,9 @@
     <string name="status_enabled">Ativado</string>
     <string name="status_enabled_subtitle">Os ficheiros de anfitriões mais recentes estão ativados</string>
     <string name="status_disabled">Desativado</string>
-    <string name="status_disabled_subtitle">Instalado o ficheiro de hosts padrão.</string>
+    <string name="status_disabled_subtitle">Instalado o ficheiro de anfitriões predefinido.</string>
     <string name="status_apply_sources">Aplicar últimas fontes.</string>
-    <string name="status_create_new_hosts">A criar um ficheiro hosts novo</string>
+    <string name="status_create_new_hosts">A criar um novo ficheiro de anfitriões</string>
     <string name="status_copy_new_hosts">A copiar o novo ficheiro hosts</string>
     <string name="status_check_copy">A verificar o ficheiro hosts copiado</string>
     <string name="status_hosts_updated">Ficheiro hosts atualizado com sucesso</string>
