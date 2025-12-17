@@ -48,7 +48,7 @@
     <!--Hosts content-->
     <string name="hosts_header">O ficheiro de anfitriões</string>
     <string name="hosts_description">O ficheiro de anfitriões é um ficheiro do sistema que mapeia os nomes de anfitrião para os endereços de IP. Este é um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
-    <string name="hosts_content">A carregar o conteúdo do ficheiro de anfitriões…</string>
+    <string name="hosts_content">A carregar o conteúdo do ficheiro de anfitriões...</string>
     <string name="hosts_open_button">Abrir o ficheiro de anfitriões</string>
 
     <!--Status Notification-->
@@ -117,7 +117,7 @@
     <string name="download_dialog">A descarregar…</string>
     <string name="apply_dialog">A aplicar…</string>
     <string name="apply_dialog_lists">A aplicar listas negra e branca</string>
-    <string name="apply_dialog_hostnames">A analisar e fundir os ficheiros de hosts</string>
+    <string name="apply_dialog_hostnames">A analisar e a unir os ficheiros de anfitriões</string>
     <string name="apply_dialog_hosts">A construir o ficheiro de hosts</string>
     <string name="apply_dialog_apply">A aplicar o ficheiro de hosts</string>
     <string name="apply_fail_status">Falha ao aplicar o novo ficheiro hosts</string>
