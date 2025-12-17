@@ -59,7 +59,7 @@
     <string name="status_read_source">A ler a fonte %s</string>
     <string name="status_parse_source">A analisar a fonte %s</string>
     <string name="status_sync_database">A sincronizar a database de regras</string>
-    <string name="status_revert">A reverter para o ficheiro hosts padrão</string>
+    <string name="status_revert">A reverter para o ficheiro de anfitriões predefinido</string>
     <string name="status_revert_done">Ficheiro hosts padrão restaurado</string>
     <string name="status_reverting_subtitle">A criar um ficheiro de hosts padrão</string>
     <string name="status_update_available">Atualização disponível</string>
