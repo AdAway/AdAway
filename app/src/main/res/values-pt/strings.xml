@@ -12,7 +12,7 @@
 
     <!--Home-->
     <string name="header_help">Bem-vindo!</string>
-    <string name="text_help">O AdAway é um projeto de programa de código aberto e gratuito que bloqueia publicidade. Este procura endereços de redes de anúncios para os bloquear no seu dispositivo.\nQuer saber mais? Consulte a ajuda abaixo!</string>
+    <string name="text_help">AdAway é um projeto de programa de código aberto e gratuito que bloqueia a publicidade. Este obtém endereços da rede de anúncios para os bloquear no seu dispositivo.\nQuer saber mais? Consulte a ajuda em baixo!</string>
     <string name="button_show_help">Mostrar mais ajuda</string>
     <string name="icon_update_status">Estado da atualização</string>
     <string name="text_update">Todos os ficheiros de hospedeiros das fontes definidas foram transferidos, unidos com as suas próprias listas e instalados como um único ficheiro de hospedeiros no seu sistema.</string>
@@ -42,7 +42,7 @@
     <string name="import_success">Cópia de segurança importada com sucesso do armazenamento externo.</string>
     <string name="import_failed">A importação da cópia de segurança falhou. O formato é o correto? Verifique o logcat para mais informações.</string>
     <string name="export_dialog">A exportar…</string>
-    <string name="export_success">Backup sucessivamente exportado para o ficheiro %s no seu armazenamento interno.</string>
+    <string name="export_success">Backup sucessivamente exportado para o ficheiro %sno seu armazenamento interno.</string>
     <string name="export_failed">Falha ao exportar o arquivo de backup %s. </string>
 
     <!--Hosts content-->
@@ -214,7 +214,7 @@
     <string name="shortcut_preferences">Preferências</string>
 
     <!--Hosts source status-->
-    <string name="hosts_source_installed">Instalado à %1$s atrás</string>
+    <string name="hosts_source_installed">Instalado à%1$satrás</string>
     <string name="hosts_source_up_to_date"> Atualizado para %1$s</string>
     <string name="hosts_source_need_update">Precisa de atualização para %1$s</string>
     <string name="hosts_source_last_update">Última atualização há %1$s</string>
@@ -243,18 +243,18 @@
     </plurals>
 
     <!-- Clipboard -->
-    <string name="clipboard_host_copied">Host copiado para a área de transferência</string>
+    <string name="clipboard_host_copied">Host copiado para a área de transferências</string>
 
     <!--VPN notification-->
     <string name="vpn_notification_starting">A começar</string>
-    <string name="vpn_notification_running">Ativa</string>
+    <string name="vpn_notification_running">Ativo</string>
     <string name="vpn_notification_stopping">a parar</string>
     <string name="vpn_notification_waiting_for_net">espere por internet</string>
     <string name="vpn_notification_reconnecting">a reconnectar</string>
     <string name="vpn_notification_reconnecting_error">Erro de conexão</string>
     <string name="vpn_notification_paused">pausado</string>
     <string name="vpn_notification_stopped">parado</string>
-    <string name="vpn_notification_title">VPN bloqueadora de anúncios %1$s</string>
+    <string name="vpn_notification_title">Vpn bloqueadora de anúncios%1$s</string>
     <string name="vpn_notification_action_pause">pausar</string>
     <string name="vpn_notification_action_resume">continuar</string>
 
@@ -262,6 +262,6 @@
     <string name="permission_group_api_label">Permissions do AdAway. </string>
     <string name="permission_group_api_description">Permitir a interação com o AdAway. </string>
     <string name="permission_send_command_label">Enviar comandos para o AdAway</string>
-    <string name="permission_send_command_description">Permitir mandar comandos para o AdAway como habilitar ou desabilitar o bloqueio de anúncios no sistema</string>
+    <string name="permission_send_command_description">Permitir mandar comandos para o AdAway como habilitar or desabilitar o o bloqueio de anúncios no sistema</string>
 
 </resources>
