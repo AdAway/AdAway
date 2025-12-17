@@ -13,7 +13,7 @@
     <string name="error_copy_failed_message">Não foi possível instalar um novo ficheiro de anfitriões</string>
     <string name="error_copy_failed_details">Não é possível copiar o ficheiro de anfitriões para a /partição do sistema. Por favor, verifique se o módulo \"hosts systemless\" do Magisk está ativado e depois reinicie.</string>
     <string name="error_revert_failed_message">Não foi possível reverter o ficheiro de anfitriões</string>
-    <string name="error_revert_failed_details">Incapaz de restaurar a configuração predefinida do ficheiro hosts.</string>
+    <string name="error_revert_failed_details">Não é possível restaurar a configuração predefinida do ficheiro de anfitriões.</string>
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">Falha ao ativar VPN de bloqueio de anúncios.</string>
     <string name="error_enable_vpn_failed_details">Verifique a configuração da sua VPN para autorizar a VPN da aplicação a iniciar.</string>
