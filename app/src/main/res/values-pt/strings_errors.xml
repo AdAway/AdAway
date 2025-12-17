@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Source model errors -->
     <string name="error_no_connection_message">Sem ligação à Internet</string>
@@ -16,7 +16,7 @@
     <string name="error_revert_failed_details">Não é possível restaurar a configuração predefinida do ficheiro de anfitriões.</string>
     <!-- VPN model error -->
     <string name="error_enable_vpn_failed_message">Não foi possível ativar o bloqueio de anúncios da VPN.</string>
-    <string name="error_enable_vpn_failed_details">Verifique a configuração da sua VPN para autorizar a VPN da aplicação a iniciar.</string>
+    <string name="error_enable_vpn_failed_details">Por favor, verifique as suas definições da VPN para autorizar o início da VPN da aplicação.</string>
     <string name="error_disable_vpn_failed_message">Falha ao desativar VPN de bloqueio de anúncios. </string>
     <string name="error_disable_vpn_failed_details">Verifique a configuração da sua VPN para a desativar manualmente.</string>
 </resources>
