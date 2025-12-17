@@ -118,8 +118,8 @@
     <string name="apply_dialog">A aplicar…</string>
     <string name="apply_dialog_lists">A aplicar listas negra e branca</string>
     <string name="apply_dialog_hostnames">A analisar e a unir os ficheiros de anfitriões</string>
-    <string name="apply_dialog_hosts">A construir o ficheiro de hosts</string>
-    <string name="apply_dialog_apply">A aplicar o ficheiro de hosts</string>
+    <string name="apply_dialog_hosts">A criar o ficheiro de anfitriões</string>
+    <string name="apply_dialog_apply">A aplicar o ficheiro de anfitriões</string>
     <string name="apply_fail_status">Falha ao aplicar o novo ficheiro hosts</string>
     <string name="apply_fail">Falha ao aplicar o ficheiro de hosts no sistema!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
     <string name="apply_fail_title">Falha ao aplicar</string>
