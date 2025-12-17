@@ -48,7 +48,7 @@
     <!--Hosts content-->
     <string name="hosts_header">O ficheiro de anfitriões</string>
     <string name="hosts_description">O ficheiro de anfitriões é um ficheiro do sistema que mapeia os nomes de anfitrião para os endereços de IP. Este é um ficheiro de texto simples cuja configuração é gerida pela AdAway. Aqui tem as suas poucas primeiras linhas:</string>
-    <string name="hosts_content">A carregar o conteúdo do ficheiro de anfitriões…</string>
+    <string name="hosts_content">A carregar o conteúdo do ficheiro de anfitriões...</string>
     <string name="hosts_open_button">Abrir o ficheiro de anfitriões</string>
 
     <!--Status Notification-->
@@ -102,7 +102,7 @@
     <string name="apply_copy_fail_status">Não foi possível copiar o ficheiro de anfitriões</string>
     <string name="apply_copy_fail">A cópia do ficheiro de de anfitriões falhou!</string>
     <string name="apply_copy_fail_title">Falha ao copiar</string>
-    <string name="apply_success_subtitle">As fontes de hosts foram aplicadas</string>
+    <string name="apply_success_subtitle">Aplicadas as fontes dos anfitriões</string>
     <string name="apply_success_title">Aplicado com sucesso</string>
     <string name="apply_success_dialog">Aplicado com sucesso.\nPoderá ser necessário reiniciar o Android para as alterações surtirem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
     <string name="apply_symlink_successful">A ligação simbólica foi criada com sucesso.\nPoderá ser necessário reiniciar o Android para que as alterações surtem efeito.\n\nPretende reiniciar?\n(Para prevenir a perda de dados, certifique-se de que nenhuma aplicação está a utilizar o cartão SD neste momento!)</string>
