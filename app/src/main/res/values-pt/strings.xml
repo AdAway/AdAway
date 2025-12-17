@@ -74,7 +74,7 @@
     <string name="status_failure">Algo correu mal</string>
     <string name="status_failure_subtitle">Verifique logcat para mais detalhes</string>
     <string name="status_enabled">Ativado</string>
-    <string name="status_enabled_subtitle">Os ficheiros de hosts mais recentes estão ativos</string>
+    <string name="status_enabled_subtitle">Os ficheiros de anfitriões mais recentes estão ativados</string>
     <string name="status_disabled">Desativado</string>
     <string name="status_disabled_subtitle">Instalado o ficheiro de hosts padrão.</string>
     <string name="status_apply_sources">Aplicar últimas fontes.</string>
