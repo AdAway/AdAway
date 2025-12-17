@@ -90,7 +90,7 @@
     <string name="notification_configuration_failed">Falha ao aplicar nova configuração</string>
 
     <!--Apply and Revert Dialogs-->
-    <string name="apply_symlink_missing_status">A ligação permanente do destino do ficheiro de anfitriões está em falta</string>
+    <string name="apply_symlink_missing_status">A ligação simbólica do destino do ficheiro de anfitriões está em falta</string>
     <string name="apply_symlink_missing">Uma ligação simbólica do seu destino para /system/etc/hosts não existe ou está incorreta! O AdAway não funcionará se não estiver a apontar para o ficheiro correto.\n\nPretende tentar criar uma ligação simbólica?</string>
     <string name="apply_symlink_missing_title">Ligação simbólica em falta</string>
     <string name="apply_not_enough_space">Não existe espaço suficiente na partição!\nExperimente alterar o ficheiro de hosts de destino nas preferências para /data/data/hosts.</string>
