@@ -13,7 +13,7 @@ jobs:
       !contains(github.event.issue.body, 'AdAway version')
     steps:
       - name: Add context request comment
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v5
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -32,7 +32,7 @@ jobs:
       github.event.issue.title == '[app name] compatibility report'
     steps:
       - name: Add title change comment
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@v5
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
