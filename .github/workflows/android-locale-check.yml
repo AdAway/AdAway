@@ -11,20 +11,24 @@ jobs:
   build:
     name: Validate locales
     runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
 
     steps:
       - name: Checkout project
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.1
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5.1.0
         with:
           distribution: 'temurin'
           java-version: 21
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v47
+        uses: tj-actions/changed-files@v47.0.1
 
       - name: Validate locale files
         id: validation
@@ -35,7 +39,7 @@ jobs:
           java .github/workflows/AndroidLocaleChecker.java ${ALL_CHANGED_FILES}
 
       - name: Commit patch
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7.1.0
         if: steps.validation.outputs.patch_applied == 'true'
         with:
-          message: 'chore: Fix contribution'
+          message: 'chore(locale): Fix contribution'
