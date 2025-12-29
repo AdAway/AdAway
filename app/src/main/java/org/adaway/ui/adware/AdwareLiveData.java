@@ -147,7 +147,8 @@ class AdwareLiveData extends LiveData<List<AdwareInstall>> {
         // Get the package manager
         PackageManager pm = this.context.getPackageManager();
         // Retrieve application name
-        String applicationName = pm.getApplicationLabel(packageInfo.applicationInfo).toString();
+        //String applicationName = pm.getApplicationLabel(packageInfo.applicationInfo).toString();
+        String applicationName = packageInfo.applicationInfo != null ? pm.getApplicationLabel(packageInfo.applicationInfo).toString() : "Unknown";
         // Add adware install
         return new AdwareInstall(applicationName, packageInfo.packageName);
     }
