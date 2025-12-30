@@ -41,7 +41,7 @@ frag6_print(netdissect_options *ndo, register const u_char *bp, register const u
 	dp = (const struct ip6_frag *)bp;
 	ip6 = (const struct ip6_hdr *)bp2;
 
-	ND_TCHECK(dp->ip6f_offlg);
+	ND_TCHECK(*dp);
 
 	if (ndo->ndo_vflag) {
 		ND_PRINT((ndo, "frag (0x%08x:%d|%ld)",
