@@ -63,6 +63,10 @@ public class VpnModel extends AdBlockModel {
     public void apply() throws HostErrorException {
         // Clear cache
         this.blockCache.evictAll();
+        // Do not start the VPN if the user has intentionally stopped it; only restart if already running
+        if (!VpnServiceControls.isStarted(this.context)) {
+            return;
+        }
         // Start VPN
         boolean started = VpnServiceControls.start(this.context);
         this.applied.postValue(started);
