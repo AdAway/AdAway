@@ -37,9 +37,11 @@ public class CommandReceiver extends BroadcastReceiver {
         try {
             switch (command) {
                 case START:
+                    Timber.i("CommandReceiver: explicit user START (notification/broadcast).");
                     adBlockModel.apply();
                     break;
                 case STOP:
+                    Timber.i("CommandReceiver: explicit user STOP (notification/broadcast).");
                     adBlockModel.revert();
                     break;
                 case UNKNOWN:

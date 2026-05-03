@@ -140,7 +140,9 @@ public class ApplyConfigurationSnackbar {
                 } else {
                     sourceModel.syncHostEntries();
                 }
-                adBlockModel.apply();
+                // The "Apply" snackbar applies a configuration change; if the user has
+                // explicitly turned ad-blocking off it must not be silently re-enabled.
+                adBlockModel.applyIfActive();
                 endLoading(true);
             } catch (HostErrorException exception) {
                 endLoading(false);

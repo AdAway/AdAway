@@ -5,7 +5,9 @@ import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
 
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.vpn.VpnServiceControls;
+import org.adaway.vpn.VpnStartDecision;
 
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -104,9 +106,13 @@ public class VpnConnectionMonitor {
             while (this.running.get()) {
                 if (this.networkInterface != null && !this.networkInterface.isUp()) {
                     stop();
-                    Timber.i("VPN network interface %s is down. Starting VPN service…",
-                            this.networkInterface == null ? "unset" : this.networkInterface.getName());
-                    VpnServiceControls.start(this.context);
+                    if (mayRestart()) {
+                        Timber.i("VPN network interface %s is down. Restarting VPN service…",
+                                this.networkInterface == null ? "unset" : this.networkInterface.getName());
+                        VpnServiceControls.start(this.context);
+                    } else {
+                        Timber.i("VPN network interface is down but user has stopped the VPN; not restarting.");
+                    }
                 }
                 try {
                     Thread.sleep(CONNECTION_CHECK_DELAY_MS);
@@ -117,10 +123,26 @@ public class VpnConnectionMonitor {
                 }
             }
         } catch (SocketException e) {
-            Timber.w(e, "Failed to test VPN network interface %s. Starting VPN service…", this.networkInterface.getName());
+            String name = this.networkInterface == null ? "unset" : this.networkInterface.getName();
             reset();
-            VpnServiceControls.start(this.context);
+            if (mayRestart()) {
+                Timber.w(e, "Failed to test VPN network interface %s. Restarting VPN service…", name);
+                VpnServiceControls.start(this.context);
+            } else {
+                Timber.w(e, "Failed to test VPN network interface %s; user stopped the VPN, not restarting.", name);
+            }
         }
+    }
+
+    /**
+     * The connection monitor must never resurrect a VPN that the user has explicitly
+     * stopped. Without this guard, a torn-down tunnel during the stop sequence would
+     * race the monitor thread and the service could come back on its own.
+     */
+    private boolean mayRestart() {
+        return VpnStartDecision.mayBackgroundStart(
+                PreferenceHelper.getVpnServiceUserEnabled(this.context)
+        );
     }
 
     /**

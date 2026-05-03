@@ -55,7 +55,7 @@ public class WelcomeSyncFragment extends WelcomeFragment {
             }
         });
         this.homeViewModel.getError().observe(lifecycleOwner, this::notifyError);
-        this.homeViewModel.sync();
+        this.homeViewModel.enable();
 
         return this.binding.getRoot();
     }
@@ -105,7 +105,7 @@ public class WelcomeSyncFragment extends WelcomeFragment {
         hideView(this.binding.retryImageView);
         hideView(this.binding.errorTextView);
         showView(this.binding.progressBar);
-        this.homeViewModel.sync();
+        this.homeViewModel.enable();
     }
 
     private void requestPostNotificationsPermission() {

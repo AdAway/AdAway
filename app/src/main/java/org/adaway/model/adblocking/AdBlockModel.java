@@ -91,6 +91,23 @@ public abstract class AdBlockModel {
     public abstract void apply() throws HostErrorException;
 
     /**
+     * Apply the hosts list only if ad-blocking is currently active for the user.
+     * <p>
+     * This is the entry point for non-user-initiated callers (background workers,
+     * host update jobs, configuration apply snackbar, sync). It must never start the
+     * underlying enforcement (VPN service, root hosts file replacement) when the user
+     * has explicitly turned ad-blocking off.
+     * <p>
+     * The default implementation delegates to {@link #apply()}; subclasses are expected
+     * to override and skip the start step when not currently active.
+     *
+     * @throws HostErrorException If the configuration could not be applied.
+     */
+    public void applyIfActive() throws HostErrorException {
+        apply();
+    }
+
+    /**
      * Revert the hosts list to the default one.
      *
      * @throws HostErrorException If the model configuration could not be revert.

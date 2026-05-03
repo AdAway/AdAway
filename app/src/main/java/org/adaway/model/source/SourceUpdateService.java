@@ -164,9 +164,12 @@ public final class SourceUpdateService {
                 // Retrieve source updates
                 SourceModel sourceModel = application.getSourceModel();
                 sourceModel.retrieveHostsSources();
-                // Apply source updates
+                // Apply source updates only to a currently active ad-block — a periodic
+                // background worker must never resurrect a service the user explicitly
+                // stopped (see issues #4022 / #4234).
                 AdBlockModel adBlockModel = application.getAdBlockModel();
-                adBlockModel.apply();
+                Timber.i("SourceUpdateService: applying refreshed hosts (background, applyIfActive).");
+                adBlockModel.applyIfActive();
             } else {
                 // Display update notification
                 NotificationHelper.showUpdateHostsNotification(application);

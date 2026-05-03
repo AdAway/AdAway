@@ -97,6 +97,18 @@ public class RootModel extends AdBlockModel {
         this.applied.postValue(true);
     }
 
+    @Override
+    public void applyIfActive() throws HostErrorException {
+        // Only re-apply the system hosts file if it was already AdAway-managed; never
+        // resurrect ad-blocking that the user has explicitly reverted.
+        Boolean current = this.applied.getValue();
+        if (current == null || !current) {
+            Timber.i("RootModel.applyIfActive: skipping apply (hosts file currently not managed by AdAway).");
+            return;
+        }
+        apply();
+    }
+
     /**
      * Revert to the default hosts file.
      *
