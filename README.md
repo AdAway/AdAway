@@ -1,4 +1,21 @@
-# ![AdAway logo](app/src/main/res/mipmap-mdpi/icon.png) AdAway
+# ![AdAway l
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ogo](app/src/main/res/mipmap-mdpi/icon.png) AdAway
 
 [![Build Status](https://github.com/adaway/adaway/actions/workflows/android-ci.yml/badge.svg)](https://github.com/AdAway/AdAway/actions/workflows/android-ci.yml) 
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=org.adaway&metric=security_rating)](https://sonarcloud.io/project/overview?id=org.adaway)
