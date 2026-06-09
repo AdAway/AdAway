@@ -1,5 +1,13 @@
 # Changelog
 
+
+## [6.1.6] - Unreleased
+
+- Reflactory UI to use Material 3 Expressive
+- Update dependencies
+- Update Android gradle plugin
+
+
 ## [6.1.5] - Unreleased
 
 - Add always-on VPN detection during setup

@@ -45,7 +45,7 @@ public final class SentryLog {
         if (enabled) {
             // Initialize sentry client manually and bind it to logging
             SentryAndroid.init(application, options -> {
-                options.addIntegration(new SentryTimberIntegration(ERROR, INFO));
+                options.addIntegration(new SentryTimberIntegration(ERROR, INFO, io.sentry.SentryLogLevel.INFO));
                 options.addIntegration(new FragmentLifecycleIntegration(application, true, false));
             });
         }

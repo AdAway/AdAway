@@ -9,6 +9,8 @@
     <!-- List -->
     <string name="hosts_not_available">not available</string>
     <string name="hosts_count">%s hosts</string>
+    <string name="hosts_sources_summary_active">Active sources: %1$d of %2$d</string>
+    <string name="hosts_sources_summary_blocked_hosts">Total blocked hosts: %1$s</string>
     <!-- Edition dialog -->
     <string name="hosts_add_dialog_title">Add source</string>
     <string name="hosts_edit_dialog_title">Edit source</string>

@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="pref_main_title">Preferenze</string>
     <!-- General category -->
     <string name="pref_general_category">Generale</string>
     <string name="pref_dark_theme">Tema scuro</string>
+    <string name="pref_dynamic_colors">Usa colori dinamici (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Utilizza i colori Material You basati su sfondi su Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Non supportato su questa versione di Android</string>
     <string-array name="pref_dark_theme_modes">
         <item>Chiaro</item>
         <item>Scuro</item>
@@ -11,9 +14,9 @@
     </string-array>
     <string name="pref_update_configuration">Aggiornamenti automatici</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Blocco pubblicità</string>
-    <string name="pref_root_ad_blocker_configuration">Blocco pubblicità basato su root</string>
-    <string name="pref_vpn_ad_blocker_configuration">Blocco pubblicità basato su VPN</string>
+    <string name="pref_ad_block_category">Blocco pubblicitÃ </string>
+    <string name="pref_root_ad_blocker_configuration">Blocco pubblicitÃ  basato su root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Blocco pubblicitÃ  basato su VPN</string>
     <string name="pref_enable_ipv6">Abilita supporto IPv6</string>
     <string name="pref_backup_restore">Backup / ripristino regole di blocco</string>
     <!-- Debug category -->

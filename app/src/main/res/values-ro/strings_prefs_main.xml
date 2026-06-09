@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Setări</string>
+    <string name="pref_main_title">SetÄƒri</string>
     <!-- General category -->
     <string name="pref_general_category">Generale</string>
-    <string name="pref_dark_theme">Temă întunecată</string>
+    <string name="pref_dark_theme">TemÄƒ Ã®ntunecatÄƒ</string>
+    <string name="pref_dynamic_colors">Utilizați culori dinamice (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Folosiți culorile Material You bazate pe tapet pe Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Nu este acceptat pe această versiune de Android</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Luminoasă</item>
-        <item>Întunecată</item>
-        <item>Valoare implicită sistem</item>
+        <item>LuminoasÄƒ</item>
+        <item>ÃŽntunecatÄƒ</item>
+        <item>Valoare implicitÄƒ sistem</item>
     </string-array>
-    <string name="pref_update_configuration">Actualizări automate</string>
+    <string name="pref_update_configuration">ActualizÄƒri automate</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Blocarea reclamelor</string>
     <string name="pref_root_ad_blocker_configuration">Blocarea prin root a reclamelor</string>
     <string name="pref_vpn_ad_blocker_configuration">Blocarea prin server VPN a reclamelor</string>
     <string name="pref_enable_ipv6">Activare suport IPv6</string>
-    <string name="pref_backup_restore">Salvare / restabilire copie de rezervă pentru regulile de blocare</string>
+    <string name="pref_backup_restore">Salvare / restabilire copie de rezervÄƒ pentru regulile de blocare</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Depanare</string>
     <string name="pref_enable_telemetry">Trimitere raport erori</string>
-    <string name="pref_enable_telemetry_summary">Raportează către Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Nesuportat în această versiune</string>
-    <string name="pref_enable_debug">Depanare cu jurnal în timp real</string>
-    <string name="pref_enable_debug_summary">Este necesară repornirea aplicației pentru aplicare</string>
+    <string name="pref_enable_telemetry_summary">RaporteazÄƒ cÄƒtre Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Nesuportat Ã®n aceastÄƒ versiune</string>
+    <string name="pref_enable_debug">Depanare cu jurnal Ã®n timp real</string>
+    <string name="pref_enable_debug_summary">Este necesarÄƒ repornirea aplicaÈ›iei pentru aplicare</string>
 </resources>

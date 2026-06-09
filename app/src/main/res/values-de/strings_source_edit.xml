@@ -6,7 +6,7 @@
     <string name="source_edit_label">Beschriftung</string>
     <string name="source_edit_label_required">Beschriftung erforderlich</string>
     <string name="source_edit_type">Typ</string>
-    <string name="source_edit_url">URL<br></string>
+    <string name="source_edit_url">URL<br/></string>
     <string name="source_edit_file">Datei</string>
     <string name="source_edit_url_location">Speicherort</string>
     <string name="source_edit_url_location_default">https://</string>

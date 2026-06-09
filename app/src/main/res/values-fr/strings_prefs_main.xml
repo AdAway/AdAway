@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="pref_main_title">Préférences</string>
+    <string name="pref_main_title">PrÃ©fÃ©rences</string>
     <!-- General category -->
-    <string name="pref_general_category">Général</string>
-    <string name="pref_dark_theme">Thème sombre</string>
+    <string name="pref_general_category">GÃ©nÃ©ral</string>
+    <string name="pref_dark_theme">ThÃ¨me sombre</string>
+    <string name="pref_dynamic_colors">Utiliser des couleurs dynamiques (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Utilisez les couleurs Material You basées sur un fond d\'écran sur Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Non pris en charge sur cette version Android</string>
     <string-array name="pref_dark_theme_modes">
         <item>Clair</item>
         <item>Sombre</item>
-        <item>Valeur par défaut du système</item>
+        <item>Valeur par dÃ©faut du systÃ¨me</item>
     </string-array>
-    <string name="pref_update_configuration">Mises à jour automatiques</string>
+    <string name="pref_update_configuration">Mises Ã  jour automatiques</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Blocage des publicités</string>
-    <string name="pref_root_ad_blocker_configuration">Bloqueur de publicités pour appareil débridé</string>
-    <string name="pref_vpn_ad_blocker_configuration">Bloqueur de publicités fondé sur un RPV/VPN</string>
-    <string name="pref_enable_ipv6">Activer la prise en charge d’IPv6</string>
-    <string name="pref_backup_restore">Sauvegarder/restaurer les règles de blocage</string>
+    <string name="pref_ad_block_category">Blocage des publicitÃ©s</string>
+    <string name="pref_root_ad_blocker_configuration">Bloqueur de publicitÃ©s pour appareil dÃ©bridÃ©</string>
+    <string name="pref_vpn_ad_blocker_configuration">Bloqueur de publicitÃ©s fondÃ© sur un RPV/VPN</string>
+    <string name="pref_enable_ipv6">Activer la prise en charge dâ€™IPv6</string>
+    <string name="pref_backup_restore">Sauvegarder/restaurer les rÃ¨gles de blocage</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Débogage</string>
-    <string name="pref_enable_telemetry">Envoyer des relevés de plantage</string>
-    <string name="pref_enable_telemetry_summary">Signaler à Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">N’est pas pris en charge dans cette version</string>
-    <string name="pref_enable_debug">Journalisation détaillée</string>
-    <string name="pref_enable_debug_summary">Les changements prendront effet après redémarrage de l’appli</string>
+    <string name="pref_debug_category">DÃ©bogage</string>
+    <string name="pref_enable_telemetry">Envoyer des relevÃ©s de plantage</string>
+    <string name="pref_enable_telemetry_summary">Signaler Ã  Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Nâ€™est pas pris en charge dans cette version</string>
+    <string name="pref_enable_debug">Journalisation dÃ©taillÃ©e</string>
+    <string name="pref_enable_debug_summary">Les changements prendront effet aprÃ¨s redÃ©marrage de lâ€™appli</string>
 </resources>

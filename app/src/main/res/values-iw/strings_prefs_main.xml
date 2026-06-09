@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">העדפות</string>
+    <string name="pref_main_title">×”×¢×“×¤×•×ª</string>
     <!-- General category -->
-    <string name="pref_general_category">כללי</string>
-    <string name="pref_dark_theme">ערכת צבעים כהה</string>
+    <string name="pref_general_category">×›×œ×œ×™</string>
+    <string name="pref_dark_theme">×¢×¨×›×ª ×¦×‘×¢×™× ×›×”×”</string>
+    <string name="pref_dynamic_colors">השתמש בצבעים דינמיים (Monet)</string>
+    <string name="pref_dynamic_colors_summary">השתמש בצבעי Material You מבוססי טפטים ב-Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">לא נתמך בגרסת אנדרואיד זו</string>
     <string-array name="pref_dark_theme_modes">
-        <item>בהיר</item>
-        <item>כהה</item>
-        <item>ברירת מחדל מערכת</item>
+        <item>×‘×”×™×¨</item>
+        <item>×›×”×”</item>
+        <item>×‘×¨×™×¨×ª ×ž×—×“×œ ×ž×¢×¨×›×ª</item>
     </string-array>
-    <string name="pref_update_configuration">עדכון אוטומטי</string>
+    <string name="pref_update_configuration">×¢×“×›×•×Ÿ ××•×˜×•×ž×˜×™</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">חוסם פרסומות</string>
-    <string name="pref_root_ad_blocker_configuration">חוסם פרסומות מבוסס גישת שורש</string>
-    <string name="pref_vpn_ad_blocker_configuration">חוסם פרסומות מבוסס VPN</string>
-    <string name="pref_enable_ipv6">אפשר תמיכת IPv6</string>
-    <string name="pref_backup_restore">גיבוי / שחזור חוקי חסימה</string>
+    <string name="pref_ad_block_category">×—×•×¡× ×¤×¨×¡×•×ž×•×ª</string>
+    <string name="pref_root_ad_blocker_configuration">×—×•×¡× ×¤×¨×¡×•×ž×•×ª ×ž×‘×•×¡×¡ ×’×™×©×ª ×©×•×¨×©</string>
+    <string name="pref_vpn_ad_blocker_configuration">×—×•×¡× ×¤×¨×¡×•×ž×•×ª ×ž×‘×•×¡×¡ VPN</string>
+    <string name="pref_enable_ipv6">××¤×©×¨ ×ª×ž×™×›×ª IPv6</string>
+    <string name="pref_backup_restore">×’×™×‘×•×™ / ×©×—×–×•×¨ ×—×•×§×™ ×—×¡×™×ž×”</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">ניפוי שגיאות</string>
-    <string name="pref_enable_telemetry">הפעל דוחות קריסה</string>
-    <string name="pref_enable_telemetry_summary">אפשר לאפליקציה לשלוח שגיאות ודוחות קריסה ל-Sentry (sentry.io).</string>
-    <string name="pref_enable_telemetry_disabled_summary">לא נתמך בבניה זו</string>
-    <string name="pref_enable_debug">הפעל לוג מפורט</string>
-    <string name="pref_enable_debug_summary">יש להפעיל מחדש בכדי להגדיר</string>
+    <string name="pref_debug_category">× ×™×¤×•×™ ×©×’×™××•×ª</string>
+    <string name="pref_enable_telemetry">×”×¤×¢×œ ×“×•×—×•×ª ×§×¨×™×¡×”</string>
+    <string name="pref_enable_telemetry_summary">××¤×©×¨ ×œ××¤×œ×™×§×¦×™×” ×œ×©×œ×•×— ×©×’×™××•×ª ×•×“×•×—×•×ª ×§×¨×™×¡×” ×œ-Sentry (sentry.io).</string>
+    <string name="pref_enable_telemetry_disabled_summary">×œ× × ×ª×ž×š ×‘×‘× ×™×” ×–×•</string>
+    <string name="pref_enable_debug">×”×¤×¢×œ ×œ×•×’ ×ž×¤×•×¨×˜</string>
+    <string name="pref_enable_debug_summary">×™×© ×œ×”×¤×¢×™×œ ×ž×—×“×© ×‘×›×“×™ ×œ×”×’×“×™×¨</string>
 </resources>

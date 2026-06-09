@@ -37,7 +37,7 @@ LOCAL_SRC_FILES:=\
 	$(tcpdump_CSRC) $(tcpdump_LIBNETDISSECT_SRC) $(tcpdump_LOCALSRC) $(tcpdump_GENSRC)
 
 LOCAL_CFLAGS := -O2 -g -pie -fPIE
-LOCAL_LDFLAGS += -pie -fPIE
+LOCAL_LDFLAGS += -pie -fPIE -Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384
 LOCAL_CFLAGS += -DHAVE_CONFIG_H -D_U_="__attribute__((unused))"
 
 LOCAL_C_INCLUDES += \

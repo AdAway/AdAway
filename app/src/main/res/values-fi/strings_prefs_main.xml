@@ -1,20 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Asetukset</string>
     <!-- General category -->
     <string name="pref_general_category">Yleiset</string>
     <string name="pref_dark_theme">Tummateema</string>
+    <string name="pref_dynamic_colors">Käytä dynaamisia värejä (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Käytä taustakuvapohjaisia ​​Material You -värejä Android 12+ -käyttöjärjestelmässä</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Ei tueta tässä Android-versiossa</string>
     <string-array name="pref_dark_theme_modes">
         <item>Vaalea</item>
         <item>Tumma</item>
-        <item>Järjestelmän oletus</item>
+        <item>JÃ¤rjestelmÃ¤n oletus</item>
     </string-array>
-    <string name="pref_update_configuration">Automaattiset päivitykset</string>
+    <string name="pref_update_configuration">Automaattiset pÃ¤ivitykset</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Mainostentorjunta</string>
     <string name="pref_vpn_ad_blocker_configuration">VPN pohjainen mainostenesto</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Virheenkorjaus</string>
-    <string name="pref_enable_telemetry">Lähetä virheraportteja</string>
-    <string name="pref_enable_telemetry_disabled_summary">Ei ole tuettu tässä julkaisussa</string>
+    <string name="pref_enable_telemetry">LÃ¤hetÃ¤ virheraportteja</string>
+    <string name="pref_enable_telemetry_disabled_summary">Ei ole tuettu tÃ¤ssÃ¤ julkaisussa</string>
     </resources>

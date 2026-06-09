@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Настройки</string>
     <!-- General category -->
     <string name="pref_general_category">Главные</string>
     <string name="pref_dark_theme">Выбрать тему</string>
+    <string name="pref_dynamic_colors">Используйте динамические цвета (Моне)</string>
+    <string name="pref_dynamic_colors_summary">Используйте цвета Material You на основе обоев на Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Не поддерживается в этой версии Android</string>
     <string-array name="pref_dark_theme_modes">
         <item>Светлая</item>
         <item>Темная</item>

@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Tercihler</string>
     <!-- General category -->
     <string name="pref_general_category">Genel</string>
-    <string name="pref_dark_theme">Karanlık temayı etkinleştir</string>
+    <string name="pref_dark_theme">KaranlÄ±k temayÄ± etkinleÅŸtir</string>
+    <string name="pref_dynamic_colors">Dinamik renkleri kullanma (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Android 12 ve sonraki sürümlerde duvar kağıdı tabanlı Material You renklerini kullanın</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Bu Android sürümünde desteklenmiyor</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Açık</item>
+        <item>AÃ§Ä±k</item>
         <item>Koyu</item>
-        <item>Sistem varsayılanı</item>
+        <item>Sistem varsayÄ±lanÄ±</item>
     </string-array>
-    <string name="pref_update_configuration">Otomatik güncellemeler</string>
+    <string name="pref_update_configuration">Otomatik gÃ¼ncellemeler</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Reklam engelle</string>
-    <string name="pref_root_ad_blocker_configuration">Kök erişimi tabanlı reklam engelleyici</string>
-    <string name="pref_vpn_ad_blocker_configuration">VPN tabanlı reklam engelleyici</string>
-    <string name="pref_enable_ipv6">IPv6 etkinleştir</string>
-    <string name="pref_backup_restore">Engelleme kurallarını yedekle/geri yükle</string>
+    <string name="pref_root_ad_blocker_configuration">KÃ¶k eriÅŸimi tabanlÄ± reklam engelleyici</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN tabanlÄ± reklam engelleyici</string>
+    <string name="pref_enable_ipv6">IPv6 etkinleÅŸtir</string>
+    <string name="pref_backup_restore">Engelleme kurallarÄ±nÄ± yedekle/geri yÃ¼kle</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Hata ayıklama</string>
-    <string name="pref_enable_telemetry">Kilitlenme raporlarını etkinleştir</string>
-    <string name="pref_enable_telemetry_summary">Uygulamanın Sentry\'ye (sentry.io) hata ve kilitlenme raporları göndermesine izin verin.</string>
+    <string name="pref_debug_category">Hata ayÄ±klama</string>
+    <string name="pref_enable_telemetry">Kilitlenme raporlarÄ±nÄ± etkinleÅŸtir</string>
+    <string name="pref_enable_telemetry_summary">UygulamanÄ±n Sentry\'ye (sentry.io) hata ve kilitlenme raporlarÄ± gÃ¶ndermesine izin verin.</string>
     <string name="pref_enable_telemetry_disabled_summary">Bu derlemede desteklenmiyor</string>
-    <string name="pref_enable_debug">Ayrıntılı günlük kaydını etkinleştir</string>
-    <string name="pref_enable_debug_summary">Ayarları etkinleştirmek için AdAway\'ı yeniden başlatın.</string>
+    <string name="pref_enable_debug">AyrÄ±ntÄ±lÄ± gÃ¼nlÃ¼k kaydÄ±nÄ± etkinleÅŸtir</string>
+    <string name="pref_enable_debug_summary">AyarlarÄ± etkinleÅŸtirmek iÃ§in AdAway\'Ä± yeniden baÅŸlatÄ±n.</string>
 </resources>

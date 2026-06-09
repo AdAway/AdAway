@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferences</string>
-    </resources>
+        <string name="pref_dynamic_colors">ပြောင်းလဲနေသောအရောင်များ (Monet) ကိုသုံးပါ</string>
+    <string name="pref_dynamic_colors_summary">Android 12+ ပေါ်ရှိ နောက်ခံပုံ-အခြေခံပစ္စည်းများ သင်အရောင်များကို သုံးပါ။</string>
+    <string name="pref_dynamic_colors_unsupported_summary">ဤ Android ဗားရှင်းတွင် မပံ့ပိုးပါ။</string></resources>

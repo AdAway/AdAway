@@ -1,27 +1,13 @@
-buildscript {
-    repositories {
-        google()
-    }
-
-    dependencies {
-        classpath libs.gradle
-    }
-}
-
 plugins {
-    id 'org.sonarqube' version '7.2.2.6593'
-}
-
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.compose) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.sonarqube)
 }
 
 sonarqube {
     properties {
-        // Root project information
         property 'sonar.projectKey', 'org.adaway'
         property 'sonar.organization', 'adaway'
         property 'sonar.projectName', 'AdAway'

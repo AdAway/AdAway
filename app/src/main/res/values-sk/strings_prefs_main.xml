@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Nastavenia</string>
     <!-- General category -->
-    <string name="pref_general_category">Všeobecné</string>
-    <string name="pref_dark_theme">Tmavý motív</string>
+    <string name="pref_general_category">VÅ¡eobecnÃ©</string>
+    <string name="pref_dark_theme">TmavÃ½ motÃ­v</string>
+    <string name="pref_dynamic_colors">Použiť dynamické farby (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Používajte farby Material You založené na tapetách v systéme Android 12 alebo novšom</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Táto verzia systému Android nie je podporovaná</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Svetlý</item>
-        <item>Tmavý</item>
-        <item>Podľa systému</item>
+        <item>SvetlÃ½</item>
+        <item>TmavÃ½</item>
+        <item>PodÄ¾a systÃ©mu</item>
     </string-array>
-    <string name="pref_update_configuration">Automatické aktualizácie</string>
+    <string name="pref_update_configuration">AutomatickÃ© aktualizÃ¡cie</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Blokovanie reklamy</string>
-    <string name="pref_root_ad_blocker_configuration">Blokovač reklám s rootom</string>
-    <string name="pref_vpn_ad_blocker_configuration">Blokovač reklám pomocou VPN</string>
-    <string name="pref_enable_ipv6">Povoliť podporu IPv6</string>
-    <string name="pref_backup_restore">Zálohovať / obnoviť pravidlá blokovania</string>
+    <string name="pref_root_ad_blocker_configuration">BlokovaÄ reklÃ¡m s rootom</string>
+    <string name="pref_vpn_ad_blocker_configuration">BlokovaÄ reklÃ¡m pomocou VPN</string>
+    <string name="pref_enable_ipv6">PovoliÅ¥ podporu IPv6</string>
+    <string name="pref_backup_restore">ZÃ¡lohovaÅ¥ / obnoviÅ¥ pravidlÃ¡ blokovania</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Odstraňovanie chýb</string>
-    <string name="pref_enable_telemetry">Odoslať hlásenie o zlyhaní</string>
-    <string name="pref_enable_telemetry_summary">Nahlásiť na Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Toto zostavenie nie je podporované</string>
-    <string name="pref_enable_debug">Podrobné zaznamenávanie</string>
-    <string name="pref_enable_debug_summary">Aplikáciu je potrebné reštartovať</string>
+    <string name="pref_debug_category">OdstraÅˆovanie chÃ½b</string>
+    <string name="pref_enable_telemetry">OdoslaÅ¥ hlÃ¡senie o zlyhanÃ­</string>
+    <string name="pref_enable_telemetry_summary">NahlÃ¡siÅ¥ na Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Toto zostavenie nie je podporovanÃ©</string>
+    <string name="pref_enable_debug">PodrobnÃ© zaznamenÃ¡vanie</string>
+    <string name="pref_enable_debug_summary">AplikÃ¡ciu je potrebnÃ© reÅ¡tartovaÅ¥</string>
 </resources>

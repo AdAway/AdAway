@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="pref_main_title">Настройки</string>
+    <string name="pref_main_title">ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸</string>
     <!-- General category -->
-    <string name="pref_general_category">Общи</string>
-    <string name="pref_dark_theme">Тъмна тема</string>
+    <string name="pref_general_category">ÐžÐ±Ñ‰Ð¸</string>
+    <string name="pref_dark_theme">Ð¢ÑŠÐ¼Ð½Ð° Ñ‚ÐµÐ¼Ð°</string>
+    <string name="pref_dynamic_colors">Използвайте динамични цветове (Моне)</string>
+    <string name="pref_dynamic_colors_summary">Използвайте базирани на тапет цветове Material You на Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Не се поддържа от тази версия на Android</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Светла</item>
-        <item>Тъмна</item>
-        <item>По подразбиране</item>
+        <item>Ð¡Ð²ÐµÑ‚Ð»Ð°</item>
+        <item>Ð¢ÑŠÐ¼Ð½Ð°</item>
+        <item>ÐŸÐ¾ Ð¿Ð¾Ð´Ñ€Ð°Ð·Ð±Ð¸Ñ€Ð°Ð½Ðµ</item>
     </string-array>
-    <string name="pref_update_configuration">Автоматично обновяване</string>
+    <string name="pref_update_configuration">ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²ÑÐ²Ð°Ð½Ðµ</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Блокиране на реклами</string>
-    <string name="pref_root_ad_blocker_configuration">Руут базиран блокер на реклами</string>
-    <string name="pref_vpn_ad_blocker_configuration">VPN базиран блокер на реклами</string>
-    <string name="pref_enable_ipv6">Включване на IPv6 поддръжка</string>
-    <string name="pref_backup_restore">Резерено копие / възстановяване на правила</string>
+    <string name="pref_ad_block_category">Ð‘Ð»Ð¾ÐºÐ¸Ñ€Ð°Ð½Ðµ Ð½Ð° Ñ€ÐµÐºÐ»Ð°Ð¼Ð¸</string>
+    <string name="pref_root_ad_blocker_configuration">Ð ÑƒÑƒÑ‚ Ð±Ð°Ð·Ð¸Ñ€Ð°Ð½ Ð±Ð»Ð¾ÐºÐµÑ€ Ð½Ð° Ñ€ÐµÐºÐ»Ð°Ð¼Ð¸</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN Ð±Ð°Ð·Ð¸Ñ€Ð°Ð½ Ð±Ð»Ð¾ÐºÐµÑ€ Ð½Ð° Ñ€ÐµÐºÐ»Ð°Ð¼Ð¸</string>
+    <string name="pref_enable_ipv6">Ð’ÐºÐ»ÑŽÑ‡Ð²Ð°Ð½Ðµ Ð½Ð° IPv6 Ð¿Ð¾Ð´Ð´Ñ€ÑŠÐ¶ÐºÐ°</string>
+    <string name="pref_backup_restore">Ð ÐµÐ·ÐµÑ€ÐµÐ½Ð¾ ÐºÐ¾Ð¿Ð¸Ðµ / Ð²ÑŠÐ·ÑÑ‚Ð°Ð½Ð¾Ð²ÑÐ²Ð°Ð½Ðµ Ð½Ð° Ð¿Ñ€Ð°Ð²Ð¸Ð»Ð°</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Отстраняване на грешки</string>
-    <string name="pref_enable_telemetry">Изпращане на доклади за сривове</string>
-    <string name="pref_enable_telemetry_summary">Докладване до Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Не се поддържа в тази сглобка</string>
-    <string name="pref_enable_debug">Подробности в дневника</string>
-    <string name="pref_enable_debug_summary">Необходимо е рестартиране на приложението за прилагане</string>
+    <string name="pref_debug_category">ÐžÑ‚ÑÑ‚Ñ€Ð°Ð½ÑÐ²Ð°Ð½Ðµ Ð½Ð° Ð³Ñ€ÐµÑˆÐºÐ¸</string>
+    <string name="pref_enable_telemetry">Ð˜Ð·Ð¿Ñ€Ð°Ñ‰Ð°Ð½Ðµ Ð½Ð° Ð´Ð¾ÐºÐ»Ð°Ð´Ð¸ Ð·Ð° ÑÑ€Ð¸Ð²Ð¾Ð²Ðµ</string>
+    <string name="pref_enable_telemetry_summary">Ð”Ð¾ÐºÐ»Ð°Ð´Ð²Ð°Ð½Ðµ Ð´Ð¾ Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">ÐÐµ ÑÐµ Ð¿Ð¾Ð´Ð´ÑŠÑ€Ð¶Ð° Ð² Ñ‚Ð°Ð·Ð¸ ÑÐ³Ð»Ð¾Ð±ÐºÐ°</string>
+    <string name="pref_enable_debug">ÐŸÐ¾Ð´Ñ€Ð¾Ð±Ð½Ð¾ÑÑ‚Ð¸ Ð² Ð´Ð½ÐµÐ²Ð½Ð¸ÐºÐ°</string>
+    <string name="pref_enable_debug_summary">ÐÐµÐ¾Ð±Ñ…Ð¾Ð´Ð¸Ð¼Ð¾ Ðµ Ñ€ÐµÑÑ‚Ð°Ñ€Ñ‚Ð¸Ñ€Ð°Ð½Ðµ Ð½Ð° Ð¿Ñ€Ð¸Ð»Ð¾Ð¶ÐµÐ½Ð¸ÐµÑ‚Ð¾ Ð·Ð° Ð¿Ñ€Ð¸Ð»Ð°Ð³Ð°Ð½Ðµ</string>
 </resources>

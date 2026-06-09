@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Voorkeure</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Herstel foute</string>
-    </resources>
+        <string name="pref_dynamic_colors">Gebruik dinamiese kleure (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Gebruik muurpapier-gebaseerde materiaal wat jy kleure op Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Word nie op hierdie Android-weergawe ondersteun nie</string></resources>

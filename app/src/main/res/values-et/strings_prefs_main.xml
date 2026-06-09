@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Eelistused</string>
     <string name="pref_dark_theme">Luba tume teema</string>
+    <string name="pref_dynamic_colors">Kasutage dünaamilisi värve (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Kasutage Android 12+ taustapildipõhiseid Material You värve</string>
+    <string name="pref_dynamic_colors_unsupported_summary">See Androidi versioon ei toeta</string>
     <string name="pref_enable_ipv6">Luba IPv6</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Silumine</string>
     <string name="pref_enable_telemetry">Luba krahhiaruanded</string>
     <string name="pref_enable_telemetry_summary">Luba rakendusel saata vigu ja krahhiaruandeid Sentryle (sentry.io)</string>
-    <string name="pref_enable_debug_summary">Logimise jõustumiseks on vajalik AdAway taaskäivitamine.</string>
+    <string name="pref_enable_debug_summary">Logimise jÃµustumiseks on vajalik AdAway taaskÃ¤ivitamine.</string>
 </resources>

@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferences</string>
-    </resources>
+        <string name="pref_dynamic_colors">Uzu dinamikajn kolorojn (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Uzu tapetajn kolorojn de Material You en Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Ne subtenata en ĉi tiu Android-versio</string></resources>

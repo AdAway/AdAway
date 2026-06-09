@@ -1,19 +1,16 @@
 import com.android.build.gradle.internal.tasks.LibraryJniLibsTask
 
-apply plugin: 'com.android.library'
+plugins {
+    alias(libs.plugins.android.library)
+}
 
 android {
-    compileSdk 33
-    ndkVersion '27.2.12479018'
-    namespace 'org.adaway.webserver'
+    compileSdk 37
+    ndkVersion = '27.2.12479018'
+    namespace = 'org.adaway.webserver'
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
-    }
-
-    buildFeatures {
-        prefab = true
     }
 
     externalNativeBuild {
@@ -25,10 +22,12 @@ android {
     sonarqube {
         skipProject = true
     }
-}
-
-dependencies {
-    implementation libs.openssl
+    lint {
+        targetSdk 33
+    }
+    testOptions {
+        targetSdk 33
+    }
 }
 
 /**

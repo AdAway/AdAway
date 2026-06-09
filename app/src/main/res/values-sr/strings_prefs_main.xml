@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Podešavanja</string>
+    <string name="pref_main_title">PodeÅ¡avanja</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Otklanjanje grešaka</string>
-    </resources>
+    <string name="pref_debug_category">Otklanjanje greÅ¡aka</string>
+        <string name="pref_dynamic_colors">Користите динамичке боје (Монет)</string>
+    <string name="pref_dynamic_colors_summary">Користите боје Материал Иоу засноване на тапетама на Андроиду 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Није подржано на овој верзији Андроид-а</string></resources>

@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Preferências</string>
+    <string name="pref_main_title">PreferÃªncias</string>
     <!-- General category -->
     <string name="pref_general_category">Geral</string>
     <string name="pref_dark_theme">Ativar tema escuro</string>
+    <string name="pref_dynamic_colors">Use cores dinâmicas (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Use cores do Material You baseadas em papel de parede no Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Não compatível com esta versão do Android</string>
     <string-array name="pref_dark_theme_modes">
         <item>Claro</item>
         <item>Escuro</item>
-        <item>Padrão do sistema</item>
+        <item>PadrÃ£o do sistema</item>
     </string-array>
-    <string name="pref_update_configuration">Atualizações automáticas</string>
+    <string name="pref_update_configuration">AtualizaÃ§Ãµes automÃ¡ticas</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Ad bloqueador</string>
-    <string name="pref_root_ad_blocker_configuration">Bloqueador de anúncios baseado em Root</string>
-    <string name="pref_vpn_ad_blocker_configuration">Bloqueador de anúncios baseado em VPN</string>
+    <string name="pref_root_ad_blocker_configuration">Bloqueador de anÃºncios baseado em Root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Bloqueador de anÃºncios baseado em VPN</string>
     <string name="pref_enable_ipv6">Ativar IPv6</string>
     <string name="pref_backup_restore">Backup / restaure regras de bloqueio</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Depuração</string>
-    <string name="pref_enable_telemetry">Ativar relatório de erros</string>
-    <string name="pref_enable_telemetry_summary">Permitir ao aplicativo enviar relatórios de erros e crashes para o Sentry (sentry.io).</string>
-    <string name="pref_enable_telemetry_disabled_summary">Não suportado nesta compilação</string>
+    <string name="pref_debug_category">DepuraÃ§Ã£o</string>
+    <string name="pref_enable_telemetry">Ativar relatÃ³rio de erros</string>
+    <string name="pref_enable_telemetry_summary">Permitir ao aplicativo enviar relatÃ³rios de erros e crashes para o Sentry (sentry.io).</string>
+    <string name="pref_enable_telemetry_disabled_summary">NÃ£o suportado nesta compilaÃ§Ã£o</string>
     <string name="pref_enable_debug">Habilitar log detalhado</string>
-    <string name="pref_enable_debug_summary">Você precisa reiniciar o AdAway para esta configuração ter efeito.</string>
+    <string name="pref_enable_debug_summary">VocÃª precisa reiniciar o AdAway para esta configuraÃ§Ã£o ter efeito.</string>
 </resources>

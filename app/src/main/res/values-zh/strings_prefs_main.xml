@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">首选项</string>
+    <string name="pref_main_title">é¦–é€‰é¡¹</string>
     <!-- General category -->
-    <string name="pref_general_category">常规</string>
-    <string name="pref_dark_theme">深色主题</string>
+    <string name="pref_general_category">å¸¸è§„</string>
+    <string name="pref_dark_theme">æ·±è‰²ä¸»é¢˜</string>
+    <string name="pref_dynamic_colors">使用动态色彩（莫奈）</string>
+    <string name="pref_dynamic_colors_summary">在 Android 12+ 上使用基于壁纸的 Material You 颜色</string>
+    <string name="pref_dynamic_colors_unsupported_summary">此 Android 版本不支持</string>
     <string-array name="pref_dark_theme_modes">
-        <item>浅色</item>
-        <item>深色</item>
-        <item>系统默认</item>
+        <item>æµ…è‰²</item>
+        <item>æ·±è‰²</item>
+        <item>ç³»ç»Ÿé»˜è®¤</item>
     </string-array>
-    <string name="pref_update_configuration">自动更新</string>
+    <string name="pref_update_configuration">è‡ªåŠ¨æ›´æ–°</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">广告屏蔽</string>
-    <string name="pref_root_ad_blocker_configuration">基于 root 的广告拦截器</string>
-    <string name="pref_vpn_ad_blocker_configuration">基于 VPN 的广告拦截器</string>
-    <string name="pref_enable_ipv6">启用 IPv6 支持</string>
-    <string name="pref_backup_restore">备份/还原屏蔽规则</string>
+    <string name="pref_ad_block_category">å¹¿å‘Šå±è”½</string>
+    <string name="pref_root_ad_blocker_configuration">åŸºäºŽ root çš„å¹¿å‘Šæ‹¦æˆªå™¨</string>
+    <string name="pref_vpn_ad_blocker_configuration">åŸºäºŽ VPN çš„å¹¿å‘Šæ‹¦æˆªå™¨</string>
+    <string name="pref_enable_ipv6">å¯ç”¨ IPv6 æ”¯æŒ</string>
+    <string name="pref_backup_restore">å¤‡ä»½/è¿˜åŽŸå±è”½è§„åˆ™</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">调试</string>
-    <string name="pref_enable_telemetry">启用崩溃报告</string>
-    <string name="pref_enable_telemetry_summary">允许本应用程序向 Sentry（sentry.io）发送错误与崩溃报告。</string>
-    <string name="pref_enable_telemetry_disabled_summary">此版本不支持</string>
-    <string name="pref_enable_debug">启用详细日志</string>
-    <string name="pref_enable_debug_summary">具体的日志级别为 verbose，需重启 AdAway 才能使此设置生效。</string>
+    <string name="pref_debug_category">è°ƒè¯•</string>
+    <string name="pref_enable_telemetry">å¯ç”¨å´©æºƒæŠ¥å‘Š</string>
+    <string name="pref_enable_telemetry_summary">å…è®¸æœ¬åº”ç”¨ç¨‹åºå‘ Sentryï¼ˆsentry.ioï¼‰å‘é€é”™è¯¯ä¸Žå´©æºƒæŠ¥å‘Šã€‚</string>
+    <string name="pref_enable_telemetry_disabled_summary">æ­¤ç‰ˆæœ¬ä¸æ”¯æŒ</string>
+    <string name="pref_enable_debug">å¯ç”¨è¯¦ç»†æ—¥å¿—</string>
+    <string name="pref_enable_debug_summary">å…·ä½“çš„æ—¥å¿—çº§åˆ«ä¸º verboseï¼Œéœ€é‡å¯ AdAway æ‰èƒ½ä½¿æ­¤è®¾ç½®ç”Ÿæ•ˆã€‚</string>
 </resources>

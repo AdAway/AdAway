@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferencies</string>
     <!-- General category -->
     <string name="pref_general_category">Xeneral</string>
     <string name="pref_dark_theme">Estilu escuru</string>
+    <string name="pref_dynamic_colors">Usar colores dinámicos (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Usar los colores Material You basaos nel fondu de pantalla en Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Nun se sofita nesta versión d\'Android</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Depuración</string>
+    <string name="pref_debug_category">DepuraciÃ³n</string>
     </resources>

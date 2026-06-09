@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferences</string>
-    </resources>
+        <string name="pref_dynamic_colors">ਗਤੀਸ਼ੀਲ ਰੰਗ (ਮੋਨੇਟ) ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
+    <string name="pref_dynamic_colors_summary">ਐਂਡਰੌਇਡ 12+ \'ਤੇ ਵਾਲਪੇਪਰ-ਆਧਾਰਿਤ ਸਮੱਗਰੀ ਦੀ ਵਰਤੋਂ ਕਰੋ ਜੋ ਤੁਸੀਂ ਰੰਗ ਕਰਦੇ ਹੋ</string>
+    <string name="pref_dynamic_colors_unsupported_summary">ਇਸ Android ਸੰਸਕਰਣ \'ਤੇ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ</string></resources>

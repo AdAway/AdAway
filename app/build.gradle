@@ -1,5 +1,7 @@
 plugins {
-    id 'com.android.application'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.compose)
 }
 
 boolean keyStoreDefined = project.hasProperty('signingStoreLocation') &&
@@ -7,31 +9,16 @@ boolean keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingKeyAlias') &&
         project.hasProperty('signingKeyPassword')
 
-repositories {
-    maven {
-        url 'https://jitpack.io'
-    }
-}
-
 android {
-    compileSdk 34
-    ndkVersion '27.2.12479018'
-    namespace 'org.adaway'
+    compileSdk 37
+    ndkVersion = '27.2.12479018'
+    namespace = 'org.adaway'
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
+        targetSdk 37
         versionCode libs.versions.appCode.get() as int
         versionName libs.versions.appName.get()
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [
-                        "room.schemaLocation": "$projectDir/schemas".toString(),
-                        "room.incremental"   : "true"
-                ]
-            }
-        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -66,8 +53,9 @@ android {
     }
 
     buildFeatures {
-        viewBinding true
+        compose = true
     }
+
 
     packagingOptions {
         jniLibs {
@@ -82,9 +70,9 @@ android {
 //            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 //        }
         release {
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
@@ -94,56 +82,65 @@ android {
     }
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += ['-Xlint:deprecation']
+}
+
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas".toString())
+    arg("room.incremental", "true")
+}
+
 dependencies {
-    // Native modules
     implementation project(':tcpdump')
     implementation project(':webserver')
 
-    // AndroidX components
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.fragment:fragment:1.8.1'
-    // "fragment-ktx" is not used but was added to fix the following dependency error:
-    // Duplicate class androidx.lifecycle.ViewModelLazy found in modules lifecycle-viewmodel-2.5.0-runtime (androidx.lifecycle:lifecycle-viewmodel:2.5.0) and lifecycle-viewmodel-ktx-2.3.1-runtime
-    implementation 'androidx.fragment:fragment-ktx:1.8.1'
-    implementation 'androidx.paging:paging-runtime:3.3.0'
-    implementation 'androidx.preference:preference:1.2.1'
-    implementation 'androidx.recyclerview:recyclerview:1.3.2'
-    implementation 'androidx.room:room-runtime:2.6.1'
-    implementation 'androidx.room:room-paging:2.6.1'
-    annotationProcessor 'androidx.room:room-compiler:2.6.1'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
-    implementation 'androidx.work:work-runtime:2.8.1'
-    implementation 'com.google.android.material:material:1.9.0'
-
-    // Collections related
     implementation libs.guava
-    // Network related
-    implementation libs.okhttp3.okhttp
-    // Logging related
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.material
     implementation libs.timber
+
+    implementation platform(libs.androidx.compose.bom)
+    implementation libs.androidx.activity.compose
+    implementation libs.androidx.compose.foundation
+    implementation libs.androidx.compose.material3
+    implementation libs.androidx.compose.ui
+    implementation libs.androidx.compose.ui.tooling.preview
+    implementation libs.androidx.lifecycle.runtime.compose
+    implementation libs.androidx.lifecycle.viewmodel.compose
+    implementation libs.androidx.navigation.compose
+    debugImplementation libs.androidx.compose.ui.tooling
+    debugImplementation libs.androidx.compose.ui.test.manifest
+
+    implementation libs.androidx.lifecycle.livedata.ktx
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.paging.compose
+    implementation libs.androidx.paging.runtime
+    implementation libs.androidx.room.paging
+    implementation libs.androidx.room.runtime
+    implementation libs.androidx.work.runtime
+    ksp libs.androidx.room.compiler
+
+    implementation libs.okhttp3.okhttp
+    implementation libs.okhttp.dnsoverhttps
+
     if (keyStoreDefined) {
         implementation project(':sentrystub')
     } else {
-        implementation platform('io.sentry:sentry-bom:7.8.0')
-        implementation('io.sentry:sentry-android')
-        implementation('io.sentry:sentry-android-fragment')
-        implementation('io.sentry:sentry-android-timber')
+        implementation platform(libs.sentry.bom)
+        implementation libs.sentry.android
+        implementation libs.sentry.android.fragment
+        implementation libs.sentry.android.timber
     }
 
-    // Root related
     implementation libs.libsu
 
-    // VPN related
     implementation libs.bundles.pcap4j
     implementation libs.dnsjava
     implementation libs.slf4j.android
-    implementation libs.okhttp.dnsoverhttps
 
-    // Test related
-    testImplementation libs.junit
     testImplementation libs.json
+    testImplementation libs.junit
     androidTestImplementation libs.bundles.androidx.test
     androidTestImplementation libs.junit
 }

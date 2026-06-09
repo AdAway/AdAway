@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferences</string>
-    </resources>
+        <string name="pref_dynamic_colors">மாறும் வண்ணங்களைப் பயன்படுத்தவும் (மோனெட்)</string>
+    <string name="pref_dynamic_colors_summary">Android 12+ இல் வால்பேப்பர் அடிப்படையிலான மெட்டீரியல் யூ வண்ணங்களைப் பயன்படுத்தவும்</string>
+    <string name="pref_dynamic_colors_unsupported_summary">இந்த Android பதிப்பில் ஆதரிக்கப்படவில்லை</string></resources>

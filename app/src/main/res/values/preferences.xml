@@ -2,6 +2,8 @@
 <resources>
     <string name="pref_dark_theme_mode_key" translatable="false">darkThemeMode</string>
     <string name="pref_dark_theme_mode_def">MODE_NIGHT_YES</string>
+    <string name="pref_dynamic_color_key" translatable="false">dynamicColor</string>
+    <bool name="pref_dynamic_color_def">true</bool>
     <string-array name="pref_dark_theme_mode_entry_values" translatable="false">
         <item>MODE_NIGHT_NO</item>
         <item>MODE_NIGHT_YES</item>

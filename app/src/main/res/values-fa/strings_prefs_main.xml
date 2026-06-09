@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <string name="pref_main_title">تنظیمات</string>
+    <string name="pref_main_title">ØªÙ†Ø¸ÛŒÙ…Ø§Øª</string>
     <!-- General category -->
-    <string name="pref_general_category">عمومی</string>
-    <string name="pref_dark_theme">پس زمینه سیاه</string>
+    <string name="pref_general_category">Ø¹Ù…ÙˆÙ…ÛŒ</string>
+    <string name="pref_dark_theme">Ù¾Ø³ Ø²Ù…ÛŒÙ†Ù‡ Ø³ÛŒØ§Ù‡</string>
+    <string name="pref_dynamic_colors">استفاده از رنگ های پویا (مونته)</string>
+    <string name="pref_dynamic_colors_summary">از رنگ‌های Material You مبتنی بر کاغذ دیواری در اندروید ۱۲ و بالاتر استفاده کنید</string>
+    <string name="pref_dynamic_colors_unsupported_summary">در این نسخه اندروید پشتیبانی نمی شود</string>
     <string-array name="pref_dark_theme_modes">
-        <item>سفید</item>
-        <item>سیاه</item>
-        <item>پیش فرض سیستم</item>
+        <item>Ø³ÙÛŒØ¯</item>
+        <item>Ø³ÛŒØ§Ù‡</item>
+        <item>Ù¾ÛŒØ´ ÙØ±Ø¶ Ø³ÛŒØ³ØªÙ…</item>
     </string-array>
-    <string name="pref_update_configuration">به روز رسانی های خودکار</string>
+    <string name="pref_update_configuration">Ø¨Ù‡ Ø±ÙˆØ² Ø±Ø³Ø§Ù†ÛŒ Ù‡Ø§ÛŒ Ø®ÙˆØ¯Ú©Ø§Ø±</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">مسدود کردن تبلیغات</string>
-    <string name="pref_root_ad_blocker_configuration">مسدود کننده تبلیغات مبتنی بر روت</string>
-    <string name="pref_vpn_ad_blocker_configuration">مسدود کننده تبلیغات مبتنی بر VPN</string>
-    <string name="pref_enable_ipv6">فعال کردن پشتیبانی از IPv6</string>
-    <string name="pref_backup_restore">پشتیبان گیری / بازیابی از قوانین مسدود کردن</string>
+    <string name="pref_ad_block_category">Ù…Ø³Ø¯ÙˆØ¯ Ú©Ø±Ø¯Ù† ØªØ¨Ù„ÛŒØºØ§Øª</string>
+    <string name="pref_root_ad_blocker_configuration">Ù…Ø³Ø¯ÙˆØ¯ Ú©Ù†Ù†Ø¯Ù‡ ØªØ¨Ù„ÛŒØºØ§Øª Ù…Ø¨ØªÙ†ÛŒ Ø¨Ø± Ø±ÙˆØª</string>
+    <string name="pref_vpn_ad_blocker_configuration">Ù…Ø³Ø¯ÙˆØ¯ Ú©Ù†Ù†Ø¯Ù‡ ØªØ¨Ù„ÛŒØºØ§Øª Ù…Ø¨ØªÙ†ÛŒ Ø¨Ø± VPN</string>
+    <string name="pref_enable_ipv6">ÙØ¹Ø§Ù„ Ú©Ø±Ø¯Ù† Ù¾Ø´ØªÛŒØ¨Ø§Ù†ÛŒ Ø§Ø² IPv6</string>
+    <string name="pref_backup_restore">Ù¾Ø´ØªÛŒØ¨Ø§Ù† Ú¯ÛŒØ±ÛŒ / Ø¨Ø§Ø²ÛŒØ§Ø¨ÛŒ Ø§Ø² Ù‚ÙˆØ§Ù†ÛŒÙ† Ù…Ø³Ø¯ÙˆØ¯ Ú©Ø±Ø¯Ù†</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">عیب یابی</string>
-    <string name="pref_enable_telemetry">ارسال گزارش خرابی</string>
-    <string name="pref_enable_telemetry_summary">گزارش به نگهبان (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">در این نسخه پشتیبانی نمی شود</string>
-    <string name="pref_enable_debug">ثبت نام کامل</string>
-    <string name="pref_enable_debug_summary">برای انجام به خاموش و روشن کردن گوشی نیاز است</string>
+    <string name="pref_debug_category">Ø¹ÛŒØ¨ ÛŒØ§Ø¨ÛŒ</string>
+    <string name="pref_enable_telemetry">Ø§Ø±Ø³Ø§Ù„ Ú¯Ø²Ø§Ø±Ø´ Ø®Ø±Ø§Ø¨ÛŒ</string>
+    <string name="pref_enable_telemetry_summary">Ú¯Ø²Ø§Ø±Ø´ Ø¨Ù‡ Ù†Ú¯Ù‡Ø¨Ø§Ù† (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Ø¯Ø± Ø§ÛŒÙ† Ù†Ø³Ø®Ù‡ Ù¾Ø´ØªÛŒØ¨Ø§Ù†ÛŒ Ù†Ù…ÛŒ Ø´ÙˆØ¯</string>
+    <string name="pref_enable_debug">Ø«Ø¨Øª Ù†Ø§Ù… Ú©Ø§Ù…Ù„</string>
+    <string name="pref_enable_debug_summary">Ø¨Ø±Ø§ÛŒ Ø§Ù†Ø¬Ø§Ù… Ø¨Ù‡ Ø®Ø§Ù…ÙˆØ´ Ùˆ Ø±ÙˆØ´Ù† Ú©Ø±Ø¯Ù† Ú¯ÙˆØ´ÛŒ Ù†ÛŒØ§Ø² Ø§Ø³Øª</string>
 </resources>

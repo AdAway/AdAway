@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Επιλογές</string>
+    <string name="pref_main_title">Î•Ï€Î¹Î»Î¿Î³Î­Ï‚</string>
     <!-- General category -->
-    <string name="pref_general_category">Γενικά</string>
-    <string name="pref_dark_theme">Σκοτεινό θέμα</string>
+    <string name="pref_general_category">Î“ÎµÎ½Î¹ÎºÎ¬</string>
+    <string name="pref_dark_theme">Î£ÎºÎ¿Ï„ÎµÎ¹Î½ÏŒ Î¸Î­Î¼Î±</string>
+    <string name="pref_dynamic_colors">Χρήση δυναμικών χρωμάτων (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Χρησιμοποιήστε τα χρώματα Material You που βασίζονται σε ταπετσαρία στο Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Δεν υποστηρίζεται σε αυτήν την έκδοση Android</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Φωτεινό</item>
-        <item>Σκοτεινό</item>
-        <item>Προεπιλογή συστήματος</item>
+        <item>Î¦Ï‰Ï„ÎµÎ¹Î½ÏŒ</item>
+        <item>Î£ÎºÎ¿Ï„ÎµÎ¹Î½ÏŒ</item>
+        <item>Î ÏÎ¿ÎµÏ€Î¹Î»Î¿Î³Î® ÏƒÏ…ÏƒÏ„Î®Î¼Î±Ï„Î¿Ï‚</item>
     </string-array>
-    <string name="pref_update_configuration">Αυτόματες ενημερώσεις</string>
+    <string name="pref_update_configuration">Î‘Ï…Ï„ÏŒÎ¼Î±Ï„ÎµÏ‚ ÎµÎ½Î·Î¼ÎµÏÏŽÏƒÎµÎ¹Ï‚</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Αποκλεισμός διαφημίσεων</string>
-    <string name="pref_root_ad_blocker_configuration">Αποκλεισμός διαφημίσεων βάσει Root</string>
-    <string name="pref_vpn_ad_blocker_configuration">Αποκλεισμός διαφημίσεων βάσει VPN</string>
-    <string name="pref_enable_ipv6">Ενεργοποίηση υποστήριξης IPv6</string>
-    <string name="pref_backup_restore">Κανόνες αποκλεισμού Αντιγράφων ασφαλείας / επαναφοράς</string>
+    <string name="pref_ad_block_category">Î‘Ï€Î¿ÎºÎ»ÎµÎ¹ÏƒÎ¼ÏŒÏ‚ Î´Î¹Î±Ï†Î·Î¼Î¯ÏƒÎµÏ‰Î½</string>
+    <string name="pref_root_ad_blocker_configuration">Î‘Ï€Î¿ÎºÎ»ÎµÎ¹ÏƒÎ¼ÏŒÏ‚ Î´Î¹Î±Ï†Î·Î¼Î¯ÏƒÎµÏ‰Î½ Î²Î¬ÏƒÎµÎ¹ Root</string>
+    <string name="pref_vpn_ad_blocker_configuration">Î‘Ï€Î¿ÎºÎ»ÎµÎ¹ÏƒÎ¼ÏŒÏ‚ Î´Î¹Î±Ï†Î·Î¼Î¯ÏƒÎµÏ‰Î½ Î²Î¬ÏƒÎµÎ¹ VPN</string>
+    <string name="pref_enable_ipv6">Î•Î½ÎµÏÎ³Î¿Ï€Î¿Î¯Î·ÏƒÎ· Ï…Ï€Î¿ÏƒÏ„Î®ÏÎ¹Î¾Î·Ï‚ IPv6</string>
+    <string name="pref_backup_restore">ÎšÎ±Î½ÏŒÎ½ÎµÏ‚ Î±Ï€Î¿ÎºÎ»ÎµÎ¹ÏƒÎ¼Î¿Ï Î‘Î½Ï„Î¹Î³ÏÎ¬Ï†Ï‰Î½ Î±ÏƒÏ†Î±Î»ÎµÎ¯Î±Ï‚ / ÎµÏ€Î±Î½Î±Ï†Î¿ÏÎ¬Ï‚</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Αποσφαλμάτωση</string>
-    <string name="pref_enable_telemetry">Αποστολή αναφορών σφαλμάτων</string>
-    <string name="pref_enable_telemetry_summary">Αναφορά στο Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Δεν υποστηρίζεται σε αυτήν την έκδοση</string>
-    <string name="pref_enable_debug">Αναλυτική καταγραφή</string>
-    <string name="pref_enable_debug_summary">Απαιτείται επανεκκίνηση εφαρμογής για εφαρμογή</string>
+    <string name="pref_debug_category">Î‘Ï€Î¿ÏƒÏ†Î±Î»Î¼Î¬Ï„Ï‰ÏƒÎ·</string>
+    <string name="pref_enable_telemetry">Î‘Ï€Î¿ÏƒÏ„Î¿Î»Î® Î±Î½Î±Ï†Î¿ÏÏŽÎ½ ÏƒÏ†Î±Î»Î¼Î¬Ï„Ï‰Î½</string>
+    <string name="pref_enable_telemetry_summary">Î‘Î½Î±Ï†Î¿ÏÎ¬ ÏƒÏ„Î¿ Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Î”ÎµÎ½ Ï…Ï€Î¿ÏƒÏ„Î·ÏÎ¯Î¶ÎµÏ„Î±Î¹ ÏƒÎµ Î±Ï…Ï„Î®Î½ Ï„Î·Î½ Î­ÎºÎ´Î¿ÏƒÎ·</string>
+    <string name="pref_enable_debug">Î‘Î½Î±Î»Ï…Ï„Î¹ÎºÎ® ÎºÎ±Ï„Î±Î³ÏÎ±Ï†Î®</string>
+    <string name="pref_enable_debug_summary">Î‘Ï€Î±Î¹Ï„ÎµÎ¯Ï„Î±Î¹ ÎµÏ€Î±Î½ÎµÎºÎºÎ¯Î½Î·ÏƒÎ· ÎµÏ†Î±ÏÎ¼Î¿Î³Î®Ï‚ Î³Î¹Î± ÎµÏ†Î±ÏÎ¼Î¿Î³Î®</string>
 </resources>

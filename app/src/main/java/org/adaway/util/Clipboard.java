@@ -6,6 +6,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.widget.Toast;
+import org.adaway.util.ExpressiveToast;
 
 import org.adaway.R;
 
@@ -29,7 +30,7 @@ public final class Clipboard {
         ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         ClipData clipData = ClipData.newPlainText("Host", host);
         clipboard.setPrimaryClip(clipData);
-        Toast.makeText(
+        ExpressiveToast.makeText(
                 context,
                 context.getString(R.string.clipboard_host_copied),
                 LENGTH_SHORT

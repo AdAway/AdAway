@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Tuỳ chỉnh</string>
+    <string name="pref_main_title">Tuá»³ chá»‰nh</string>
     <!-- General category -->
     <string name="pref_general_category">Chung</string>
-    <string name="pref_dark_theme">Chế độ Đêm</string>
+    <string name="pref_dark_theme">Cháº¿ Ä‘á»™ ÄÃªm</string>
+    <string name="pref_dynamic_colors">Sử dụng màu sắc năng động (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Sử dụng màu Material You dựa trên hình nền trên Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Không được hỗ trợ trên phiên bản Android này</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Sáng</item>
-        <item>Tối</item>
-        <item>Mặc định hệ thống</item>
+        <item>SÃ¡ng</item>
+        <item>Tá»‘i</item>
+        <item>Máº·c Ä‘á»‹nh há»‡ thá»‘ng</item>
     </string-array>
-    <string name="pref_update_configuration">Tự động cập nhật</string>
+    <string name="pref_update_configuration">Tá»± Ä‘á»™ng cáº­p nháº­t</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Chặn quảng cáo</string>
-    <string name="pref_root_ad_blocker_configuration">Chặn quảng cáo sử dụng quyền root </string>
-    <string name="pref_vpn_ad_blocker_configuration">Chặn quảng cáo sử dụng VPN</string>
-    <string name="pref_enable_ipv6">Bật IPv6</string>
-    <string name="pref_backup_restore">Sao lưu / khôi phục cài đặt</string>
+    <string name="pref_ad_block_category">Cháº·n quáº£ng cÃ¡o</string>
+    <string name="pref_root_ad_blocker_configuration">Cháº·n quáº£ng cÃ¡o sá»­ dá»¥ng quyá»n root </string>
+    <string name="pref_vpn_ad_blocker_configuration">Cháº·n quáº£ng cÃ¡o sá»­ dá»¥ng VPN</string>
+    <string name="pref_enable_ipv6">Báº­t IPv6</string>
+    <string name="pref_backup_restore">Sao lÆ°u / khÃ´i phá»¥c cÃ i Ä‘áº·t</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Dò lỗi</string>
-    <string name="pref_enable_telemetry">Gửi báo cáo lỗi</string>
-    <string name="pref_enable_telemetry_summary">Gửi báo cáo Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Không được hỗ trợ trên phiên bản này  </string>
-    <string name="pref_enable_debug">Ghi nhật kí chi tiết</string>
-    <string name="pref_enable_debug_summary">Bạn cần khởi động lại AdAway để tuỳ chỉnh được thực thi.</string>
+    <string name="pref_debug_category">DÃ² lá»—i</string>
+    <string name="pref_enable_telemetry">Gá»­i bÃ¡o cÃ¡o lá»—i</string>
+    <string name="pref_enable_telemetry_summary">Gá»­i bÃ¡o cÃ¡o Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">KhÃ´ng Ä‘Æ°á»£c há»— trá»£ trÃªn phiÃªn báº£n nÃ y  </string>
+    <string name="pref_enable_debug">Ghi nháº­t kÃ­ chi tiáº¿t</string>
+    <string name="pref_enable_debug_summary">Báº¡n cáº§n khá»Ÿi Ä‘á»™ng láº¡i AdAway Ä‘á»ƒ tuá»³ chá»‰nh Ä‘Æ°á»£c thá»±c thi.</string>
 </resources>

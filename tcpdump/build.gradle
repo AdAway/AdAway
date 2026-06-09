@@ -1,6 +1,8 @@
 import com.android.build.gradle.internal.tasks.LibraryJniLibsTask
 
-apply plugin: 'com.android.library'
+plugins {
+    alias(libs.plugins.android.library)
+}
 
 android {
     sourceSets {
@@ -9,13 +11,12 @@ android {
         }
     }
 
-    compileSdk 33
-    ndkVersion '27.2.12479018'
-    namespace 'org.adaway.libpcap'
+    compileSdk 37
+    ndkVersion = '27.2.12479018'
+    namespace = 'org.adaway.libpcap'
 
     defaultConfig {
         minSdkVersion 26
-        targetSdk 33
     }
 
     externalNativeBuild {
@@ -26,6 +27,12 @@ android {
 
     sonarqube {
         skipProject = true
+    }
+    lint {
+        targetSdk 33
+    }
+    testOptions {
+        targetSdk 33
     }
 }
 

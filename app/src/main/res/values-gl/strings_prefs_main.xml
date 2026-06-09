@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferences</string>
     <string name="pref_vpn_ad_blocker_configuration">Bloqueador de publicidade baseado en VPN</string>
-    </resources>
+        <string name="pref_dynamic_colors">Usa cores dinámicas (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Usa as cores de Material You baseadas en fondo de pantalla en Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Non é compatible con esta versión de Android</string></resources>

@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">การตั้งค่า</string>
+    <string name="pref_main_title">à¸à¸²à¸£à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">ดีบัค</string>
-    </resources>
+    <string name="pref_debug_category">à¸”à¸µà¸šà¸±à¸„</string>
+        <string name="pref_dynamic_colors">ใช้สีไดนามิก (โมเน่ต์)</string>
+    <string name="pref_dynamic_colors_summary">ใช้สี Material You ที่เป็นวอลเปเปอร์บน Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">ไม่รองรับ Android เวอร์ชันนี้</string></resources>

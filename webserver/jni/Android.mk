@@ -20,10 +20,10 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_CFLAGS	       := -D MG_ENABLE_IPV6 -DMG_TLS=MG_TLS_OPENSSL -std=c99 -O2 -W -Wall -lcrypto -lssl -pthread -pipe $(COPT)
+LOCAL_CFLAGS	       := -D MG_ENABLE_IPV6 -DMG_TLS=MG_TLS_BUILTIN -std=c99 -O2 -W -Wall -pthread -pipe $(COPT)
+LOCAL_LDFLAGS         := -Wl,-z,max-page-size=16384 -Wl,-z,common-page-size=16384
 LOCAL_MODULE           := webserver
 LOCAL_SRC_FILES        := webserver.c mongoose/mongoose.c
-LOCAL_SHARED_LIBRARIES := ssl crypto
 LOCAL_LDLIBS           := -llog
 
 include $(BUILD_EXECUTABLE)
@@ -33,7 +33,3 @@ include $(BUILD_EXECUTABLE)
 #
 
 
-#
-# Import OpenSSL (ssl and crypto) libraries from prefab
-#
-$(call import-module,prefab/openssl)

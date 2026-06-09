@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Налаштування</string>
+    <string name="pref_main_title">ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ</string>
     <!-- General category -->
-    <string name="pref_general_category">Загальні</string>
-    <string name="pref_dark_theme">Темна тема</string>
+    <string name="pref_general_category">Ð—Ð°Ð³Ð°Ð»ÑŒÐ½Ñ–</string>
+    <string name="pref_dark_theme">Ð¢ÐµÐ¼Ð½Ð° Ñ‚ÐµÐ¼Ð°</string>
+    <string name="pref_dynamic_colors">Використовуйте динамічні кольори (Моне)</string>
+    <string name="pref_dynamic_colors_summary">Використовуйте кольори Material You на основі шпалер на Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Не підтримується цією версією Android</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Світла</item>
-        <item>Темна</item>
-        <item>Системна</item>
+        <item>Ð¡Ð²Ñ–Ñ‚Ð»Ð°</item>
+        <item>Ð¢ÐµÐ¼Ð½Ð°</item>
+        <item>Ð¡Ð¸ÑÑ‚ÐµÐ¼Ð½Ð°</item>
     </string-array>
-    <string name="pref_update_configuration">Автоматичні оновлення</string>
+    <string name="pref_update_configuration">ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ñ– Ð¾Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Блокування реклами</string>
-    <string name="pref_root_ad_blocker_configuration">Блокувальник реклами з root-правами</string>
-    <string name="pref_vpn_ad_blocker_configuration">Блокування на основі VPN</string>
-    <string name="pref_enable_ipv6">Увімкнути підтримку IPv6</string>
-    <string name="pref_backup_restore">Збереження / відновлення правил блокування</string>
+    <string name="pref_ad_block_category">Ð‘Ð»Ð¾ÐºÑƒÐ²Ð°Ð½Ð½Ñ Ñ€ÐµÐºÐ»Ð°Ð¼Ð¸</string>
+    <string name="pref_root_ad_blocker_configuration">Ð‘Ð»Ð¾ÐºÑƒÐ²Ð°Ð»ÑŒÐ½Ð¸Ðº Ñ€ÐµÐºÐ»Ð°Ð¼Ð¸ Ð· root-Ð¿Ñ€Ð°Ð²Ð°Ð¼Ð¸</string>
+    <string name="pref_vpn_ad_blocker_configuration">Ð‘Ð»Ð¾ÐºÑƒÐ²Ð°Ð½Ð½Ñ Ð½Ð° Ð¾ÑÐ½Ð¾Ð²Ñ– VPN</string>
+    <string name="pref_enable_ipv6">Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÑƒ IPv6</string>
+    <string name="pref_backup_restore">Ð—Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð½Ñ / Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ Ð¿Ñ€Ð°Ð²Ð¸Ð» Ð±Ð»Ð¾ÐºÑƒÐ²Ð°Ð½Ð½Ñ</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Режим налагодженя</string>
-    <string name="pref_enable_telemetry">Відправити звіт про збій</string>
-    <string name="pref_enable_telemetry_summary">Звіт до Sentry (sentry,io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Не підтримується цією збіркою</string>
-    <string name="pref_enable_debug">Детальне журналювання</string>
-    <string name="pref_enable_debug_summary">Додаток потрібно оновити, щоб прийняти зміни</string>
+    <string name="pref_debug_category">Ð ÐµÐ¶Ð¸Ð¼ Ð½Ð°Ð»Ð°Ð³Ð¾Ð´Ð¶ÐµÐ½Ñ</string>
+    <string name="pref_enable_telemetry">Ð’Ñ–Ð´Ð¿Ñ€Ð°Ð²Ð¸Ñ‚Ð¸ Ð·Ð²Ñ–Ñ‚ Ð¿Ñ€Ð¾ Ð·Ð±Ñ–Ð¹</string>
+    <string name="pref_enable_telemetry_summary">Ð—Ð²Ñ–Ñ‚ Ð´Ð¾ Sentry (sentry,io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">ÐÐµ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÑƒÑ”Ñ‚ÑŒÑÑ Ñ†Ñ–Ñ”ÑŽ Ð·Ð±Ñ–Ñ€ÐºÐ¾ÑŽ</string>
+    <string name="pref_enable_debug">Ð”ÐµÑ‚Ð°Ð»ÑŒÐ½Ðµ Ð¶ÑƒÑ€Ð½Ð°Ð»ÑŽÐ²Ð°Ð½Ð½Ñ</string>
+    <string name="pref_enable_debug_summary">Ð”Ð¾Ð´Ð°Ñ‚Ð¾Ðº Ð¿Ð¾Ñ‚Ñ€Ñ–Ð±Ð½Ð¾ Ð¾Ð½Ð¾Ð²Ð¸Ñ‚Ð¸, Ñ‰Ð¾Ð± Ð¿Ñ€Ð¸Ð¹Ð½ÑÑ‚Ð¸ Ð·Ð¼Ñ–Ð½Ð¸</string>
 </resources>

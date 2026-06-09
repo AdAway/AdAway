@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Ustawienia</string>
     <!-- General category -->
-    <string name="pref_general_category">Ogólne</string>
-    <string name="pref_dark_theme">Wygląd motywu</string>
+    <string name="pref_general_category">OgÃ³lne</string>
+    <string name="pref_dark_theme">WyglÄ…d motywu</string>
+    <string name="pref_dynamic_colors">Użyj dynamicznych kolorów (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Używaj materiałów opartych na tapetach na Androidzie 12 lub nowszym</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Nieobsługiwane w tej wersji Androida</string>
     <string-array name="pref_dark_theme_modes">
         <item>Jasny</item>
         <item>Ciemny</item>
-        <item>Domyślne ustawienie systemowe</item>
+        <item>DomyÅ›lne ustawienie systemowe</item>
     </string-array>
     <string name="pref_update_configuration">Aktualizacje automatyczne</string>
     <!-- Ad block category -->
     <string name="pref_ad_block_category">Blokowanie reklam</string>
     <string name="pref_root_ad_blocker_configuration">Blokowanie reklam oparte na Root</string>
     <string name="pref_vpn_ad_blocker_configuration">Blokowanie reklam oparte na VPN</string>
-    <string name="pref_enable_ipv6">Włącz obsługę IPv6</string>
+    <string name="pref_enable_ipv6">WÅ‚Ä…cz obsÅ‚ugÄ™ IPv6</string>
     <string name="pref_backup_restore">Kopia zapasowa / przywracanie zasad blokowania</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Debugowanie</string>
-    <string name="pref_enable_telemetry">Wysyłaj raporty o awariach</string>
-    <string name="pref_enable_telemetry_summary">Zgłoś raport do Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Nieobsługiwany w tej wersji</string>
-    <string name="pref_enable_debug">Pełne rejestrowanie</string>
-    <string name="pref_enable_debug_summary">Aby zastosować, konieczne jest ponowne uruchomienie aplikacji</string>
+    <string name="pref_enable_telemetry">WysyÅ‚aj raporty o awariach</string>
+    <string name="pref_enable_telemetry_summary">ZgÅ‚oÅ› raport do Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">NieobsÅ‚ugiwany w tej wersji</string>
+    <string name="pref_enable_debug">PeÅ‚ne rejestrowanie</string>
+    <string name="pref_enable_debug_summary">Aby zastosowaÄ‡, konieczne jest ponowne uruchomienie aplikacji</string>
 </resources>

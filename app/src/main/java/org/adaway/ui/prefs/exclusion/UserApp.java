@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
  *
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
-class UserApp implements Comparable<UserApp> {
+public class UserApp implements Comparable<UserApp> {
     final String name;
     final CharSequence packageName;
     final Drawable icon;

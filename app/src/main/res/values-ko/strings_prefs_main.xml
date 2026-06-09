@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">환경 설정</string>
+    <string name="pref_main_title">í™˜ê²½ ì„¤ì •</string>
     <!-- General category -->
-    <string name="pref_general_category">일반</string>
-    <string name="pref_dark_theme">테마</string>
+    <string name="pref_general_category">ì¼ë°˜</string>
+    <string name="pref_dark_theme">í…Œë§ˆ</string>
+    <string name="pref_dynamic_colors">동적 색상 사용(모네)</string>
+    <string name="pref_dynamic_colors_summary">Android 12 이상에서 배경화면 기반 Material You 색상 사용</string>
+    <string name="pref_dynamic_colors_unsupported_summary">이 Android 버전에서는 지원되지 않습니다.</string>
     <string-array name="pref_dark_theme_modes">
-        <item>밝음</item>
-        <item>어두움</item>
-        <item>시스템 기본값</item>
+        <item>ë°ìŒ</item>
+        <item>ì–´ë‘ì›€</item>
+        <item>ì‹œìŠ¤í…œ ê¸°ë³¸ê°’</item>
     </string-array>
-    <string name="pref_update_configuration">자동 업데이트</string>
+    <string name="pref_update_configuration">ìžë™ ì—…ë°ì´íŠ¸</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">광고 차단</string>
-    <string name="pref_root_ad_blocker_configuration">루팅 기반 광고 차단</string>
-    <string name="pref_vpn_ad_blocker_configuration">VPN 기반 광고 차단</string>
-    <string name="pref_enable_ipv6">IPv6 지원 적용</string>
-    <string name="pref_backup_restore">차단 규칙 백업 / 복원하기</string>
+    <string name="pref_ad_block_category">ê´‘ê³  ì°¨ë‹¨</string>
+    <string name="pref_root_ad_blocker_configuration">ë£¨íŒ… ê¸°ë°˜ ê´‘ê³  ì°¨ë‹¨</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN ê¸°ë°˜ ê´‘ê³  ì°¨ë‹¨</string>
+    <string name="pref_enable_ipv6">IPv6 ì§€ì› ì ìš©</string>
+    <string name="pref_backup_restore">ì°¨ë‹¨ ê·œì¹™ ë°±ì—… / ë³µì›í•˜ê¸°</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">디버깅</string>
-    <string name="pref_enable_telemetry">충돌 보고서 전송</string>
-    <string name="pref_enable_telemetry_summary">Sentry (sentry.io)에 보고</string>
-    <string name="pref_enable_telemetry_disabled_summary">이 빌드에서는 지원되지 않습니다</string>
-    <string name="pref_enable_debug">상세 로그</string>
-    <string name="pref_enable_debug_summary">적용하려면 앱 재시작이 필요합니다</string>
+    <string name="pref_debug_category">ë””ë²„ê¹…</string>
+    <string name="pref_enable_telemetry">ì¶©ëŒ ë³´ê³ ì„œ ì „ì†¡</string>
+    <string name="pref_enable_telemetry_summary">Sentry (sentry.io)ì— ë³´ê³ </string>
+    <string name="pref_enable_telemetry_disabled_summary">ì´ ë¹Œë“œì—ì„œëŠ” ì§€ì›ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤</string>
+    <string name="pref_enable_debug">ìƒì„¸ ë¡œê·¸</string>
+    <string name="pref_enable_debug_summary">ì ìš©í•˜ë ¤ë©´ ì•± ìž¬ì‹œìž‘ì´ í•„ìš”í•©ë‹ˆë‹¤</string>
 </resources>

@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Nastavení</string>
+    <string name="pref_main_title">NastavenÃ­</string>
     <!-- General category -->
-    <string name="pref_general_category">Obecné</string>
-    <string name="pref_dark_theme">Tmavé téma</string>
+    <string name="pref_general_category">ObecnÃ©</string>
+    <string name="pref_dark_theme">TmavÃ© tÃ©ma</string>
+    <string name="pref_dynamic_colors">Použít dynamické barvy (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Používejte barvy Material You založené na tapetách na Androidu 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">V této verzi systému Android není podporováno</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Světlé</item>
-        <item>Tmavé</item>
-        <item>Podle systému</item>
+        <item>SvÄ›tlÃ©</item>
+        <item>TmavÃ©</item>
+        <item>Podle systÃ©mu</item>
     </string-array>
-    <string name="pref_update_configuration">Automatické aktualizace</string>
+    <string name="pref_update_configuration">AutomatickÃ© aktualizace</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Blokování reklamy</string>
-    <string name="pref_root_ad_blocker_configuration">Blokování reklamy pomocí přístupu ROOT</string>
-    <string name="pref_vpn_ad_blocker_configuration">Blokování reklamy pomocí VPN</string>
+    <string name="pref_ad_block_category">BlokovÃ¡nÃ­ reklamy</string>
+    <string name="pref_root_ad_blocker_configuration">BlokovÃ¡nÃ­ reklamy pomocÃ­ pÅ™Ã­stupu ROOT</string>
+    <string name="pref_vpn_ad_blocker_configuration">BlokovÃ¡nÃ­ reklamy pomocÃ­ VPN</string>
     <string name="pref_enable_ipv6">Povolit podporu IPv6</string>
-    <string name="pref_backup_restore">Zálohovat / obnovit pravidla pro blokování</string>
+    <string name="pref_backup_restore">ZÃ¡lohovat / obnovit pravidla pro blokovÃ¡nÃ­</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Ladění</string>
-    <string name="pref_enable_telemetry">Odesílat zprávy o selhání</string>
-    <string name="pref_enable_telemetry_summary">Nahlašovat na Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">Na tomto sestavení není k dispozici</string>
-    <string name="pref_enable_debug">Záznam s více informacemi</string>
-    <string name="pref_enable_debug_summary">Pro aplikování je potřeba restartovat aplikaci</string>
+    <string name="pref_debug_category">LadÄ›nÃ­</string>
+    <string name="pref_enable_telemetry">OdesÃ­lat zprÃ¡vy o selhÃ¡nÃ­</string>
+    <string name="pref_enable_telemetry_summary">NahlaÅ¡ovat na Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">Na tomto sestavenÃ­ nenÃ­ k dispozici</string>
+    <string name="pref_enable_debug">ZÃ¡znam s vÃ­ce informacemi</string>
+    <string name="pref_enable_debug_summary">Pro aplikovÃ¡nÃ­ je potÅ™eba restartovat aplikaci</string>
 </resources>

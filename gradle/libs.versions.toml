@@ -1,54 +1,112 @@
 [versions]
-# Build
-appName = "6.1.4"
-appCode = "60104" # Read x.yy.zz to match version name
-gradle = "8.7.2"
+# App
+appCode = "60104"
+appName = "6.1.6"
+
+# Build plugins
+androidGradle = "9.2.1"
+kotlin = "2.4.0"
+ksp = "2.3.9"
+sonarqube = "7.3.1.8318"
+
+# AndroidX
+activityCompose = "1.13.0"
+composeBom = "2026.05.01"
+composeFoundation = "1.11.2"
+composeMaterial3 = "1.5.0-alpha21"
+coroutines = "1.11.0"
+lifecycle = "2.10.0"
+navigationCompose = "2.9.8"
+paging = "3.5.0"
+room = "2.8.4"
+work = "2.11.2"
+
 # Common
-guava = "32.0.1-android"
-junitVersion = "1.2.1"
-okhttp = "4.12.0"
+guava = "33.6.0-android"
+material = "1.14.0"
+okhttp = "5.3.2"
+sentry = "8.43.1"
 timber = "5.0.1"
+
 # Root
 libsu = "6.0.0"
 openssl = "1.1.1q-beta-1"
+
 # VPN
-pcap4jCore = "1.8.2"
-pcap4jPacketfactoryStatic = "1.8.2"
-dnsjava = "3.5.3"
+dnsjava = "3.6.5"
+pcap4j = "1.8.2"
 slf4j = "1.7.36"
+
 # Test
+androidxCoreTesting = "2.2.0"
+androidxTest = "1.7.0"
+androidxTestJunit = "1.3.0"
+json = "20260522"
 junit = "4.13.2"
-json = "20220320"
-androidxTestCore = "1.6.1"
-androidXCoreTesting = "2.2.0"
 
 [libraries]
-# Build
-gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+# AndroidX lifecycle and work
+androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+androidx-work-runtime = { module = "androidx.work:work-runtime", version.ref = "work" }
+
+# AndroidX paging and Room
+androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
+androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+
+# Compose
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+androidx-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "composeFoundation" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "composeMaterial3" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+
 # Common
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
 okhttp3-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+sentry-android = { module = "io.sentry:sentry-android" }
+sentry-android-fragment = { module = "io.sentry:sentry-android-fragment" }
+sentry-android-timber = { module = "io.sentry:sentry-android-timber" }
+sentry-bom = { module = "io.sentry:sentry-bom", version.ref = "sentry" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+
 # Root
 libsu = { module = "com.github.topjohnwu.libsu:core", version.ref = "libsu" }
 openssl = { module = "com.android.ndk.thirdparty:openssl", version.ref = "openssl" }
+
 # VPN
-pcap4j-core = { module = "org.pcap4j:pcap4j-core", version.ref = "pcap4jCore" }
-pcap4j-pcap4j-packetfactory-static = { module = "org.pcap4j:pcap4j-packetfactory-static", version.ref = "pcap4jPacketfactoryStatic" }
 dnsjava = { module = "dnsjava:dnsjava", version.ref = "dnsjava" }
-slf4j-android = { module = "org.slf4j:slf4j-android", version.ref = "slf4j" }
 okhttp-dnsoverhttps = { module = "com.squareup.okhttp3:okhttp-dnsoverhttps", version.ref = "okhttp" }
+pcap4j-core = { module = "org.pcap4j:pcap4j-core", version.ref = "pcap4j" }
+pcap4j-packetfactory-static = { module = "org.pcap4j:pcap4j-packetfactory-static", version.ref = "pcap4j" }
+slf4j-android = { module = "org.slf4j:slf4j-android", version.ref = "slf4j" }
+
 # Test
-junit = { module = "junit:junit", version.ref = "junit" }
+androidx-test-core = { module = "androidx.test:core", version.ref = "androidxTest" }
+androidx-test-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "androidxCoreTesting" }
+androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "androidxTestJunit" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTest" }
 json = { module = "org.json:json", version.ref = "json" }
-androidx-test-core = { module = "androidx.test:core", version.ref = "androidxTestCore" }
-androidx-test-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "androidXCoreTesting" }
-androidx-test-ext-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
-androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidxTestCore" }
+junit = { module = "junit:junit", version.ref = "junit" }
 
 [bundles]
-pcap4j = ["pcap4j-core", "pcap4j-pcap4j-packetfactory-static"]
 androidx-test = ["androidx-test-core", "androidx-test-core-testing", "androidx-test-ext-junit", "androidx-test-runner"]
+pcap4j = ["pcap4j-core", "pcap4j-packetfactory-static"]
 
 [plugins]
-
+android-application = { id = "com.android.application", version.ref = "androidGradle" }
+android-library = { id = "com.android.library", version.ref = "androidGradle" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }

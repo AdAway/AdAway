@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferences</string>
-    </resources>
+        <string name="pref_dynamic_colors">গতিশীল রং ব্যবহার করুন (মনেট)</string>
+    <string name="pref_dynamic_colors_summary">Android 12+ এ ওয়ালপেপার-ভিত্তিক ম্যাটেরিয়াল ইউ কালার ব্যবহার করুন</string>
+    <string name="pref_dynamic_colors_unsupported_summary">এই অ্যান্ড্রয়েড সংস্করণে সমর্থিত নয়</string></resources>

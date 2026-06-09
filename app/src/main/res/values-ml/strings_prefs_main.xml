@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">മുൻ‌ഗണനകൾ</string>
-    <string name="pref_root_ad_blocker_configuration">റൂട്ട് അടിസ്ഥാനമാക്കിയുള്ള പരസ്യ ബ്ലോക്കർ</string>
+    <string name="pref_main_title">à´®àµàµ»â€Œà´—à´£à´¨à´•àµ¾</string>
+    <string name="pref_root_ad_blocker_configuration">à´±àµ‚à´Ÿàµà´Ÿàµ à´…à´Ÿà´¿à´¸àµà´¥à´¾à´¨à´®à´¾à´•àµà´•à´¿à´¯àµà´³àµà´³ à´ªà´°à´¸àµà´¯ à´¬àµà´²àµ‹à´•àµà´•àµ¼</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">ഡീബഗ് ചെയ്യുക</string>
-    </resources>
+    <string name="pref_debug_category">à´¡àµ€à´¬à´—àµ à´šàµ†à´¯àµà´¯àµà´•</string>
+        <string name="pref_dynamic_colors">ഡൈനാമിക് നിറങ്ങൾ ഉപയോഗിക്കുക (മോനെറ്റ്)</string>
+    <string name="pref_dynamic_colors_summary">Android 12+-ൽ വാൾപേപ്പർ അടിസ്ഥാനമാക്കിയുള്ള മെറ്റീരിയൽ നിങ്ങൾ നിറങ്ങൾ ഉപയോഗിക്കുക</string>
+    <string name="pref_dynamic_colors_unsupported_summary">ഈ Android പതിപ്പിൽ പിന്തുണയില്ല</string></resources>

@@ -32,7 +32,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.POST_PROMOTED_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
@@ -41,13 +43,14 @@
     <application
         android:name=".AdAwayApplication"
         android:allowBackup="true"
-        android:backupAgent=".model.backup.AppBackupAgent"
-        android:fullBackupOnly="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdAway"
+        android:enableOnBackInvokedCallback="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ui.home.HomeActivity"
@@ -62,73 +65,17 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-        <activity
-            android:name=".ui.welcome.WelcomeActivity"
-            android:exported="false"
-            android:label="@string/welcome_title"
-            android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
-        <activity
-            android:name=".ui.hosts.HostsSourcesActivity"
-            android:exported="false"
-            android:label="@string/hosts_title"
-            android:parentActivityName=".ui.home.HomeActivity" />
-        <activity
-            android:name=".ui.source.SourceEditActivity"
-            android:exported="false"
-            android:label="@string/source_edit_title"
-            android:parentActivityName=".ui.hosts.HostsSourcesActivity" />
-        <activity
-            android:name=".ui.log.LogActivity"
-            android:label="@string/shortcut_dns_requests"
-            android:parentActivityName=".ui.home.HomeActivity" />
-        <activity
-            android:name=".ui.lists.ListsActivity"
-            android:exported="false"
-            android:label="@string/lists_title"
-            android:launchMode="singleTop"
-            android:parentActivityName=".ui.home.HomeActivity">
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/list_searchable" />
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".ui.help.HelpActivity"
-            android:exported="false"
-            android:label="@string/menu_help"
-            android:parentActivityName=".ui.home.HomeActivity" />
-        <activity
-            android:name=".ui.support.SupportActivity"
-            android:exported="false"
-            android:label="@string/support_title"
-            android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
-        <activity
-            android:name=".ui.prefs.PrefsActivity"
-            android:exported="false"
-            android:label="@string/preferences_drawer_item"
-            android:parentActivityName=".ui.home.HomeActivity" />
-        <activity
-            android:name=".ui.prefs.exclusion.PrefsVpnExcludedAppsActivity"
-            android:exported="false"
-            android:label="@string/pref_vpn_exclude_user_apps_activity" />
-        <activity
-            android:name=".ui.update.UpdateActivity"
-            android:exported="false"
-            android:label="@string/update_title"
-            android:parentActivityName=".ui.home.HomeActivity"
-            android:theme="@style/Theme.AdAway.NoActionBar.Red" />
-
         <service
             android:name=".vpn.VpnService"
             android:exported="true"
+            android:foregroundServiceType="specialUse"
             android:permission="android.permission.BIND_VPN_SERVICE">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
+            <property
+                android:name="android.app.special_use_fgs_type"
+                android:value="VPN service for ad blocking" />
         </service>
 
         <service

@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Beállítások</string>
+    <string name="pref_main_title">BeÃ¡llÃ­tÃ¡sok</string>
     <!-- General category -->
-    <string name="pref_general_category">Általános</string>
-    <string name="pref_dark_theme">Sötét téma</string>
+    <string name="pref_general_category">ÃltalÃ¡nos</string>
+    <string name="pref_dark_theme">SÃ¶tÃ©t tÃ©ma</string>
+    <string name="pref_dynamic_colors">Dinamikus színek használata (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Használjon háttérkép alapú Material You színeket Android 12+ rendszeren</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Ez az Android verzió nem támogatott</string>
     <string-array name="pref_dark_theme_modes">
-        <item>Világos</item>
-        <item>Sötét</item>
-        <item>Rendszer alapértelmezett</item>
+        <item>VilÃ¡gos</item>
+        <item>SÃ¶tÃ©t</item>
+        <item>Rendszer alapÃ©rtelmezett</item>
     </string-array>
-    <string name="pref_update_configuration">Automatikus frissítések</string>
+    <string name="pref_update_configuration">Automatikus frissÃ­tÃ©sek</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">Hirdetésblokkolás</string>
-    <string name="pref_root_ad_blocker_configuration">Root alapú hirdetésblokkolás</string>
-    <string name="pref_vpn_ad_blocker_configuration">VPN alapú hirdetésblokkolás</string>
-    <string name="pref_enable_ipv6">IPv6 engedélyezése</string>
-    <string name="pref_backup_restore">Blokkszabályok mentése / visszaállítása</string>
+    <string name="pref_ad_block_category">HirdetÃ©sblokkolÃ¡s</string>
+    <string name="pref_root_ad_blocker_configuration">Root alapÃº hirdetÃ©sblokkolÃ¡s</string>
+    <string name="pref_vpn_ad_blocker_configuration">VPN alapÃº hirdetÃ©sblokkolÃ¡s</string>
+    <string name="pref_enable_ipv6">IPv6 engedÃ©lyezÃ©se</string>
+    <string name="pref_backup_restore">BlokkszabÃ¡lyok mentÃ©se / visszaÃ¡llÃ­tÃ¡sa</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">Hibakeresés</string>
-    <string name="pref_enable_telemetry">Összeomlási jelentések BE</string>
-    <string name="pref_enable_telemetry_summary">Az alkalmazás hibaüzenet- és összeomlási jelentést küld a Sentry-nek (sentry.io).</string>
-    <string name="pref_enable_telemetry_disabled_summary">Nem támogatott ezen a verzión</string>
-    <string name="pref_enable_debug">Részletes naplózás bekapcsolása</string>
-    <string name="pref_enable_debug_summary">Újra kell indítani az AdAway-t a beállítás életbe léptetéséhez.</string>
+    <string name="pref_debug_category">HibakeresÃ©s</string>
+    <string name="pref_enable_telemetry">Ã–sszeomlÃ¡si jelentÃ©sek BE</string>
+    <string name="pref_enable_telemetry_summary">Az alkalmazÃ¡s hibaÃ¼zenet- Ã©s Ã¶sszeomlÃ¡si jelentÃ©st kÃ¼ld a Sentry-nek (sentry.io).</string>
+    <string name="pref_enable_telemetry_disabled_summary">Nem tÃ¡mogatott ezen a verziÃ³n</string>
+    <string name="pref_enable_debug">RÃ©szletes naplÃ³zÃ¡s bekapcsolÃ¡sa</string>
+    <string name="pref_enable_debug_summary">Ãšjra kell indÃ­tani az AdAway-t a beÃ¡llÃ­tÃ¡s Ã©letbe lÃ©ptetÃ©sÃ©hez.</string>
 </resources>

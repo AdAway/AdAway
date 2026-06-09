@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">الخيارات</string>
+    <string name="pref_main_title">Ø§Ù„Ø®ÙŠØ§Ø±Ø§Øª</string>
     <!-- General category -->
-    <string name="pref_general_category">عام</string>
-    <string name="pref_dark_theme">ثيم داكن</string>
+    <string name="pref_general_category">Ø¹Ø§Ù…</string>
+    <string name="pref_dark_theme">Ø«ÙŠÙ… Ø¯Ø§ÙƒÙ†</string>
+    <string name="pref_dynamic_colors">استخدام الألوان الديناميكية (مونيه)</string>
+    <string name="pref_dynamic_colors_summary">استخدم ألوان المواد المستندة إلى ورق الحائط على نظام التشغيل Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">غير مدعوم في إصدار Android هذا</string>
     <string-array name="pref_dark_theme_modes">
-        <item>مضيئ</item>
-        <item>داكن</item>
-        <item>الإعداد الإفتراضي للنظام</item>
+        <item>Ù…Ø¶ÙŠØ¦</item>
+        <item>Ø¯Ø§ÙƒÙ†</item>
+        <item>Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯ Ø§Ù„Ø¥ÙØªØ±Ø§Ø¶ÙŠ Ù„Ù„Ù†Ø¸Ø§Ù…</item>
     </string-array>
-    <string name="pref_update_configuration">تحديثات تلقائية</string>
+    <string name="pref_update_configuration">ØªØ­Ø¯ÙŠØ«Ø§Øª ØªÙ„Ù‚Ø§Ø¦ÙŠØ©</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">منع إعلانات</string>
-    <string name="pref_root_ad_blocker_configuration">مانع إعلانات يعتمد على الرووت</string>
-    <string name="pref_vpn_ad_blocker_configuration">مانع إعلانات يعتمد على ال VPN</string>
-    <string name="pref_enable_ipv6">تفعيل دعم IPv6</string>
-    <string name="pref_backup_restore">قواعد حظر النسخ الاحتياطي / الاستعادة</string>
+    <string name="pref_ad_block_category">Ù…Ù†Ø¹ Ø¥Ø¹Ù„Ø§Ù†Ø§Øª</string>
+    <string name="pref_root_ad_blocker_configuration">Ù…Ø§Ù†Ø¹ Ø¥Ø¹Ù„Ø§Ù†Ø§Øª ÙŠØ¹ØªÙ…Ø¯ Ø¹Ù„Ù‰ Ø§Ù„Ø±ÙˆÙˆØª</string>
+    <string name="pref_vpn_ad_blocker_configuration">Ù…Ø§Ù†Ø¹ Ø¥Ø¹Ù„Ø§Ù†Ø§Øª ÙŠØ¹ØªÙ…Ø¯ Ø¹Ù„Ù‰ Ø§Ù„ VPN</string>
+    <string name="pref_enable_ipv6">ØªÙØ¹ÙŠÙ„ Ø¯Ø¹Ù… IPv6</string>
+    <string name="pref_backup_restore">Ù‚ÙˆØ§Ø¹Ø¯ Ø­Ø¸Ø± Ø§Ù„Ù†Ø³Ø® Ø§Ù„Ø§Ø­ØªÙŠØ§Ø·ÙŠ / Ø§Ù„Ø§Ø³ØªØ¹Ø§Ø¯Ø©</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">التصحيح</string>
-    <string name="pref_enable_telemetry">إرسال تقارير الأعطال</string>
-    <string name="pref_enable_telemetry_summary">إرسال تقارير الأعطال إلى Sentry (sentry.io)</string>
-    <string name="pref_enable_telemetry_disabled_summary">غير مدعوم في هذا الإصدار</string>
-    <string name="pref_enable_debug">تسجيل التقارير المفصل</string>
-    <string name="pref_enable_debug_summary">إعادة التشغيل مطلوبة لتطبيق الإعدادات</string>
+    <string name="pref_debug_category">Ø§Ù„ØªØµØ­ÙŠØ­</string>
+    <string name="pref_enable_telemetry">Ø¥Ø±Ø³Ø§Ù„ ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„Ø£Ø¹Ø·Ø§Ù„</string>
+    <string name="pref_enable_telemetry_summary">Ø¥Ø±Ø³Ø§Ù„ ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„Ø£Ø¹Ø·Ø§Ù„ Ø¥Ù„Ù‰ Sentry (sentry.io)</string>
+    <string name="pref_enable_telemetry_disabled_summary">ØºÙŠØ± Ù…Ø¯Ø¹ÙˆÙ… ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ø¥ØµØ¯Ø§Ø±</string>
+    <string name="pref_enable_debug">ØªØ³Ø¬ÙŠÙ„ Ø§Ù„ØªÙ‚Ø§Ø±ÙŠØ± Ø§Ù„Ù…ÙØµÙ„</string>
+    <string name="pref_enable_debug_summary">Ø¥Ø¹Ø§Ø¯Ø© Ø§Ù„ØªØ´ØºÙŠÙ„ Ù…Ø·Ù„ÙˆØ¨Ø© Ù„ØªØ·Ø¨ÙŠÙ‚ Ø§Ù„Ø¥Ø¹Ø¯Ø§Ø¯Ø§Øª</string>
 </resources>

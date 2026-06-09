@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">設定</string>
+    <string name="pref_main_title">è¨­å®š</string>
     <!-- General category -->
-    <string name="pref_general_category">一般</string>
-    <string name="pref_dark_theme">ダークテーマ</string>
+    <string name="pref_general_category">ä¸€èˆ¬</string>
+    <string name="pref_dark_theme">ãƒ€ãƒ¼ã‚¯ãƒ†ãƒ¼ãƒž</string>
+    <string name="pref_dynamic_colors">ダイナミックな色を使用する (モネ)</string>
+    <string name="pref_dynamic_colors_summary">Android 12 以降で壁紙ベースのマテリアルユーカラーを使用する</string>
+    <string name="pref_dynamic_colors_unsupported_summary">この Android バージョンではサポートされていません</string>
     <string-array name="pref_dark_theme_modes">
-        <item>ライト</item>
-        <item>ダーク</item>
-        <item>システムのデフォルト</item>
+        <item>ãƒ©ã‚¤ãƒˆ</item>
+        <item>ãƒ€ãƒ¼ã‚¯</item>
+        <item>ã‚·ã‚¹ãƒ†ãƒ ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ</item>
     </string-array>
-    <string name="pref_update_configuration">自動更新</string>
+    <string name="pref_update_configuration">è‡ªå‹•æ›´æ–°</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">広告ブロッキング</string>
+    <string name="pref_ad_block_category">åºƒå‘Šãƒ–ãƒ­ãƒƒã‚­ãƒ³ã‚°</string>
     <string name="pref_root_ad_blocker_configuration">Root based ad blocker</string>
     <string name="pref_vpn_ad_blocker_configuration">VPN based ad blocker</string>
-    <string name="pref_enable_ipv6">IPv6 サポートの有効化</string>
-    <string name="pref_backup_restore">ブロックルールのバックアップ/リストア</string>
+    <string name="pref_enable_ipv6">IPv6 ã‚µãƒãƒ¼ãƒˆã®æœ‰åŠ¹åŒ–</string>
+    <string name="pref_backup_restore">ãƒ–ãƒ­ãƒƒã‚¯ãƒ«ãƒ¼ãƒ«ã®ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—/ãƒªã‚¹ãƒˆã‚¢</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">デバッグ</string>
-    <string name="pref_enable_telemetry">クラッシュレポートの送信</string>
-    <string name="pref_enable_telemetry_summary">Sentryへ報告（sentry.io）</string>
-    <string name="pref_enable_telemetry_disabled_summary">このバージョンではサポートされていません</string>
-    <string name="pref_enable_debug">徹底したログ収集</string>
-    <string name="pref_enable_debug_summary">適用するにはアプリの再起動が必要です</string>
+    <string name="pref_debug_category">ãƒ‡ãƒãƒƒã‚°</string>
+    <string name="pref_enable_telemetry">ã‚¯ãƒ©ãƒƒã‚·ãƒ¥ãƒ¬ãƒãƒ¼ãƒˆã®é€ä¿¡</string>
+    <string name="pref_enable_telemetry_summary">Sentryã¸å ±å‘Šï¼ˆsentry.ioï¼‰</string>
+    <string name="pref_enable_telemetry_disabled_summary">ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯ã‚µãƒãƒ¼ãƒˆã•ã‚Œã¦ã„ã¾ã›ã‚“</string>
+    <string name="pref_enable_debug">å¾¹åº•ã—ãŸãƒ­ã‚°åŽé›†</string>
+    <string name="pref_enable_debug_summary">é©ç”¨ã™ã‚‹ã«ã¯ã‚¢ãƒ—ãƒªã®å†èµ·å‹•ãŒå¿…è¦ã§ã™</string>
 </resources>

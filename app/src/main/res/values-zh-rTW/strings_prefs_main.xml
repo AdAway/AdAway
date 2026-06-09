@@ -1,26 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">設定</string>
+    <string name="pref_main_title">è¨­å®š</string>
     <!-- General category -->
-    <string name="pref_general_category">一般</string>
-    <string name="pref_dark_theme">深色主題</string>
+    <string name="pref_general_category">ä¸€èˆ¬</string>
+    <string name="pref_dark_theme">æ·±è‰²ä¸»é¡Œ</string>
+    <string name="pref_dynamic_colors">使用動態色彩（莫奈）</string>
+    <string name="pref_dynamic_colors_summary">在 Android 12+ 上使用基於壁紙的 Material You 顏色</string>
+    <string name="pref_dynamic_colors_unsupported_summary">此 Android 版本不支援</string>
     <string-array name="pref_dark_theme_modes">
-        <item>淺色</item>
-        <item>深色</item>
-        <item>系統預設</item>
+        <item>æ·ºè‰²</item>
+        <item>æ·±è‰²</item>
+        <item>ç³»çµ±é è¨­</item>
     </string-array>
-    <string name="pref_update_configuration">自動更新</string>
+    <string name="pref_update_configuration">è‡ªå‹•æ›´æ–°</string>
     <!-- Ad block category -->
-    <string name="pref_ad_block_category">廣告阻擋</string>
-    <string name="pref_root_ad_blocker_configuration">基於 Root 的廣告阻擋器</string>
-    <string name="pref_vpn_ad_blocker_configuration">基於 VPN 的廣告阻擋器</string>
-    <string name="pref_enable_ipv6">啟用 IPv6 支援</string>
-    <string name="pref_backup_restore">備份 / 還原阻擋規則</string>
+    <string name="pref_ad_block_category">å»£å‘Šé˜»æ“‹</string>
+    <string name="pref_root_ad_blocker_configuration">åŸºæ–¼ Root çš„å»£å‘Šé˜»æ“‹å™¨</string>
+    <string name="pref_vpn_ad_blocker_configuration">åŸºæ–¼ VPN çš„å»£å‘Šé˜»æ“‹å™¨</string>
+    <string name="pref_enable_ipv6">å•Ÿç”¨ IPv6 æ”¯æ´</string>
+    <string name="pref_backup_restore">å‚™ä»½ / é‚„åŽŸé˜»æ“‹è¦å‰‡</string>
     <!-- Debug category -->
-    <string name="pref_debug_category">除錯</string>
-    <string name="pref_enable_telemetry">傳送崩潰報告</string>
-    <string name="pref_enable_telemetry_summary">向 Sentry (sentry.io) 報告</string>
-    <string name="pref_enable_telemetry_disabled_summary">此版本不支援</string>
-    <string name="pref_enable_debug">詳細的日誌</string>
-    <string name="pref_enable_debug_summary">需要重新啟動應用程式才能應用</string>
+    <string name="pref_debug_category">é™¤éŒ¯</string>
+    <string name="pref_enable_telemetry">å‚³é€å´©æ½°å ±å‘Š</string>
+    <string name="pref_enable_telemetry_summary">å‘ Sentry (sentry.io) å ±å‘Š</string>
+    <string name="pref_enable_telemetry_disabled_summary">æ­¤ç‰ˆæœ¬ä¸æ”¯æ´</string>
+    <string name="pref_enable_debug">è©³ç´°çš„æ—¥èªŒ</string>
+    <string name="pref_enable_debug_summary">éœ€è¦é‡æ–°å•Ÿå‹•æ‡‰ç”¨ç¨‹å¼æ‰èƒ½æ‡‰ç”¨</string>
 </resources>

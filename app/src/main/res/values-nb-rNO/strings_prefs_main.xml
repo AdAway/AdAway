@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferanser</string>
     <!-- Debug category -->
     <string name="pref_debug_category">Avlusing</string>
-    </resources>
+        <string name="pref_dynamic_colors">Bruk dynamiske farger (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Bruk bakgrunnsbaserte Material You-farger på Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Støttes ikke på denne Android-versjonen</string></resources>

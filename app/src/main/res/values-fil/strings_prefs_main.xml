@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="pref_main_title">Preferences</string>
-    </resources>
+        <string name="pref_dynamic_colors">Gumamit ng mga dynamic na kulay (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Gumamit ng wallpaper-based na Material You na kulay sa Android 12+</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Hindi suportado sa bersyon ng Android na ito</string></resources>

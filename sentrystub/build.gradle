@@ -1,12 +1,13 @@
-apply plugin: 'com.android.library'
+plugins {
+    alias(libs.plugins.android.library)
+}
 
 android {
-    compileSdk 33
-    namespace 'io.sentry'
+    compileSdk 37
+    namespace = 'io.sentry'
 
     defaultConfig {
         minSdk 26
-        targetSdk 33
     }
 
     compileOptions {
@@ -16,5 +17,11 @@ android {
 
     sonarqube {
         skipProject = true
+    }
+    lint {
+        targetSdk 33
+    }
+    testOptions {
+        targetSdk 33
     }
 }

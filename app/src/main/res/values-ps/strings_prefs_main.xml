@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">غورتياوې </string>
-    </resources>
+    <string name="pref_main_title">ØºÙˆØ±ØªÙŠØ§ÙˆÛ </string>
+        <string name="pref_dynamic_colors">متحرک رنګونه وکاروئ (مونیټ)</string>
+    <string name="pref_dynamic_colors_summary">په Android 12+ کې د وال پیپر پراساس مواد وکاروئ چې تاسو یې رنګ کوئ</string>
+    <string name="pref_dynamic_colors_unsupported_summary">په دې Android نسخه کې ملاتړ نه کوي</string></resources>

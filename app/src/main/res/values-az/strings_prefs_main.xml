@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pref_main_title">Tənzimləmələr</string>
-    </resources>
+    <string name="pref_main_title">TÉ™nzimlÉ™mÉ™lÉ™r</string>
+        <string name="pref_dynamic_colors">Dinamik rənglərdən istifadə edin (Monet)</string>
+    <string name="pref_dynamic_colors_summary">Android 12+ cihazında divar kağızı əsaslı Material You rənglərindən istifadə edin</string>
+    <string name="pref_dynamic_colors_unsupported_summary">Bu Android versiyasında dəstəklənmir</string></resources>
