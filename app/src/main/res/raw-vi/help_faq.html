@@ -9,8 +9,9 @@ And don't add newlines before or after p tags because of transifex -->
 <p>Có một quan niệm cho rằng nếu người dùng không bao giờ nhấp chuột vào quảng cáo thì việc chặn chúng sẽ không làm trang web hoặc ứng dụng bị tổn thất về mặt tài chính. Điều này thật sai lầm vì các nhà phát triển cũng kiếm được tiền cho dù chỉ hiển thị quảng cáo. Việc chặn quảng cáo hay không tuỳ thuộc vào bạn. Cá nhân tôi sẽ không dùng các ứng dụng có hiển thị quảng cáo bởi vì tôi thấy chúng rất khó chịu, chính vì vậy mà khi không có phần mềm chặn quảng cáo tôi sẽ không cài đặt những ứng dụng này.</p>
 
 <h2>AdAway hoạt động như thế nào?</h2>
-<p>AdAway sử dụng tập tin miền để chặn các tên miền phục vụ cho quảng cáo. Tập tin miền nằm trong /system/etc/hosts sẽ lập bản đồ các tên miền tới các địa chỉ IP. Đó là cách truyền thống để xác định tên miền cho các cặp địa chỉ IP mà không cần dựa trên Hệ thống tên miền (DNS). Tất cả các tên miền không mong muốn sẽ được chuyển hướng đến 127.0.0.1, nghĩa là chúng sẽ hướng đến thiết bị của bạn.
-</p>
+<p>AdAway sử dụng <a href="http://en.wikipedia.org/wiki/Hosts_file"> tập tin miền </a><a href="http://en.wikipedia.org/wiki/Hosts_file"> để chặn các tên miền phục vụ cho quảng cáo. Tập tin miền nằm trong <code>/system/etc/hosts<code> sẽ lập bản đồ các tên miền tới các địa chỉ IP. Đó là cách truyền thống để xác định tên miền cho các cặp địa chỉ IP mà không cần dựa trên Hệ thống tên miền (DNS). Tất cả các tên miền không mong muốn sẽ được chuyển hướng đến <code>127.0.0.1<code>, nghĩa là chúng sẽ hướng đến thiết bị của bạn.
+Nếu host không thể ghi được,  giải pháp dự phòng là dùng VPN được xây dựng sẵn. Nó sẽ lọc những hostname không mong muốn và để yên các hostname khác.
+</code></code></code></code></a></p>
 
 <h2>Tại sao tôi phải khởi động lại Android để thay đổi có hiệu lực?</h2>
 <p>Java trên Android duy trì bộ nhớ đệm DNS bên trong của chính nó. Hệ điều hành sẽ phản xạ tập tin tên miền mới ngay lập tức (xác minh nó với ping trên dòng lệnh) nhưng bạn cần khởi động lại Android để xây dựng lại bộ nhớ đệm DNS của Java.</p>
