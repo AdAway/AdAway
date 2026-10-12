@@ -3,10 +3,12 @@ package org.adaway.ui.source;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.SystemClock;
 import android.view.View;
@@ -25,12 +27,14 @@ import androidx.test.runner.lifecycle.Stage;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.db.entity.ListType;
 import org.adaway.db.entity.RuleKind;
+import org.adaway.model.source.SourceModel;
 import org.adaway.testing.InstrumentedTestState;
 import org.adaway.ui.home.HomeActivity;
 import org.adaway.util.AppExecutors;
@@ -40,12 +44,19 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.Optional;
+import java.lang.reflect.Field;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 @RunWith(AndroidJUnit4.class)
 public class SourceEditAddEditInstrumentedTest {
@@ -60,22 +71,161 @@ public class SourceEditAddEditInstrumentedTest {
     private static final String DELETE_URL = "https://example.com/adaway-delete-proof.txt";
 
     private Context context;
+    private SourceModel sourceModel;
+    private OkHttpClient previousHttpClient;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         this.context = ApplicationProvider.getApplicationContext();
         InstrumentedTestState.resetForPassiveRootUi(this.context, "set up source add edit");
         AppDatabase.getInstance(this.context).getOpenHelper().getWritableDatabase();
         waitForDiskIoIdle();
         resetSources(this.context);
+        this.sourceModel = ((AdAwayApplication) this.context).getSourceModel();
+        Field client = SourceModel.class.getDeclaredField("cachedHttpClient");
+        client.setAccessible(true);
+        this.previousHttpClient = (OkHttpClient) client.get(this.sourceModel);
+        client.set(this.sourceModel, new OkHttpClient.Builder().addInterceptor(chain ->
+                new Response.Builder().request(chain.request()).protocol(Protocol.HTTP_1_1)
+                        .code(200).message("OK")
+                        .body(ResponseBody.create("0.0.0.0 ads.url-import.example\n",
+                                MediaType.get("text/plain")))
+                        .build()).build());
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
         finishResumedActivities();
         if (this.context != null) {
-            resetSources(this.context);
             InstrumentedTestState.resetForPassiveRootUi(this.context, "tear down source add edit");
+            resetSources(this.context);
+        }
+        if (this.sourceModel != null) {
+            Field client = SourceModel.class.getDeclaredField("cachedHttpClient");
+            client.setAccessible(true);
+            client.set(this.sourceModel, this.previousHttpClient);
+        }
+    }
+
+    @Test(timeout = 120_000)
+    public void busyUpdateRejectsSaveAndDeleteThenDeleteClearsRuntime() throws Exception {
+        seedDownloadedSource(this.context);
+        runDatabaseWork(this.context, database -> this.sourceModel.syncHostEntries());
+        AppDatabase database = AppDatabase.getInstance(this.context);
+        assertNotNull(database.hostEntryDao().getEntry("ads.delete-proof.example"));
+        Intent intent = new Intent(this.context, SourceEditActivity.class)
+                .putExtra(SourceEditActivity.SOURCE_ID, DELETE_SOURCE_ID);
+        CountDownLatch gateHeld = new CountDownLatch(1);
+        CountDownLatch releaseGate = new CountDownLatch(1);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<?> holder = null;
+        try (ActivityScenario<SourceEditActivity> ignored = ActivityScenario.launch(intent)) {
+            SourceEditActivity activity = waitForActivity(SourceEditActivity.class);
+            waitForFieldText(activity, R.id.labelEditText, DELETE_LABEL);
+            holder = executor.submit(() -> this.sourceModel.runSourceMutation(() -> {
+                gateHeld.countDown();
+                try {
+                    if (!releaseGate.await(60, TimeUnit.SECONDS)) {
+                        throw new IllegalStateException("Timed out waiting for mutation test");
+                    }
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    throw new IllegalStateException(e);
+                }
+                return null;
+            }));
+            assertTrue(gateHeld.await(TIMEOUT_MS, TimeUnit.MILLISECONDS));
+
+            saveSource(activity, EDIT_LABEL, EDIT_URL);
+            waitForDiskIoIdle();
+            InstrumentationRegistry.getInstrumentation().waitForIdleSync();
+            assertFieldError(activity, R.id.location_edit_text,
+                    this.context.getString(R.string.error_update_in_progress_message));
+            assertEquals(DELETE_LABEL, waitForSource(DELETE_URL).getLabel());
+            assertFalse(database.hostsSourceDao().getByUrl(EDIT_URL).isPresent());
+            assertEquals(1, countListRowsForSource(DELETE_SOURCE_ID));
+
+            clickAccessibilityText(this.context.getString(R.string.checkbox_list_context_delete));
+            clickAccessibilityText(this.context.getString(R.string.source_edit_delete_confirm_action));
+            waitForDiskIoIdle();
+            InstrumentationRegistry.getInstrumentation().waitForIdleSync();
+            assertFieldError(activity, R.id.location_edit_text,
+                    this.context.getString(R.string.error_update_in_progress_message));
+            assertEquals(DELETE_SOURCE_ID, waitForSource(DELETE_URL).getId());
+            assertNotNull(database.hostEntryDao().getEntry("ads.delete-proof.example"));
+            InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                    assertFalse(activity.isFinishing()));
+
+            releaseGate.countDown();
+            holder.get(TIMEOUT_MS, TimeUnit.MILLISECONDS);
+            clickAccessibilityText(this.context.getString(R.string.checkbox_list_context_delete));
+            clickAccessibilityText(this.context.getString(R.string.source_edit_delete_confirm_action));
+            waitForSourceMissing(DELETE_URL);
+            waitForDiskIoIdle();
+            assertNull(database.hostEntryDao().getEntry("ads.delete-proof.example"));
+            assertEquals(ListType.ALLOWED,
+                    database.hostEntryDao().resolveEntry("ads.delete-proof.example").getType());
+            assertSourceRootStageEmpty();
+        } finally {
+            releaseGate.countDown();
+            executor.shutdownNow();
+            executor.awaitTermination(TIMEOUT_MS, TimeUnit.MILLISECONDS);
+        }
+    }
+
+    @Test(timeout = 120_000)
+    public void urlEditClearsOldRuntimeBeforeReplacementDownloadCompletes() throws Exception {
+        seedDownloadedSource(this.context);
+        runDatabaseWork(this.context, database -> this.sourceModel.syncHostEntries());
+        AppDatabase database = AppDatabase.getInstance(this.context);
+        assertNotNull(database.hostEntryDao().getEntry("ads.delete-proof.example"));
+        CountDownLatch requested = new CountDownLatch(1);
+        CountDownLatch respond = new CountDownLatch(1);
+        Field field = SourceModel.class.getDeclaredField("cachedHttpClient");
+        field.setAccessible(true);
+        Object originalClient = field.get(this.sourceModel);
+        field.set(this.sourceModel, new OkHttpClient.Builder().addInterceptor(chain -> {
+            requested.countDown();
+            try {
+                if (!respond.await(30, TimeUnit.SECONDS)) {
+                    throw new java.io.IOException("Timed out waiting for download release");
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new java.io.IOException(e);
+            }
+            return new Response.Builder().request(chain.request()).protocol(Protocol.HTTP_1_1)
+                    .code(503).message("Unavailable")
+                    .body(ResponseBody.create("", MediaType.get("text/plain"))).build();
+        }).build());
+        Intent intent = new Intent(this.context, SourceEditActivity.class)
+                .putExtra(SourceEditActivity.SOURCE_ID, DELETE_SOURCE_ID);
+        try (ActivityScenario<SourceEditActivity> ignored = ActivityScenario.launch(intent)) {
+            SourceEditActivity activity = waitForActivity(SourceEditActivity.class);
+            waitForFieldText(activity, R.id.labelEditText, DELETE_LABEL);
+            saveSource(activity, EDIT_LABEL, EDIT_URL);
+            assertEquals(DELETE_SOURCE_ID, waitForSource(EDIT_URL).getId());
+            waitForDiskIoIdle();
+            assertTrue(requested.await(TIMEOUT_MS, TimeUnit.MILLISECONDS));
+            assertEquals(0, countListRowsForSource(DELETE_SOURCE_ID));
+            assertNull(database.hostEntryDao().getEntry("ads.delete-proof.example"));
+            assertEquals(ListType.ALLOWED,
+                    database.hostEntryDao().resolveEntry("ads.delete-proof.example").getType());
+            assertSourceRootStageEmpty();
+        } finally {
+            respond.countDown();
+            InstrumentedTestState.resetForPassiveRootUi(this.context, "finish URL edit download");
+            field.set(this.sourceModel, originalClient);
+        }
+    }
+
+    private void assertSourceRootStageEmpty() {
+        try (Cursor cursor = AppDatabase.getInstance(this.context).getOpenHelper()
+                .getReadableDatabase().query(
+                        "SELECT COUNT(*) FROM root_host_entries_stage WHERE source_id = ?",
+                        new Object[]{DELETE_SOURCE_ID})) {
+            assertTrue(cursor.moveToFirst());
+            assertEquals(0, cursor.getInt(0));
         }
     }
 
@@ -117,6 +267,78 @@ public class SourceEditAddEditInstrumentedTest {
         assertTrue(edited.isAllowEnabled());
         assertFalse(edited.isRedirectEnabled());
         waitForSourceMissing(ADD_URL);
+    }
+
+    @Test(timeout = 120_000)
+    public void renamingDisabledSourcePreservesIdentityAndDownloadedRules() throws Exception {
+        seedDownloadedSource(this.context);
+        runDatabaseWork(this.context, database -> {
+            database.hostsSourceDao().applySourceSelection(DELETE_SOURCE_ID, false);
+            database.hostsSourceDao().updateEntityTag(DELETE_SOURCE_ID, "saved-etag");
+            database.hostsSourceDao().updateSize(DELETE_SOURCE_ID);
+        });
+        Intent intent = new Intent(this.context, SourceEditActivity.class)
+                .putExtra(SourceEditActivity.SOURCE_ID, DELETE_SOURCE_ID);
+        try (ActivityScenario<SourceEditActivity> ignored = ActivityScenario.launch(intent)) {
+            SourceEditActivity activity = waitForActivity(SourceEditActivity.class);
+            waitForFieldText(activity, R.id.labelEditText, DELETE_LABEL);
+            saveSource(activity, EDIT_LABEL, DELETE_URL);
+            waitForSourceLabel(DELETE_URL, EDIT_LABEL);
+            HostsSource renamed = waitForSource(DELETE_URL);
+            assertEquals(DELETE_SOURCE_ID, renamed.getId());
+            assertFalse(renamed.isEnabled());
+            assertEquals("saved-etag", renamed.getEntityTag());
+            assertEquals(1, renamed.getSize());
+            assertEquals(1, countListRowsForSource(DELETE_SOURCE_ID));
+        }
+    }
+
+    @Test(timeout = 120_000)
+    public void duplicateUrlEditLeavesBothSourcesAndRulesIntact() throws Exception {
+        seedDownloadedSource(this.context);
+        runDatabaseWork(this.context, database -> {
+            HostsSource other = new HostsSource();
+            other.setLabel(ADD_LABEL);
+            other.setUrl(ADD_URL);
+            database.hostsSourceDao().insert(other);
+        });
+        Intent intent = new Intent(this.context, SourceEditActivity.class)
+                .putExtra(SourceEditActivity.SOURCE_ID, DELETE_SOURCE_ID);
+        try (ActivityScenario<SourceEditActivity> ignored = ActivityScenario.launch(intent)) {
+            SourceEditActivity activity = waitForActivity(SourceEditActivity.class);
+            waitForFieldText(activity, R.id.labelEditText, DELETE_LABEL);
+            saveSource(activity, EDIT_LABEL, ADD_URL);
+            waitForDiskIoIdle();
+            assertEquals(DELETE_SOURCE_ID, waitForSource(DELETE_URL).getId());
+            assertEquals(ADD_LABEL, waitForSource(ADD_URL).getLabel());
+            assertEquals(1, countListRowsForSource(DELETE_SOURCE_ID));
+            InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+                TextInputEditText field = activity.findViewById(R.id.location_edit_text);
+                assertNotNull("Duplicate URL must be explained in the editor", field.getError());
+                assertFalse(activity.isFinishing());
+            });
+        }
+    }
+
+    @Test(timeout = 120_000)
+    public void pastedUrlCanBeSavedWithoutChoosingALabel() throws Exception {
+        try (ActivityScenario<SourceEditActivity> ignored =
+                     ActivityScenario.launch(SourceEditActivity.class)) {
+            SourceEditActivity activity = waitForActivity(SourceEditActivity.class);
+            assertFieldText(activity, R.id.location_edit_text, "");
+            saveSource(activity, "", "  " + ADD_URL + "\n");
+            HostsSource source = waitForSource(ADD_URL);
+            assertEquals("example.com", source.getLabel());
+            assertTrue(source.isEnabled());
+            long deadline = SystemClock.uptimeMillis() + TIMEOUT_MS;
+            while (SystemClock.uptimeMillis() < deadline && AppDatabase.getInstance(this.context)
+                    .hostEntryDao().getEntry("ads.url-import.example") == null) {
+                SystemClock.sleep(50);
+            }
+            assertNotNull("Saving a new URL must download and publish its rules",
+                    AppDatabase.getInstance(this.context).hostEntryDao()
+                            .getEntry("ads.url-import.example"));
+        }
     }
 
     @Test(timeout = 120_000)
@@ -201,6 +423,31 @@ public class SourceEditAddEditInstrumentedTest {
             assertNotNull(field);
             assertEquals(expectedText, field.getText().toString());
         });
+    }
+
+    private static void waitForFieldText(Activity activity, int viewId, String text) {
+        long deadline = SystemClock.uptimeMillis() + TIMEOUT_MS;
+        while (SystemClock.uptimeMillis() < deadline) {
+            AtomicReference<String> value = new AtomicReference<>();
+            InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                    value.set(((TextView) activity.findViewById(viewId)).getText().toString()));
+            if (text.equals(value.get())) {
+                return;
+            }
+            SystemClock.sleep(50);
+        }
+        throw new AssertionError("Editor did not load " + text);
+    }
+
+    private static void waitForSourceLabel(String url, String label) {
+        long deadline = SystemClock.uptimeMillis() + TIMEOUT_MS;
+        while (SystemClock.uptimeMillis() < deadline) {
+            if (label.equals(waitForSource(url).getLabel())) {
+                return;
+            }
+            SystemClock.sleep(50);
+        }
+        throw new AssertionError("Source label was not saved");
     }
 
     private static void assertFieldError(Activity activity, int viewId, String expectedError) {

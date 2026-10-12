@@ -3,10 +3,6 @@ package org.adaway.vpn.worker;
 import static java.lang.Integer.parseInt;
 import static java.util.Objects.requireNonNull;
 
-import android.content.Context;
-
-import org.adaway.vpn.VpnServiceControls;
-
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
@@ -25,9 +21,9 @@ public class VpnConnectionMonitor {
     private static final int CONNECTION_CHECK_DELAY_MS = 10_000;
     private static final Pattern TUNNEL_PATTERN = Pattern.compile("tun([0-9]+)");
     /**
-     * The application context.
+     * Request recovery through the owning service's lifecycle guard.
      */
-    private final Context context;
+    private final Runnable reconnect;
     /**
      * Whether the monitor is running (<code>true</code> if running, <code>false</code> if stopped).
      */
@@ -35,15 +31,15 @@ public class VpnConnectionMonitor {
     /**
      * The network interface to monitor (<code>null</code> if not initialized).
      */
-    private NetworkInterface networkInterface;
+    private volatile NetworkInterface networkInterface;
 
     /**
      * Constructor.
      *
-     * @param context The application context.
+     * @param reconnect Callback requesting recovery from the owning service.
      */
-    VpnConnectionMonitor(Context context) {
-        this.context = context;
+    VpnConnectionMonitor(Runnable reconnect) {
+        this.reconnect = reconnect;
         this.running = new AtomicBoolean(true);
         this.networkInterface = null;
     }
@@ -101,12 +97,13 @@ public class VpnConnectionMonitor {
      */
     void monitor() {
         try {
-            while (this.running.get()) {
-                if (this.networkInterface != null && !this.networkInterface.isUp()) {
-                    stop();
-                    Timber.i("VPN network interface %s is down. Starting VPN service…",
-                            this.networkInterface == null ? "unset" : this.networkInterface.getName());
-                    VpnServiceControls.start(this.context);
+            while (this.running.get() && !Thread.currentThread().isInterrupted()) {
+                NetworkInterface currentInterface = this.networkInterface;
+                if (currentInterface != null && !currentInterface.isUp()) {
+                    Timber.i("VPN network interface %s is down. Requesting recovery.",
+                            currentInterface.getName());
+                    requestReconnect();
+                    break;
                 }
                 try {
                     Thread.sleep(CONNECTION_CHECK_DELAY_MS);
@@ -117,9 +114,14 @@ public class VpnConnectionMonitor {
                 }
             }
         } catch (SocketException e) {
-            Timber.w(e, "Failed to test VPN network interface %s. Starting VPN service…", this.networkInterface.getName());
-            reset();
-            VpnServiceControls.start(this.context);
+            Timber.w(e, "Failed to test VPN network interface.");
+            requestReconnect();
+        }
+    }
+
+    void requestReconnect() {
+        if (this.running.compareAndSet(true, false) && !Thread.currentThread().isInterrupted()) {
+            this.reconnect.run();
         }
     }
 
@@ -129,6 +131,10 @@ public class VpnConnectionMonitor {
     void reset() {
         this.networkInterface = null;
         this.running.set(true);
+    }
+
+    void clearNetworkInterface() {
+        this.networkInterface = null;
     }
 
     /**

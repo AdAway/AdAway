@@ -62,6 +62,16 @@ public class UpdateViewModel extends AdwareViewModel {
         return this.downloadProgress;
     }
 
+    public void resumePendingInstall() {
+        if (!this.updateModel.hasPendingInstall()) {
+            return;
+        }
+        AppExecutors.getInstance().networkIO().execute(() -> {
+            this.updateModel.resumePendingInstall();
+            this.downloadProgress.postValue(null);
+        });
+    }
+
     private void trackProgress(long downloadId) {
         // Ensure we don't run multiple progress loops concurrently.
         if (!this.tracking.compareAndSet(false, true)) {

@@ -21,6 +21,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.databinding.FragmentDiscoverCatalogBinding;
 import org.adaway.db.AppDatabase;
@@ -28,6 +29,7 @@ import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.model.source.FilterListCatalog;
 import org.adaway.model.source.SourceUpdateService;
+import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
 import org.adaway.ui.hosts.FilterSetStore;
 import org.adaway.ui.source.SourceEditActivity;
 import org.adaway.util.AppExecutors;
@@ -375,17 +377,20 @@ public class DiscoverCatalogFragment extends Fragment {
     }
 
     private void removeExistingSourceByUrl(String url) {
+        if (binding == null || !isAdded()) return;
+        final android.content.Context appContext = requireContext().getApplicationContext();
         AppExecutors.getInstance().diskIO().execute(() -> {
             HostsSource existing = hostsSourceDao.getByUrl(url).orElse(null);
             if (existing != null) {
                 hostsSourceDao.delete(existing);
+                ((AdAwayApplication) appContext).getSourceModel().syncHostEntries();
             }
             runOnMainThreadIfAdded(() -> {
                 // existingUrls mutation must happen on main thread — adapter reads it there.
                 existingUrls.remove(url);
                 notifyCatalogRowsChanged();
-                Snackbar.make(binding.catalogRecyclerView, R.string.filter_removed_success, Snackbar.LENGTH_SHORT)
-                        .show();
+                new ApplyConfigurationSnackbar(binding.getRoot(), false, false)
+                        .notifyUpdateAvailable();
                 updateSubtitle();
             });
         });

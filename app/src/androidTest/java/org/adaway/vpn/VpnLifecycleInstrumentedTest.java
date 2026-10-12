@@ -2,6 +2,7 @@ package org.adaway.vpn;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
 import static android.net.NetworkCapabilities.TRANSPORT_VPN;
+import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.vpn.VpnStatus.RUNNING;
 import static org.adaway.vpn.VpnStatus.STOPPED;
 import static org.junit.Assert.assertFalse;
@@ -10,6 +11,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeTrue;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -22,6 +24,7 @@ import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
 
 import org.adaway.helper.PreferenceHelper;
+import org.adaway.model.adblocking.AdBlockMethod;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,6 +49,7 @@ public class VpnLifecycleInstrumentedTest {
     private Context context;
     private RecordingTree recordingTree;
     private VpnStatus originalStatus;
+    private AdBlockMethod originalMethod;
     private boolean heartbeatTouched;
     private boolean lifecycleStarted;
 
@@ -59,16 +63,25 @@ public class VpnLifecycleInstrumentedTest {
 
     @After
     public void tearDown() throws Exception {
-        if (this.lifecycleStarted) {
-            VpnServiceControls.stop(this.context);
-            waitUntilStatus(STOPPED, LIFECYCLE_TIMEOUT_MS);
+        try {
+            if (this.lifecycleStarted) {
+                VpnServiceControls.stop(this.context);
+                waitUntilStopped();
+            }
+        } finally {
+            try {
+                if (this.heartbeatTouched || this.lifecycleStarted) {
+                    cancelHeartbeat();
+                }
+            } finally {
+                PreferenceHelper.setVpnServiceStatus(this.context,
+                        this.lifecycleStarted ? STOPPED : this.originalStatus);
+                if (this.originalMethod != null) {
+                    PreferenceHelper.setAbBlockMethod(this.context, this.originalMethod);
+                }
+                Timber.uproot(this.recordingTree);
+            }
         }
-        if (this.heartbeatTouched || this.lifecycleStarted) {
-            cancelHeartbeat();
-        }
-        PreferenceHelper.setVpnServiceStatus(this.context,
-                this.lifecycleStarted ? STOPPED : this.originalStatus);
-        Timber.uproot(this.recordingTree);
     }
 
     @Test
@@ -95,13 +108,15 @@ public class VpnLifecycleInstrumentedTest {
         Intent prepareIntent = android.net.VpnService.prepare(this.context);
         assumeTrue("Skipping full VPN lifecycle proof: AdAway VPN consent is not pre-granted.",
                 prepareIntent == null);
+        this.originalMethod = PreferenceHelper.getAdBlockMethod(this.context);
+        PreferenceHelper.setAbBlockMethod(this.context, VPN);
         this.heartbeatTouched = true;
         cancelHeartbeat();
         PreferenceHelper.setVpnServiceStatus(this.context, STOPPED);
 
+        this.lifecycleStarted = true;
         assertTrue("VPN service start command must be accepted.",
                 VpnServiceControls.start(this.context));
-        this.lifecycleStarted = true;
         waitUntilStatus(RUNNING, LIFECYCLE_TIMEOUT_MS);
         assertTrue("RUNNING must mean Android reports AdAway's VPN network.",
                 VpnServiceControls.isTunnelEstablished(this.context));
@@ -113,7 +128,7 @@ public class VpnLifecycleInstrumentedTest {
                 waitForLog("VPN service started."));
 
         VpnServiceControls.stop(this.context);
-        waitUntilStatus(STOPPED, LIFECYCLE_TIMEOUT_MS);
+        waitUntilStopped();
         assertFalse("STOPPED must clear established tunnel status.",
                 VpnServiceControls.isTunnelEstablished(this.context));
         assertTrue("Stopping the VPN must cancel the heartbeat.",
@@ -128,6 +143,23 @@ public class VpnLifecycleInstrumentedTest {
                 VpnServiceControls.isTunnelEstablished(this.context));
         assertNotNull("A resumed VPN should expose an up tun* interface.",
                 findUpTunnelInterface());
+    }
+
+    private void waitUntilStopped() throws Exception {
+        ActivityManager manager = this.context.getSystemService(ActivityManager.class);
+        assertNotNull(manager);
+        long deadline = System.nanoTime() + TimeUnit.MILLISECONDS.toNanos(LIFECYCLE_TIMEOUT_MS);
+        do {
+            boolean servicePresent = manager.getRunningServices(Integer.MAX_VALUE).stream()
+                    .anyMatch(service -> VpnService.class.getName()
+                            .equals(service.service.getClassName()));
+            if (!servicePresent && !hasAnyVpnNetwork()
+                    && PreferenceHelper.getVpnServiceStatus(this.context) == STOPPED) {
+                return;
+            }
+            Thread.sleep(POLL_INTERVAL_MS);
+        } while (System.nanoTime() < deadline);
+        throw new AssertionError("Stopped VPN must release both its service and network.");
     }
 
     private void waitUntilStatus(VpnStatus expected, long timeoutMs) throws Exception {

@@ -31,6 +31,8 @@ public class ApkDownloadReceiver extends BroadcastReceiver {
     private final String expectedSigningCertificateSha256;
     @Nullable
     private final Runnable onTerminal;
+    @Nullable
+    private volatile Uri pendingInstallUri;
 
     public ApkDownloadReceiver(
             long downloadId,
@@ -128,8 +130,9 @@ public class ApkDownloadReceiver extends BroadcastReceiver {
         }
     }
 
-    private void installApk(Context context, Uri apkUri) {
-        if (SDK_INT >= O && !context.getPackageManager().canRequestPackageInstalls()) {
+    void installApk(Context context, Uri apkUri) {
+        if (!canRequestPackageInstalls(context)) {
+            this.pendingInstallUri = apkUri;
             Intent settings = new Intent(
                     Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES,
                     Uri.parse("package:" + context.getPackageName()));
@@ -148,7 +151,35 @@ public class ApkDownloadReceiver extends BroadcastReceiver {
         startActivityIfResolvable(context, install, "APK installer");
     }
 
-    private boolean startActivityIfResolvable(Context context, Intent intent, String target) {
+    boolean hasPendingInstall() {
+        return this.pendingInstallUri != null;
+    }
+
+    synchronized void resumePendingInstall(Context context) {
+        Uri apkUri = this.pendingInstallUri;
+        if (apkUri == null || !canRequestPackageInstalls(context)) {
+            return;
+        }
+        this.pendingInstallUri = null;
+        // The download may have changed or disappeared while settings was open.
+        if (isVerifiedApk(context, apkUri)) {
+            installApk(context, apkUri);
+        } else {
+            Timber.w("Pending APK rejected after returning from install-permission settings.");
+        }
+    }
+
+    boolean canRequestPackageInstalls(Context context) {
+        return SDK_INT < O || context.getPackageManager().canRequestPackageInstalls();
+    }
+
+    boolean isVerifiedApk(Context context, Uri apkUri) {
+        return ApkIntegrityVerifier.matchesSha256(context, apkUri, this.expectedSha256)
+                && ApkIntegrityVerifier.matchesSigningCertificateSha256(
+                        context, apkUri, this.expectedSigningCertificateSha256);
+    }
+
+    boolean startActivityIfResolvable(Context context, Intent intent, String target) {
         if (intent.resolveActivity(context.getPackageManager()) == null) {
             Timber.w("No activity available to open %s.", target);
             return false;

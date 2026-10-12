@@ -2,11 +2,18 @@ package org.adaway.model.update;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 
+import org.adaway.BuildConfig;
+import org.adaway.R;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
 
 import static android.content.pm.PackageManager.GET_SIGNATURES;
 import static android.content.pm.PackageManager.GET_SIGNING_CERTIFICATES;
@@ -22,7 +29,7 @@ import timber.log.Timber;
  */
 public enum UpdateStore {
     /**
-     * The official store (usually GitHub releases) with AdAway signing key.
+     * Direct APK distribution. The legacy digest identifies upstream builds only.
      */
     ADAWAY("adaway", "D647FDAC42961502AC78F99919B8E1901747E8DA78FE13E1EABA688FECC4C99E"),
     /**
@@ -60,10 +67,14 @@ public enum UpdateStore {
         Signature[] signatures;
         try {
             if (SDK_INT >= P) {
-                signatures = packageManager.getPackageInfo(
-                        packageName,
-                        GET_SIGNING_CERTIFICATES
-                ).signingInfo.getSigningCertificateHistory();
+                PackageInfo info = packageManager.getPackageInfo(
+                        packageName, GET_SIGNING_CERTIFICATES);
+                if (info.signingInfo == null) {
+                    return UNKNOWN;
+                }
+                signatures = info.signingInfo.hasMultipleSigners()
+                        ? info.signingInfo.getApkContentsSigners()
+                        : info.signingInfo.getSigningCertificateHistory();
             } else {
                 // Signatures are not used for security reason. Only to guess the flavor of the app.
                 signatures = packageManager.getPackageInfo(
@@ -75,25 +86,40 @@ public enum UpdateStore {
             Timber.w(e, "Failed to get application package info.");
             return UpdateStore.UNKNOWN;
         }
-        return UpdateStore.getFromSigns(signatures);
+        return UpdateStore.getFromSigns(signatures, BuildConfig.DIRECT_APK_UPDATES_ENABLED,
+                context.getString(R.string.release_signing_certificate_sha256));
     }
 
-    private static UpdateStore getFromSigns(Signature[] signatures) {
+    private static UpdateStore getFromSigns(
+            Signature[] signatures, boolean directRelease, String configuredCertificate) {
+        if (signatures == null || signatures.length == 0) {
+            return UNKNOWN;
+        }
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
+            Set<String> digests = new HashSet<>();
             for (Signature signature : signatures) {
-                md.update(signature.toByteArray());
-                String sign = bytesToHex(md.digest());
-                for (UpdateStore store : UpdateStore.values()) {
-                    if (store.sign.equals(sign)) {
-                        return store;
-                    }
-                }
+                digests.add(bytesToHex(md.digest(signature.toByteArray())));
             }
+            return fromCertificateDigests(digests, directRelease, configuredCertificate);
         } catch (NoSuchAlgorithmException e) {
             Timber.w(e, "SHA-256 algorithm is no supported.");
         }
         return UpdateStore.UNKNOWN;
+    }
+
+    static UpdateStore fromCertificateDigests(
+            Set<String> digests, boolean directRelease, String configuredCertificate) {
+        if (digests.contains(F_DROID.sign)) {
+            return F_DROID;
+        }
+        if (directRelease) {
+            String expected = configuredCertificate.replaceAll("[:\\s]", "")
+                    .toUpperCase(Locale.ROOT);
+            return expected.matches("[0-9A-F]{64}") && digests.contains(expected)
+                    ? ADAWAY : UNKNOWN;
+        }
+        return digests.contains(ADAWAY.sign) ? ADAWAY : UNKNOWN;
     }
 
     private static String bytesToHex(byte[] bytes) {

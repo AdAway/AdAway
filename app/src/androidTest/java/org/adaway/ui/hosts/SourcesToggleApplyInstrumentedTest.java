@@ -95,10 +95,10 @@ public class SourcesToggleApplyInstrumentedTest {
 
     @Test(timeout = 60_000)
     public void togglingSourceOffPersistsRowsAndApplyRunsProtectionUpdate() {
-        try (ActivityScenario<HomeActivity> scenario =
-                     ActivityScenario.launch(HomeActivity.class)) {
+        ActivityScenario<HomeActivity> scenario = ActivityScenario.launch(HomeActivity.class);
+        HomeActivity activity = getCurrentActivity(scenario);
+        try {
             navigateToSources(scenario);
-            HomeActivity activity = getCurrentActivity(scenario);
             waitForSourceSwitch(scenario, true);
             turnSourceSwitchOff(scenario);
 
@@ -115,7 +115,27 @@ public class SourcesToggleApplyInstrumentedTest {
                     .getById(TEST_SOURCE_ID)
                     .orElseThrow()
                     .isEnabled());
+        } finally {
+            finishActivity(activity);
+            scenario.close();
         }
+    }
+
+    private static void finishActivity(HomeActivity activity) {
+        // Scenario.close() waits for global idleness before it requests destruction.
+        // Finish directly so active view animations cannot prevent that request.
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(activity::finish);
+        long deadline = SystemClock.uptimeMillis() + TIMEOUT_MS;
+        AtomicBoolean destroyed = new AtomicBoolean(false);
+        while (SystemClock.uptimeMillis() < deadline) {
+            InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                    destroyed.set(activity.isDestroyed()));
+            if (destroyed.get()) {
+                return;
+            }
+            SystemClock.sleep(50);
+        }
+        throw new AssertionError("HomeActivity did not finish before scenario cleanup.");
     }
 
     private static void navigateToSources(ActivityScenario<HomeActivity> scenario) {

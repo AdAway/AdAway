@@ -104,6 +104,33 @@ public class LogRuntimeTruthTest {
     }
 
     @Test(timeout = 120_000)
+    public void changingExactUserRuleReplacesAllowAndPreservesSuffixRule() {
+        HostListItem suffix = new HostListItem();
+        suffix.setHost(LOG_HOST);
+        suffix.setSourceId(USER_SOURCE_ID);
+        suffix.setKind(org.adaway.db.entity.RuleKind.SUFFIX);
+        suffix.setType(BLOCKED);
+        suffix.setEnabled(true);
+        hostListItemDao.insert(suffix);
+        AtomicReference<LogViewModel> model = new AtomicReference<>();
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            model.set(new LogViewModel(application));
+            model.get().addListItem(LOG_HOST, org.adaway.db.entity.ListType.ALLOWED, null);
+        });
+        waitForDiskIoIdle();
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                model.get().addListItem(LOG_HOST, BLOCKED, null));
+        waitForDiskIoIdle();
+        List<HostListItem> rules = hostListItemDao.getUserList();
+        assertEquals(1, rules.stream().filter(row -> row.getHost().equals(LOG_HOST)
+                && row.getKind() == EXACT).count());
+        assertEquals(1, rules.stream().filter(row -> row.getHost().equals(LOG_HOST)
+                && row.getKind() == org.adaway.db.entity.RuleKind.SUFFIX).count());
+        hostEntryDao.sync();
+        assertEquals(BLOCKED, hostEntryDao.getTypeForHost(LOG_HOST));
+    }
+
+    @Test(timeout = 120_000)
     public void vpnGeneratedDnsLogAppearsInLogUi() {
         recordFixtureDnsRequest();
 

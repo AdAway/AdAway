@@ -11811,3 +11811,29 @@
   on `adaway-api34-16g`.
 - A fresh debug APK was copied to `/Users/steves/Downloads/AdAway_13.5.1.apk`
   with SHA-256 `c35353c4551281d356ce41b72329f4399dc74cb7d96341ec6f835075b0855e61`.
+## Plan - 2026-10-12 Product Review And Release
+
+Goal: review every first-party subsystem, log reproducible bugs, fix release-relevant
+defects, verify custom filter URLs and core Android workflows, and deliver an updated APK.
+This is a finite review and release pass; unavailable physical-device/signing evidence
+must be reported explicitly rather than silently counted as passed.
+
+- [x] Confirm clean baseline, remote revision, previous APK, and published release.
+- [x] Review source parsing/downloads/database, DNS/VPN/root, app screens/backup,
+  and update/release security in parallel; consolidate findings in one bug register.
+- [x] Verify and improve URL-based filter selection, import, enable/disable, and errors.
+- [x] Reproduce and fix confirmed release-relevant bugs with focused regression coverage.
+- [x] Run JVM tests, Android lint/build, connected tests, and emulator smoke checks.
+- [x] Bump version, document changes and limitations, build and verify the updated APK.
+- [ ] Submit one reviewed PR, pass required CI, and publish the Android release candidate.
+- [x] Resolve signing: owner confirmed the old key is unavailable and authorized a new
+  identity. Protected local keys and eight GitHub secrets are configured. Older builds
+  require backup/uninstall/reinstall; physical-device approval remains a stable-release gate.
+
+Current bug register and verification ledger: `tasks/review-2026-10-12.md`.
+PR 10 follow-up: the first protected run found two test synchronization failures.
+Both fixtures are corrected without changing production behavior or removing
+assertions. A fresh full API 34 run passed 297 tests with six intentional skips
+and zero failures, including live VPN/DNS checks; protected CI remains open.
+Historical root, physical-device, and legal/provenance gates above are not automatically
+closed by this bounded Android candidate release.

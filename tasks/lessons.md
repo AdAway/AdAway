@@ -124,3 +124,23 @@
   is subscribed.
 - If cached rows are already visible, a background directory refresh must not keep selected-row
   bulk commands disabled; only block selection actions before there are rows to act on.
+
+## 2026-10-12 - Check Android API and Descriptor Ownership Boundaries
+
+- Verify resource ownership across the full supported Android API range, not only current docs.
+  Pre-29 socket ParcelFileDescriptors alias the socket: duplicate for independent ownership
+  and retain the legacy wrapper until the socket owner closes it to avoid premature finalization.
+- Compile Android tests against Android's Java API image, not only a desktop JDK plus android.jar;
+  desktop-only convenience methods can pass host javac and still fail the consolidated build.
+- Use Android-compatible file APIs in JVM regression sources too: prefer UTF-8 decoding of
+  `Files.readAllBytes` over desktop-only `Files.readString`; host-only compilation is not proof.
+- When extracting a permission helper, update source-order guards to inspect the call-site guard
+  and denial return, not the helper definition's position; keep store/security assertions intact.
+- A background monitor must request recovery through the service's current-worker and desired-state
+  guard; checking interruption alone does not prevent a queued restart after an intentional stop.
+- Debug tests and signature checks do not prove the minified APK launches. Install and launch
+  the actual shrunk artifact, then exercise reflective background-worker paths before publishing.
+- Protocol examples belong in URL placeholders, not prefilled input; test a literal paste from
+  an empty editor, not only programmatic replacement of its entire text.
+- VPN network registration can precede Android's default-route switch. Ordinary-socket smoke
+  tests must wait for the tunnel to become the active network before opening the socket.

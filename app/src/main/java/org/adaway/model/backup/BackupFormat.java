@@ -2,6 +2,7 @@ package org.adaway.model.backup;
 
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.db.entity.ListType;
 import org.adaway.db.entity.RuleKind;
 import org.adaway.util.RegexUtils;
 import org.json.JSONException;
@@ -77,9 +78,10 @@ final class BackupFormat {
         return hostObject;
     }
 
-    static HostListItem hostFromJson(JSONObject hostObject) throws JSONException {
+    static HostListItem hostFromJson(JSONObject hostObject, ListType type) throws JSONException {
         HostListItem host = new HostListItem();
         host.setHost(hostObject.getString(HOST_ATTRIBUTE));
+        host.setType(type);
         if (hostObject.has(KIND_ATTRIBUTE)) {
             try {
                 host.setKind(RuleKind.valueOf(hostObject.getString(KIND_ATTRIBUTE)
@@ -97,6 +99,15 @@ final class BackupFormat {
                 throw new JSONException("Invalid or private redirect IP in backup: " + redirection);
             }
             host.setRedirection(redirection);
+        }
+        boolean validHost = type == ListType.ALLOWED && host.getKind() == RuleKind.EXACT
+                ? RegexUtils.isValidWildcardHostname(host.getHost())
+                : RegexUtils.isValidHostname(host.getHost());
+        if (!validHost || host.getHost().length() > 253) {
+            throw new JSONException("Invalid hostname in backup: " + host.getHost());
+        }
+        if (type == ListType.REDIRECTED && host.getRedirection() == null) {
+            throw new JSONException("Missing redirect IP in backup.");
         }
         host.setEnabled(hostObject.getBoolean(ENABLED_ATTRIBUTE));
         host.setSourceId(USER_SOURCE_ID);

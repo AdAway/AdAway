@@ -11,18 +11,23 @@ import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.HostsSource;
 import org.adaway.db.entity.ListType;
+import org.adaway.db.entity.RuleKind;
 import org.adaway.util.AppExecutors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Optional;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
 
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
@@ -47,6 +52,7 @@ public final class BackupImporter {
     private static final int MAX_IMPORT_SOURCES = 200;
     /** Maximum number of host list entries (blocked/allowed/redirected) per import (ATK-24). */
     private static final int MAX_IMPORT_LIST_ITEMS = 50_000;
+    static final int MAX_IMPORT_CHARACTERS = 16 * 1024 * 1024;
 
     private BackupImporter() {
 
@@ -60,16 +66,17 @@ public final class BackupImporter {
      */
     @UiThread
     public static void importFromBackup(Context context, Uri backupUri) {
+        Context appContext = context.getApplicationContext();
         AppExecutors.getInstance().diskIO().execute(() -> {
             boolean imported = true;
             try {
-                importBackup(context, backupUri);
-            } catch (IOException e) {
+                importBackup(appContext, backupUri);
+            } catch (IOException | RuntimeException e) {
                 Timber.e(e, "Failed to import backup.");
                 imported = false;
             }
             boolean successful = imported;
-            AppExecutors.getInstance().mainThread().execute(() -> notifyImportEnd(context, successful));
+            AppExecutors.getInstance().mainThread().execute(() -> notifyImportEnd(appContext, successful));
         });
     }
 
@@ -83,68 +90,85 @@ public final class BackupImporter {
     }
 
     static void importBackup(Context context, Uri backupUri) throws IOException {
-        try (InputStream inputStream = context.getContentResolver().openInputStream(backupUri);
-             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-            StringBuilder contentBuilder = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                contentBuilder.append(line);
+        try (InputStream inputStream = context.getContentResolver().openInputStream(backupUri)) {
+            if (inputStream == null) {
+                throw new IOException("Backup provider returned no input stream.");
             }
-            JSONObject backupObject = new JSONObject(contentBuilder.toString());
+            JSONObject backupObject = new JSONObject(readBackup(
+                    new InputStreamReader(inputStream, StandardCharsets.UTF_8)));
             importBackup(context, backupObject);
         } catch (JSONException exception) {
             throw new IOException("Failed to parse backup file.", exception);
-        } catch (FileNotFoundException exception) {
-            throw new IOException("Failed to find backup file.", exception);
+        } catch (SecurityException exception) {
+            throw new IOException("Backup read permission denied.", exception);
         } catch (IOException exception) {
             throw new IOException("Failed to read backup file.", exception);
         }
     }
 
+    static String readBackup(Reader reader) throws IOException {
+        StringBuilder content = new StringBuilder();
+        char[] buffer = new char[8192];
+        int count;
+        while ((count = reader.read(buffer)) != -1) {
+            if (count > MAX_IMPORT_CHARACTERS - content.length()) {
+                throw new IOException("Backup exceeds maximum size.");
+            }
+            content.append(buffer, 0, count);
+        }
+        return content.toString();
+    }
+
     private static void importBackup(Context context, JSONObject backupObject) throws JSONException {
-        AppDatabase database = AppDatabase.getInstance(context);
+        importBackup(AppDatabase.getInstance(context), backupObject);
+    }
+
+    static void importBackup(AppDatabase database, JSONObject backupObject) throws JSONException {
+        JSONArray sources = backupObject.getJSONArray(SOURCES_KEY);
+        JSONArray blocked = backupObject.getJSONArray(BLOCKED_KEY);
+        JSONArray allowed = backupObject.getJSONArray(ALLOWED_KEY);
+        JSONArray redirected = backupObject.getJSONArray(REDIRECTED_KEY);
+        if (sources.length() > MAX_IMPORT_SOURCES
+                || (long) blocked.length() + allowed.length() + redirected.length()
+                > MAX_IMPORT_LIST_ITEMS) {
+            throw new JSONException("Backup exceeds import limits.");
+        }
+
+        // Fully validate before the transaction; malformed later rows must not leave earlier writes.
+        List<HostsSource> importedSources = new ArrayList<>();
+        for (int index = 0; index < sources.length(); index++) {
+            HostsSource source = sourceFromJson(sources.getJSONObject(index));
+            source.setRedirectEnabled(false);
+            importedSources.add(source);
+        }
+        List<HostListItem> importedHosts = new ArrayList<>();
+        parseList(importedHosts, BLOCKED, blocked);
+        parseList(importedHosts, ALLOWED, allowed);
+        parseList(importedHosts, REDIRECTED, redirected);
+
         HostsSourceDao hostsSourceDao = database.hostsSourceDao();
         HostListItemDao hostListItemDao = database.hostsListItemDao();
-
-        importSourceBackup(hostsSourceDao, backupObject.getJSONArray(SOURCES_KEY));
-        importListBackup(hostListItemDao, BLOCKED, backupObject.getJSONArray(BLOCKED_KEY));
-        importListBackup(hostListItemDao, ALLOWED, backupObject.getJSONArray(ALLOWED_KEY));
-        importListBackup(hostListItemDao, REDIRECTED, backupObject.getJSONArray(REDIRECTED_KEY));
-    }
-
-    private static void importSourceBackup(HostsSourceDao hostsSourceDao, JSONArray sources) throws JSONException {
-        // Cap imports to prevent a crafted backup from adding thousands of hostile sources (ATK-05).
-        int limit = Math.min(sources.length(), MAX_IMPORT_SOURCES);
-        if (sources.length() > MAX_IMPORT_SOURCES) {
-            Timber.w("Backup contains %d sources; importing only the first %d.", sources.length(), MAX_IMPORT_SOURCES);
-        }
-        for (int index = 0; index < limit; index++) {
-            JSONObject sourceObject = sources.getJSONObject(index);
-            org.adaway.db.entity.HostsSource source = sourceFromJson(sourceObject);
-            // Never trust redirect-enabled flag from an external backup — disable it
-            // to prevent a crafted backup from injecting redirect-enabled sources (ATK-05).
-            source.setRedirectEnabled(false);
-            hostsSourceDao.insert(source);
-        }
-    }
-
-    private static void importListBackup(HostListItemDao hostListItemDao, ListType type, JSONArray hosts) throws JSONException {
-        // Cap imports to prevent memory exhaustion from a crafted backup (ATK-24).
-        int limit = Math.min(hosts.length(), MAX_IMPORT_LIST_ITEMS);
-        if (hosts.length() > MAX_IMPORT_LIST_ITEMS) {
-            Timber.w("Backup %s list has %d entries; importing only the first %d.", type, hosts.length(), MAX_IMPORT_LIST_ITEMS);
-        }
-        for (int index = 0; index < limit; index++) {
-            JSONObject hostObject = hosts.getJSONObject(index);
-            HostListItem host = hostFromJson(hostObject);
-            host.setType(type);
-            Optional<Integer> id = hostListItemDao.getHostId(host.getHost());
-            if (id.isPresent()) {
-                host.setId(id.get());
-                hostListItemDao.update(host);
-            } else {
+        database.runInTransaction(() -> {
+            hostsSourceDao.insertAll(importedSources);
+            for (HostListItem host : importedHosts) {
+                List<HostListItem> existing = host.getKind() == RuleKind.EXACT
+                        ? hostListItemDao.getExactEntriesForHost(host.getHost())
+                        : hostListItemDao.getSuffixEntriesForHost(host.getHost());
+                for (HostListItem item : existing) {
+                    if (item.getSourceId() == USER_SOURCE_ID) {
+                        hostListItemDao.delete(item);
+                    }
+                }
                 hostListItemDao.insert(host);
             }
+            hostsSourceDao.updateActiveRuleStats(USER_SOURCE_ID);
+        });
+    }
+
+    private static void parseList(List<HostListItem> target, ListType type, JSONArray hosts)
+            throws JSONException {
+        for (int index = 0; index < hosts.length(); index++) {
+            target.add(hostFromJson(hosts.getJSONObject(index), type));
         }
     }
 }

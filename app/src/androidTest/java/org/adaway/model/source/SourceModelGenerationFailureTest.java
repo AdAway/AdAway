@@ -3,9 +3,12 @@ package org.adaway.model.source;
 import static org.adaway.db.entity.ListType.ALLOWED;
 import static org.adaway.db.entity.ListType.BLOCKED;
 import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
+import static org.adaway.model.error.HostError.UPDATE_IN_PROGRESS;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import android.content.Context;
@@ -32,7 +35,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.ZonedDateTime;
 import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 
 @RunWith(AndroidJUnit4.class)
 public class SourceModelGenerationFailureTest {
@@ -73,6 +84,137 @@ public class SourceModelGenerationFailureTest {
     @After
     public void tearDown() {
         database.close();
+    }
+
+    @Test
+    public void parallelDownloadsShareOneHttpClientAndCache() throws Exception {
+        ExecutorService executor = Executors.newFixedThreadPool(12);
+        CountDownLatch start = new CountDownLatch(1);
+        List<Future<OkHttpClient>> clients = new ArrayList<>();
+        try {
+            for (int i = 0; i < 12; i++) {
+                clients.add(executor.submit(() -> {
+                    start.await();
+                    return sourceModel.getHttpClientForUi();
+                }));
+            }
+            start.countDown();
+            OkHttpClient first = clients.get(0).get(5, TimeUnit.SECONDS);
+            for (Future<OkHttpClient> client : clients) {
+                assertSame(first, client.get(5, TimeUnit.SECONDS));
+            }
+            first.cache().close();
+        } finally {
+            start.countDown();
+            executor.shutdownNow();
+            executor.awaitTermination(5, TimeUnit.SECONDS);
+        }
+    }
+
+    @Test
+    public void mutationGateRejectsOverlappingUpdatesAndAlwaysReleases() throws Exception {
+        CountDownLatch entered = new CountDownLatch(1);
+        CountDownLatch release = new CountDownLatch(1);
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<Integer> mutation = executor.submit(() -> sourceModel.runSourceMutation(() -> {
+            entered.countDown();
+            try {
+                if (!release.await(10, TimeUnit.SECONDS)) {
+                    throw new IllegalStateException("Timed out waiting for test release");
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new IllegalStateException(e);
+            }
+            return 17;
+        }));
+        try {
+            assertTrue(entered.await(5, TimeUnit.SECONDS));
+            try {
+                sourceModel.retrieveHostsSource(TEST_SOURCE_ID);
+                fail("Busy single-source update must not return success");
+            } catch (HostErrorException expected) {
+                assertEquals(UPDATE_IN_PROGRESS, expected.getError());
+            }
+            try {
+                sourceModel.retrieveHostsSources(Collections.singletonList(TEST_SOURCE_ID));
+                fail("Busy targeted update must not return success");
+            } catch (HostErrorException expected) {
+                assertEquals(UPDATE_IN_PROGRESS, expected.getError());
+            }
+            try {
+                sourceModel.runSourceMutation(() -> 0);
+                fail("Concurrent mutation must not run");
+            } catch (HostErrorException expected) {
+                assertEquals(UPDATE_IN_PROGRESS, expected.getError());
+            }
+        } finally {
+            release.countDown();
+            executor.shutdown();
+            assertEquals(Integer.valueOf(17), mutation.get(5, TimeUnit.SECONDS));
+            executor.awaitTermination(5, TimeUnit.SECONDS);
+        }
+        try {
+            sourceModel.runSourceMutation(() -> {
+                throw new IllegalArgumentException("injected edit failure");
+            });
+            fail("Expected edit failure");
+        } catch (IllegalArgumentException expected) {
+            assertEquals("injected edit failure", expected.getMessage());
+        }
+        assertEquals(Integer.valueOf(23), sourceModel.runSourceMutation(() -> 23));
+    }
+
+    @Test
+    public void fullUpdate_fileParserFailureIsRecordedAndKeepsActiveGeneration() throws Exception {
+        HostsSource source = hostsSourceDao.getById(TEST_SOURCE_ID).orElseThrow();
+        source.setUrl("content://org.adaway.test.hosts/success.txt");
+        hostsSourceDao.update(source);
+        writableDb().execSQL("CREATE TRIGGER reject_staged_import BEFORE INSERT ON hosts_lists "
+                + "WHEN NEW.generation = " + STAGING_GENERATION + " BEGIN "
+                + "SELECT RAISE(ABORT, 'forced file parse failure'); END");
+
+        try {
+            sourceModel.checkAndRetrieveHostsSources();
+            fail("A failed file parse must report DOWNLOAD_FAILED");
+        } catch (HostErrorException expected) {
+            assertEquals(DOWNLOAD_FAILED, expected.getError());
+        }
+
+        assertEquals(ACTIVE_GENERATION, getActiveGeneration());
+        assertEquals(1, countRows(TEST_SOURCE_ID, ACTIVE_GENERATION));
+        assertEquals(0, countRows(TEST_SOURCE_ID, STAGING_GENERATION));
+        assertNotNull(hostsSourceDao.getById(TEST_SOURCE_ID).orElseThrow().getLastDownloadError());
+        assertScratchTableAbsent();
+    }
+
+    @Test
+    public void fullUpdate_carryForwardWriteFailureAbortsEvenWithSuccessfulSource() throws Exception {
+        insertSuccessFileSource();
+        insertHostRow(OLD_SUCCESS_HOST, SUCCESS_SOURCE_ID, ACTIVE_GENERATION);
+        hostEntryDao.sync();
+        writableDb().execSQL("CREATE TRIGGER reject_failed_carry_forward BEFORE INSERT ON hosts_lists "
+                + "WHEN NEW.source_id = " + TEST_SOURCE_ID
+                + " AND NEW.generation = " + STAGING_GENERATION + " BEGIN "
+                + "SELECT RAISE(ABORT, 'forced carry forward failure'); END");
+
+        try {
+            sourceModel.checkAndRetrieveHostsSources();
+            fail("A failed carry-forward must report DOWNLOAD_FAILED");
+        } catch (HostErrorException expected) {
+            assertEquals(DOWNLOAD_FAILED, expected.getError());
+        }
+
+        assertEquals(ACTIVE_GENERATION, getActiveGeneration());
+        assertEquals(1, countRows(TEST_SOURCE_ID, ACTIVE_GENERATION));
+        assertEquals(1, countRows(SUCCESS_SOURCE_ID, ACTIVE_GENERATION));
+        assertEquals(0, countRows(TEST_SOURCE_ID, STAGING_GENERATION));
+        assertEquals(0, countRows(SUCCESS_SOURCE_ID, STAGING_GENERATION));
+        assertEquals(BLOCKED, hostEntryDao.resolveEntry(ACTIVE_HOST).getType());
+        assertEquals(BLOCKED, hostEntryDao.resolveEntry(OLD_SUCCESS_HOST).getType());
+        assertEquals(ALLOWED, hostEntryDao.resolveEntry(FRESH_SUCCESS_HOST).getType());
+        assertNotNull(hostsSourceDao.getById(TEST_SOURCE_ID).orElseThrow().getLastDownloadError());
+        assertScratchTableAbsent();
     }
 
     @Test

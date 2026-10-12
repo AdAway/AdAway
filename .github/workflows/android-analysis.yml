@@ -71,6 +71,8 @@ jobs:
     - name: Set up Android SDK
       if: matrix.language == 'java'
       uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699
+      with:
+        packages: platform-tools
 
     - name: Install Android SDK/NDK (required for Android Gradle build)
       if: matrix.language == 'java'
@@ -116,8 +118,8 @@ jobs:
           fi
 
           pkgs=(
-            "platforms;android-34"
-            "build-tools;34.0.0"
+            "platforms;android-36"
+            "build-tools;36.0.0"
             "platform-tools"
             "ndk;27.2.12479018"
           )

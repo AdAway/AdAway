@@ -2,6 +2,7 @@ package org.adaway.vpn.dns;
 
 import android.system.StructPollfd;
 
+import java.io.IOException;
 import java.net.DatagramSocket;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -17,7 +18,7 @@ import timber.log.Timber;
  *
  * @author Bruce BUJON
  */
-public class DnsQueryQueue {
+public class DnsQueryQueue implements AutoCloseable {
     /**
      * The maximum number of responses to wait for.
      */
@@ -36,7 +37,7 @@ public class DnsQueryQueue {
      * Constructor.
      */
     public DnsQueryQueue() {
-        this(new LinkedList<>(), () -> System.currentTimeMillis() / 1000);
+        this(new LinkedList<>(), () -> System.nanoTime() / 1_000_000_000L);
     }
 
     DnsQueryQueue(Queue<PendingDnsQuery> queries, LongSupplier currentTimeSeconds) {
@@ -50,18 +51,21 @@ public class DnsQueryQueue {
      * @param socket   The socket used to query DNS server.
      * @param callback The callback to call with the query response data.
      */
-    public void addQuery(DatagramSocket socket, Consumer<byte[]> callback) {
+    public void addQuery(DatagramSocket socket, Consumer<byte[]> callback) throws IOException {
+        addQuery(new DnsQuery(socket, callback, this.currentTimeSeconds.getAsLong()));
+    }
+
+    void addQuery(PendingDnsQuery query) {
         // Apply time constraint by removing timed out queries
         clearTimedOutQueries();
         // Apply space constraint by removing older packet if queue is full
         ensureFreeSpace();
         // Add query to the queue
-        PendingDnsQuery query = new DnsQuery(socket, callback, this.currentTimeSeconds.getAsLong());
         this.queries.add(query);
     }
 
     private void ensureFreeSpace() {
-        if (this.queries.size() > DNS_MAXIMUM_WAITING) {
+        while (this.queries.size() >= DNS_MAXIMUM_WAITING) {
             PendingDnsQuery oldestQuery = this.queries.remove();
             Timber.d("Dropping query due to space constraints: %s.", oldestQuery);
             oldestQuery.close();
@@ -85,6 +89,14 @@ public class DnsQueryQueue {
      */
     public int size() {
         return this.queries.size();
+    }
+
+    @Override
+    public void close() {
+        PendingDnsQuery query;
+        while ((query = this.queries.poll()) != null) {
+            query.close();
+        }
     }
 
     /**

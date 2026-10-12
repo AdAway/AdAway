@@ -34,7 +34,7 @@ class GistHostsSource extends GitHostsJsonApiSource {
         URL parsedUrl = new URL(url);
         String path = parsedUrl.getPath();
         String[] pathParts = path.split("/");
-        if (pathParts.length < 2) {
+        if (pathParts.length < 3 || pathParts[1].isEmpty() || pathParts[2].isEmpty()) {
             throw new MalformedURLException("The GitHub gist URL " + url + " is not valid.");
         }
         // Extract gist identifier from path

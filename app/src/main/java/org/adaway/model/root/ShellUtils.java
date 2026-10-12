@@ -1,6 +1,8 @@
 package org.adaway.model.root;
 
 import static com.topjohnwu.superuser.ShellUtils.escapedString;
+import static org.adaway.util.Constants.COMMAND_CHMOD_644;
+import static org.adaway.util.Constants.COMMAND_CHOWN;
 
 import android.content.Context;
 
@@ -30,6 +32,13 @@ public final class ShellUtils {
 
     public static String mergeAllLines(List<String> lines) {
         return String.join("\n", lines);
+    }
+
+    static String hostsCopyCommand(String source, String target) {
+        String escapedTarget = escapedString(target);
+        return "dd if=" + escapedString(source) + " of=" + escapedTarget
+                + " && " + COMMAND_CHOWN + " " + escapedTarget
+                + " && " + COMMAND_CHMOD_644 + " " + escapedTarget;
     }
 
     public static boolean isBundledExecutableRunning(String executable) {

@@ -1,0 +1,190 @@
+name: Refresh signed update manifest
+
+on:
+  schedule:
+    - cron: '17 6 * * 2'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing release tag; leave blank to refresh latest stable and beta"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  artifact-metadata: write
+  attestations: write
+  id-token: write
+
+concurrency:
+  group: refresh-update-manifest
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.repository == 'stevesolun/AdAway'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        channel: [stable, beta]
+    steps:
+      - name: Select published release
+        id: select
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUESTED_TAG: ${{ inputs.tag }}
+          REFRESH_CHANNEL: ${{ matrix.channel }}
+        run: |
+          set -euo pipefail
+          TAG="$REQUESTED_TAG"
+          if [ -n "$TAG" ]; then
+            if [ "$REFRESH_CHANNEL" = beta ]; then exit 0; fi
+          else
+            RELEASES="$(gh api --paginate --slurp "repos/$GITHUB_REPOSITORY/releases?per_page=100")"
+            TAG="$(printf '%s' "$RELEASES" | jq -r --arg channel "$REFRESH_CHANNEL" \
+              '[.[][] | select(.draft == false) | select(.prerelease == ($channel == "beta"))] |
+               sort_by(.published_at) | last | .tag_name // empty')"
+            if [ -z "$TAG" ]; then
+              echo "::notice::No published $REFRESH_CHANNEL release to refresh."
+              exit 0
+            fi
+            if [ "$REFRESH_CHANNEL" = stable ]; then
+              TAG="$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName --jq .tagName)"
+            fi
+          fi
+          if ! [[ "$TAG" =~ ^v[0-9][0-9A-Za-z.+_-]*$ ]]; then
+            echo "::error::Invalid release tag."
+            exit 1
+          fi
+          HAS_MANIFEST="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets \
+            --jq '[.assets[] | select(.name == "manifest.json")] | length')"
+          if [ "$HAS_MANIFEST" = 0 ]; then
+            echo "::warning::Release $TAG has no signed update feed; publish a release with the configured identity first."
+            exit 0
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "refresh=true" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout refresh tooling
+        if: steps.select.outputs.refresh == 'true'
+        uses: actions/checkout@9f698171ed81b15d1823a05fc7211befd50c8ae0
+
+      - name: Set up JDK 21
+        if: steps.select.outputs.refresh == 'true'
+        uses: actions/setup-java@ad2b38190b15e4d6bdf0c97fb4fca8412226d287
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Set up Android SDK
+        if: steps.select.outputs.refresh == 'true'
+        uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699
+        with:
+          packages: platform-tools
+
+      - name: Install APK verification tools
+        if: steps.select.outputs.refresh == 'true'
+        run: sdkmanager "build-tools;36.0.0"
+
+      - name: Download and verify existing release APK
+        if: steps.select.outputs.refresh == 'true'
+        id: release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REQUESTED_TAG: ${{ steps.select.outputs.tag }}
+          ANDROID_RELEASE_CERT_SHA256: ${{ secrets.ANDROID_RELEASE_CERT_SHA256 }}
+        run: |
+          set -euo pipefail
+          TAG="$REQUESTED_TAG"
+          if ! [[ "$TAG" =~ ^v[0-9][0-9A-Za-z.+_-]*$ ]]; then
+            echo "::error::Invalid release tag."
+            exit 1
+          fi
+          STATE="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft,isPrerelease --jq '[.isDraft,.isPrerelease] | @tsv')"
+          read -r IS_DRAFT IS_PRERELEASE <<< "$STATE"
+          if [ "$IS_DRAFT" != false ]; then
+            echo "::error::Only published releases can have their update metadata refreshed."
+            exit 1
+          fi
+          CHANNEL=stable
+          if [ "$IS_PRERELEASE" = true ]; then CHANNEL=beta; fi
+          VERSION="${TAG#v}"
+          APK_NAME="AdAway_${VERSION}.apk"
+          mkdir -p refresh
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" \
+            --pattern "$APK_NAME" --pattern "$APK_NAME.sha256" --dir refresh
+          read -r EXPECTED_SHA EXPECTED_FILE < "refresh/$APK_NAME.sha256"
+          ACTUAL_SHA="$(sha256sum "refresh/$APK_NAME" | cut -d ' ' -f 1)"
+          if [ "$EXPECTED_FILE" != "$APK_NAME" ] || [ "$EXPECTED_SHA" != "$ACTUAL_SHA" ]; then
+            echo "::error::Published APK checksum does not match."
+            exit 1
+          fi
+          SDKROOT="${ANDROID_SDK_ROOT:-$ANDROID_HOME}"
+          TOOLS="$SDKROOT/build-tools/36.0.0"
+          "$TOOLS/apksigner" verify --print-certs "refresh/$APK_NAME" > refresh/certificate.txt
+          ACTUAL_CERT="$(awk -F': ' '/Signer #1 certificate SHA-256 digest/ {print $2; exit}' refresh/certificate.txt | tr '[:upper:]' '[:lower:]' | tr -d ':[:space:]')"
+          EXPECTED_CERT="$(printf '%s' "$ANDROID_RELEASE_CERT_SHA256" | tr '[:upper:]' '[:lower:]' | tr -d ':[:space:]')"
+          if ! [[ "$EXPECTED_CERT" =~ ^[0-9a-f]{64}$ ]] || [ "$ACTUAL_CERT" != "$EXPECTED_CERT" ]; then
+            echo "::error::APK signer does not match the configured release identity."
+            exit 1
+          fi
+          BADGING="$("$TOOLS/aapt" dump badging "refresh/$APK_NAME")"
+          PACKAGE="$(printf '%s\n' "$BADGING" | sed -n "s/^package: name='\([^']*\)'.*/\1/p")"
+          APK_VERSION="$(printf '%s\n' "$BADGING" | sed -n "s/^package: .*versionName='\([^']*\)'.*/\1/p")"
+          CODE="$(printf '%s\n' "$BADGING" | sed -n "s/^package: .*versionCode='\([^']*\)'.*/\1/p")"
+          if [ "$PACKAGE" != org.adaway ] || [ "$APK_VERSION" != "$VERSION" ] || ! [[ "$CODE" =~ ^[1-9][0-9]*$ ]] || [[ "$BADGING" == *application-debuggable* ]]; then
+            echo "::error::APK package/version/debuggable identity is invalid."
+            exit 1
+          fi
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "version_code=$CODE" >> "$GITHUB_OUTPUT"
+          echo "channel=$CHANNEL" >> "$GITHUB_OUTPUT"
+          echo "cert_sha256=$ACTUAL_CERT" >> "$GITHUB_OUTPUT"
+
+      - name: Refresh signed metadata without changing APK
+        if: steps.select.outputs.refresh == 'true'
+        shell: bash
+        env:
+          UPDATE_MANIFEST_PRIVATE_KEY_BASE64: ${{ secrets.UPDATE_MANIFEST_PRIVATE_KEY_BASE64 }}
+          UPDATE_MANIFEST_PUBLIC_KEY_BASE64: ${{ secrets.UPDATE_MANIFEST_PUBLIC_KEY_BASE64 }}
+          TAG: ${{ steps.release.outputs.tag }}
+          VERSION: ${{ steps.release.outputs.version }}
+          VERSION_CODE: ${{ steps.release.outputs.version_code }}
+          CHANNEL: ${{ steps.release.outputs.channel }}
+          CERT_SHA256: ${{ steps.release.outputs.cert_sha256 }}
+        run: |
+          set -euo pipefail
+          test -n "$UPDATE_MANIFEST_PRIVATE_KEY_BASE64"
+          test -n "$UPDATE_MANIFEST_PUBLIC_KEY_BASE64"
+          bash scripts/generate-update-manifest.sh \
+            --apk "refresh/AdAway_${VERSION}.apk" \
+            --version "$VERSION" --version-code "$VERSION_CODE" \
+            --cert-sha256 "$CERT_SHA256" \
+            --apk-url "https://github.com/${GITHUB_REPOSITORY}/releases/download/${TAG}/AdAway_${VERSION}.apk" \
+            --channel "$CHANNEL" --store adaway --valid-days 14 \
+            --changelog "See GitHub release ${TAG}." --out refresh/manifest.json
+
+      - name: Attest refreshed metadata
+        if: steps.select.outputs.refresh == 'true'
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32
+        with:
+          subject-path: |
+            refresh/manifest.json
+            refresh/manifest.json.sha256
+
+      - name: Verify attestations and replace only manifest assets
+        if: steps.select.outputs.refresh == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          set -euo pipefail
+          gh attestation verify refresh/manifest.json --repo "$GITHUB_REPOSITORY"
+          gh attestation verify refresh/manifest.json.sha256 --repo "$GITHUB_REPOSITORY"
+          gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" --clobber \
+            refresh/manifest.json refresh/manifest.json.sha256

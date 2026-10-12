@@ -1,7 +1,5 @@
 package org.adaway.model.git;
 
-import static java.util.stream.Collectors.joining;
-
 import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
@@ -9,10 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
-import java.util.Arrays;
+import java.util.List;
+
+import okhttp3.HttpUrl;
 
 import timber.log.Timber;
 
@@ -23,13 +22,9 @@ import timber.log.Timber;
  */
 public class GitLabHostsSource extends GitHostsJsonApiSource {
     /**
-     * The GitHub owner name.
+     * The GitLab project path, including any subgroups.
      */
-    private final String owner;
-    /**
-     * The GitHub repository name.
-     */
-    private final String repo;
+    private final String project;
     /**
      * The GitLab reference name.
      */
@@ -41,25 +36,28 @@ public class GitLabHostsSource extends GitHostsJsonApiSource {
 
     GitLabHostsSource(String url) throws MalformedURLException {
         // Check URL path
-        URL parsedUrl = new URL(url);
-        String path = parsedUrl.getPath();
-        String[] pathParts = path.split("/");
-        if (pathParts.length < 5) {
+        HttpUrl parsedUrl = HttpUrl.parse(url);
+        List<String> pathParts = parsedUrl == null ? null : parsedUrl.pathSegments();
+        int rawIndex = pathParts == null ? -1 : pathParts.indexOf("-") + 1;
+        if (rawIndex == 0) rawIndex = pathParts.indexOf("raw");
+        int projectEnd = rawIndex > 0 && pathParts.get(rawIndex - 1).equals("-")
+                ? rawIndex - 1 : rawIndex;
+        if (pathParts == null || projectEnd < 2 || rawIndex + 2 >= pathParts.size()
+                || !pathParts.get(rawIndex).equals("raw") || pathParts.contains("")) {
             throw new MalformedURLException("The GitLab user content URL " + url + " is not valid.");
         }
         // Extract components from path
-        this.owner = pathParts[1];
-        this.repo = pathParts[2];
-        this.ref = pathParts[4];
-        this.path = Arrays.stream(pathParts)
-                .skip(5)
-                .collect(joining("/"));
+        this.project = String.join("/", pathParts.subList(0, projectEnd));
+        this.ref = pathParts.get(rawIndex + 1);
+        this.path = String.join("/", pathParts.subList(rawIndex + 2, pathParts.size()));
     }
 
     @Override
     protected String getCommitApiUrl() {
-        return "https://gitlab.com/api/v4/projects/" + this.owner + "%2F" + this.repo
-                + "/repository/commits?path=" + this.path + "&ref_name=" + this.ref;
+        return new HttpUrl.Builder().scheme("https").host("gitlab.com")
+                .addPathSegments("api/v4/projects").addPathSegment(this.project)
+                .addPathSegments("repository/commits").addQueryParameter("path", this.path)
+                .addQueryParameter("ref_name", this.ref).build().toString();
     }
 
     @Nullable

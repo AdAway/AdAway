@@ -118,6 +118,22 @@ public class UpdateActivityDownloadStatusInstrumentedTest {
         InstrumentationRegistry.getInstrumentation().waitForIdleSync();
     }
 
+    @Test(timeout = 60_000)
+    public void resetDownloadStatusDoesNotOfferAnUnavailableUpdate() throws Exception {
+        Manifest manifest = createManifest();
+        publishManifest(manifest);
+
+        try (ActivityScenario<UpdateActivity> scenario =
+                     ActivityScenario.launch(UpdateActivity.class)) {
+            waitForUpdateAvailable(scenario, manifest.changelog);
+            publishProgress(scenario, new PendingDownloadStatus(1L, 2L));
+            publishManifest(null);
+            publishProgress(scenario, null);
+
+            waitForDownloadState(scenario, GONE, GONE, 0, "");
+        }
+    }
+
     @SuppressWarnings("unchecked")
     private MutableLiveData<Manifest> getManifestLiveData() throws Exception {
         Field field = UpdateModel.class.getDeclaredField("manifest");

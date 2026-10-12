@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -53,17 +54,18 @@ public class BackupExporter {
      * @param context The application context.
      */
     public static void exportToBackup(Context context, Uri backupUri) {
+        Context appContext = context.getApplicationContext();
         AppExecutors.getInstance().diskIO().execute(() -> {
             boolean imported = true;
             try {
-                exportBackup(context, backupUri);
-            } catch (IOException e) {
-                Timber.e(e, "Failed to import backup.");
+                exportBackup(appContext, backupUri);
+            } catch (IOException | RuntimeException e) {
+                Timber.e(e, "Failed to export backup.");
                 imported = false;
             }
             boolean successful = imported;
             String fileName = getFileNameFromUri(backupUri);
-            AppExecutors.getInstance().mainThread().execute(() -> notifyExportEnd(context, successful, fileName));
+            AppExecutors.getInstance().mainThread().execute(() -> notifyExportEnd(appContext, successful, fileName));
         });
     }
 
@@ -83,12 +85,22 @@ public class BackupExporter {
 
     static void exportBackup(Context context, Uri backupUri) throws IOException {
         // Open writer on the export file
-        try (OutputStream outputStream = context.getContentResolver().openOutputStream(backupUri);
-             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream))) {
-            JSONObject backup = makeBackup(context);
-            writer.write(backup.toString(4));
+        try {
+            // Build first so a database/serialization failure cannot truncate an existing backup.
+            String backup = makeBackup(context).toString(4);
+            try (OutputStream outputStream = context.getContentResolver().openOutputStream(backupUri, "wt")) {
+                if (outputStream == null) {
+                    throw new IOException("Backup provider returned no output stream.");
+                }
+                try (BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(outputStream, StandardCharsets.UTF_8))) {
+                    writer.write(backup);
+                }
+            }
         } catch (JSONException e) {
             throw new IOException("Failed to generate backup.", e);
+        } catch (SecurityException e) {
+            throw new IOException("Backup write permission denied.", e);
         } catch (IOException e) {
             throw new IOException("Could not write file.", e);
         }

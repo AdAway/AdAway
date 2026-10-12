@@ -83,6 +83,9 @@ public final class VpnBuilder {
                         FLAG_CANCEL_CURRENT | FLAG_IMMUTABLE
                 ))
                 .establish();
+        if (pfd == null) {
+            throw new SecurityException("VPN consent was revoked before establishment.");
+        }
         Timber.i("VPN established.");
         return pfd;
     }

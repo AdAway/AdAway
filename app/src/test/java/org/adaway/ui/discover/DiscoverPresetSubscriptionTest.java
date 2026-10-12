@@ -417,9 +417,16 @@ public class DiscoverPresetSubscriptionTest {
         assertTrue("Subscribed-only switch must keep a 48dp touch target.",
                 xmlTagById(layout, "filterlistsShowSubscribedSwitch")
                         .contains("android:minHeight=\"48dp\""));
-        assertTrue("Bulk buttons should stay compact so the list remains visible.",
-                layout.contains("android:minHeight=\"36dp\"")
-                        && layout.contains("android:textSize=\"12sp\""));
+        for (String buttonId : new String[]{"filterlistsSubscribeVisibleButton",
+                "filterlistsRemoveVisibleButton", "filterlistsSubscribeAllButton",
+                "filterlistsRemoveAllButton"}) {
+            String button = xmlTagById(layout, buttonId);
+            assertTrue(buttonId + " must keep a 48dp touch target.",
+                    button.contains("android:minHeight=\"48dp\""));
+            assertTrue(buttonId + " must retain compact labels and equal column sizing.",
+                    button.contains("android:textSize=\"12sp\"")
+                            && button.contains("android:layout_weight=\"1\""));
+        }
         assertTrue("Bulk actions must hide when the directory has no rows to act on.",
                 source.contains("filterlistsBulkActionsRow.setVisibility") &&
                         source.contains("all.isEmpty() && filtered.isEmpty()"));

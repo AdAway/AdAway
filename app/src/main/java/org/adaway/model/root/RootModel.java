@@ -9,8 +9,6 @@ import static org.adaway.model.error.HostError.PRIVATE_FILE_FAILED;
 import static org.adaway.model.error.HostError.REVERT_FAIL;
 import static org.adaway.model.root.ShellUtils.isWritable;
 import static org.adaway.util.Constants.ANDROID_SYSTEM_ETC_HOSTS;
-import static org.adaway.util.Constants.COMMAND_CHMOD_644;
-import static org.adaway.util.Constants.COMMAND_CHOWN;
 import static org.adaway.util.Constants.DEFAULT_HOSTS_FILENAME;
 import static org.adaway.util.Constants.HOSTS_FILENAME;
 import static org.adaway.util.Constants.LINE_SEPARATOR;
@@ -208,11 +206,16 @@ public class RootModel extends AdBlockModel {
         writer.write(HEADER_SOURCES);
         writer.newLine();
         for (HostsSource hostsSource : this.hostsSourceDao.getEnabled()) {
-            writer.write("# - " + hostsSource.getLabel() + ":" + hostsSource.getUrl());
+            writer.write(sourceHeader(hostsSource.getLabel(), hostsSource.getUrl()));
             writer.newLine();
         }
         // Write empty line separator
         writer.newLine();
+    }
+
+    static String sourceHeader(String label, String url) {
+        // Source metadata is a comment, never an additional hosts-file entry.
+        return ("# - " + label + ":" + url).replace('\r', ' ').replace('\n', ' ');
     }
 
     private void writeLoopbackToHosts(HostsFileWriter writer) throws IOException {
@@ -482,13 +485,8 @@ public class RootModel extends AdBlockModel {
                 }
             }
             // Copy hosts file then set owner and permissions
-            String escapedPrivateFile = com.topjohnwu.superuser.ShellUtils.escapedString(privateFile);
-            String escapedTarget = com.topjohnwu.superuser.ShellUtils.escapedString(target);
             Shell.Result result = Shell.cmd(
-                    "dd if=" + escapedPrivateFile + " of=" + escapedTarget,
-                    COMMAND_CHOWN + " " + escapedTarget,
-                    COMMAND_CHMOD_644 + " " + escapedTarget
-            ).exec();
+                    ShellUtils.hostsCopyCommand(privateFile, target)).exec();
             if (!result.isSuccess()) {
                 throw new CommandException("Failed to copy hosts file: " + mergeAllLines(result.getErr()));
             }

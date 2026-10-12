@@ -13,6 +13,37 @@ import java.util.Queue;
 
 public class DnsQueryQueueTest {
     @Test
+    public void capacityEvictsOldestBeforeAdding1025thQuery() {
+        Queue<PendingDnsQuery> queries = new LinkedList<>();
+        FakePendingDnsQuery oldest = new FakePendingDnsQuery(25L);
+        queries.add(oldest);
+        for (int i = 1; i < 1024; i++) {
+            queries.add(new FakePendingDnsQuery(25L));
+        }
+        DnsQueryQueue queue = new DnsQueryQueue(queries, () -> 30L);
+        queue.addQuery(new FakePendingDnsQuery(30L));
+        assertEquals(1024, queue.size());
+        assertTrue(oldest.closed);
+    }
+
+    @Test
+    public void closeReleasesPendingQueriesWithoutDeliveringOldReplies() {
+        Queue<PendingDnsQuery> queries = new LinkedList<>();
+        FakePendingDnsQuery first = new FakePendingDnsQuery(25L);
+        FakePendingDnsQuery second = new FakePendingDnsQuery(25L);
+        queries.add(first);
+        queries.add(second);
+        DnsQueryQueue queue = new DnsQueryQueue(queries, () -> 30L);
+        queue.close();
+        queue.close();
+        assertEquals(0, queue.size());
+        assertTrue(first.closed);
+        assertTrue(second.closed);
+        assertFalse(first.responseHandled);
+        assertFalse(second.responseHandled);
+    }
+
+    @Test
     public void getQueryFdsDropsTimedOutQueriesBeforePolling() {
         FakePendingDnsQuery staleQuery = new FakePendingDnsQuery(10L);
         Queue<PendingDnsQuery> queries = new LinkedList<>();

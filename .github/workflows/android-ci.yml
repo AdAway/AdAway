@@ -36,6 +36,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699
+        with:
+          packages: platform-tools
 
       - name: Install Android SDK/NDK (required for native modules)
         shell: bash
@@ -198,6 +200,12 @@ jobs:
               sed -e '/BEGIN PUBLIC KEY/d' -e '/END PUBLIC KEY/d' |
               tr -d '\n'
           )"
+          RELEASE_CERT_SHA256="$(
+            keytool -exportcert \
+              -keystore "$KEYSTORE" \
+              -storepass "$DRY_RUN_SIGNING_PASSWORD" \
+              -alias dryrun | sha256sum | cut -d ' ' -f 1
+          )"
           ./gradlew :app:assembleDirectRelease :app:generateSbom \
             --dependency-verification=strict \
             --stacktrace \
@@ -205,7 +213,8 @@ jobs:
             -PsigningStorePassword="$DRY_RUN_SIGNING_PASSWORD" \
             -PsigningKeyAlias=dryrun \
             -PsigningKeyPassword="$DRY_RUN_SIGNING_PASSWORD" \
-            -PupdateManifestPublicKeyBase64="$UPDATE_MANIFEST_PUBLIC_KEY_BASE64"
+            -PupdateManifestPublicKeyBase64="$UPDATE_MANIFEST_PUBLIC_KEY_BASE64" \
+            -PreleaseSigningCertificateSha256="$RELEASE_CERT_SHA256"
 
       - name: Check directRelease dry-run artifact boundary
         shell: pwsh
@@ -215,6 +224,13 @@ jobs:
             -SbomPath app/build/reports/sbom/adaway.cdx.json `
             -StrictArtifacts `
             -ReportPath app/build/reports/license-boundary/directrelease-dry-run-license-boundary-report.md
+
+      - name: Upload minified startup APK
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: AdAway-directRelease-dry-run
+          path: app/build/outputs/apk/directRelease/app-directRelease.apk
+          if-no-files-found: error
 
       - name: Upload directRelease dry-run boundary report
         if: always()
@@ -247,6 +263,12 @@ jobs:
     steps:
       - uses: actions/checkout@9f698171ed81b15d1823a05fc7211befd50c8ae0
 
+      - name: Download minified startup APK
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: AdAway-directRelease-dry-run
+          path: app/build/minified-startup-apk
+
       - name: Validate Gradle wrapper
         uses: gradle/actions/wrapper-validation@3f131e8634966bd73d06cc69884922b02e6faf92
 
@@ -259,6 +281,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699
+        with:
+          packages: platform-tools
 
       - name: Install emulator SDK packages
         shell: bash
@@ -351,6 +375,14 @@ jobs:
         run: |
           set -euo pipefail
           ./gradlew :app:connectedDebugAndroidTest --dependency-verification=strict --stacktrace
+
+      - name: Check minified startup
+        shell: bash
+        timeout-minutes: 5
+        run: |
+          bash scripts/check-minified-startup.sh \
+            app/build/minified-startup-apk/app-directRelease.apk \
+            emulator-5554 app/build/ci-artifacts/minified-startup
 
       - name: Collect connected test diagnostics
         if: always()

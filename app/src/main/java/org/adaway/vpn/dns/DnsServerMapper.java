@@ -22,6 +22,8 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -78,12 +80,14 @@ public class DnsServerMapper {
      * The original DNS servers.
      */
     private final List<InetAddress> dnsServers;
+    private final Map<InetAddress, InetAddress> dnsAliases;
 
     /**
      * Constructor.
      */
     public DnsServerMapper() {
         this.dnsServers = new ArrayList<>();
+        this.dnsAliases = new HashMap<>();
     }
 
     /**
@@ -102,6 +106,7 @@ public class DnsServerMapper {
         Subnet ipv6Subnet = hasIpV6DnsServers(context, dnsServers) ? addIpv6Address(builder) : null;
         // Configure DNS mapping
         this.dnsServers.clear();
+        this.dnsAliases.clear();
         for (InetAddress dnsServer : dnsServers) {
             Subnet subnetForDnsServer = dnsServer instanceof Inet4Address ? ipv4Subnet : ipv6Subnet;
             if (subnetForDnsServer == null) {
@@ -110,11 +115,13 @@ public class DnsServerMapper {
             this.dnsServers.add(dnsServer);
             int serverIndex = this.dnsServers.size();
             InetAddress dnsAddressAlias = subnetForDnsServer.getAddress(serverIndex);
+            this.dnsAliases.put(dnsAddressAlias, dnsServer);
             Timber.i("Mapping DNS server %s as %s.", dnsServer, dnsAddressAlias);
             builder.addDnsServer(dnsAddressAlias);
-            if (dnsServer instanceof Inet4Address) {
-                builder.addRoute(dnsAddressAlias, 32);
-            }
+            builder.addRoute(dnsAddressAlias, dnsServer instanceof Inet4Address ? 32 : 128);
+        }
+        if (this.dnsServers.isEmpty()) {
+            throw new IllegalStateException("No usable upstream DNS servers found.");
         }
         // Block DoH providers so Chrome falls back to system UDP/53 DNS (captured by AdAway)
         addDohBlockRoutes(builder, ipv6Subnet != null);
@@ -187,14 +194,7 @@ public class DnsServerMapper {
      * @return The original DNS server address, wrapped into an {@link Optional} or {@link Optional#empty()} if it does not exists.
      */
     Optional<InetAddress> getDnsServerFromFakeAddress(InetAddress fakeDnsAddress) {
-        byte[] address = fakeDnsAddress.getAddress();
-        int index = address[address.length - 1] - 2;
-        if (index < 0 || index >= this.dnsServers.size()) {
-            return Optional.empty();
-        }
-        InetAddress dnsAddress = this.dnsServers.get(index);
-        Timber.d("handleDnsRequest: Incoming packet to %s AKA %d AKA %s", fakeDnsAddress.getHostAddress(), index, dnsAddress.getHostAddress());
-        return Optional.of(dnsAddress);
+        return Optional.ofNullable(this.dnsAliases.get(fakeDnsAddress));
     }
 
     /**
@@ -301,7 +301,7 @@ public class DnsServerMapper {
                 }
             }
         }
-        return emptyList();
+        return getAnyNonVpnNetworkDns(connectivityManager);
     }
 
     /**
@@ -372,8 +372,12 @@ public class DnsServerMapper {
     private boolean hasIpV6DnsServers(Context context, Collection<InetAddress> dnsServers) {
         boolean hasIpv6Server = dnsServers.stream()
                 .anyMatch(server -> server instanceof Inet6Address);
-        boolean hasOnlyOnServer = dnsServers.size() == 1;
         boolean isIpv6Enabled = PreferenceHelper.getEnableIpv6(context);
-        return (isIpv6Enabled || hasOnlyOnServer) && hasIpv6Server;
+        return shouldUseIpv6(dnsServers, isIpv6Enabled) && hasIpv6Server;
+    }
+
+    static boolean shouldUseIpv6(Collection<InetAddress> dnsServers, boolean isIpv6Enabled) {
+        boolean hasIpv4Server = dnsServers.stream().anyMatch(Inet4Address.class::isInstance);
+        return isIpv6Enabled || !hasIpv4Server;
     }
 }

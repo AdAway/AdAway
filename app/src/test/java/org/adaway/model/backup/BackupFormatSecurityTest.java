@@ -1,15 +1,18 @@
 package org.adaway.model.backup;
 
 import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.ListType;
 import org.adaway.db.entity.RuleKind;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.adaway.db.entity.ListType.BLOCKED;
+import static org.adaway.db.entity.ListType.REDIRECTED;
 
 /**
- * Security regression tests for {@link BackupFormat#hostFromJson(JSONObject)}.
+ * Security regression tests for {@link BackupFormat#hostFromJson(JSONObject, ListType)}.
  *
  * <p>Guards ATK-23: redirect IP validation in backup import must reject private/reserved IPs,
  * matching the same check applied by SourceLoader (ATK-01).
@@ -25,7 +28,7 @@ public class BackupFormatSecurityTest {
         obj.put("redirect", "127.0.0.1");
         obj.put("enabled", true);
         try {
-            BackupFormat.hostFromJson(obj);
+            BackupFormat.hostFromJson(obj, REDIRECTED);
             fail("Expected JSONException for loopback redirect in backup");
         } catch (JSONException e) {
             assertTrue("Error must mention invalid redirect", e.getMessage().contains("Invalid"));
@@ -39,7 +42,7 @@ public class BackupFormatSecurityTest {
         obj.put("redirect", "192.168.1.1");
         obj.put("enabled", true);
         try {
-            BackupFormat.hostFromJson(obj);
+            BackupFormat.hostFromJson(obj, REDIRECTED);
             fail("Expected JSONException for private-IP redirect in backup");
         } catch (JSONException e) {
             assertTrue("Error must mention invalid redirect", e.getMessage().contains("Invalid"));
@@ -53,7 +56,7 @@ public class BackupFormatSecurityTest {
         obj.put("redirect", "8.8.8.8");
         obj.put("enabled", true);
         // Must NOT throw — public IP redirect is valid
-        BackupFormat.hostFromJson(obj);
+        assertEquals(REDIRECTED, BackupFormat.hostFromJson(obj, REDIRECTED).getType());
     }
 
     @Test
@@ -63,7 +66,7 @@ public class BackupFormatSecurityTest {
         obj.put("redirect", "not-an-ip");
         obj.put("enabled", true);
         try {
-            BackupFormat.hostFromJson(obj);
+            BackupFormat.hostFromJson(obj, REDIRECTED);
             fail("Expected JSONException for non-IP redirect string in backup");
         } catch (JSONException e) {
             assertTrue("Error must mention invalid redirect", e.getMessage().contains("Invalid"));
@@ -75,21 +78,22 @@ public class BackupFormatSecurityTest {
         JSONObject obj = new JSONObject();
         obj.put("host", "example.com");
         obj.put("enabled", true);
-        // No redirect field — must NOT throw
-        BackupFormat.hostFromJson(obj);
+        // A blocked rule does not require a redirect field.
+        assertEquals(BLOCKED, BackupFormat.hostFromJson(obj, BLOCKED).getType());
     }
 
     @Test
     public void atk31_backupRoundTripsSuffixRuleKind() throws JSONException {
         HostListItem item = new HostListItem();
         item.setHost("example.com");
+        item.setType(BLOCKED);
         item.setKind(RuleKind.SUFFIX);
         item.setEnabled(true);
 
         JSONObject obj = BackupFormat.hostToJson(item);
         assertEquals("suffix", obj.getString("kind"));
 
-        HostListItem restored = BackupFormat.hostFromJson(obj);
+        HostListItem restored = BackupFormat.hostFromJson(obj, BLOCKED);
         assertEquals(RuleKind.SUFFIX, restored.getKind());
     }
 
@@ -99,7 +103,7 @@ public class BackupFormatSecurityTest {
         obj.put("host", "example.com");
         obj.put("enabled", true);
 
-        HostListItem restored = BackupFormat.hostFromJson(obj);
+        HostListItem restored = BackupFormat.hostFromJson(obj, BLOCKED);
 
         assertEquals(RuleKind.EXACT, restored.getKind());
     }
@@ -112,7 +116,7 @@ public class BackupFormatSecurityTest {
         obj.put("kind", "browser-scriptlet");
 
         try {
-            BackupFormat.hostFromJson(obj);
+            BackupFormat.hostFromJson(obj, BLOCKED);
             fail("Expected JSONException for unsupported rule kind in backup");
         } catch (JSONException e) {
             assertTrue("Error must mention invalid kind", e.getMessage().contains("Invalid"));

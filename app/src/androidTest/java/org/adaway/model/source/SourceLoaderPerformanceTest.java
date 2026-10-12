@@ -1296,14 +1296,12 @@ public class SourceLoaderPerformanceTest {
     }
 
     private static BufferedReader failingAfterFirstLineReader() {
-        return new BufferedReader(new StringReader("")) {
-            private boolean firstLineReturned;
-
+        return new BufferedReader(new StringReader("0.0.0.0 partial.example.test\n")) {
             @Override
-            public String readLine() throws IOException {
-                if (!this.firstLineReturned) {
-                    this.firstLineReturned = true;
-                    return "0.0.0.0 partial.example.test";
+            public int read(char[] buffer, int offset, int length) throws IOException {
+                int count = super.read(buffer, offset, length);
+                if (count >= 0) {
+                    return count;
                 }
                 throw new IOException("injected read failure");
             }
@@ -1469,6 +1467,8 @@ public class SourceLoaderPerformanceTest {
     private static final class GeneratedRulesReader extends BufferedReader {
         private final ScaleFixture fixture;
         private int index;
+        private String pendingLine;
+        private int pendingOffset;
 
         GeneratedRulesReader(ScaleFixture fixture) {
             super(new StringReader(""));
@@ -1476,7 +1476,27 @@ public class SourceLoaderPerformanceTest {
         }
 
         @Override
-        public String readLine() {
+        public int read(char[] buffer, int offset, int length) {
+            int count = 0;
+            while (count < length) {
+                if (this.pendingLine == null) {
+                    String line = nextLine();
+                    if (line == null) break;
+                    this.pendingLine = line + "\n";
+                    this.pendingOffset = 0;
+                }
+                int copied = Math.min(length - count,
+                        this.pendingLine.length() - this.pendingOffset);
+                this.pendingLine.getChars(this.pendingOffset, this.pendingOffset + copied,
+                        buffer, offset + count);
+                this.pendingOffset += copied;
+                count += copied;
+                if (this.pendingOffset == this.pendingLine.length()) this.pendingLine = null;
+            }
+            return count == 0 && length > 0 ? -1 : count;
+        }
+
+        private String nextLine() {
             if (this.index >= this.fixture.totalLines) {
                 return null;
             }

@@ -213,10 +213,11 @@ public final class SourceUpdateService {
             AdAwayApplication application = (AdAwayApplication) getApplicationContext();
             try {
                 SourceModel sourceModel = application.getSourceModel();
-                if (sourceModel.checkAndRetrieveHostsSources()) {
-                    AdBlockModel adBlockModel = application.getAdBlockModel();
-                    adBlockModel.apply();
+                if (!sourceModel.checkAndRetrieveHostsSources()) {
+                    return retry();
                 }
+                AdBlockModel adBlockModel = application.getAdBlockModel();
+                adBlockModel.apply();
                 return success();
             } catch (HostErrorException exception) {
                 Timber.e(exception, "Failed to update/apply during immediate update-all.");

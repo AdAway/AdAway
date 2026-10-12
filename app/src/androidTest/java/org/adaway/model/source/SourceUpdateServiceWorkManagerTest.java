@@ -14,8 +14,13 @@ import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkInfo;
 import androidx.work.WorkManager;
+import androidx.work.ListenableWorker;
+import androidx.work.testing.TestListenableWorkerBuilder;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
+import org.adaway.model.error.HostError;
+import org.adaway.model.error.HostErrorException;
 import org.adaway.util.Constants;
 import org.junit.After;
 import org.junit.Before;
@@ -23,6 +28,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.List;
+import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -41,6 +47,42 @@ public class SourceUpdateServiceWorkManagerTest {
     @After
     public void tearDown() throws Exception {
         resetWorkManager();
+    }
+
+    @Test
+    public void immediateWorkerRetriesWhenRetrievalDoesNotComplete() throws Exception {
+        assertImmediateWorkerRetries(new SourceModel(context) {
+            @Override
+            public boolean checkAndRetrieveHostsSources() {
+                return false;
+            }
+        });
+    }
+
+    @Test
+    public void immediateWorkerRetriesWhenAnotherUpdateOwnsTheGate() throws Exception {
+        assertImmediateWorkerRetries(new SourceModel(context) {
+            @Override
+            public boolean checkAndRetrieveHostsSources() throws HostErrorException {
+                throw new HostErrorException(HostError.UPDATE_IN_PROGRESS);
+            }
+        });
+    }
+
+    private void assertImmediateWorkerRetries(SourceModel sourceModel) throws Exception {
+        AdAwayApplication application = (AdAwayApplication) context.getApplicationContext();
+        Field field = AdAwayApplication.class.getDeclaredField("sourceModel");
+        field.setAccessible(true);
+        Object original = field.get(application);
+        try {
+            field.set(application, sourceModel);
+            SourceUpdateService.HostsSourcesImmediateUpdateWorker worker =
+                    TestListenableWorkerBuilder.from(context,
+                            SourceUpdateService.HostsSourcesImmediateUpdateWorker.class).build();
+            assertEquals(ListenableWorker.Result.retry(), worker.doWork());
+        } finally {
+            field.set(application, original);
+        }
     }
 
     @Test

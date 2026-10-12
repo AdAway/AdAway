@@ -1,6 +1,7 @@
 package org.adaway.tile;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assume.assumeTrue;
 
@@ -51,6 +52,37 @@ public class AdBlockingTileServiceInstrumentedTest {
         if (this.application != null) {
             injectAdBlockModel(this.application, this.originalAdBlockModel);
         }
+    }
+
+    @Test
+    public void listeningStopsObservingOriginalModelEvenAfterModelChanges() {
+        Context context = ApplicationProvider.getApplicationContext();
+        RecordingAdBlockModel first = new RecordingAdBlockModel(context);
+        RecordingAdBlockModel second = new RecordingAdBlockModel(context);
+        java.util.concurrent.atomic.AtomicReference<AdBlockModel> current =
+                new java.util.concurrent.atomic.AtomicReference<>(first);
+        AdBlockingTileService service = new AdBlockingTileService() {
+            @Override
+            AdBlockModel getModel() {
+                return current.get();
+            }
+        };
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            try {
+                service.onStartListening();
+                service.onStartListening();
+                assertTrue(first.isApplied().hasObservers());
+                current.set(second);
+                service.onStopListening();
+                assertFalse(first.isApplied().hasObservers());
+                service.onStartListening();
+                assertTrue(second.isApplied().hasObservers());
+                service.onDestroy();
+                assertFalse(second.isApplied().hasObservers());
+            } finally {
+                service.onStopListening();
+            }
+        });
     }
 
     @Test

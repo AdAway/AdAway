@@ -4,6 +4,9 @@
     <string name="source_edit_add_title">Add source</string>
     <!-- Hosts source edition -->
     <string name="source_edit_label">Label</string>
+    <string name="source_edit_optional_label">Name (optional)</string>
+    <string name="source_edit_duplicate_url">This filter URL is already subscribed.</string>
+    <string name="source_edit_save_failed">Could not save this filter. Reopen it and try again.</string>
     <string name="source_edit_label_required">Label required</string>
     <string name="source_edit_type">Type</string>
     <string name="source_edit_url">URL</string>

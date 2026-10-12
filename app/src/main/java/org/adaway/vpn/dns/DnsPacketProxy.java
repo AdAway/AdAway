@@ -16,6 +16,8 @@ package org.adaway.vpn.dns;
 
 import android.content.Context;
 
+import com.google.common.net.InetAddresses;
+
 import org.adaway.AdAwayApplication;
 import org.adaway.db.entity.HostEntry;
 import org.adaway.db.entity.ListType;
@@ -34,18 +36,19 @@ import org.xbill.DNS.DClass;
 import org.xbill.DNS.Flags;
 import org.xbill.DNS.Message;
 import org.xbill.DNS.Name;
+import org.xbill.DNS.Opcode;
 import org.xbill.DNS.Rcode;
 import org.xbill.DNS.Record;
 import org.xbill.DNS.SOARecord;
 import org.xbill.DNS.Section;
 import org.xbill.DNS.TextParseException;
+import org.xbill.DNS.Type;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.Inet4Address;
 import java.net.Inet6Address;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -147,7 +150,7 @@ public class DnsPacketProxy {
         }
 
         // Check UDP protocol
-        if (ipPacket.getHeader().getProtocol() != IpNumber.UDP) {
+        if (!IpNumber.UDP.equals(ipPacket.getHeader().getProtocol())) {
             return;
         }
 
@@ -164,6 +167,9 @@ public class DnsPacketProxy {
 
         InetAddress packetAddress = ipPacket.getHeader().getDstAddr();
         int packetPort = updPacket.getHeader().getDstPort().valueAsInt();
+        if (packetPort != 53) {
+            return;
+        }
         Optional<InetAddress> dnsAddressOptional = this.dnsServerMapper.getDnsServerFromFakeAddress(packetAddress);
         if (!dnsAddressOptional.isPresent()) {
             Timber.w("Cannot find mapped DNS for %s.", packetAddress.getHostAddress());
@@ -183,54 +189,106 @@ public class DnsPacketProxy {
         }
 
         byte[] dnsRawData = udpPayload.getRawData();
-            Message dnsMsg;
-            try {
-                dnsMsg = new Message(dnsRawData);
-            } catch (IOException e) {
+        Message dnsMsg;
+        try {
+            dnsMsg = new Message(dnsRawData);
+        } catch (IOException e) {
             Timber.d(e, "Discarding non-DNS or invalid packet.");
-                return;
-            }
-            if (dnsMsg.getQuestion() == null) {
-            Timber.d("Discarding DNS packet with no query.");
-                return;
-            }
+            return;
+        }
+        if (!isStandardQuery(dnsMsg)) {
+            Timber.d("Discarding unsupported DNS query.");
+            return;
+        }
         Name name = dnsMsg.getQuestion().getName();
         String dnsQueryName = name.toString(true);
         HostEntry entry = getHostEntry(dnsQueryName);
         switch (entry.getType()) {
             case BLOCKED:
                 Timber.d("DNS query blocked.");
-                dnsMsg.getHeader().setFlag(Flags.QR);
-                dnsMsg.getHeader().setRcode(Rcode.NOERROR);
-                dnsMsg.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
-                handleDnsResponse(ipPacket, dnsMsg.toWire());
+                handleDnsResponse(ipPacket, createBlockedResponse(dnsMsg).toWire());
                 break;
             case ALLOWED:
                 Timber.d("DNS query allowed.");
                 DatagramPacket outPacket = new DatagramPacket(dnsRawData, 0, dnsRawData.length, dnsAddress, packetPort);
-                this.eventLoop.forwardPacket(outPacket, data -> handleDnsResponse(ipPacket, data));
+                this.eventLoop.forwardPacket(outPacket, data -> {
+                    if (isMatchingResponse(dnsMsg, data)) {
+                        handleDnsResponse(ipPacket, data);
+                    }
+                });
                 break;
             case REDIRECTED:
                 Timber.d("DNS query redirected.");
-                dnsMsg.getHeader().setFlag(Flags.QR);
-                dnsMsg.getHeader().setFlag(Flags.AA);
-                dnsMsg.getHeader().unsetFlag(Flags.RD);
-                dnsMsg.getHeader().setRcode(Rcode.NOERROR);
-                try {
-                    InetAddress address = InetAddress.getByName(entry.getRedirection());
-                    Record record;
-                    if (address instanceof Inet6Address) {
-                        record = new AAAARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
-                    } else {
-                        record = new ARecord(name, DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
-                    }
-                    dnsMsg.addRecord(record, Section.ANSWER);
-                } catch (UnknownHostException e) {
-                    Timber.w(e, "Failed to get inet address for host %s.", dnsQueryName);
-                }
-                handleDnsResponse(ipPacket, dnsMsg.toWire());
+                handleDnsResponse(ipPacket,
+                        createRedirectResponse(dnsMsg, entry.getRedirection()).toWire());
                 break;
         }
+    }
+
+    static boolean isStandardQuery(Message query) {
+        return !query.getHeader().getFlag(Flags.QR)
+                && query.getHeader().getOpcode() == Opcode.QUERY
+                && query.getHeader().getCount(Section.QUESTION) == 1;
+    }
+
+    static boolean isMatchingResponse(Message query, byte[] data) {
+        try {
+            Message response = new Message(data);
+            return response.getHeader().getFlag(Flags.QR)
+                    && response.getHeader().getID() == query.getHeader().getID()
+                    && response.getHeader().getOpcode() == query.getHeader().getOpcode()
+                    && response.getHeader().getCount(Section.QUESTION) == 1
+                    && query.getQuestion().equals(response.getQuestion());
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    private static Message createResponse(Message query) {
+        // Do not reflect client-supplied answers or DNSSEC authentication flags.
+        Message response = new Message(query.getHeader().getID());
+        response.getHeader().setFlag(Flags.QR);
+        response.getHeader().setFlag(Flags.RA);
+        if (query.getHeader().getFlag(Flags.RD)) {
+            response.getHeader().setFlag(Flags.RD);
+        }
+        if (query.getHeader().getFlag(Flags.CD)) {
+            response.getHeader().setFlag(Flags.CD);
+        }
+        response.addRecord(query.getQuestion(), Section.QUESTION);
+        return response;
+    }
+
+    static Message createBlockedResponse(Message query) {
+        Message response = createResponse(query);
+        response.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
+        return response;
+    }
+
+    static Message createRedirectResponse(Message query, String redirection) {
+        Message response = createResponse(query);
+        InetAddress address;
+        try {
+            if (redirection == null) {
+                throw new IllegalArgumentException("Missing redirect address.");
+            }
+            address = InetAddresses.forString(redirection);
+        } catch (IllegalArgumentException e) {
+            response.getHeader().setRcode(Rcode.SERVFAIL);
+            return response;
+        }
+        Record question = query.getQuestion();
+        int addressType = address instanceof Inet6Address ? Type.AAAA : Type.A;
+        if (question.getDClass() == DClass.IN
+                && (question.getType() == addressType || question.getType() == Type.ANY)) {
+            Record answer = addressType == Type.AAAA
+                    ? new AAAARecord(question.getName(), DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address)
+                    : new ARecord(question.getName(), DClass.IN, NEGATIVE_CACHE_TTL_SECONDS, address);
+            response.addRecord(answer, Section.ANSWER);
+        } else {
+            response.addRecord(NEGATIVE_CACHE_SOA_RECORD, Section.AUTHORITY);
+        }
+        return response;
     }
 
     private HostEntry getHostEntry(String dnsQueryName) {

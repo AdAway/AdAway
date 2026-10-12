@@ -39,6 +39,7 @@ import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.runner.lifecycle.ActivityLifecycleCallback;
 import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 import androidx.test.runner.lifecycle.Stage;
 import androidx.viewpager2.widget.ViewPager2;
@@ -57,6 +58,8 @@ import org.junit.runner.RunWith;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 @RunWith(AndroidJUnit4.class)
@@ -106,6 +109,54 @@ public class ListsAddUserRulesInstrumentedTest {
             if (this.context != null) {
                 this.context.deleteDatabase(TEST_DATABASE_NAME);
             }
+        }
+    }
+
+    @Test(timeout = 90_000)
+    public void addDialogsUseRestoredFragmentsAfterActivityRecreation() throws Exception {
+        ActivityScenario<ListsActivity> scenario = ActivityScenario.launch(
+                new Intent(this.context, ListsActivity.class).putExtra(TAB, BLOCKED_HOSTS_TAB));
+        try {
+            waitForTabFragment(BLOCKED_HOSTS_TAB);
+            recreateResumedListsActivity();
+            addRule(BLOCKED_HOSTS_TAB, R.string.list_add_dialog_black, BLOCKED_HOST);
+            waitForUserRule(BLOCKED, BLOCKED_HOST, null);
+            addRule(ALLOWED_HOSTS_TAB, R.string.list_add_dialog_white, ALLOWED_HOST);
+            waitForUserRule(ALLOWED, ALLOWED_HOST, null);
+            recreateResumedListsActivity();
+            addRule(REDIRECTED_HOSTS_TAB, R.string.list_add_dialog_redirect,
+                    REDIRECTED_HOST, REDIRECT_IP);
+            waitForUserRule(REDIRECTED, REDIRECTED_HOST, REDIRECT_IP);
+        } finally {
+            // Remove the animated UI before ActivityScenario.close() waits for idleness.
+            finishResumedActivities();
+            scenario.close();
+        }
+    }
+
+    private static void recreateResumedListsActivity() throws InterruptedException {
+        ListsActivity[] previous = new ListsActivity[1];
+        CountDownLatch resumed = new CountDownLatch(1);
+        ActivityLifecycleCallback callback = (activity, stage) -> {
+            if (activity instanceof ListsActivity && activity != previous[0]
+                    && stage == Stage.RESUMED) {
+                resumed.countDown();
+            }
+        };
+        try {
+            runOnResumedListsActivity(activity -> {
+                previous[0] = activity;
+                ActivityLifecycleMonitorRegistry.getInstance().addLifecycleCallback(callback);
+                // ActivityScenario.recreate() first waits indefinitely for UI idleness.
+                // Observe the real replacement lifecycle instead of waiting on animations.
+                activity.recreate();
+            });
+            assertTrue("Replacement ListsActivity did not resume after recreation",
+                    resumed.await(TIMEOUT_MS, TimeUnit.MILLISECONDS));
+        } finally {
+            InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                    ActivityLifecycleMonitorRegistry.getInstance()
+                            .removeLifecycleCallback(callback));
         }
     }
 

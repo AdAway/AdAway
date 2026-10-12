@@ -4,6 +4,7 @@ import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
 import org.adaway.AdAwayApplication;
 import org.adaway.model.adblocking.AdBlockModel;
@@ -24,6 +25,8 @@ import timber.log.Timber;
  */
 public class AdBlockingTileService extends TileService {
     private final AtomicBoolean toggling = new AtomicBoolean(false);
+    private final Observer<Boolean> appliedObserver = applied -> updateTile(Boolean.TRUE.equals(applied));
+    private LiveData<Boolean> observedApplied;
 
     @Override
     public void onTileAdded() {
@@ -33,14 +36,27 @@ public class AdBlockingTileService extends TileService {
 
     @Override
     public void onStartListening() {
-        LiveData<Boolean> applied = getModel().isApplied();
-        applied.observeForever(this::updateTile);
+        stopObserving();
+        this.observedApplied = getModel().isApplied();
+        this.observedApplied.observeForever(this.appliedObserver);
     }
 
     @Override
     public void onStopListening() {
-        LiveData<Boolean> applied = getModel().isApplied();
-        applied.removeObserver(this::updateTile);
+        stopObserving();
+    }
+
+    @Override
+    public void onDestroy() {
+        stopObserving();
+        super.onDestroy();
+    }
+
+    private void stopObserving() {
+        if (this.observedApplied != null) {
+            this.observedApplied.removeObserver(this.appliedObserver);
+            this.observedApplied = null;
+        }
     }
 
     @Override
@@ -78,7 +94,7 @@ public class AdBlockingTileService extends TileService {
         }
     }
 
-    private AdBlockModel getModel() {
+    AdBlockModel getModel() {
         return ((AdAwayApplication) getApplication()).getAdBlockModel();
     }
 }

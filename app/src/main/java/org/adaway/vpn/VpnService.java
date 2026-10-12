@@ -91,12 +91,14 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
      * Handler related.
      */
     private static final int VPN_STATUS_UPDATE_MESSAGE_TYPE = 0;
+    private static final int VPN_RECONNECT_MESSAGE_TYPE = 1;
 
     private final MyHandler handler;
     private final NetworkTypeCallback wifiNetworkCallback;
     private final NetworkTypeCallback cellularNetworkCallback;
     private final Set<NetworkType> availableNetworkTypes;
-    private final VpnWorker vpnWorker;
+    private VpnWorker vpnWorker;
+    private boolean vpnRequested;
 
     /**
      * Constructor.
@@ -106,7 +108,6 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         this.wifiNetworkCallback = new NetworkTypeCallback(WIFI);
         this.cellularNetworkCallback = new NetworkTypeCallback(CELLULAR);
         this.availableNetworkTypes = new HashSet<>();
-        this.vpnWorker = new VpnWorker(this);
     }
 
     /*
@@ -115,6 +116,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public void onCreate() {
+        super.onCreate();
         Timber.d("Creating VPN service…");
         registerNetworkCallback();
     }
@@ -144,8 +146,19 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     @Override
     public void onDestroy() {
         Timber.d("Destroying VPN service…");
+        this.vpnRequested = false;
+        stopWorker();
+        this.handler.removeMessages(VPN_STATUS_UPDATE_MESSAGE_TYPE);
+        this.handler.removeMessages(VPN_RECONNECT_MESSAGE_TYPE);
+        PreferenceHelper.setVpnServiceStatus(this, STOPPED);
         unregisterNetworkCallback();
+        super.onDestroy();
         Timber.d("Destroyed VPN service.");
+    }
+
+    @Override
+    public void onRevoke() {
+        this.handler.post(this::stopVpn);
     }
 
     /*
@@ -154,10 +167,24 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     @Override
     public boolean handleMessage(@NonNull Message message) {
-        if (message.what == VPN_STATUS_UPDATE_MESSAGE_TYPE) {
-            updateVpnStatus(VpnStatus.fromCode(message.arg1));
+        if (message.what == VPN_RECONNECT_MESSAGE_TYPE
+                && this.vpnRequested && message.obj == this.vpnWorker) {
+            reconnect();
+        }
+        if (message.what == VPN_STATUS_UPDATE_MESSAGE_TYPE
+                && this.vpnRequested && message.obj == this.vpnWorker) {
+            VpnStatus status = VpnStatus.fromCode(message.arg1);
+            if (status == STOPPED) {
+                stopVpn();
+            } else {
+                updateVpnStatus(status);
+            }
         }
         return true;
+    }
+
+    public void requestReconnect(VpnWorker worker) {
+        this.handler.obtainMessage(VPN_RECONNECT_MESSAGE_TYPE, worker).sendToTarget();
     }
 
     /**
@@ -165,23 +192,27 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
      *
      * @param status The new VPN status.
      */
-    public void notifyVpnStatus(VpnStatus status) {
-        Message statusMessage = this.handler.obtainMessage(VPN_STATUS_UPDATE_MESSAGE_TYPE, status.toCode(), 0);
+    public void notifyVpnStatus(VpnWorker worker, VpnStatus status) {
+        Message statusMessage = this.handler.obtainMessage(
+                VPN_STATUS_UPDATE_MESSAGE_TYPE, status.toCode(), 0, worker);
         this.handler.sendMessage(statusMessage);
     }
 
     private void startVpn() {
         Timber.d("startVpn() called");
+        this.vpnRequested = true;
         PreferenceHelper.setVpnServiceStatus(this, STARTING);
         updateVpnStatus(STARTING);
-        this.vpnWorker.start();
+        startWorker();
         Timber.i("VPN service started.");
     }
 
     private void stopVpn() {
         Timber.d("Stopping VPN service…");
+        this.vpnRequested = false;
+        VpnServiceHeartbeat.stop(this);
         PreferenceHelper.setVpnServiceStatus(this, STOPPED);
-        this.vpnWorker.stop();
+        stopWorker();
         stopForeground(true);
         stopSelf();
         updateVpnStatus(STOPPED);
@@ -189,13 +220,29 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     }
 
     private void waitForNetVpn() {
-        this.vpnWorker.stop();
+        stopWorker();
         updateVpnStatus(WAITING_FOR_NETWORK);
     }
 
     private void reconnect() {
         updateVpnStatus(RECONNECTING);
+        startWorker();
+    }
+
+    private void startWorker() {
+        stopWorker();
+        // A retiring worker may still be returning from platform or database I/O.
+        // Give the new tunnel its own queues, mapper and monitor.
+        this.vpnWorker = new VpnWorker(this);
         this.vpnWorker.start();
+    }
+
+    private void stopWorker() {
+        VpnWorker worker = this.vpnWorker;
+        this.vpnWorker = null;
+        if (worker != null) {
+            worker.stop();
+        }
     }
 
     private void updateVpnStatus(VpnStatus status) {
@@ -311,7 +358,7 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private void addNetworkType(NetworkType type) {
         boolean noNetwork = this.availableNetworkTypes.isEmpty();
         this.availableNetworkTypes.add(type);
-        if (noNetwork) {
+        if (noNetwork && this.vpnRequested) {
             Timber.d("Reconnecting VPN on network %s.", type);
             reconnect();
         }
@@ -319,6 +366,9 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     private void removeNetworkType(NetworkType type) {
         this.availableNetworkTypes.remove(type);
+        if (!this.vpnRequested) {
+            return;
+        }
         if (this.availableNetworkTypes.isEmpty()) {
             Timber.d("Waiting for network…");
             waitForNetVpn();

@@ -11,6 +11,18 @@
 
 -dontobfuscate
 
+### Room ###
+# Room instantiates generated databases reflectively, including WorkManager's database.
+# R8 full mode does not implicitly retain a kept class's no-argument constructor.
+-keep class * extends androidx.room.RoomDatabase {
+    public <init>();
+}
+
+# WorkManager also constructs its persisted input-merger class by reflection.
+-keep class * extends androidx.work.InputMerger {
+    public <init>();
+}
+
 ### OkHttp ###
 # A resource is loaded with a relative path so the package of this class must be preserved.
 -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase

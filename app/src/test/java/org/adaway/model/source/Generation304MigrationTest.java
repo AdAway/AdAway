@@ -160,6 +160,18 @@ public class Generation304MigrationTest {
             throws Exception {
         String sourceModel = readRepoFile("app/src/main/java/org/adaway/model/source/SourceModel.java");
         String compactSourceModel = compact(sourceModel);
+        int failedCarryForwardStart = compactSourceModel.indexOf(
+                "for (HostsSource source : failedCarryForwardSources)");
+        int deferredCarryForwardStart = compactSourceModel.indexOf(
+                "for (HostsSource source : deferredCarryForwardSources)");
+        int carryForwardEnd = compactSourceModel.indexOf("long carryForwardMs =");
+        assertTrue("Failed-source and 304 carry-forward must run before finalization.",
+                failedCarryForwardStart >= 0 && deferredCarryForwardStart > failedCarryForwardStart
+                        && carryForwardEnd > deferredCarryForwardStart);
+        String failedCarryForward = compactSourceModel.substring(
+                failedCarryForwardStart, deferredCarryForwardStart);
+        String deferredCarryForward = compactSourceModel.substring(
+                deferredCarryForwardStart, carryForwardEnd);
 
         assertTrue("Carry-forward must inspect previous active generation coverage.",
                 sourceModel.contains("countSourceHostsForGeneration(source.getId(), oldGeneration)"));
@@ -169,16 +181,20 @@ public class Generation304MigrationTest {
                         "their previous active coverage.",
                 sourceModel.contains("failedCarryForwardSources.add(source)") &&
                         sourceModel.contains("failedCarryForwardSources.add(result.source)") &&
-                        compactSourceModel.contains("for (HostsSource source : " +
-                                "failedCarryForwardSources) { if (!carryForwardPreviousGeneration" +
-                                "(source, importGeneration)) { generationUnsafe.set(true); } }"));
+                        failedCarryForward.contains("if (!carryForwardPreviousGeneration" +
+                                "(source, importGeneration)) { generationUnsafe.set(true); }"));
         assertTrue("304 carry-forward must mark the full-update generation unsafe and use " +
                         "the SQL dedupe surface.",
-                compactSourceModel.contains("for (HostsSource source : deferredCarryForwardSources) " +
-                        "{ if (!carryForwardPreviousGeneration(source, importGeneration, " +
-                        "sqlDeduper)) { generationUnsafe.set(true); } }"));
+                deferredCarryForward.contains("if (!carryForwardPreviousGeneration(source, " +
+                        "importGeneration, sqlDeduper)) { generationUnsafe.set(true); }"));
         assertTrue("Unsafe generations must abort before activation.",
-                sourceModel.contains("|| generationUnsafe.get()"));
+                compactSourceModel.contains("|| generationUnsafe.get()) { " +
+                        "abortUnsafeGeneration(writableDb, importGeneration, sourceFailures); " +
+                        "postMultiPhaseProgress(MultiPhaseProgress.idle()); " +
+                        "throw new HostErrorException(DOWNLOAD_FAILED); }") &&
+                        compactSourceModel.indexOf("abortUnsafeGeneration(writableDb,") <
+                                compactSourceModel.indexOf("FinalizeTimings finalizeTimings = " +
+                                        "finalizeActivatedGeneration("));
     }
 
     @Test

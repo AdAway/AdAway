@@ -13,6 +13,7 @@ import static java.time.temporal.ChronoUnit.WEEKS;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -58,6 +59,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
@@ -67,8 +70,10 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Supplier;
 
 import okhttp3.Cache;
+import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -119,7 +124,7 @@ public class SourceModel {
     private static final String IF_NONE_MATCH_HEADER = "If-None-Match";
     private static final String IF_MODIFIED_SINCE_HEADER = "If-Modified-Since";
     private static final String ENTITY_TAG_HEADER = "ETag";
-    private static final String WEAK_ENTITY_TAG_PREFIX = "W/";
+    static final long MAX_SOURCE_BYTES = 512L * 1024 * 1024;
     /**
      * The application context.
      */
@@ -183,6 +188,7 @@ public class SourceModel {
      */
     private ExecutorService currentDownloadPool;
     private ExecutorService currentParsePool;
+    private final Set<Call> activeDownloads = ConcurrentHashMap.newKeySet();
     /**
      * Prevent multiple overlapping update executions (e.g. auto-update + user refresh).
      * Overlaps were causing counters/UI to become inconsistent and parse tasks to be interrupted.
@@ -307,19 +313,31 @@ public class SourceModel {
                 && !this.progressBuilder.isComplete();
     }
 
-    private boolean beginUpdateOperation(@NonNull String operationName) throws HostErrorException {
+    private void beginUpdateOperation(@NonNull String operationName) throws HostErrorException {
         if (!this.updateInProgress.compareAndSet(false, true)) {
             Timber.w("Update already in progress - ignoring %s", operationName);
             throw new HostErrorException(UPDATE_IN_PROGRESS);
         }
-        return true;
+    }
+
+    /**
+     * Run a source edit and its runtime synchronization without racing a source update.
+     * Call on a worker thread; enqueue any follow-up download only after this method returns.
+     */
+    public <T> T runSourceMutation(@NonNull Supplier<T> mutation) throws HostErrorException {
+        beginUpdateOperation("source mutation");
+        try {
+            return mutation.get();
+        } finally {
+            finishUpdateOperation();
+        }
     }
 
     private void finishUpdateOperation() {
-        this.updateInProgress.set(false);
         synchronized (this) {
             this.currentDownloadPool = null;
             this.currentParsePool = null;
+            this.updateInProgress.set(false);
         }
     }
 
@@ -547,14 +565,10 @@ public class SourceModel {
      * @throws HostErrorException If the hosts sources could not be downloaded.
      */
     public boolean checkAndRetrieveHostsSources() throws HostErrorException {
-        if (isDeviceOffline()) {
-            throw new HostErrorException(NO_CONNECTION);
-        }
-        if (!beginUpdateOperation("checkAndRetrieveHostsSources")) {
-            return false;
-        }
+        beginUpdateOperation("checkAndRetrieveHostsSources");
         SupportSQLiteDatabase writableDb = null;
         final SqlUpdateDeduper[] sqlDeduperRef = new SqlUpdateDeduper[1];
+        final List<DownloadResult> downloads = Collections.synchronizedList(new ArrayList<>());
         try {
             // Balanced durability speed-up for bulk import:
             // Reduce fsync frequency during the update window. If the device crashes mid-update,
@@ -600,6 +614,10 @@ public class SourceModel {
             }
         }
 
+        if (!enabledUrlSources.isEmpty() && isDeviceOffline()) {
+            throw new HostErrorException(NO_CONNECTION);
+        }
+
         final int totalSources = enabledUrlSources.size() + enabledFileSources.size();
         if (totalSources == 0) {
             if (runtimeRebuildRequired) {
@@ -640,7 +658,7 @@ public class SourceModel {
                 Timber.i("Update stopped by user");
                 break;
             }
-            while (progressBuilder.isPaused()) {
+            while (progressBuilder.isPaused() && !progressBuilder.isStopped()) {
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
@@ -671,8 +689,11 @@ public class SourceModel {
                 changedSourceCount.incrementAndGet();
                 progressBuilder.incrementDownloaded();
                 progressBuilder.incrementParsed();
-            } catch (IOException e) {
+            } catch (IOException | RuntimeException e) {
                 Timber.w(e, "Failed to retrieve host source %s.", source.getUrl());
+                if (Thread.currentThread().isInterrupted()) {
+                    progressBuilder.setStopped(true);
+                }
                 failedCarryForwardSources.add(source);
                 sourceFailures.add(SourceFailure.of(source.getId(), e));
                 failedCount.incrementAndGet();
@@ -736,7 +757,10 @@ public class SourceModel {
                         }
                         progressBuilder.setCurrentLabel(source.getLabel());
                         setState(R.string.status_download_source, source.getUrl());
-                        return downloadToTempFile(source, null);
+                        if (progressBuilder.isStopped()) return DownloadResult.failed(source);
+                        DownloadResult result = downloadToTempFile(source, null);
+                        downloads.add(result);
+                        return result;
                     } catch (Exception e) {
                         Timber.w(e, "Download worker failed for %s", source.getUrl());
                         String message = e.getMessage() != null ? e.getMessage()
@@ -782,6 +806,7 @@ public class SourceModel {
                                         while (progressBuilder.isPaused() && !progressBuilder.isStopped()) {
                                             Thread.sleep(100);
                                         }
+                                        if (progressBuilder.isStopped()) return null;
                                         setState(R.string.status_parse_source, result.source.getLabel());
                                         try (BufferedReader reader = result.openReader()) {
                                             parseSourceInputStream(result.source, reader,
@@ -823,6 +848,9 @@ public class SourceModel {
                             }
                             postMultiPhaseProgress(progressBuilder.build());
                         }
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        progressBuilder.setStopped(true);
                     } catch (Exception e) {
                         Timber.w(e, "Download task failed");
                         generationUnsafe.set(true);
@@ -843,8 +871,12 @@ public class SourceModel {
                             madeProgress = true;
                             parseFuture.get(); // Propagate exceptions
                         }
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        progressBuilder.setStopped(true);
                     } catch (Exception e) {
                         Timber.w(e, "Parse task failed");
+                        generationUnsafe.set(true);
                         parsesCompleted.incrementAndGet();
                     }
                 }
@@ -859,7 +891,12 @@ public class SourceModel {
 
                 // If no progress was made this iteration, sleep briefly to avoid busy-spin
                 if (!madeProgress) {
-                    try { Thread.sleep(10); } catch (InterruptedException ignored) { Thread.currentThread().interrupt(); }
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                        progressBuilder.setStopped(true);
+                    }
                 }
             }
 
@@ -875,14 +912,7 @@ public class SourceModel {
             }
             
             // Shutdown dedicated thread pools for this update
-            downloadPool.shutdownNow();
-            parsePool.shutdownNow();
-            try {
-                downloadPool.awaitTermination(5, TimeUnit.SECONDS);
-                parsePool.awaitTermination(5, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-            }
+            stopPipelineWorkers();
 
         }
 
@@ -929,12 +959,24 @@ public class SourceModel {
         postMultiPhaseProgress(progressBuilder.build(), true);
         long carryForwardStartedMs = SystemClock.elapsedRealtime();
         for (HostsSource source : failedCarryForwardSources) {
-            if (!carryForwardPreviousGeneration(source, importGeneration)) {
+            try {
+                if (!carryForwardPreviousGeneration(source, importGeneration)) {
+                    generationUnsafe.set(true);
+                }
+            } catch (SQLiteException exception) {
+                Timber.w(exception, "Failed to carry forward source %s.", source.getUrl());
+                sourceFailures.add(SourceFailure.of(source.getId(), exception));
                 generationUnsafe.set(true);
             }
         }
         for (HostsSource source : deferredCarryForwardSources) {
-            if (!carryForwardPreviousGeneration(source, importGeneration, sqlDeduper)) {
+            try {
+                if (!carryForwardPreviousGeneration(source, importGeneration, sqlDeduper)) {
+                    generationUnsafe.set(true);
+                }
+            } catch (SQLiteException exception) {
+                Timber.w(exception, "Failed to carry forward source %s.", source.getUrl());
+                sourceFailures.add(SourceFailure.of(source.getId(), exception));
                 generationUnsafe.set(true);
             }
         }
@@ -963,6 +1005,10 @@ public class SourceModel {
         postIdleAfterTerminal();
         return true;
         } finally {
+            stopPipelineWorkers();
+            for (DownloadResult download : downloads) {
+                download.cleanup();
+            }
             if (sqlDeduperRef[0] != null) {
                 sqlDeduperRef[0].drop();
             }
@@ -971,6 +1017,30 @@ public class SourceModel {
             }
             finishUpdateOperation();
         }
+    }
+
+    private void stopPipelineWorkers() {
+        ExecutorService downloadPool;
+        ExecutorService parsePool;
+        synchronized (this) {
+            downloadPool = this.currentDownloadPool;
+            parsePool = this.currentParsePool;
+        }
+        if (downloadPool != null) downloadPool.shutdownNow();
+        if (parsePool != null) parsePool.shutdownNow();
+        for (Call call : this.activeDownloads) call.cancel();
+        boolean interrupted = Thread.interrupted();
+        for (ExecutorService pool : new ExecutorService[]{downloadPool, parsePool}) {
+            if (pool == null) continue;
+            while (!pool.isTerminated()) {
+                try {
+                    pool.awaitTermination(1, TimeUnit.SECONDS);
+                } catch (InterruptedException e) {
+                    interrupted = true;
+                }
+            }
+        }
+        if (interrupted) Thread.currentThread().interrupt();
     }
 
     private static int ensureAndGetActiveGeneration(@NonNull SupportSQLiteDatabase db) {
@@ -1074,7 +1144,7 @@ public class SourceModel {
 
     private void applySourceCommits(@NonNull List<SourceCommit> commits) {
         for (SourceCommit commit : commits) {
-            if (commit.entityTag != null) {
+            if (commit.replaceEntityTag || commit.entityTag != null) {
                 this.hostsSourceDao.updateEntityTag(commit.sourceId, commit.entityTag);
             }
             if (commit.localModificationDate != null && commit.onlineModificationDate != null) {
@@ -1192,6 +1262,7 @@ public class SourceModel {
         final ZonedDateTime onlineModificationDate;
         final int sizeGeneration;
         final boolean clearDownloadError;
+        final boolean replaceEntityTag;
 
         private SourceCommit(
                 int sourceId,
@@ -1199,13 +1270,15 @@ public class SourceModel {
                 @Nullable ZonedDateTime localModificationDate,
                 @Nullable ZonedDateTime onlineModificationDate,
                 int sizeGeneration,
-                boolean clearDownloadError) {
+                boolean clearDownloadError,
+                boolean replaceEntityTag) {
             this.sourceId = sourceId;
             this.entityTag = entityTag;
             this.localModificationDate = localModificationDate;
             this.onlineModificationDate = onlineModificationDate;
             this.sizeGeneration = sizeGeneration;
             this.clearDownloadError = clearDownloadError;
+            this.replaceEntityTag = replaceEntityTag;
         }
 
         static SourceCommit changed(
@@ -1216,11 +1289,11 @@ public class SourceModel {
                 int sizeGeneration) {
             return new SourceCommit(
                     sourceId, entityTag, localModificationDate, onlineModificationDate,
-                    sizeGeneration, true);
+                    sizeGeneration, true, true);
         }
 
         static SourceCommit unchanged(int sourceId) {
-            return new SourceCommit(sourceId, null, null, null, -1, true);
+            return new SourceCommit(sourceId, null, null, null, -1, true, false);
         }
 
         static SourceCommit unchanged(
@@ -1231,7 +1304,7 @@ public class SourceModel {
                 int sizeGeneration) {
             return new SourceCommit(
                     sourceId, entityTag, localModificationDate, onlineModificationDate,
-                    sizeGeneration, true);
+                    sizeGeneration, true, false);
         }
     }
 
@@ -1408,9 +1481,7 @@ public class SourceModel {
      * @throws HostErrorException If the hosts source could not be downloaded.
      */
     public void retrieveHostsSource(int sourceId) throws HostErrorException {
-        if (!beginUpdateOperation("retrieveHostsSource")) {
-            return;
-        }
+        beginUpdateOperation("retrieveHostsSource");
         try {
             retrieveHostsSource(sourceId, true);
         } finally {
@@ -1429,9 +1500,7 @@ public class SourceModel {
             return;
         }
         List<Integer> uniqueSourceIds = new ArrayList<>(new LinkedHashSet<>(sourceIds));
-        if (!beginUpdateOperation("retrieveHostsSources(list)")) {
-            return;
-        }
+        beginUpdateOperation("retrieveHostsSources(list)");
         List<TargetedSourceUpdate> finalizationUpdates = new ArrayList<>();
         boolean runtimeRebuildRequired = false;
         try {
@@ -1511,7 +1580,8 @@ public class SourceModel {
                     });
                     try {
                         if (!result.success) {
-                            throw new IOException("Download failed");
+                            throw new IOException(result.errorMessage != null
+                                    ? result.errorMessage : "Download failed");
                         }
                         if (!result.notModified) {
                             try (BufferedReader reader = result.openReader()) {
@@ -1531,11 +1601,9 @@ public class SourceModel {
                                         sourceId, activeGeneration, stagingGeneration, commit);
                             }
                         } else {
-                            ZonedDateTime onlineModificationDate = result.onlineModificationDate != null ? result.onlineModificationDate : now;
-                            ZonedDateTime localModificationDate = onlineModificationDate.isAfter(now) ? onlineModificationDate : now;
-                            SourceCommit unchangedCommit = SourceCommit.unchanged(
-                                    sourceId, result.entityTag, localModificationDate,
-                                    onlineModificationDate, activeGeneration);
+                            // Preserve the last body-fetch date so repeated 304s cannot bypass
+                            // the weekly unconditional refresh guard.
+                            SourceCommit unchangedCommit = SourceCommit.unchanged(sourceId);
                             if (syncAfter) {
                                 applySourceCommits(Collections.singletonList(unchangedCommit));
                             } else {
@@ -1572,6 +1640,8 @@ public class SourceModel {
         } catch (IOException | RuntimeException e) {
             this.hostListItemDao.clearSourceHostsForGeneration(sourceId, stagingGeneration);
             clearRootExportStageForSourceGeneration(writableDb, sourceId, stagingGeneration);
+            this.hostsSourceDao.updateDownloadError(sourceId,
+                    e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName());
             Timber.w(e, "Failed to retrieve host source %s.", source.getUrl());
             throw new HostErrorException(DOWNLOAD_FAILED);
         } finally {
@@ -1632,7 +1702,7 @@ public class SourceModel {
      * @return The HTTP client to download hosts sources.
      */
     @NonNull
-    private OkHttpClient getHttpClient() {
+    private synchronized OkHttpClient getHttpClient() {
         if (this.cachedHttpClient == null) {
             File cacheDir = new File(this.context.getCacheDir(), "okhttp");
 
@@ -1676,7 +1746,7 @@ public class SourceModel {
      * Uses aggressive timeouts since HEAD requests should be instant.
      */
     @NonNull
-    private OkHttpClient getHeadClient() {
+    private synchronized OkHttpClient getHeadClient() {
         if (this.cachedHeadClient == null) {
             // Configure for high parallelism HEAD requests
             okhttp3.Dispatcher dispatcher = new okhttp3.Dispatcher();
@@ -1733,6 +1803,9 @@ public class SourceModel {
         boolean cacheExpired = localModificationDate == null ||
                 localModificationDate.isBefore(ZonedDateTime.now().minusDays(7)) ||
                 source.getLastDownloadError() != null;
+        if (cacheExpired) {
+            request.cacheControl(okhttp3.CacheControl.FORCE_NETWORK);
+        }
         if (!cacheExpired && source.getEntityTag() != null) {
             request = request.header(IF_NONE_MATCH_HEADER, source.getEntityTag());
         }
@@ -1761,8 +1834,14 @@ public class SourceModel {
 
         Request request = getRequestFor(source).build();
         File tmp = null;
-        try (Response response = getHttpClient().newCall(request).execute()) {
+        Call call = getHttpClient().newCall(request);
+        this.activeDownloads.add(call);
+        try (Response response = executeDownload(call)) {
             if (response.code() == HTTP_NOT_MODIFIED) {
+                if (request.header(IF_NONE_MATCH_HEADER) == null
+                        && request.header(IF_MODIFIED_SINCE_HEADER) == null) {
+                    return DownloadResult.failed(source, "Unexpected HTTP 304 without a validator");
+                }
                 return DownloadResult.notModified(source);
             }
             if (!response.isSuccessful()) {
@@ -1774,9 +1853,6 @@ public class SourceModel {
             }
 
             String entityTag = response.header(ENTITY_TAG_HEADER);
-            if (entityTag != null && entityTag.startsWith(WEAK_ENTITY_TAG_PREFIX)) {
-                entityTag = entityTag.substring(WEAK_ENTITY_TAG_PREFIX.length());
-            }
 
             ZonedDateTime lastModified = null;
             String lastModifiedHeader = response.header(LAST_MODIFIED_HEADER);
@@ -1791,12 +1867,21 @@ public class SourceModel {
             // Write response to temp file
             tmp = File.createTempFile("adaway-src-", ".txt", this.context.getCacheDir());
             long contentLength = body.contentLength();
+            if (contentLength > MAX_SOURCE_BYTES) {
+                throw new IOException("Hosts source exceeds " + MAX_SOURCE_BYTES + " bytes");
+            }
             long totalRead = 0L;
             try (InputStream in = body.byteStream();
                  OutputStream out = new FileOutputStream(tmp)) {
                 byte[] buf = new byte[32 * 1024];
                 int read;
                 while ((read = in.read(buf)) != -1) {
+                    if (Thread.currentThread().isInterrupted()) {
+                        throw new IOException("Hosts source download interrupted");
+                    }
+                    if (totalRead > MAX_SOURCE_BYTES - read) {
+                        throw new IOException("Hosts source exceeds " + MAX_SOURCE_BYTES + " bytes");
+                    }
                     out.write(buf, 0, read);
                     totalRead += read;
                     if (progress != null) {
@@ -1815,7 +1900,7 @@ public class SourceModel {
             }
 
             return DownloadResult.success(source, tmp, entityTag, lastModified);
-        } catch (IOException e) {
+        } catch (IOException | RuntimeException e) {
             Timber.w(e, "Download failed for %s", url);
             if (tmp != null) {
                 //noinspection ResultOfMethodCallIgnored
@@ -1823,7 +1908,17 @@ public class SourceModel {
             }
             String errMsg = e.getMessage() != null ? e.getMessage() : e.getClass().getSimpleName();
             return DownloadResult.failed(source, errMsg);
+        } finally {
+            this.activeDownloads.remove(call);
         }
+    }
+
+    private Response executeDownload(Call call) throws IOException {
+        if (Thread.currentThread().isInterrupted()) {
+            call.cancel();
+            throw new IOException("Hosts source download interrupted");
+        }
+        return call.execute();
     }
 
     /**

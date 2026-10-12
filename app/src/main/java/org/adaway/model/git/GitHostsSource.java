@@ -18,7 +18,7 @@ public abstract class GitHostsSource {
     /**
      * The GitHub gist URL.
      */
-    private static final String GITHUB_GIST_URL = "https://gist.githubusercontent.com";
+    private static final String GITHUB_GIST_URL = "https://gist.githubusercontent.com/";
     /**
      * The GitLab URL.
      */

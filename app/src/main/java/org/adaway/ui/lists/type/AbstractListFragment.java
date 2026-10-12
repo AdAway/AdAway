@@ -184,7 +184,8 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
          */
         // Get view model and bind it to the list view
         this.mViewModel = new ViewModelProvider(this.mActivity).get(ListsViewModel.class);
-        getData().observe(getViewLifecycleOwner(), data -> adapter.submitData(getLifecycle(), data));
+        getData().observe(getViewLifecycleOwner(),
+                data -> adapter.submitData(getViewLifecycleOwner().getLifecycle(), data));
         /*
          * Wire search bar.
          */
@@ -207,6 +208,14 @@ public abstract class AbstractListFragment extends Fragment implements ListsView
         }
         // Return created view
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        ensureActionModeCanceled();
+        this.mActionCallback = null;
+        this.mActivity = null;
+        super.onDestroyView();
     }
 
     private void updateListState(@NonNull View root, @NonNull RecyclerView recyclerView,

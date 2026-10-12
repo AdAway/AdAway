@@ -11,6 +11,7 @@ package org.adaway.model.update;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 
 import android.content.Context;
@@ -124,9 +125,12 @@ public class UpdateModelNetworkFailureInstrumentedTest {
                 .setResponseCode(200)
                 .setBody(envelope(payload(CURRENT_VERSION_CODE + 1))));
 
-        this.updateModel.checkForUpdate();
+        Manifest checked = this.updateModel.checkForUpdateManifest();
+        assertNotNull("Workers must receive the freshly downloaded manifest directly.", checked);
+        assertEquals(CURRENT_VERSION_CODE + 1, checked.versionCode);
 
         Manifest available = waitForManifest();
+        assertSame(checked, available);
         assertEquals(CURRENT_VERSION_CODE + 1, available.versionCode);
         assertTrue(available.updateAvailable);
         assertEquals("Network failure regression test", available.changelog);
@@ -144,7 +148,8 @@ public class UpdateModelNetworkFailureInstrumentedTest {
                 .setResponseCode(500)
                 .setBody("server unavailable"));
 
-        this.updateModel.checkForUpdate();
+        assertNull("A failed check must not return the previous available update.",
+                this.updateModel.checkForUpdateManifest());
 
         waitForManifestCleared();
         RecordedRequest failureRequest = this.server.takeRequest(5, TimeUnit.SECONDS);

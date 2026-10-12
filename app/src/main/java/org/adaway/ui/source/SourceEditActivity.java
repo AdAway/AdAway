@@ -1,6 +1,7 @@
 package org.adaway.ui.source;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -16,13 +17,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.adaway.AdAwayApplication;
 import org.adaway.R;
 import org.adaway.databinding.SourceEditActivityBinding;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.helper.ThemeHelper;
+import org.adaway.model.error.HostErrorException;
 import org.adaway.model.source.FilterListsSourceMetadata;
+import org.adaway.model.source.SourceModel;
+import org.adaway.model.source.SourceUpdateService;
+import org.adaway.ui.hosts.FilterSetStore;
 import org.adaway.ui.hosts.FilterSetUpdateService;
 import org.adaway.util.AppExecutors;
 
@@ -79,9 +85,11 @@ public class SourceEditActivity extends AppCompatActivity {
     private static final int SCHEDULE_WEEKLY = 2;
 
     private SourceEditActivityBinding binding;
+    private AppDatabase database;
     private HostsSourceDao hostsSourceDao;
     private ActivityResultLauncher<Intent> startActivityLauncher;
     private boolean editing;
+    private boolean saving;
     private HostsSource edited;
     private int initialFilterListId;
     @Nullable
@@ -114,8 +122,8 @@ public class SourceEditActivity extends AppCompatActivity {
         /*
          * Get database access.
          */
-        AppDatabase database = AppDatabase.getInstance(this);
-        this.hostsSourceDao = database.hostsSourceDao();
+        this.database = AppDatabase.getInstance(this);
+        this.hostsSourceDao = this.database.hostsSourceDao();
         // Register for activity
         registerForStartActivity();
         // Set up values
@@ -151,6 +159,7 @@ public class SourceEditActivity extends AppCompatActivity {
                         applyInitialValues(source);
                         bindLocation();
                         bindFormats();
+                        invalidateOptionsMenu();
                     });
                 });
             });
@@ -227,7 +236,7 @@ public class SourceEditActivity extends AppCompatActivity {
             }
             if (isChecked) {
                 boolean isFile = checkedId == R.id.file_button;
-                this.binding.locationEditText.setText(isFile ? "" : "https://");
+                this.binding.locationEditText.setText("");
                 this.binding.locationEditText.setEnabled(!isFile);
                 if (isFile) {
                     openDocument();
@@ -261,23 +270,29 @@ public class SourceEditActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        boolean ready = !this.saving && (!this.editing || this.edited != null);
+        menu.findItem(R.id.apply_action).setEnabled(ready);
+        menu.findItem(R.id.delete_action).setEnabled(ready);
+        menu.findItem(R.id.auto_update_action).setEnabled(ready);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         // Check item identifier
         if (item.getItemId() == R.id.delete_action) {
             confirmDeleteSource();
             return true;
         } else if (item.getItemId() == R.id.apply_action) {
+            if (this.saving || (this.editing && this.edited == null)) {
+                return true;
+            }
             HostsSource source = validate();
             if (source == null) {
-                return false;
+                return true;
             }
-            AppExecutors.getInstance().diskIO().execute(() -> {
-                if (this.editing) {
-                    this.hostsSourceDao.delete(this.edited);
-                }
-                this.hostsSourceDao.insert(source);
-                AppExecutors.getInstance().mainThread().execute(this::finish);
-            });
+            saveSource(source);
             return true;
         } else if (item.getItemId() == R.id.auto_update_action) {
             if (!this.editing) {
@@ -291,6 +306,84 @@ public class SourceEditActivity extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    private void saveSource(HostsSource values) {
+        this.saving = true;
+        invalidateOptionsMenu();
+        AppExecutors.getInstance().diskIO().execute(() -> {
+            boolean[] needsDownload = {false};
+            boolean[] runtimeChanged = {false};
+            String[] previousUrl = {null};
+            int error;
+            SourceModel sourceModel = ((AdAwayApplication) getApplication()).getSourceModel();
+            try {
+                error = sourceModel.runSourceMutation(() -> {
+                    int result = this.database.runInTransaction(() -> {
+                        int editedId = this.editing ? this.edited.getId() : -1;
+                        HostsSource duplicate = this.hostsSourceDao.getByUrl(values.getUrl())
+                                .orElse(null);
+                        if (duplicate != null && duplicate.getId() != editedId) {
+                            return R.string.source_edit_duplicate_url;
+                        }
+                        if (!this.editing) {
+                            this.hostsSourceDao.insert(values);
+                            needsDownload[0] = true;
+                            return 0;
+                        }
+                        HostsSource current = this.hostsSourceDao.getById(editedId).orElse(null);
+                        if (current == null || editedId == HostsSource.USER_SOURCE_ID) {
+                            return R.string.source_edit_save_failed;
+                        }
+                        boolean contentChanged = !current.getUrl().equals(values.getUrl())
+                                || current.isAllowEnabled() != values.isAllowEnabled()
+                                || current.isRedirectEnabled() != values.isRedirectEnabled();
+                        if (!current.getUrl().equals(values.getUrl())) {
+                            previousUrl[0] = current.getUrl();
+                        }
+                        // Updating in place preserves selection, downloaded rules and HTTP validators
+                        // for label-only edits. Recreating the row cascaded away all imported rules.
+                        current.setLabel(values.getLabel());
+                        current.setUrl(values.getUrl());
+                        current.setAllowEnabled(values.isAllowEnabled());
+                        current.setRedirectEnabled(values.isRedirectEnabled());
+                        FilterListsSourceMetadata.copy(values, current);
+                        this.hostsSourceDao.update(current);
+                        if (contentChanged) {
+                            this.database.hostsListItemDao().clearSourceHosts(editedId);
+                            this.database.getOpenHelper().getWritableDatabase().execSQL(
+                                    "DELETE FROM root_host_entries_stage WHERE source_id = ?",
+                                    new Object[]{editedId});
+                            this.hostsSourceDao.clearProperties(editedId);
+                            this.hostsSourceDao.updateSkippedCount(editedId, 0);
+                            this.hostsSourceDao.clearDownloadError(editedId);
+                            this.database.hostEntryDao().invalidateRootExportMaterializedCache();
+                            runtimeChanged[0] = true;
+                            needsDownload[0] = current.isEnabled();
+                        }
+                        return 0;
+                    });
+                    if (result == 0 && runtimeChanged[0]) {
+                        sourceModel.syncHostEntries();
+                    }
+                    return result;
+                });
+            } catch (HostErrorException exception) {
+                error = R.string.error_update_in_progress_message;
+            } catch (SQLiteException exception) {
+                error = R.string.source_edit_save_failed;
+            }
+            if (error == 0) {
+                if (previousUrl[0] != null) {
+                    clearSchedule(previousUrl[0]);
+                }
+                FilterSetStore.markCustomProfile(getApplicationContext());
+                if (needsDownload[0]) {
+                    SourceUpdateService.enqueueUpdateNow(getApplicationContext());
+                }
+            }
+            postMutationResult(error);
+        });
     }
 
     private void confirmDeleteSource() {
@@ -310,10 +403,57 @@ public class SourceEditActivity extends AppCompatActivity {
     }
 
     private void deleteSource(HostsSource source) {
+        if (this.saving) return;
+        this.saving = true;
+        invalidateOptionsMenu();
         AppExecutors.getInstance().diskIO().execute(() -> {
-            clearSchedule(source.getUrl());
-            this.hostsSourceDao.delete(source);
-            AppExecutors.getInstance().mainThread().execute(this::finish);
+            SourceModel sourceModel = ((AdAwayApplication) getApplication()).getSourceModel();
+            String[] deletedUrl = {null};
+            int error;
+            try {
+                error = sourceModel.runSourceMutation(() -> {
+                    int result = this.database.runInTransaction(() -> {
+                        HostsSource current = this.hostsSourceDao.getById(source.getId())
+                                .orElse(null);
+                        if (current == null || current.getId() == HostsSource.USER_SOURCE_ID) {
+                            return R.string.source_edit_save_failed;
+                        }
+                        deletedUrl[0] = current.getUrl();
+                        this.hostsSourceDao.delete(current);
+                        this.database.getOpenHelper().getWritableDatabase().execSQL(
+                                "DELETE FROM root_host_entries_stage WHERE source_id = ?",
+                                new Object[]{current.getId()});
+                        this.database.hostEntryDao().invalidateRootExportMaterializedCache();
+                        return 0;
+                    });
+                    if (result == 0) sourceModel.syncHostEntries();
+                    return result;
+                });
+            } catch (HostErrorException exception) {
+                error = R.string.error_update_in_progress_message;
+            } catch (SQLiteException exception) {
+                error = R.string.source_edit_save_failed;
+            }
+            if (error == 0) {
+                clearSchedule(deletedUrl[0]);
+                FilterSetStore.markCustomProfile(getApplicationContext());
+            }
+            postMutationResult(error);
+        });
+    }
+
+    private void postMutationResult(int error) {
+        AppExecutors.getInstance().mainThread().execute(() -> {
+            this.saving = false;
+            if (isFinishing() || isDestroyed()) return;
+            invalidateOptionsMenu();
+            if (error == 0) {
+                finish();
+            } else if (this.binding.typeButtonGroup.getCheckedButtonId() == R.id.url_button) {
+                this.binding.locationEditText.setError(getString(error));
+            } else {
+                this.binding.fileLocationTextView.setError(getString(error));
+            }
         });
     }
 
@@ -410,14 +550,10 @@ public class SourceEditActivity extends AppCompatActivity {
     }
 
     private HostsSource validate() {
-        String label = requireNonNull(this.binding.labelEditText.getText()).toString();
-        if (label.isEmpty()) {
-            this.binding.labelEditText.setError(getString(R.string.source_edit_label_required));
-            return null;
-        }
+        String label = requireNonNull(this.binding.labelEditText.getText()).toString().trim();
         String url;
         if (this.binding.typeButtonGroup.getCheckedButtonId() == R.id.url_button) {
-            url = requireNonNull(this.binding.locationEditText.getText()).toString();
+            url = requireNonNull(this.binding.locationEditText.getText()).toString().trim();
             if (url.isEmpty()) {
                 this.binding.locationEditText.setError(getString(R.string.source_edit_url_location_required));
                 return null;
@@ -432,6 +568,10 @@ public class SourceEditActivity extends AppCompatActivity {
                 this.binding.fileLocationTextView.setError(getString(R.string.source_edit_location_invalid));
                 return null;
             }
+        }
+        if (label.isEmpty()) {
+            String host = Uri.parse(url).getHost();
+            label = host != null && !host.isEmpty() ? host : url;
         }
         HostsSource source = new HostsSource();
         source.setLabel(label);

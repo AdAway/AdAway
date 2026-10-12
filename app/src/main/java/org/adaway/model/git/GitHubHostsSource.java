@@ -1,7 +1,5 @@
 package org.adaway.model.git;
 
-import static java.util.stream.Collectors.joining;
-
 import androidx.annotation.Nullable;
 
 import org.json.JSONArray;
@@ -9,10 +7,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeParseException;
-import java.util.Arrays;
+import java.util.List;
+
+import okhttp3.HttpUrl;
 
 import timber.log.Timber;
 
@@ -30,6 +29,7 @@ class GitHubHostsSource extends GitHostsJsonApiSource {
      * The GitHub repository name.
      */
     private final String repo;
+    private final String ref;
     /**
      * The GitHub blob (hosts file) path.
      */
@@ -43,24 +43,30 @@ class GitHubHostsSource extends GitHostsJsonApiSource {
      */
     GitHubHostsSource(String url) throws MalformedURLException {
         // Check URL path
-        URL parsedUrl = new URL(url);
-        String path = parsedUrl.getPath();
-        String[] pathParts = path.split("/");
-        if (pathParts.length < 5) {
+        HttpUrl parsedUrl = HttpUrl.parse(url);
+        List<String> pathParts = parsedUrl == null ? null : parsedUrl.pathSegments();
+        if (pathParts == null || pathParts.size() < 4 || pathParts.contains("")) {
             throw new MalformedURLException("The GitHub user content URL " + url + " is not valid.");
         }
         // Extract components from path
-        this.owner = pathParts[1];
-        this.repo = pathParts[2];
-        this.blobPath = Arrays.stream(pathParts)
-                .skip(4)
-                .collect(joining("/"));
+        this.owner = pathParts.get(0);
+        this.repo = pathParts.get(1);
+        int pathStart = 3;
+        if (pathParts.size() >= 6 && pathParts.get(2).equals("refs")
+                && (pathParts.get(3).equals("heads") || pathParts.get(3).equals("tags"))) {
+            pathStart = 5;
+        }
+        this.ref = String.join("/", pathParts.subList(2, pathStart));
+        this.blobPath = String.join("/", pathParts.subList(pathStart, pathParts.size()));
     }
 
     @Override
     protected String getCommitApiUrl() {
-        return "https://api.github.com/repos/" + this.owner + "/" + this.repo +
-                "/commits?per_page=1&path=" + this.blobPath;
+        return new HttpUrl.Builder().scheme("https").host("api.github.com")
+                .addPathSegment("repos").addPathSegment(this.owner).addPathSegment(this.repo)
+                .addPathSegment("commits").addQueryParameter("per_page", "1")
+                .addQueryParameter("sha", this.ref).addQueryParameter("path", this.blobPath)
+                .build().toString();
     }
 
     @Nullable

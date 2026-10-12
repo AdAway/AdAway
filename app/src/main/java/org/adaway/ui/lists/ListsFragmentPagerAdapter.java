@@ -24,18 +24,7 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
      * The number of fragment.
      */
     private static final int FRAGMENT_COUNT = 3;
-    /**
-     * The blacklist fragment (<code>null</code> until first retrieval).
-     */
-    private final AbstractListFragment blacklistFragment;
-    /**
-     * The whitelist fragment (<code>null</code> until first retrieval).
-     */
-    private final AbstractListFragment whitelistFragment;
-    /**
-     * The redirection list fragment (<code>null</code> until first retrieval).
-     */
-    private final AbstractListFragment redirectionListFragment;
+    private final androidx.fragment.app.FragmentManager fragmentManager;
 
     /**
      * Constructor.
@@ -43,9 +32,7 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
      */
     ListsFragmentPagerAdapter(FragmentActivity fragmentActivity) {
         super(fragmentActivity);
-        this.blacklistFragment = new BlockedHostsFragment();
-        this.whitelistFragment = new AllowedHostsFragment();
-        this.redirectionListFragment = new RedirectedHostsFragment();
+        this.fragmentManager = fragmentActivity.getSupportFragmentManager();
     }
 
     @NonNull
@@ -53,11 +40,11 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case BLOCKED_HOSTS_TAB:
-                return this.blacklistFragment;
+                return new BlockedHostsFragment();
             case ALLOWED_HOSTS_TAB:
-                return this.whitelistFragment;
+                return new AllowedHostsFragment();
             case REDIRECTED_HOSTS_TAB:
-                return this.redirectionListFragment;
+                return new RedirectedHostsFragment();
             default:
                 throw new IllegalStateException("Position " + position + " is not supported.");
         }
@@ -72,14 +59,10 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
      * Ensure action mode is cancelled.
      */
     void ensureActionModeCanceled() {
-        if (this.blacklistFragment != null) {
-            this.blacklistFragment.ensureActionModeCanceled();
-        }
-        if (this.whitelistFragment != null) {
-            this.whitelistFragment.ensureActionModeCanceled();
-        }
-        if (this.redirectionListFragment != null) {
-            this.redirectionListFragment.ensureActionModeCanceled();
+        for (Fragment fragment : this.fragmentManager.getFragments()) {
+            if (fragment instanceof AbstractListFragment) {
+                ((AbstractListFragment) fragment).ensureActionModeCanceled();
+            }
         }
     }
 
@@ -89,22 +72,15 @@ class ListsFragmentPagerAdapter extends FragmentStateAdapter {
      * @param position The fragment position.
      */
     void addItem(int position) {
-        switch (position) {
-            case BLOCKED_HOSTS_TAB:
-                if (this.blacklistFragment != null) {
-                    this.blacklistFragment.addItem();
-                }
-                break;
-            case ALLOWED_HOSTS_TAB:
-                if (this.whitelistFragment != null) {
-                    this.whitelistFragment.addItem();
-                }
-                break;
-            case REDIRECTED_HOSTS_TAB:
-                if (this.redirectionListFragment != null) {
-                    this.redirectionListFragment.addItem();
-                }
-                break;
+        // FragmentStateAdapter may restore instances without calling createFragment().
+        for (Fragment fragment : this.fragmentManager.getFragments()) {
+            boolean matches = position == BLOCKED_HOSTS_TAB && fragment instanceof BlockedHostsFragment
+                    || position == ALLOWED_HOSTS_TAB && fragment instanceof AllowedHostsFragment
+                    || position == REDIRECTED_HOSTS_TAB && fragment instanceof RedirectedHostsFragment;
+            if (matches && fragment.isAdded() && fragment.getView() != null) {
+                ((AbstractListFragment) fragment).addItem();
+                return;
+            }
         }
     }
 }

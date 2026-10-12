@@ -59,6 +59,15 @@ Required repository secrets:
 | `ANDROID_RELEASE_CERT_SHA256` | Expected APK signing certificate SHA-256 digest |
 | `RELEASE_TAG_PUBLIC_KEY_BASE64` | Base64-encoded public key used by `git verify-tag` for release tags |
 
+The workflow embeds `ANDROID_RELEASE_CERT_SHA256` using the Gradle property
+`releaseSigningCertificateSha256`. Local release builds must supply that property,
+the four existing `signing*` properties, and `updateManifestPublicKeyBase64` through
+protected Gradle configuration. Missing or malformed certificate pins fail the
+release build; only `directRelease` enables the installer and pinned fork updater.
+Never commit the keystore, passwords, or manifest private key. Changing the APK
+signing identity does not allow an in-place update of an existing differently
+signed installation; disclose the required backup/reinstall migration.
+
 Local release verification should run the same gates where possible:
 
 ```bash
@@ -101,6 +110,35 @@ Special thanks to <contributors> for theirs contributions and <bug reporters> fo
 ### Beta releases
 
 The beta releases are only announced in the XDA development thread.
+
+### Keeping the Signed Update Feed Available
+
+The stable updater fetches
+`https://github.com/stevesolun/AdAway/releases/latest/download/manifest.json`.
+The existing beta preference opts into the fork's published release list and may
+select either a newer beta or stable manifest. The signed payload, channel,
+store, APK hash, and installed signer checks remain mandatory.
+
+Manifest validity remains limited to 14 days. The **Refresh signed update
+manifest** workflow renews the latest stable and latest beta independently every
+Tuesday at 06:17 UTC. It verifies the existing APK checksum, certificate, package,
+version, and non-debuggable state, then re-signs and attests only `manifest.json`
+and its checksum. It does not rebuild, re-sign, or replace the APK. Releases that
+predate signed manifests are reported and skipped, not retroactively trusted.
+
+Merge this workflow to the default branch and enable scheduled Actions before
+relying on unattended refresh. Run it manually after the first signed release
+to prove secrets and permissions; blank `tag` refreshes both channels, or specify
+one published tag. Keep the same manifest keypair used by installed clients.
+Retain mutable manifest assets; immutable release assets cannot be refreshed by
+this workflow. Keep failure notifications enabled and verify a successful run
+each week; retry manually before expiry after a failure. GitHub can delay
+schedules and disables schedules in inactive public repositories after 60 days,
+so the owner must re-enable them when necessary. See
+[GitHub scheduled workflow requirements](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule).
+The consumer deliberately fails closed if refresh stops. A beta-only release does
+not create a stable feed: stable remains unavailable until a signed stable release
+is published under the configured identity.
 
 ### Stable releases
 

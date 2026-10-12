@@ -7,6 +7,7 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import androidx.lifecycle.Observer;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -18,7 +19,7 @@ import org.adaway.model.error.HostErrorException;
 import org.adaway.model.source.SourceModel;
 import org.adaway.util.AppExecutors;
 
-import java.util.Collection;
+import timber.log.Timber;
 
 import static com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE;
 import static com.google.android.material.snackbar.Snackbar.LENGTH_LONG;
@@ -61,6 +62,7 @@ public class ApplyConfigurationSnackbar {
      * ignore, {@code false} otherwise).
      */
     private boolean ignoreEventDuringInstall;
+    private boolean applying;
 
     /**
      * Constructor.
@@ -115,11 +117,11 @@ public class ApplyConfigurationSnackbar {
      */
     public void notifyUpdateAvailable() {
         // Check if notify snackbar is already displayed
-        if (this.notifySnackbar.isShown()) {
+        if (this.notifySnackbar.isShownOrQueued()) {
             return;
         }
         // Check if wait snackbar is displayed
-        if (this.waitSnackbar.isShown()) {
+        if (this.applying) {
             // Mark update available
             this.update = true;
             return;
@@ -135,13 +137,20 @@ public class ApplyConfigurationSnackbar {
         this.update = false;
     }
 
-    private void apply() {
+    @UiThread
+    void apply() {
+        if (this.applying) {
+            return;
+        }
+        this.applying = true;
         showLoading();
+        AdAwayApplication application =
+                (AdAwayApplication) this.view.getContext().getApplicationContext();
         AppExecutors.getInstance().diskIO().execute(() -> {
-            AdAwayApplication application = (AdAwayApplication) this.view.getContext().getApplicationContext();
-            SourceModel sourceModel = application.getSourceModel();
-            AdBlockModel adBlockModel = application.getAdBlockModel();
+            boolean successful = false;
             try {
+                SourceModel sourceModel = application.getSourceModel();
+                AdBlockModel adBlockModel = application.getAdBlockModel();
                 boolean shouldApply = true;
                 if (this.syncSources) {
                     shouldApply = sourceModel.checkAndRetrieveHostsSources();
@@ -151,10 +160,12 @@ public class ApplyConfigurationSnackbar {
                 if (shouldApply) {
                     adBlockModel.apply();
                 }
-                endLoading(shouldApply);
-            } catch (HostErrorException exception) {
-                endLoading(false);
+                successful = shouldApply;
+            } catch (HostErrorException | RuntimeException exception) {
+                Timber.w(exception, "Failed to apply configuration.");
             }
+            boolean result = successful;
+            AppExecutors.getInstance().mainThread().execute(() -> endLoading(result));
         });
     }
 
@@ -165,15 +176,14 @@ public class ApplyConfigurationSnackbar {
         this.waitSnackbar.show();
     }
 
-    private void endLoading(boolean successfulInstall) {
-        // Ensure the snackbar has time to display
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
+    @UiThread
+    void endLoading(boolean successfulInstall) {
+        this.applying = false;
         // Clear snackbars
         this.waitSnackbar.dismiss();
+        if (!this.view.isAttachedToWindow()) {
+            return;
+        }
         if (!successfulInstall) {
             Snackbar failureSnackbar = Snackbar.make(this.view, R.string.notification_configuration_failed,
                     LENGTH_LONG);

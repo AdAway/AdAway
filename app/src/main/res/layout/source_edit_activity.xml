@@ -9,7 +9,7 @@
         android:id="@+id/label_text_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/source_edit_label"
+        android:hint="@string/source_edit_optional_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -108,6 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/source_edit_url_location"
+        app:placeholderText="@string/source_edit_url_location_default"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/type_button_group">
 
@@ -115,7 +116,8 @@
             android:id="@+id/location_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/source_edit_url_location_default" />
+            android:inputType="textUri"
+            android:maxLines="4" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

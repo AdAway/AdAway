@@ -26,6 +26,18 @@ import static org.junit.Assert.*;
  */
 public class SourceLoaderParserPatternsTest {
 
+    @Test
+    public void abpSeparatorFollowedByPathIsNotAWholeDomainBlock() {
+        assertNull(SourceLoader.extractHostnameFromNonHostsSyntax("||example.com^/advert"));
+        assertNull(SourceLoader.extractHostnameFromNonHostsSyntax("||example.com^banner"));
+        assertNull(SourceLoader.extractHostnameFromNonHostsSyntax("example.com^/advert"));
+        assertNull(SourceLoader.extractHostnameFromNonHostsSyntax("example.com^banner"));
+        assertEquals("example.com",
+                SourceLoader.extractHostnameFromNonHostsSyntax("||example.com^"));
+        assertEquals(SUFFIX,
+                SourceLoader.extractRuleKindFromNonHostsSyntax("||example.com^"));
+    }
+
     // -----------------------------------------------------------------------
     // UNBOUND_LOCAL_ZONE tests
     // -----------------------------------------------------------------------

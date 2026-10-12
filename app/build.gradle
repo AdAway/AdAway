@@ -9,6 +9,8 @@ boolean keyStoreDefined = project.hasProperty('signingStoreLocation') &&
         project.hasProperty('signingKeyPassword')
 boolean updateManifestKeyDefined = project.hasProperty('updateManifestPublicKeyBase64') &&
         project.property('updateManifestPublicKeyBase64').toString().trim().length() > 0
+String releaseCertificateSha256 = (project.findProperty('releaseSigningCertificateSha256') ?: '')
+        .toString().replaceAll('[:\\s]', '').toUpperCase(Locale.ROOT)
 android {
     compileSdk = 36
     ndkVersion = '27.2.12479018'
@@ -35,6 +37,7 @@ android {
         resValue "string", "shortcut_target_package", applicationId
         resValue "string", "update_manifest_public_key",
                 project.findProperty('updateManifestPublicKeyBase64') ?: ""
+        resValue "string", "release_signing_certificate_sha256", releaseCertificateSha256
     }
 
     /*
@@ -118,6 +121,10 @@ android {
 
     if (releaseTrustMaterialRequested && !updateManifestKeyDefined) {
         throw new GradleException("Release and release-SBOM builds require updateManifestPublicKeyBase64.")
+    }
+    if (releaseTrustMaterialRequested && !(releaseCertificateSha256 ==~ '[0-9A-F]{64}')) {
+        throw new GradleException("Release and release-SBOM builds require a valid " +
+                "releaseSigningCertificateSha256 matching the APK signer.")
     }
 
     compileOptions {

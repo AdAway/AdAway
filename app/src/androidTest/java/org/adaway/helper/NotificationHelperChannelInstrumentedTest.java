@@ -5,21 +5,30 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assume.assumeTrue;
 
+import android.app.ActivityManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.os.SystemClock;
 import android.service.notification.StatusBarNotification;
 
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.work.WorkManager;
 
 import org.adaway.R;
+import org.adaway.model.adblocking.AdBlockMethod;
+import org.adaway.vpn.VpnService;
+import org.adaway.vpn.VpnServiceControls;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.concurrent.TimeUnit;
 
 @RunWith(AndroidJUnit4.class)
 public class NotificationHelperChannelInstrumentedTest {
@@ -30,16 +39,19 @@ public class NotificationHelperChannelInstrumentedTest {
     private NotificationManager notificationManager;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         this.context = ApplicationProvider.getApplicationContext();
         this.notificationManager = this.context.getSystemService(NotificationManager.class);
         assertNotNull("NotificationManager must be available on device.", this.notificationManager);
+        stopVpnBeforeChannelReset();
         deleteAppChannels();
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
+        stopVpnBeforeChannelReset();
         deleteAppChannels();
+        NotificationHelper.createNotificationChannels(this.context);
     }
 
     @Test
@@ -129,6 +141,35 @@ public class NotificationHelperChannelInstrumentedTest {
         }
     }
 
+    @Test(timeout = 45_000)
+    public void channelResetStopsPreparedForegroundVpnBeforeDeletion() throws Exception {
+        assumeTrue("VPN consent is required for the foreground-channel cleanup regression.",
+                android.net.VpnService.prepare(this.context) == null);
+        AdBlockMethod originalMethod = PreferenceHelper.getAdBlockMethod(this.context);
+        PreferenceHelper.setAbBlockMethod(this.context, AdBlockMethod.VPN);
+        try {
+            NotificationHelper.createNotificationChannels(this.context);
+            assertTrue(VpnServiceControls.start(this.context));
+            long deadline = SystemClock.elapsedRealtime() + 20_000;
+            while (!VpnServiceControls.isTunnelEstablished(this.context)
+                    && SystemClock.elapsedRealtime() < deadline) {
+                SystemClock.sleep(100);
+            }
+            assertTrue("The regression requires an actual running VPN.",
+                    VpnServiceControls.isTunnelEstablished(this.context));
+            stopVpnBeforeChannelReset();
+            deleteAppChannels();
+            assertEquals(null, this.notificationManager.getNotificationChannel(
+                    NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL));
+        } finally {
+            try {
+                stopVpnBeforeChannelReset();
+            } finally {
+                PreferenceHelper.setAbBlockMethod(this.context, originalMethod);
+            }
+        }
+    }
+
     private void assertUpdateAlertNotification(
             Notification notification,
             int expectedTitle,
@@ -187,6 +228,30 @@ public class NotificationHelperChannelInstrumentedTest {
         this.notificationManager.deleteNotificationChannel(
                 NotificationHelper.VPN_SERVICE_NOTIFICATION_CHANNEL);
         this.notificationManager.deleteNotificationChannel(FILTERLISTS_UPGRADE_PROBE_CHANNEL);
+    }
+
+    private void stopVpnBeforeChannelReset() throws Exception {
+        // Earlier receiver tests can start the real service when VPN consent is prepared.
+        WorkManager.getInstance(this.context).cancelUniqueWork("vpnHeartbeat")
+                .getResult().get(5, TimeUnit.SECONDS);
+        ActivityManager manager = this.context.getSystemService(ActivityManager.class);
+        assertNotNull(manager);
+        if (!isVpnServicePresent(manager)) return;
+        VpnServiceControls.stop(this.context);
+        long deadline = SystemClock.elapsedRealtime() + 5_000;
+        do {
+            // STOP is asynchronous. Wait for destruction, not only foreground removal,
+            // so the next test cannot START an instance with stopSelf already queued.
+            if (!isVpnServicePresent(manager)) return;
+            SystemClock.sleep(50);
+        } while (SystemClock.elapsedRealtime() < deadline);
+        throw new AssertionError("VPN service must be destroyed before deleting its channel.");
+    }
+
+    private static boolean isVpnServicePresent(ActivityManager manager) {
+        return manager.getRunningServices(Integer.MAX_VALUE).stream()
+                .anyMatch(service -> VpnService.class.getName()
+                        .equals(service.service.getClassName()));
     }
 
     private void waitForUpdateNotification(int notificationId) {

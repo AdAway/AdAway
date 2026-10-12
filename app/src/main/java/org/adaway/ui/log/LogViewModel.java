@@ -32,6 +32,7 @@ import static org.adaway.db.entity.HostsSource.USER_SOURCE_ID;
  */
 public class LogViewModel extends AndroidViewModel {
     private final AdBlockModel adBlockModel;
+    private final AppDatabase database;
     private final HostListItemDao hostListItemDao;
     private final HostEntryDao hostEntryDao;
     private final MutableLiveData<List<LogEntry>> logEntries;
@@ -41,8 +42,9 @@ public class LogViewModel extends AndroidViewModel {
     public LogViewModel(@NonNull Application application) {
         super(application);
         this.adBlockModel = ((AdAwayApplication) application).getAdBlockModel();
-        this.hostListItemDao = AppDatabase.getInstance(application).hostsListItemDao();
-        this.hostEntryDao = AppDatabase.getInstance(application).hostEntryDao();
+        this.database = AppDatabase.getInstance(application);
+        this.hostListItemDao = this.database.hostsListItemDao();
+        this.hostEntryDao = this.database.hostEntryDao();
         this.logEntries = new MutableLiveData<>();
         this.recording = new MutableLiveData<>(this.adBlockModel.isRecordingLogs());
         this.sort = LogEntrySort.TOP_LEVEL_DOMAIN;
@@ -105,7 +107,16 @@ public class LogViewModel extends AndroidViewModel {
         item.setEnabled(true);
         item.setSourceId(USER_SOURCE_ID);
         // Insert host list item
-        AppExecutors.getInstance().diskIO().execute(() -> this.hostListItemDao.insert(item));
+        AppExecutors.getInstance().diskIO().execute(() -> this.database.runInTransaction(() -> {
+            // There is no unique host constraint; inserting alone leaves older allow rules active.
+            for (HostListItem existing : this.hostListItemDao.getExactEntriesForHost(item.getHost())) {
+                if (existing.getSourceId() == USER_SOURCE_ID) {
+                    this.hostListItemDao.delete(existing);
+                }
+            }
+            this.hostListItemDao.insert(item);
+            this.database.hostsSourceDao().updateActiveRuleStats(USER_SOURCE_ID);
+        }));
         // Update log entries
         updateLogEntryType(host, type);
     }

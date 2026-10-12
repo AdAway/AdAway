@@ -1372,9 +1372,14 @@ public class SecurityHardeningTest {
                 receiver.contains("canRequestPackageInstalls()"));
         assertTrue("APK receiver must route users to system install-source settings.",
                 receiver.contains("Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES"));
+        int permissionGuard = receiver.indexOf("if (!canRequestPackageInstalls(context))");
+        int installIntent = receiver.indexOf("new Intent(ACTION_INSTALL_PACKAGE)");
         assertTrue("APK receiver must only launch ACTION_INSTALL_PACKAGE after the permission check.",
-                receiver.indexOf("canRequestPackageInstalls()")
-                        < receiver.indexOf("new Intent(ACTION_INSTALL_PACKAGE)"));
+                permissionGuard >= 0 && installIntent > permissionGuard);
+        String permissionDeniedBranch = receiver.substring(permissionGuard, installIntent);
+        assertTrue("Permission denial must route to settings and return before installing.",
+                permissionDeniedBranch.contains("Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES") &&
+                        permissionDeniedBranch.contains("return;"));
         assertTrue("App self-update must be limited to the AdAway-signed direct APK store.",
                 updateModel.contains("getStore() == ADAWAY"));
         assertTrue("Manifest download must refuse non-AdAway stores before network access.",

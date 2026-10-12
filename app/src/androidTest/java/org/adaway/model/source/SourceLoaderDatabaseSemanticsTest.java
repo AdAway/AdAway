@@ -5,6 +5,9 @@ import static org.adaway.db.entity.RuleKind.EXACT;
 import static org.adaway.db.entity.RuleKind.SUFFIX;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.fail;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -26,6 +29,9 @@ import org.junit.runner.RunWith;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RunWith(AndroidJUnit4.class)
 public class SourceLoaderDatabaseSemanticsTest {
@@ -52,6 +58,116 @@ public class SourceLoaderDatabaseSemanticsTest {
         if (database != null) {
             database.close();
         }
+    }
+
+    @Test
+    public void sourceTextCannotImpersonateEndMarkers() {
+        int skipped = parseText("#endofqueuemarker\n#endofqueuemarker\n"
+                + "0.0.0.0 after-marker.example\n");
+
+        assertEquals(0, skipped);
+        assertHostRow("after-marker.example", EXACT.getValue());
+    }
+
+    @Test
+    public void utf8BomAndMixedLineEndingsPreserveFirstAndLastRules() {
+        assertEquals(0, parseText("\ufeff0.0.0.0 first.example\r\n"
+                + "0.0.0.0 middle.example\r0.0.0.0 last.example"));
+        assertHostRow("first.example", EXACT.getValue());
+        assertHostRow("middle.example", EXACT.getValue());
+        assertHostRow("last.example", EXACT.getValue());
+    }
+
+    @Test
+    public void oversizedLineFailsWithoutPublishingAPartialImport() {
+        String oversized = "x".repeat(SourceLoader.MAX_LINE_LENGTH + 1);
+        try {
+            parseText("0.0.0.0 partial.example\n" + oversized);
+            fail("An oversized line must fail the import");
+        } catch (IllegalStateException expected) {
+            assertNotNull(expected.getCause());
+        }
+        assertMissingHost("partial.example");
+        assertEquals(0, hostListItemDao.countSourceHostsForGeneration(SOURCE_ID, GENERATION));
+    }
+
+    @Test(timeout = 15000)
+    public void interruptedParseJoinsWorkersBeforeReturningAndRollsBack() throws Exception {
+        StringBuilder content = new StringBuilder();
+        for (int i = 0; i < 10000; i++) {
+            content.append("0.0.0.0 cancel-").append(i).append(".example\n");
+        }
+        CountDownLatch inserting = new CountDownLatch(1);
+        CountDownLatch writerInterrupted = new CountDownLatch(1);
+        CountDownLatch releaseWriter = new CountDownLatch(1);
+        CountDownLatch writerExited = new CountDownLatch(1);
+        CountDownLatch exited = new CountDownLatch(1);
+        AtomicReference<Throwable> failure = new AtomicReference<>();
+        AtomicReference<Thread> writer = new AtomicReference<>();
+        AtomicReference<Boolean> writerFinishedAtReturn = new AtomicReference<>(false);
+        Thread caller = new Thread(() -> {
+            try {
+                new SourceLoader(source, GENERATION).parse(
+                        new BufferedReader(new StringReader(content.toString())),
+                        hostListItemDao, database.getOpenHelper().getWritableDatabase(),
+                        count -> {
+                            writer.set(Thread.currentThread());
+                            inserting.countDown();
+                            boolean interrupted = false;
+                            try {
+                                while (true) {
+                                    try {
+                                        releaseWriter.await();
+                                        break;
+                                    } catch (InterruptedException e) {
+                                        interrupted = true;
+                                        writerInterrupted.countDown();
+                                    }
+                                }
+                            } finally {
+                                if (interrupted) {
+                                    Thread.currentThread().interrupt();
+                                }
+                                writerExited.countDown();
+                            }
+                        }, null);
+            } catch (Throwable throwable) {
+                failure.set(throwable);
+            } finally {
+                writerFinishedAtReturn.set(writerExited.getCount() == 0);
+                exited.countDown();
+            }
+        }, "SourceLoaderCancellationTest");
+        caller.start();
+        try {
+            assertTrue(inserting.await(5, TimeUnit.SECONDS));
+            caller.interrupt();
+            assertTrue("Cancellation must interrupt this import's writer",
+                    writerInterrupted.await(5, TimeUnit.SECONDS));
+            assertFalse("parse() must wait for the active writer to finish",
+                    exited.await(100, TimeUnit.MILLISECONDS));
+            releaseWriter.countDown();
+            assertTrue("Cancellation must stop the inserter", exited.await(5, TimeUnit.SECONDS));
+            assertTrue("The writer must finish before parse() returns", writerFinishedAtReturn.get());
+            assertTrue(failure.get() instanceof IllegalStateException);
+            assertEquals(0,
+                    hostListItemDao.countSourceHostsForGeneration(SOURCE_ID, GENERATION));
+            assertEquals(0L, scalarLong("SELECT COUNT(*) FROM root_host_entries_stage"));
+            // Executor termination precedes the backing Thread's final run() return.
+            // Join only this import's writer, not unrelated threads sharing its name.
+            writer.get().join(1000);
+            assertFalse("This import's writer must terminate", writer.get().isAlive());
+        } finally {
+            releaseWriter.countDown();
+            caller.interrupt();
+            caller.join(5000);
+        }
+    }
+
+    private int parseText(String content) {
+        return new SourceLoader(source, GENERATION).parse(
+                new BufferedReader(new StringReader(content)), hostListItemDao,
+                database.getOpenHelper().getWritableDatabase(), null, null);
     }
 
     @Test

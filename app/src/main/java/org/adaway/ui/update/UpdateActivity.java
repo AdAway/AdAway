@@ -53,6 +53,12 @@ public class UpdateActivity extends AppCompatActivity {
                 v -> startActivity(new Intent(Intent.ACTION_VIEW, SPONSORSHIP_LINK)));
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        this.updateViewModel.resumePendingInstall();
+    }
+
     private void bindManifest() {
         this.updateViewModel.getAppManifest().observe(this, manifest -> {
             if (manifest == null) {
@@ -68,7 +74,10 @@ public class UpdateActivity extends AppCompatActivity {
     private void bindProgress() {
         this.updateViewModel.getDownloadProgress().observe(this, progress -> {
             if (progress == null) {
-                this.binding.updateButton.setVisibility(VISIBLE);
+                Manifest manifest = this.updateViewModel.getAppManifest().getValue();
+                this.binding.updateButton.setVisibility(
+                        manifest != null && manifest.updateAvailable && !manifest.isExpired()
+                                ? VISIBLE : GONE);
                 this.binding.downloadProgressBar.setVisibility(GONE);
                 this.binding.downloadProgressBar.setProgress(0);
                 this.binding.progressTextView.setText(null);

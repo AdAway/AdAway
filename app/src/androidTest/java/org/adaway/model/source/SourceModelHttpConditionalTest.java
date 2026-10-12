@@ -6,6 +6,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.adaway.model.error.HostError.DOWNLOAD_FAILED;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -21,6 +23,7 @@ import org.adaway.db.dao.HostListItemDao;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
+import org.adaway.model.error.HostErrorException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,11 +36,13 @@ import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.mockwebserver.Dispatcher;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
@@ -120,6 +125,157 @@ public class SourceModelHttpConditionalTest {
         if (database != null) {
             database.close();
         }
+    }
+
+    @Test
+    public void successfulHttpErrorPageDoesNotReplaceWorkingFilters() throws Exception {
+        server.enqueue(new MockResponse().setHeader("Content-Type", "text/html")
+                .setBody("<!doctype html>\n<html><body>Service unavailable</body></html>\n"));
+
+        assertTargetedDownloadFailure();
+
+        assertTrue(hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow()
+                .getLastDownloadError().contains("no supported rules"));
+        assertEquals("\"first-etag\"",
+                hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow().getEntityTag());
+    }
+
+    @Test
+    public void disableDuringDownloadDoesNotImportEnabledRowsFromStaleSnapshot() throws Exception {
+        CountDownLatch requested = new CountDownLatch(1);
+        CountDownLatch respond = new CountDownLatch(1);
+        server.setDispatcher(new Dispatcher() {
+            @Override
+            public MockResponse dispatch(RecordedRequest request) throws InterruptedException {
+                requested.countDown();
+                if (!respond.await(5, TimeUnit.SECONDS)) return new MockResponse().setResponseCode(500);
+                return new MockResponse().setBody("0.0.0.0 " + UPDATED_FIRST_HOST + "\n");
+            }
+        });
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<?> update = executor.submit(() -> {
+            sourceModel.retrieveHostsSource(FIRST_SOURCE_ID);
+            return null;
+        });
+        try {
+            assertTrue(requested.await(5, TimeUnit.SECONDS));
+            hostsSourceDao.applySourceSelection(FIRST_SOURCE_ID, false);
+            respond.countDown();
+            update.get(10, TimeUnit.SECONDS);
+            assertEquals(ALLOWED, hostEntryDao.resolveEntry(UPDATED_FIRST_HOST).getType());
+            try (Cursor cursor = writableDb().query(
+                    "SELECT COUNT(*) FROM hosts_lists WHERE source_id = ? AND enabled = 1",
+                    new Object[]{FIRST_SOURCE_ID})) {
+                assertTrue(cursor.moveToFirst());
+                assertEquals(0, cursor.getInt(0));
+            }
+            assertEquals(1, countRows(FIRST_SOURCE_ID, ACTIVE_GENERATION));
+            hostsSourceDao.applySourceSelection(FIRST_SOURCE_ID, true);
+            sourceModel.syncHostEntries();
+            assertEquals(BLOCKED, hostEntryDao.resolveEntry(UPDATED_FIRST_HOST).getType());
+        } finally {
+            respond.countDown();
+            executor.shutdownNow();
+            executor.awaitTermination(5, TimeUnit.SECONDS);
+        }
+    }
+
+    @Test
+    public void notModifiedDoesNotRenewTheLastBodyFetchDate() throws Exception {
+        ZonedDateTime previous = hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow()
+                .getLocalModificationDate();
+        server.enqueue(new MockResponse().setResponseCode(304));
+
+        sourceModel.retrieveHostsSource(FIRST_SOURCE_ID);
+
+        assertEquals(previous, hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow()
+                .getLocalModificationDate());
+        assertEquals("\"first-etag\"",
+                hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow().getEntityTag());
+    }
+
+    @Test
+    public void changedResponseWithoutEtagClearsPreviousValidator() throws Exception {
+        server.enqueue(new MockResponse().setBody("0.0.0.0 " + UPDATED_FIRST_HOST + "\n"));
+
+        sourceModel.retrieveHostsSource(FIRST_SOURCE_ID);
+
+        assertNull(hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow().getEntityTag());
+        assertEquals(BLOCKED, hostEntryDao.resolveEntry(UPDATED_FIRST_HOST).getType());
+    }
+
+    @Test
+    public void weakEtagIsStoredAndSentUnchanged() throws Exception {
+        String weakEtag = "W/\"new-weak-etag\"";
+        server.enqueue(new MockResponse().setHeader("ETag", weakEtag)
+                .setBody("0.0.0.0 " + UPDATED_FIRST_HOST + "\n"));
+        sourceModel.retrieveHostsSource(FIRST_SOURCE_ID);
+        assertEquals(weakEtag,
+                hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow().getEntityTag());
+        assertNotNull(server.takeRequest(5, TimeUnit.SECONDS));
+
+        server.enqueue(new MockResponse().setResponseCode(304));
+        sourceModel.retrieveHostsSource(FIRST_SOURCE_ID);
+
+        RecordedRequest request = server.takeRequest(5, TimeUnit.SECONDS);
+        assertNotNull(request);
+        assertEquals(weakEtag, request.getHeader(IF_NONE_MATCH));
+        assertEquals(weakEtag,
+                hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow().getEntityTag());
+    }
+
+    @Test
+    public void unsolicited304FailsAndPreservesPreviousRows() throws Exception {
+        hostsSourceDao.clearProperties(FIRST_SOURCE_ID);
+        server.enqueue(new MockResponse().setResponseCode(304));
+
+        assertTargetedDownloadFailure();
+
+        HostsSource source = hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow();
+        assertTrue(source.getLastDownloadError().contains("Unexpected HTTP 304"));
+        assertNull(source.getLocalModificationDate());
+        RecordedRequest request = server.takeRequest(5, TimeUnit.SECONDS);
+        assertNotNull(request);
+        assertNull(request.getHeader(IF_NONE_MATCH));
+        assertNull(request.getHeader(IF_MODIFIED_SINCE));
+    }
+
+    @Test
+    public void oversizedResponseFailsBeforeReadingAndPreservesPreviousRows() throws Exception {
+        server.enqueue(new MockResponse().setHeader("Content-Length",
+                Long.toString(SourceModel.MAX_SOURCE_BYTES + 1)));
+
+        assertTargetedDownloadFailure();
+
+        assertTrue(hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow()
+                .getLastDownloadError().contains("exceeds"));
+    }
+
+    @Test
+    public void expiredMetadataForcesNetworkInsteadOfReusingHttpCache() throws Exception {
+        HostsSource source = hostsSourceDao.getById(FIRST_SOURCE_ID).orElseThrow();
+        source.setLocalModificationDate(ZonedDateTime.now().minusDays(8));
+        Method method = SourceModel.class.getDeclaredMethod("getRequestFor", HostsSource.class);
+        method.setAccessible(true);
+        Request request = ((Request.Builder) method.invoke(sourceModel, source)).build();
+
+        assertTrue(request.cacheControl().noCache());
+        assertNull(request.header(IF_NONE_MATCH));
+        assertNull(request.header(IF_MODIFIED_SINCE));
+    }
+
+    private void assertTargetedDownloadFailure() throws Exception {
+        try {
+            sourceModel.retrieveHostsSource(FIRST_SOURCE_ID);
+            fail("Expected DOWNLOAD_FAILED");
+        } catch (HostErrorException expected) {
+            assertEquals(DOWNLOAD_FAILED, expected.getError());
+        }
+        assertEquals(ACTIVE_GENERATION, getActiveGeneration());
+        assertEquals(1, countRows(FIRST_SOURCE_ID, ACTIVE_GENERATION));
+        assertEquals(0, countRows(FIRST_SOURCE_ID, STAGING_GENERATION));
+        assertEquals(BLOCKED, hostEntryDao.resolveEntry(FIRST_HOST).getType());
+        assertScratchTableAbsent();
     }
 
     @Test

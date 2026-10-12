@@ -23,6 +23,7 @@ import org.adaway.db.entity.RuleKind;
 import org.adaway.util.RegexUtils;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
@@ -31,6 +32,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.LongConsumer;
@@ -50,7 +52,9 @@ import timber.log.Timber;
  */
 class SourceLoader {
     private static final String TAG = "SourceLoader";
-    private static final String END_OF_QUEUE_MARKER = "#endofqueuemarker";
+    // Identity-only sentinel: source text must never be able to stop a parser worker.
+    private static final String END_OF_QUEUE_MARKER = new String("#endofqueuemarker");
+    static final int MAX_LINE_LENGTH = 64 * 1024;
     // Batch size tradeoff:
     // - Smaller => smoother UI updates but slower DB throughput
     // - Larger  => much faster parsing/DB insert for large filter sets
@@ -65,7 +69,7 @@ class SourceLoader {
     private static final int PARSER_COUNT = SourceModel.PARSER_THREADS_PER_SOURCE;
     private static final String HOSTS_PARSER = "^\\s*([^#\\s]+)\\s+([^#\\s]+).*$";
     static final Pattern HOSTS_PARSER_PATTERN = Pattern.compile(HOSTS_PARSER);
-    static final Pattern ADBLOCK_DOUBLE_PIPE = Pattern.compile("^\\|\\|([^\\^/$]+).*$");
+    static final Pattern ADBLOCK_DOUBLE_PIPE = Pattern.compile("^\\|\\|([^\\^/$|\\s]+)\\^?$");
     static final Pattern URL_HOST = Pattern.compile("^\\|?https?://([^/\\^$]+).*$");
     private static final Pattern DNSMASQ_ADDRESS =
             Pattern.compile("^address=/([^/\\s#]+)/([^\\s]*)\\s*(?:#.*)?$");
@@ -170,34 +174,52 @@ class SourceLoader {
         executorService.execute(sourceReader);
         for (int i = 0; i < PARSER_COUNT; i++) {
             executorService.execute(new HostListItemParser(this.source, hostsLineQueue, hostsListItemQueue,
-                    skippedLines));
+                    skippedLines, sourceReadFailure));
         }
         Future<Integer> inserterFuture = executorService.submit(inserter);
         int skipped = 0;
+        boolean succeeded = false;
+        boolean interrupted = false;
         try {
             Integer inserted = inserterFuture.get();
             skipped = skippedLines.get();
+            if (inserted == 0 && skipped > 0) {
+                throw new IllegalStateException("Hosts source contains no supported rules");
+            }
             if (skipped > 0) {
                 Timber.w("Source %s: %d lines skipped (malformed or unrecognized format)", this.source.getLabel(), skipped);
             }
             Timber.i("%s: %d host list items inserted, %d lines skipped.", this.source.getLabel(), inserted, skipped);
+            succeeded = true;
         } catch (ExecutionException e) {
             Timber.w(e, "Failed to parse hosts sources.");
-            hostListItemDao.clearSourceHostsForGeneration(this.source.getId(), this.generation);
-            if (db != null) {
-                clearRootExportStage(db, this.source.getId(), this.generation);
-            }
             throw new IllegalStateException("Failed to parse hosts source.", e);
         } catch (InterruptedException e) {
             Timber.w(e, "Interrupted while parsing sources.");
-            Thread.currentThread().interrupt();
-            hostListItemDao.clearSourceHostsForGeneration(this.source.getId(), this.generation);
-            if (db != null) {
-                clearRootExportStage(db, this.source.getId(), this.generation);
-            }
+            interrupted = true;
             throw new IllegalStateException("Interrupted while parsing hosts source.", e);
         } finally {
-            executorService.shutdown();
+            executorService.shutdownNow();
+            // Cleanup must follow the last possible writer, including on cancellation.
+            while (!executorService.isTerminated()) {
+                try {
+                    executorService.awaitTermination(1, TimeUnit.SECONDS);
+                } catch (InterruptedException e) {
+                    interrupted = true;
+                }
+            }
+            try {
+                if (!succeeded) {
+                    hostListItemDao.clearSourceHostsForGeneration(this.source.getId(), this.generation);
+                    if (db != null) {
+                        clearRootExportStage(db, this.source.getId(), this.generation);
+                    }
+                }
+            } finally {
+                if (interrupted) {
+                    Thread.currentThread().interrupt();
+                }
+            }
         }
         return skipped;
     }
@@ -318,7 +340,7 @@ class SourceLoader {
         // and sanitizeHostname() would otherwise strip the leading '||' and return a hostname
         // even for content-filter rules like ||google.com^$third-party.
         if (!line.startsWith("|")) {
-            if (line.indexOf('/') >= 0 || line.indexOf('$') >= 0) {
+            if (line.indexOf('/') >= 0 || line.indexOf('$') >= 0 || line.indexOf('^') >= 0) {
                 return null;
             }
             String plain = sanitizeHostname(line);
@@ -332,18 +354,7 @@ class SourceLoader {
         // Ad networks are covered by OISD/hosts-format entries instead.
         Matcher dbl = ADBLOCK_DOUBLE_PIPE.matcher(line);
         if (dbl.matches()) {
-            String captured = dbl.group(1);
-            if (captured != null) {
-                int afterDomain = 2 + captured.length();  // position right after ||domain
-                if (afterDomain < line.length()) {
-                    char next = line.charAt(afterDomain);
-                    // '/' means path rule (||example.com/path) — URL-level only, not DNS
-                    if (next == '/') return null;
-                }
-                // '$' anywhere after domain = filter options → skip
-                if (line.indexOf('$', 2 + captured.length()) >= 0) return null;
-            }
-            return suffixRule(captured);
+            return suffixRule(dbl.group(1));
         }
 
         // URL style: |https://example.com/path
@@ -458,14 +469,37 @@ class SourceLoader {
         @Override
         public void run() {
             try {
-                String line;
-                while ((line = this.reader.readLine()) != null) {
-                    // Strip carriage return in case the source uses Windows (CRLF) line endings
-                    // that were not normalized by the stream reader (e.g. binary streams).
-                    if (line.indexOf('\r') >= 0) {
-                        line = line.replace("\r", "");
+                char[] buffer = new char[8192];
+                StringBuilder line = new StringBuilder();
+                boolean firstCharacter = true;
+                int count;
+                while ((count = this.reader.read(buffer)) != -1) {
+                    for (int i = 0; i < count; i++) {
+                        if (Thread.currentThread().isInterrupted()) {
+                            throw new InterruptedException();
+                        }
+                        char character = buffer[i];
+                        if (firstCharacter && character == '\ufeff') {
+                            firstCharacter = false;
+                            continue;
+                        }
+                        firstCharacter = false;
+                        if (character == '\n' || character == '\r') {
+                            if (line.length() > 0) {
+                                this.queue.put(line.toString());
+                                line.setLength(0);
+                            }
+                        } else {
+                            if (line.length() >= MAX_LINE_LENGTH) {
+                                throw new IOException("Hosts source line exceeds " + MAX_LINE_LENGTH
+                                        + " characters");
+                            }
+                            line.append(character);
+                        }
                     }
-                    this.queue.put(line);  // put() blocks if queue is full, preventing OOM
+                }
+                if (line.length() > 0) {
+                    this.queue.put(line.toString());
                 }
             } catch (Throwable t) {
                 this.failure.compareAndSet(null, t);
@@ -488,14 +522,16 @@ class SourceLoader {
         private final BlockingQueue<String> lineQueue;
         private final BlockingQueue<HostListItem> itemQueue;
         private final AtomicInteger skippedLines;
+        private final AtomicReference<Throwable> failure;
 
         private HostListItemParser(HostsSource source, BlockingQueue<String> lineQueue,
                                    BlockingQueue<HostListItem> itemQueue,
-                                   AtomicInteger skippedLines) {
+                                   AtomicInteger skippedLines, AtomicReference<Throwable> failure) {
             this.source = source;
             this.lineQueue = lineQueue;
             this.itemQueue = itemQueue;
             this.skippedLines = skippedLines;
+            this.failure = failure;
         }
 
         @Override
@@ -506,7 +542,7 @@ class SourceLoader {
                 try {
                     String line = this.lineQueue.take();
                     // Check end of queue marker
-                    if (END_OF_QUEUE_MARKER.equals(line)) {
+                    if (END_OF_QUEUE_MARKER == line) {
                         endOfSource = true;
                         // Send end of queue marker to inserter
                         HostListItem endItem = new HostListItem();
@@ -528,6 +564,10 @@ class SourceLoader {
                     Timber.w(e, "Interrupted while parsing hosts list item.");
                     endOfSource = true;
                     Thread.currentThread().interrupt();
+                    this.failure.compareAndSet(null, e);
+                } catch (Throwable t) {
+                    this.failure.compareAndSet(null, t);
+                    endOfSource = true;
                 }
             }
         }
@@ -727,9 +767,27 @@ class SourceLoader {
             }
 
             try {
+                // Source selection may have changed while the download was in flight.
+                // Read under the writer transaction so a concurrent toggle runs wholly before
+                // or after this import, never between this read and the inserted rows.
+                boolean sourceEnabled = true;
+                if (db != null) {
+                    try (android.database.Cursor cursor = db.query(
+                            "SELECT enabled FROM hosts_sources WHERE id = ?",
+                            new Object[]{this.sourceId})) {
+                        sourceEnabled = cursor.moveToFirst() && cursor.getInt(0) != 0;
+                    }
+                }
                 while (!queueEmptied) {
                     try {
-                        HostListItem item = this.hostListItemQueue.take();
+                        Throwable workerFailure = this.sourceReadFailure.get();
+                        if (workerFailure != null) {
+                            throw new IllegalStateException("Hosts source worker failed.", workerFailure);
+                        }
+                        HostListItem item = this.hostListItemQueue.poll(100, TimeUnit.MILLISECONDS);
+                        if (item == null) {
+                            continue;
+                        }
                         // Check end of queue marker
                         if (END_OF_QUEUE_MARKER.equals(item.getHost())) {
                             workerStopped++;
@@ -743,7 +801,7 @@ class SourceLoader {
                                 if (db != null && insertStmt != null) {
                                     BulkInsertResult result = bulkInsert(
                                             insertStmt, pendingStmt,
-                                            batch, cacheSize, this.generation);
+                                            batch, cacheSize, this.generation, sourceEnabled);
                                     long batchDbMs = result.dbMs;
                                     inserted += result.inserted;
                                     if (perfLog) {
@@ -798,8 +856,8 @@ class SourceLoader {
                         }
                     } catch (InterruptedException e) {
                         Timber.w(e, "Interrupted while inserted hosts list item.");
-                        queueEmptied = true;
                         Thread.currentThread().interrupt();
+                        throw new IllegalStateException("Hosts source insert interrupted.", e);
                     }
                 }
                 // Flush current batch
@@ -812,7 +870,7 @@ class SourceLoader {
                     if (db != null && insertStmt != null) {
                         BulkInsertResult result = bulkInsert(
                                 insertStmt, pendingStmt, remaining,
-                                cacheSize, this.generation);
+                                cacheSize, this.generation, sourceEnabled);
                         totalDbInsertMs += result.dbMs;
                         finalInserted = result.inserted;
                     } else {
@@ -884,12 +942,14 @@ class SourceLoader {
                 @Nullable SupportSQLiteStatement pendingStmt,
                 @NonNull HostListItem[] items,
                 int count,
-                int generation) {
+                int generation,
+                boolean sourceEnabled) {
             long t0 = SystemClock.elapsedRealtimeNanos();
             int inserted = 0;
             for (int i = 0; i < count; i++) {
                 HostListItem it = items[i];
                 if (it == null) continue;
+                it.setEnabled(it.isEnabled() && sourceEnabled);
                 if (pendingStmt != null) {
                     SqlUpdateDeduper.stagePending(pendingStmt, it, generation);
                     inserted++;

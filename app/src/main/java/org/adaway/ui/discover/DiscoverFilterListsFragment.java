@@ -40,6 +40,7 @@ import org.adaway.model.source.FilterListCompatibility;
 import org.adaway.model.source.FilterListsDirectoryApi;
 import org.adaway.model.source.FilterListsSourceMetadata;
 import org.adaway.model.source.SourceUpdateService;
+import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
 import org.adaway.ui.source.SourceEditActivity;
 import org.adaway.util.AppExecutors;
 import org.adaway.ui.hosts.FilterListsSubscribeAllWorker;
@@ -340,6 +341,7 @@ public class DiscoverFilterListsFragment extends Fragment {
                 boolean tagsCacheFresh = cachedTagsJson != null && cachedLanguagesJson != null
                         && (now - tagsCachedAt) < CACHE_TTL_MS;
 
+                boolean cachedDirectoryLoaded = false;
                 // Show cached lists immediately if available
                 if (cachedListsJson != null && cachedSyntaxesJson != null) {
                     try {
@@ -353,6 +355,7 @@ public class DiscoverFilterListsFragment extends Fragment {
                         List<FilterListsDirectoryApi.Language> cachedLanguages = cachedLanguagesJson != null
                                 ? FilterListsDirectoryApi.parseLanguagesJson(cachedLanguagesJson)
                                 : new ArrayList<>();
+                        cachedDirectoryLoaded = true;
                         AppExecutors.getInstance().mainThread().execute(() -> {
                             if (this.binding == null) return;
                             this.syntaxNames = cachedSyntaxNames;
@@ -376,7 +379,7 @@ public class DiscoverFilterListsFragment extends Fragment {
                     }
                 }
 
-                if (listsCacheFresh && tagsCacheFresh) {
+                if (cachedDirectoryLoaded && listsCacheFresh && tagsCacheFresh) {
                     AppExecutors.getInstance().mainThread().execute(() -> {
                         if (this.binding == null) return;
                         directoryLoading = false;
@@ -865,12 +868,12 @@ public class DiscoverFilterListsFragment extends Fragment {
                     HostsSource existing = hostsSourceDao.getByUrl(url).orElse(null);
                     if (existing != null) {
                         hostsSourceDao.delete(existing);
+                        ((AdAwayApplication) appContext).getSourceModel().syncHostEntries();
                     }
                 }
 
                 final String finalUrl = url;
-                AppExecutors.getInstance().mainThread().execute(() -> {
-                    if (this.binding == null) return;
+                runOnMainThreadIfAdded(() -> {
                     // Mutations to existingUrls must happen on the main thread so the
                     // adapter (which reads existingUrls on main thread) sees a consistent view.
                     if (subscribed) {
@@ -890,13 +893,16 @@ public class DiscoverFilterListsFragment extends Fragment {
                     } else {
                         notifyFilterListRowChanged(summary.id);
                     }
-                    showSnackbar(getString(subscribed
-                            ? R.string.filterlists_subscribe_done
-                            : R.string.filterlists_unsubscribe_done));
+                    if (subscribed) {
+                        showSnackbar(getString(R.string.filterlists_subscribe_done));
+                    } else {
+                        if (activeSnackbar != null) activeSnackbar.dismiss();
+                        new ApplyConfigurationSnackbar(binding.getRoot(), false, false)
+                                .notifyUpdateAvailable();
+                    }
                 });
             } catch (IOException e) {
-                AppExecutors.getInstance().mainThread().execute(() -> {
-                    if (this.binding == null) return;
+                runOnMainThreadIfAdded(() -> {
                     binding.filterlistsProgress.setVisibility(View.GONE);
                     showSnackbar(getString(R.string.filterlists_update_subscription_failed));
                     notifyFilterListRowChanged(summary.id);
@@ -1103,10 +1109,12 @@ public class DiscoverFilterListsFragment extends Fragment {
                     removed++;
                 }
             }
+            if (removed > 0) {
+                ((AdAwayApplication) appContext).getSourceModel().syncHostEntries();
+            }
 
             int removedCount = removed;
-            AppExecutors.getInstance().mainThread().execute(() -> {
-                if (this.binding == null) return;
+            runOnMainThreadIfAdded(() -> {
                 existingUrls.removeAll(filterListUrls);
                 bulkOperationRunning = false;
                 refreshBulkActionsState();
@@ -1115,7 +1123,13 @@ public class DiscoverFilterListsFragment extends Fragment {
                 } else {
                     notifyFilterListRowsChanged();
                 }
-                showSnackbar(getString(R.string.filterlists_unsubscribe_all_done, removedCount));
+                if (removedCount > 0) {
+                    if (activeSnackbar != null) activeSnackbar.dismiss();
+                    new ApplyConfigurationSnackbar(binding.getRoot(), false, false)
+                            .notifyUpdateAvailable();
+                } else {
+                    showSnackbar(getString(R.string.filterlists_unsubscribe_all_done, removedCount));
+                }
             });
         });
     }

@@ -98,8 +98,7 @@ public final class ApkUpdateService {
             AdAwayApplication application = (AdAwayApplication) getApplicationContext();
             UpdateModel model = application.getUpdateModel();
             // Check for update
-            model.checkForUpdate();
-            Manifest manifest = model.getManifest().getValue();
+            Manifest manifest = model.checkForUpdateManifest();
             if (manifest != null && manifest.updateAvailable) {
                 // Display update notification
                 NotificationHelper.showUpdateApplicationNotification(application);

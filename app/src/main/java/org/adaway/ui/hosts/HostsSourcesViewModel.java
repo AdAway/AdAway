@@ -37,8 +37,7 @@ public class HostsSourcesViewModel extends AndroidViewModel {
     public void setSourceEnabled(HostsSource source, boolean enabled) {
         AppExecutors.getInstance().diskIO().execute(() -> {
             source.setEnabled(enabled);
-            this.hostsSourceDao.setSourceEnabled(source.getId(), enabled);
-            this.hostsSourceDao.setSourceItemsEnabled(source.getId(), enabled);
+            this.hostsSourceDao.applySourceSelection(source.getId(), enabled);
         });
     }
 }

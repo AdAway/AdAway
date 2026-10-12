@@ -101,6 +101,40 @@ public class OnboardingFirstRunInstrumentedTest {
     }
 
     @Test(timeout = 60_000)
+    public void recreationRetainsSelectionAndPendingVpnCompletion() throws Exception {
+        Intent intent = new Intent(this.context, OnboardingActivity.class)
+                .putExtra(OnboardingActivity.EXTRA_SKIP_AUTO_DETECT, true);
+        Field selected = OnboardingActivity.class.getDeclaredField("selectedMethod");
+        Field pending = OnboardingActivity.class.getDeclaredField("finishAfterVpnAuthorization");
+        selected.setAccessible(true);
+        pending.setAccessible(true);
+        try (ActivityScenario<OnboardingActivity> scenario = ActivityScenario.launch(intent)) {
+            scenario.onActivity(activity -> {
+                try {
+                    selected.set(activity, org.adaway.model.adblocking.AdBlockMethod.VPN);
+                    pending.setBoolean(activity, true);
+                } catch (IllegalAccessException exception) {
+                    throw new AssertionError(exception);
+                }
+            });
+            scenario.recreate();
+            scenario.onActivity(activity -> {
+                try {
+                    assertEquals(org.adaway.model.adblocking.AdBlockMethod.VPN,
+                            selected.get(activity));
+                    assertTrue(pending.getBoolean(activity));
+                    assertTrue(activity.findViewById(R.id.onboarding_start_button).isEnabled());
+                    com.google.android.material.card.MaterialCardView card =
+                            activity.findViewById(R.id.onboarding_vpn_card);
+                    assertTrue(card.isChecked());
+                } catch (IllegalAccessException exception) {
+                    throw new AssertionError(exception);
+                }
+            });
+        }
+    }
+
+    @Test(timeout = 60_000)
     public void undefinedMethodHomeLaunchRedirectsToOnboarding() throws Exception {
         PreferenceHelper.setAbBlockMethod(this.context, UNDEFINED);
 

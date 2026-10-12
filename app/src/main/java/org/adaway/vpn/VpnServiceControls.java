@@ -85,6 +85,21 @@ public final class VpnServiceControls {
             Timber.d("VPN already running");
             return true;
         }
+        return launchVpn(context);
+    }
+
+    /**
+     * Reload VPN configuration by replacing the worker in the existing service.
+     *
+     * @param context The application context.
+     * @return {@code true} if the restart command was accepted, {@code false} otherwise.
+     */
+    public static boolean restart(Context context) {
+        // A STOP/START pair can lose START while the old tunnel is still reported running.
+        return launchVpn(context);
+    }
+
+    private static boolean launchVpn(Context context) {
         // Start the VPN service
         Intent intent = new Intent(context, VpnService.class);
         START.appendToIntent(intent);

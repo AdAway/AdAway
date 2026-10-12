@@ -15,11 +15,13 @@ import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
 import org.adaway.BuildConfig;
 import org.adaway.R;
 import org.adaway.helper.PreferenceHelper;
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -38,7 +40,6 @@ import timber.log.Timber;
  * @author Bruce BUJON (bruce.bujon(at)gmail(dot)com)
  */
 public class UpdateModel {
-    private static final String MANIFEST_URL = "https://app.adaway.org/manifest.json";
     private static final String DOWNLOAD_URL = "https://app.adaway.org/adaway.apk?versionCode=";
     private final Context context;
     private final VersionInfo versionInfo;
@@ -49,6 +50,7 @@ public class UpdateModel {
     private final String manifestPublicKeyBase64;
     private final MutableLiveData<Manifest> manifest;
     private ApkDownloadReceiver receiver;
+    private volatile ApkDownloadReceiver pendingInstaller;
 
     /**
      * Constructor.
@@ -60,7 +62,7 @@ public class UpdateModel {
                 context,
                 VersionInfo.get(context),
                 buildHttpClient(),
-                MANIFEST_URL,
+                null,
                 BuildConfig.DIRECT_APK_UPDATES_ENABLED,
                 null,
                 null);
@@ -137,13 +139,15 @@ public class UpdateModel {
      * Check if there is an update available.
      */
     public void checkForUpdate() {
+        checkForUpdateManifest();
+    }
+
+    @Nullable
+    Manifest checkForUpdateManifest() {
         Manifest manifest = downloadManifest();
-        // Notify update
-        if (manifest != null) {
-            this.manifest.postValue(manifest);
-        } else {
-            this.manifest.postValue(null);
-        }
+        this.manifest.postValue(manifest);
+        // Workers need the result before LiveData dispatches it on the main thread.
+        return manifest;
     }
 
     private static OkHttpClient buildHttpClient() {
@@ -159,7 +163,18 @@ public class UpdateModel {
         }
         String channel = getChannel();
         UpdateStore store = getStore();
-        HttpUrl httpUrl = requireNonNull(HttpUrl.parse(this.manifestUrl),
+        String manifestUrl = this.manifestUrl;
+        if (manifestUrl == null) {
+            ReleaseManifestSource source = "beta".equals(channel)
+                    ? findReleaseManifest(true)
+                    : new ReleaseManifestSource(ReleaseManifestSource.STABLE_URL, "stable");
+            if (source == null) {
+                return null;
+            }
+            manifestUrl = source.url;
+            channel = source.channel;
+        }
+        HttpUrl httpUrl = requireNonNull(HttpUrl.parse(manifestUrl),
                 "Failed to parse manifest URL")
                 .newBuilder()
                 .addQueryParameter("versionCode", Integer.toString(this.versionInfo.code))
@@ -191,6 +206,24 @@ public class UpdateModel {
         }
     }
 
+    @Nullable
+    private ReleaseManifestSource findReleaseManifest(boolean includeBeta) {
+        Request request = new Request.Builder()
+                .url(ReleaseManifestSource.RELEASES_URL)
+                .header("Accept", "application/vnd.github+json")
+                .build();
+        try (Response response = this.client.newCall(request).execute();
+                ResponseBody body = response.body()) {
+            if (!response.isSuccessful() || body == null) {
+                return null;
+            }
+            return ReleaseManifestSource.latest(new JSONArray(body.string()), includeBeta);
+        } catch (IOException | JSONException exception) {
+            Timber.w(exception, "Unable to locate the fork release manifest.");
+            return null;
+        }
+    }
+
     /**
      * Update the application to the latest version.
      *
@@ -211,6 +244,7 @@ public class UpdateModel {
         }
         // Check previous broadcast receiver
         unregisterReceiver();
+        this.pendingInstaller = null;
         // Queue download
         long downloadId = download(manifest);
         if (downloadId == -1) {
@@ -244,7 +278,25 @@ public class UpdateModel {
     }
 
     private void clearReceiver() {
+        if (this.receiver != null && this.receiver.hasPendingInstall()) {
+            this.pendingInstaller = this.receiver;
+        }
         this.receiver = null;
+    }
+
+    public boolean hasPendingInstall() {
+        ApkDownloadReceiver installer = this.pendingInstaller;
+        return installer != null && installer.hasPendingInstall();
+    }
+
+    public void resumePendingInstall() {
+        ApkDownloadReceiver installer = this.pendingInstaller;
+        if (installer != null && canSelfUpdate()) {
+            installer.resumePendingInstall(this.context);
+            if (!installer.hasPendingInstall() && this.pendingInstaller == installer) {
+                this.pendingInstaller = null;
+            }
+        }
     }
 
     private long download(Manifest manifest) {

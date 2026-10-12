@@ -41,6 +41,8 @@ import org.adaway.util.log.SentryLog;
 public class OnboardingActivity extends AppCompatActivity {
     public static final String EXTRA_SKIP_AUTO_DETECT =
             "org.adaway.ui.onboarding.SKIP_AUTO_DETECT";
+    private static final String STATE_SELECTED_METHOD = "selected_method";
+    private static final String STATE_FINISH_AFTER_VPN = "finish_after_vpn_authorization";
 
     private ActivityOnboardingBinding binding;
     private ActivityResultLauncher<Intent> prepareVpnLauncher;
@@ -64,6 +66,11 @@ public class OnboardingActivity extends AppCompatActivity {
 
         this.cardNormalColor = getResources().getColor(R.color.cardBackground, null);
         this.cardSelectedColor = getResources().getColor(R.color.cardEnabledBackground, null);
+        if (savedInstanceState != null) {
+            this.selectedMethod = AdBlockMethod.fromCode(
+                    savedInstanceState.getInt(STATE_SELECTED_METHOD, AdBlockMethod.UNDEFINED.toCode()));
+            this.finishAfterVpnAuthorization = savedInstanceState.getBoolean(STATE_FINISH_AFTER_VPN);
+        }
 
         this.prepareVpnLauncher = registerForActivityResult(
                 new StartActivityForResult(), result -> {
@@ -80,9 +87,17 @@ public class OnboardingActivity extends AppCompatActivity {
         updateMethodCards();
 
         // Auto-detect: if root is not available, pre-select VPN
-        if (!getIntent().getBooleanExtra(EXTRA_SKIP_AUTO_DETECT, false)) {
+        if (savedInstanceState == null
+                && !getIntent().getBooleanExtra(EXTRA_SKIP_AUTO_DETECT, false)) {
             autoDetectAndPreselectMethod();
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@androidx.annotation.NonNull Bundle outState) {
+        outState.putInt(STATE_SELECTED_METHOD, this.selectedMethod.toCode());
+        outState.putBoolean(STATE_FINISH_AFTER_VPN, this.finishAfterVpnAuthorization);
+        super.onSaveInstanceState(outState);
     }
 
     // -----------------------------------------------------------------------------------------
@@ -94,7 +109,8 @@ public class OnboardingActivity extends AppCompatActivity {
         new Thread(() -> {
             boolean hasRoot = TRUE.equals(Shell.isAppGrantedRoot());
             runOnUiThread(() -> {
-                if (!hasRoot) {
+                if (isFinishing() || isDestroyed()) return;
+                if (!hasRoot && this.selectedMethod == AdBlockMethod.UNDEFINED) {
                     // No root — pre-select VPN
                     preselectVpn();
                 }
@@ -205,6 +221,12 @@ public class OnboardingActivity extends AppCompatActivity {
     private void updateMethodCards() {
         boolean vpnSelected = this.selectedMethod == AdBlockMethod.VPN;
         boolean rootSelected = this.selectedMethod == AdBlockMethod.ROOT;
+
+        this.binding.onboardingStartButton.setEnabled(vpnSelected || rootSelected);
+        this.binding.onboardingVpnCard.setCardBackgroundColor(
+                vpnSelected ? this.cardSelectedColor : this.cardNormalColor);
+        this.binding.onboardingRootCard.setCardBackgroundColor(
+                rootSelected ? this.cardSelectedColor : this.cardNormalColor);
 
         this.binding.onboardingVpnCard.setChecked(vpnSelected);
         this.binding.onboardingRootCard.setChecked(rootSelected);

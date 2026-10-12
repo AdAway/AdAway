@@ -1,5 +1,24 @@
 # Changelog
 
+## [13.5.2b] - 2026-10-12
+
+- Add filters by pasting a URL; an optional name defaults to the URL host. Saving a new
+  subscription starts its download. Renaming a filter preserves its rules and selection.
+- Keep existing subscriptions intact when an edited URL duplicates another filter.
+- Recover corrupt discovery caches and refresh active rules after unsubscribing.
+- Preserve working filters on interrupted, oversized, malformed, or failed downloads;
+  respect concurrent selection changes and reject unsupported path rules as domain blocks.
+- Fix DNS response truncation, socket cleanup, resolver mapping, and stale VPN restarts.
+- Make backup imports validated and atomic; preserve exact and suffix rules on restore.
+- Fix restored list tabs, DNS-log rule changes, onboarding state, and background UI updates.
+- Repair the fork's signed-update feed, installer permission continuation, and CI SDK setup.
+- Keep local-file filters usable offline and make complete URLs paste into an empty field.
+- Fix shrunk-release startup and background downloads; exercise the minified APK in CI.
+- Start a new release-signing identity. Existing installations require backup, uninstall,
+  then reinstall; they cannot update in place across signing identities.
+- Release candidate for Android phone testing. Physical-device, OEM network handoff, and
+  app-authorized rooted-hosts apply remain separate validation gates.
+
 ## [13.5.1] - Unreleased
 
 - Prepare the Android fork release candidate with expanded connected-device and CI coverage.

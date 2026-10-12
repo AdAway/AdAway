@@ -45,7 +45,8 @@ jobs:
             echo "::error::RELEASE_TAG_PUBLIC_KEY_BASE64 is required to verify signed release tags."
             exit 1
           fi
-          export GNUPGHOME="$(mktemp -d)"
+          GNUPGHOME="$(mktemp -d)"
+          export GNUPGHOME
           trap 'rm -rf "$GNUPGHOME"' EXIT
           chmod 700 "$GNUPGHOME"
           printf '%s' "$RELEASE_TAG_PUBLIC_KEY_BASE64" | base64 -d | gpg --batch --import
@@ -62,6 +63,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699
+        with:
+          packages: platform-tools
 
       - name: Install Android SDK/NDK (required for native modules)
         shell: bash
@@ -158,6 +161,7 @@ jobs:
           SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
           UPDATE_MANIFEST_PUBLIC_KEY_BASE64: ${{ secrets.UPDATE_MANIFEST_PUBLIC_KEY_BASE64 }}
+          ANDROID_RELEASE_CERT_SHA256: ${{ secrets.ANDROID_RELEASE_CERT_SHA256 }}
         run: |
           mkdir -p "$HOME/.gradle"
           if [ -n "${ANDROID_KEYSTORE_BASE64}" ]; then
@@ -169,6 +173,7 @@ jobs:
           if [ -n "${UPDATE_MANIFEST_PUBLIC_KEY_BASE64}" ]; then
             echo "updateManifestPublicKeyBase64=${UPDATE_MANIFEST_PUBLIC_KEY_BASE64}" >> "$HOME/.gradle/gradle.properties"
           fi
+          printf 'releaseSigningCertificateSha256=%s\n' "$ANDROID_RELEASE_CERT_SHA256" >> "$HOME/.gradle/gradle.properties"
 
       - name: Check license boundary
         shell: pwsh
@@ -201,8 +206,8 @@ jobs:
           SRC="app/build/outputs/apk/directRelease/app-directRelease.apk"
           DEST="app/build/outputs/apk/directRelease/AdAway_${VERSION}.apk"
           cp "$SRC" "$DEST"
-          echo "path=$DEST" >> $GITHUB_OUTPUT
-          echo "sha256_path=$DEST.sha256" >> $GITHUB_OUTPUT
+          echo "path=$DEST" >> "$GITHUB_OUTPUT"
+          echo "sha256_path=$DEST.sha256" >> "$GITHUB_OUTPUT"
 
       - name: Verify release APK identity
         id: apk_identity
@@ -359,6 +364,7 @@ jobs:
       - name: Verify release artifact attestations
         shell: bash
         env:
+          GH_TOKEN: ${{ github.token }}
           UPDATE_MANIFEST_PUBLIC_KEY_BASE64: ${{ secrets.UPDATE_MANIFEST_PUBLIC_KEY_BASE64 }}
         run: |
           set -euo pipefail
