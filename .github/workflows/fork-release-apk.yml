@@ -219,7 +219,7 @@ jobs:
           APK="${{ steps.apk.outputs.path }}"
           VERSION="${GITHUB_REF_NAME#v}"
           SDKROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-$HOME/Android/Sdk}}"
-          BUILD_TOOLS="$(find "$SDKROOT/build-tools" -mindepth 1 -maxdepth 1 -type d | sort -V | tail -n 1)"
+          BUILD_TOOLS="$SDKROOT/build-tools/36.0.0"
           AAPT="$BUILD_TOOLS/aapt"
           APKSIGNER="$BUILD_TOOLS/apksigner"
 

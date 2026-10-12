@@ -1,6 +1,12 @@
 # Changelog
 
-## [13.5.2b] - 2026-10-12
+## [13.5.3b] - 2026-10-13
+
+- Pin release identity verification to the tested Android build-tools version.
+  The 13.5.2b tag's publication stopped safely when a newer runner tool changed
+  its certificate output format; no 13.5.2b release was published.
+
+Includes the reviewed changes from the unpublished 13.5.2b candidate:
 
 - Add filters by pasting a URL; an optional name defaults to the URL host. Saving a new
   subscription starts its download. Renaming a filter preserves its rules and selection.

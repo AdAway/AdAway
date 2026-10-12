@@ -11831,9 +11831,11 @@ must be reported explicitly rather than silently counted as passed.
   require backup/uninstall/reinstall; physical-device approval remains a stable-release gate.
 
 Current bug register and verification ledger: `tasks/review-2026-10-12.md`.
-PR 10 follow-up: the first protected run found two test synchronization failures.
-Both fixtures are corrected without changing production behavior or removing
-assertions. A fresh full API 34 run passed 297 tests with six intentional skips
-and zero failures, including live VPN/DNS checks; protected CI remains open.
+PR 10 merged after all six required checks passed. The final local API 34 run
+passed 297 tests with six intentional skips and zero failures, including live VPN/DNS;
+CI passed 297 with ten skips plus minified startup. The v13.5.2b publication then
+stopped safely on a runner apksigner output-format change before publishing any assets.
+The bounded follow-up pins the tested toolchain and prepares 13.5.3b, preserving the
+failed tag. Protected follow-up CI and publication remain open; see OCT-REL-08.
 Historical root, physical-device, and legal/provenance gates above are not automatically
 closed by this bounded Android candidate release.

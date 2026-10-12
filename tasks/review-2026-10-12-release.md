@@ -235,3 +235,57 @@ whitespace check passed. No Gradle or emulator commands were run by this worker.
 Actual rebuilt APK startup and real URL-download validation remain parent-owned.
 The InputMerger source-rule regression protects constructor retention, but the
 startup-only gate is not proof of real downloads or scheduled worker execution.
+
+## REL08 - Release Verification Toolchain Drift (2026-10-13)
+
+Parent reports PR 10 merged as `562cc1093` with protected checks passed. Signed
+tag `v13.5.2b` was pushed, but publication failed before release assets were
+published. Preserve that failed tag; parent owns the `13.5.3b` replacement,
+workflow pin, canonical notes and release retry on `codex/release-toolchain-pin`.
+
+**Evidence:** `/tmp/adaway-review-release-failed.log:6` shows the identity step
+selecting the newest installed build-tools with `sort -V | tail -n 1`, despite
+installing/testing 36.0.0. Line 21 matches only `Signer #1 certificate SHA-256
+digest`; lines 65-66 contain `V3.0 Signer: certificate SHA-256 digest:` instead,
+and lines 69-70 show fingerprint rejection and exit 1. Parent identified the
+selected runner tool as version 37 and confirmed the actual fingerprint; the
+log masks the digest, so this worker cannot independently compare it. The old
+parser necessarily extracts an empty value from the observed new label.
+
+**Narrow correction:** parent pins workflow identity tools to
+`$SDKROOT/build-tools/36.0.0`. This worker pins `Find-BuildTool` in
+`scripts/run-release-smoke.ps1` to the same exact SDK subdirectory for aapt and
+apksigner, removing newest-version and unversioned PATH fallback. A missing
+pinned tool now fails with an explicit install-36.0.0 diagnostic. adb discovery,
+physical-device checks, signature-verification exit checking, certificate
+parsing and exact normalized fingerprint equality are unchanged. The unrelated
+aapt-only licensing scanner was not edited.
+
+`scripts/verify-release-artifacts.sh` and its PowerShell counterpart only
+delegate to `VerifyReleaseArtifacts.java`. The Java verifier has no Android
+toolchain discovery or apksigner invocation: it verifies checksum files, signed
+manifest claims (including the expected certificate), SBOM and attestations.
+There is no version selection to pin there; those files remain unchanged.
+Actual APK certificate verification stays in workflow identity and release
+smoke. No bypass or widened certificate-label parser was introduced.
+
+**Focused guards added to `ReleaseWorkflowRegressionTest`:**
+
+- `releaseIdentityWorkflowPinsTestedBuildTools`: checks the parent's fixed
+  workflow path and preserved signature/exact-certificate comparison.
+- `releaseSmokePrefersTestedToolsOverNewerInstalledAndPath`: mocked SDK contains
+  36 and 37 plus a PATH signer; only the tested tools may execute.
+- `releaseSmokeRefusesMissingTestedSignerWithoutFallback`: missing 36 signer
+  must fail even with newer and PATH alternatives available.
+- `releaseSmokeRejectsWrongCertificateWithPinnedTools`: the pinned tool's
+  successful signature command must still fail an unequal expected certificate.
+
+**Validation:** PowerShell parser and scoped `git diff --check` passed. No build,
+Gradle, emulator, signing, publication, commit or push was run by this worker.
+The new JUnit/mock cases have **not been executed** in this follow-up. Parent
+should run `:app:testDebugUnitTest --tests
+org.adaway.security.ReleaseWorkflowRegressionTest` and retain the existing
+`SecurityHardeningTest` release artifact/smoke regressions before retrying the
+new signed tag. A successful previous PR run does not prove the changed release
+toolchain or a successful publication; fresh final-commit CI, actual artifact
+verification, and the existing physical-phone gate remain required.

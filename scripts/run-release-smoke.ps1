@@ -50,41 +50,19 @@ function Find-BuildTool([string] $toolName) {
         Where-Object { -not [string]::IsNullOrWhiteSpace($_) }
 
     foreach ($root in $roots) {
-        $buildTools = Join-Path $root "build-tools"
+        $buildTools = Join-Path $root "build-tools/36.0.0"
         if (-not (Test-Path -LiteralPath $buildTools -PathType Container)) {
             continue
         }
-        $directories = Get-ChildItem -LiteralPath $buildTools -Directory |
-            Sort-Object @{ Expression = { Convert-BuildToolsVersion $_.Name }; Descending = $true },
-                @{ Expression = { $_.Name }; Descending = $true }
-        foreach ($directory in $directories) {
-            foreach ($suffix in @(".exe", ".bat", ".cmd", "")) {
-                $candidate = Join-Path $directory.FullName ($toolName + $suffix)
-                if (Test-Path -LiteralPath $candidate -PathType Leaf) {
-                    return (Resolve-Path -LiteralPath $candidate).Path
-                }
+        foreach ($suffix in @(".exe", ".bat", ".cmd", "")) {
+            $candidate = Join-Path $buildTools ($toolName + $suffix)
+            if (Test-Path -LiteralPath $candidate -PathType Leaf) {
+                return (Resolve-Path -LiteralPath $candidate).Path
             }
         }
     }
 
-    $command = Get-Command $toolName -ErrorAction SilentlyContinue
-    if ($command) {
-        return $command.Source
-    }
-
-    Fail "$toolName was not found. Install Android build-tools and set ANDROID_HOME."
-}
-
-function Convert-BuildToolsVersion([string] $name) {
-    $match = [Regex]::Match($name, "^(?<major>\d+)(?:\.(?<minor>\d+))?(?:\.(?<patch>\d+))?")
-    if (-not $match.Success) {
-        return [Version]::new(0, 0, 0)
-    }
-
-    $major = [int] $match.Groups["major"].Value
-    $minor = if ($match.Groups["minor"].Success) { [int] $match.Groups["minor"].Value } else { 0 }
-    $patch = if ($match.Groups["patch"].Success) { [int] $match.Groups["patch"].Value } else { 0 }
-    return [Version]::new($major, $minor, $patch)
+    Fail "$toolName was not found in Android build-tools 36.0.0. Install that version and set ANDROID_HOME or ANDROID_SDK_ROOT."
 }
 
 function Normalize-Sha256([string] $value) {
