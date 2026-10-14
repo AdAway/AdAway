@@ -17,7 +17,12 @@ import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.work.ExistingWorkPolicy;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
 import org.adaway.AdAwayApplication;
@@ -29,8 +34,12 @@ import org.adaway.db.entity.RuleKind;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
+import org.adaway.model.error.HostError;
+import org.adaway.model.error.HostErrorException;
 import org.adaway.model.source.SourceModel;
+import org.adaway.model.source.SourceUpdateService;
 import org.adaway.testing.InstrumentedTestState;
+import org.adaway.testing.UiEvidence;
 import org.adaway.ui.home.HomeActivity;
 import org.adaway.util.AppExecutors;
 import org.junit.After;
@@ -119,6 +128,153 @@ public class SourcesToggleApplyInstrumentedTest {
             finishActivity(activity);
             scenario.close();
         }
+    }
+
+    @Test(timeout = 60_000)
+    public void automaticImportClearsPromptAndNextSelectionStillPrompts() throws Exception {
+        this.recordingAdBlockModel.expectDisabled = false;
+        ActivityScenario<HomeActivity> scenario = ActivityScenario.launch(HomeActivity.class);
+        HomeActivity activity = getCurrentActivity(scenario);
+        try {
+            navigateToSources(scenario);
+            waitForSourceSwitch(scenario, true);
+            runDatabaseWork(this.context, database -> {
+                HostsSource imported = new HostsSource();
+                imported.setId(TEST_SOURCE_ID + 1);
+                imported.setLabel("Automatically imported source");
+                imported.setUrl("https://import.example/hosts");
+                database.hostsSourceDao().insert(imported);
+            });
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_changed));
+            runImmediateWorker(false);
+            waitForApplyCount(1);
+            waitForNoPendingPrompt(activity);
+
+            runDatabaseWork(this.context, database -> {
+                database.hostsSourceDao().updateSkippedCount(TEST_SOURCE_ID + 1, 1);
+                database.hostsSourceDao().updateModificationDates(TEST_SOURCE_ID + 1,
+                        ZonedDateTime.now(), ZonedDateTime.now());
+            });
+            waitForNoPendingPrompt(activity);
+            UiEvidence.capture(this.context, "sources-automatic-import-no-apply-prompt");
+            turnSourceSwitchOff(scenario);
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_changed));
+            UiEvidence.capture(this.context, "sources-later-selection-apply-prompt");
+        } finally {
+            finishActivity(activity);
+            scenario.close();
+        }
+    }
+
+    @Test(timeout = 60_000)
+    public void automaticApplyFailureKeepsPendingAndFailedManualApplyOffersRetry()
+            throws Exception {
+        ActivityScenario<HomeActivity> scenario = ActivityScenario.launch(HomeActivity.class);
+        HomeActivity activity = getCurrentActivity(scenario);
+        try {
+            navigateToSources(scenario);
+            waitForSourceSwitch(scenario, true);
+            turnSourceSwitchOff(scenario);
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_changed));
+            this.recordingAdBlockModel.failApply.set(true);
+            runImmediateWorker(true);
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_changed));
+            clickSnackbarAction(activity);
+            waitForApplyCount(2);
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_failed));
+            runDatabaseWork(this.context, database ->
+                    database.hostsSourceDao().updateSkippedCount(TEST_SOURCE_ID, 2));
+            waitForNoPendingPrompt(activity);
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_failed));
+            UiEvidence.capture(this.context, "sources-failure-survives-metadata-with-retry");
+            this.recordingAdBlockModel.failApply.set(false);
+            clickSnackbarAction(activity);
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_applied));
+            waitForNoPendingPrompt(activity);
+            UiEvidence.capture(this.context, "sources-retry-success-no-apply-prompt");
+        } finally {
+            finishActivity(activity);
+            scenario.close();
+        }
+    }
+
+    @Test(timeout = 60_000)
+    public void toolbarUpdateAcknowledgesSelectionAndMetadataCannotRestorePrompt() {
+        ActivityScenario<HomeActivity> scenario = ActivityScenario.launch(HomeActivity.class);
+        HomeActivity activity = getCurrentActivity(scenario);
+        try {
+            navigateToSources(scenario);
+            waitForSourceSwitch(scenario, true);
+            turnSourceSwitchOff(scenario);
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_changed));
+            // An indefinite snackbar can keep ActivityScenario's global idle wait busy.
+            InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+                MaterialToolbar toolbar = activity.findViewById(R.id.hosts_sources_toolbar);
+                assertTrue(toolbar.getMenu().performIdentifierAction(
+                        R.id.action_hosts_update_all, 0));
+            });
+            waitForText(activity, this.context.getString(
+                    R.string.notification_configuration_applied));
+            runDatabaseWork(this.context, database ->
+                    database.hostsSourceDao().updateSkippedCount(TEST_SOURCE_ID, 1));
+            waitForNoPendingPrompt(activity);
+        } finally {
+            finishActivity(activity);
+            scenario.close();
+        }
+    }
+
+    private void runImmediateWorker(boolean retryExpected) throws Exception {
+        WorkManager manager = WorkManager.getInstance(this.context);
+        OneTimeWorkRequest request = new OneTimeWorkRequest.Builder(
+                SourceUpdateService.HostsSourcesImmediateUpdateWorker.class).build();
+        manager.enqueueUniqueWork(SourceUpdateService.WORK_NAME_NOW,
+                ExistingWorkPolicy.REPLACE, request).getResult().get(10, TimeUnit.SECONDS);
+        long deadline = SystemClock.uptimeMillis() + TIMEOUT_MS;
+        while (SystemClock.uptimeMillis() < deadline) {
+            WorkInfo info = manager.getWorkInfoById(request.getId()).get(5, TimeUnit.SECONDS);
+            if (info != null && (retryExpected
+                    ? info.getState() == WorkInfo.State.ENQUEUED && info.getRunAttemptCount() > 0
+                    : info.getState() == WorkInfo.State.SUCCEEDED)) {
+                if (retryExpected) {
+                    manager.cancelWorkById(request.getId()).getResult().get(5, TimeUnit.SECONDS);
+                } else {
+                    assertNotNull(info.getOutputData().getString(
+                            SourceUpdateService.APPLIED_CONFIGURATION));
+                }
+                return;
+            }
+            SystemClock.sleep(50);
+        }
+        throw new AssertionError("Immediate worker did not reach expected terminal/retry state");
+    }
+
+    private void waitForNoPendingPrompt(HomeActivity activity) {
+        long deadline = SystemClock.uptimeMillis() + TIMEOUT_MS;
+        long absentSince = 0;
+        while (SystemClock.uptimeMillis() < deadline) {
+            AtomicBoolean found = new AtomicBoolean();
+            InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                    found.set(hasVisibleText(activity.getWindow().getDecorView(),
+                            this.context.getString(R.string.notification_configuration_changed))));
+            if (found.get()) {
+                absentSince = 0;
+            } else if (absentSince == 0) {
+                absentSince = SystemClock.uptimeMillis();
+            } else if (SystemClock.uptimeMillis() - absentSince >= 750) {
+                return;
+            }
+            SystemClock.sleep(50);
+        }
+        throw new AssertionError("Apply prompt remained after successful apply");
     }
 
     private static void finishActivity(HomeActivity activity) {
@@ -436,6 +592,8 @@ public class SourcesToggleApplyInstrumentedTest {
     private static final class RecordingAdBlockModel extends AdBlockModel {
         private final AtomicInteger applyCount = new AtomicInteger();
         private final AtomicReference<String> failure = new AtomicReference<>();
+        private final AtomicBoolean failApply = new AtomicBoolean();
+        private boolean expectDisabled = true;
 
         private RecordingAdBlockModel(Context context) {
             super(context);
@@ -447,13 +605,14 @@ public class SourcesToggleApplyInstrumentedTest {
         }
 
         @Override
-        public void apply() {
+        public void apply() throws HostErrorException {
             int enabledRows = countEnabledSourceItems(this.context);
-            if (enabledRows != 0) {
+            if (expectDisabled && enabledRows != 0) {
                 this.failure.compareAndSet(null,
                         "Sources apply ran before source item rows were disabled.");
             }
             this.applyCount.incrementAndGet();
+            if (this.failApply.get()) throw new HostErrorException(HostError.NO_CONNECTION);
             this.applied.postValue(true);
         }
 

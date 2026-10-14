@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Subscribes the user to default filter lists on first run.
+ * Prepares the user's filter lists for their first download after onboarding.
  *
  * <p>Called from {@link org.adaway.ui.home.HomeActivity} on the diskIO executor
  * when the onboarding complete flag is present in the launch intent.</p>
@@ -28,37 +28,41 @@ public final class DefaultListsSubscriber {
     }
 
     /**
-     * Subscribe the user to the default filter lists if none are currently configured.
+     * Subscribe defaults only when no external sources exist, then check download state.
      *
      * @param context Any context; the application context is obtained internally.
-     * @return {@code true} if default sources were inserted, {@code false} if sources
-     *         already existed (no changes made).
+     * @return {@code true} if an enabled source has never been downloaded, regardless of
+     *         whether this call inserted it or the production database already seeded it.
      */
-    public static boolean subscribeDefaultsIfEmpty(Context context) {
+    public static boolean prepareInitialSources(Context context) {
+        Context applicationContext = context.getApplicationContext();
         HostsSourceDao hostsSourceDao = AppDatabase.getInstance(
-                context.getApplicationContext()).hostsSourceDao();
+                applicationContext).hostsSourceDao();
+        return prepareInitialSources(hostsSourceDao, () -> {
+            WaTgSafetyAllowlist.ensureAllowlistSync(applicationContext);
+            SiteCompatibilityAllowlist.ensureAllowlistSync(applicationContext);
+        });
+    }
 
-        List<HostsSource> existing = hostsSourceDao.getAll();
-        if (!existing.isEmpty()) {
-            return false;
+    static boolean prepareInitialSources(HostsSourceDao hostsSourceDao, Runnable ensureAllowlists) {
+        if (hostsSourceDao.getAll().isEmpty()) {
+            List<FilterListCatalog.CatalogEntry> defaults = FilterListCatalog.getDefaults();
+            List<HostsSource> toInsert = new ArrayList<>(defaults.size());
+            for (FilterListCatalog.CatalogEntry entry : defaults) {
+                toInsert.add(entry.toHostsSource());
+            }
+            if (!toInsert.isEmpty()) {
+                hostsSourceDao.insertAll(toInsert);
+                // Finish safety entries on diskIO before the download can start.
+                ensureAllowlists.run();
+            }
         }
 
-        List<FilterListCatalog.CatalogEntry> defaults = FilterListCatalog.getDefaults();
-        if (defaults.isEmpty()) {
-            return false;
+        for (HostsSource source : hostsSourceDao.getEnabled()) {
+            if (source.getLocalModificationDate() == null) {
+                return true;
+            }
         }
-
-        List<HostsSource> toInsert = new ArrayList<>(defaults.size());
-        for (FilterListCatalog.CatalogEntry entry : defaults) {
-            toInsert.add(entry.toHostsSource());
-        }
-
-        hostsSourceDao.insertAll(toInsert);
-        // Use the synchronous variant — we are already on diskIO, so posting a new
-        // async task would queue AFTER this method returns, creating a window with no
-        // WA/TG protection entries in the allowlist on fresh installs.
-        WaTgSafetyAllowlist.ensureAllowlistSync(context);
-        SiteCompatibilityAllowlist.ensureAllowlistSync(context);
-        return true;
+        return false;
     }
 }

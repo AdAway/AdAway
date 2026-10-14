@@ -1334,81 +1334,15 @@ git commit -m "feat: connect DiscoverFragment to bottom nav Discover tab"
 
 ## Phase 3: One-tap Onboarding
 
-> **Exit Criteria:** Fresh app install: user chooses VPN or Root on one screen, taps "Start Protecting", app auto-subscribes to 3 default lists (AdAway Official, StevenBlack Unified, URLhaus Malware), triggers an update, and lands on Home with live progress visible.
+> **Current onboarding behavior:** See [Set Up Protection](../../README.md#set-up-protection-first-time).
 
 ### Task 3.1: Default list auto-subscription on first run
 
-**Files:**
-- Create: `app/src/main/java/org/adaway/ui/onboarding/DefaultListsSubscriber.java`
-- Modify: `app/src/main/java/org/adaway/ui/home/HomeActivity.java`
-
-**Step 1:** Create `DefaultListsSubscriber.java`. This is a simple utility that checks whether the DB has any HostsSources and, if empty, inserts the 3 default entries from `FilterListCatalog.getDefaults()`.
-
-```java
-package org.adaway.ui.onboarding;
-
-import android.content.Context;
-import org.adaway.db.AppDatabase;
-import org.adaway.db.dao.HostsSourceDao;
-import org.adaway.db.entity.HostsSource;
-import org.adaway.model.source.FilterListCatalog;
-
-import java.util.List;
-
-/**
- * Subscribes to the default filter lists on first run.
- * Called once from HomeActivity after onboarding completes.
- * Safe to call multiple times — checks for existing sources first.
- */
-public class DefaultListsSubscriber {
-
-    /** Returns true if any sources were added. */
-    public static boolean subscribeDefaultsIfEmpty(Context context) {
-        HostsSourceDao dao = AppDatabase.getInstance(context).hostsSourceDao();
-        List<HostsSource> existing = dao.getAll();
-        if (!existing.isEmpty()) return false;
-
-        List<FilterListCatalog.CatalogEntry> defaults = FilterListCatalog.getDefaults();
-        for (FilterListCatalog.CatalogEntry entry : defaults) {
-            HostsSource source = entry.toHostsSource();
-            source.setEnabled(true);
-            dao.insert(source);
-        }
-        return true;
-    }
-}
-```
-
-**Step 2:** In `HomeActivity.java`, handle the `EXTRA_ONBOARDING_COMPLETE` flag set by `OnboardingActivity`:
-
-```java
-// In HomeActivity.onCreate():
-if (getIntent().getBooleanExtra(EXTRA_ONBOARDING_COMPLETE, false)) {
-    // Run on background thread
-    AppExecutors.getInstance().diskIO().execute(() -> {
-        boolean added = DefaultListsSubscriber.subscribeDefaultsIfEmpty(this);
-        if (added) {
-            // Trigger update after sources are added
-            viewModel.update();
-        }
-    });
-}
-```
-
-**Step 3:** Verify the default list from `FilterListCatalog.getDefaults()` returns the 4 always-on entries:
-- AdAway Official (ADS, enabled)
-- StevenBlack Unified (ADS, enabled)
-- Peter Lowe's (ADS, enabled)
-- URLhaus Malware (MALWARE, enabled)
-
-This matches `FilterListCatalog.java:87-236` where `enabledByDefault=true` is set for exactly these 4 entries.
-
-**Step 4:** Commit.
-```bash
-git add app/src/main/java/org/adaway/ui/onboarding/DefaultListsSubscriber.java \
-        app/src/main/java/org/adaway/ui/home/HomeActivity.java
-git commit -m "feat: auto-subscribe to default filter lists on first onboarding completion"
-```
+The original implementation sketch is superseded. The current initialization path
+is owned by [InitialSourcesViewModel](../../app/src/main/java/org/adaway/ui/onboarding/InitialSourcesViewModel.java)
+and [DefaultListsSubscriber](../../app/src/main/java/org/adaway/ui/onboarding/DefaultListsSubscriber.java),
+with regression coverage in [DefaultListsSubscriberTest](../../app/src/test/java/org/adaway/ui/onboarding/DefaultListsSubscriberTest.java).
+Default membership is defined by [FilterListCatalog.getDefaults](../../app/src/main/java/org/adaway/model/source/FilterListCatalog.java).
 
 ---
 

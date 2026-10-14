@@ -32,8 +32,8 @@ public class ApplyConfigurationSnackbarContractTest {
                 snackbar.contains("else if (this.update) {\n" +
                         "            // Ignore next update event if events should be ignored"));
         assertTrue("Sources update/apply success must use applied copy, not pending-apply copy.",
-                sources.contains("Snackbar.make(coordinatorLayout, " +
-                        "R.string.notification_configuration_applied") &&
+                sources.contains("this.mViewModel.getApplyStatus().observe(lifecycleOwner,") &&
+                        snackbar.contains("status == ApplyStatus.SUCCEEDED) showApplied()") &&
                         !sources.contains("Snackbar.make(coordinatorLayout, " +
                                 "R.string.notification_configuration_changed, " +
                                 "Snackbar.LENGTH_LONG).show();"));

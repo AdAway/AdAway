@@ -18,6 +18,11 @@ public class HostsSourcesActionsContractTest {
         String fragment = readRepoFile(
                 "app/src/main/java/org/adaway/ui/hosts/HostsSourcesFragment.java");
 
+        String viewModel = readRepoFile(
+                "app/src/main/java/org/adaway/ui/hosts/HostsSourcesViewModel.java");
+        String snackbar = readRepoFile(
+                "app/src/main/java/org/adaway/ui/adblocking/ApplyConfigurationSnackbar.java");
+
         assertTrue("Sources menu must expose update-all through a stable action id.",
                 menu.contains("android:id=\"@+id/action_hosts_update_all\"") &&
                         menu.contains("android:title=\"@string/menu_update_all\""));
@@ -31,11 +36,12 @@ public class HostsSourcesActionsContractTest {
         assertTrue("Update all must run the all-sources branch, not a stale single-source path.",
                 fragment.contains("public void updateAllSources()") &&
                         fragment.contains("runUpdateSources(null)") &&
-                        fragment.contains("shouldApply = sourceModel.checkAndRetrieveHostsSources();") &&
-                        fragment.contains("if (shouldApply) {") &&
-                        fragment.contains("adBlockModel.apply();"));
+                        fragment.contains("this.mViewModel.updateSources(source == null ? null : source.getId())") &&
+                        viewModel.contains("shouldApply = sourceModel.checkAndRetrieveHostsSources();") &&
+                        viewModel.contains("if (shouldApply) {") &&
+                        viewModel.contains("adBlockModel.apply();"));
         assertTrue("Update all must show source-specific running feedback.",
-                fragment.contains("R.string.sources_apply_installing"));
+                snackbar.contains("R.string.sources_apply_installing"));
     }
 
     private static String readRepoFile(String relativePath) throws Exception {

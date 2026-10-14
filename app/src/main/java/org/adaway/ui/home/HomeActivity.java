@@ -28,9 +28,8 @@ import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.ui.discover.DiscoverFragment;
 import org.adaway.ui.hosts.HostsSourcesTabFragment;
 import org.adaway.ui.more.MoreFragment;
-import org.adaway.ui.onboarding.DefaultListsSubscriber;
+import org.adaway.ui.onboarding.InitialSourcesViewModel;
 import org.adaway.ui.onboarding.OnboardingActivity;
-import org.adaway.util.AppExecutors;
 
 import timber.log.Timber;
 
@@ -67,15 +66,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(this.binding.getRoot());
 
         if (getIntent().getBooleanExtra(EXTRA_ONBOARDING_COMPLETE, false)) {
-            AppExecutors.getInstance().diskIO().execute(() -> {
-                boolean added = DefaultListsSubscriber.subscribeDefaultsIfEmpty(this);
-                if (added) {
-                    runOnUiThread(() -> {
-                        HomeViewModel vm = new ViewModelProvider(this).get(HomeViewModel.class);
-                        vm.update();
-                    });
-                }
-            });
+            ViewModelProvider provider = new ViewModelProvider(this);
+            HomeViewModel homeViewModel = provider.get(HomeViewModel.class);
+            provider.get(InitialSourcesViewModel.class)
+                    .initialize(getApplicationContext(), homeViewModel::update);
         }
 
         if (savedInstanceState != null) {

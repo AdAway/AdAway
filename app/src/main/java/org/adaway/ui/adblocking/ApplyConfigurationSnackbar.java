@@ -17,6 +17,8 @@ import org.adaway.R;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.source.SourceModel;
+import org.adaway.ui.hosts.HostsSourcesViewModel;
+import org.adaway.ui.hosts.HostsSourcesViewModel.ApplyStatus;
 import org.adaway.util.AppExecutors;
 
 import timber.log.Timber;
@@ -63,6 +65,12 @@ public class ApplyConfigurationSnackbar {
      */
     private boolean ignoreEventDuringInstall;
     private boolean applying;
+    @Nullable
+    private final HostsSourcesViewModel mSourceViewModel;
+    @Nullable
+    private ApplyStatus mLastSourceStatus;
+    @Nullable
+    private Snackbar mFailureSnackbar;
 
     /**
      * Constructor.
@@ -74,6 +82,15 @@ public class ApplyConfigurationSnackbar {
      *                                 otherwise.
      */
     public ApplyConfigurationSnackbar(@NonNull View view, boolean syncSources, boolean ignoreEventDuringInstall) {
+        this(view, syncSources, ignoreEventDuringInstall, null);
+    }
+
+    public ApplyConfigurationSnackbar(@NonNull View view, @NonNull HostsSourcesViewModel sourceViewModel) {
+        this(view, true, false, sourceViewModel);
+    }
+
+    private ApplyConfigurationSnackbar(@NonNull View view, boolean syncSources,
+            boolean ignoreEventDuringInstall, @Nullable HostsSourcesViewModel sourceViewModel) {
         this.view = view;
         this.notifySnackbar = Snackbar.make(this.view, R.string.notification_configuration_changed, LENGTH_INDEFINITE)
                 .setAction(R.string.notification_configuration_changed_action, v -> apply());
@@ -83,6 +100,31 @@ public class ApplyConfigurationSnackbar {
         this.ignoreEventDuringInstall = ignoreEventDuringInstall;
         this.update = false;
         this.skipUpdate = false;
+        this.mSourceViewModel = sourceViewModel;
+    }
+
+    @UiThread
+    public void refreshSourceState() {
+        if (this.mSourceViewModel == null) return;
+        ApplyStatus status = this.mSourceViewModel.getApplyStatus().getValue();
+        boolean changed = status != this.mLastSourceStatus;
+        this.mLastSourceStatus = status;
+        if (status == ApplyStatus.RUNNING) {
+            if (changed) showLoading();
+            return;
+        }
+        this.waitSnackbar.dismiss();
+        if (status == ApplyStatus.FAILED) {
+            if (this.mFailureSnackbar == null) showFailure(this.mSourceViewModel::retry);
+            return;
+        }
+        if (status == ApplyStatus.SUCCEEDED) dismissFailure();
+        if (this.mSourceViewModel.getApplyState().isPending()) {
+            notifyUpdateAvailable();
+        } else {
+            this.notifySnackbar.dismiss();
+            if (changed && status == ApplyStatus.SUCCEEDED) showApplied();
+        }
     }
 
     /**
@@ -139,6 +181,10 @@ public class ApplyConfigurationSnackbar {
 
     @UiThread
     void apply() {
+        if (this.mSourceViewModel != null) {
+            this.mSourceViewModel.updateSources(null);
+            return;
+        }
         if (this.applying) {
             return;
         }
@@ -162,6 +208,7 @@ public class ApplyConfigurationSnackbar {
                 }
                 successful = shouldApply;
             } catch (HostErrorException | RuntimeException exception) {
+                successful = false;
                 Timber.w(exception, "Failed to apply configuration.");
             }
             boolean result = successful;
@@ -171,8 +218,12 @@ public class ApplyConfigurationSnackbar {
 
     private void showLoading() {
         // Clear notify snackbar
+        dismissFailure();
         this.notifySnackbar.dismiss();
         // Show wait snackbar
+        if (this.mSourceViewModel != null) {
+            this.waitSnackbar.setText(R.string.sources_apply_installing);
+        }
         this.waitSnackbar.show();
     }
 
@@ -185,12 +236,7 @@ public class ApplyConfigurationSnackbar {
             return;
         }
         if (!successfulInstall) {
-            Snackbar failureSnackbar = Snackbar.make(this.view, R.string.notification_configuration_failed,
-                    LENGTH_LONG);
-            ImageView view = new ImageView(this.view.getContext());
-            view.setImageResource(R.drawable.ic_error_outline_24dp);
-            appendViewToSnackbar(failureSnackbar, view);
-            failureSnackbar.show();
+            showFailure(null);
             return;
         }
         if (this.update) {
@@ -209,6 +255,30 @@ public class ApplyConfigurationSnackbar {
 
     private void showApplied() {
         Snackbar.make(this.view, R.string.notification_configuration_applied, LENGTH_LONG).show();
+    }
+
+    @UiThread
+    public void showFailure(@Nullable Runnable retry) {
+        dismissFailure();
+        this.notifySnackbar.dismiss();
+        this.mFailureSnackbar = Snackbar.make(this.view,
+                R.string.notification_configuration_failed,
+                retry == null ? LENGTH_LONG : LENGTH_INDEFINITE);
+        if (retry != null) {
+            this.mFailureSnackbar.setAction(R.string.notification_configuration_changed_action,
+                    v -> retry.run());
+        }
+        ImageView icon = new ImageView(this.view.getContext());
+        icon.setImageResource(R.drawable.ic_error_outline_24dp);
+        appendViewToSnackbar(this.mFailureSnackbar, icon);
+        this.mFailureSnackbar.show();
+    }
+
+    private void dismissFailure() {
+        if (this.mFailureSnackbar != null) {
+            this.mFailureSnackbar.dismiss();
+            this.mFailureSnackbar = null;
+        }
     }
 
     private void appendViewToSnackbar(Snackbar snackbar, View view) {

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.work.Constraints;
+import androidx.work.Data;
 import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
@@ -14,6 +15,8 @@ import androidx.work.ExistingWorkPolicy;
 import androidx.work.OneTimeWorkRequest;
 
 import org.adaway.AdAwayApplication;
+import org.adaway.db.AppDatabase;
+import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.helper.NotificationHelper;
 import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockModel;
@@ -43,6 +46,7 @@ public final class SourceUpdateService {
      * One-time work name used for "update now" triggers.
      */
     public static final String WORK_NAME_NOW = "HostsUpdateWorkNow";
+    public static final String APPLIED_CONFIGURATION = "applied_source_configuration";
 
     /**
      * Private constructor.
@@ -212,13 +216,20 @@ public final class SourceUpdateService {
             Timber.i("Starting immediate update-all worker");
             AdAwayApplication application = (AdAwayApplication) getApplicationContext();
             try {
+                HostsSourceDao sources = AppDatabase.getInstance(application).hostsSourceDao();
+                String configuration = SourceApplyState.fingerprint(sources.getAll());
                 SourceModel sourceModel = application.getSourceModel();
                 if (!sourceModel.checkAndRetrieveHostsSources()) {
                     return retry();
                 }
                 AdBlockModel adBlockModel = application.getAdBlockModel();
                 adBlockModel.apply();
-                return success();
+                // Do not acknowledge edits made while this update was in flight.
+                if (!configuration.equals(SourceApplyState.fingerprint(sources.getAll()))) {
+                    return success();
+                }
+                return success(new Data.Builder()
+                        .putString(APPLIED_CONFIGURATION, configuration).build());
             } catch (HostErrorException exception) {
                 Timber.e(exception, "Failed to update/apply during immediate update-all.");
                 return retry();

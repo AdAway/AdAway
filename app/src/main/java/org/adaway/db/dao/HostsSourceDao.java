@@ -160,10 +160,13 @@ public interface HostsSourceDao {
     void updateRuleStats(int id, int size, int activeRuleCount, int blockedCount,
             int blockedExactCount, int allowedCount, int redirectedCount);
 
-    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online > last_modified_local")
+    // An enabled subscription needs an update until its first successful download.
+    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND id != 1 " +
+            "AND (last_modified_local IS NULL OR last_modified_online > last_modified_local)")
     LiveData<Integer> countOutdated();
 
-    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND last_modified_online <= last_modified_local")
+    @Query("SELECT count(id) FROM hosts_sources WHERE enabled = 1 AND id != 1 " +
+            "AND last_modified_online <= last_modified_local")
     LiveData<Integer> countUpToDate();
 
     @Query("UPDATE hosts_sources SET last_modified_local = NULL, last_modified_online = NULL, " +

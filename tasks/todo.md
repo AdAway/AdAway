@@ -11839,3 +11839,37 @@ The bounded follow-up pins the tested toolchain and prepares 13.5.3b, preserving
 failed tag. Protected follow-up CI and publication remain open; see OCT-REL-08.
 Historical root, physical-device, and legal/provenance gates above are not automatically
 closed by this bounded Android candidate release.
+
+## Plan - 2026-10-14 Israeli Sites VPN Smoke
+
+- [x] Install the published 13.5.3b APK on the API 34 emulator without root.
+- [x] Browse Ynet, KSP, and another Israeli site with protection off, default sources on,
+  and Hebrew hosts coverage on; capture page, request, and VPN evidence.
+- [x] Exercise navigation and reloads, separate site challenges and cosmetic ad limitations
+  from reproducible app failures, and record any confirmed bugs.
+- [x] Summarize the observed results and recommended filter setup with explicit limitations.
+
+## Review - 2026-10-14 Israeli Sites VPN Smoke
+
+The bounded smoke pass is complete. Original observations, filter setup, findings,
+and limits are recorded in the [smoke report](israeli-vpn-smoke-2026-10-14.md).
+The later fix and validation checkpoint is [13.5.4b](release-13.5.4b.md).
+Historical root, physical-device, and stable-release gates remain separate.
+
+## Plan - 2026-10-14 Finish VPN Findings And Publish 13.5.4b
+
+- [x] Fix IL-UX-02 redundant Apply guidance without hiding real pending changes/errors.
+- [x] Fix IL-UX-03 never-downloaded enabled source counts with database regression tests.
+- [x] Validate these fixes and IL-VPN-01 with JVM, lint, connected, and minified APK checks.
+- [ ] Commit one reviewed release slice, push through validation, and merge only after
+  all protected checks pass.
+- [ ] Publish signed v13.5.4b, verify downloaded assets/signatures, and deliver
+  `AdAway_13.5.4b.apk` in Downloads and the GitHub release.
+
+Scope is the three findings from the Israeli-site VPN smoke, not the historical
+root gates or an unbounded new audit. Preserve master protection and existing
+signing identity; keep the beta channel until physical-device validation exists.
+
+Local fixes and validation are complete; the [release checkpoint](release-13.5.4b.md)
+owns the validation ledger and precise limits. The remaining two checklist items
+are deliberately open until protected CI and downloaded release verification.

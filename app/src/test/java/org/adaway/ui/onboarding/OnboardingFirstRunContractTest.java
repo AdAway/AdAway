@@ -18,6 +18,8 @@ public class OnboardingFirstRunContractTest {
         String layout = readRepoFile("app/src/main/res/layout/activity_onboarding.xml");
         String homeActivity = readRepoFile(
                 "app/src/main/java/org/adaway/ui/home/HomeActivity.java");
+        String initialSources = readRepoFile(
+                "app/src/main/java/org/adaway/ui/onboarding/InitialSourcesViewModel.java");
 
         assertTrue("Onboarding must start with an explicit disabled Start button.",
                 layout.contains("android:id=\"@+id/onboarding_start_button\"") &&
@@ -67,9 +69,16 @@ public class OnboardingFirstRunContractTest {
                                 .contains("getAdBlockModel()") &&
                         getMethodBody(onboarding, "applyVpnProtection")
                                 .contains("adBlockModel.apply()"));
-        assertTrue("Home must subscribe default lists only after onboarding completion.",
-                homeActivity.contains("EXTRA_ONBOARDING_COMPLETE") &&
-                        homeActivity.contains("DefaultListsSubscriber.subscribeDefaultsIfEmpty"));
+        assertTrue("Home must prepare initial downloads only after onboarding completion.",
+                homeActivity.contains("if (getIntent().getBooleanExtra(" +
+                        "EXTRA_ONBOARDING_COMPLETE, false)) {") &&
+                        homeActivity.contains("provider.get(InitialSourcesViewModel.class)") &&
+                        initialSources.contains("DefaultListsSubscriber.prepareInitialSources"));
+        assertTrue("Queued initialization must use application context and a retained Home model.",
+                homeActivity.contains("HomeViewModel homeViewModel = " +
+                        "provider.get(HomeViewModel.class)") &&
+                        homeActivity.contains(".initialize(getApplicationContext(), " +
+                                "homeViewModel::update)"));
     }
 
     private static String getMethodBody(String source, String methodName) {

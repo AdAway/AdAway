@@ -431,29 +431,46 @@ update-manifest trust material above.
 
 1. Open the app — the onboarding screen appears.
 2. Auto-detection checks root availability. If root is unavailable, VPN mode is pre-selected; rooted devices can choose Root mode or VPN mode.
-3. Tap **Start protecting** — default filter lists subscribe in the background.
-4. You land on Home. Protection is active.
+3. Tap **Start protecting** and approve Android's VPN consent dialog if requested.
+4. On Home, enabled filters that have never downloaded start downloading automatically,
+   including the seeded defaults. Existing custom lists and disabled selections are preserved.
+5. Wait for the download and apply to finish before relying on filter protection.
+   If setup fails, use **Update** on Home to try again; reopening the app does not retry setup.
 
 ### Add a Filter List from FilterLists.com
 
 1. Tap the **Discover** tab.
 2. Use the search box or filter by tag / language.
 3. Tap a list → **Subscribe**.
-4. The list is added and enabled. Tap **Update** on Home to apply.
+4. The list is added and enabled; downloading and applying starts automatically.
+   See [Source Update Feedback](#source-update-feedback).
 
 ### Apply a Quick-Start Preset
 
 1. Tap the **Discover** tab.
 2. Tap **Safe**, **Balanced**, or **Aggressive**.
 3. A snackbar confirms how many lists were added.
-4. Tap **Update** on Home to activate.
+4. Added or re-enabled lists update automatically. See [Source Update Feedback](#source-update-feedback).
 
 ### Add a Custom Filter List
 
-1. Go to **More → Filter Sources**.
+1. Open the **Sources** tab.
 2. Tap the **+** button.
-3. Enter the list URL and select the format.
-4. Tap **Add** → enable → tap **Update** on Home.
+3. Enter a compatible filter URL; the name is optional.
+4. Save with the toolbar checkmark. The enabled source downloads and applies automatically.
+   See [Source Update Feedback](#source-update-feedback).
+
+### Source Update Feedback
+
+A successful automatic import or **Update all** clears the Sources **Apply** prompt
+for the configuration it applied. Download metadata alone does not bring the prompt
+back. Later selection or URL changes can still need **Apply**; updating one source
+does not acknowledge pending changes to other sources. If a Sources update/apply
+fails, its failure message keeps an **Apply** action that retries the same operation.
+
+Home counts enabled external sources that have never downloaded as **outdated**.
+A successfully downloaded empty list can be up to date; disabled sources and custom
+user rules are excluded from both freshness totals.
 
 ### Block / Allow a Specific Domain
 

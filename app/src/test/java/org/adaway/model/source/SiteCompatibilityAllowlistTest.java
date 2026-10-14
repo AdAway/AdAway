@@ -109,8 +109,11 @@ public class SiteCompatibilityAllowlistTest {
         String subscriber = compact(readRepoFile(
                 "app/src/main/java/org/adaway/ui/onboarding/DefaultListsSubscriber.java"));
 
-        assertTrue(subscriber.contains("WaTgSafetyAllowlist.ensureAllowlistSync(context);"
-                + "SiteCompatibilityAllowlist.ensureAllowlistSync(context);"));
+        assertTrue(subscriber.contains("WaTgSafetyAllowlist.ensureAllowlistSync(applicationContext);"
+                + "SiteCompatibilityAllowlist.ensureAllowlistSync(applicationContext);"));
+        assertTrue(subscriber.contains("hostsSourceDao.insertAll(toInsert);"));
+        assertTrue(subscriber.indexOf("hostsSourceDao.insertAll(toInsert);")
+                < subscriber.indexOf("ensureAllowlists.run();"));
     }
 
     private static String readRepoFile(String relativePath) throws Exception {

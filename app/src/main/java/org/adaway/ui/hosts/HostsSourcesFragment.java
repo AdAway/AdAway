@@ -39,6 +39,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,9 +53,9 @@ import org.adaway.R;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostsSourceDao;
 import org.adaway.db.entity.HostsSource;
-import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
 import org.adaway.model.source.SourceModel;
+import org.adaway.model.source.SourceUpdateService;
 import org.adaway.ui.adblocking.ApplyConfigurationSnackbar;
 import org.adaway.ui.home.HomeActivity;
 import org.adaway.ui.source.SourceEditActivity;
@@ -85,6 +87,7 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
     private HostsSourcesViewModel mViewModel;
     private CategorizedSourcesAdapter mAdapter;
     private CoordinatorLayout coordinatorLayout;
+    private ApplyConfigurationSnackbar mApplySnackbar;
     private List<HostsSource> lastSources = new ArrayList<>();
 
     @Override
@@ -104,9 +107,25 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
         // Get lists layout to attached snackbar to
         coordinatorLayout = view.findViewById(R.id.coordinator);
         // Create apply snackbar
-        ApplyConfigurationSnackbar applySnackbar = new ApplyConfigurationSnackbar(coordinatorLayout, true, true);
+        ApplyConfigurationSnackbar applySnackbar =
+                new ApplyConfigurationSnackbar(coordinatorLayout, this.mViewModel);
+        this.mApplySnackbar = applySnackbar;
         // Bind snackbar to view models
-        this.mViewModel.getHostsSources().observe(lifecycleOwner, applySnackbar.createObserver());
+        this.mViewModel.getApplyStatus().observe(lifecycleOwner,
+                status -> applySnackbar.refreshSourceState());
+        this.mViewModel.getHostsSources().observe(lifecycleOwner, this.mViewModel::onSourcesChanged);
+        WorkManager.getInstance(requireContext())
+                .getWorkInfosForUniqueWorkLiveData(SourceUpdateService.WORK_NAME_NOW)
+                .observe(lifecycleOwner, work -> {
+                    // REPLACE creates a single update-now request, not an apply chain.
+                    if (work == null) return;
+                    WorkInfo info = work.size() == 1 ? work.get(0) : null;
+                    this.mViewModel.observeAutomaticWork(info == null ? null : info.getId().toString(),
+                            info != null && info.getState() == WorkInfo.State.SUCCEEDED,
+                            info != null && info.getState() == WorkInfo.State.SUCCEEDED
+                                    ? info.getOutputData().getString(
+                                            SourceUpdateService.APPLIED_CONFIGURATION) : null);
+                });
         
         /*
          * Configure recycler view with categorized adapter.
@@ -702,48 +721,6 @@ public class HostsSourcesFragment extends Fragment implements HostsSourcesViewCa
      * If {@code source} is null, updates all enabled sources.
      */
     private void runUpdateSources(@Nullable HostsSource source) {
-        int installingMessage = source == null
-                ? R.string.sources_apply_installing
-                : R.string.notification_configuration_installing;
-        Snackbar waitSnackbar = Snackbar.make(
-                coordinatorLayout,
-                installingMessage,
-                Snackbar.LENGTH_INDEFINITE
-        );
-        waitSnackbar.show();
-
-        // QA-06: capture Context before background thread to avoid IllegalStateException on navigation.
-        AdAwayApplication app = (AdAwayApplication) requireContext().getApplicationContext();
-        AppExecutors.getInstance().networkIO().execute(() -> {
-            SourceModel sourceModel = app.getSourceModel();
-            AdBlockModel adBlockModel = app.getAdBlockModel();
-            boolean ok = true;
-            try {
-                boolean shouldApply = true;
-                if (source == null) {
-                    shouldApply = sourceModel.checkAndRetrieveHostsSources();
-                } else {
-                    sourceModel.retrieveHostsSource(source.getId());
-                }
-                if (shouldApply) {
-                    adBlockModel.apply();
-                } else {
-                    ok = false;
-                }
-            } catch (HostErrorException e) {
-                ok = false;
-            }
-
-            boolean finalOk = ok;
-            AppExecutors.getInstance().mainThread().execute(() -> {
-                waitSnackbar.dismiss();
-                if (!finalOk) {
-                    Snackbar.make(coordinatorLayout, R.string.notification_configuration_failed, Snackbar.LENGTH_LONG).show();
-                } else {
-                    Snackbar.make(coordinatorLayout, R.string.notification_configuration_applied,
-                            Snackbar.LENGTH_LONG).show();
-                }
-            });
-        });
+        this.mViewModel.updateSources(source == null ? null : source.getId());
     }
 }

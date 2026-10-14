@@ -1,5 +1,17 @@
 # Changelog
 
+## [13.5.4b] - 2026-10-14
+
+- Download the default filters automatically after first-run VPN setup, including
+  subscriptions already created by the database. Preserve custom and disabled lists.
+- Correct source-update guidance after automatic imports and include never-downloaded
+  enabled filters among sources needing an update.
+- Verify VPN-only browsing on Ynet, KSP, and Calcalist with the default filters and
+  EasyList Hebrew hosts. DNS filtering does not remove all cosmetic or first-party ads.
+- Continue the 13.5.3b signing identity. Updating from that candidate does not require
+  uninstalling; older builds signed with the lost key still require backup/reinstall.
+- Android release candidate; physical-phone validation remains outstanding.
+
 ## [13.5.3b] - 2026-10-13
 
 - Pin release identity verification to the tested Android build-tools version.

@@ -18,9 +18,11 @@ import org.adaway.db.AppDatabase;
 import org.adaway.db.entity.HostListItem;
 import org.adaway.db.entity.HostsSource;
 import org.adaway.db.entity.ListType;
+import org.adaway.model.source.FilterListCatalog;
 import org.adaway.model.source.FilterOperationState;
 import org.adaway.model.source.SourceModel;
 import org.adaway.testing.InstrumentedTestState;
+import org.adaway.testing.UiEvidence;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -71,6 +73,47 @@ public class HomeCountersInstrumentedTest {
             waitForText(scenario, R.id.redirectHostCounterTextView, "1");
             waitForText(scenario, R.id.upToDateSourcesTextView, "1 up-to-date source");
             waitForText(scenario, R.id.outdatedSourcesTextView, "1 outdated source");
+        }
+    }
+
+    @Test
+    public void homeFreshnessCountsNeverDownloadedSubscriptionsAndTracksChanges() {
+        try (ActivityScenario<HomeActivity> scenario =
+                     ActivityScenario.launch(HomeActivity.class)) {
+            runDatabaseWork(this.context, "seeding never-downloaded defaults", database -> {
+                resetCounterTables(database);
+                for (FilterListCatalog.CatalogEntry entry : FilterListCatalog.getDefaults()) {
+                    HostsSource source = entry.toHostsSource();
+                    source.setLastDownloadError("Network unavailable");
+                    database.hostsSourceDao().insert(source);
+                }
+            });
+
+            waitForText(scenario, R.id.upToDateSourcesTextView, "0 up-to-date sources");
+            waitForText(scenario, R.id.outdatedSourcesTextView, "4 outdated sources");
+            scenario.recreate();
+            waitForText(scenario, R.id.upToDateSourcesTextView, "0 up-to-date sources");
+            waitForText(scenario, R.id.outdatedSourcesTextView, "4 outdated sources");
+            UiEvidence.capture(this.context, "home-never-downloaded-0-current-4-outdated");
+
+            runDatabaseWork(this.context, "recording a successful empty download", database -> {
+                HostsSource source = database.hostsSourceDao().getAll().get(0);
+                ZonedDateTime downloadedAt = ZonedDateTime.parse("2026-10-14T00:00:00Z");
+                database.hostsSourceDao().updateModificationDates(
+                        source.getId(), downloadedAt, downloadedAt);
+                database.hostsSourceDao().clearDownloadError(source.getId());
+            });
+            waitForText(scenario, R.id.upToDateSourcesTextView, "1 up-to-date source");
+            waitForText(scenario, R.id.outdatedSourcesTextView, "3 outdated sources");
+            UiEvidence.capture(this.context, "home-empty-download-1-current-3-outdated");
+
+            runDatabaseWork(this.context, "disabling a never-downloaded source", database -> {
+                HostsSource source = database.hostsSourceDao().getAll().get(1);
+                database.hostsSourceDao().applySourceSelection(source.getId(), false);
+            });
+            waitForText(scenario, R.id.upToDateSourcesTextView, "1 up-to-date source");
+            waitForText(scenario, R.id.outdatedSourcesTextView, "2 outdated sources");
+            UiEvidence.capture(this.context, "home-disabled-source-1-current-2-outdated");
         }
     }
 
