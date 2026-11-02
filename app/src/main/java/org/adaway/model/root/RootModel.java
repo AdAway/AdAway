@@ -274,11 +274,37 @@ public class RootModel extends AdBlockModel {
         /* check for space on partition */
         long size = new File(privateFile).length();
         Timber.i("Size of hosts file: %s.", size);
-        if (!hasEnoughSpaceOnPartition(targetFile, size)) {
-            throw new HostErrorException(NOT_ENOUGH_SPACE);
-        }
+        boolean enoughSpace = hasEnoughSpaceOnPartition(targetFile, size);
 
         /* Execute commands */
+        // KernelSU / APatch have no built-in systemless hosts: go through the AdAway module first.
+        // Elsewhere, try the direct write first, then fall back to the module.
+        boolean moduleFirst = RootManager.detect().needsOwnModule();
+        if (moduleFirst || !enoughSpace) {
+            // The module lives on /data, so the system partition free space is irrelevant for it.
+            try {
+                SystemlessHostsModule.install(privateFile);
+            } catch (CommandException exception) {
+                if (!enoughSpace) {
+                    throw new HostErrorException(NOT_ENOUGH_SPACE, exception);
+                }
+                Timber.w(exception, "Systemless module install failed, trying direct write.");
+                writeHostsDirectly(privateFile, targetFile, target);
+            }
+        } else {
+            try {
+                writeHostsDirectly(privateFile, targetFile, target);
+            } catch (CommandException exception) {
+                Timber.w(exception, "Direct hosts write failed, falling back to systemless module.");
+                SystemlessHostsModule.install(privateFile);
+            }
+        }
+    }
+
+    /**
+     * Write the hosts file directly to the system partition (remounting it if needed).
+     */
+    private void writeHostsDirectly(String privateFile, File targetFile, String target) throws CommandException {
         boolean writable = isWritable(targetFile);
         try {
             if (!writable) {
