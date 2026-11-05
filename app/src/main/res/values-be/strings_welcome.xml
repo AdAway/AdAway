@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="welcome_title">Сардэчна запрашаем</string>
     <string name="welcome_first_step">Першы крок</string>
@@ -24,6 +24,11 @@
     <string name="welcome_root_missing_title">Для Android патрабуюцца правы Root</string>
     <string name="welcome_root_missile_description">Альбо двайковы файл su не знойдзены, альбо вы не далі права root для AdAway.\n\nГэта можа здарыцца, калі ваша прылада не мае root-правоў.  Вы можаце знайсці інфармацыю аб тым, як атрымаць root правы на вашай прыладзе, на wiki.lineageos.org або іншых сайтах Android.</string>
 
+    <string name="welcome_vpn_alwayson_title">Уключаны рэжым Always-on VPN</string>
+    <string name="welcome_vpn_alwayson_description">AdAway выявіў, што ў іншай VPN актыўная налада «Always-on VPN».\n\nГэта перашкаджае AdAway запытаць доступ да VPN. Адключыце Always-on VPN у адпаведнай VPN і паспрабуйце яшчэ раз.</string>
+    <string name="welcome_vpn_alwayson_blocked_description">Не ўдалося запытаць для AdAway доступ да VPN.\n\nГэта можа быць выклікана тым, што ў іншай VPN актыўная налада «Always-on VPN». Праверце, ці не ўключана такая налада ў якой-небудзь VPN, і адключыце яе перад паўторнай спробай.</string>
+    <string name="welcome_vpn_alwayson_settings_action">Адкрыць налады «VPN»</string>
+
     <string name="welcome_method_pro_logo">Плюсы</string>
     <string name="welcome_method_con_logo">Мінусы</string>
 
@@ -35,12 +40,13 @@
     <string name="welcome_synced_header">Сінхранізавана!</string>
     <string name="welcome_sync_summary">AdAway загружае спісы блакавання з анлайн-крыніц. Вы можаце змяніць іх пазней у наладах.</string>
     <string name="welcome_sync_retry_logo">Паўтарыць сінхранізацыю</string>
-    <string name="welcome_sync_error">Сінхранізацыя не ўдалася: %1$s nПаўтарыць зараз?</string>
+    <string name="welcome_sync_error">Не удалося сінхранізаваць:%1$s Папытацца яшчэ раз?</string>
+    <string name="welcome_sync_notifications">Праграма можа паказваць апавяшчэнні са станам і кіраваннем блакавання рэкламы, а таксама паведамляць аб даступным абнаўленні праграмы (некалькі разоў на год). Уключыце іх, калі хочаце заставацца ў курсе.</string>
 
     <!-- Support -->
     <string name="welcome_support_logo">Падтрымаць</string>
     <string name="welcome_support_header">Падтрымай мяне!</string>
-    <string name="welcome_support_summary">Гэта бясплатная праграма з адкрытым зыходным кодам.  Я займаюся гэтым у вольны час.  Так што, калі вам гэта падабаецца, не саромейцеся паказаць сваю падтрымку:</string>
+    <string name="welcome_support_summary">AdAway з\'яўляецца бясплатнай прыладай з адкрытым ісходным кодам, над якой я працую ў свабодны час. Калі яна вам спадабалася, вы можаце матэрыяльна падтрымаць мяне тут: </string>
     <string name="welcome_support_button">Ахвяраваць на PayPal</string>
     <string name="welcome_support_telemetry_summary">Вам не падабаюцца памылкі? Мне таксама.</string>
     <string name="welcome_support_telemetry_button">Уключыць тэлеметрыю для адпраўкі мне справаздач аб збоях</string>

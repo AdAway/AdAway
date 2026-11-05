@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="source_edit_title">Рэдагаваць крыніцу</string>
+    <string name="source_edit_add_title">Дадаць крыніцу</string>
+    <!-- Hosts source edition -->
+    <string name="source_edit_label">Назва</string>
+    <string name="source_edit_label_required">Назва абавязковая</string>
+    <string name="source_edit_type">Тып</string>
+    <string name="source_edit_url">URL</string>
+    <string name="source_edit_file">Файл</string>
+    <string name="source_edit_url_location">Размяшчэнне</string>
+    <string name="source_edit_url_location_default">https://</string>
+    <string name="source_edit_url_location_required">Размяшчэнне абавязковае</string>
+    <string name="source_edit_file_hint">Націсніце «Файл», каб выбраць файл крыніцы</string>
+    <string name="source_edit_location_invalid">Няслушнае размяшчэнне</string>
+    <string name="source_edit_format">Фармат спісу</string>
+    <string name="source_edit_format_block_list">Блакаваць</string>
+    <string name="source_edit_format_allow_list">Дазволіць</string>
+    <string name="source_edit_redirected_hosts">Ужываць перанакіраваныя hosts</string>
+    <string name="source_edit_redirected_hosts_warning">Дазвол перанакіраваных hosts можа стварыць праблемы бяспекі. Ужывайце гэтую наладу толькі з даверанай крыніцай, бо яна можа перанакіраваць частку канфідэнцыйнага трафіку на любы сервер па сваім жаданні.</string>
+</resources>
