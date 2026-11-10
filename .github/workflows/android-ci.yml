@@ -42,16 +42,33 @@ jobs:
       #   with:
       #     name: AdAway-dev
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
-      
-      - name: Update dependency graph
-        uses: mikepenz/gradle-dependency-submission@v1.0.0 # Deprecated: need to be changed
-        with:
-          gradle-dependency-path: "app/build.gradle"
-          gradle-build-module: ":app"
-          gradle-build-configuration: "releaseCompileClasspath"
 
       - name: Analyze project
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew -Dorg.gradle.jvmargs=-XX:MaxMetaspaceSize=512m sonar
+
+  # Separate job as the setup-java Gradle cache would disable the action cache
+  dependency-submission:
+    name: Dependency submission
+    runs-on: ubuntu-latest
+    permissions:
+      # Submit the dependency graph
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: set up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Update dependency graph
+        uses: gradle/actions/dependency-submission@v6
+        with:
+          # Only report the dependencies shipped with the application
+          dependency-graph-include-projects: ':app'
+          dependency-graph-include-configurations: 'releaseRuntimeClasspath'
