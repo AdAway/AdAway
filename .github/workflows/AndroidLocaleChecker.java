@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.function.Predicate;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.nio.file.StandardOpenOption.APPEND;
+import static java.nio.file.StandardOpenOption.CREATE;
 
 /**
  * This class validates Android locale files.
@@ -39,7 +41,27 @@ public class AndroidLocaleChecker {
         } else {
             System.out.println("No file patched.");
         }
-        System.out.println("::set-output name=patch_applied::" + patchApplied);
+        writeOutput("patch_applied", patchApplied);
+    }
+
+    /**
+     * Write a step output to the GitHub Actions output file.
+     *
+     * @param name  The output name.
+     * @param value The output value.
+     */
+    private static void writeOutput(String name, Object value) {
+        String outputFile = System.getenv("GITHUB_OUTPUT");
+        if (outputFile == null) {
+            return;
+        }
+        try {
+            Files.writeString(Path.of(outputFile), name + "=" + value + "\n", UTF_8, CREATE, APPEND);
+        } catch (IOException e) {
+            System.err.println("Failed to write output: " + name);
+            e.printStackTrace();
+            System.exit(1);
+        }
     }
 
     /**
