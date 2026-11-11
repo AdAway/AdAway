@@ -162,9 +162,37 @@ public class HomeViewModel extends AndroidViewModel {
             try {
                 this.pending.postValue(true);
                 this.sourceModel.retrieveHostsSources();
-                this.adBlockModel.apply();
+                // Only refresh the running enforcement; never restart it on the user's
+                // behalf if they have explicitly turned ad-blocking off.
+                this.adBlockModel.applyIfActive();
             } catch (HostErrorException exception) {
                 Timber.w(exception, "Failed to sync.");
+                this.error.postValue(exception.getError());
+            } finally {
+                this.pending.postValue(false);
+            }
+        });
+    }
+
+    /**
+     * User-initiated activation: refresh the host sources then apply the ad-blocking
+     * configuration, starting the enforcement (VPN service, root hosts file) if needed.
+     * <p>
+     * Used by the welcome flow when the user has explicitly chosen an ad-blocking method
+     * for the first time. Distinct from {@link #sync()}, which is the conservative
+     * refresh path: never resurrect an enforcement the user has explicitly stopped.
+     */
+    public void enable() {
+        if (isTrue(this.pending)) {
+            return;
+        }
+        EXECUTORS.networkIO().execute(() -> {
+            try {
+                this.pending.postValue(true);
+                this.sourceModel.retrieveHostsSources();
+                this.adBlockModel.apply();
+            } catch (HostErrorException exception) {
+                Timber.w(exception, "Failed to enable ad-blocking.");
                 this.error.postValue(exception.getError());
             } finally {
                 this.pending.postValue(false);

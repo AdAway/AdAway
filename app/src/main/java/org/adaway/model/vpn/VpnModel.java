@@ -3,17 +3,26 @@ package org.adaway.model.vpn;
 import static org.adaway.model.adblocking.AdBlockMethod.VPN;
 import static org.adaway.model.error.HostError.ENABLE_VPN_FAIL;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.util.LruCache;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import org.adaway.R;
 import org.adaway.db.AppDatabase;
 import org.adaway.db.dao.HostEntryDao;
 import org.adaway.db.entity.HostEntry;
+import org.adaway.helper.PreferenceHelper;
 import org.adaway.model.adblocking.AdBlockMethod;
 import org.adaway.model.adblocking.AdBlockModel;
 import org.adaway.model.error.HostErrorException;
+import org.adaway.vpn.VpnService;
 import org.adaway.vpn.VpnServiceControls;
+import org.adaway.vpn.VpnStartDecision;
+import org.adaway.vpn.VpnStatus;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -52,6 +61,7 @@ public class VpnModel extends AdBlockModel {
         this.recordingLogs = false;
         this.requestCount = 0;
         this.applied.postValue(VpnServiceControls.isRunning(context));
+        registerVpnStatusReceiver();
     }
 
     @Override
@@ -63,10 +73,39 @@ public class VpnModel extends AdBlockModel {
     public void apply() throws HostErrorException {
         // Clear cache
         this.blockCache.evictAll();
-        // Start VPN
+        // Treat any direct call to apply() as user intent ON: tile, notification "Resume",
+        // home toggle, snackbar from a fresh user click, etc. Background callers must use
+        // applyIfActive() instead.
+        Timber.i("VpnModel.apply: user-initiated start of VPN.");
+        PreferenceHelper.setVpnServiceUserEnabled(this.context, true);
         boolean started = VpnServiceControls.start(this.context);
         this.applied.postValue(started);
         if (!started) {
+            Timber.w("VpnModel.apply: VPN service failed to start.");
+            throw new HostErrorException(ENABLE_VPN_FAIL);
+        }
+        setState(R.string.status_vpn_configuration_updated);
+    }
+
+    @Override
+    public void applyIfActive() throws HostErrorException {
+        // Always refresh the in-memory cache. A running VPN picks up new hosts on the
+        // fly via the cache; if the user has stopped the VPN we still want a fresh
+        // cache for the moment they resume it.
+        this.blockCache.evictAll();
+        boolean userEnabled = PreferenceHelper.getVpnServiceUserEnabled(this.context);
+        if (!VpnStartDecision.mayBackgroundStart(userEnabled)) {
+            Timber.i("VpnModel.applyIfActive: skipping VPN start — user has disabled the VPN.");
+            // Keep displayed state honest.
+            this.applied.postValue(VpnServiceControls.isRunning(this.context));
+            return;
+        }
+        Timber.i("VpnModel.applyIfActive: refreshing VPN (user-enabled).");
+        // Idempotent: returns true immediately if already running, otherwise (re)starts.
+        boolean started = VpnServiceControls.start(this.context);
+        this.applied.postValue(started);
+        if (!started) {
+            Timber.w("VpnModel.applyIfActive: VPN service failed to (re)start.");
             throw new HostErrorException(ENABLE_VPN_FAIL);
         }
         setState(R.string.status_vpn_configuration_updated);
@@ -74,6 +113,8 @@ public class VpnModel extends AdBlockModel {
 
     @Override
     public void revert() {
+        Timber.i("VpnModel.revert: user-initiated stop of VPN.");
+        PreferenceHelper.setVpnServiceUserEnabled(this.context, false);
         VpnServiceControls.stop(this.context);
         this.applied.postValue(false);
     }
@@ -120,5 +161,40 @@ public class VpnModel extends AdBlockModel {
         }
         // Check cache
         return this.blockCache.get(host);
+    }
+
+    /**
+     * Listen to status broadcasts from {@link VpnService} and keep the {@code applied}
+     * LiveData consistent with the real service state. Without this the tile and main UI
+     * could remain stuck on "active" if the service is killed externally.
+     */
+    private void registerVpnStatusReceiver() {
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context ctx, Intent intent) {
+                Object extra = intent.getSerializableExtra(VpnService.VPN_UPDATE_STATUS_EXTRA);
+                if (!(extra instanceof VpnStatus)) {
+                    return;
+                }
+                VpnStatus status = (VpnStatus) extra;
+                Timber.d("VpnModel: received VPN status broadcast: %s.", status);
+                switch (status) {
+                    case RUNNING:
+                        applied.postValue(true);
+                        break;
+                    case STOPPED:
+                        applied.postValue(false);
+                        break;
+                    default:
+                        // STARTING / STOPPING / RECONNECTING / WAITING_FOR_NETWORK don't
+                        // change applied state — service is still considered active.
+                        break;
+                }
+            }
+        };
+        LocalBroadcastManager.getInstance(this.context).registerReceiver(
+                receiver,
+                new IntentFilter(VpnService.VPN_UPDATE_STATUS_INTENT)
+        );
     }
 }

@@ -98,6 +98,16 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     private final NetworkTypeCallback wifiNetworkCallback;
     private final NetworkTypeCallback cellularNetworkCallback;
     private final Set<NetworkType> availableNetworkTypes;
+    /**
+     * The network the tunnel is currently bound to (whose DNS the {@link
+     * org.adaway.vpn.dns.DnsServerMapper} resolved). When a network listed in
+     * {@link #availableNetworkTypes} comes or goes but it is NOT this primary, there is
+     * no need to rebuild the tunnel — the user keeps connectivity through the same
+     * underlying network. This avoids tearing the tunnel down on every cellular
+     * radio flicker on devices like Oppo / ColorOS that toggle the cellular transport
+     * every few seconds while Wi-Fi is in use.
+     */
+    private NetworkType primaryNetwork;
     private final VpnWorker vpnWorker;
 
     /**
@@ -124,8 +134,19 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
         Timber.d("onStartCommand %s", intent == null ? "null intent" : intent);
-        // Check null intent that happens when system restart the service
+        // Null intent means the system is resurrecting the service via START_STICKY.
         // https://developer.android.com/reference/android/app/Service#START_STICKY
+        // If the user has explicitly disabled the VPN since we last ran, refuse the
+        // resurrection — otherwise Android can silently bring the VPN back on its own
+        // (see issues #4022 / #4234).
+        if (intent == null) {
+            boolean userEnabled = PreferenceHelper.getVpnServiceUserEnabled(this);
+            if (!userEnabled) {
+                Timber.i("Refusing sticky resurrection: user has disabled the VPN.");
+                stopSelf(startId);
+                return START_NOT_STICKY;
+            }
+        }
         Command command = intent == null ?
                 START :
                 Command.readFromIntent(intent);
@@ -175,6 +196,11 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
         Timber.d("Starting VPN service…");
         PreferenceHelper.setVpnServiceStatus(this, RUNNING);
         updateVpnStatus(STARTING);
+        // This path is reached only via an explicit START intent (user click, notif
+        // action, autostart, sticky resurrection that survived the user-intent gate).
+        // The throttler is meant to dampen reconnection storms, NOT to delay user
+        // actions — reset it so the tunnel comes up immediately.
+        this.vpnWorker.resetThrottle();
         this.vpnWorker.start();
         Timber.i("VPN service started.");
     }
@@ -284,37 +310,58 @@ public class VpnService extends android.net.VpnService implements Handler.Callba
 
     private void initializeNetworkTypes(ConnectivityManager connectivityManager) {
         this.availableNetworkTypes.clear();
+        this.primaryNetwork = null;
         Network activeNetwork = connectivityManager.getActiveNetwork();
         if (activeNetwork != null) {
             NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork);
             if (networkCapabilities != null) {
                 if (networkCapabilities.hasTransport(TRANSPORT_WIFI)) {
                     this.availableNetworkTypes.add(WIFI);
+                    this.primaryNetwork = WIFI;
                 }
                 if (networkCapabilities.hasTransport(TRANSPORT_CELLULAR)) {
                     this.availableNetworkTypes.add(CELLULAR);
+                    if (this.primaryNetwork == null) {
+                        this.primaryNetwork = CELLULAR;
+                    }
                 }
             }
         }
-        Timber.d("Initial network types: %s ", this.availableNetworkTypes);
+        Timber.d("Initial network types: %s, primary=%s.", this.availableNetworkTypes, this.primaryNetwork);
     }
 
     private void addNetworkType(NetworkType type) {
         boolean noNetwork = this.availableNetworkTypes.isEmpty();
         this.availableNetworkTypes.add(type);
         if (noNetwork) {
+            this.primaryNetwork = type;
             Timber.d("Reconnecting VPN on network %s.", type);
             reconnect();
+        } else {
+            // Adding a secondary network does not require a tunnel rebuild — the
+            // tunnel is still bound to the primary network whose DNS we resolved.
+            Timber.d("Secondary network %s available, keeping tunnel on %s.", type, this.primaryNetwork);
         }
     }
 
     private void removeNetworkType(NetworkType type) {
         this.availableNetworkTypes.remove(type);
         if (this.availableNetworkTypes.isEmpty()) {
+            this.primaryNetwork = null;
             Timber.d("Waiting for network…");
             waitForNetVpn();
-        } else {
+        } else if (type == this.primaryNetwork) {
+            // The network the tunnel was bound to is gone but a fallback is still
+            // available; switch over so the DNS server mapper can re-resolve.
+            this.primaryNetwork = this.availableNetworkTypes.iterator().next();
+            Timber.d("Primary network %s lost, reconnecting on %s.", type, this.primaryNetwork);
             reconnect();
+        } else {
+            // A secondary network went away while the primary is still up — keep the
+            // tunnel as-is. Without this guard the VPN was being torn down and rebuilt
+            // every time the cellular radio flickered on Oppo / ColorOS power-saving
+            // devices, making the status-bar VPN icon blink continuously.
+            Timber.d("Secondary network %s lost, keeping tunnel on %s.", type, this.primaryNetwork);
         }
     }
 

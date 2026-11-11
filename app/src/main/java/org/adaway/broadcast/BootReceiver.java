@@ -51,6 +51,11 @@ public class BootReceiver extends BroadcastReceiver {
                 WebServerUtils.startWebServer(context);
             }
             if (adBlockMethod == VPN && PreferenceHelper.getVpnServiceOnBoot(context)) {
+                Timber.i("BootReceiver: 'Enable at startup' is on, starting VPN.");
+                // The "Enable at startup" preference is itself an explicit user intent, so
+                // record it. This also makes subsequent background paths (heartbeat,
+                // monitor, sticky resurrection) authoritative.
+                PreferenceHelper.setVpnServiceUserEnabled(context, true);
                 // Ensure VPN is prepared
                 Intent prepareIntent = android.net.VpnService.prepare(context);
                 if (prepareIntent != null) {

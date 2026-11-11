@@ -127,6 +127,16 @@ public class VpnWorker implements DnsPacketProxy.EventLoop {
     }
 
     /**
+     * Reset the connection throttler so that the next {@link #start()} establishes the
+     * tunnel without delay. Use this on explicit user actions (tile, notification,
+     * home toggle, autostart at boot) so the throttler — which is meant to damp
+     * automatic reconnection storms — does not punish the user with a 60-128s wait.
+     */
+    public void resetThrottle() {
+        this.connectionThrottler.reset();
+    }
+
+    /**
      * Stop the VPN worker.
      */
     public void stop() {

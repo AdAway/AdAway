@@ -252,6 +252,40 @@ public final class PreferenceHelper {
         editor.apply();
     }
 
+    /**
+     * Get whether the user has explicitly enabled the VPN (user intent).
+     * <p>
+     * This is distinct from the runtime service status: it tracks what the user has asked
+     * for, not whether the Android service is currently running. Background paths (host
+     * updates, connection monitor, sticky resurrection) must use this signal — never the
+     * runtime status — to decide whether to (re)start the VPN.
+     * <p>
+     * When unset (existing installs / first read), this falls back to the persisted runtime
+     * status to avoid breaking users who already had the VPN running.
+     */
+    public static boolean getVpnServiceUserEnabled(Context context) {
+        SharedPreferences prefs = context.getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        String key = context.getString(R.string.pref_vpn_service_user_enabled_key);
+        if (prefs.contains(key)) {
+            return prefs.getBoolean(key, false);
+        }
+        // Migration fallback: derive from existing service status pref.
+        return getVpnServiceStatus(context).isStarted();
+    }
+
+    public static void setVpnServiceUserEnabled(Context context, boolean userEnabled) {
+        SharedPreferences prefs = context.getApplicationContext().getSharedPreferences(
+                Constants.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
+        prefs.edit()
+                .putBoolean(context.getString(R.string.pref_vpn_service_user_enabled_key), userEnabled)
+                .apply();
+    }
+
     public static boolean getVpnServiceOnBoot(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(
                 Constants.PREFS_NAME,

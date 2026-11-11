@@ -52,6 +52,11 @@ public class AdBlockingTileService extends TileService {
 
     private void updateTile(boolean adBlocked) {
         Tile tile = getQsTile();
+        // The tile is null when the system has unbound the service (it may happen between
+        // a click that triggered an async toggle and the toggle completing).
+        if (tile == null) {
+            return;
+        }
         tile.setState(adBlocked ? STATE_ACTIVE : STATE_INACTIVE);
         tile.updateTile();
     }
@@ -61,9 +66,11 @@ public class AdBlockingTileService extends TileService {
             return;
         }
         AdBlockModel model = getModel();
+        boolean wasApplied = model.isApplied().getValue() == Boolean.TRUE;
         try {
             this.toggling.set(true);
-            if (model.isApplied().getValue() == Boolean.TRUE) {
+            Timber.i("Tile: user toggle (currently %s).", wasApplied ? "ACTIVE" : "INACTIVE");
+            if (wasApplied) {
                 model.revert();
             } else {
                 model.apply();
@@ -72,6 +79,10 @@ public class AdBlockingTileService extends TileService {
             Timber.w(e, "Failed to toggle ad-blocking.");
         } finally {
             this.toggling.set(false);
+            // Whatever happened (success, failure, exception), force the tile back in
+            // sync with the LiveData so a failed start doesn't leave the tile stuck on
+            // an optimistic "ACTIVE" state.
+            updateTile(model.isApplied().getValue() == Boolean.TRUE);
         }
     }
 
