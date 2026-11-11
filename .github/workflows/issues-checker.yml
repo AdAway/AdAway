@@ -4,6 +4,10 @@ on:
   issues:
     types: [labeled]
 
+permissions:
+  # Comment on issues
+  issues: write
+
 jobs:
   request-for-bug-context:
     name: Request for bug context

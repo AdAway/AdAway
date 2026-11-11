@@ -9,6 +9,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# Read-only token by default, jobs ask for more when needed
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Development build
