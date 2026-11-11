@@ -26,20 +26,20 @@ jobs:
     steps:
       # Check out the pull request branch instead of the merge commit to commit the patch on it
       - name: Checkout project
-        uses: actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.head_ref }}
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
         with:
           distribution: 'temurin'
           java-version: 21
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v47.0.1
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           # Use the API as the local origin is the fork for fork pull requests
           use_rest_api: true
@@ -53,7 +53,7 @@ jobs:
           java .github/workflows/AndroidLocaleChecker.java ${ALL_CHANGED_FILES}
 
       - name: Commit patch
-        uses: stefanzweifel/git-auto-commit-action@v7.1.0
+        uses: stefanzweifel/git-auto-commit-action@d0b01107b5db882071f96de5dd4b54961ea93f4c # v7.2.1
         if: steps.validation.outputs.patch_applied == 'true' && github.event.pull_request.head.repo.full_name == github.repository
         with:
           commit_message: 'chore(locale): Fix contribution'
