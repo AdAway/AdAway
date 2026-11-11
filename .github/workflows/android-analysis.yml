@@ -46,8 +46,9 @@ jobs:
         cache: 'gradle'
 
     # Build from command line as Autobuild fails
+    # Skip the build cache so the compilers run under CodeQL tracing
     - run: |
-       ./gradlew assembleRelease
+       ./gradlew assembleRelease --no-build-cache
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v4
