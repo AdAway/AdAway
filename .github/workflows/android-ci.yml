@@ -21,11 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: set up JDK 21
+      - name: set up JDK 25
         uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
         with:
           distribution: 'temurin'
-          java-version: 21
+          java-version: 25
           cache: 'gradle'
 
       - name: Restore SonarCloud packages cache
@@ -64,11 +64,11 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: set up JDK 21
+      - name: set up JDK 25
         uses: actions/setup-java@77dd5b2ce225ea11469928ac317850245a74ae78 # v6.2.0
         with:
           distribution: 'temurin'
-          java-version: 21
+          java-version: 25
 
       - name: Update dependency graph
         uses: gradle/actions/dependency-submission@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
