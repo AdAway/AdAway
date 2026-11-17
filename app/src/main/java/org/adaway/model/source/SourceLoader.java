@@ -131,11 +131,10 @@ class SourceLoader {
                     } // Check comments
                     else if (line.isEmpty() || line.charAt(0) == '#') {
                         Timber.d("Skip comment: %s.", line);
+                    } else if (allowedList) {
+                        enqueueValidItem(parseAllowListItem(line));
                     } else {
-                        HostListItem item = allowedList ? parseAllowListItem(line) : parseHostListItem(line);
-                        if (item != null && isRedirectionValid(item) && isHostValid(item)) {
-                            this.itemQueue.add(item);
-                        }
+                        parseHostListItems(line);
                     }
                 } catch (InterruptedException e) {
                     Timber.w(e, "Interrupted while parsing hosts list item.");
@@ -145,20 +144,19 @@ class SourceLoader {
             }
         }
 
-        private HostListItem parseHostListItem(String line) {
+        private void enqueueValidItem(HostListItem item) {
+            if (isRedirectionValid(item) && isHostValid(item)) {
+                this.itemQueue.add(item);
+            }
+        }
+
+        private void parseHostListItems(String line) {
             Matcher matcher = HOSTS_PARSER_PATTERN.matcher(line);
             if (!matcher.matches()) {
                 Timber.d("Does not match: %s.", line);
-                return null;
+                return;
             }
-            // Check IP address validity or while list entry (if allowed)
             String ip = matcher.group(1);
-            String hostname = matcher.group(2);
-            assert hostname != null;
-            // Skip localhost name
-            if (LOCALHOST_HOSTNAME.equals(hostname)) {
-                return null;
-            }
             // check if ip is 127.0.0.1 or 0.0.0.0
             ListType type;
             if (LOCALHOST_IPV4.equals(ip)
@@ -168,17 +166,26 @@ class SourceLoader {
             } else if (this.source.isRedirectEnabled()) {
                 type = REDIRECTED;
             } else {
-                return null;
+                return;
             }
-            HostListItem item = new HostListItem();
-            item.setType(type);
-            item.setHost(hostname);
-            item.setEnabled(true);
-            if (type == REDIRECTED) {
-                item.setRedirection(ip);
+            // Read each hostname until the first comment, validating aliases independently.
+            int commentStart = line.indexOf('#');
+            int hostsEnd = commentStart == -1 ? line.length() : commentStart;
+            String hostnames = line.substring(matcher.start(2), hostsEnd);
+            for (String hostname : hostnames.split("\\s+")) {
+                if (LOCALHOST_HOSTNAME.equals(hostname)) {
+                    continue;
+                }
+                HostListItem item = new HostListItem();
+                item.setType(type);
+                item.setHost(hostname);
+                item.setEnabled(true);
+                if (type == REDIRECTED) {
+                    item.setRedirection(ip);
+                }
+                item.setSourceId(this.source.getId());
+                enqueueValidItem(item);
             }
-            item.setSourceId(this.source.getId());
-            return item;
         }
 
         private HostListItem parseAllowListItem(String line) {
