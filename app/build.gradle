@@ -94,6 +94,14 @@ android {
     }
 }
 
+// JVM unit tests cannot call android.util.Log through the Android SLF4J binding.
+// Keep that binding for the app and device tests, and replace it only at JVM runtime.
+configurations.configureEach {
+    if (name.endsWith('UnitTestRuntimeClasspath')) {
+        exclude group: 'org.slf4j', module: 'slf4j-android'
+    }
+}
+
 dependencies {
     // Native modules
     implementation project(':tcpdump')
@@ -144,6 +152,7 @@ dependencies {
     // Test related
     testImplementation libs.junit
     testImplementation libs.json
+    testRuntimeOnly "org.slf4j:slf4j-nop:${libs.versions.slf4j.get()}"
     androidTestImplementation libs.bundles.androidx.test
     androidTestImplementation libs.junit
 }

@@ -8,6 +8,7 @@ import android.system.StructPollfd;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.util.Arrays;
 import java.util.function.Consumer;
 
 import timber.log.Timber;
@@ -18,6 +19,8 @@ import timber.log.Timber;
  * @author Bruce BUJON
  */
 class DnsQuery implements AutoCloseable {
+    // DNS over UDP can exceed 1024 bytes when the client advertises EDNS support.
+    private static final int MAX_UDP_PACKET_SIZE = 65535;
     /**
      * The socket used to query DNS server.
      */
@@ -82,15 +85,22 @@ class DnsQuery implements AutoCloseable {
      */
     void handleResponse() {
         try {
-            byte[] responseData = new byte[1024];
-            DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length);
-            this.socket.receive(responsePacket);
-            this.callback.accept(responseData);
+            this.callback.accept(receiveResponse(this.socket));
         } catch (IOException e) {
             Timber.w(e, "Could not handle DNS response.");
         } finally {
             close();
         }
+    }
+
+    /**
+     * Receive the complete DNS datagram without adding unused buffer bytes to the response.
+     */
+    static byte[] receiveResponse(DatagramSocket socket) throws IOException {
+        byte[] responseData = new byte[MAX_UDP_PACKET_SIZE];
+        DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length);
+        socket.receive(responsePacket);
+        return Arrays.copyOf(responseData, responsePacket.getLength());
     }
 
     @Override
