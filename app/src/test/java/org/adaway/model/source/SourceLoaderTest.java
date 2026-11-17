@@ -1,9 +1,19 @@
 package org.adaway.model.source;
 
+import org.adaway.db.dao.HostListItemDao;
+import org.adaway.db.entity.HostListItem;
+import org.adaway.db.entity.HostsSource;
+import org.adaway.db.entity.ListType;
 import org.adaway.util.RegexUtils;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.StringReader;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 
@@ -101,6 +111,171 @@ public class SourceLoaderTest {
         INVALID_WILDCARD_NAMES.add("fleeb.com?..");
         INVALID_WILDCARD_NAMES.add("fleeb.com..*");
         INVALID_WILDCARD_NAMES.add("fleeb.com..?");
+    }
+
+    @Test(timeout = 5000)
+    public void importsEveryAliasForSupportedBlockAddresses() {
+        RecordingDao recording = parse(source(false, false),
+                "127.0.0.1 first.example second.example\n"
+                        + "0.0.0.0 third.example fourth.example\n"
+                        + "::1 fifth.example sixth.example");
+
+        assertHosts(recording, "first.example", "second.example", "third.example",
+                "fourth.example", "fifth.example", "sixth.example");
+        assertItems(recording, ListType.BLOCKED, null);
+    }
+
+    @Test(timeout = 5000)
+    public void importsAliasesAcrossWhitespaceAndStopsAtFirstComment() {
+        RecordingDao recording = parse(source(false, false),
+                " \t0.0.0.0\tFirst.example  second.example\tthird.example# ignored.example\n"
+                        + "127.0.0.1 fourth.example\t # fifth.example\n"
+                        + "  # comment.example\n");
+
+        assertHosts(recording, "First.example", "second.example", "third.example",
+                "fourth.example");
+        assertItems(recording, ListType.BLOCKED, null);
+    }
+
+    @Test(timeout = 5000)
+    public void invalidAliasesDoNotDiscardOtherAliases() {
+        RecordingDao recording = parse(source(false, false),
+                "0.0.0.0 bad!first.example valid.example *.invalid.example final.example\n"
+                        + "0.0.0.0 another.example bad!last.example");
+
+        assertHosts(recording, "valid.example", "final.example", "another.example");
+        assertItems(recording, ListType.BLOCKED, null);
+    }
+
+    @Test(timeout = 5000)
+    public void skipsLocalhostWithoutDiscardingAliases() {
+        RecordingDao recording = parse(source(false, false),
+                "127.0.0.1 localhost ads.example localhost more-ads.example");
+
+        assertHosts(recording, "ads.example", "more-ads.example");
+        assertItems(recording, ListType.BLOCKED, null);
+    }
+
+    @Test(timeout = 5000)
+    public void redirectsEveryValidAliasWhenEnabled() {
+        RecordingDao recording = parse(source(false, true),
+                "192.0.2.1 first.example *.second.example bad!alias.example third.example\n"
+                        + "not-an-ip ignored.example ignored-alias.example");
+
+        assertHosts(recording, "first.example", "*.second.example", "third.example");
+        assertItems(recording, ListType.REDIRECTED, "192.0.2.1");
+    }
+
+    @Test(timeout = 5000)
+    public void ignoresRedirectAliasesWhenDisabled() {
+        RecordingDao recording = parse(source(false, false),
+                "192.0.2.1 ignored.example ignored-alias.example\n"
+                        + "0.0.0.0 blocked.example blocked-alias.example");
+
+        assertHosts(recording, "blocked.example", "blocked-alias.example");
+        assertItems(recording, ListType.BLOCKED, null);
+    }
+
+    @Test(timeout = 5000)
+    public void insertsAliasesAcrossBatchBoundary() {
+        StringBuilder line = new StringBuilder("0.0.0.0");
+        Set<String> expected = new HashSet<>();
+        for (int i = 0; i < 205; i++) {
+            String hostname = "alias" + i + ".example";
+            line.append(' ').append(hostname);
+            expected.add(hostname);
+        }
+        RecordingDao recording = parse(source(false, false), line.toString());
+
+        assertEquals(expected, hosts(recording));
+        assertEquals(205, recording.items.size());
+        assertEquals(Arrays.asList(100, 100, 5), recording.batchSizes);
+        assertItems(recording, ListType.BLOCKED, null);
+    }
+
+    @Test(timeout = 5000)
+    public void ordinaryHostsAndDomainOnlyLinesKeepExistingBehavior() {
+        RecordingDao recording = parse(source(false, false),
+                "127.0.0.1 MixedCase.example\n"
+                        + "domain-only.example\n"
+                        + "127.0.0.2 unsupported.example\n"
+                        + "# comment.example\n");
+
+        assertHosts(recording, "MixedCase.example");
+        assertItems(recording, ListType.BLOCKED, null);
+    }
+
+    @Test(timeout = 5000)
+    public void allowSourcesKeepExistingSingleHostnameBehavior() {
+        RecordingDao recording = parse(source(true, false),
+                "  Allowed.example  \n"
+                        + "*.wildcard.example\n"
+                        + "0.0.0.0 first.example second.example\n"
+                        + "first.example second.example\n"
+                        + "# comment.example\n");
+
+        assertHosts(recording, "Allowed.example", "*.wildcard.example");
+        assertItems(recording, ListType.ALLOWED, null);
+    }
+
+    private static HostsSource source(boolean allowEnabled, boolean redirectEnabled) {
+        HostsSource source = new HostsSource();
+        source.setId(42);
+        source.setAllowEnabled(allowEnabled);
+        source.setRedirectEnabled(redirectEnabled);
+        return source;
+    }
+
+    private static RecordingDao parse(HostsSource source, String text) {
+        RecordingDao recording = new RecordingDao();
+        new SourceLoader(source).parse(new BufferedReader(new StringReader(text)), recording.dao);
+        assertEquals(Arrays.asList(source.getId()), recording.clearedSources);
+        return recording;
+    }
+
+    private static Set<String> hosts(RecordingDao recording) {
+        Set<String> hosts = new HashSet<>();
+        for (HostListItem item : recording.items) {
+            hosts.add(item.getHost());
+        }
+        return hosts;
+    }
+
+    private static void assertHosts(RecordingDao recording, String... expected) {
+        assertEquals(new HashSet<>(Arrays.asList(expected)), hosts(recording));
+        assertEquals(expected.length, recording.items.size());
+    }
+
+    private static void assertItems(RecordingDao recording, ListType type, String redirection) {
+        for (HostListItem item : recording.items) {
+            assertEquals(type, item.getType());
+            assertEquals(redirection, item.getRedirection());
+            assertEquals(42, item.getSourceId());
+            assertTrue(item.isEnabled());
+        }
+    }
+
+    private static class RecordingDao {
+        private final List<HostListItem> items = new ArrayList<>();
+        private final List<Integer> batchSizes = new ArrayList<>();
+        private final List<Integer> clearedSources = new ArrayList<>();
+        private final HostListItemDao dao = (HostListItemDao) Proxy.newProxyInstance(
+                HostListItemDao.class.getClassLoader(),
+                new Class<?>[]{HostListItemDao.class},
+                (proxy, method, args) -> {
+                    if (method.getName().equals("clearSourceHosts")) {
+                        this.clearedSources.add((Integer) args[0]);
+                        return null;
+                    }
+                    if (method.getName().equals("insert") && args[0] instanceof HostListItem[]) {
+                        HostListItem[] batch = (HostListItem[]) args[0];
+                        this.batchSizes.add(batch.length);
+                        this.items.addAll(Arrays.asList(batch));
+                        return null;
+                    }
+                    throw new AssertionError("Unexpected DAO call: " + method.getName());
+                }
+        );
     }
 
     @Test
