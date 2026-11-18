@@ -1,3 +1,4 @@
+
 # ![AdAway logo](app/src/main/res/mipmap-mdpi/icon.png) AdAway
 
 [![Build Status](https://github.com/adaway/adaway/actions/workflows/android-ci.yml/badge.svg)](https://github.com/AdAway/AdAway/actions/workflows/android-ci.yml) 
@@ -70,9 +71,22 @@ For devices older than Android 8 _Oreo_, use the version 4 of AdAway.
 See the [Wiki](https://github.com/AdAway/AdAway/wiki), in particular the page [HostsSources](https://github.com/AdAway/AdAway/wiki/HostsSources) for an assorted list of sources you can use in AdAway.
 Add the ones you like to the AdAway "Hosts sources" section.
 
+## Troubleshooting
+
+| Issue                                               | Solution                                                                                                                                                                                                                                                                                   |
+|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AdAway has made my device/app crash                  | AdAway itself doesn't cause crashes or prevent ads from being displayed. The URLs redirected by AdAway depend on the hosts sources and your own whitelist/blacklist. Use the [DNS Requests Log](https://github.com/AdAway/AdAway/wiki/LogDNS) to identify URLs causing crashes in specific apps and customize the lists accordingly. If you find a few specific URLs causing the issue for an app, you can add it to the [ProblematicApps](https://github.com/AdAway/AdAway/wiki/ProblematicApps) page for others to see. Direct calls to numeric IPs or external DNS schemes may bypass AdAway. |
+| AdAway makes my device sluggish                      | AdAway consumes minimal resources and doesn't actively run. Sluggishness may occur if an excessively large hosts file is loaded. Using basic lists and adding specific needs is recommended. Avoid blocking unnecessary or obsolete sites. Loading more lists can be counterproductive. Less is more when it comes to ad blocking.                          |
+| AdAway is enabled but all Ads are getting through    | Check Chrome's "Data Saver" option and disable it. Review mobile network APN settings for any proxy and disable it. Remove built-in ad blockers on custom ROMs and delete additional hosts files. On corporate Wi-Fi, switch to cellular data to enable ad blocking.                                      |
+| Every time I open AdAway it is disabled              | This issue may be due to incorrect root access or lack of write access to the system partition. Verify that the hosts file contains more than the default entries. If needed, have AdAway edit the file again, reboot, and check. Ensure full root access and remove any proxies from APN and browser settings. Reboot after making changes.                     |
+
+See [Common Problems with Solutions](https://github.com/AdAway/AdAway/wiki/Solutions) for more details.
+
 ## Getting Help
 
-You can post [Issues](https://github.com/AdAway/AdAway/issues) here or obtain more detailed community support via the [XDA developer thread](http://forum.xda-developers.com/showthread.php?t=2190753).
+Please check the [Wiki](https://github.com/AdAway/AdAway/wiki) first.
+
+If you still are having problems, you can post [Issues](https://github.com/AdAway/AdAway/issues) here or obtain more detailed community support via the [XDA developer thread](http://forum.xda-developers.com/showthread.php?t=2190753).
 
 ## Contributing
 
